@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B1 · Sección B — Los ciclos económicos · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .concept-grid { grid-template-columns: 1fr; } }
+
+    .concept-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .concept-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      margin-bottom: .35rem;
+      color: var(--navy);
+    }
+    .concept-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .phases-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.2rem 0;
+    }
+    @media (max-width: 560px) { .phases-grid { grid-template-columns: 1fr; } }
+
+    .phase-box {
+      background: var(--card);
+      border-left: 4px solid var(--navy);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .phase-box.expansion { border-left-color: var(--green); }
+    .phase-box.peak { border-left-color: var(--amber); }
+    .phase-box.contraction { border-left-color: var(--red); }
+    .phase-box.trough { border-left-color: var(--blue); }
+
+    .phase-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      margin: 0 0 .5rem 0;
+      color: var(--navy);
+    }
+    .phase-box ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+    .phase-box li {
+      margin: .3rem 0;
+    }
+
+    .procyclical-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .procyclical-grid { grid-template-columns: 1fr; } }
+
+    .procyclical-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+    }
+    .procyclical-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      margin-bottom: .4rem;
+      color: var(--navy);
+    }
+    .procyclical-box ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+    .procyclical-box li { margin: .25rem 0; }
+
+    .theory-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .theory-comparison { grid-template-columns: 1fr; } }
+
+    .theory-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+    }
+    .theory-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      margin: 0 0 .6rem 0;
+      color: var(--navy);
+    }
+    .theory-box p, .theory-box ul {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0.5rem 0;
+    }
+    .theory-box ul {
+      padding-left: 1.2rem;
+      margin: 0.5rem 0;
+    }
+    .theory-box li { margin: .25rem 0; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B1 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Bloque 1</a>
+    <span class="sep">›</span>
+    <span>Sección B</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 1 · Sección B · Nivel I</div>
+    <h1>Los ciclos económicos</h1>
+    <p class="hero-sub">
+      Definición y fases del ciclo · Duración y amplitud · Variables procíclicas y anticíclicas ·
+      Teorías exógenas vs. endógenas · Crecimiento tendencial del PIB real.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       INTRODUCCIÓN AL CICLO ECONÓMICO
+       ============================================================ -->
+  <div class="sec">
+    <h2>¿Qué es el ciclo económico?</h2>
+    <p class="sec-intro">
+      El ciclo económico es la fluctuación recurrente pero irregular de la actividad económica
+      agregada en torno a su tendencia de crecimiento de largo plazo. Es el patrón que explica
+      por qué una economía alterna entre períodos de bonanza (crecimiento) y períodos de
+      debilidad (contracción). Para un asesor financiero, el ciclo económico es el factor más
+      importante para calibrar carteras de inversión, pues los activos (acciones, bonos, divisas)
+      responden sistemáticamente a las fases del ciclo.
+    </p>
+
+    <div class="card accent-navy">
+      <h3>Definición clásica (NBER)</h3>
+      <p>
+        La Oficina Nacional de Investigación Económica (NBER, National Bureau of Economic Research)
+        de Estados Unidos es la institución de referencia mundial para datar e identificar ciclos
+        económicos. Su definición clásica, formulada por <strong>Burns y Mitchell (1946)</strong>, sigue siendo
+        la más usada:
+      </p>
+      <p style="margin-top:.6rem; font-style:italic;">
+        <em>"Un ciclo consiste en expansiones que ocurren aproximadamente al mismo tiempo en
+        varias actividades económicas, seguidas de recesiones, contracciones y recuperaciones,
+        que culminan en la fase expansiva del siguiente ciclo. Esta secuencia de cambios es
+        recurrente mas no periódica; en duración, los ciclos varían desde más de un año hasta
+        diez o doce años."</em>
+      </p>
+      <p style="margin-top:.6rem;">
+        <strong>Tres matices clave de esta definición:</strong><br>
+        (1) Los ciclos son <strong>ampliamente sincronizados</strong> (afectan múltiples sectores al mismo
+        tiempo); (2) son <strong>recurrentes pero no periódicos</strong> (se repiten, pero sin periodicidad
+        fija); (3) <strong>varían mucho en duración</strong> (entre 1 y 12 años o más).
+      </p>
+    </div>
+
+    <p style="font-size:var(--fs-xs); color:var(--text-soft); margin-top:.4rem;">
+      Fuente: <a href="https://www.nber.org/" target="_blank" rel="noopener">NBER — National Bureau of Economic Research</a> ·
+      <a href="https://es.wikipedia.org/wiki/Ciclo_econ%C3%B3mico" target="_blank" rel="noopener">Definición y teoría — Wikipedia</a>
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. FASES DEL CICLO ECONÓMICO
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Las cuatro fases del ciclo económico</h2>
+    <p class="sec-intro">
+      Aunque el ciclo económico es continuo e irregular, la teoría identifica <strong>cuatro fases
+      características</strong> que marchan en secuencia. Cada fase tiene características distintivas en
+      términos de output, empleo, precios e inflación. El gráfico conceptual muestra el PIB
+      real oscilando sobre su tendencia: la distancia entre el PIB real y la tendencia es el
+      <strong>output gap</strong> que ya vimos en la Sección A.
+    </p>
+
+    <h3>Las cuatro fases</h3>
+
+    <div class="phases-grid">
+      <div class="phase-box expansion">
+        <h4>1 · Expansión (Recuperación)</h4>
+        <ul>
+          <li><strong>PIB:</strong> crecimiento acelerado, salida del mínimo del ciclo</li>
+          <li><strong>Empleo:</strong> aumenta; tasa de paro cae</li>
+          <li><strong>Inversión:</strong> recuperación fuerte de inversión empresarial</li>
+          <li><strong>Confianza:</strong> consumidores y empresas optimistas</li>
+          <li><strong>Inflación:</strong> tiende a caer o estabilizarse en esta fase temprana</li>
+          <li><strong>Duración típica:</strong> 2-5 años en expansiones modernas</li>
+        </ul>
+      </div>
+
+      <div class="phase-box peak">
+        <h4>2 · Pico (Auge)</h4>
+        <ul>
+          <li><strong>PIB:</strong> máximo alcanzado antes de la siguiente contracción</li>
+          <li><strong>Empleo:</strong> pleno empleo (tasa de paro en mínimos históricos)</li>
+          <li><strong>Capacidad productiva:</strong> utilización muy alta; riesgo de cuello de botella</li>
+          <li><strong>Inflación:</strong> presiones inflacionarias; precios y salarios suben</li>
+          <li><strong>Tipos de interés:</strong> el banco central suele estar en ciclo de alzas</li>
+          <li><strong>Duración:</strong> suele ser corto (1-2 trimestres); a veces imperceptible</li>
+        </ul>
+      </div>
+
+      <div class="phase-box contraction">
+        <h4>3 · Contracción (Recesión)</h4>
+        <ul>
+          <li><strong>PIB:</strong> crecimiento negativo durante dos trimestres consecutivos (criterio Shiskin 1974)</li>
+          <li><strong>Empleo:</strong> caída (despidos); tasa de paro sube</li>
+          <li><strong>Inversión:</strong> derrumbe de inversión empresarial y en vivienda</li>
+          <li><strong>Confianza:</strong> consumidores y empresas pesimistas; riesgo percibido sube</li>
+          <li><strong>Mercado financiero:</strong> caída de acciones, aumento de spreads crediticios</li>
+          <li><strong>Duración típica:</strong> 6-18 meses; la recesión 2007-2009 fue excepcionalmente larga (18 meses)</li>
+        </ul>
+      </div>
+
+      <div class="phase-box trough">
+        <h4>4 · Valle (Depresión)</h4>
+        <ul>
+          <li><strong>PIB:</strong> mínimo de la contracción; punto de inflexión hacia expansión</li>
+          <li><strong>Empleo:</strong> tasa de paro en máximo; muchas personas desempleadas</li>
+          <li><strong>Capacidad ociosa:</strong> recursos infrautilizados; posibilidad de crecimiento sin inflación</li>
+          <li><strong>Inflación:</strong> baja o negativa (deflación en crisis severas); presión alcista débil</li>
+          <li><strong>Crédito:</strong> fuerte contracción; bancos restringen crédito</li>
+          <li><strong>Característico:</strong> valle = <strong>punto de giro</strong> hacia la expansión</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Memorizar las cuatro fases en orden (expansión → pico → contracción → valle)
+        y saber qué ocurre con PIB, empleo, inflación y confianza en cada una.
+        Pregunta típica: <em>"En fase de pico, ¿qué combinación de variables ocurre?"</em>
+        Respuesta: alto crecimiento, pleno empleo, inflación alta, tipos de interés subiendo.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. DURACIÓN Y AMPLITUD
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Duración y amplitud del ciclo</h2>
+
+    <h3>Duración del ciclo</h3>
+    <p>
+      <strong>No hay duración fija.</strong> Esta es una característica clave del ciclo económico:
+      aunque es recurrente, <strong>no es periódico</strong>. Algunos datos históricos en EE.UU.
+      (según NBER):
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Ciclo completo</h4>
+        <p>Desde un valle (mínimo) al siguiente valle. Duración promedio histórica en EE.UU.:
+        <strong>5-6 años</strong>. Pero ha variado entre 2 años (expansiones muy cortas) y más de
+        10 años.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Expansión (fase creciente)</h4>
+        <p>Desde valle a pico. Duración promedio: <strong>4-5 años</strong>. Las expansiones post-1945
+        tienden a ser más largas que en el pasado (beneficio de políticas contracíclicas y
+        estabilizadores automáticos).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Recesión (fase decreciente)</h4>
+        <p>Desde pico a valle. Duración promedio: <strong>9-18 meses</strong>. La Gran Recesión (2007-09)
+        fue excepcionalmente larga: 18 meses. La mayoría de recesiones modernas duran 6-12 meses.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Asimetría típica</h4>
+        <p>Las expansiones duran <strong>más tiempo</strong> que las recesiones. Esto refleja que el
+        crecimiento tendencial es positivo: las recesiones son interrupciones breves al crecimiento
+        de largo plazo.</p>
+      </div>
+    </div>
+
+    <h3>Amplitud del ciclo</h3>
+    <p>
+      La amplitud mide <em>cuánto</em> se desvía el PIB real de su tendencia en cada fase.
+      Es decir, el tamaño del <strong>output gap</strong>. Se mide típicamente como porcentaje
+      del PIB potencial.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo de amplitud</h3>
+      <p>
+        Durante la Gran Recesión de 2008-2009, el output gap en EE.UU. cayó a alrededor de
+        <strong>−10%</strong> (el PIB real estaba un 10% por debajo del potencial). Esto fue una amplitud
+        histórica, mucho mayor que en recesiones típicas (−2% a −5%). En cambio, durante
+        el boom pre-2008, el output gap fue positivo (alrededor de +2%), señal de
+        recalentamiento que justificó que la Reserva Federal subiera tipos.
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>Implicación financiera:</strong> amplitudes grandes (grandes desviaciones de la
+      tendencia) generan oportunidades para ajustes bruscos de precios de activos. Un análisis
+      del output gap es esencial para detectar si el mercado está sobrevalorado (expansión
+      tardía con output gap muy positivo) o infravalorado (recesión con output gap muy negativo).
+    </div>
+
+    <h3>Tipología de ciclos por duración: Kitchin, Juglar, Kuznets</h3>
+    <p>
+      Los ciclos económicos no tienen todos la misma duración. La teoría distingue
+      <strong>tres tipos característicos,</strong> cada uno generado por dinámicas distintas:
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Ciclos Kitchin · 40 meses</h4>
+        <p>Ciclos cortos (3-4 años). Originados por flujos de <strong>inventarios</strong> (stocks
+        de bienes sin vender). Cuando caen ventas, empresas acumulan inventarios no deseados →
+        reducen producción futura → recesión. Al revés en expansión. Menos estudiado en EFA
+        pero mencionar la duración típica.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Ciclos Juglar · 8-10 años</h4>
+        <p><strong>Ciclos de inversión fija</strong> (máquinas, plantas, infraestructura). El que
+        típicamente se ve en datos trimestrales. Duración: 8-10 años promedio. Generado por
+        decisiones de inversión empresarial que toman tiempo en ejecutarse y generar rendimientos.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Ciclos Kuznets · 15-25 años</h4>
+        <p>Ciclos <strong>muy largos,</strong> relacionados con demografía y construcción residencial.
+        Posiblemente en ciclos de inversión inmobiliaria, cambios de población, tasa de natalidad.
+        Menos frecuentes y difíciles de datar. Menos relevante en EFA a nivel Básico.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Implicación para asesores</h4>
+        <p>Distinguir el ciclo que se está observando es importante para el horizonte de inversión:
+        un ciclo Kitchin (<strong>corto</strong>) sugiere reposicionar cada 2-3 años; un Juglar
+        (<strong>medio</strong>) sugiere cambios cada 8-10 años. Ignorar la tipología puede llevar a
+        ajustes frecuentes innecesarios o a horizontes de inversión desalineados con el ciclo real.</p>
+      </div>
+    </div>
+
+    <p style="font-size:var(--fs-xs); color:var(--text-soft); margin-top:.4rem;">
+      Fuente: <a href="https://www.um.es/documents/805885/10369911/1_Macromagnitudes.pdf" target="_blank" rel="noopener">Universidad de Murcia — Tipología de ciclos económicos</a>
+    </p>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        No se espera que memorices números exactos de duración (estos varían), pero sí que
+        entiendas que las expansiones suelen durar más que las recesiones, y que la
+        amplitud (desviación del trend) es un concepto clave diferente de la duración.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. VARIABLES PROCÍCLICAS Y ANTICÍCLICAS
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Variables procíclicas y anticíclicas</h2>
+    <p class="sec-intro">
+      El ciclo económico no afecta a todas las variables de la misma forma. Algunas suben cuando
+      el PIB sube y bajan cuando baja (procíclicas); otras hacen lo opuesto (anticíclicas);
+      algunas no se correlacionan claramente (acíclicas). Para un asesor financiero, esta
+      distinción es crítica: si esperas una recesión, debes saber qué le sucede a cada variable.
+    </p>
+
+    <h3>Variables procíclicas (se mueven con el PIB)</h3>
+    <p>
+      <strong>Procíclica</strong> = se mueve en la misma dirección que el ciclo. Cuando el PIB crece,
+      estas variables crecen; cuando el PIB contrae, estas variables contraen.
+    </p>
+
+    <div class="procyclical-grid">
+      <div class="procyclical-box">
+        <h4>Inversión empresarial</h4>
+        <ul>
+          <li>✅ Fuertemente procíclica</li>
+          <li>Cae en recesión (empresas posponen proyectos)</li>
+          <li>Sube en expansión (optimismo, demanda fuerte)</li>
+          <li>Más volátil que el PIB</li>
+        </ul>
+      </div>
+      <div class="procyclical-box">
+        <h4>Empleo</h4>
+        <ul>
+          <li>✅ Claramente procíclica (aunque retardada)</li>
+          <li>Sube con retraso en expansión</li>
+          <li>Cae en recesión</li>
+          <li>Más persistente que el PIB (cambios lentos)</li>
+        </ul>
+      </div>
+      <div class="procyclical-box">
+        <h4>Consumo privado</h4>
+        <ul>
+          <li>✅ Procíclica, pero menos volátil que PIB</li>
+          <li>Suavidad: consumo cambia lentamente</li>
+          <li>Explicación: consumo sigue ingreso permanente, no ingresos coyunturales</li>
+          <li>(Teoría del ingreso permanente de Friedman)</li>
+        </ul>
+      </div>
+      <div class="procyclical-box">
+        <h4>Ingresos por impuestos</h4>
+        <ul>
+          <li>✅ Procíclicos</li>
+          <li>Suben con el crecimiento (más renta, beneficios)</li>
+          <li>Bajan en recesión</li>
+          <li>Crea automatismo: déficit fiscal se amplía en recesión</li>
+        </ul>
+      </div>
+      <div class="procyclical-box">
+        <h4>Precios de activos (acciones, inmuebles)</h4>
+        <ul>
+          <li>✅ Procíclicos</li>
+          <li>Suben en expansión (optimismo, tipos bajos)</li>
+          <li>Caen en recesión (pesimismo, spreads amplios)</li>
+          <li>A menudo <strong>adelantados</strong>: anticipan el ciclo</li>
+        </ul>
+      </div>
+      <div class="procyclical-box">
+        <h4>Productividad laboral</h4>
+        <ul>
+          <li>✅ Procíclica</li>
+          <li>Sube en expansión (utilización de capacidad alta)</li>
+          <li>Baja en recesión (hoarding de trabajo, capacidad ociosa)</li>
+          <li>Efecto: salarios reales ligeramente procíclicos</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Variables anticíclicas (se mueven contra el PIB)</h3>
+    <p>
+      <strong>Anticíclica</strong> = se mueve en dirección opuesta al ciclo. Cuando el PIB crece,
+      estas variables contraen; cuando el PIB cae, estas variables crecen.
+    </p>
+
+    <div class="procyclical-grid">
+      <div class="procyclical-box">
+        <h4>Tasa de paro</h4>
+        <ul>
+          <li>🔄 Anticíclica (negativamente correlacionada con actividad)</li>
+          <li>Sube en recesión; baja en expansión</li>
+          <li>Desfase temporal (sigue al PIB con rezago)</li>
+          <li>Medida inversa: tasa de ocupación es procíclica</li>
+        </ul>
+      </div>
+      <div class="procyclical-box">
+        <h4>Ratio de desempleo de larga duración</h4>
+        <ul>
+          <li>🔄 Muy anticíclico</li>
+          <li>Crece con recesiones severas y tiene inercia</li>
+          <li>Baja lentamente en expansiones (histéresis)</li>
+          <li>Afecta a tasas de participación laboral</li>
+        </ul>
+      </div>
+      <div class="procyclical-box">
+        <h4>Déficit fiscal / Gasto público en prestaciones</h4>
+        <ul>
+          <li>🔄 Automáticamente anticíclico</li>
+          <li>Sube en recesión (más desempleo → más subsidios)</li>
+          <li>Baja en expansión (menos desempleados)</li>
+          <li>Este es un <strong>estabilizador automático</strong></li>
+        </ul>
+      </div>
+      <div class="procyclical-box">
+        <h4>Spreads crediticios</h4>
+        <ul>
+          <li>🔄 Anticíclicos</li>
+          <li>Se amplían en recesión (más riesgo percibido)</li>
+          <li>Se estrechan en expansión (riesgo bajo)</li>
+          <li>Adelantado: sube antes de crisis (detecta tensión)</li>
+        </ul>
+      </div>
+      <div class="procyclical-box">
+        <h4>Volatilidad implícita (VIX en acciones)</h4>
+        <ul>
+          <li>🔄 Anticíclica</li>
+          <li>Salta en crisis/recesión (miedo de los inversores)</li>
+          <li>Baja en expansión (confianza)</li>
+          <li>A menudo muy adelantado a movimientos reales</li>
+        </ul>
+      </div>
+      <div class="procyclical-box">
+        <h4>Margen financiero entre bancos</h4>
+        <ul>
+          <li>🔄 Anticíclico (en muchos casos)</li>
+          <li>Se amplía en recesión (bancos suben tipos para clientes débiles)</li>
+          <li>Refleja aversión al riesgo de los intermediarios</li>
+          <li>Puede complicar transmisión de política monetaria</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Variables acíclicas (sin correlación clara)</h3>
+    <p>
+      Algunas variables no muestran correlación fuerte con el ciclo, o su relación es irregular:
+      <strong>inflación</strong> (puede ser procíclica, anticíclica o acíclica según el origen del shock —
+      véase sección A sobre "estanflación"), <strong>tipos de cambio nominales</strong> (dominados por
+      expectativas de política monetaria más que por ciclo doméstico), <strong>balanza comercial</strong>
+      (depende de ciclos relativos de países).
+    </p>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Memorizar la distinción clara: <strong>procíclicas</strong> (inversión, empleo, consumo, precios de activos),
+        <strong>anticíclicas</strong> (desempleo, déficit fiscal automático, spreads crediticios, volatilidad VIX).
+        Pregunta típica: <em>"¿Qué ocurre con la inversión en una recesión?"</em> Respuesta: cae (procíclica).
+        <em>"¿Qué ocurre con el desempleo en expansión?"</em> Respuesta: baja (anticíclica).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. TEORÍAS EXPLICATIVAS: EXÓGENAS VS ENDÓGENAS
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Teorías explicativas de los ciclos económicos</h2>
+    <p class="sec-intro">
+      <strong>¿Por qué ocurren los ciclos?</strong> Esta es la pregunta central de la macroeconomía.
+      El debate entre economistas se ha centrado en si los ciclos están causados por
+      <strong>perturbaciones externas (exógenas)</strong> o son <strong>generados internamente por la
+      dinámica de la economía (endógenos).</strong> Este debate tiene implicaciones profundas
+      para la política económica.
+    </p>
+
+    <h3>Teorías exógenas: Los ciclos vienen de fuera</h3>
+    <p>
+      <strong>Enfoque exógeno:</strong> Los ciclos económicos son causados por <strong>shocks externos</strong>
+      (perturbaciones que llegan a la economía desde fuera). La economía es intrínsecamente estable;
+      sin estos shocks, seguiría la tendencia. Esta perspectiva tiene raíces en Keynes y la
+      macroeconomía moderna.
+    </p>
+
+    <div class="theory-box">
+      <h4>Shocks de demanda (keynesianos)</h4>
+      <p>
+        Caídas en la confianza del consumidor, recortes de gasto público, crisis crediticia.
+        La economía responde con caída de demanda agregada → caída de producción, empleo, inflación.
+        El banco central y el gobierno pueden aplicar políticas contracíclicas para amortiguar
+        el shock.
+      </p>
+      <p><strong>Ejemplo:</strong> Crisis financiera 2008 → colapso de crédito → caída de inversión e
+      consumo → Gran Recesión.</p>
+    </div>
+
+    <div class="theory-box">
+      <h4>Shocks de oferta</h4>
+      <p>
+        Cambios en tecnología, disponibilidad de recursos naturales, perturbaciones
+        geopolíticas. Afectan el lado de la producción, no de la demanda. Un shock negativo
+        (ej: embargo de petróleo) sube precios y contrae producción.
+      </p>
+      <p><strong>Ejemplo:</strong> Crisis del petróleo 1973 → sube precio energía → estanflación
+        (recesión + inflación simultáneamente).</p>
+    </div>
+
+    <h3>Teorías endógenas: Los ciclos están dentro</h3>
+    <p>
+      <strong>Enfoque endógeno:</strong> Los ciclos no requieren shocks externos; son <strong>inherentes a la
+      dinámica de la economía de mercado.</strong> La acumulación de capital, las expectativas,
+      el apalancamiento y las fricciones financieras generan naturalmente ciclos. Dos ejemplos
+      principales:
+    </p>
+
+    <div class="theory-box">
+      <h4>Ciclos Reales (RBC): Kydland & Prescott (1982)</h4>
+      <p>
+        Ganadores del Nobel de Economía en 2004. Demuestran que variaciones en
+        <strong>tecnología</strong> (shocks de productividad reales) pueden explicar ciclos
+        económicos bajo supuestos de mercados competitivos y agentes racionales. El ciclo
+        surge de la respuesta óptima de los hogares y empresas a cambios en las oportunidades
+        tecnológicas.
+      </p>
+      <p>
+        <strong>Mecanismo:</strong> Shock de tecnología → empresas invierten más → empleo sube →
+        demanda de trabajo sube → salarios suben → consumo sube → expansión. Cuando el shock
+        se agota, contracción.
+      </p>
+      <p>
+        <strong>Crítica:</strong> ¿Explican realmente las variaciones tecnológicas las recesiones
+        severas? Difícil argumentar que el PIB cae porque la tecnología se pone peor.
+      </p>
+    </div>
+
+    <div class="theory-box">
+      <h4>Nuevo Keynesianismo: Fricción e imperfecciones</h4>
+      <p>
+        Síntesis moderna que combina elementos RBC con imperfecciones reales (precios pegajosos,
+        información asimétrica, aversión al riesgo). Los ciclos surgen cuando los agentes
+        responden a cambios de demanda o confianza, pero las fricciones impiden ajustes rápidos.
+      </p>
+      <p>
+        <strong>Mecanismo:</strong> Shock de confianza negativa → consumidores/empresas reducen gasto →
+        demanda cae → precios no bajan rápido (rigidez nominal) → empresas reducen cantidad y empleo
+        → desempleo sube → espiral descendente (multiplicador keynesiano).
+      </p>
+      <p>
+        <strong>Implicación política:</strong> El banco central puede amortiguar ciclos mediante
+        política monetaria, porque las fricciones impiden que la economía se auto-corrija.
+      </p>
+    </div>
+
+    <h3>Síntesis práctica</h3>
+    <p>
+      El debate exógeno vs. endógeno no es binario. La mayoría de economistas hoy aceptan que:
+    </p>
+    <ul style="margin: 0.8rem 0; padding-left: 1.2rem;">
+      <li><strong>Los shocks externos (exógenos) sí ocurren</strong> y disparan ciclos
+        (crisis financieras, crisis de petróleo, pandemias).</li>
+      <li><strong>Pero la economía tiene mecanismos internos (endógenos)</strong> que amplifican
+        y prolongan esos shocks (apalancamiento, expectativas, fricción crediticia).</li>
+      <li><strong>La política económica (especialmente monetaria) importa</strong> porque puede amortiguar
+        o amplificar ciclos, aunque no puede eliminarlos completamente.</li>
+    </ul>
+
+    <p style="font-size:var(--fs-xs); color:var(--text-soft); margin-top:.4rem;">
+      Fuente: <a href="https://www.nobelprize.org/prizes/economic-sciences/2004/kydland/facts/" target="_blank" rel="noopener">Nobel Prize — Kydland & Prescott (2004)</a> ·
+      <a href="https://es.wikipedia.org/wiki/Ciclo_econ%C3%B3mico" target="_blank" rel="noopener">Teorías de ciclos económicos</a>
+    </p>
+
+    <h3>Enlace con la política monetaria: Ciclo, output gap y Regla de Taylor (Sección A)</h3>
+    <p>
+      Aquí es donde el ciclo toma vida operativa en las decisiones de política. Recordar de la
+      Sección A que la <strong>Regla de Taylor</strong> recomienda:
+    </p>
+    <p style="font-family: 'Courier New', monospace; text-align: center; background: var(--navy-light);
+              border-radius: 6px; padding: 0.6rem; margin: 0.8rem 0;">
+      <strong>i = π + r* + 0,5·(π − π*) + 0,5·(y − y*)</strong>
+    </p>
+    <p>
+      Donde <strong>y − y*</strong> es el <strong>output gap</strong> (PIB real vs. PIB potencial).
+      <strong>En términos de ciclo:</strong>
+    </p>
+    <ul style="margin: 0.8rem 0; padding-left: 1.2rem;">
+      <li><strong>Expansión tardía:</strong> output gap positivo (y > y*) → segunda parte de la regla
+      suma valor positivo → tipos suben (política restrictiva para frenar recalentamiento).</li>
+      <li><strong>Recesión:</strong> output gap negativo (y < y*) → segunda parte resta valor → tipos bajan
+      (política expansiva para amortiguar caída).</li>
+      <li><strong>Equilibrio cíclico:</strong> output gap ≈ 0 (economía en potencial) → la regla recomienda
+      tipos "neutrales" (pi + r*).</li>
+    </ul>
+    <p>
+      Así, <strong>el análisis del ciclo es la puerta de entrada a la política monetaria.</strong>
+      Un asesor que identifica correctamente la fase del ciclo puede anticipar decisiones del banco
+      central mejor que alguien que solo mira inflación actual.
+    </p>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Conexión examen Secciones A y B</strong>
+        Pregunta típica que integra ambas secciones: <em>"Estamos en expansión tardía con
+        output gap +3% e inflación 4% (vs. objetivo 2%). ¿Qué predices de la política del BCE?"</em>
+        Respuesta usando Regla de Taylor: tipos subirán porque ambos términos (inflación y output gap)
+        son positivos. Magnitud: si r* = 1%, la regla recomienda i ≈ 4% + 1% + 1% + 1,5% = 7,5%.
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Distinguir entre teorías <strong>exógenas</strong> (shocks externos disparan ciclos) y
+        <strong>endógenas</strong> (ciclos inherentes a la dinámica interna). Saber ejemplos:
+        <strong>exógeno:</strong> crisis de petróleo, crisis financiera; <strong>endógeno:</strong>
+        ciclos de sobreinversión, ciclos de apalancamiento. Pregunta típica: <em>"¿Es el ciclo
+        económico principalmente exógeno o endógeno?"</em> Respuesta moderna: ambos, depende del episodio.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. CRECIMIENTO TENDENCIAL DEL PIB REAL
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. Crecimiento tendencial del PIB real (Trend)</h2>
+    <p class="sec-intro">
+      El <strong>ciclo económico</strong> no es el mismo que el <strong>crecimiento tendencial.</strong>
+      El PIB real puede descomponerse en dos componentes: una <strong>tendencia</strong> de largo plazo
+      (crecimiento estructural) y <strong>fluctuaciones cíclicas</strong> alrededor de esa tendencia.
+      Para un asesor financiero, distinguir trend de ciclo es crítico para diferenciar crisis
+      temporales de cambios estructurales duraderos.
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Crecimiento tendencial (Trend)</h4>
+        <p>Ritmo de crecimiento de largo plazo (5-10 años) determinado por factores estructurales:
+        crecimiento de la población activa, productividad (tecnología, capital humano), mejoras
+        institucionales. En España ~1.5-2% anual; en EE.UU. ~2-2.5%; varía por país.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Ciclo / Fluctuaciones</h4>
+        <p>Desviaciones de corto/medio plazo (1-5 años) de la tendencia. Pueden ser positivas
+        (expansión, el PIB crece por encima del trend) o negativas (recesión, cae por debajo).
+        El output gap = (PIB real − PIB tendencial) / PIB tendencial mide estas desviaciones.</p>
+      </div>
+      <div class="concept-box">
+        <h4>PIB potencial vs. Tendencial</h4>
+        <p>En la práctica, "PIB tendencial" y "PIB potencial" se usan como sinónimos. Ambos
+        representan el nivel de producción sin presión inflacionaria con pleno empleo de recursos.
+        Se estima mediante filtros estadísticos (HP, tendencia lineal).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Determinantes del trend</h4>
+        <p>Crecimiento de la fuerza laboral (n), productividad laboral (a), crecimiento de capital.
+        Fórmula simple: g_trend ≈ n + a. Ej: si fuerza laboral crece 0.5% y productividad 1.5%,
+        trend ≈ 2%.</p>
+      </div>
+    </div>
+
+    <h3>¿Por qué importa la distinción?</h3>
+    <p>
+      Confundir ciclo con trend lleva a errores de política y de inversión:
+    </p>
+
+    <div class="card accent-amber">
+      <h3>⚠️ Riesgo de confusión ciclo-trend</h3>
+      <ul>
+        <li><strong>Error 1 — Política pro-ciclo:</strong> Si la economía está en expansión tardía
+        (output gap positivo) pero el gobierno cree que el trend ha subido, aprobará más gasto
+        fiscal "sustainable". En realidad, estará amplificando el ciclo (política pro-cíclica).
+        Resultado: inflación, ajuste recesivo después.</li>
+        <li><strong>Error 2 — Ajuste excesivo en crisis:</strong> Si el output gap cae a −5% pero el
+        gobierno cree que el trend ha caído permanentemente, hará austeridad. Pero si la recesión
+        es cíclica, la austeridad profundiza la caída. Mejor respuesta: política contracíclica.</li>
+        <li><strong>Error 3 — Decisiones de inversión:</strong> Un asesor que piensa que una recesión
+        es permanente (trend cayó) reposicionará carteras a largo plazo innecesariamente. Si es
+        solo ciclo, venderá en mínimos.</li>
+      </ul>
+    </div>
+
+    <h3>Métodos para estimar la tendencia</h3>
+    <p>
+      Ningún método es perfecto. Los más usados:
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Filtro Hodrick-Prescott (HP)</h4>
+        <p>Método estadístico que descompone series en trend y ciclo minimizando una función de pérdida.
+        Estándar en bancos centrales. Problema: endpoint bias (revisión fuerte de los últimos datos).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Función de producción</h4>
+        <p>PIB = f(Capital, Trabajo, Productividad). Estima trend como el PIB que podría generarse
+        con recursos al pleno empleo. Requiere supuestos sobre stock de capital y productividad.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Tendencia lineal / Polynomial</h4>
+        <p>Ajusta una recta (o polinomio) a datos históricos. Simple, pero puede ser ingenuo si hay
+        quiebres estructurales (ej: cambio post-crisis).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Media móvil centrada</h4>
+        <p>Promedio de 5-10 años de observaciones. Método simple, transparente. Menos sofisticado
+        que HP, pero menos susceptible a revisiones.</p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>Nota práctica:</strong> Los bancos centrales (BCE, Reserva Federal) publican estimaciones
+      de PIB potencial / trend que revisan regularmente. Un asesor debe estar atento a estas revisiones:
+      si el BCE revisa el PIB potencial a la baja, está sugiriendo que el trend de largo plazo bajó
+      (posibles pérdidas de capital, cambio de productividad). Son información crucial para estrategia
+      de activos.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Entender la diferencia conceptual entre trend (largo plazo, determinantes estructurales)
+        y ciclo (corto plazo, fluctuaciones). Saber que confundirlos lleva a política pro-cíclica.
+        Pregunta típica: <em>"Una recesión fuerte, ¿siempre implica que el PIB potencial cayó?"</em>
+        Respuesta: No necesariamente. Si es cíclica, el PIB potencial sigue igual o sube lentamente,
+        pero el PIB real cae temporalmente.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Concepto</th><th>Definición clave</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Ciclo económico</strong></td>
+            <td>Fluctuaciones recurrentes pero irregulares de la actividad agregada alrededor de su tendencia</td>
+          </tr>
+          <tr>
+            <td><strong>Expansión</strong></td>
+            <td>Fase de crecimiento del PIB, empleo sube, confianza sube. Típica: 4-5 años</td>
+          </tr>
+          <tr>
+            <td><strong>Pico</strong></td>
+            <td>PIB en máximo antes de contracción; pleno empleo; presiones inflacionarias</td>
+          </tr>
+          <tr>
+            <td><strong>Contracción / Recesión</strong></td>
+            <td>PIB cae 2+ trimestres; empleo baja; confianza cae. Típica: 9-18 meses</td>
+          </tr>
+          <tr>
+            <td><strong>Valle</strong></td>
+            <td>Mínimo del ciclo; punto de giro hacia expansión; desempleo en máximo</td>
+          </tr>
+          <tr>
+            <td><strong>Procíclica</strong></td>
+            <td>Variable que sube en expansión y baja en recesión (ej: inversión, empleo, acciones)</td>
+          </tr>
+          <tr>
+            <td><strong>Anticíclica</strong></td>
+            <td>Variable que baja en expansión y sube en recesión (ej: desempleo, spreads crediticios)</td>
+          </tr>
+          <tr>
+            <td><strong>Teoría exógena</strong></td>
+            <td>Ciclos causados por shocks externos (demanda, oferta, financiero)</td>
+          </tr>
+          <tr>
+            <td><strong>Teoría endógena</strong></td>
+            <td>Ciclos generados internamente por dinámica de la economía (RBC, apalancamiento)</td>
+          </tr>
+          <tr>
+            <td><strong>Crecimiento tendencial</strong></td>
+            <td>Crecimiento de largo plazo (5-10 años) determinado por factores estructurales</td>
+          </tr>
+          <tr>
+            <td><strong>Output gap</strong></td>
+            <td>Desviación del PIB real respecto al potencial, en %. Positivo: recalentamiento; negativo: recesión</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="../index.html" class="nav-btn">← Índice Módulo 1</a>
+    <a href="seccion-c.html" class="nav-btn">C: Indicadores de coyuntura →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 1 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
