@@ -5,6 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>M1 · B1 · Sección A — Fundamentos macroeconómicos · EFA Prep</title>
   <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .concept-grid { grid-template-columns: 1fr; } }
+
+    .concept-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .concept-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      margin-bottom: .35rem;
+      color: var(--navy);
+    }
+    .concept-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .method-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 1fr;
+      gap: .5rem;
+      align-items: start;
+      padding: .7rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: var(--fs-sm);
+    }
+    .method-row:last-child { border-bottom: none; }
+    .method-label {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .method-formula {
+      font-family: 'Courier New', monospace;
+      font-size: var(--fs-xs);
+      color: var(--navy);
+      background: var(--navy-light);
+      border-radius: 6px;
+      padding: 3px 8px;
+      display: inline-block;
+    }
+
+    .indicator-tag {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: .7rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+    .tag-adelantado { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
+    .tag-retardado  { background: var(--amber-light);  color: var(--amber);  border: 1px solid var(--amber); }
+    .tag-coincidente { background: var(--navy-light); color: var(--navy); border: 1px solid var(--navy); }
+  </style>
 </head>
 <body>
 
@@ -27,41 +95,469 @@
     <span class="sep">›</span>
     <a href="../index.html">Módulo 1</a>
     <span class="sep">›</span>
-    <span>Bloque 1 · Sección A</span>
+    <a href="../index.html">Bloque 1</a>
+    <span class="sep">›</span>
+    <span>Sección A</span>
   </div>
 
-  <!-- HERO -->
   <div class="hero">
-    <div class="pill">Módulo 1 · Bloque 1 · Sección A</div>
+    <div class="pill">Módulo 1 · Bloque 1 · Sección A · Nivel I + II</div>
     <h1>Fundamentos Macroeconómicos</h1>
     <p class="hero-sub">
-      PIB, indicadores de precios, empleo, tipos de interés real y nominal,
-      Ecuación de Fisher y Regla de Taylor.
+      PIB y sus métodos de cálculo · Deflactor · Indicadores de precios y empleo ·
+      Tasa de actividad · Tipo de interés real y nominal · Ecuación de Fisher · Regla de Taylor.
     </p>
   </div>
 
   <hr>
 
-  <!-- =====================================================
-       CONTENIDO — se rellena en la siguiente fase
-       ===================================================== -->
+  <!-- ============================================================
+       1. INDICADORES DE CRECIMIENTO ECONÓMICO
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Indicadores de crecimiento económico</h2>
+    <p class="sec-intro">
+      El principal indicador del tamaño y dinamismo de una economía es el PIB.
+      Como asesor financiero, su evolución trimestral condiciona directamente las
+      decisiones de política monetaria del BCE y, por tanto, el entorno de tipos
+      en el que se valoran todos los activos financieros.
+    </p>
 
-  <div class="callout info">
-    Esta sección está pendiente de contenido. Se rellenará en la siguiente fase de generación.
+    <h3>¿Qué es el PIB?</h3>
+    <div class="card accent-navy">
+      <p>
+        El <strong>Producto Interior Bruto (PIB)</strong> es el valor de mercado de todos los
+        bienes y servicios <em>finales</em> producidos dentro de las fronteras de un país
+        durante un período de tiempo determinado (habitualmente un año o un trimestre).
+      </p>
+      <p style="margin-top:.6rem;">
+        Tres matizaciones clave: (1) se cuentan solo bienes <strong>finales</strong> para no
+        doblar el conteo; (2) solo lo producido <strong>dentro del territorio</strong>,
+        independientemente de la nacionalidad del productor; (3) se valora a
+        <strong>precios de mercado</strong>.
+      </p>
+    </div>
+
+    <h3>Tres métodos de cálculo — mismo resultado</h3>
+
+    <div class="method-row">
+      <span class="method-label">Del gasto</span>
+      <span class="method-formula">PIB = C + I + G + (X − M)</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">
+        C = consumo privado · I = inversión · G = gasto público · X−M = exportaciones netas
+      </span>
+    </div>
+    <div class="method-row">
+      <span class="method-label">De la renta</span>
+      <span class="method-formula">Salarios + Beneficios + Rentas + Impuestos netos</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">
+        Suma de todas las rentas generadas en el proceso productivo
+      </span>
+    </div>
+    <div class="method-row">
+      <span class="method-label">Del valor añadido</span>
+      <span class="method-formula">Σ (Ventas − Compras intermedias) por sector</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">
+        Evita el doble conteo sumando solo el valor que cada fase añade al producto
+      </span>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El método del gasto es el más preguntado. Memoriza la fórmula
+        <strong>C + I + G + (X − M)</strong> y qué componente sube o baja en cada escenario
+        (ej: aumento del déficit exterior → baja X−M → presiona PIB a la baja).
+      </div>
+    </div>
+
+    <h3>PIB nominal vs. PIB real</h3>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>PIB nominal</h4>
+        <p>Valorado a <strong>precios corrientes</strong> del año de medición. Puede crecer
+        porque sube la producción <em>o</em> porque suben los precios. No refleja
+        el crecimiento real de la economía.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>PIB real</h4>
+        <p>Valorado a <strong>precios constantes</strong> de un año base. Elimina el efecto
+        inflación. Es el indicador correcto para medir el crecimiento efectivo
+        de la producción de un país.</p>
+      </div>
+    </div>
+
+    <h3>El Deflactor del PIB</h3>
+    <p>
+      El deflactor mide la evolución general de precios de <em>toda</em> la producción
+      interior. Es más amplio que el IPC porque incluye bienes de inversión y
+      exportaciones, no solo la cesta de consumo de los hogares.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Deflactor del PIB</span>
+      Deflactor = (PIB nominal / PIB real) × 100
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico</h3>
+      <p>
+        Si el PIB nominal de un país crece un <strong>5%</strong> en un año,
+        pero el deflactor sube un <strong>3%</strong>, el crecimiento real de la economía
+        es aproximadamente del <strong>2%</strong>. Un asesor que solo mire el dato nominal
+        sobreestimará el dinamismo económico real.
+      </p>
+    </div>
+
+    <h3>Producción industrial</h3>
+    <p>
+      La <strong>producción industrial</strong> es un indicador mensual que mide la variación
+      de la producción del sector manufacturero, minero y energético. Se publica antes
+      que el PIB trimestral, por lo que se usa como <em>indicador adelantado</em> del
+      crecimiento económico. Una caída sostenida de la producción industrial suele
+      anticipar una contracción del PIB.
+    </p>
   </div>
 
-  <!-- =====================================================
-       NAVEGACIÓN ENTRE SECCIONES
-       ===================================================== -->
+  <hr>
+
+  <!-- ============================================================
+       2. INDICADORES DE PRECIOS
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Indicadores de precios</h2>
+
+    <h3>IPC e IPCA</h3>
+    <p>
+      El <strong>Índice de Precios de Consumo (IPC)</strong> mide la evolución del coste de
+      una cesta representativa de bienes y servicios consumidos por los hogares.
+      En la eurozona se usa el <strong>IPCA</strong> (Índice de Precios de Consumo Armonizado),
+      calculado por Eurostat con la misma metodología en todos los países miembros,
+      lo que permite comparaciones directas entre economías.
+    </p>
+    <p>
+      La tasa de inflación es la variación porcentual interanual del IPCA. El BCE
+      tiene como objetivo mantener la inflación <strong>en torno al 2%</strong> a medio plazo.
+    </p>
+
+    <h3>IPC subyacente (inflación subyacente)</h3>
+    <div class="card accent-amber">
+      <h3>⚠️ Distinción clave</h3>
+      <p>
+        La <strong>inflación subyacente</strong> excluye de la cesta los componentes más
+        volátiles: <strong>energía</strong> y <strong>alimentos sin elaborar</strong>.
+        Al eliminar estos elementos —cuyos precios fluctúan por factores estacionales
+        o geopolíticos ajenos a la demanda interna— ofrece una señal más estable
+        de la tendencia de precios a medio y largo plazo.
+      </p>
+      <p style="margin-top:.6rem;">
+        El BCE presta especial atención a la inflación subyacente para calibrar
+        su política monetaria: si la subyacente se mantiene elevada, el banco central
+        tenderá a mantener tipos altos aunque la inflación general haya bajado.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Diferencia entre IPC general (incluye energía y alimentos frescos) e
+        IPC subyacente (los excluye). Saber <em>por qué</em> se excluyen: son volátiles
+        y no reflejan bien la presión de demanda estructural sobre los precios.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. INDICADORES DE EMPLEO
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Indicadores de empleo</h2>
+
+    <h3>Tasa de actividad</h3>
+    <div class="formula">
+      <span class="formula-label">Tasa de actividad</span>
+      Tasa de actividad = (Población activa / Población en edad de trabajar) × 100
+    </div>
+    <p>
+      La <strong>población activa</strong> comprende a los ocupados más los desempleados
+      que buscan empleo activamente. La <strong>población en edad de trabajar</strong>
+      es la de 16 años o más. Una tasa de actividad alta indica mayor participación
+      laboral; una tasa baja puede reflejar desánimo o envejecimiento poblacional.
+    </p>
+
+    <h3>Principales indicadores de empleo</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Indicador</th>
+            <th>Qué mide</th>
+            <th>Tipo</th>
+            <th>Frecuencia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Tasa de paro</strong></td>
+            <td>% de activos sin trabajo sobre población activa</td>
+            <td><span class="indicator-tag tag-retardado">Retardado</span></td>
+            <td>Mensual / Trimestral</td>
+          </tr>
+          <tr>
+            <td><strong>EPA</strong> (España)</td>
+            <td>Encuesta trimestral del mercado laboral español</td>
+            <td><span class="indicator-tag tag-retardado">Retardado</span></td>
+            <td>Trimestral</td>
+          </tr>
+          <tr>
+            <td><strong>Nóminas no agrícolas</strong> (EE.UU.)</td>
+            <td>Variación del empleo en sectores no agrícolas</td>
+            <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+            <td>Mensual (1er viernes)</td>
+          </tr>
+          <tr>
+            <td><strong>Peticiones de desempleo</strong> (EE.UU.)</td>
+            <td>Nuevas solicitudes de prestación por desempleo</td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+            <td>Semanal</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout tip">
+      Los indicadores de empleo son en su mayoría <strong>retardados</strong>: reflejan
+      lo que ya ha ocurrido en la economía. Sin embargo, el mercado laboral es un canal
+      clave de transmisión de inflación: pleno empleo → presión salarial → inflación.
+      Por eso el BCE los monitoriza aunque no sean adelantados.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. CONCEPTOS BÁSICOS DE ESTRUCTURA ECONÓMICA
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Conceptos básicos de estructura económica</h2>
+    <p class="sec-intro">
+      La guía exige conocer explícitamente estos conceptos. Son la base para
+      entender cómo se transmite la política monetaria a los mercados financieros.
+    </p>
+
+    <h3>Tipo de interés nominal vs. real — Ecuación de Fisher</h3>
+    <p>
+      El <strong>tipo de interés nominal</strong> (<em>i</em>) es el pactado en un contrato
+      financiero. El <strong>tipo de interés real</strong> (<em>r</em>) descuenta el efecto
+      de la inflación y mide la ganancia de poder adquisitivo efectiva.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Aproximación de Fisher (válida para inflaciones bajas)</span>
+      r ≈ i − π
+    </div>
+    <div class="formula">
+      <span class="formula-label">Ecuación de Fisher exacta</span>
+      (1 + r) = (1 + i) / (1 + π)
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo</h3>
+      <p>
+        Un bono ofrece un tipo nominal del <strong>4%</strong>.
+        La inflación es del <strong>3%</strong>.<br>
+        Tipo real aproximado: <strong>4% − 3% = 1%</strong>.<br>
+        Tipo real exacto: (1,04 / 1,03) − 1 = <strong>0,97%</strong>.<br><br>
+        Ese 1% es la ganancia real de poder adquisitivo del inversor.
+        Si la inflación sube al 5%, el tipo real se vuelve negativo: el inversor
+        pierde poder adquisitivo aunque cobre intereses.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Calcular el tipo real dado el nominal y la inflación, o despejar la inflación
+        implícita dado el tipo nominal y el real. Dominar ambas versiones de la fórmula.
+      </div>
+    </div>
+
+    <h3>Política monetaria y política fiscal</h3>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Política monetaria</h4>
+        <p>
+          Decisiones del <strong>banco central</strong> (BCE en la eurozona) sobre
+          el coste y disponibilidad del dinero. Instrumento principal: los
+          <strong>tipos de interés oficiales</strong>. Objetivo: estabilidad de precios
+          (inflación ~2%).
+        </p>
+      </div>
+      <div class="vs-box right">
+        <h4>Política fiscal</h4>
+        <p>
+          Decisiones del <strong>gobierno</strong> sobre ingresos (impuestos) y gastos
+          públicos. Instrumento: presupuesto del Estado. Objetivo: estabilización
+          cíclica, redistribución y provisión de bienes públicos.
+        </p>
+      </div>
+    </div>
+
+    <h3>La Regla de Taylor</h3>
+    <p>
+      La <strong>Regla de Taylor</strong> (John B. Taylor, 1993) es una fórmula que orienta
+      a los bancos centrales sobre el nivel adecuado del tipo de interés oficial.
+      Relaciona el tipo recomendado con dos brechas: la brecha de inflación y el
+      <em>output gap</em> (desviación del PIB real respecto al potencial).
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Regla de Taylor</span>
+      i = π + r* + 0,5 · (π − π*) + 0,5 · (y − y*)
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>i</h4>
+        <p>Tipo de interés nominal recomendado (variable a determinar)</p>
+      </div>
+      <div class="concept-box">
+        <h4>π</h4>
+        <p>Tasa de inflación actual</p>
+      </div>
+      <div class="concept-box">
+        <h4>π*</h4>
+        <p>Objetivo de inflación (2% en el BCE)</p>
+      </div>
+      <div class="concept-box">
+        <h4>r*</h4>
+        <p>Tipo de interés real de equilibrio (neutral)</p>
+      </div>
+      <div class="concept-box">
+        <h4>y − y*</h4>
+        <p><em>Output gap</em>: diferencia entre PIB real y PIB potencial</p>
+      </div>
+      <div class="concept-box">
+        <h4>0,5</h4>
+        <p>Ponderación de cada brecha (en la versión original de Taylor)</p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>Cómo interpretarla:</strong> si la inflación supera el objetivo → el tipo debe
+      <strong>subir</strong>. Si el PIB real cae por debajo del potencial (recesión) → el tipo
+      debe <strong>bajar</strong>. La regla impide reaccionar de forma discrecional y añade
+      credibilidad al banco central.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo de aplicación</h3>
+      <p>
+        Supongamos: π = 4%, π* = 2%, r* = 1%, output gap = 0.<br><br>
+        i = 4% + 1% + 0,5 · (4% − 2%) + 0,5 · 0 = 4% + 1% + 1% = <strong>6%</strong><br><br>
+        La regla sugiere un tipo oficial del 6%. Si el BCE fija un tipo inferior,
+        está siendo más expansivo de lo que la regla recomienda.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Aplicar la Regla de Taylor con datos numéricos dados. Saber en qué
+        dirección se mueve el tipo recomendado si cambia la inflación o el output gap.
+        También puede aparecer como pregunta conceptual: ¿qué ocurre si el PIB real
+        supera al potencial? (→ el tipo sube para frenar el recalentamiento).
+      </div>
+    </div>
+
+    <h3>Ciclo económico — introducción</h3>
+    <p>
+      El <strong>ciclo económico</strong> es la fluctuación recurrente de la actividad
+      económica en torno a su tendencia de largo plazo. Se desarrolla en detalle
+      en la Sección B, pero es importante conocer el concepto aquí porque la Regla
+      de Taylor y la política monetaria responden directamente a la fase del ciclo
+      en la que se encuentre la economía.
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>PIB potencial</h4>
+        <p>Nivel de producción que una economía puede sostener con pleno empleo
+        de sus recursos sin generar inflación. No es observable directamente,
+        se estima.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Output gap</h4>
+        <p>Diferencia entre PIB real y PIB potencial. Positivo (recalentamiento):
+        presión inflacionaria. Negativo (recesión): capacidad ociosa,
+        desinflación.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Concepto</th><th>Definición clave</th><th>Fórmula</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>PIB real</strong></td>
+            <td>Producción valorada a precios constantes</td>
+            <td>PIB nominal / Deflactor × 100</td>
+          </tr>
+          <tr>
+            <td><strong>Deflactor del PIB</strong></td>
+            <td>Índice de precios de toda la producción interior</td>
+            <td>(PIB nom. / PIB real) × 100</td>
+          </tr>
+          <tr>
+            <td><strong>Tasa de actividad</strong></td>
+            <td>Activos sobre población en edad de trabajar</td>
+            <td>(Pob. activa / Pob. ≥16) × 100</td>
+          </tr>
+          <tr>
+            <td><strong>Tipo de interés real</strong></td>
+            <td>Tipo nominal ajustado por inflación</td>
+            <td>r ≈ i − π</td>
+          </tr>
+          <tr>
+            <td><strong>Fisher exacto</strong></td>
+            <td>Versión precisa de la relación nominal/real</td>
+            <td>(1+r) = (1+i)/(1+π)</td>
+          </tr>
+          <tr>
+            <td><strong>Regla de Taylor</strong></td>
+            <td>Tipo óptimo según inflación y output gap</td>
+            <td>i = π + r* + 0,5(π−π*) + 0,5(y−y*)</td>
+          </tr>
+          <tr>
+            <td><strong>IPC subyacente</strong></td>
+            <td>IPC sin energía ni alimentos sin elaborar</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
   <div class="sec-nav">
     <a href="../index.html" class="nav-btn">← Índice Módulo 1</a>
-    <a href="seccion-b.html" class="nav-btn">Sección B: Ciclos económicos →</a>
+    <a href="seccion-b.html" class="nav-btn">B: Ciclos económicos →</a>
   </div>
 
 </div>
 
 <footer>
-  EFA Prep · Módulo 1 · Bloque 1 · Sección A · Materiales de estudio autodidacta
+  EFA Prep · Módulo 1 · Bloque 1 · Sección A · Basado en la Guía de Certificación EFPA España V1/26
 </footer>
 
 <script src="../../assets/ui.js"></script>
