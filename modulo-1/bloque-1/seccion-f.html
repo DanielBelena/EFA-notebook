@@ -3,17 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M1 · B1 · Sección F — Política fiscal post-COVID y economía global · EFA Prep</title>
+  <title>M1 · B1 · Sección F — Políticas Fiscales Post-COVID · EFA Prep</title>
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
+    /* ── Grids ── */
     .concept-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: .8rem;
       margin: 1rem 0;
     }
-    @media (max-width: 560px) { .concept-grid { grid-template-columns: 1fr; } }
-
+    .concept-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 640px) {
+      .concept-grid, .concept-grid-3 { grid-template-columns: 1fr; }
+    }
     .concept-box {
       background: var(--card);
       border: 1.5px solid var(--border);
@@ -27,170 +35,166 @@
       margin-bottom: .35rem;
       color: var(--navy);
     }
-    .concept-box p, .concept-box ul, .concept-box ol {
+    .concept-box p {
       font-size: var(--fs-xs);
       color: var(--text-soft);
       line-height: 1.65;
       margin: 0;
     }
-    .concept-box ul, .concept-box ol {
-      padding-left: 1.1rem;
-      margin-top: .3rem;
-    }
-    .concept-box li { margin: .25rem 0; }
 
-    .policy-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: .75rem;
-      margin: 1rem 0;
-    }
-    .policy-card {
-      background: var(--card);
-      border: 1.5px solid var(--border);
-      border-left: 5px solid var(--navy);
-      border-radius: 14px;
-      padding: 1rem 1.15rem;
-      box-shadow: var(--shadow);
-    }
-    .policy-card.emergency { border-left-color: var(--danger); }
-    .policy-card.recovery { border-left-color: var(--green); }
-    .policy-card.debt { border-left-color: var(--amber); }
-    .policy-card.market { border-left-color: var(--navy); }
-    .policy-card h4 {
-      font-family: var(--font-ui);
-      font-weight: 900;
-      font-size: var(--fs-sm);
-      color: var(--navy);
-      margin: 0 0 .4rem 0;
-    }
-    .policy-card p, .policy-card li {
-      font-size: var(--fs-xs);
-      color: var(--text-soft);
-      line-height: 1.65;
-      margin: 0;
-    }
-    .policy-card ul { padding-left: 1.15rem; margin-top: .35rem; }
-    .policy-card li { margin: .25rem 0; }
-
-    .transmission-flow {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: .55rem;
-      margin: 1rem 0;
-    }
-    .flow-step {
-      background: var(--card);
-      border: 1.5px solid var(--border);
-      border-left: 4px solid var(--navy);
-      border-radius: 12px;
-      padding: .85rem 1rem;
-      font-size: var(--fs-sm);
-      color: var(--text-soft);
-      line-height: 1.65;
-    }
-    .flow-step strong {
-      font-family: var(--font-ui);
-      color: var(--navy);
-    }
-
-    .asset-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .8rem;
-      margin: 1rem 0;
-    }
-    @media (max-width: 560px) { .asset-grid { grid-template-columns: 1fr; } }
-    .asset-box {
-      background: var(--card);
+    /* ── Medida fiscal card ── */
+    .medida-block {
       border: 1.5px solid var(--border);
       border-radius: 14px;
-      padding: 1rem;
-    }
-    .asset-box h4 {
-      font-family: var(--font-ui);
-      font-weight: 900;
-      font-size: var(--fs-sm);
-      color: var(--navy);
-      margin: 0 0 .4rem 0;
-    }
-    .asset-box p, .asset-box li {
-      font-size: var(--fs-xs);
-      color: var(--text-soft);
-      line-height: 1.65;
-      margin: 0;
-    }
-    .asset-box ul { padding-left: 1.1rem; margin-top: .3rem; }
-    .asset-box li { margin: .25rem 0; }
-
-    .scenario-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .8rem;
+      overflow: hidden;
       margin: 1rem 0;
     }
-    @media (max-width: 640px) { .scenario-grid { grid-template-columns: 1fr; } }
-    .scenario-box {
-      border-radius: 14px;
-      padding: 1rem;
-      border: 1.5px solid var(--border);
-      background: var(--card);
-    }
-    .scenario-box h4 {
-      font-family: var(--font-ui);
-      font-weight: 900;
-      font-size: var(--fs-sm);
-      margin: 0 0 .45rem 0;
-      color: var(--navy);
-    }
-    .scenario-box p, .scenario-box li {
-      font-size: var(--fs-xs);
-      line-height: 1.65;
-      color: var(--text-soft);
-      margin: 0;
-    }
-    .scenario-box ul { padding-left: 1.1rem; margin-top: .3rem; }
-    .scenario-box li { margin: .25rem 0; }
-
-    .indicator-tag {
-      display: inline-block;
+    .medida-header {
+      background: var(--navy);
+      color: #fff;
+      padding: .7rem 1.2rem;
       font-family: var(--font-ui);
       font-weight: 800;
+      font-size: var(--fs-sm);
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+    }
+    .medida-header .medida-emoji { font-size: 1.2rem; }
+    .medida-body {
+      padding: .9rem 1.2rem;
+    }
+    .medida-body p {
+      font-size: var(--fs-sm);
+      line-height: 1.7;
+      color: var(--text);
+      margin: 0 0 .5rem;
+    }
+    .medida-body p:last-child { margin: 0; }
+
+    /* ── Dato numérico destacado ── */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .7rem;
+      margin: 1.2rem 0;
+    }
+    @media (max-width: 640px) { .kpi-grid { grid-template-columns: 1fr 1fr; } }
+    .kpi-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: .9rem 1rem;
+      text-align: center;
+    }
+    .kpi-value {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: 1.55rem;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: .2rem;
+    }
+    .kpi-label {
+      font-family: var(--font-ui);
+      font-size: .72rem;
+      color: var(--text-soft);
+      line-height: 1.4;
+    }
+    .kpi-box.green .kpi-value { color: var(--green); }
+    .kpi-box.red   .kpi-value { color: #b91c1c; }
+    .kpi-box.amber .kpi-value { color: #92400e; }
+
+    /* ── Sostenibilidad de deuda ── */
+    .deuda-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: .8rem;
+      padding: .8rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .deuda-row:last-child { border-bottom: none; }
+    .deuda-label {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-xs);
+      color: var(--navy);
+    }
+    .deuda-body {
+      font-size: var(--fs-sm);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── Contexto actual ── */
+    .contexto-actual {
+      background: var(--card);
+      border-left: 4px solid var(--green);
+      border-radius: 0 14px 14px 0;
+      padding: 1.1rem 1.3rem;
+      margin: 1.2rem 0;
+    }
+    .contexto-actual .ctx-title {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--green);
+      margin-bottom: .5rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .contexto-actual p {
+      font-size: var(--fs-sm);
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0 0 .4rem;
+    }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+
+    /* ── Asset tags ── */
+    .asset-tag {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-weight: 700;
       font-size: .68rem;
       padding: 2px 8px;
       border-radius: 10px;
-      margin-right: 4px;
+      margin: 1px 2px;
       vertical-align: middle;
       white-space: nowrap;
     }
-    .tag-expansive { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
-    .tag-restrictive { background: var(--danger-light); color: var(--danger); border: 1px solid var(--danger); }
-    .tag-neutral { background: var(--bg-alt); color: var(--muted); border: 1px solid var(--border); }
-    .tag-warning { background: var(--amber-light); color: var(--amber); border: 1px solid var(--amber); }
+    .at-ok   { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
+    .at-bad  { background: #fde8e8;            color: #b91c1c;      border: 1px solid #ef4444; }
+    .at-neut { background: var(--amber-light);  color: #92400e;      border: 1px solid var(--amber); }
 
-    .comparison-row {
-      display: grid;
-      grid-template-columns: 155px 1fr 1fr;
-      gap: .65rem;
-      align-items: start;
-      padding: .8rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: var(--fs-sm);
+    /* ── Notas al pie ── */
+    .footnotes {
+      border-top: 1px solid var(--border);
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
     }
-    .comparison-row:last-child { border-bottom: none; }
-    .comparison-label {
+    .footnotes h4 {
       font-family: var(--font-ui);
-      font-weight: 900;
-      color: var(--navy);
-    }
-    .comparison-note {
       font-size: var(--fs-xs);
+      font-weight: 800;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .8rem;
+    }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li {
+      font-size: .78rem;
       color: var(--text-soft);
       line-height: 1.6;
+      margin-bottom: .35rem;
     }
-    @media (max-width: 700px) {
-      .comparison-row { grid-template-columns: 1fr; gap: .25rem; }
-    }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -214,774 +218,799 @@
     <span class="sep">›</span>
     <a href="../index.html">Módulo 1</a>
     <span class="sep">›</span>
-    <a href="../index.html">Bloque 1</a>
+    <a href="index.html">Bloque 1</a>
     <span class="sep">›</span>
     <span>Sección F</span>
   </div>
 
   <div class="hero">
     <div class="pill">Módulo 1 · Bloque 1 · Sección F · Nivel II</div>
-    <h1>Políticas fiscales post-COVID y efectos en la economía global</h1>
+    <h1>Políticas Fiscales Post-COVID y sus Efectos en la Economía Global</h1>
     <p class="hero-sub">
-      Estímulos fiscales · Déficit público y sostenibilidad de la deuda · Sectores beneficiados ·
-      Estabilidad financiera · Impacto en valoración de inversiones y asignación de activos.
+      Medidas de emergencia y recuperación · Déficit, deuda y sostenibilidad ·
+      Impacto sectorial y estabilidad financiera · Efectos en valoración de activos
+      y asignación de carteras.
     </p>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       INTRODUCCIÓN
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       1. LA MAGNITUD DEL SHOCK
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
-    <h2>¿Qué se estudia en esta sección?</h2>
-    <p class="sec-intro">
-      La política fiscal es el uso del gasto público, los impuestos, las transferencias y la deuda
-      pública para influir en la actividad económica. Tras la crisis del COVID-19, los gobiernos
-      desplegaron paquetes fiscales extraordinarios para evitar una depresión, sostener rentas,
-      proteger empresas y acelerar la recuperación. Para EFA, lo importante no es memorizar cada
-      programa nacional, sino entender <strong>cómo</strong> esas medidas afectan al crecimiento, a la deuda,
-      a la inflación y a los activos financieros.
+    <h2>1. La magnitud del shock fiscal</h2>
+    <p>
+      La pandemia de COVID-19 provocó la recesión más brusca en tiempos de paz desde la Gran
+      Depresión. La respuesta fiscal fue sin precedentes en velocidad y en tamaño: en 2020, los
+      gobiernos del mundo movilizaron estímulos equivalentes al <strong>~16% del PIB global</strong>
+      en gastos directos, aplazamientos fiscales y garantías de crédito. La deuda pública mundial
+      subió 19 puntos porcentuales del PIB en un solo año.<sup class="fn"><a href="#fn1">[1]</a></sup>
     </p>
 
-    <div class="card accent-navy">
-      <h3>Idea central</h3>
+    <div class="kpi-grid">
+      <div class="kpi-box red">
+        <div class="kpi-value">−4,5%</div>
+        <div class="kpi-label">Caída PIB global en 2020 (FMI)</div>
+      </div>
+      <div class="kpi-box red">
+        <div class="kpi-value">124%</div>
+        <div class="kpi-label">Deuda pública / PIB en economías avanzadas (2020, pico)</div>
+      </div>
+      <div class="kpi-box amber">
+        <div class="kpi-value">16%</div>
+        <div class="kpi-label">Estímulo fiscal global aprox. (% PIB, 2020)</div>
+      </div>
+      <div class="kpi-box green">
+        <div class="kpi-value">+5,8%</div>
+        <div class="kpi-label">Rebote del PIB global en 2021 (FMI, escenario base)</div>
+      </div>
+    </div>
+
+    <p>
+      Lo que distingue la respuesta fiscal al COVID de otras crisis es su naturaleza
+      <strong>inmediata, masiva y coordinada</strong>. Los gobiernos no esperaron a que los
+      mercados financieros se estabilizaran: actuaron en paralelo con los bancos centrales y
+      en muchos casos antes, lo que fue determinante para evitar que una crisis sanitaria se
+      convirtiera en una depresión económica sistémica.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       2. PRINCIPALES MEDIDAS FISCALES POST-COVID
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="sec">
+    <h2>2. Principales medidas fiscales implementadas</h2>
+    <p>
+      Las medidas pueden clasificarse en dos grandes fases: las de <strong>emergencia</strong>
+      (2020–2021), orientadas a evitar el colapso económico inmediato, y las de
+      <strong>recuperación</strong> (2021–2025), orientadas a reconstruir el tejido productivo
+      y transformar la estructura económica.<sup class="fn"><a href="#fn2">[2]</a></sup>
+    </p>
+
+    <h3>2.1 Fase de emergencia (2020–2021)</h3>
+
+    <div class="medida-block">
+      <div class="medida-header"><span class="medida-emoji">🏭</span>Expedientes de Regulación Temporal de Empleo (ERTE) y equivalentes</div>
+      <div class="medida-body">
+        <p>Los gobiernos financiaron parte de los salarios de trabajadores cuyas empresas cerraron
+        temporalmente. En España, más de 3,4 millones de trabajadores estuvieron en ERTE en el pico
+        de la pandemia (abril 2020). En Alemania se usó el <em>Kurzarbeit</em>; en Francia, el
+        <em>chômage partiel</em>. El objetivo era preservar el capital humano y evitar que el
+        desempleo estructural se disparara, facilitando la reanudación rápida al levantar
+        las restricciones.</p>
+        <p><strong>Impacto:</strong> sin estas medidas, el desempleo en la eurozona habría superado
+        el 15%–20% según estimaciones del BCE. La tasa de paro europea se mantuvo contenida en
+        el 7%–8%, muy por debajo de lo que los modelos históricos proyectaban para una caída del
+        PIB de esa magnitud.</p>
+      </div>
+    </div>
+
+    <div class="medida-block">
+      <div class="medida-header"><span class="medida-emoji">💸</span>Transferencias directas, cheques de estímulo y subsidios</div>
+      <div class="medida-body">
+        <p>EE.UU. implementó la respuesta fiscal más agresiva del mundo: el <strong>CARES Act</strong>
+        (marzo 2020, 2,2 billones de dólares), seguido del <strong>American Rescue Plan</strong>
+        (marzo 2021, 1,9 billones de dólares). Los cheques de estímulo directos (hasta 1.400 dólares
+        por persona) inyectaron renta disponible masiva que sostuvo el consumo y fue el principal
+        driver de la inflación de demanda de 2021–2022.<sup class="fn"><a href="#fn3">[3]</a></sup></p>
+        <p><strong>Impacto en inflación:</strong> la combinación de transferencias masivas con oferta
+        restringida (cuellos de botella logísticos) fue el principal origen de la inflación de demanda
+        que el Fed tuvo que combatir con el ciclo de subidas de tipos de 2022–2023.</p>
+      </div>
+    </div>
+
+    <div class="medida-block">
+      <div class="medida-header"><span class="medida-emoji">🏦</span>Garantías públicas del crédito</div>
+      <div class="medida-body">
+        <p>Los gobiernos avalaron líneas de crédito a empresas para que pudieran financiarse a pesar
+        del cierre de ingresos. En España, el ICO habilitó líneas de avales por 100.000 M€. En
+        Francia, el BPI garantizó más de 120.000 M€. Estas garantías no supusieron gasto inmediato
+        en los presupuestos, pero sí un <em>pasivo contingente</em>: si las empresas no devolvían los
+        préstamos, el coste recaería sobre el contribuyente.</p>
+        <p><strong>Impacto financiero:</strong> la morosidad empresarial se mantuvo sorprendentemente
+        baja en 2020–2022, en gran medida gracias a estas garantías. El mercado de crédito no
+        colapsó, lo que evitó una espiral deflacionaria similar a la de 2008–2009.</p>
+      </div>
+    </div>
+
+    <h3>2.2 Fase de recuperación — NextGenerationEU (2021–2027)</h3>
+
+    <div class="medida-block">
+      <div class="medida-header"><span class="medida-emoji">🇪🇺</span>NextGenerationEU (NGEU) — El mayor programa de inversión de la historia de la UE</div>
+      <div class="medida-body">
+        <p>En julio de 2020, la UE aprobó el mayor paquete de estímulo de su historia: <strong>750.000
+        millones de euros</strong> adicionales al presupuesto ordinario, elevando el total a más de
+        1,8 billones para el período 2021–2027.<sup class="fn"><a href="#fn4">[4]</a></sup>
+        El instrumento central es el <strong>Mecanismo de Recuperación y Resiliencia (MRR)</strong>,
+        dotado con 672.500 millones (subvenciones y préstamos), con dos requisitos mínimos de
+        destinación: el <strong>37%</strong> a transición verde y el <strong>20%</strong> a
+        transformación digital.<sup class="fn"><a href="#fn5">[5]</a></sup></p>
+        <p>La gran novedad institucional fue la <strong>emisión de deuda conjunta de la UE</strong>
+        a gran escala —algo históricamente inédito—, lo que permitió a países con menor solvencia
+        (Italia, España, Portugal) acceder a financiación en condiciones favorables que no habrían
+        conseguido en el mercado por sí solos. El 30% de los bonos emitidos son bonos verdes.</p>
+      </div>
+    </div>
+
+    <div class="concept-grid-3">
+      <div class="concept-box">
+        <h4>Transición verde (≥37%)</h4>
+        <p>Inversión en energías renovables, eficiencia energética de edificios, movilidad limpia,
+        economía circular. Ejemplo: España destinó fondos a parques eólicos y solares, y al bono
+        social de calefacción.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Transformación digital (≥20%)</h4>
+        <p>Conectividad de banda ancha, digitalización de la administración pública, formación
+        en competencias digitales e inteligencia artificial. En España e Italia, el impacto
+        estimado en PIB por digitalización oscila entre +0,3% y +0,6% anual.<sup class="fn"><a href="#fn6">[6]</a></sup></p>
+      </div>
+      <div class="concept-box">
+        <h4>Crecimiento sostenible e inclusivo (≤43%)</h4>
+        <p>Educación, sanidad, empleo juvenil, cohesión territorial, investigación e innovación.
+        Las reformas estructurales asociadas (mercado laboral, administración pública) se estima
+        que aporten 3 puntos del PIB en el largo plazo, más que la inversión directa.</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Impacto del NGEU en España</h3>
       <p>
-        La política fiscal post-COVID tuvo dos fases: primero, una fase de <strong>emergencia</strong>,
-        centrada en evitar quiebras, despidos y colapso de ingresos; después, una fase de
-        <strong>recuperación e inversión</strong>, orientada a digitalización, transición energética,
-        infraestructuras, resiliencia sanitaria y apoyo a sectores estratégicos.
-      </p>
-      <p style="margin-top:.6rem;">
-        Su efecto financiero depende de una tensión básica: a corto plazo puede sostener
-        crecimiento y beneficios empresariales; a medio plazo puede elevar déficit, deuda,
-        inflación esperada y primas de riesgo si el mercado duda de su sostenibilidad.
+        España es la segunda mayor receptora de fondos NGEU tras Italia. Los datos actualizados
+        muestran que los fondos europeos han impulsado entre el <strong>10% y el 14%</strong>
+        del crecimiento del PIB español durante 2021–2025, con el plan impulsando el PIB un
+        <strong>2,6%</strong> en 2024 respecto al escenario sin fondos.<sup class="fn"><a href="#fn7">[7]</a></sup>
+        El impacto estimado para 2031 alcanza el <strong>3,4% del PIB adicional</strong>, con
+        las reformas estructurales aportando 3 puntos y la inversión directa 0,4 puntos.<br><br>
+        Sin embargo, la diferencia entre fondos comprometidos (3,4% del PIB) y el avance real
+        del PIB (1,4%–2,1% de impacto) se explica por el <strong>efecto sustitución</strong>:
+        algunas inversiones financiadas por el programa habrían ocurrido igualmente sin los
+        fondos. La ejecución efectiva ha sido parcial: a finales de 2025, más de la mitad de
+        los hitos y objetivos previstos aún no se habían completado.<sup class="fn"><a href="#fn8">[8]</a></sup>
       </p>
     </div>
 
     <div class="exam-alert">
       <div>
-        <strong>🎯 Frecuente en examen</strong>
-        Distinguir entre <strong>política fiscal expansiva</strong> —más gasto o menos impuestos— y
-        <strong>política fiscal contractiva</strong> —menos gasto o más impuestos—, y saber que la
-        sostenibilidad de la deuda no depende solo del volumen de deuda, sino también del
-        crecimiento, los tipos de interés y la credibilidad fiscal.
+        <strong>🎯 Frecuente en examen (Nivel II)</strong>
+        Conocer la dotación del NGEU (750.000 M€), los porcentajes mínimos para verde (37%)
+        y digital (20%), y la novedad institucional de la deuda conjunta europea. Distinguir
+        entre las medidas de emergencia (2020–21, estabilización) y las de recuperación
+        (2021–27, transformación estructural).
       </div>
     </div>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       1. MEDIDAS FISCALES POST-COVID
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       3. DÉFICIT, DEUDA Y SOSTENIBILIDAD
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
-    <h2>1. Principales medidas fiscales post-COVID</h2>
-    <p class="sec-intro">
-      La crisis sanitaria produjo simultáneamente un shock de oferta —empresas cerradas,
-      cadenas de suministro interrumpidas— y un shock de demanda —familias y empresas
-      reduciendo consumo e inversión por incertidumbre—. Por eso las respuestas fiscales
-      combinaron transferencias de renta, ayudas empresariales, garantías públicas y planes de
-      inversión.
-    </p>
+    <h2>3. Política fiscal expansiva, déficit y sostenibilidad de la deuda</h2>
 
-    <h3>Medidas de emergencia</h3>
-    <div class="policy-grid">
-      <div class="policy-card emergency">
-        <h4>1 · Protección de empleo y renta</h4>
-        <p>
-          Esquemas tipo ERTE, subsidios salariales, prestaciones extraordinarias y ayudas directas
-          a hogares. Objetivo: evitar que una caída temporal de actividad se convirtiera en paro
-          permanente y destrucción masiva de renta disponible.
-        </p>
-      </div>
-      <div class="policy-card emergency">
-        <h4>2 · Liquidez y solvencia empresarial</h4>
-        <p>
-          Avales públicos a préstamos, moratorias fiscales, aplazamientos de cotizaciones,
-          líneas de crédito y subvenciones a sectores cerrados por restricciones sanitarias.
-          Objetivo: evitar una oleada de quiebras por falta de caja.
-        </p>
-      </div>
-      <div class="policy-card emergency">
-        <h4>3 · Gasto sanitario extraordinario</h4>
-        <p>
-          Refuerzo de hospitales, compras de material médico, campañas de vacunación y gasto
-          preventivo. Aunque no es “estímulo” en sentido clásico, tiene impacto macro porque
-          permite normalizar antes la actividad económica.
-        </p>
-      </div>
-    </div>
-
-    <h3>Medidas de recuperación</h3>
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Inversión pública</h4>
-        <p>Infraestructuras, transporte, rehabilitación, energía, educación, salud y conectividad.
-        Busca elevar demanda presente y capacidad productiva futura.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Transformación digital</h4>
-        <p>Apoyo a digitalización de pymes, administración electrónica, ciberseguridad,
-        automatización, formación tecnológica y conectividad.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Transición energética</h4>
-        <p>Renovables, eficiencia energética, electrificación, movilidad sostenible, redes,
-        rehabilitación de edificios y reducción de emisiones.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Reindustrialización y autonomía estratégica</h4>
-        <p>Apoyo a sectores considerados críticos: semiconductores, salud, defensa, energía,
-        baterías, materias primas, logística y producción local.</p>
-      </div>
-    </div>
-
-    <div class="callout info">
-      <strong>Lectura EFA:</strong> no basta con decir “más gasto público = más crecimiento”. Hay que
-      distinguir gasto corriente, transferencias e inversión. Una ayuda temporal sostiene demanda;
-      una inversión productiva puede aumentar el PIB potencial; un gasto mal asignado puede elevar
-      deuda sin mejorar productividad.
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       2. CANALES DE TRANSMISIÓN
-       ============================================================ -->
-  <div class="sec">
-    <h2>2. Cómo se transmite la política fiscal a la economía</h2>
-    <p class="sec-intro">
-      La política fiscal afecta a la economía a través de varios canales. Estos canales explican
-      por qué una misma medida puede tener efectos distintos según el momento del ciclo, la
-      confianza del mercado, la inflación, la apertura exterior y la respuesta del banco central.
-    </p>
-
-    <div class="transmission-flow">
-      <div class="flow-step"><strong>1 · Gobierno aumenta gasto o reduce impuestos.</strong> Sube la renta disponible de hogares, los ingresos de empresas o la demanda directa del sector público.</div>
-      <div class="flow-step"><strong>2 · Aumenta la demanda agregada.</strong> Familias consumen más, empresas venden más y puede recuperarse la inversión privada.</div>
-      <div class="flow-step"><strong>3 · Mejora empleo y beneficios.</strong> Si hay capacidad ociosa, el estímulo puede elevar producción sin generar mucha inflación.</div>
-      <div class="flow-step"><strong>4 · Suben déficit y deuda.</strong> El Estado financia el estímulo con más emisión de deuda o con menor recaudación neta.</div>
-      <div class="flow-step"><strong>5 · Reacción de mercados y banco central.</strong> Si el estímulo es creíble y productivo, puede apoyar activos de riesgo; si parece inflacionario o insostenible, puede subir la prima de riesgo y los tipos largos.</div>
-    </div>
-
-    <h3>Multiplicador fiscal</h3>
+    <h3>3.1 La aritmética del déficit y la deuda</h3>
     <p>
-      El <strong>multiplicador fiscal</strong> mide cuánto cambia el PIB ante un cambio inicial del
-      gasto público o de los impuestos. Si el Estado aumenta el gasto en 1.000 millones y el
-      PIB aumenta en 1.500 millones, el multiplicador es 1,5. Si el PIB aumenta solo 600
-      millones, el multiplicador es 0,6.
-    </p>
-
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Cuándo suele ser mayor</h4>
-        <ul>
-          <li>Recesión o alto desempleo.</li>
-          <li>Tipos de interés bajos o banco central acomodaticio.</li>
-          <li>Hogares con restricciones de liquidez.</li>
-          <li>Gasto en inversión productiva.</li>
-          <li>Economía con capacidad ociosa.</li>
-        </ul>
-      </div>
-      <div class="concept-box">
-        <h4>Cuándo suele ser menor</h4>
-        <ul>
-          <li>Economía cerca del pleno empleo.</li>
-          <li>Inflación elevada y banco central restrictivo.</li>
-          <li>Economías muy abiertas: parte del gasto se va a importaciones.</li>
-          <li>Alta incertidumbre fiscal o riesgo de subidas futuras de impuestos.</li>
-          <li>Gasto poco productivo o mal dirigido.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        Un estímulo fiscal no tiene siempre el mismo efecto. En recesión profunda puede tener un
-        multiplicador alto. En una economía recalentada puede traducirse más en inflación que en
-        crecimiento real.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       3. CRECIMIENTO Y SECTORES
-       ============================================================ -->
-  <div class="sec">
-    <h2>3. Impacto en crecimiento y sectores clave</h2>
-    <p class="sec-intro">
-      Las medidas fiscales post-COVID no afectaron por igual a todos los sectores. Algunas
-      protegieron actividades golpeadas por restricciones sanitarias; otras impulsaron sectores
-      considerados estratégicos para la recuperación de largo plazo.
-    </p>
-
-    <h3>Efecto macroeconómico general</h3>
-    <div class="asset-grid">
-      <div class="asset-box">
-        <h4>Consumo privado</h4>
-        <p>Las transferencias y protección del empleo sostienen renta disponible. Si los hogares
-        confían en que la ayuda es temporal pero suficiente, pueden mantener consumo básico y
-        reducir ahorro precautorio.</p>
-      </div>
-      <div class="asset-box">
-        <h4>Inversión empresarial</h4>
-        <p>Los avales, subvenciones y planes de inversión reducen incertidumbre y mejoran acceso
-        a financiación. Aun así, si la demanda futura es dudosa, las empresas pueden preferir
-        desapalancarse antes que invertir.</p>
-      </div>
-      <div class="asset-box">
-        <h4>Empleo</h4>
-        <p>Los esquemas de mantenimiento de empleo reducen despidos en una crisis temporal.
-        Su ventaja es preservar capital humano; su riesgo es sostener empleos inviables si la
-        estructura económica cambia de forma permanente.</p>
-      </div>
-      <div class="asset-box">
-        <h4>PIB potencial</h4>
-        <p>La inversión en digitalización, energía, educación e infraestructuras puede elevar la
-        productividad futura. Pero solo si los proyectos tienen buena ejecución y adicionalidad
-        real.</p>
-      </div>
-    </div>
-
-    <h3>Sectores especialmente afectados</h3>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th>Sector</th><th>Tipo de apoyo / impacto</th><th>Lectura financiera</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Turismo, ocio y hostelería</strong></td>
-            <td>Ayudas directas, ERTE, moratorias y reapertura progresiva</td>
-            <td>Recuperación muy cíclica; sensible a renta disponible y confianza</td>
-          </tr>
-          <tr>
-            <td><strong>Transporte y aerolíneas</strong></td>
-            <td>Rescates, apoyo a liquidez y normalización de movilidad</td>
-            <td>Alta deuda y sensibilidad a energía; mejora con reapertura, pero riesgo financiero elevado</td>
-          </tr>
-          <tr>
-            <td><strong>Salud y biotecnología</strong></td>
-            <td>Gasto sanitario, investigación, vacunas, resiliencia hospitalaria</td>
-            <td>Mayor visibilidad de ingresos; posible valoración exigente tras shocks sanitarios</td>
-          </tr>
-          <tr>
-            <td><strong>Tecnología y digitalización</strong></td>
-            <td>Programas de digitalización, nube, conectividad y administración digital</td>
-            <td>Beneficio estructural; sensible a tipos si las valoraciones son de crecimiento</td>
-          </tr>
-          <tr>
-            <td><strong>Energía e infraestructuras verdes</strong></td>
-            <td>Fondos para renovables, eficiencia, redes y movilidad eléctrica</td>
-            <td>Impulso temático; riesgo regulatorio y de ejecución de proyectos</td>
-          </tr>
-          <tr>
-            <td><strong>Construcción e inmobiliario</strong></td>
-            <td>Rehabilitación, obra pública, eficiencia energética</td>
-            <td>Apoyo a actividad, pero muy sensible a tipos, costes de financiación y ciclo de vivienda</td>
-          </tr>
-          <tr>
-            <td><strong>Banca</strong></td>
-            <td>Avales públicos y moratorias que reducen deterioro inmediato</td>
-            <td>Menos morosidad al inicio; riesgo posterior si se retiran ayudas y suben tipos</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="callout tip">
-      <strong>Aplicación práctica:</strong> al analizar una empresa o fondo temático, pregúntate si el
-      impulso fiscal es estructural —mejora beneficios durante años— o meramente transitorio —adelanta
-      demanda y luego se agota—. Esa diferencia cambia la valoración.
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       4. DÉFICIT Y SOSTENIBILIDAD
-       ============================================================ -->
-  <div class="sec">
-    <h2>4. Déficit público y sostenibilidad de la deuda</h2>
-    <p class="sec-intro">
-      La contrapartida del estímulo fiscal fue un aumento significativo del déficit público y de
-      la deuda. Para un asesor financiero, la pregunta no es solo “cuánta deuda hay”, sino si esa
-      deuda es sostenible bajo distintos escenarios de tipos de interés, crecimiento e inflación.
-    </p>
-
-    <h3>Déficit vs. deuda</h3>
-    <div class="vs-grid">
-      <div class="vs-box left">
-        <h4>Déficit público</h4>
-        <p>
-          Es una variable <strong>flujo</strong>: mide cuánto gasta de más el Estado respecto a sus ingresos
-          en un período concreto, normalmente un año. Si el déficit aumenta, el Estado necesita
-          financiarse emitiendo más deuda.
-        </p>
-      </div>
-      <div class="vs-box right">
-        <h4>Deuda pública</h4>
-        <p>
-          Es una variable <strong>stock</strong>: acumula los déficits pasados pendientes de amortizar.
-          Suele analizarse como porcentaje del PIB para comparar países y valorar sostenibilidad.
-        </p>
-      </div>
-    </div>
-
-    <h3>La dinámica deuda/PIB</h3>
-    <p>
-      La sostenibilidad depende de cuatro variables: deuda inicial, déficit primario, coste medio
-      de financiación y crecimiento nominal del PIB. El punto crítico es la comparación entre
-      <strong>r</strong> —tipo de interés efectivo de la deuda— y <strong>g</strong> —crecimiento nominal de la economía—.
+      El déficit público es la diferencia entre el gasto del gobierno y sus ingresos en un ejercicio.
+      Cuando es negativo (más gasto que ingreso), el gobierno debe financiarse emitiendo deuda.
+      La relación entre déficit, deuda y tipos de interés determina si la deuda pública es sostenible
+      a largo plazo.<sup class="fn"><a href="#fn9">[9]</a></sup>
     </p>
 
     <div class="formula">
-      <span class="formula-label">Intuición de sostenibilidad fiscal</span>
-      Si g &gt; r → la deuda/PIB puede estabilizarse más fácilmente<br>
-      Si r &gt; g → la deuda/PIB exige superávits primarios o ajuste fiscal
+      <span class="formula-label">Dinámica de la deuda — condición de sostenibilidad</span>
+      Δ(d) = (r − g) × d − s
     </div>
 
+    <p>Donde:</p>
     <div class="concept-grid">
       <div class="concept-box">
-        <h4>Situación favorable</h4>
-        <p>
-          Crecimiento nominal alto, tipos bajos, inflación moderada, vencimientos largos y
-          credibilidad fiscal. La ratio deuda/PIB puede bajar aunque el stock de deuda nominal
-          siga siendo elevado.
-        </p>
+        <h4>r − g (tipos menos crecimiento)</h4>
+        <p><strong>r</strong> = tipo de interés real de la deuda · <strong>g</strong> = tasa de
+        crecimiento real del PIB. Si r &lt; g, la economía crece más rápido de lo que se acumula
+        deuda: la ratio deuda/PIB se estabiliza o baja incluso con déficit. Si r &gt; g, la deuda
+        es explosiva a largo plazo.</p>
       </div>
       <div class="concept-box">
-        <h4>Situación peligrosa</h4>
-        <p>
-          Crecimiento débil, tipos altos, déficit estructural persistente y pérdida de confianza.
-          El mercado exige más rentabilidad, encarece la financiación y puede producir una espiral
-          de riesgo soberano.
-        </p>
+        <h4>s (superávit primario)</h4>
+        <p>Saldo presupuestario <em>antes</em> de pagar intereses. Un superávit primario positivo
+        reduce la deuda aunque el saldo total sea negativo (si los intereses son altos). La
+        consolidación fiscal post-COVID exige que los países generen superávits primarios
+        suficientes para compensar el efecto (r − g).</p>
       </div>
     </div>
 
-    <h3>Déficit cíclico vs. estructural</h3>
-    <div class="comparison-row">
-      <div class="comparison-label">Déficit cíclico</div>
-      <div class="comparison-note">Aparece porque la economía está débil: cae recaudación y sube gasto automático en desempleo.</div>
-      <div class="comparison-note">Tiende a mejorar cuando el ciclo se recupera.</div>
-    </div>
-    <div class="comparison-row">
-      <div class="comparison-label">Déficit estructural</div>
-      <div class="comparison-note">Persistiría incluso con la economía en situación normal.</div>
-      <div class="comparison-note">Es más preocupante para sostenibilidad porque exige reformas, ingresos permanentes o recortes.</div>
-    </div>
-    <div class="comparison-row">
-      <div class="comparison-label">Saldo primario</div>
-      <div class="comparison-note">Ingresos menos gastos excluyendo intereses de la deuda.</div>
-      <div class="comparison-note">Clave para medir esfuerzo fiscal bajo control del gobierno.</div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        No confundas déficit con deuda. El déficit es el agujero anual; la deuda es la acumulación
-        de agujeros pasados. Tampoco confundas déficit total con déficit primario: el primario
-        excluye intereses.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       5. ESTABILIDAD FINANCIERA
-       ============================================================ -->
-  <div class="sec">
-    <h2>5. Estabilidad financiera global</h2>
-    <p class="sec-intro">
-      Las políticas fiscales post-COVID estabilizaron la economía real, pero también introdujeron
-      nuevos riesgos financieros: mayor endeudamiento soberano, dependencia de tipos bajos,
-      inflación, riesgo moral y posible reasignación ineficiente de capital.
+    <h3>3.2 El período de tipos bajos: la deuda parecía gratis</h3>
+    <p>
+      Entre 2015 y 2021, el entorno de tipos reales negativos o cercanos a cero hizo que la
+      dinámica de deuda fuera benigna: <strong>r &lt; g</strong> en la mayoría de economías
+      avanzadas. Los gobiernos podían endeudarse a tipos reales negativos mientras sus economías
+      crecían. El coste de los intereses era mínimo incluso con niveles de deuda históricamente
+      elevados.<sup class="fn"><a href="#fn9">[9]</a></sup> Esta situación llevó a algunos economistas
+      (Blanchard, 2019) a argumentar que la deuda pública tenía pocos costes en ese entorno.
     </p>
 
-    <h3>Canales de estabilización</h3>
-    <div class="policy-grid">
-      <div class="policy-card recovery">
-        <h4>Evitar una espiral de quiebras</h4>
-        <p>
-          Al sostener liquidez empresarial y empleo, la política fiscal evitó que un shock sanitario
-          temporal destruyera de forma permanente tejido productivo, capital humano y balances bancarios.
-        </p>
-      </div>
-      <div class="policy-card recovery">
-        <h4>Reducir riesgo sistémico bancario</h4>
-        <p>
-          Avales y moratorias redujeron inicialmente impagos y provisiones bancarias. Eso ayudó a que
-          el crédito siguiera fluyendo, aunque parte del riesgo se trasladó al sector público.
-        </p>
-      </div>
-      <div class="policy-card recovery">
-        <h4>Coordinarse con política monetaria</h4>
-        <p>
-          En la fase inicial, bancos centrales y gobiernos actuaron en la misma dirección: liquidez,
-          tipos bajos, compras de activos y estímulo fiscal. La coordinación reforzó la confianza.
-        </p>
-      </div>
+    <h3>3.3 El cambio de régimen: tipos altos + deuda alta = problema</h3>
+    <p>
+      El ciclo de subidas de 2022–2023 invirtió la ecuación. Con tipos reales positivos y deuda en
+      máximos históricos, el coste de financiación de la deuda se disparó. El FMI proyecta que la
+      deuda pública global podría alcanzar el <strong>100% del PIB mundial</strong> a finales de la
+      década.<sup class="fn"><a href="#fn10">[10]</a></sup>
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>País</th>
+            <th>Deuda/PIB 2019 (pre-COVID)</th>
+            <th>Deuda/PIB 2020 (pico)</th>
+            <th>Deuda/PIB 2025 (est.)</th>
+            <th>Tendencia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🇺🇸 EE.UU.</td>
+            <td>~108%</td>
+            <td>~132%</td>
+            <td>~122%</td>
+            <td>↑ Al alza estructural</td>
+          </tr>
+          <tr>
+            <td>🇯🇵 Japón</td>
+            <td>~236%</td>
+            <td>~259%</td>
+            <td>~250%</td>
+            <td>→ Estable / elevada</td>
+          </tr>
+          <tr>
+            <td>🇮🇹 Italia</td>
+            <td>~134%</td>
+            <td>~155%</td>
+            <td>~135%</td>
+            <td>↓ Bajando (crecimiento + inflación)</td>
+          </tr>
+          <tr>
+            <td>🇪🇸 España</td>
+            <td>~95%</td>
+            <td>~120%</td>
+            <td>~105%</td>
+            <td>↓ En consolidación</td>
+          </tr>
+          <tr>
+            <td>🇩🇪 Alemania</td>
+            <td>~60%</td>
+            <td>~68%</td>
+            <td>~64%</td>
+            <td>→ Bajo control (freno constitucional)</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <h3>Riesgos generados</h3>
-    <div class="scenario-grid">
-      <div class="scenario-box">
-        <h4>Riesgo de inflación</h4>
-        <p>
-          Si el estímulo fiscal impulsa demanda cuando la oferta está restringida, puede alimentar
-          inflación. Esto obliga al banco central a endurecer política monetaria y puede presionar
-          bonos y valoraciones bursátiles.
-        </p>
-      </div>
-      <div class="scenario-box">
-        <h4>Riesgo de prima soberana</h4>
-        <p>
-          Si los inversores dudan de la capacidad de pago o de la disciplina fiscal, exigen mayor
-          rentabilidad para comprar deuda pública. Esto eleva el coste de financiación del Estado y
-          puede contagiar al crédito privado.
-        </p>
-      </div>
-      <div class="scenario-box">
-        <h4>Riesgo moral</h4>
-        <p>
-          Empresas o sectores pueden asumir más riesgo si esperan rescates futuros. Además, ayudas
-          prolongadas pueden mantener empresas poco productivas, reduciendo dinamismo económico.
-        </p>
-      </div>
-      <div class="scenario-box">
-        <h4>Riesgo de retirada prematura</h4>
-        <p>
-          Retirar estímulos demasiado pronto puede dañar la recuperación. Retirarlos demasiado tarde
-          puede recalentar la economía. El equilibrio fiscal es especialmente delicado tras una crisis.
-        </p>
-      </div>
-    </div>
+    <h3>3.4 Pacto de Estabilidad y Crecimiento (PEC) y su reforma</h3>
+    <p>
+      Las reglas fiscales europeas —déficit máximo del <strong>3% del PIB</strong> y deuda máxima
+      del <strong>60% del PIB</strong>— fueron suspendidas mediante la <em>cláusula de salvaguarda
+      general</em> en marzo de 2020, y no se reactivaron hasta 2024. La reforma del PEC acordada
+      en 2023–2024 sustituyó los objetivos rígidos por <strong>planes de ajuste fiscal a medio
+      plazo</strong> (4–7 años), diferenciados por país y condicionados al nivel de deuda.<sup class="fn"><a href="#fn11">[11]</a></sup>
+    </p>
 
     <div class="callout info">
-      <strong>Punto fino:</strong> una política fiscal expansiva puede ser estabilizadora en recesión y
-      desestabilizadora en pleno empleo. La clave es el contexto: output gap, inflación, tipo de interés,
-      nivel de deuda y credibilidad institucional.
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       6. EFECTO EN ACTIVOS FINANCIEROS
-       ============================================================ -->
-  <div class="sec">
-    <h2>6. Efecto en valoración de inversiones</h2>
-    <p class="sec-intro">
-      La política fiscal impacta los activos financieros por tres vías principales: crecimiento
-      esperado, inflación/tipos y riesgo fiscal. El mismo estímulo puede ser positivo para beneficios
-      empresariales y negativo para bonos si eleva tipos largos.
-    </p>
-
-    <h3>Impacto por clase de activo</h3>
-    <div class="asset-grid">
-      <div class="asset-box">
-        <h4>Renta fija soberana</h4>
-        <ul>
-          <li>Más déficit implica más emisión de deuda.</li>
-          <li>Si el mercado exige más prima, suben rentabilidades y bajan precios.</li>
-          <li>La duración alta es más vulnerable a subidas de tipos largos.</li>
-          <li>Si el estímulo evita recesión severa, puede reducir riesgo extremo.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Renta fija corporativa</h4>
-        <ul>
-          <li>Ayudas y crecimiento reducen impagos esperados.</li>
-          <li>Mejora de beneficios comprime spreads.</li>
-          <li>Pero tipos libres de riesgo más altos pueden dañar precios.</li>
-          <li>High yield se beneficia si baja el riesgo de default.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Renta variable</h4>
-        <ul>
-          <li>Estímulo apoya ingresos, márgenes y confianza.</li>
-          <li>Sectores cíclicos se benefician de reapertura y demanda.</li>
-          <li>Subidas de tipos reducen múltiplos, especialmente growth.</li>
-          <li>Impuestos futuros pueden reducir beneficios netos.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Inmobiliario e infraestructuras</h4>
-        <ul>
-          <li>Obra pública y rehabilitación pueden impulsar actividad.</li>
-          <li>Activos reales pueden proteger parcialmente ante inflación.</li>
-          <li>Pero son muy sensibles al coste de financiación.</li>
-          <li>Infraestructuras reguladas dependen de marcos públicos estables.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Divisas</h4>
-        <ul>
-          <li>Estímulo creíble puede fortalecer divisa por mejores perspectivas.</li>
-          <li>Déficit externo/fiscal persistente puede debilitarla.</li>
-          <li>Diferenciales de tipos y política monetaria dominan a corto plazo.</li>
-          <li>La credibilidad fiscal importa en países vulnerables.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Materias primas y oro</h4>
-        <ul>
-          <li>Más demanda global puede apoyar materias primas cíclicas.</li>
-          <li>Infraestructura y transición energética elevan demanda de metales.</li>
-          <li>Oro responde a tipos reales, inflación esperada y riesgo sistémico.</li>
-          <li>No todo estímulo fiscal es alcista para oro si suben tipos reales.</li>
-        </ul>
-      </div>
+      <strong>La paradoja de la deuda post-COVID:</strong> la inflación de 2022–2024 redujo la
+      ratio deuda/PIB de muchos países (el denominador creció en términos nominales más que el
+      numerador). España pasó del 120% de 2020 al ~105% de 2024–2025. El crecimiento económico
+      hace el mismo efecto: si el PIB nominal crece al 5% (3% real + 2% inflación) y el déficit
+      es del 3%, la ratio baja automáticamente sin necesidad de consolidación adicional.
     </div>
 
-    <h3>Fiscalidad y valoración</h3>
-    <p>
-      Las medidas fiscales no solo afectan al gasto: también pueden implicar cambios tributarios
-      futuros. Subidas de impuestos sobre beneficios, dividendos, plusvalías o patrimonio reducen
-      la rentabilidad neta esperada del inversor. En valoración de empresas, una mayor carga fiscal
-      reduce el beneficio neto y los flujos de caja libres después de impuestos.
-    </p>
-
-    <div class="card accent-amber">
-      <h3>⚠️ Trampa típica</h3>
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Dinámica de la deuda</h3>
       <p>
-        Un plan fiscal puede ser bueno para la economía y no necesariamente bueno para todos los
-        activos. Ejemplo: más inversión pública puede favorecer constructoras e industriales, pero
-        si el mercado anticipa más inflación y tipos largos más altos, los bonos de larga duración
-        pueden caer.
+        País con los siguientes parámetros:<br>
+        · Deuda inicial: <strong>100% del PIB</strong><br>
+        · Tipo de interés real de la deuda: <strong>r = 2%</strong><br>
+        · Crecimiento real del PIB: <strong>g = 1,5%</strong><br>
+        · Superávit primario: <strong>s = 0%</strong> (presupuesto equilibrado antes de intereses)<br><br>
+        <strong>Δ(d) = (r − g) × d − s = (2% − 1,5%) × 100% − 0% = +0,5% del PIB</strong><br><br>
+        La deuda crece 0,5 puntos del PIB cada año. En 10 años: +5% del PIB sin hacer nada.
+        Para <em>estabilizar</em> la deuda, el país necesita un superávit primario de 0,5% del PIB.<br><br>
+        Ahora cambia el escenario (2022–2023): r sube al 4% (tipos altos), g baja al 0,5% (recesión):<br>
+        <strong>Δ(d) = (4% − 0,5%) × 100% − 0% = +3,5% del PIB por año</strong><br><br>
+        La deuda se hace explosiva: para estabilizarla ahora se necesita un superávit primario del
+        3,5% del PIB, que implica recortes drásticos de gasto o subidas de impuestos. Esto ilustra
+        por qué el ciclo de subidas de tipos de 2022–2023 aumentó simultáneamente la presión sobre
+        los países más endeudados de la eurozona (Italia, España, Grecia).
       </p>
     </div>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       7. ASIGNACIÓN DE ACTIVOS
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       4. ESTÍMULOS FISCALES Y ESTABILIDAD FINANCIERA
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
-    <h2>7. Implicaciones para la asignación de activos</h2>
-    <p class="sec-intro">
-      En gestión de carteras, la política fiscal se incorpora como variable de escenario: afecta a
-      crecimiento, inflación, tipos, sectores, solvencia soberana y beneficios empresariales. No se
-      trata de “comprar lo que subvenciona el Estado”, sino de estimar cómo cambia el binomio
-      rentabilidad-riesgo.
+    <h2>4. Efecto de los estímulos fiscales en sectores clave y estabilidad financiera</h2>
+
+    <h3>4.1 El mecanismo de transmisión fiscal</h3>
+    <p>
+      El impacto del estímulo fiscal en la economía real depende del <strong>multiplicador fiscal</strong>:
+      cuántos euros de PIB genera cada euro de gasto público. El tamaño del multiplicador varía según
+      el estado del ciclo y el instrumento usado.<sup class="fn"><a href="#fn12">[12]</a></sup>
     </p>
 
-    <h3>Lectura por escenarios</h3>
-    <div class="scenario-grid">
-      <div class="scenario-box">
-        <h4><span class="indicator-tag tag-expansive">Escenario 1</span> Estímulo productivo</h4>
-        <p>
-          El gasto mejora productividad, aumenta PIB potencial y no genera inflación persistente.
-          Puede favorecer renta variable, crédito de calidad, infraestructuras y sectores ligados a
-          inversión pública.
-        </p>
+    <div class="concept-grid-3">
+      <div class="concept-box">
+        <h4>Multiplicador en recesión</h4>
+        <p>Mayor que en expansión. Con capacidad ociosa y crédito bloqueado, el gasto público
+        activa recursos infrautilizados. El BCE (2021) estimó multiplicadores del NGEU de
+        entre 0,9 y 1,3 para los países receptores principales.</p>
       </div>
-      <div class="scenario-box">
-        <h4><span class="indicator-tag tag-warning">Escenario 2</span> Estímulo inflacionario</h4>
-        <p>
-          La demanda sube más rápido que la oferta. Los bancos centrales endurecen política.
-          Riesgo para bonos largos y activos growth; mejor comportamiento relativo de sectores con
-          poder de fijación de precios.
-        </p>
+      <div class="concept-box">
+        <h4>Multiplicador en expansión</h4>
+        <p>Menor, a veces inferior a 1. El gasto público puede desplazar inversión privada
+        (<em>crowding out</em>): si los recursos están ocupados y el déficit sube los tipos
+        de interés, la inversión privada se retrae y compensa parcialmente el estímulo.</p>
       </div>
-      <div class="scenario-box">
-        <h4><span class="indicator-tag tag-restrictive">Escenario 3</span> Crisis fiscal</h4>
-        <p>
-          El mercado pierde confianza en la deuda pública. Suben primas de riesgo, baja precio de
-          bonos, se encarece el crédito y puede depreciarse la divisa. Conviene priorizar calidad,
-          liquidez y diversificación geográfica.
-        </p>
-      </div>
-      <div class="scenario-box">
-        <h4><span class="indicator-tag tag-neutral">Escenario 4</span> Consolidación fiscal</h4>
-        <p>
-          El gobierno reduce déficit mediante impuestos o menor gasto. Puede mejorar credibilidad
-          soberana, pero debilitar crecimiento a corto plazo. Impacto sectorial depende de dónde se
-          recorte y a quién se suban impuestos.
-        </p>
+      <div class="concept-box">
+        <h4>Efecto sustitución</h4>
+        <p>Parte de la inversión pública financia proyectos que las empresas habrían acometido
+        igualmente sin ayuda. El estudio Funcas/AFI estima que el 30%–50% del impacto NGEU
+        en España corresponde a inversión que hubiera ocurrido sin los fondos.</p>
       </div>
     </div>
 
-    <h3>Decisiones de cartera afectadas</h3>
+    <h3>4.2 Sectores clave beneficiados</h3>
+
+    <div style="border:1.5px solid var(--border);border-radius:14px;padding:0 1.2rem;margin:1rem 0;">
+      <div class="deuda-row">
+        <div class="deuda-label">🌱 Energías renovables</div>
+        <div class="deuda-body">
+          El NGEU canalizó la mayor parte del componente verde a energía solar y eólica. España
+          avanzó 1,3 puntos porcentuales por encima de su tendencia pre-pandemia en cuota de
+          renovables.<sup class="fn"><a href="#fn8">[8]</a></sup> El sector de instalación y
+          mantenimiento de energías renovables creció un 30%+ en empleo entre 2021 y 2025.
+          Los flujos de capital hacia bonos verdes y fondos de infraestructuras verdes aumentaron
+          masivamente, y el mercado de bonos verdes soberanos (como los emitidos por España y
+          Alemania) se consolidó como nueva clase de activo relevante.
+        </div>
+      </div>
+      <div class="deuda-row">
+        <div class="deuda-label">💻 Digitalización</div>
+        <div class="deuda-body">
+          La inversión en infraestructura digital (redes 5G, fibra óptica, cloud público) y en
+          competencias digitales fue el segundo pilar del NGEU. El impacto estimado en PIB para
+          Italia, España y Portugal oscila entre +0,3% y +0,6% anual mientras dura la fase de
+          ejecución.<sup class="fn"><a href="#fn6">[6]</a></sup> Las empresas de software, ciberseguridad
+          y servicios tecnológicos al sector público fueron las más beneficiadas.
+        </div>
+      </div>
+      <div class="deuda-row">
+        <div class="deuda-label">🏗️ Construcción e infraestructuras</div>
+        <div class="deuda-body">
+          La rehabilitación energética de edificios, la construcción de infraestructuras de
+          transporte sostenible (trenes, carriles bici) y la modernización de instalaciones
+          públicas reactivaron la construcción después del bache pandémico. Sin embargo, la
+          escasez de materiales y mano de obra en 2021–2022 elevó los costes y redujo el impacto
+          real de la inversión en términos físicos.
+        </div>
+      </div>
+      <div class="deuda-row">
+        <div class="deuda-label">🏨 Turismo y hostelería</div>
+        <div class="deuda-body">
+          Sector más golpeado por las restricciones de movilidad (−70% en turismo internacional
+          en 2020). Los ERTEs en España mantuvieron el tejido empresarial vivo. La recuperación
+          fue la más rápida de los grandes sectores: en España, el turismo superó los niveles
+          pre-pandemia en 2023 y registró récords en 2024. El Plan de Recuperación incluía
+          también inversión en modernización y competitividad del sector.
+        </div>
+      </div>
+      <div class="deuda-row">
+        <div class="deuda-label">🏥 Sanidad pública</div>
+        <div class="deuda-body">
+          La pandemia expuso las limitaciones de los sistemas sanitarios. Los estímulos fiscales
+          financiaron la compra de vacunas (a escala europea, mediante contratos centralizados de
+          la Comisión), la ampliación de capacidad hospitalaria y la digitalización de la sanidad.
+          El gasto sanitario como % del PIB aumentó en todos los países de la OCDE, y parte de
+          ese incremento se ha consolidado estructuralmente.
+        </div>
+      </div>
+    </div>
+
+    <h3>4.3 Estabilidad financiera global: lo que se evitó</h3>
+    <p>
+      El análisis contrafactual —qué habría pasado sin los estímulos— es la clave para entender
+      su importancia. La respuesta fiscal masiva y coordinada evitó tres amenazas sistémicas:
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Quiebras masivas empresariales</h4>
+        <p>Las garantías de crédito y las transferencias directas mantuvieron la liquidez de las
+        empresas durante los cierres. Las tasas de quiebra empresarial en 2020–2021 fueron
+        inferiores a las de 2019 en muchos países — paradoja estadística explicada por el apoyo
+        fiscal masivo que evitó insolvencias que habrían ocurrido sin pandemia.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Crisis bancaria</h4>
+        <p>Con las empresas manteniendo liquidez gracias a garantías públicas, la morosidad
+        bancaria se mantuvo contenida. El contagio fiscal→bancario→financiero que destruyó valor
+        en 2008–2009 no se reprodujo en 2020. Los bancos centrales también jugaron un papel clave
+        (PEPP, TLTRO del BCE).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Fragmentación de la eurozona</h4>
+        <p>El NGEU y el TPI del BCE evitaron que los países más golpeados (Italia, España) sufrieran
+        un ataque especulativo sobre su deuda soberana como en 2011–2012. La deuda conjunta europea
+        fue un salto cualitativo de integración financiera que redujo el riesgo de ruptura del euro.</p>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <strong>El efecto perverso:</strong> el mismo éxito de los estímulos en evitar la recesión
+      profunda fue uno de los factores que contribuyeron a la inflación de 2021–2022. Al mantener
+      la renta disponible de los hogares y el crédito a las empresas, la demanda se recuperó antes
+      de que la oferta (cadenas de suministro, energía) pudiera seguir el ritmo. El exceso de demanda
+      sobre una oferta todavía restringida fue la chispa de la inflación más alta en cuatro décadas.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       5. EFECTOS EN VALORACIÓN DE ACTIVOS Y ASIGNACIÓN DE CARTERA
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="sec">
+    <h2>5. Efectos en la valoración de inversiones y estrategia de asignación de activos</h2>
+    <p>
+      Los cambios en política fiscal afectan a los mercados financieros a través de varios canales
+      simultáneos. El asesor financiero debe ser capaz de identificarlos y traducirlos en
+      decisiones de cartera.<sup class="fn"><a href="#fn13">[13]</a></sup>
+    </p>
+
+    <h3>5.1 Canal del crecimiento → renta variable</h3>
+    <p>
+      El estímulo fiscal aumenta el PIB esperado y con él los beneficios empresariales futuros.
+      Un mayor crecimiento esperado eleva el valor intrínseco de las acciones. Por eso, el anuncio
+      del NGEU en julio de 2020 fue uno de los catalizadores del rebote bursátil europeo: el
+      EuroStoxx 50 subió ~30% en los seis meses siguientes al anuncio.
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Sectores ganadores del gasto público</h4>
+        <p>Las empresas proveedoras directas de los programas de inversión —instaladoras de
+        renovables, constructoras, empresas de IT— se benefician de flujos de ingresos directamente
+        vinculados al presupuesto público. Sus beneficios son más visibles y predecibles que en
+        el sector privado.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Efectos multiplicadores en consumo</h4>
+        <p>El estímulo fiscal genera empleo → más renta disponible → más consumo → mejores
+        beneficios para el sector de consumo discrecional, retail, hostelería y turismo.
+        Es el multiplicador del gasto en acción: el euro gastado por el Estado recorre la
+        economía varias veces.</p>
+      </div>
+    </div>
+
+    <h3>5.2 Canal de tipos → renta fija</h3>
+    <p>
+      El déficit público implica mayor emisión de deuda soberana. Una mayor oferta de bonos, si la
+      demanda no crece en proporción, presiona las TIR al alza (el precio del bono baja). Esta es
+      la llamada <strong>"prima de plazo"</strong>: los inversores exigen mayor rentabilidad
+      cuando perciben que el gobierno va a emitir mucha deuda o que la sostenibilidad fiscal
+      está en duda.<sup class="fn"><a href="#fn9">[9]</a></sup>
+    </p>
+
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>Decisión</th><th>Pregunta clave</th><th>Implicación</th></tr>
+          <tr>
+            <th>Escenario fiscal</th>
+            <th>Efecto en TIR soberana</th>
+            <th>Efecto en spread periférico</th>
+            <th>Impacto en cartera RF</th>
+          </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Duración</strong></td>
-            <td>¿El estímulo aumenta tipos largos?</td>
-            <td>Reducir duración si suben inflación esperada y prima de plazo</td>
+            <td><strong>Estímulo creíble + crecimiento</strong></td>
+            <td>Sube moderado (más crecimiento, inflación)</td>
+            <td>Se comprime (menos riesgo soberano)</td>
+            <td><span class="asset-tag at-neut">~ Neutral duración</span> <span class="asset-tag at-ok">✔ Reducir spread</span></td>
           </tr>
           <tr>
-            <td><strong>Crédito</strong></td>
-            <td>¿Bajan impagos o sube riesgo sistémico?</td>
-            <td>Preferir crédito si el crecimiento mejora sin tensión fiscal excesiva</td>
+            <td><strong>Déficit fiscal descontrolado</strong></td>
+            <td>Sube fuerte (prima de riesgo)</td>
+            <td>Se amplía (más riesgo soberano)</td>
+            <td><span class="asset-tag at-bad">✘ Reducir duración</span> <span class="asset-tag at-bad">✘ Salir periférico</span></td>
           </tr>
           <tr>
-            <td><strong>Renta variable</strong></td>
-            <td>¿Qué sectores reciben demanda estructural?</td>
-            <td>Sobreponderar sectores con beneficios reales, no solo titulares políticos</td>
+            <td><strong>Consolidación fiscal</strong></td>
+            <td>Baja (menos emisiones)</td>
+            <td>Se comprime (mejor sostenibilidad)</td>
+            <td><span class="asset-tag at-ok">✔ Aumentar duración</span></td>
           </tr>
           <tr>
-            <td><strong>Región</strong></td>
-            <td>¿Qué países tienen más espacio fiscal?</td>
-            <td>Mayor confianza en países con deuda sostenible y calidad institucional</td>
-          </tr>
-          <tr>
-            <td><strong>Inflación</strong></td>
-            <td>¿El gasto es inflacionario o productivo?</td>
-            <td>Considerar bonos ligados a inflación, activos reales o empresas con pricing power</td>
-          </tr>
-          <tr>
-            <td><strong>Fiscalidad del cliente</strong></td>
-            <td>¿Cambian impuestos sobre ahorro/inversión?</td>
-            <td>Optimizar vehículos, diferimiento fiscal y localización de activos</td>
+            <td><strong>NGEU (deuda conjunta)</strong></td>
+            <td>Efecto mínimo en core (Bund)</td>
+            <td>Compresión fuerte en periféricos</td>
+            <td><span class="asset-tag at-ok">✔ Periférico atractivo</span></td>
           </tr>
         </tbody>
       </table>
     </div>
 
+    <h3>5.3 Canal sectorial → rotación de activos</h3>
+    <p>
+      Los planes de gasto público crean ganadores y perdedores sectoriales predecibles. La
+      publicación de los planes de recuperación en 2021 generó una rotación masiva de cartera hacia
+      los sectores beneficiados. El asesor financiero puede anticipar estos flujos si lee con
+      antelación dónde irá el dinero público.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Programa / Medida fiscal</th>
+            <th>Sectores beneficiados directamente</th>
+            <th>Clase de activo relevante</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>NGEU — Transición verde</strong></td>
+            <td>Utilities renovables, instaladoras, materiales de construcción eficiente</td>
+            <td>RV sectorial ESG, bonos verdes, infraestructuras</td>
+          </tr>
+          <tr>
+            <td><strong>NGEU — Transformación digital</strong></td>
+            <td>Telecomunicaciones, IT públicas, ciberseguridad, semiconductores</td>
+            <td>RV tecnología europea, ETFs temáticos digitales</td>
+          </tr>
+          <tr>
+            <td><strong>Inflation Reduction Act (EE.UU., 2022)</strong></td>
+            <td>Vehículos eléctricos, paneles solares, baterías, hidrógeno verde</td>
+            <td>RV clean energy EE.UU., ETFs energía limpia</td>
+          </tr>
+          <tr>
+            <td><strong>Gasto en defensa (post-2022)</strong></td>
+            <td>Empresas de defensa y aeroespacial, ciberseguridad militar</td>
+            <td>RV defensa europea (Airbus, Leonardo, Rheinmetall)</td>
+          </tr>
+          <tr>
+            <td><strong>Rehabilitación de vivienda</strong></td>
+            <td>Constructoras, proveedores de eficiencia energética, aislantes</td>
+            <td>RV inmobiliaria, REITs residenciales</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo — Traducir política fiscal en decisión de cartera</h3>
+      <p>
+        Un gobierno anuncia un plan de gasto en energías renovables de 50.000 M€ en 5 años
+        (10.000 M€/año). El asesor hace el siguiente análisis:<br><br>
+        1. <strong>¿Quién cobra el dinero?</strong> Instaladoras de fotovoltaica y eólica (60%),
+        empresas de redes eléctricas (25%), empresas de almacenamiento/baterías (15%).<br><br>
+        2. <strong>¿Cómo afecta a los beneficios?</strong> Con 10.000 M€/año garantizados por
+        el presupuesto durante 5 años, las instaladoras tienen visibilidad de ingresos: sus flujos
+        de caja son más predecibles → PER más alto justificable → acciones más caras.<br><br>
+        3. <strong>¿Cómo financian el plan?</strong> Con emisión de bonos soberanos verdes y
+        préstamos del BEI/ICO. Si el déficit no se dispara (porque hay cofinanciación europea),
+        el efecto en TIR del soberano es mínimo. Los bonos verdes emitidos pueden ser atractivos
+        para fondos ESG con mandato verde.<br><br>
+        <strong>Decisión de cartera:</strong><br>
+        · Sobreponderar utilities renovables y empresas de redes en renta variable.<br>
+        · Comprar bonos verdes soberanos si se emiten con TIR atractiva.<br>
+        · Considerar ETFs temáticos de energía limpia como vehículo de exposición sectorial.<br>
+        · Vigilar si la mayor emisión de deuda pública (para financiar el plan) presiona al alza
+        las TIR del soberano nominal → implica reducir duración en el tramo largo.
+      </p>
+    </div>
+
     <div class="exam-alert">
       <div>
-        <strong>🎯 Frecuente en examen</strong>
-        La política fiscal entra en la cartera por dos lados: por el escenario macro
-        —crecimiento, inflación, tipos— y por el impacto directo en sectores, impuestos y deuda
-        soberana. No la analices aislada de la política monetaria.
+        <strong>🎯 Frecuente en examen (Nivel II)</strong>
+        Dado un cambio de política fiscal (expansión del déficit, plan de inversión en un sector,
+        emisión de bonos verdes), identificar: (1) el efecto en las TIR soberanas y el spread
+        periférico; (2) los sectores de renta variable beneficiados; (3) cómo ajustar la asignación
+        de activos. El concepto de multiplicador fiscal y la condición de sostenibilidad (r vs. g)
+        pueden aparecer como preguntas de cálculo.
       </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        La consolidación fiscal post-COVID avanza a ritmos desiguales en Europa. España ha reducido
+        el déficit desde el 10,1% del PIB en 2020 hasta el entorno del 3%–3,5% en 2025, con la
+        deuda cayendo desde el 120% hacia el ~105%. Sin embargo, el aumento del gasto en defensa
+        acordado por la OTAN (+2% del PIB para todos los miembros) y los nuevos subsidios
+        energéticos derivados del conflicto en Oriente Medio están poniendo presión adicional
+        sobre los presupuestos europeos, complicando la senda de consolidación justo cuando el
+        BCE considera subir tipos de nuevo. Para el asesor, el spread Italia-Alemania (BTP-Bund)
+        es el termómetro en tiempo real de si el mercado confía en la sostenibilidad fiscal de
+        los países más endeudados de la eurozona.
+      </p>
     </div>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       8. ERRORES Y TRAMPAS DE EXAMEN
-       ============================================================ -->
-  <div class="sec">
-    <h2>8. Errores típicos al interpretar política fiscal</h2>
-
-    <div class="card accent-danger">
-      <h3>Errores que conviene evitar</h3>
-      <ul>
-        <li><strong>Confundir gasto público con inversión productiva.</strong> Todo gasto suma demanda a corto plazo, pero no todo mejora productividad.</li>
-        <li><strong>Creer que deuda alta siempre implica crisis inmediata.</strong> Depende de r, g, vencimientos, moneda, banco central y credibilidad.</li>
-        <li><strong>Olvidar el banco central.</strong> Si el estímulo genera inflación, la política monetaria puede neutralizarlo con subidas de tipos.</li>
-        <li><strong>Confundir déficit cíclico y estructural.</strong> El cíclico mejora con la recuperación; el estructural requiere cambios permanentes.</li>
-        <li><strong>Suponer que todas las empresas beneficiadas por gasto público son buenas inversiones.</strong> La valoración ya puede descontar el beneficio.</li>
-        <li><strong>No distinguir ayudas temporales de tendencias estructurales.</strong> Una subvención puntual no equivale a una ventaja competitiva sostenible.</li>
-        <li><strong>Ignorar fiscalidad del inversor.</strong> La rentabilidad relevante para el cliente es neta de impuestos y costes.</li>
-      </ul>
-    </div>
-
-    <h3>Preguntas de repaso mental</h3>
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Para una medida fiscal</h4>
-        <ol>
-          <li>¿Es gasto, transferencia, aval, impuesto o inversión?</li>
-          <li>¿Es temporal o permanente?</li>
-          <li>¿Aumenta demanda o también oferta/productividad?</li>
-          <li>¿Se financia con deuda, impuestos o fondos europeos?</li>
-        </ol>
-      </div>
-      <div class="concept-box">
-        <h4>Para una cartera</h4>
-        <ol>
-          <li>¿Qué activos se benefician de crecimiento?</li>
-          <li>¿Qué activos sufren si suben tipos?</li>
-          <li>¿Qué sectores tienen apoyo estructural?</li>
-          <li>¿Qué riesgo fiscal o regulatorio aparece?</li>
-        </ol>
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- RESUMEN -->
+  <!-- ════════════════════════════════════════════════════════════════
+       RESUMEN
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
     <h2>Resumen de la sección</h2>
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>Concepto</th><th>Idea clave</th><th>Impacto financiero</th></tr>
+          <tr><th>Concepto</th><th>Definición clave</th><th>Dato / Implicación</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Política fiscal expansiva</strong></td>
-            <td>Más gasto público o menos impuestos</td>
-            <td>Apoya crecimiento, pero puede elevar déficit, inflación y tipos</td>
+            <td><strong>ERTE / Kurzarbeit</strong></td>
+            <td>Subsidio temporal de desempleo que mantiene el vínculo laboral</td>
+            <td>Evitó paro masivo en 2020; 3,4 M afectados en España en pico</td>
           </tr>
           <tr>
-            <td><strong>Medidas de emergencia</strong></td>
-            <td>Protegen renta, empleo, liquidez y solvencia</td>
-            <td>Reducen defaults y estabilizan beneficios a corto plazo</td>
-          </tr>
-          <tr>
-            <td><strong>Planes de recuperación</strong></td>
-            <td>Inversión en digitalización, energía, salud e infraestructuras</td>
-            <td>Favorecen sectores concretos y pueden elevar PIB potencial</td>
+            <td><strong>NextGenerationEU (NGEU)</strong></td>
+            <td>Fondo de recuperación UE: 750.000 M€, deuda conjunta, 37% verde, 20% digital</td>
+            <td>PIB España +2,6% en 2024 vs. escenario sin fondos</td>
           </tr>
           <tr>
             <td><strong>Multiplicador fiscal</strong></td>
-            <td>Efecto del gasto/impuesto sobre el PIB</td>
-            <td>Mayor en recesión y menor si hay inflación, pleno empleo o filtración a importaciones</td>
+            <td>PIB generado por cada € de gasto público; mayor en recesión</td>
+            <td>BCE estima 0,9–1,3 para NGEU en economías receptoras</td>
           </tr>
           <tr>
-            <td><strong>Déficit público</strong></td>
-            <td>Flujo anual de gasto superior a ingresos</td>
-            <td>Necesita financiación; aumenta emisión de deuda</td>
+            <td><strong>Condición de sostenibilidad</strong></td>
+            <td>Deuda estable si r &lt; g o superávit primario &gt; (r−g)×d</td>
+            <td>Con r=2%, g=1,5%, d=100%: necesita superávit primario 0,5%</td>
           </tr>
           <tr>
-            <td><strong>Deuda pública</strong></td>
-            <td>Stock acumulado de obligaciones del Estado</td>
-            <td>Su sostenibilidad depende de crecimiento, tipos, saldo primario y credibilidad</td>
+            <td><strong>Crowding out</strong></td>
+            <td>El déficit público puede desplazar inversión privada al elevar los tipos</td>
+            <td>Más relevante en expansión que en recesión</td>
           </tr>
           <tr>
-            <td><strong>r vs. g</strong></td>
-            <td>Coste de la deuda frente a crecimiento nominal</td>
-            <td>Si r &gt; g, la estabilización exige mayor disciplina fiscal</td>
+            <td><strong>Prima de plazo</strong></td>
+            <td>Mayor emisión de deuda → más oferta de bonos → TIR más altas</td>
+            <td>Implica reducir duración cuando el déficit se deteriora</td>
           </tr>
           <tr>
-            <td><strong>Renta fija</strong></td>
-            <td>Sensible a emisión, tipos e inflación esperada</td>
-            <td>Déficit elevado puede presionar tipos largos y precios de bonos</td>
+            <td><strong>Efecto inflacionario</strong></td>
+            <td>El estímulo excesivo, con oferta restringida, genera inflación de demanda</td>
+            <td>Cheques EE.UU. 2021 → inflación 9% en 2022 → subidas Fed</td>
           </tr>
           <tr>
-            <td><strong>Renta variable</strong></td>
-            <td>Se beneficia de crecimiento y gasto sectorial</td>
-            <td>Pero puede sufrir por tipos altos, impuestos o menor credibilidad fiscal</td>
+            <td><strong>Bonos verdes soberanos</strong></td>
+            <td>Deuda vinculada a proyectos con impacto ambiental; nueva clase de activo</td>
+            <td>30% del NGEU emitido como bonos verdes</td>
           </tr>
           <tr>
-            <td><strong>Asignación de activos</strong></td>
-            <td>Integra fiscalidad, sectores, inflación, deuda y banco central</td>
-            <td>Conviene analizar escenarios, no titulares políticos aislados</td>
+            <td><strong>Spread BTP-Bund</strong></td>
+            <td>Diferencial Italia-Alemania; termómetro de riesgo fiscal de la eurozona</td>
+            <td>Se dispara cuando el mercado duda de la sostenibilidad fiscal italiana</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 
+  <!-- ════════════════════════════════════════════════════════════════
+       NOTAS AL PIE
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        FMI Blog. «La deuda mundial alcanza cifra récord de USD 226 billones». Diciembre 2021.
+        Deuda pública global +19 pp del PIB en 2020; economías avanzadas al 124%.
+        <a href="https://www.imf.org/es/Blogs/Articles/2021/12/15/blog-global-debt-reaches-a-record-226-trillion" target="_blank" rel="noopener">imf.org</a>
+      </li>
+      <li id="fn2">
+        FMI Blog. «Políticas fiscales para contener el daño de la COVID-19». Abril 2020.
+        <a href="https://www.imf.org/es/Blogs/Articles/2020/04/15/blog-fm-fiscal-policies-to-contain-the-damage-from-covid-19" target="_blank" rel="noopener">imf.org</a>
+      </li>
+      <li id="fn3">
+        Congressional Budget Office (CBO). «American Rescue Plan Act of 2021». Análisis del
+        impacto presupuestario de los programas de estímulo directo en EE.UU.
+        <a href="https://www.cbo.gov/publication/57056" target="_blank" rel="noopener">cbo.gov</a>
+      </li>
+      <li id="fn4">
+        Comisión Europea. «NextGenerationEU: dinero europeo para combatir la crisis».
+        Dotación de 750.000 M€; presupuesto total UE 2021–2027 de ~1,8 billones.
+        <a href="https://spain.representation.ec.europa.eu/noticias-eventos/noticias-0/nextgenerationeu-dinero-europeo-para-combatir-la-crisis-2021-03-10_el" target="_blank" rel="noopener">ec.europa.eu</a>
+      </li>
+      <li id="fn5">
+        Comisión Europea. «Finance and the Green Deal». El 37% del MRR debe destinarse a
+        objetivos climáticos; el 20% a digitalización.
+        <a href="https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/european-green-deal/finance-and-green-deal_es" target="_blank" rel="noopener">commission.europa.eu</a>
+      </li>
+      <li id="fn6">
+        CaixaBank Research. «NGEU digital: ¿salto importante o no?». Noviembre 2022. Impacto
+        estimado en PIB de +0,3%–0,6% anual para España, Italia y Portugal.
+        <a href="https://www.caixabankresearch.com/es/economia-y-mercados/sector-publico/ngeu-digital-salto-importante-o-no" target="_blank" rel="noopener">caixabankresearch.com</a>
+      </li>
+      <li id="fn7">
+        Ecoticias. «España ya ha recibido 56.000 millones de los fondos NextGenerationEU».
+        Junio 2025. PIB España +2,6% en 2024 vs. escenario sin fondos; +3,4% estimado en 2031.
+        <a href="https://www.ecoticias.com/sostenibilidad/espana-fondos-nextgenerationeu-proyectos-transicion-verde" target="_blank" rel="noopener">ecoticias.com</a>
+      </li>
+      <li id="fn8">
+        Infobae / Funcas-AFI. «Los fondos europeos impulsan hasta el 14% del crecimiento del
+        PIB español, pero su efecto transformador no cala». Abril 2026.
+        <a href="https://www.infobae.com/espana/2026/04/24/los-fondos-europeos-impulsan-hasta-el-14-del-crecimiento-del-pib-espanol-pero-su-efecto-transformador-no-cala/" target="_blank" rel="noopener">infobae.com</a>
+      </li>
+      <li id="fn9">
+        Blanchard, O. (2019). «Public Debt and Low Interest Rates». <em>American Economic Review</em>,
+        109(4), 1197–1229. La condición r &lt; g y su implicación para la sostenibilidad fiscal.
+        <a href="https://doi.org/10.1257/aer.109.4.1197" target="_blank" rel="noopener">doi.org/10.1257/aer.109.4.1197</a>
+      </li>
+      <li id="fn10">
+        FMI Blog. «La deuda es más elevada y aumenta a un ritmo mayor en el 80% de la economía
+        mundial». Junio 2025. Proyección de deuda pública global al 100% del PIB mundial a finales
+        de la década.
+        <a href="https://www.imf.org/es/Blogs/Articles/2025/06/05/how-to-spur-economic-growth-in-africas-fragile-and-conflict-affected-states" target="_blank" rel="noopener">imf.org</a>
+      </li>
+      <li id="fn11">
+        CaixaBank Research. «La UE en 2022: a vueltas con la reforma de las reglas fiscales».
+        Noviembre 2023. Descripción de los límites del PEC (3% déficit, 60% deuda) y su reforma.
+        <a href="https://www.caixabankresearch.com/es/economia-y-mercados/sector-publico/ue-2022-vueltas-reforma-reglas-fiscales" target="_blank" rel="noopener">caixabankresearch.com</a>
+      </li>
+      <li id="fn12">
+        CaixaBank Research. «Capacidad de transformación e impacto macroeconómico del NGEU».
+        Multiplicadores fiscales estimados del NGEU entre 0,9 y 1,3.
+        <a href="https://www.caixabankresearch.com/es/economia-y-mercados/sector-publico/capacidad-transformacion-e-impacto-macroeconomico-del-ngeu" target="_blank" rel="noopener">caixabankresearch.com</a>
+      </li>
+      <li id="fn13">
+        Damodaran, A. (2012). <em>Investment Valuation</em>, 3.ª ed. Wiley Finance. Cap. 18:
+        «Valuing the Firm». Impacto de las políticas fiscales en la valoración de activos.
+        ISBN 978-1-118-01152-2.
+      </li>
+    </ol>
+  </div>
+
   <!-- NAVEGACIÓN -->
   <div class="sec-nav">
-    <a href="seccion-e.html" class="nav-btn">← E: Política monetaria</a>
-    <a href="seccion-g.html" class="nav-btn">G: Factores de sostenibilidad →</a>
+    <a href="seccion-e.html" class="nav-btn">← E: Políticas Monetarias Recientes</a>
+    <a href="seccion-g.html" class="nav-btn">G: Factores de Sostenibilidad →</a>
   </div>
 
 </div>
 
 <footer>
-  EFA Prep · Módulo 1 · Bloque 1 · Sección F · Basado en la Guía de Certificación EFPA España V1/26 · No constituye asesoramiento financiero
+  EFA Prep · Módulo 1 · Bloque 1 · Sección F · Basado en la Guía de Certificación EFPA España V1/26
 </footer>
 
 <script src="../../assets/ui.js"></script>
