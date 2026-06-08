@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M1 · B1 · Sección A — Fundamentos macroeconómicos · EFA Prep</title>
+  <title>M1 · B1 · Sección A — Fundamentos Macroeconómicos · EFA Prep</title>
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
+    /* ── Grids ── */
     .concept-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -34,9 +35,10 @@
       margin: 0;
     }
 
+    /* ── Method rows (PIB cálculo) ── */
     .method-row {
       display: grid;
-      grid-template-columns: 140px 1fr 1fr;
+      grid-template-columns: 150px 1fr 1fr;
       gap: .5rem;
       align-items: start;
       padding: .7rem 0;
@@ -59,6 +61,7 @@
       display: inline-block;
     }
 
+    /* ── Tags ── */
     .indicator-tag {
       display: inline-block;
       font-family: var(--font-ui);
@@ -69,9 +72,95 @@
       margin-right: 4px;
       vertical-align: middle;
     }
-    .tag-adelantado { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
-    .tag-retardado  { background: var(--amber-light);  color: var(--amber);  border: 1px solid var(--amber); }
-    .tag-coincidente { background: var(--navy-light); color: var(--navy); border: 1px solid var(--navy); }
+    .tag-adelantado  { background: var(--green-light); color: var(--green);  border: 1px solid var(--green); }
+    .tag-retardado   { background: var(--amber-light);  color: var(--amber);  border: 1px solid var(--amber); }
+    .tag-coincidente { background: var(--navy-light);  color: var(--navy);   border: 1px solid var(--navy); }
+
+    /* ── Contexto actual ── */
+    .contexto-actual {
+      background: var(--card);
+      border-left: 4px solid var(--green);
+      border-radius: 0 14px 14px 0;
+      padding: 1.1rem 1.3rem;
+      margin: 1.2rem 0;
+    }
+    .contexto-actual .ctx-title {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--green);
+      margin-bottom: .5rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .contexto-actual p {
+      font-size: var(--fs-sm);
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0 0 .4rem;
+    }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+
+    /* ── Notas al pie ── */
+    .footnotes {
+      border-top: 1px solid var(--border);
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
+    }
+    .footnotes h4 {
+      font-family: var(--font-ui);
+      font-size: var(--fs-xs);
+      font-weight: 800;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .8rem;
+    }
+    .footnotes ol {
+      padding-left: 1.3rem;
+      margin: 0;
+    }
+    .footnotes li {
+      font-size: .78rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+      margin-bottom: .35rem;
+    }
+    .footnotes a {
+      color: var(--navy);
+      word-break: break-all;
+    }
+
+    sup.fn {
+      font-family: var(--font-ui);
+      font-size: .68rem;
+      color: var(--navy);
+      font-weight: 700;
+      margin-left: 1px;
+    }
+    sup.fn a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+    sup.fn a:hover { text-decoration: underline; }
+
+    /* ── Datos live ── */
+    .data-pill {
+      display: inline-block;
+      background: var(--navy-light);
+      color: var(--navy);
+      font-family: var(--font-ui);
+      font-size: .75rem;
+      font-weight: 700;
+      border-radius: 20px;
+      padding: 2px 10px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    .data-pill.red { background: #fde8e8; color: #b91c1c; }
+    .data-pill.green { background: var(--green-light); color: var(--green); }
+    .data-pill.amber { background: var(--amber-light); color: var(--amber); }
   </style>
 </head>
 <body>
@@ -95,7 +184,7 @@
     <span class="sep">›</span>
     <a href="../index.html">Módulo 1</a>
     <span class="sep">›</span>
-    <a href="../index.html">Bloque 1</a>
+    <a href="index.html">Bloque 1</a>
     <span class="sep">›</span>
     <span>Sección A</span>
   </div>
@@ -104,95 +193,79 @@
     <div class="pill">Módulo 1 · Bloque 1 · Sección A · Nivel I + II</div>
     <h1>Fundamentos Macroeconómicos</h1>
     <p class="hero-sub">
-      PIB y sus métodos de cálculo · Deflactor · Indicadores de precios y empleo ·
-      Tasa de actividad · Tipo de interés real y nominal · Ecuación de Fisher · Regla de Taylor.
+      Indicadores de crecimiento (PIB, producción industrial) · Indicadores de precios (IPC, subyacente) ·
+      Indicadores de empleo · Conceptos clave: deflactor, tasa de actividad, tipos de interés real y nominal,
+      Ecuación de Fisher, Regla de Taylor, ciclo económico.
     </p>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       1. INDICADORES DE CRECIMIENTO ECONÓMICO
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       INTRODUCCIÓN GENERAL
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="sec">
+    <h2>Introducción: ¿Por qué importan los indicadores macroeconómicos al asesor financiero?</h2>
+    <p>
+      Los rendimientos de los activos financieros —bonos, acciones, divisas, fondos de inversión— no
+      se determinan en el vacío. Responden al estado de la economía real y, sobre todo, a las
+      decisiones de política monetaria y fiscal que los gobiernos y bancos centrales adoptan en función
+      de ese estado. El asesor financiero que domine la lectura de los indicadores macroeconómicos
+      puede anticipar el entorno de tipos de interés, calibrar el riesgo de sus carteras y argumentar
+      sus recomendaciones con rigor.
+    </p>
+    <p>
+      La guía EFA organiza estos indicadores en tres grandes familias: <strong>crecimiento</strong>,
+      <strong>precios</strong> y <strong>empleo</strong>. Los tres se retroalimentan y, en conjunto,
+      determinan si el banco central debe expandir o contraer la oferta monetaria.
+    </p>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">🌍 Contexto actual (junio 2026)</div>
+      <p>
+        La eurozona creció un <strong>1,4%–1,5%</strong> en 2025 y un <strong>1,5% interanual</strong>
+        en el primer trimestre de 2026, su mejor dato desde finales de 2022.<sup class="fn"><a href="#fn1">[1]</a></sup>
+        Sin embargo, la inflación general repuntó al <strong>3,2% interanual</strong> en mayo de 2026,
+        impulsada por la energía (conflicto en Oriente Medio), mientras la subyacente subió al
+        <strong>2,5%</strong>.<sup class="fn"><a href="#fn2">[2]</a></sup>
+        El desempleo se sitúa en el <strong>6,3%</strong> en abril de 2026 —mínimos históricos del
+        bloque—,<sup class="fn"><a href="#fn3">[3]</a></sup> pero la inflación persistente hace que el
+        BCE esté valorando subir tipos por primera vez desde 2023.<sup class="fn"><a href="#fn4">[4]</a></sup>
+        Es decir: crecimiento moderado + empleo robusto + inflación resurgente = escenario de manualy
+        calibración restrictiva de política monetaria.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SUBSECCIÓN 1: INDICADORES DE CRECIMIENTO ECONÓMICO
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
     <h2>1. Indicadores de crecimiento económico</h2>
     <p class="sec-intro">
-      El principal indicador del tamaño y dinamismo de una economía es el PIB.
-      Como asesor financiero, su evolución trimestral condiciona directamente las
-      decisiones de política monetaria del BCE y, por tanto, el entorno de tipos
-      en el que se valoran todos los activos financieros.
+      El crecimiento económico mide la variación de la capacidad productiva de un país a lo largo del
+      tiempo. Los indicadores de crecimiento son la primera señal que el banco central utiliza para
+      decidir si la economía necesita estímulo (tipos bajos) o enfriamiento (tipos altos).
     </p>
 
-    <h3>¿Qué es el PIB?</h3>
+    <!-- PIB -->
+    <h3>1.1 Producto Interior Bruto (PIB)</h3>
     <div class="card accent-navy">
       <p>
-        El <strong>Producto Interior Bruto (PIB)</strong> es el valor de mercado de todos los
-        bienes y servicios <em>finales</em> producidos dentro de las fronteras de un país
-        durante un período de tiempo determinado (habitualmente un año o un trimestre).
+        El <strong>Producto Interior Bruto (PIB)</strong> es el valor de mercado de todos los bienes y
+        servicios <em>finales</em> producidos dentro de las fronteras de un país durante un período
+        determinado (habitualmente un año o un trimestre).<sup class="fn"><a href="#fn5">[5]</a></sup>
       </p>
       <p style="margin-top:.6rem;">
-        Tres matizaciones clave: (1) se cuentan solo bienes <strong>finales</strong> para no
-        doblar el conteo; (2) solo lo producido <strong>dentro del territorio</strong>,
-        independientemente de la nacionalidad del productor; (3) se valora a
-        <strong>precios de mercado</strong>.
+        Tres matizaciones esenciales: (1) solo se contabilizan bienes <strong>finales</strong> para
+        evitar el doble cómputo; (2) únicamente lo producido <strong>dentro del territorio nacional</strong>,
+        con independencia de la nacionalidad del productor; (3) se valora a <strong>precios de mercado</strong>.
       </p>
     </div>
 
-    <h3>PIB vs. PNB vs. RNB — criterio territorio / nacionalidad</h3>
-    <p>
-      El examen EFA suele incluir preguntas sobre la distinción entre las tres
-      grandes macromagnitudes. La diferencia clave está en <em>qué</em> se mide y
-      <em>quién</em> lo produce:
-    </p>
-
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>PIB · Producto Interior Bruto</h4>
-        <p>Criterio <strong>territorio</strong>: valor de la producción dentro de las
-        fronteras del país, <em>independientemente</em> de la nacionalidad del
-        productor. Un concierto de un cantante holandés en España computa en el
-        PIB español.</p>
-      </div>
-      <div class="concept-box">
-        <h4>PNB · Producto Nacional Bruto</h4>
-        <p>Criterio <strong>nacionalidad</strong>: valor de la producción de los
-        residentes nacionales, <em>independientemente</em> del lugar donde se
-        produzca. Una empresa española produciendo en México computa en el PNB
-        español, no en el PIB español.</p>
-      </div>
-      <div class="concept-box">
-        <h4>RNB · Renta Nacional Bruta</h4>
-        <p>Equivalente al PNB pero medido desde la <strong>óptica de la renta</strong>.
-        En la contabilidad nacional moderna (SEC 2010) la RNB ha sustituido al
-        PNB como agregado de referencia. Es el PIB más las rentas primarias
-        netas del resto del mundo.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Puente entre ambos</h4>
-        <p><strong>PNB / RNB = PIB + RPN</strong>, donde RPN = rentas primarias
-        netas del exterior (rentas que los residentes nacionales reciben del
-        extranjero menos rentas que los no residentes obtienen en el país).</p>
-      </div>
-    </div>
-
-    <div class="card accent-amber">
-      <h3>⚠️ Trampa típica de examen</h3>
-      <p>
-        Si una multinacional extranjera fabrica coches en España y repatría los
-        beneficios a su matriz, esos coches <strong>sí</strong> entran en el PIB
-        español (se producen en territorio español) pero <strong>no</strong> en
-        el PNB español (los factores productivos no son residentes). Por eso, en
-        países con mucha inversión extranjera, el PIB suele superar al PNB.
-      </p>
-    </div>
-
-    <p style="font-size:var(--fs-xs); color:var(--text-soft); margin-top:.4rem;">
-      Fuente: <a href="https://www.ine.es/dynt3/metadatos/es/RespuestaPrint.html?oper=237" target="_blank" rel="noopener">INE — Contabilidad Nacional Trimestral de España</a> ·
-      <a href="https://es.wikipedia.org/wiki/Producto_nacional_bruto" target="_blank" rel="noopener">Definición operativa PNB</a>
-    </p>
-
-    <h3>Tres métodos de cálculo — mismo resultado</h3>
-
+    <h3>Tres métodos de cálculo — mismo resultado teórico</h3>
     <div class="method-row">
       <span class="method-label">Del gasto</span>
       <span class="method-formula">PIB = C + I + G + (X − M)</span>
@@ -211,16 +284,15 @@
       <span class="method-label">Del valor añadido</span>
       <span class="method-formula">Σ (Ventas − Compras intermedias) por sector</span>
       <span style="font-size:var(--fs-xs);color:var(--text-soft);">
-        Evita el doble conteo sumando solo el valor que cada fase añade al producto
+        Evita el doble cómputo sumando solo el valor que cada etapa añade al producto
       </span>
     </div>
 
     <div class="exam-alert">
       <div>
         <strong>🎯 Frecuente en examen</strong>
-        El método del gasto es el más preguntado. Memoriza la fórmula
-        <strong>C + I + G + (X − M)</strong> y qué componente sube o baja en cada escenario
-        (ej: aumento del déficit exterior → baja X−M → presiona PIB a la baja).
+        El método del gasto es el más preguntado. Memoriza la fórmula <strong>C + I + G + (X − M)</strong>
+        y qué componente sube o baja en cada escenario (ej.: aumento del déficit exterior → baja X−M → presiona PIB a la baja).
       </div>
     </div>
 
@@ -228,196 +300,309 @@
     <div class="vs-grid">
       <div class="vs-box left">
         <h4>PIB nominal</h4>
-        <p>Valorado a <strong>precios corrientes</strong> del año de medición. Puede crecer
-        porque sube la producción <em>o</em> porque suben los precios. No refleja
-        el crecimiento real de la economía.</p>
+        <p>Valorado a <strong>precios corrientes</strong> del año de medición. Puede crecer porque
+        sube la producción <em>o</em> porque suben los precios. No refleja el crecimiento real de
+        la economía.</p>
       </div>
       <div class="vs-box right">
         <h4>PIB real</h4>
-        <p>Valorado a <strong>precios constantes</strong> de un año base. Elimina el efecto
-        inflación. Es el indicador correcto para medir el crecimiento efectivo
-        de la producción de un país.</p>
+        <p>Valorado a <strong>precios constantes</strong> de un año base. Elimina el efecto inflación.
+        Es el indicador correcto para medir el crecimiento efectivo de la producción.</p>
       </div>
     </div>
 
     <h3>El Deflactor del PIB</h3>
     <p>
-      El deflactor mide la evolución general de precios de <em>toda</em> la producción
-      interior. Es más amplio que el IPC porque incluye bienes de inversión y
-      exportaciones, no solo la cesta de consumo de los hogares.
+      El deflactor mide la evolución general de precios de <em>toda</em> la producción interior. Es
+      más amplio que el IPC porque incluye bienes de inversión y exportaciones, no solo la cesta de
+      consumo de los hogares.<sup class="fn"><a href="#fn5">[5]</a></sup>
     </p>
-
     <div class="formula">
       <span class="formula-label">Deflactor del PIB</span>
       Deflactor = (PIB nominal / PIB real) × 100
     </div>
 
-    <div class="card accent-green">
-      <h3>📌 Ejemplo numérico</h3>
+    <h3>Influencia en la política monetaria</h3>
+    <p>
+      El BCE analiza el PIB real trimestral para evaluar el <em>output gap</em> (véase concepto en
+      subsección 4). Cuando el PIB crece por encima del potencial se generan presiones inflacionarias
+      y el BCE sube tipos; cuando cae por debajo del potencial, la política se vuelve expansiva. La
+      regla de Taylor formaliza exactamente esta relación (ver subsección 4).
+    </p>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Dato actualizado</div>
       <p>
-        Si el PIB nominal de un país crece un <strong>5%</strong> en un año,
-        pero el deflactor sube un <strong>3%</strong>, el crecimiento real de la economía
-        es aproximadamente del <strong>2%</strong>. Un asesor que solo mire el dato nominal
-        sobreestimará el dinamismo económico real.
+        En el primer trimestre de 2026, la eurozona creció un <strong>1,5% interanual</strong> —su
+        mejor ritmo desde el cuarto trimestre de 2022—, impulsado por la formación bruta de capital
+        y las exportaciones.<sup class="fn"><a href="#fn1">[1]</a></sup> España lidera con un
+        <strong>2,8%</strong> interanual, mientras Alemania se estanca
+        (<strong>0,0%</strong>).<sup class="fn"><a href="#fn1">[1]</a></sup>
       </p>
     </div>
 
-    <h3>Producción industrial</h3>
-    <p>
-      Mientras que el PIB es el indicador agregado de toda la actividad económica,
-      la <strong>producción industrial</strong> mide únicamente la producción del sector
-      secundario: industria manufacturera, minería, suministro de energía y agua.
-      Aunque la industria representa una porción minoritaria del PIB en las economías
-      desarrolladas (donde dominan los servicios), su evolución es uno de los
-      indicadores más útiles para anticipar el ciclo económico.
-    </p>
-
-    <div class="card accent-navy">
-      <h3>¿Por qué importa tanto?</h3>
+    <!-- EJEMPLOS NUMÉRICOS PIB -->
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — PIB real y deflactor</h3>
       <p>
-        Tres razones que lo convierten en un indicador de referencia para asesores
-        e inversores:
+        Supongamos una economía con los siguientes datos:<br><br>
+        · PIB nominal año base (2020): <strong>1.000 M€</strong> | Deflactor base: <strong>100</strong><br>
+        · PIB nominal año actual (2025): <strong>1.260 M€</strong> | Deflactor 2025: <strong>120</strong><br><br>
+        <strong>PIB real 2025 = 1.260 / (120/100) = 1.260 / 1,20 = <u>1.050 M€</u></strong><br><br>
+        El crecimiento <em>real</em> es del <strong>5%</strong> [(1.050 − 1.000) / 1.000 × 100],
+        no del 26% que mostraría el PIB nominal. El 21% restante es simplemente el efecto de la
+        inflación acumulada. Un asesor que solo leyera el dato nominal sobreestimaría el dinamismo
+        real de la economía y podría sobreponderar renta variable cuando el crecimiento efectivo
+        es mucho más modesto.
       </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — Método del gasto y política monetaria</h3>
+      <p>
+        País A (datos en miles de millones de €):<br>
+        C = 800 · I = 200 · G = 300 · X = 150 · M = 200<br><br>
+        <strong>PIB = 800 + 200 + 300 + (150 − 200) = <u>1.250 M M€</u></strong><br><br>
+        Escenario: el gobierno decide aplicar un ajuste fiscal, reduciendo G en 50 M M€ y
+        subiendo impuestos (→ baja C en 30 M M€).<br>
+        Nuevo PIB estimado (ceteris paribus) = 720 + 200 + 250 + (−50) = <strong>1.120 M M€</strong>
+        (caída del 10,4%).<br><br>
+        Ante una caída tan pronunciada del PIB, el BCE tendría argumentos para bajar tipos y
+        estimular la inversión privada (I). Si I aumenta en 80 M M€, el impacto negativo sobre
+        el PIB se reduce a la mitad. Así de directamente se conecta el PIB del gasto con las
+        decisiones de política monetaria.
+      </p>
+    </div>
+
+    <hr style="margin: 1.5rem 0; border-color: var(--border);">
+
+    <!-- PRODUCCIÓN INDUSTRIAL -->
+    <h3>1.2 Producción industrial</h3>
+    <p>
+      Mientras el PIB mide toda la actividad económica, la <strong>producción industrial</strong>
+      mide únicamente el sector secundario: industria manufacturera, minería y suministro de energía.
+      Aunque en economías avanzadas representa una fracción del PIB, es uno de los indicadores
+      más útiles para <em>anticipar</em> el ciclo, por tres razones:<sup class="fn"><a href="#fn6">[6]</a></sup>
+    </p>
+    <div class="card accent-navy">
       <ul>
-        <li><strong>Es adelantado.</strong> La industria responde antes que los servicios
-        a los cambios en la demanda agregada. Los pedidos caen antes de que la
-        recesión sea visible en el PIB.</li>
-        <li><strong>Es mensual.</strong> Mientras el PIB se publica trimestralmente,
-        la producción industrial sale cada mes, ofreciendo lecturas más frecuentes
-        del pulso económico.</li>
-        <li><strong>Es muy sensible al ciclo.</strong> Los bienes duraderos
-        (automóviles, maquinaria) se posponen en cuanto el consumidor o la empresa
-        percibe incertidumbre, lo que se traduce en caídas rápidas de la producción.</li>
+        <li><strong>Es mensual.</strong> El PIB se publica trimestralmente; la producción industrial
+        sale cada mes, ofreciendo lecturas mucho más frecuentes.</li>
+        <li><strong>Es adelantado.</strong> Los pedidos caen antes de que la recesión sea visible
+        en el PIB, porque las empresas ajustan producción con antelación.</li>
+        <li><strong>Es muy sensible al ciclo.</strong> Los bienes duraderos (automóviles, maquinaria)
+        se posponen ante la incertidumbre; su caída señaliza contracción antes que otros sectores.</li>
       </ul>
     </div>
 
     <h3>El Índice de Producción Industrial (IPI)</h3>
     <p>
-      El <strong>IPI</strong> es el índice que mide cuantitativamente la evolución
-      mensual de la producción industrial a precios constantes (eliminando el efecto
-      precios). Se publica con un mes de retraso aproximadamente. En España lo
-      elabora el <strong>INE</strong>; en la eurozona, <strong>Eurostat</strong>; en
-      EE.UU., la <strong>Reserva Federal</strong> publica el <em>Industrial Production
-      Index</em>.
-    </p>
-    <p>
-      El IPI se desglosa habitualmente por destino económico de los bienes:
+      El <strong>IPI</strong> mide la evolución mensual de la producción a precios constantes
+      (elimina el efecto precios). En España lo elabora el <strong>INE</strong>; en la eurozona,
+      <strong>Eurostat</strong>; en EE.UU., la <strong>Reserva Federal</strong> publica el
+      <em>Industrial Production Index</em>.<sup class="fn"><a href="#fn6">[6]</a></sup>
     </p>
 
     <div class="concept-grid">
       <div class="concept-box">
         <h4>Bienes de consumo</h4>
-        <p>Duraderos (electrodomésticos, coches) y no duraderos (alimentos, ropa).
-        Reflejan demanda de los hogares.</p>
+        <p>Duraderos (electrodomésticos, coches) y no duraderos (alimentos, ropa). Reflejan
+        demanda de los hogares.</p>
       </div>
       <div class="concept-box">
         <h4>Bienes de equipo</h4>
-        <p>Maquinaria, herramientas industriales. Refleja la inversión empresarial
-        — muy sensible al ciclo.</p>
+        <p>Maquinaria, herramientas industriales. Refleja la inversión empresarial —muy sensible
+        al ciclo.</p>
       </div>
       <div class="concept-box">
         <h4>Bienes intermedios</h4>
-        <p>Productos semielaborados que se incorporan a otros procesos productivos.
-        Anticipan la producción futura.</p>
+        <p>Productos semielaborados que se incorporan a otros procesos. Anticipan la producción
+        futura.</p>
       </div>
       <div class="concept-box">
         <h4>Energía</h4>
-        <p>Producción de electricidad, gas y refino. Más estable; refleja la
-        actividad económica general.</p>
+        <p>Producción de electricidad, gas y refino. Más estable; refleja la actividad económica
+        general.</p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        La producción industrial es un indicador <strong>adelantado y mensual</strong>, frente al
+        PIB que es <strong>coincidente y trimestral</strong>. Se mide en términos reales (precios
+        constantes), no nominales. El BCE lo monitoriza junto al PIB para calibrar la holgura
+        de la economía.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SUBSECCIÓN 2: INDICADORES DE PRECIOS
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="sec">
+    <h2>2. Indicadores de precios</h2>
+    <p class="sec-intro">
+      El objetivo del BCE es mantener la inflación <em>en torno al 2%</em> a medio plazo. Para
+      medirla utiliza una familia de índices que capturan la evolución de los precios desde ángulos
+      diferentes. Entender qué mide cada uno —y por qué el banco central atiende más a unos que a
+      otros— es esencial para comprender las decisiones de política monetaria.
+    </p>
+
+    <h3>2.1 IPC e IPCA</h3>
+    <p>
+      El <strong>Índice de Precios de Consumo (IPC)</strong> mide la variación del coste de una
+      cesta representativa de bienes y servicios consumidos por los hogares residentes en un país.
+      En la eurozona se emplea el <strong>IPCA</strong> (Índice de Precios de Consumo Armonizado),
+      calculado por Eurostat con metodología homogénea en todos los Estados miembros, lo que permite
+      comparaciones directas entre economías.<sup class="fn"><a href="#fn7">[7]</a></sup>
+    </p>
+    <p>
+      La tasa de inflación es la variación porcentual interanual del IPCA. Cuando supera el objetivo
+      del 2%, el BCE tiende a subir tipos; cuando lo incumple a la baja, los reduce para estimular
+      la demanda.
+    </p>
+
+    <h3>2.2 IPC subyacente (inflación núcleo)</h3>
+    <div class="card accent-amber">
+      <h3>⚠️ Distinción clave para el examen</h3>
+      <p>
+        La <strong>inflación subyacente</strong> excluye de la cesta los componentes más volátiles:
+        <strong>energía</strong> y <strong>alimentos sin elaborar</strong>. Al eliminar estos
+        elementos —cuyos precios fluctúan por factores estacionales o geopolíticos ajenos a la
+        demanda interna— ofrece una señal más estable de la tendencia de precios a medio y largo
+        plazo.<sup class="fn"><a href="#fn7">[7]</a></sup>
+      </p>
+      <p style="margin-top:.6rem;">
+        El BCE presta especial atención a la subyacente porque refleja la <em>presión de demanda
+        estructural</em>: si la subyacente se mantiene alta aunque baje la energía, el banco central
+        tenderá a mantener tipos altos, pues la inflación tiene raíces más profundas.
+      </p>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>IPC general</h4>
+        <p>Incluye <strong>todos</strong> los componentes: energía, alimentos frescos, bienes
+        industriales y servicios. Alta volatilidad mes a mes.</p>
+      </div>
+      <div class="concept-box">
+        <h4>IPC subyacente (núcleo)</h4>
+        <p>Excluye energía y alimentos sin elaborar. Señal más estable de la tendencia de
+        precios estructural a medio plazo.</p>
       </div>
     </div>
 
     <h3>Influencia en la política monetaria</h3>
     <p>
-      Los bancos centrales monitorizan la producción industrial junto con el PIB
-      para calibrar el grado de holgura de la economía. Una producción industrial
-      en caída sostenida sugiere debilidad de la demanda agregada y apoya una
-      política monetaria más expansiva (bajadas de tipos). Una producción industrial
-      que crece por encima de su tendencia, en cambio, anticipa presiones de demanda
-      que pueden derivar en inflación, apoyando una política monetaria más
-      restrictiva.
+      El BCE fija los tipos de interés principalmente en función de la inflación esperada a medio
+      plazo. Si la inflación supera el 2% de forma persistente, el Consejo de Gobierno sube el tipo
+      de facilidad de depósito, lo que encarece el crédito, reduce el consumo y la inversión, y
+      eventualmente modera los precios. La Regla de Taylor (ver subsección 4) formaliza esta
+      respuesta de manera precisa.
     </p>
 
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        Saber que la producción industrial es un indicador <strong>adelantado</strong>
-        y <strong>mensual</strong>, frente al PIB que es <strong>coincidente</strong> y
-        <strong>trimestral</strong>. También: que se mide en términos reales
-        (a precios constantes), no nominales.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       2. INDICADORES DE PRECIOS
-       ============================================================ -->
-  <div class="sec">
-    <h2>2. Indicadores de precios</h2>
-
-    <h3>IPC e IPCA</h3>
-    <p>
-      El <strong>Índice de Precios de Consumo (IPC)</strong> mide la evolución del coste de
-      una cesta representativa de bienes y servicios consumidos por los hogares.
-      En la eurozona se usa el <strong>IPCA</strong> (Índice de Precios de Consumo Armonizado),
-      calculado por Eurostat con la misma metodología en todos los países miembros,
-      lo que permite comparaciones directas entre economías.
-    </p>
-    <p>
-      La tasa de inflación es la variación porcentual interanual del IPCA. El BCE
-      tiene como objetivo mantener la inflación <strong>en torno al 2%</strong> a medio plazo.
-    </p>
-
-    <h3>IPC subyacente (inflación subyacente)</h3>
-    <div class="card accent-amber">
-      <h3>⚠️ Distinción clave</h3>
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Dato actualizado</div>
       <p>
-        La <strong>inflación subyacente</strong> excluye de la cesta los componentes más
-        volátiles: <strong>energía</strong> y <strong>alimentos sin elaborar</strong>.
-        Al eliminar estos elementos —cuyos precios fluctúan por factores estacionales
-        o geopolíticos ajenos a la demanda interna— ofrece una señal más estable
-        de la tendencia de precios a medio y largo plazo.
+        En mayo de 2026, la inflación general de la eurozona subió al <strong>3,2% interanual</strong>
+        (desde el 3,0% de abril), la más alta en más de dos años y medio, impulsada por la
+        energía (<strong>+10,9% interanual</strong>) a raíz del conflicto en Oriente Medio.
+        La inflación subyacente saltó al <strong>2,5%</strong>.<sup class="fn"><a href="#fn2">[2]</a></sup>
+        El BCE mantiene actualmente el tipo de facilidad de depósito en el <strong>2,25%</strong> y
+        el mercado descuenta una subida de 25 pb en su reunión del 11 de junio de
+        2026.<sup class="fn"><a href="#fn4">[4]</a></sup>
       </p>
-      <p style="margin-top:.6rem;">
-        El BCE presta especial atención a la inflación subyacente para calibrar
-        su política monetaria: si la subyacente se mantiene elevada, el banco central
-        tenderá a mantener tipos altos aunque la inflación general haya bajado.
+    </div>
+
+    <!-- EJEMPLOS NUMÉRICOS PRECIOS -->
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — Lectura del IPC e inflación subyacente</h3>
+      <p>
+        Imagina que el IPC general de un país sube un <strong>4,5%</strong> interanual en un mes
+        determinado. Desglose:<br><br>
+        · Energía: <strong>+18%</strong> (peso en cesta: 10%) → contribución: +1,8 pp<br>
+        · Alimentos frescos: <strong>+6%</strong> (peso: 8%) → contribución: +0,48 pp<br>
+        · Resto de componentes (subyacente): <strong>+2,2%</strong> (peso: 82%) → contribución: +1,8 pp<br><br>
+        <strong>IPC general = 1,8 + 0,48 + 1,8 × (ajuste) ≈ 4,5%</strong><br>
+        <strong>IPC subyacente ≈ 2,2%</strong><br><br>
+        Conclusión para el asesor: aunque la inflación general parece alarmante (4,5%), la señal
+        estructural es mucho más contenida (2,2%), justo en el objetivo del BCE. Subir tipos
+        agresivamente para atajar una inflación causada por un shock energético puntual podría
+        ahogar innecesariamente el crecimiento. El BCE evaluará si el shock se traslada a precios
+        de servicios (segunda ronda) antes de endurecer su postura.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — Tipo de interés real cuando hay inflación</h3>
+      <p>
+        Un inversor compra un bono a 1 año con tipo nominal del <strong>3%</strong>.<br>
+        La inflación del período es del <strong>3,2%</strong> (dato real eurozona, mayo 2026).<br><br>
+        Tipo real aproximado (Fisher): <strong>r ≈ 3% − 3,2% = −0,2%</strong><br>
+        Tipo real exacto: <strong>(1,03 / 1,032) − 1 = −0,19%</strong><br><br>
+        El inversor obtiene rentabilidad nominal positiva pero <em>pierde poder adquisitivo</em>.
+        En términos reales, ese bono destruye valor. Esto explica por qué cuando la inflación sube
+        por encima del tipo de los bonos, los inversores exigen mayor rendimiento nominal,
+        empujando al alza las TIR de la deuda pública —un efecto directo en la valoración de
+        las carteras de renta fija.
       </p>
     </div>
 
     <div class="exam-alert">
       <div>
         <strong>🎯 Frecuente en examen</strong>
-        Diferencia entre IPC general (incluye energía y alimentos frescos) e
-        IPC subyacente (los excluye). Saber <em>por qué</em> se excluyen: son volátiles
-        y no reflejan bien la presión de demanda estructural sobre los precios.
+        Diferencia entre IPC general e IPC subyacente: qué incluye y excluye cada uno y por qué
+        el banco central da más peso al subyacente para sus decisiones de política monetaria
+        a medio plazo.
       </div>
     </div>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       3. INDICADORES DE EMPLEO
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       SUBSECCIÓN 3: INDICADORES DE EMPLEO
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
     <h2>3. Indicadores de empleo</h2>
+    <p class="sec-intro">
+      El mercado laboral es el canal de transmisión entre economía real e inflación: cuando hay
+      pleno empleo, los salarios suben, las empresas trasladan ese coste a precios, y la inflación
+      se acelera. Por eso el BCE monitoriza el empleo aunque la mayoría de sus indicadores sean
+      <em>retardados</em> —reflejan lo que ya ha ocurrido, no lo que viene.
+    </p>
 
-    <h3>Tasa de actividad</h3>
+    <h3>3.1 Tasa de paro</h3>
+    <p>
+      La <strong>tasa de paro</strong> (o tasa de desempleo) es el porcentaje de la población
+      activa que está sin trabajo pero busca empleo activamente. La calcula Eurostat con metodología
+      OIT para garantizar la comparabilidad entre países.<sup class="fn"><a href="#fn3">[3]</a></sup>
+    </p>
+    <div class="formula">
+      <span class="formula-label">Tasa de paro</span>
+      Tasa de paro = (Desempleados / Población activa) × 100
+    </div>
+
+    <h3>3.2 Tasa de actividad</h3>
+    <p>
+      Mide la participación efectiva de la población en el mercado laboral. Una tasa de actividad
+      baja puede reflejar desánimo (personas que han dejado de buscar empleo) o envejecimiento
+      poblacional, y no necesariamente bienestar.<sup class="fn"><a href="#fn8">[8]</a></sup>
+    </p>
     <div class="formula">
       <span class="formula-label">Tasa de actividad</span>
       Tasa de actividad = (Población activa / Población en edad de trabajar) × 100
     </div>
     <p>
-      La <strong>población activa</strong> comprende a los ocupados más los desempleados
-      que buscan empleo activamente. La <strong>población en edad de trabajar</strong>
-      es la de 16 años o más. Una tasa de actividad alta indica mayor participación
-      laboral; una tasa baja puede reflejar desánimo o envejecimiento poblacional.
+      En España, la <strong>EPA</strong> (Encuesta de Población Activa, INE) es la fuente de
+      referencia y se publica trimestralmente. Mide empleo, desempleo, inactividad y tasa de
+      actividad con arreglo a los estándares de la OIT.
     </p>
 
-    <h3>Principales indicadores de empleo</h3>
+    <h3>3.3 Principales indicadores de empleo y su tipología</h3>
     <div class="table-wrap">
       <table>
         <thead>
@@ -426,6 +611,7 @@
             <th>Qué mide</th>
             <th>Tipo</th>
             <th>Frecuencia</th>
+            <th>Fuente</th>
           </tr>
         </thead>
         <tbody>
@@ -433,55 +619,134 @@
             <td><strong>Tasa de paro</strong></td>
             <td>% de activos sin trabajo sobre población activa</td>
             <td><span class="indicator-tag tag-retardado">Retardado</span></td>
-            <td>Mensual / Trimestral</td>
+            <td>Mensual</td>
+            <td>Eurostat / INE</td>
           </tr>
           <tr>
             <td><strong>EPA</strong> (España)</td>
             <td>Encuesta trimestral del mercado laboral español</td>
             <td><span class="indicator-tag tag-retardado">Retardado</span></td>
             <td>Trimestral</td>
+            <td>INE</td>
           </tr>
           <tr>
             <td><strong>Nóminas no agrícolas</strong> (EE.UU.)</td>
-            <td>Variación del empleo en sectores no agrícolas</td>
+            <td>Variación mensual del empleo en sectores no agrícolas</td>
             <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
             <td>Mensual (1er viernes)</td>
+            <td>BLS</td>
           </tr>
           <tr>
             <td><strong>Peticiones de desempleo</strong> (EE.UU.)</td>
             <td>Nuevas solicitudes de prestación por desempleo</td>
             <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
-            <td>Semanal</td>
+            <td>Semanal (jueves)</td>
+            <td>DOL</td>
+          </tr>
+          <tr>
+            <td><strong>Paro registrado</strong> (España)</td>
+            <td>Demandantes de empleo en el SEPE</td>
+            <td><span class="indicator-tag tag-retardado">Retardado</span></td>
+            <td>Mensual</td>
+            <td>SEPE</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="callout tip">
-      Los indicadores de empleo son en su mayoría <strong>retardados</strong>: reflejan
-      lo que ya ha ocurrido en la economía. Sin embargo, el mercado laboral es un canal
-      clave de transmisión de inflación: pleno empleo → presión salarial → inflación.
-      Por eso el BCE los monitoriza aunque no sean adelantados.
+      Los indicadores de empleo son mayoritariamente <strong>retardados</strong>: confirman la fase
+      del ciclo, no la anticipan. Sin embargo, el mecanismo de transmisión empleo → salarios → inflación
+      los convierte en variables cruciales para el banco central: un mercado laboral muy tenso
+      (desempleo muy bajo) presiona los salarios al alza y puede mantener la inflación elevada aunque
+      la demanda agregada se modere.
+    </div>
+
+    <h3>Influencia en la política monetaria</h3>
+    <p>
+      La Fed de EE.UU. tiene un mandato dual: estabilidad de precios <em>y</em> máximo empleo. El BCE,
+      aunque su mandato principal es la estabilidad de precios, también considera el empleo como
+      indicador del ciclo y de las presiones salariales. La Regla de Taylor incorpora indirectamente
+      el empleo a través del <em>output gap</em>: pleno empleo → output gap positivo → tipos al alza.
+    </p>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Dato actualizado</div>
+      <p>
+        En abril de 2026, la tasa de paro de la eurozona se situó en el <strong>6,3%</strong>,
+        con 11,07 millones de desempleados, un mercado laboral históricamente tenso.<sup class="fn"><a href="#fn3">[3]</a></sup>
+        España, con un <strong>10,3%</strong>, lidera entre las grandes economías europeas
+        —el paro juvenil español alcanza el <strong>23,7%</strong>.<sup class="fn"><a href="#fn3">[3]</a></sup>
+        El mercado laboral sólido, junto con la inflación resurgente, refuerza los argumentos
+        del BCE para subir tipos.
+      </p>
+    </div>
+
+    <!-- EJEMPLOS NUMÉRICOS EMPLEO -->
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — Tasa de paro y tasa de actividad</h3>
+      <p>
+        Datos de una economía hipotética:<br>
+        · Población total: <strong>10.000.000</strong> personas<br>
+        · Población en edad de trabajar (≥16 años): <strong>7.500.000</strong><br>
+        · Ocupados: <strong>3.400.000</strong><br>
+        · Desempleados activos buscando trabajo: <strong>300.000</strong><br>
+        · Inactivos (jubilados, estudiantes, desanimados…): <strong>3.800.000</strong><br><br>
+        <strong>Población activa = Ocupados + Desempleados = 3.700.000</strong><br>
+        <strong>Tasa de paro = 300.000 / 3.700.000 × 100 = 8,1%</strong><br>
+        <strong>Tasa de actividad = 3.700.000 / 7.500.000 × 100 = 49,3%</strong><br><br>
+        Conclusión: una tasa de actividad del 49,3% es baja, lo que puede indicar una población
+        envejecida o un problema de desánimo (muchos potenciales trabajadores ni siquiera buscan
+        empleo). El banco central, además de la tasa de paro, mirará esta tasa para evaluar si
+        existe capacidad laboral ociosa sin presiones salariales.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — De la tasa de paro a la política monetaria</h3>
+      <p>
+        Apliquemos la lógica actual de la eurozona:<br><br>
+        Tasa de paro eurozona (abril 2026): <strong>6,3%</strong> → mínimo histórico.<br>
+        Inflación subyacente mayo 2026: <strong>2,5%</strong> → por encima del objetivo 2%.<br>
+        Crecimiento PIB Q1 2026: <strong>+1,5% interanual</strong> → expansión moderada.<br><br>
+        Usando la lógica de la Regla de Taylor (ver subsección 4) con r* = 1%, π* = 2%,
+        output gap ≈ +0,5%:<br><br>
+        <strong>i = 2,5 + 1 + 0,5 × (2,5 − 2) + 0,5 × 0,5 = 2,5 + 1 + 0,25 + 0,25 = 4%</strong><br><br>
+        Con el tipo de depósito en 2,25%, el BCE estaría siendo expansivo respecto a lo que la
+        regla sugiere (~4%). De ahí el consenso de mercado sobre una subida inminente. Para el
+        asesor: bonos a corto plazo en revisión, hipotecas a tipo variable se encarecen,
+        renta variable de sectores sensibles al crédito (inmobiliario, utilities) bajo presión.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Calcular tasa de paro y tasa de actividad con datos dados. Saber qué diferencia a un
+        <em>desempleado</em> (activo que busca trabajo) de un <em>inactivo</em> (no busca). Conocer
+        las nóminas no agrícolas de EE.UU. y las peticiones semanales de desempleo como
+        indicadores de referencia globales.
+      </div>
     </div>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       4. CONCEPTOS BÁSICOS DE ESTRUCTURA ECONÓMICA
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       SUBSECCIÓN 4: CONCEPTOS BÁSICOS DE ESTRUCTURA ECONÓMICA
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
     <h2>4. Conceptos básicos de estructura económica</h2>
     <p class="sec-intro">
-      La guía exige conocer explícitamente estos conceptos. Son la base para
-      entender cómo se transmite la política monetaria a los mercados financieros.
+      La guía exige dominar explícitamente estos conceptos. Son el lenguaje común del asesor
+      financiero cuando interpreta decisiones de bancos centrales y sus efectos sobre las carteras.
     </p>
 
     <h3>Tipo de interés nominal vs. real — Ecuación de Fisher</h3>
     <p>
       El <strong>tipo de interés nominal</strong> (<em>i</em>) es el pactado en un contrato
-      financiero. El <strong>tipo de interés real</strong> (<em>r</em>) descuenta el efecto
-      de la inflación y mide la ganancia de poder adquisitivo efectiva.
+      financiero. El <strong>tipo de interés real</strong> (<em>r</em>) descuenta el efecto de la
+      inflación y mide la ganancia de poder adquisitivo efectiva.<sup class="fn"><a href="#fn9">[9]</a></sup>
     </p>
 
     <div class="formula">
@@ -494,23 +759,24 @@
     </div>
 
     <div class="card accent-green">
-      <h3>📌 Ejemplo</h3>
+      <h3>📌 Ejemplo — Fisher exacto vs. aproximado</h3>
       <p>
-        Un bono ofrece un tipo nominal del <strong>4%</strong>.
-        La inflación es del <strong>3%</strong>.<br>
-        Tipo real aproximado: <strong>4% − 3% = 1%</strong>.<br>
-        Tipo real exacto: (1,04 / 1,03) − 1 = <strong>0,97%</strong>.<br><br>
-        Ese 1% es la ganancia real de poder adquisitivo del inversor.
-        Si la inflación sube al 5%, el tipo real se vuelve negativo: el inversor
-        pierde poder adquisitivo aunque cobre intereses.
+        Bono nominal: <strong>i = 4%</strong> · Inflación: <strong>π = 3%</strong><br>
+        Aproximado: <strong>r ≈ 4% − 3% = 1%</strong><br>
+        Exacto: <strong>(1,04 / 1,03) − 1 = 0,97%</strong><br><br>
+        La diferencia es pequeña con inflaciones moderadas, pero con inflación del 10%
+        (caso de varios países europeos en 2022), el error de la aproximación puede
+        ser de decenas de puntos básicos y afecta al cálculo de rentabilidades reales
+        de la cartera.
       </p>
     </div>
 
     <div class="exam-alert">
       <div>
         <strong>🎯 Frecuente en examen</strong>
-        Calcular el tipo real dado el nominal y la inflación, o despejar la inflación
-        implícita dado el tipo nominal y el real. Dominar ambas versiones de la fórmula.
+        Calcular el tipo real dado el nominal y la inflación, o despejar la inflación implícita.
+        Dominar ambas versiones de la fórmula. Con inflaciones bajas es aceptable la aproximación;
+        el examen puede pedir la versión exacta.
       </div>
     </div>
 
@@ -518,106 +784,23 @@
     <div class="vs-grid">
       <div class="vs-box left">
         <h4>Política monetaria</h4>
-        <p>
-          Decisiones del <strong>banco central</strong> (BCE en la eurozona) sobre
-          el coste y disponibilidad del dinero. Instrumento principal: los
-          <strong>tipos de interés oficiales</strong>. Objetivo: estabilidad de precios
-          (inflación <strong>simétrica al 2%</strong> a medio plazo, según la
-          estrategia revisada del BCE de julio 2021).
-        </p>
+        <p>Decisiones del <strong>banco central</strong> (BCE en la eurozona) sobre el coste y
+        disponibilidad del dinero. Instrumento principal: los <strong>tipos de interés
+        oficiales</strong>. Objetivo: estabilidad de precios (~2%).</p>
       </div>
       <div class="vs-box right">
         <h4>Política fiscal</h4>
-        <p>
-          Decisiones del <strong>gobierno</strong> sobre ingresos (impuestos) y gastos
-          públicos. Instrumento: presupuesto del Estado. Objetivo: estabilización
-          cíclica, redistribución y provisión de bienes públicos.
-        </p>
-      </div>
-    </div>
-
-    <h3>Los tres instrumentos clásicos del BCE</h3>
-    <p>
-      El BCE controla los tipos de interés oficiales y la liquidez del sistema
-      bancario mediante <strong>tres instrumentos</strong> definidos en la
-      Orientación BCE/2000/7. Su nivel I (conocimiento) es obligatorio para EFA
-      y se desarrolla en profundidad en el Bloque 3 del Módulo 1.
-    </p>
-
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>1 · Operaciones de mercado abierto</h4>
-        <p>Principal instrumento. El BCE inyecta o drena liquidez al sistema bancario
-        contra activos de garantía (colateral). Cuatro modalidades:
-        <strong>OPF</strong> (principales de financiación, semanales),
-        <strong>OFPML</strong> (financiación a plazo más largo, mensuales/trimestrales),
-        <strong>operaciones de ajuste</strong> y <strong>operaciones estructurales</strong>.</p>
-      </div>
-      <div class="concept-box">
-        <h4>2 · Facilidades permanentes</h4>
-        <p>Operaciones a 24 horas a iniciativa de las entidades. Dos tipos:
-        <strong>facilidad marginal de crédito</strong> (la entidad pide liquidez al
-        BCE pagando un tipo superior al de referencia) y <strong>facilidad de
-        depósito</strong> (la entidad deposita exceso de liquidez cobrando un tipo
-        inferior al de referencia). Forman el "corredor de tipos".</p>
-      </div>
-      <div class="concept-box">
-        <h4>3 · Reservas mínimas (coeficiente de caja)</h4>
-        <p>Las entidades de crédito están obligadas a mantener un porcentaje de los
-        depósitos de sus clientes en una cuenta del banco central. Reduce la
-        capacidad de creación de dinero bancario y proporciona una demanda
-        estable de reservas. Coeficiente actual: <strong>1%</strong>.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Instrumentos no convencionales</h4>
-        <p>Desde la crisis de 2008 el BCE añadió herramientas adicionales:
-        <strong>QE</strong> (compras masivas de activos),
-        <strong>TLTRO</strong> (financiación condicionada a la concesión de crédito) y
-        <strong>tipos negativos</strong> (NIRP). No sustituyen a los clásicos: los complementan.</p>
-      </div>
-    </div>
-
-    <div class="card accent-navy">
-      <h3>Los tres tipos de interés oficiales del BCE</h3>
-      <p>
-        Forman el llamado "corredor": cada uno ancla un punto distinto de la curva
-        a un día.
-      </p>
-      <ul>
-        <li><strong>Tipo de las OPF</strong> (refi rate): coste al que el BCE presta
-        a las entidades en las operaciones principales de financiación. Es el tipo
-        central de la política monetaria.</li>
-        <li><strong>Tipo de la facilidad marginal de crédito</strong>: techo del corredor.
-        Coste al que las entidades pueden tomar liquidez a 24h.</li>
-        <li><strong>Tipo de la facilidad de depósito</strong>: suelo del corredor.
-        Remuneración que reciben las entidades por depositar liquidez sobrante a 24h.
-        Desde 2014 hasta julio 2022 estuvo en territorio negativo.</li>
-      </ul>
-    </div>
-
-    <p style="font-size:var(--fs-xs); color:var(--text-soft); margin-top:.4rem;">
-      Fuente: <a href="https://www.bde.es/wbe/es/areas-actuacion/politica-monetaria/politica-monetaria-area-euro/cuales-son-los-instrumentos-de-politica-monetaria-del-bce/" target="_blank" rel="noopener">Banco de España — Instrumentos de política monetaria del BCE</a> ·
-      <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32000O0007" target="_blank" rel="noopener">Orientación BCE/2000/7 (EUR-Lex)</a> ·
-      <a href="https://www.europarl.europa.eu/factsheets/es/sheet/86/la-politica-monetaria-europea" target="_blank" rel="noopener">Parlamento Europeo — Política monetaria europea</a>
-    </p>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        Memorizar los <strong>3 instrumentos clásicos</strong> (mercado abierto,
-        facilidades permanentes, reservas mínimas) y los <strong>3 tipos oficiales</strong>
-        (OPF, facilidad marginal de crédito, facilidad de depósito). Saber cuál es
-        el techo y cuál el suelo del corredor. Distinguir instrumentos clásicos
-        de los no convencionales (QE, TLTRO, NIRP).
+        <p>Decisiones del <strong>gobierno</strong> sobre ingresos (impuestos) y gastos públicos.
+        Instrumento: presupuesto del Estado. Objetivo: estabilización cíclica, redistribución y
+        provisión de bienes públicos.</p>
       </div>
     </div>
 
     <h3>La Regla de Taylor</h3>
     <p>
-      La <strong>Regla de Taylor</strong> (John B. Taylor, 1993) es una fórmula que orienta
-      a los bancos centrales sobre el nivel adecuado del tipo de interés oficial.
-      Relaciona el tipo recomendado con dos brechas: la brecha de inflación y el
-      <em>output gap</em> (desviación del PIB real respecto al potencial).
+      La <strong>Regla de Taylor</strong> (John B. Taylor, Stanford, 1993) es una ecuación que
+      orienta al banco central sobre el nivel óptimo del tipo de interés oficial. Relaciona el tipo
+      recomendado con dos brechas: la brecha de inflación y el <em>output gap</em>.<sup class="fn"><a href="#fn10">[10]</a></sup>
     </p>
 
     <div class="formula">
@@ -628,7 +811,7 @@
     <div class="concept-grid">
       <div class="concept-box">
         <h4>i</h4>
-        <p>Tipo de interés nominal recomendado (variable a determinar)</p>
+        <p>Tipo de interés nominal recomendado</p>
       </div>
       <div class="concept-box">
         <h4>π</h4>
@@ -648,163 +831,110 @@
       </div>
       <div class="concept-box">
         <h4>0,5</h4>
-        <p>Ponderación de cada brecha (en la versión original de Taylor)</p>
+        <p>Ponderación de cada brecha (versión original de Taylor)</p>
       </div>
     </div>
 
     <div class="callout info">
       <strong>Cómo interpretarla:</strong> si la inflación supera el objetivo → el tipo debe
       <strong>subir</strong>. Si el PIB real cae por debajo del potencial (recesión) → el tipo
-      debe <strong>bajar</strong>. La regla impide reaccionar de forma discrecional y añade
-      credibilidad al banco central.
+      debe <strong>bajar</strong>. La regla añade credibilidad al banco central al limitar la
+      discrecionalidad.
     </div>
 
     <div class="card accent-green">
-      <h3>📌 Ejemplo de aplicación</h3>
+      <h3>📌 Ejemplo de aplicación — Regla de Taylor con datos reales</h3>
       <p>
-        Supongamos: π = 4%, π* = 2%, r* = 1%, output gap = 0.<br><br>
-        i = 4% + 1% + 0,5 · (4% − 2%) + 0,5 · 0 = 4% + 1% + 1% = <strong>6%</strong><br><br>
-        La regla sugiere un tipo oficial del 6%. Si el BCE fija un tipo inferior,
-        está siendo más expansivo de lo que la regla recomienda.
+        Datos aproximados eurozona, junio 2026:<br>
+        · π = <strong>3,2%</strong> (inflación general mayo 2026)<br>
+        · π* = <strong>2%</strong> (objetivo BCE)<br>
+        · r* = <strong>1%</strong> (estimación neutral)<br>
+        · Output gap ≈ <strong>+0,5%</strong> (economía ligeramente por encima del potencial)<br><br>
+        <strong>i = 3,2 + 1 + 0,5 × (3,2 − 2) + 0,5 × 0,5 = 3,2 + 1 + 0,6 + 0,25 = <u>5,05%</u></strong><br><br>
+        Con el tipo de depósito actual en 2,25%, la Regla de Taylor sugiere que la política
+        monetaria del BCE todavía es marcadamente expansiva. La presión para subir tipos es
+        consistente con esta lectura. Para el asesor: los activos de renta fija a largo plazo
+        son vulnerables si el mercado empieza a descontar este escenario.
       </p>
     </div>
 
     <div class="exam-alert">
       <div>
         <strong>🎯 Frecuente en examen</strong>
-        Aplicar la Regla de Taylor con datos numéricos dados. Saber en qué
-        dirección se mueve el tipo recomendado si cambia la inflación o el output gap.
-        También puede aparecer como pregunta conceptual: ¿qué ocurre si el PIB real
-        supera al potencial? (→ el tipo sube para frenar el recalentamiento).
+        Aplicar la Regla de Taylor con datos numéricos. Saber en qué dirección se mueve el tipo
+        recomendado si cambia la inflación o el output gap. Pregunta conceptual habitual: ¿qué
+        ocurre si el PIB real supera al potencial? → el tipo sube para frenar el recalentamiento.
       </div>
     </div>
 
     <h3>Ciclo económico — introducción</h3>
     <p>
-      El <strong>ciclo económico</strong> es la fluctuación recurrente de la actividad
-      económica en torno a su tendencia de largo plazo. Se desarrolla en detalle
-      en la Sección B, pero es importante conocer el concepto aquí porque la Regla
-      de Taylor y la política monetaria responden directamente a la fase del ciclo
-      en la que se encuentre la economía.
+      El <strong>ciclo económico</strong> es la fluctuación recurrente de la actividad económica
+      en torno a su tendencia de largo plazo. Se desarrolla en detalle en la Sección B, pero es
+      importante introducirlo aquí porque la Regla de Taylor y toda la política monetaria responden
+      directamente a la fase del ciclo en que se encuentra la economía.
     </p>
 
     <div class="concept-grid">
       <div class="concept-box">
         <h4>PIB potencial</h4>
-        <p>Nivel de producción que una economía puede sostener con pleno empleo
-        de sus recursos sin generar inflación. No es observable directamente,
-        se estima.</p>
+        <p>Nivel de producción que una economía puede sostener con pleno empleo de recursos sin
+        generar inflación. No es directamente observable, se estima econométricamente.</p>
       </div>
       <div class="concept-box">
         <h4>Output gap</h4>
-        <p>Diferencia entre PIB real y PIB potencial. Positivo (recalentamiento):
-        presión inflacionaria. Negativo (recesión): capacidad ociosa,
-        desinflación.</p>
+        <p>Diferencia entre PIB real y PIB potencial. Positivo (recalentamiento): presión
+        inflacionaria. Negativo (recesión): capacidad ociosa y desinflación.</p>
       </div>
     </div>
-
-    <h3>Signos del output gap y respuesta de Taylor</h3>
-    <p>
-      Esta tabla resume cómo cada combinación de brecha de inflación y output gap
-      determina la respuesta de la Regla de Taylor. Es el patrón que
-      <strong>siempre</strong> se pregunta en el examen como caso aplicado.
-    </p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Situación</th>
-            <th>Output gap (y − y*)</th>
-            <th>Brecha inflación (π − π*)</th>
-            <th>Respuesta Taylor</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Recalentamiento</strong></td>
-            <td><span style="color:var(--green);font-weight:700;">y &gt; y* → positivo</span></td>
-            <td><span style="color:var(--green);font-weight:700;">π &gt; π* → positivo</span></td>
-            <td><strong>Subir tipos</strong> (política restrictiva)</td>
-          </tr>
-          <tr>
-            <td><strong>Recesión típica</strong></td>
-            <td><span style="color:var(--amber);font-weight:700;">y &lt; y* → negativo</span></td>
-            <td><span style="color:var(--amber);font-weight:700;">π &lt; π* → negativo</span></td>
-            <td><strong>Bajar tipos</strong> (política expansiva)</td>
-          </tr>
-          <tr>
-            <td><strong>Estanflación</strong></td>
-            <td><span style="color:var(--amber);font-weight:700;">y &lt; y* → negativo</span></td>
-            <td><span style="color:var(--green);font-weight:700;">π &gt; π* → positivo</span></td>
-            <td><strong>Dilema</strong>: signos opuestos → la regla pondera ambos al 0,5</td>
-          </tr>
-          <tr>
-            <td><strong>Crecimiento sin inflación</strong></td>
-            <td><span style="color:var(--green);font-weight:700;">y &gt; y* → positivo</span></td>
-            <td><span style="color:var(--amber);font-weight:700;">π &lt; π* → negativo</span></td>
-            <td>Mantener / ligero ajuste</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="callout info">
-      <strong>Regla mnemotécnica:</strong> en Taylor todo lo "positivo"
-      (inflación por encima del objetivo, PIB por encima del potencial)
-      <strong>sube tipos</strong>; todo lo "negativo" los <strong>baja</strong>.
-      Cuando los signos coinciden, la respuesta es clara; cuando son opuestos
-      (estanflación), el banco central enfrenta un dilema y tiende a priorizar
-      el objetivo de inflación.
-    </div>
-
-    <div class="card accent-amber">
-      <h3>⚠️ Matiz importante</h3>
-      <p>
-        El output gap <strong>no es observable directamente</strong>: el PIB potencial
-        se estima con modelos (filtros estadísticos, funciones de producción) y
-        está sujeto a revisión. Una de las críticas habituales a la Regla de Taylor
-        es precisamente la incertidumbre sobre <em>y*</em>: si el banco central
-        sobrestima el potencial, fijará tipos demasiado bajos y permitirá inflación;
-        si lo subestima, será innecesariamente restrictivo.
-      </p>
-    </div>
-
-    <p style="font-size:var(--fs-xs); color:var(--text-soft); margin-top:.4rem;">
-      Fuente: <a href="https://web.stanford.edu/~johntayl/Onlinepaperscombinedbyyear/1993/Discretion_versus_Policy_Rules_in_Practice.pdf" target="_blank" rel="noopener">Taylor, J.B. (1993) "Discretion versus policy rules in practice" — paper original (PDF Stanford)</a> ·
-      <a href="https://www.frbsf.org/education/publications/doctor-econ/1998/march/taylor-rule-monetary-policy/" target="_blank" rel="noopener">San Francisco Fed — Explicación didáctica</a>
-    </p>
   </div>
 
   <hr>
 
-  <!-- RESUMEN -->
+  <!-- ════════════════════════════════════════════════════════════════
+       RESUMEN
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
     <h2>Resumen de la sección</h2>
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>Concepto</th><th>Definición clave</th><th>Fórmula</th></tr>
+          <tr><th>Concepto</th><th>Definición clave</th><th>Fórmula / Dato actual</th></tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>PIB real</strong></td>
-            <td>Producción valorada a precios constantes</td>
-            <td>PIB nominal / Deflactor × 100</td>
+            <td>Producción valorada a precios constantes; mide crecimiento efectivo</td>
+            <td>PIB nominal / (Deflactor/100)</td>
           </tr>
           <tr>
             <td><strong>Deflactor del PIB</strong></td>
-            <td>Índice de precios de toda la producción interior</td>
+            <td>Índice de precios de toda la producción interior (más amplio que IPC)</td>
             <td>(PIB nom. / PIB real) × 100</td>
           </tr>
           <tr>
+            <td><strong>IPC / IPCA</strong></td>
+            <td>Evolución del coste de la cesta de consumo de los hogares</td>
+            <td>3,2% interanual (may. 2026)</td>
+          </tr>
+          <tr>
+            <td><strong>IPC subyacente</strong></td>
+            <td>IPC sin energía ni alimentos sin elaborar; señal estructural de inflación</td>
+            <td>2,5% interanual (may. 2026)</td>
+          </tr>
+          <tr>
+            <td><strong>Tasa de paro</strong></td>
+            <td>% de activos sin empleo sobre población activa</td>
+            <td>6,3% eurozona (abr. 2026)</td>
+          </tr>
+          <tr>
             <td><strong>Tasa de actividad</strong></td>
-            <td>Activos sobre población en edad de trabajar</td>
+            <td>% de población activa sobre población en edad de trabajar (≥16)</td>
             <td>(Pob. activa / Pob. ≥16) × 100</td>
           </tr>
           <tr>
             <td><strong>Tipo de interés real</strong></td>
-            <td>Tipo nominal ajustado por inflación</td>
+            <td>Tipo nominal ajustado por inflación; mide rentabilidad real</td>
             <td>r ≈ i − π</td>
           </tr>
           <tr>
@@ -818,18 +948,89 @@
             <td>i = π + r* + 0,5(π−π*) + 0,5(y−y*)</td>
           </tr>
           <tr>
-            <td><strong>IPC subyacente</strong></td>
-            <td>IPC sin energía ni alimentos sin elaborar</td>
-            <td>—</td>
+            <td><strong>Output gap</strong></td>
+            <td>PIB real − PIB potencial; positivo = recalentamiento</td>
+            <td>≈ +0,5% eurozona (est. jun. 2026)</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 
+  <!-- ════════════════════════════════════════════════════════════════
+       NOTAS AL PIE
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Trading Economics / Eurostat. «Tasa de crecimiento anual del PIB de la Eurozona revisada al alza al 1,5%»,
+        6 de junio de 2025; y «PIB de la Eurozona creció un 0,3% en el cuarto trimestre y un 1,5% en 2025»,
+        30 de enero de 2026.
+        <a href="https://es.tradingeconomics.com/euro-area/gdp-growth-annual/news/461511" target="_blank" rel="noopener">
+          tradingeconomics.com (Q1 2026 interanual)</a> ·
+        <a href="https://www.infobae.com/america/agencias/2026/01/30/el-pib-de-la-eurozona-crecio-un-03-en-el-cuarto-trimestre-y-un-15-en-2025/" target="_blank" rel="noopener">
+          infobae.com (anual 2025)</a>
+      </li>
+      <li id="fn2">
+        CaixaBank Research. «La inflación de mayo respalda la subida de tipos del BCE en junio»,
+        3 de junio de 2026. La inflación general de la eurozona subió hasta el 3,2% interanual en mayo,
+        mientras que la núcleo saltó al 2,5%.
+        <a href="https://www.caixabankresearch.com/es/publicaciones/notas-breves-actualidad-economica-y-financiera/internacional/inflacion-mayo-respalda" target="_blank" rel="noopener">
+          caixabankresearch.com</a>
+      </li>
+      <li id="fn3">
+        Eurostat / OKDIARIO. «España sigue en el podio del paro europeo con una tasa de desempleo del 10,3%»,
+        junio de 2026. Tasa de paro eurozona: 6,3% en abril de 2026; 11,07 millones de desempleados.
+        <a href="https://okdiario.com/economia/espana-sigue-podio-del-paro-europeo-tasa-desempleo-del-103-muy-encima-media-eurozona-17394935" target="_blank" rel="noopener">
+          okdiario.com</a>
+      </li>
+      <li id="fn4">
+        Moncloa.com / XTB. «Los economistas coinciden: el BCE subirá tipos 25 puntos en junio 2026»,
+        6 de junio de 2026. Tipo de facilidad de depósito actual: 2,25%; subida anticipada a 2,50%.
+        <a href="https://www.moncloa.com/2026/06/06/bce-subida-tipos-junio-2026-3382743/" target="_blank" rel="noopener">
+          moncloa.com</a> ·
+        <a href="https://www.xtb.com/es/analisis-de-mercado/resumen-de-mitad-de-sesion-determinara-el-ipc-de-la-eurozona-la-subida-del-bce" target="_blank" rel="noopener">
+          xtb.com</a>
+      </li>
+      <li id="fn5">
+        Mankiw, N. G. (2021). <em>Macroeconomics</em>, 10.ª ed. Worth Publishers. Cap. 2:
+        «The Data of Macroeconomics» — definición de PIB, deflactor y métodos de cálculo.
+        ISBN 978-1-319-26390-6.
+      </li>
+      <li id="fn6">
+        Eurostat. «Industrial Production Index — methodology», Statistics Explained.
+        <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php/Industrial_production_(volume)_index_overview" target="_blank" rel="noopener">
+          ec.europa.eu/eurostat</a>
+      </li>
+      <li id="fn7">
+        Banco Central Europeo. «¿Qué es el IPCA?» / «¿Por qué es importante la inflación subyacente?»
+        <a href="https://www.ecb.europa.eu/ecb/educational/explainers/tell-me-more/html/inflation.es.html" target="_blank" rel="noopener">
+          ecb.europa.eu</a>
+      </li>
+      <li id="fn8">
+        INE. «Encuesta de Población Activa (EPA) — Metodología».
+        <a href="https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176918&menu=ultiDatos&idp=1254735976595" target="_blank" rel="noopener">
+          ine.es</a>
+      </li>
+      <li id="fn9">
+        Fisher, I. (1930). <em>The Theory of Interest</em>. Macmillan. Cap. 2.
+        Versión digital disponible en:
+        <a href="https://www.econlib.org/library/YPDBooks/Fisher/fshToI.html" target="_blank" rel="noopener">
+          econlib.org</a>
+      </li>
+      <li id="fn10">
+        Taylor, J. B. (1993). «Discretion versus Policy Rules in Practice».
+        <em>Carnegie-Rochester Conference Series on Public Policy</em>, 39, 195–214.
+        <a href="https://www.sciencedirect.com/science/article/pii/016722319390009L" target="_blank" rel="noopener">
+          sciencedirect.com</a>
+      </li>
+    </ol>
+  </div>
+
   <!-- NAVEGACIÓN -->
   <div class="sec-nav">
-    <a href="../index.html" class="nav-btn">← Índice Módulo 1</a>
+    <a href="index.html" class="nav-btn">← Índice Bloque 1</a>
     <a href="seccion-b.html" class="nav-btn">B: Ciclos económicos →</a>
   </div>
 
