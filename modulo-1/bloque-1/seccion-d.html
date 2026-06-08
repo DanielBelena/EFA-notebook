@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M1 · B1 · Sección D — Indicadores económicos y mercados financieros · EFA Prep</title>
+  <title>M1 · B1 · Sección D — Indicadores y Mercados Financieros · EFA Prep</title>
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
+    /* ── Grids ── */
     .concept-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: .8rem;
       margin: 1rem 0;
     }
-    @media (max-width: 560px) { .concept-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .concept-grid { grid-template-columns: 1fr; } }
 
     .concept-box {
       background: var(--card);
@@ -27,173 +28,190 @@
       margin-bottom: .35rem;
       color: var(--navy);
     }
-    .concept-box p, .concept-box ul {
+    .concept-box p {
       font-size: var(--fs-xs);
       color: var(--text-soft);
       line-height: 1.65;
       margin: 0;
     }
-    .concept-box ul {
-      padding-left: 1.1rem;
-      margin-top: .3rem;
-    }
-    .concept-box li { margin: .25rem 0; }
 
-    .phase-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    /* ── Tarjeta de fase (bloque grande) ── */
+    .fase-block {
+      border-radius: 16px;
+      border: 2px solid;
+      overflow: hidden;
+      margin: 1.6rem 0;
+    }
+    .fase-block-header {
+      padding: 1rem 1.4rem;
+      display: flex;
+      align-items: center;
       gap: 1rem;
-      margin: 1.2rem 0;
     }
-    @media (max-width: 640px) { .phase-grid { grid-template-columns: 1fr; } }
-
-    .phase-card {
-      background: var(--card);
-      border: 1.5px solid var(--border);
-      border-left: 5px solid var(--navy);
-      border-radius: 14px;
-      padding: 1rem 1.1rem;
-      box-shadow: var(--shadow);
-    }
-    .phase-card.growth { border-left-color: var(--green); }
-    .phase-card.peak { border-left-color: var(--amber); }
-    .phase-card.recession { border-left-color: var(--danger); }
-    .phase-card.trough { border-left-color: var(--navy); }
-    .phase-card h4 {
+    .fase-block-header .fase-num {
       font-family: var(--font-ui);
       font-weight: 900;
-      font-size: var(--fs-sm);
-      margin: 0 0 .5rem 0;
-      color: var(--navy);
+      font-size: 1.9rem;
+      opacity: .35;
+      line-height: 1;
     }
-    .phase-card ul {
-      margin: 0;
-      padding-left: 1.15rem;
+    .fase-block-header .fase-title-wrap {}
+    .fase-block-header h3 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin: 0 0 .15rem;
+    }
+    .fase-block-header .fase-subtitle {
+      font-family: var(--font-ui);
       font-size: var(--fs-xs);
-      color: var(--text-soft);
-      line-height: 1.65;
+      opacity: .75;
     }
-    .phase-card li { margin: .25rem 0; }
+    .fase-block-body {
+      padding: 1.1rem 1.4rem 1.4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    @media (max-width: 640px) { .fase-block-body { grid-template-columns: 1fr; } }
 
-    .indicator-tag {
+    .fase-col h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-xs);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin: 0 0 .6rem;
+      opacity: .7;
+    }
+    .fase-col ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+    .fase-col li {
+      font-size: var(--fs-sm);
+      line-height: 1.65;
+      margin-bottom: .3rem;
+      color: var(--text);
+    }
+    .fase-col li strong { color: inherit; }
+
+    /* Colores por fase */
+    .fase-expansion { border-color: var(--green); }
+    .fase-expansion .fase-block-header { background: var(--green-light); color: var(--green); }
+    .fase-expansion .fase-block-body { background: var(--card); }
+
+    .fase-pico { border-color: var(--amber); }
+    .fase-pico .fase-block-header { background: var(--amber-light); color: #92400e; }
+    .fase-pico .fase-block-body { background: var(--card); }
+
+    .fase-recesion { border-color: #ef4444; }
+    .fase-recesion .fase-block-header { background: #fde8e8; color: #b91c1c; }
+    .fase-recesion .fase-block-body { background: var(--card); }
+
+    .fase-valle { border-color: var(--navy); }
+    .fase-valle .fase-block-header { background: var(--navy-light); color: var(--navy); }
+    .fase-valle .fase-block-body { background: var(--card); }
+
+    /* ── Asset tags ── */
+    .asset-tag {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: .68rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin: 1px 2px;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .at-rv  { background: #dcfce7; color: #166534; border: 1px solid #16a34a; }
+    .at-rf  { background: #dbeafe; color: #1e40af; border: 1px solid #3b82f6; }
+    .at-mm  { background: #f3f4f6; color: #374151; border: 1px solid #9ca3af; }
+    .at-alt { background: #fef3c7; color: #92400e; border: 1px solid #d97706; }
+    .at-div { background: #fae8ff; color: #7e22ce; border: 1px solid #a855f7; }
+    .at-bad { background: #fde8e8; color: #b91c1c; border: 1px solid #ef4444; }
+    .at-ok  { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
+
+    /* ── Tabla de rotación de activos ── */
+    .rot-table td { vertical-align: middle; font-size: var(--fs-sm); }
+    .rot-table .fase-badge {
       display: inline-block;
       font-family: var(--font-ui);
       font-weight: 800;
       font-size: .68rem;
-      padding: 2px 8px;
-      border-radius: 10px;
-      margin-right: 4px;
-      vertical-align: middle;
+      padding: 3px 10px;
+      border-radius: 20px;
       white-space: nowrap;
     }
-    .tag-growth { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
-    .tag-peak { background: var(--amber-light); color: var(--amber); border: 1px solid var(--amber); }
-    .tag-recession { background: var(--danger-light); color: var(--danger); border: 1px solid var(--danger); }
-    .tag-trough { background: var(--navy-light); color: var(--navy); border: 1px solid var(--navy); }
-    .tag-positive { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
-    .tag-negative { background: var(--danger-light); color: var(--danger); border: 1px solid var(--danger); }
-    .tag-neutral { background: var(--bg-alt); color: var(--muted); border: 1px solid var(--border); }
+    .badge-exp  { background: var(--green-light); color: var(--green); }
+    .badge-pico { background: var(--amber-light);  color: #92400e; }
+    .badge-rec  { background: #fde8e8;              color: #b91c1c; }
+    .badge-val  { background: var(--navy-light);   color: var(--navy); }
 
-    .signal-row {
-      display: grid;
-      grid-template-columns: 160px 1fr 1fr;
-      gap: .65rem;
-      align-items: start;
-      padding: .85rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: var(--fs-sm);
+    /* ── SVG reloj de mercado ── */
+    .clock-wrap {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1.2rem;
+      margin: 1.4rem 0;
+      text-align: center;
     }
-    .signal-row:last-child { border-bottom: none; }
-    .signal-label {
+    .clock-wrap svg { max-width: 480px; width: 100%; }
+
+    /* ── Contexto actual ── */
+    .contexto-actual {
+      background: var(--card);
+      border-left: 4px solid var(--green);
+      border-radius: 0 14px 14px 0;
+      padding: 1.1rem 1.3rem;
+      margin: 1.2rem 0;
+    }
+    .contexto-actual .ctx-title {
       font-family: var(--font-ui);
-      font-weight: 900;
-      color: var(--navy);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--green);
+      margin-bottom: .5rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
     }
-    .signal-note {
+    .contexto-actual p {
+      font-size: var(--fs-sm);
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0 0 .4rem;
+    }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+
+    /* ── Notas al pie ── */
+    .footnotes {
+      border-top: 1px solid var(--border);
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
+    }
+    .footnotes h4 {
+      font-family: var(--font-ui);
       font-size: var(--fs-xs);
+      font-weight: 800;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .8rem;
+    }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li {
+      font-size: .78rem;
       color: var(--text-soft);
       line-height: 1.6;
+      margin-bottom: .35rem;
     }
-    @media (max-width: 700px) {
-      .signal-row { grid-template-columns: 1fr; gap: .25rem; }
-    }
-
-    .asset-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .8rem;
-      margin: 1rem 0;
-    }
-    @media (max-width: 560px) { .asset-grid { grid-template-columns: 1fr; } }
-    .asset-box {
-      background: var(--card);
-      border: 1.5px solid var(--border);
-      border-radius: 14px;
-      padding: 1rem;
-    }
-    .asset-box h4 {
-      font-family: var(--font-ui);
-      font-weight: 900;
-      font-size: var(--fs-sm);
-      color: var(--navy);
-      margin: 0 0 .4rem 0;
-    }
-    .asset-box p, .asset-box li {
-      font-size: var(--fs-xs);
-      color: var(--text-soft);
-      line-height: 1.65;
-      margin: 0;
-    }
-    .asset-box ul { padding-left: 1.1rem; margin-top: .3rem; }
-    .asset-box li { margin: .25rem 0; }
-
-    .regime-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .8rem;
-      margin: 1rem 0;
-    }
-    @media (max-width: 560px) { .regime-grid { grid-template-columns: 1fr; } }
-    .regime-box {
-      border-radius: 14px;
-      padding: 1rem;
-      border: 1.5px solid var(--border);
-      background: var(--card);
-    }
-    .regime-box h4 {
-      font-family: var(--font-ui);
-      font-weight: 900;
-      font-size: var(--fs-sm);
-      margin: 0 0 .45rem 0;
-      color: var(--navy);
-    }
-    .regime-box p {
-      font-size: var(--fs-xs);
-      line-height: 1.65;
-      color: var(--text-soft);
-      margin: 0;
-    }
-
-    .mini-flow {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: .55rem;
-      margin: 1rem 0;
-    }
-    .flow-step {
-      background: var(--card);
-      border: 1.5px solid var(--border);
-      border-left: 4px solid var(--navy);
-      border-radius: 12px;
-      padding: .85rem 1rem;
-      font-size: var(--fs-sm);
-      color: var(--text-soft);
-      line-height: 1.65;
-    }
-    .flow-step strong {
-      font-family: var(--font-ui);
-      color: var(--navy);
-    }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -217,669 +235,448 @@
     <span class="sep">›</span>
     <a href="../index.html">Módulo 1</a>
     <span class="sep">›</span>
-    <a href="../index.html">Bloque 1</a>
+    <a href="index.html">Bloque 1</a>
     <span class="sep">›</span>
     <span>Sección D</span>
   </div>
 
   <div class="hero">
     <div class="pill">Módulo 1 · Bloque 1 · Sección D · Nivel I</div>
-    <h1>Interpretación de los indicadores económicos en los mercados financieros</h1>
+    <h1>Indicadores Económicos y Mercados Financieros</h1>
     <p class="hero-sub">
-      Lectura de indicadores macro · Fases del ciclo económico · Caracterización en economía real ·
-      Aplicabilidad en renta variable, renta fija, crédito, divisas, materias primas y liquidez.
+      Las cuatro fases del ciclo · Caracterización en la economía real ·
+      Aplicabilidad en mercados financieros · Rotación de activos por fase.
     </p>
   </div>
 
   <hr>
 
-  <!-- ============================================================
+  <!-- ════════════════════════════════════════════════════════════════
        INTRODUCCIÓN
-       ============================================================ -->
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
-    <h2>De la macroeconomía al precio de los activos</h2>
-    <p class="sec-intro">
-      Los indicadores económicos no mueven los mercados por el dato en sí, sino por lo que
-      implican sobre crecimiento, inflación, beneficios empresariales, tipos de interés y riesgo.
-      El asesor financiero debe aprender a traducir una publicación macroeconómica en una
-      posible reacción de los activos financieros.
-    </p>
-
-    <div class="card accent-navy">
-      <h3>Idea central</h3>
-      <p>
-        El precio de un activo financiero depende, de forma simplificada, de dos bloques:
-        <strong>los flujos futuros esperados</strong> y <strong>la tasa a la que se descuentan esos flujos</strong>.
-        Los indicadores macro afectan a ambos. Si mejora el crecimiento, pueden mejorar beneficios,
-        ventas y solvencia. Si sube la inflación o el banco central endurece la política monetaria,
-        puede subir la tasa de descuento y presionar los precios de los activos a la baja.
-      </p>
-    </div>
-
-    <div class="formula">
-      <span class="formula-label">Esquema conceptual de valoración</span>
-      Precio ≈ Flujos futuros esperados / Tasa de descuento ajustada por riesgo
-    </div>
-
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Canal de crecimiento</h4>
-        <p>Más actividad económica suele implicar más ventas, más empleo, más inversión, menores impagos
-        y mejores expectativas de beneficios empresariales.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Canal de inflación y tipos</h4>
-        <p>Más inflación puede forzar subidas de tipos. Esto encarece financiación, eleva la tasa de
-        descuento y reduce el valor actual de los flujos futuros.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Canal de riesgo</h4>
-        <p>Una desaceleración fuerte aumenta aversión al riesgo, amplía spreads de crédito y reduce
-        apetito por activos cíclicos.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Canal de expectativas</h4>
-        <p>Los mercados reaccionan a la diferencia entre dato publicado y dato esperado. Un dato bueno
-        pero inferior al consenso puede ser interpretado negativamente.</p>
-      </div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        No basta con saber si un dato es bueno o malo. Hay que preguntarse: ¿bueno para crecimiento?,
-        ¿malo para inflación?, ¿cambia la expectativa de tipos?, ¿ya estaba descontado por el mercado?
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       1. CÓMO LEEN LOS MERCADOS LOS DATOS MACRO
-       ============================================================ -->
-  <div class="sec">
-    <h2>1. Cómo leen los mercados los datos macroeconómicos</h2>
-    <p class="sec-intro">
-      Una misma cifra puede provocar reacciones opuestas según el contexto. En una economía débil,
-      un dato fuerte de empleo puede ser positivo para bolsa. En una economía con inflación elevada,
-      ese mismo dato puede ser negativo porque aumenta la probabilidad de subidas de tipos.
-    </p>
-
-    <h3>Los seis filtros de interpretación</h3>
-
-    <div class="signal-row">
-      <span class="signal-label">1 · Nivel</span>
-      <span class="signal-note">Qué valor tiene el indicador en términos absolutos.</span>
-      <span class="signal-note">Ejemplo: PMI por encima de 50 indica expansión; por debajo de 50 indica contracción.</span>
-    </div>
-    <div class="signal-row">
-      <span class="signal-label">2 · Tendencia</span>
-      <span class="signal-note">Si mejora o empeora frente a meses anteriores.</span>
-      <span class="signal-note">Un PMI en 48 sigue siendo contracción, pero si sube desde 42 puede anticipar recuperación.</span>
-    </div>
-    <div class="signal-row">
-      <span class="signal-label">3 · Sorpresa</span>
-      <span class="signal-note">Diferencia entre dato publicado y expectativa de mercado.</span>
-      <span class="signal-note">Es el motor principal de la reacción inmediata de bonos, bolsa y divisas.</span>
-    </div>
-    <div class="signal-row">
-      <span class="signal-label">4 · Composición</span>
-      <span class="signal-note">Qué subcomponentes explican el dato general.</span>
-      <span class="signal-note">Un PIB fuerte por inventarios puede ser peor señal que un PIB fuerte por consumo e inversión.</span>
-    </div>
-    <div class="signal-row">
-      <span class="signal-label">5 · Revisión</span>
-      <span class="signal-note">Cambios en datos publicados previamente.</span>
-      <span class="signal-note">A veces el mercado reacciona más a la revisión del mes anterior que al dato nuevo.</span>
-    </div>
-    <div class="signal-row">
-      <span class="signal-label">6 · Reacción del banco central</span>
-      <span class="signal-note">Cómo afecta el dato a inflación, output gap y tipos esperados.</span>
-      <span class="signal-note">Un dato fuerte puede ser bajista para bonos si implica política monetaria más restrictiva.</span>
-    </div>
-
-    <h3>"Buenas noticias" que pueden ser malas noticias</h3>
-    <div class="card accent-amber">
-      <h3>⚠️ Trampa conceptual</h3>
-      <p>
-        En mercados financieros, un buen dato de actividad no siempre sube la bolsa. Si la inflación
-        está elevada y el banco central está preocupado por el recalentamiento, un dato fuerte puede
-        provocar subida de rentabilidades de los bonos, expectativa de tipos más altos y caída de
-        activos de riesgo. En ese caso, el mercado interpreta la fortaleza macro como una amenaza
-        de endurecimiento monetario.
-      </p>
-    </div>
-
-    <div class="vs-grid">
-      <div class="vs-box left">
-        <h4>Entorno de baja inflación</h4>
-        <p>Dato fuerte de crecimiento → mejora beneficios → menor riesgo de recesión → suele apoyar renta variable y crédito.</p>
-      </div>
-      <div class="vs-box right">
-        <h4>Entorno de inflación alta</h4>
-        <p>Dato fuerte de crecimiento → más presión de demanda → tipos esperados más altos → puede dañar bonos y acciones de duración larga.</p>
-      </div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        La clave no es memorizar una reacción fija, sino entender la función de reacción del banco central.
-        Si el dato aumenta la probabilidad de tipos altos, suele ser negativo para bonos existentes y puede
-        ser negativo para renta variable si el mercado teme restricción monetaria.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       2. LAS CUATRO FASES DEL CICLO
-       ============================================================ -->
-  <div class="sec">
-    <h2>2. Las cuatro fases del ciclo: economía real y mercados</h2>
-    <p class="sec-intro">
-      La guía EFA exige conocer las fases de <strong>crecimiento, auge o pico, recesión y depresión o valle</strong>,
-      y saber caracterizarlas tanto en economía real como en mercados financieros. Cada fase combina
-      crecimiento, inflación, empleo, beneficios, tipos y apetito por riesgo de forma distinta.
-    </p>
-
-    <div class="phase-grid">
-      <div class="phase-card growth">
-        <h4><span class="indicator-tag tag-growth">Crecimiento</span> Expansión / recuperación</h4>
-        <ul>
-          <li><strong>PIB:</strong> acelera desde niveles bajos o crece por encima de meses previos.</li>
-          <li><strong>Indicadores:</strong> PMIs y nuevos pedidos mejoran antes que empleo.</li>
-          <li><strong>Inflación:</strong> suele estar contenida al principio; capacidad ociosa elevada.</li>
-          <li><strong>Política monetaria:</strong> tipos todavía bajos o empezando a normalizarse.</li>
-          <li><strong>Mercados:</strong> mejora apetito por riesgo; renta variable y crédito suelen comportarse bien.</li>
-        </ul>
-      </div>
-
-      <div class="phase-card peak">
-        <h4><span class="indicator-tag tag-peak">Auge / Pico</span> Expansión tardía</h4>
-        <ul>
-          <li><strong>PIB:</strong> alto, pero con señales de agotamiento.</li>
-          <li><strong>Empleo:</strong> muy fuerte; paro bajo; salarios presionan costes.</li>
-          <li><strong>Inflación:</strong> tiende a subir por demanda y cuellos de botella.</li>
-          <li><strong>Política monetaria:</strong> restrictiva o en proceso de endurecimiento.</li>
-          <li><strong>Mercados:</strong> curva se aplana, valoración exigente, rotación hacia calidad.</li>
-        </ul>
-      </div>
-
-      <div class="phase-card recession">
-        <h4><span class="indicator-tag tag-recession">Recesión</span> Contracción</h4>
-        <ul>
-          <li><strong>PIB:</strong> cae o crece claramente por debajo del potencial.</li>
-          <li><strong>Indicadores:</strong> demanda, producción y confianza se deterioran.</li>
-          <li><strong>Empleo:</strong> empeora con retraso; suben paro e impagos.</li>
-          <li><strong>Política monetaria:</strong> el banco central suele pasar de restrictivo a expansivo.</li>
-          <li><strong>Mercados:</strong> caen activos de riesgo; suben primas de riesgo; búsqueda de refugio.</li>
-        </ul>
-      </div>
-
-      <div class="phase-card trough">
-        <h4><span class="indicator-tag tag-trough">Depresión / Valle</span> Suelo del ciclo</h4>
-        <ul>
-          <li><strong>PIB:</strong> mínimo cíclico; la economía sigue débil pero deja de empeorar.</li>
-          <li><strong>Indicadores:</strong> los adelantados giran antes que los retardados.</li>
-          <li><strong>Inflación:</strong> baja o en desaceleración; capacidad ociosa elevada.</li>
-          <li><strong>Política monetaria:</strong> tipos bajos, estímulos o expectativas de recortes.</li>
-          <li><strong>Mercados:</strong> los activos de riesgo pueden empezar a recuperarse antes que los datos oficiales.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="callout info">
-      <strong>Regla práctica:</strong> la economía real suele confirmar tarde; los mercados descuentan antes.
-      Por eso la bolsa puede empezar a subir cuando los datos de empleo todavía son malos, si los indicadores
-      adelantados y la política monetaria apuntan a recuperación.
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       3. APLICABILIDAD POR ACTIVO
-       ============================================================ -->
-  <div class="sec">
-    <h2>3. Aplicabilidad en mercados financieros por fase del ciclo</h2>
-
-    <h3>Fase 1: Crecimiento / recuperación</h3>
+    <h2>El ciclo económico como mapa de navegación financiera</h2>
     <p>
-      La recuperación suele comenzar cuando los indicadores adelantados dejan de caer: PMIs, nuevos pedidos,
-      permisos de construcción, confianza y condiciones financieras. La economía todavía puede parecer débil,
-      pero el mercado empieza a anticipar mejora de beneficios y menor riesgo de impago.
+      Los activos financieros no se valoran en el vacío. Sus precios descuentan expectativas
+      sobre la actividad económica futura: beneficios empresariales, inflación, tipos de interés
+      y política monetaria. Por eso, identificar en qué fase del ciclo se encuentra una economía
+      —y anticipar cuál viene a continuación— es una de las competencias más valiosas del asesor
+      financiero.
     </p>
-
-    <div class="asset-grid">
-      <div class="asset-box">
-        <h4>Renta variable</h4>
-        <ul>
-          <li>Suelen beneficiarse sectores cíclicos: industria, consumo discrecional, tecnología sensible al crecimiento.</li>
-          <li>Las valoraciones pueden expandirse si los tipos siguen bajos.</li>
-          <li>El mercado suele subir antes de que el PIB confirme recuperación.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Renta fija y crédito</h4>
-        <ul>
-          <li>Los bonos corporativos suelen mejorar porque caen los spreads de crédito.</li>
-          <li>Los bonos soberanos largos pueden sufrir si el mercado anticipa mayor crecimiento y tipos futuros más altos.</li>
-          <li>El tramo largo de la curva puede repuntar antes que el tramo corto.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Divisas</h4>
-        <ul>
-          <li>La moneda de una economía que sorprende al alza puede apreciarse si aumentan expectativas de tipos.</li>
-          <li>Las divisas cíclicas suelen mejorar cuando sube el apetito global por riesgo.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Materias primas</h4>
-        <ul>
-          <li>Industriales y energía suelen mejorar si aumenta la demanda esperada.</li>
-          <li>El oro puede verse presionado si suben tipos reales, salvo que persista incertidumbre.</li>
-        </ul>
-      </div>
-    </div>
-
-    <h3>Fase 2: Auge / pico</h3>
     <p>
-      En el pico, la economía real parece fuerte, pero los mercados empiezan a mirar el riesgo de exceso:
-      inflación, tipos altos, márgenes empresariales bajo presión, endeudamiento caro y deterioro de indicadores
-      adelantados. La dificultad es que los datos retardados —empleo, beneficios publicados— aún pueden parecer excelentes.
+      Esta sección conecta la economía real con los mercados. Para cada una de las cuatro fases
+      del ciclo estudiamos: (1) qué ocurre en la economía real, (2) qué hace el banco central,
+      y (3) cómo se comportan los distintos activos financieros. El objetivo final es la
+      <strong>rotación táctica de activos</strong>: ajustar la composición de la cartera en
+      función de la fase del ciclo en que nos encontremos.<sup class="fn"><a href="#fn1">[1]</a></sup>
     </p>
 
-    <div class="asset-grid">
-      <div class="asset-box">
-        <h4>Renta variable</h4>
-        <ul>
-          <li>Mayor riesgo de corrección si las valoraciones son exigentes.</li>
-          <li>Rotación hacia calidad, defensivos y empresas con poder de fijación de precios.</li>
-          <li>Acciones de crecimiento de larga duración sufren si suben tipos reales.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Renta fija</h4>
-        <ul>
-          <li>Los bancos centrales suelen endurecer condiciones: suben tipos oficiales.</li>
-          <li>La curva puede aplanarse o invertirse si el mercado espera futuras bajadas por desaceleración.</li>
-          <li>Duración larga vulnerable si la inflación sigue al alza.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Crédito</h4>
-        <ul>
-          <li>Los spreads pueden permanecer estrechos, pero el margen de seguridad se reduce.</li>
-          <li>Aumenta el riesgo de empresas endeudadas cuando sube el coste de financiación.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Liquidez</h4>
-        <ul>
-          <li>Los activos monetarios empiezan a ser más atractivos si los tipos oficiales suben.</li>
-          <li>El efectivo gana valor opcional: permite comprar activos si llega corrección.</li>
-        </ul>
-      </div>
+    <!-- Diagrama reloj del mercado -->
+    <div class="clock-wrap">
+      <p style="font-family:var(--font-ui);font-weight:800;font-size:var(--fs-sm);color:var(--navy);margin:0 0 .8rem;">El reloj del mercado — rotación de activos por fase</p>
+      <svg viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg">
+        <!-- Círculo exterior -->
+        <circle cx="240" cy="210" r="170" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+        <!-- Cuadrantes de color -->
+        <!-- Expansión (12→3 = superior derecho) -->
+        <path d="M240,210 L240,40 A170,170 0 0,1 410,210 Z" fill="#dcfce7" opacity=".7"/>
+        <!-- Pico (3→6 = inferior derecho) -->
+        <path d="M240,210 L410,210 A170,170 0 0,1 240,380 Z" fill="#fef3c7" opacity=".7"/>
+        <!-- Recesión (6→9 = inferior izquierdo) -->
+        <path d="M240,210 L240,380 A170,170 0 0,1 70,210 Z" fill="#fde8e8" opacity=".7"/>
+        <!-- Valle (9→12 = superior izquierdo) -->
+        <path d="M240,210 L70,210 A170,170 0 0,1 240,40 Z" fill="#dbeafe" opacity=".7"/>
+
+        <!-- Líneas divisoras -->
+        <line x1="240" y1="40" x2="240" y2="380" stroke="#fff" stroke-width="2.5"/>
+        <line x1="70" y1="210" x2="410" y2="210" stroke="#fff" stroke-width="2.5"/>
+
+        <!-- Etiquetas de fase -->
+        <text x="340" y="120" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="800" font-size="14" fill="#166534">EXPANSIÓN</text>
+        <text x="340" y="138" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#166534">① Crecimiento</text>
+
+        <text x="340" y="298" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="800" font-size="14" fill="#92400e">PICO / AUGE</text>
+        <text x="340" y="316" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#92400e">② Máximo</text>
+
+        <text x="140" y="298" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="800" font-size="14" fill="#b91c1c">RECESIÓN</text>
+        <text x="140" y="316" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#b91c1c">③ Contracción</text>
+
+        <text x="140" y="120" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="800" font-size="14" fill="#1e3a5f">VALLE</text>
+        <text x="140" y="138" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#1e3a5f">④ Suelo</text>
+
+        <!-- Activos favorecidos por cuadrante -->
+        <text x="348" y="160" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#166534">▸ RV cíclica</text>
+        <text x="348" y="174" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#166534">▸ Crédito HY</text>
+        <text x="348" y="188" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#166534">▸ Materias primas</text>
+
+        <text x="348" y="258" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#92400e">▸ RV defensiva</text>
+        <text x="348" y="272" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#92400e">▸ TIPS / linkers</text>
+        <text x="348" y="286" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#92400e">▸ Reducir duración</text>
+
+        <text x="140" y="258" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#b91c1c">▸ Bonos Gov. larga dur.</text>
+        <text x="140" y="272" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#b91c1c">▸ Oro / refugio</text>
+        <text x="140" y="286" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#b91c1c">▸ Infraestructuras</text>
+
+        <text x="140" y="160" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#1e3a5f">▸ RV value / fin.</text>
+        <text x="140" y="174" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#1e3a5f">▸ Crédito IG</text>
+        <text x="140" y="188" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#1e3a5f">▸ Dividendo alto</text>
+
+        <!-- Flecha de dirección (sentido horario) -->
+        <path d="M 240 48 A 162 162 0 0 1 395 155" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrowgray)"/>
+        <defs>
+          <marker id="arrowgray" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+            <path d="M0,0 L0,7 L7,3.5 z" fill="#64748b"/>
+          </marker>
+        </defs>
+
+        <!-- Centro -->
+        <circle cx="240" cy="210" r="42" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+        <text x="240" y="205" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="800" font-size="11" fill="#1e3a5f">CICLO</text>
+        <text x="240" y="220" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#64748b">Sentido</text>
+        <text x="240" y="232" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#64748b">horario →</text>
+      </svg>
     </div>
 
-    <h3>Fase 3: Recesión</h3>
     <p>
-      En recesión, los indicadores de demanda y producción se deterioran, la confianza cae y los beneficios empresariales
-      se revisan a la baja. La reacción de los activos depende de si domina el miedo a la deflación o si la inflación sigue alta.
-      Una recesión con inflación controlada suele favorecer bonos soberanos; una recesión inflacionaria es mucho más difícil.
+      El diagrama muestra los cuatro cuadrantes del ciclo y los activos que históricamente
+      mejor se comportan en cada uno. Aunque no hay una receta infalible —los ciclos varían
+      en duración, amplitud y velocidad—, este mapa es el punto de partida del análisis
+      de asignación de activos táctica.<sup class="fn"><a href="#fn2">[2]</a></sup>
     </p>
+  </div>
 
-    <div class="asset-grid">
-      <div class="asset-box">
-        <h4>Renta variable</h4>
-        <ul>
-          <li>Caen beneficios esperados y aumenta la prima de riesgo.</li>
-          <li>Defensivos resisten mejor: salud, utilities, consumo básico.</li>
-          <li>Los mínimos bursátiles suelen aparecer antes de que el PIB toque suelo.</li>
-        </ul>
+  <hr>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       FASE 1: EXPANSIÓN / CRECIMIENTO
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="sec">
+    <h2>Las cuatro fases en detalle</h2>
+
+    <div class="fase-block fase-expansion">
+      <div class="fase-block-header">
+        <span class="fase-num">①</span>
+        <div class="fase-title-wrap">
+          <h3>Expansión / Crecimiento</h3>
+          <span class="fase-subtitle">El PIB real crece por encima de su tendencia · Output gap positivo o cerrándose</span>
+        </div>
       </div>
-      <div class="asset-box">
-        <h4>Bonos soberanos</h4>
-        <ul>
-          <li>Pueden subir de precio si el mercado anticipa recortes de tipos y menor inflación.</li>
-          <li>Actúan como refugio en recesiones deflacionarias o de demanda.</li>
-          <li>Si la inflación sigue alta, la protección puede ser menor.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Crédito corporativo</h4>
-        <ul>
-          <li>Los spreads se amplían por mayor probabilidad de impago.</li>
-          <li>High yield sufre más que investment grade.</li>
-          <li>La liquidez del mercado puede deteriorarse.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Divisas y refugios</h4>
-        <ul>
-          <li>Tienden a apreciarse divisas refugio o de países con mejor posición externa.</li>
-          <li>El oro puede beneficiarse si hay miedo sistémico o expectativas de bajadas de tipos reales.</li>
-        </ul>
+      <div class="fase-block-body">
+        <div class="fase-col">
+          <h4>Economía real</h4>
+          <ul>
+            <li>El PIB real crece de forma sostenida, a menudo <strong>por encima del crecimiento potencial</strong>.</li>
+            <li>El <strong>empleo aumenta</strong>: las empresas contratan a medida que la producción se expande; el paro cae.</li>
+            <li>El <strong>consumo privado</strong> se acelera: la renta disponible crece y la confianza del consumidor mejora.</li>
+            <li>La <strong>inversión empresarial</strong> sube: las empresas amplían capacidad al anticipar demanda creciente.</li>
+            <li>La <strong>inflación repunta moderadamente</strong>: la demanda presiona los precios, pero sin desbocarse todavía.</li>
+            <li>Los <strong>beneficios corporativos</strong> crecen: más volumen de ventas y márgenes que se expanden.</li>
+            <li>El <strong>crédito fluye</strong>: los bancos relajan estándares y los tipos reales son bajos o negativos.</li>
+          </ul>
+        </div>
+        <div class="fase-col">
+          <h4>Mercados financieros y política monetaria</h4>
+          <ul>
+            <li><strong>Renta variable cíclica:</strong> <span class="asset-tag at-ok">✔ Favorable</span> El alza de beneficios impulsa las cotizaciones. Los sectores más beneficiados son industriales, consumo discrecional, tecnología y financieros.</li>
+            <li><strong>Crédito high yield (HY):</strong> <span class="asset-tag at-ok">✔ Favorable</span> Los diferenciales (spreads) se comprimen: menos riesgo de impago en expansión.</li>
+            <li><strong>Materias primas:</strong> <span class="asset-tag at-ok">✔ Favorable</span> La demanda industrial impulsa el petróleo, los metales industriales (cobre) y la energía.</li>
+            <li><strong>Renta fija soberana larga duración:</strong> <span class="asset-tag at-bad">✘ Presión</span> Las TIR suben al repuntar la inflación y el banco central endurece. El precio del bono cae.</li>
+            <li><strong>Política monetaria:</strong> el banco central empieza a subir tipos progresivamente para evitar el recalentamiento. Los tipos cortos suben; la curva puede aplanarse.</li>
+            <li><strong>PMI manufacturero:</strong> claramente por encima de 50. Confianza empresarial alta.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <h3>Fase 4: Depresión / valle</h3>
-    <p>
-      En el valle, la economía aún luce débil: paro alto, inversión deprimida y beneficios recientes malos. Sin embargo,
-      los indicadores adelantados pueden empezar a mejorar. Esta fase es clave para distinguir entre confirmación tardía
-      y giro de ciclo. Los mercados suelen anticipar la recuperación antes de que el dato de PIB sea claramente positivo.
-    </p>
-
-    <div class="asset-grid">
-      <div class="asset-box">
-        <h4>Renta variable</h4>
-        <ul>
-          <li>Puede empezar una recuperación fuerte desde valoraciones deprimidas.</li>
-          <li>Cíclicos y small caps pueden liderar si se confirma mejora de liquidez y actividad.</li>
-          <li>El riesgo principal es confundir un rebote técnico con recuperación real.</li>
-        </ul>
+    <!-- ── PICO ── -->
+    <div class="fase-block fase-pico">
+      <div class="fase-block-header">
+        <span class="fase-num">②</span>
+        <div class="fase-title-wrap">
+          <h3>Auge / Pico</h3>
+          <span class="fase-subtitle">Máximo del ciclo · Capacidad plena o sobreutilizada · Output gap en máximos</span>
+        </div>
       </div>
-      <div class="asset-box">
-        <h4>Bonos y tipos</h4>
-        <ul>
-          <li>Tipos oficiales suelen estar bajos o en recorte.</li>
-          <li>Si la recuperación se confirma, las rentabilidades largas pueden empezar a subir.</li>
-          <li>La curva puede empinarse por expectativas de crecimiento futuro.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Crédito</h4>
-        <ul>
-          <li>Los spreads pueden empezar a estrecharse antes de que bajen los impagos publicados.</li>
-          <li>Mejora primero la deuda de mayor calidad; luego la de más riesgo si avanza el ciclo.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Materias primas</h4>
-        <ul>
-          <li>Industriales reaccionan cuando el mercado ve recuperación de demanda global.</li>
-          <li>La energía puede tardar más si todavía hay exceso de inventarios.</li>
-        </ul>
+      <div class="fase-block-body">
+        <div class="fase-col">
+          <h4>Economía real</h4>
+          <ul>
+            <li>El PIB está en su <strong>nivel máximo</strong>; la economía opera a plena capacidad o por encima de ella.</li>
+            <li>El <strong>desempleo está en mínimos</strong> históricos o cerca; el mercado laboral está muy tensionado.</li>
+            <li>La <strong>inflación se acelera</strong>: la presión de demanda es máxima, los salarios suben con fuerza y las empresas trasladan costes a precios.</li>
+            <li>Los <strong>tipos de interés</strong> están en máximos o cerca de ellos: el banco central ha subido para frenar el recalentamiento.</li>
+            <li>La <strong>inversión empieza a enfriarse</strong>: el crédito es caro y las expectativas de demanda futura se moderan.</li>
+            <li>Los <strong>indicadores adelantados</strong> (PMI, confianza) empiezan a girar a la baja aunque el PIB aún no lo haya hecho.</li>
+            <li>Es el momento de <strong>mayor euforia</strong> en los mercados: la complacencia es alta y los riesgos están infravalorados.</li>
+          </ul>
+        </div>
+        <div class="fase-col">
+          <h4>Mercados financieros y política monetaria</h4>
+          <ul>
+            <li><strong>Renta variable defensiva:</strong> <span class="asset-tag at-ok">✔ Rotación</span> Utilities, consumo básico (alimentación, salud), telecomunicaciones. Sectores con demanda inelástica y dividendo estable.</li>
+            <li><strong>TIPS / bonos indexados a inflación:</strong> <span class="asset-tag at-ok">✔ Favorable</span> El cupón real protege frente a una inflación en máximos.</li>
+            <li><strong>Materias primas:</strong> <span class="asset-tag at-ok">✔ Aún favorable</span> El petróleo y los metales preciosos (oro) pueden seguir subiendo por la inflación.</li>
+            <li><strong>Renta fija larga duración:</strong> <span class="asset-tag at-bad">✘ Muy negativa</span> Tipos en máximos → precios de bonos en mínimos. Reducir duración.</li>
+            <li><strong>Crédito HY:</strong> <span class="asset-tag at-bad">✘ Precaución</span> Los spreads empiezan a ampliarse al deteriorarse las expectativas de beneficios.</li>
+            <li><strong>Política monetaria:</strong> el banco central ha subido tipos agresivamente. La curva de tipos se aplana o invierte (tipos cortos > tipos largos), señal históricamente fiable de recesión inminente.<sup class="fn"><a href="#fn3">[3]</a></sup></li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        En valle, los datos retardados siguen siendo malos. La señal de recuperación no suele venir del paro,
-        sino de indicadores adelantados: nuevos pedidos, PMI, confianza, permisos de construcción y condiciones financieras.
+    <!-- ── RECESIÓN ── -->
+    <div class="fase-block fase-recesion">
+      <div class="fase-block-header">
+        <span class="fase-num">③</span>
+        <div class="fase-title-wrap">
+          <h3>Recesión / Contracción</h3>
+          <span class="fase-subtitle">PIB real negativo ≥ 2 trimestres · Output gap negativo y ampliándose</span>
+        </div>
+      </div>
+      <div class="fase-block-body">
+        <div class="fase-col">
+          <h4>Economía real</h4>
+          <ul>
+            <li>El <strong>PIB real cae</strong> al menos dos trimestres consecutivos (definición técnica de recesión). La demanda agregada se contrae.</li>
+            <li>El <strong>desempleo sube</strong>: las empresas reducen plantillas y la inversión empresarial se frena bruscamente.</li>
+            <li>El <strong>consumo cae</strong>: la incertidumbre y el deterioro de la renta disponible hacen que los hogares retrasen compras, especialmente de bienes duraderos.</li>
+            <li>La <strong>inversión empresarial colapsa</strong>: es el componente del PIB más sensible al ciclo y el primero en caer.</li>
+            <li>La <strong>inflación se modera</strong>: la caída de la demanda presiona los precios a la baja. La inflación subyacente cede con retraso.</li>
+            <li>El <strong>déficit público aumenta</strong>: la recaudación cae y el gasto social (prestaciones, subsidios) se dispara. Actúan los estabilizadores automáticos.</li>
+            <li>El <strong>crédito se contrae</strong>: la morosidad sube, los bancos endurecen los estándares y el crédito nuevo cae.</li>
+          </ul>
+        </div>
+        <div class="fase-col">
+          <h4>Mercados financieros y política monetaria</h4>
+          <ul>
+            <li><strong>Bonos soberanos larga duración:</strong> <span class="asset-tag at-ok">✔ Muy favorable</span> El banco central baja tipos agresivamente. Los tipos caen → precio del bono sube. Duración larga es la mejor cobertura contra la caída de la bolsa.</li>
+            <li><strong>Oro y activos refugio:</strong> <span class="asset-tag at-ok">✔ Favorable</span> La aversión al riesgo dispara la demanda de oro, francos suizos (CHF) y yenes (JPY).</li>
+            <li><strong>Renta variable:</strong> <span class="asset-tag at-bad">✘ Muy negativa</span> Los beneficios empresariales caen; los mercados de RV pueden perder un 20–50% en recesiones severas.</li>
+            <li><strong>Crédito HY:</strong> <span class="asset-tag at-bad">✘ Muy negativa</span> Los spreads se disparan. Las tasas de impago suben. Huida hacia calidad (flight to quality).</li>
+            <li><strong>Infraestructuras / dividendos:</strong> <span class="asset-tag at-alt">~ Defensivo</span> Flujos de caja estables y contratos a largo plazo amortiguan la caída.</li>
+            <li><strong>Política monetaria:</strong> el banco central baja tipos de forma rápida y contundente. Puede implementar medidas no convencionales (QE). La curva de tipos se vuelve positiva de nuevo (empinamiento).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── VALLE ── -->
+    <div class="fase-block fase-valle">
+      <div class="fase-block-header">
+        <span class="fase-num">④</span>
+        <div class="fase-title-wrap">
+          <h3>Depresión / Valle</h3>
+          <span class="fase-subtitle">Suelo del ciclo · PIB en mínimo · Output gap negativo en su punto de máxima amplitud</span>
+        </div>
+      </div>
+      <div class="fase-block-body">
+        <div class="fase-col">
+          <h4>Economía real</h4>
+          <ul>
+            <li>La actividad económica <strong>toca fondo</strong>. El PIB real está en su nivel mínimo, aunque puede que el ritmo de caída ya se haya desacelerado.</li>
+            <li>El <strong>desempleo está en máximos</strong>: el mercado laboral es el último indicador en recuperarse. La destrucción de empleo aún puede continuar al principio de esta fase.</li>
+            <li>La <strong>inflación es muy baja</strong> o incluso negativa (deflación). El riesgo de deflación persistente es la mayor amenaza del banco central en esta fase.</li>
+            <li>Los <strong>balances empresariales</strong> están deteriorados: muchas empresas han incurrido en pérdidas y reducen deuda. La inversión está paralizada.</li>
+            <li>Los <strong>indicadores adelantados</strong> empiezan a girar al alza: el PMI sube desde mínimos, la confianza mejora desde niveles deprimidos.</li>
+            <li>El <strong>crédito empieza a recuperarse</strong> gracias a los estímulos del banco central, aunque tarda en llegar a la economía real.</li>
+          </ul>
+        </div>
+        <div class="fase-col">
+          <h4>Mercados financieros y política monetaria</h4>
+          <ul>
+            <li><strong>Renta variable value y financieras:</strong> <span class="asset-tag at-ok">✔ Oportunidad táctica</span> Los mercados suelen anticipar la recuperación 6–12 meses antes de que el PIB confirme el giro. Es el momento más difícil y más rentable de comprar.</li>
+            <li><strong>Crédito investment grade (IG):</strong> <span class="asset-tag at-ok">✔ Favorable</span> Los spreads empiezan a comprimirse. Los bonos corporativos de calidad generan rentabilidad superior a los soberanos.</li>
+            <li><strong>Acciones con alto dividendo:</strong> <span class="asset-tag at-ok">✔ Favorable</span> Dividendos sostenibles de empresas sólidas ofrecen rentabilidad en un entorno de tipos mínimos.</li>
+            <li><strong>Bonos soberanos:</strong> <span class="asset-tag at-alt">~ Neutral</span> Los tipos ya están en mínimos; la rentabilidad marginal de los bonos es baja. Se empieza a reducir exposición.</li>
+            <li><strong>Política monetaria:</strong> los tipos están en mínimos históricos. El banco central mantiene un sesgo expansivo prolongado para consolidar la recuperación. Puede haber QE en curso. Esta postura es el combustible de la siguiente expansión.</li>
+            <li><strong>Los mercados lideran la economía real:</strong> la bolsa toca suelo antes que el PIB. Quien espera a que los datos confirmen la recuperación, ya ha perdido el rebote.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       4. INTERPRETACIÓN POR TIPO DE INDICADOR
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       TABLA DE ROTACIÓN DE ACTIVOS
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
-    <h2>4. Interpretación por tipo de indicador</h2>
-    <p class="sec-intro">
-      Los indicadores de coyuntura de la Sección C se usan ahora como señales para inferir fase de ciclo,
-      reacción de bancos centrales y comportamiento esperado de activos. La clave es no leer cada dato aislado,
-      sino como parte de un cuadro macro coherente.
-    </p>
-
-    <h3>Indicadores de demanda</h3>
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Ventas minoristas y consumo</h4>
-        <p>Dato fuerte: apoya beneficios de empresas de consumo y crecimiento del PIB. Pero si la inflación está alta,
-        puede aumentar expectativa de tipos altos. Dato débil: alerta de desaceleración y presión sobre sectores cíclicos.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Vivienda y permisos de construcción</h4>
-        <p>Muy sensible a tipos. Caídas sostenidas anticipan menor inversión, menor consumo asociado y posible recesión.
-        Mejoras tempranas pueden señalar recuperación.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Pedidos de bienes duraderos</h4>
-        <p>Reflejan inversión empresarial y confianza. Son cíclicos y adelantados. Una caída en pedidos de capital suele
-        anticipar menor producción futura.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Comercio exterior</h4>
-        <p>Exportaciones fuertes apoyan economías abiertas. Importaciones fuertes pueden reflejar demanda interna saludable,
-        aunque empeoren el saldo exterior.</p>
-      </div>
-    </div>
-
-    <div class="callout info">
-      <strong>Lectura de mercado:</strong> la demanda fuerte es positiva para beneficios, pero puede ser negativa para bonos si
-      aumenta la expectativa de inflación y tipos. La demanda débil suele favorecer bonos soberanos si implica recortes futuros.
-    </div>
-
-    <h3>Indicadores de oferta</h3>
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Producción industrial</h4>
-        <p>Señal de actividad real. Suele afectar a sectores industriales, materias primas, divisas cíclicas y expectativas de PIB.
-        Es más útil cuando se analiza junto con pedidos e inventarios.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Utilización de capacidad</h4>
-        <p>Alta utilización indica menor holgura productiva y posible presión inflacionaria. Baja utilización indica capacidad
-        ociosa y menor presión sobre precios.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Inventarios</h4>
-        <p>Inventarios excesivos suelen anticipar recortes de producción futura. Inventarios bajos con demanda firme pueden
-        anticipar reposición y mejora de actividad.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Costes de producción / PPI</h4>
-        <p>Subidas de precios de producción pueden anticipar presión sobre márgenes o traslación a IPC. Importante para
-        bancos centrales y bonos.</p>
-      </div>
-    </div>
-
-    <h3>Indicadores de sentimiento</h3>
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>PMI / ISM</h4>
-        <p>Por encima de 50 indica expansión; por debajo de 50, contracción. Son muy seguidos porque se publican pronto
-        y captan nuevos pedidos, empleo, precios y plazos de entrega.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Confianza del consumidor</h4>
-        <p>Anticipa disposición a consumir, especialmente bienes duraderos. Puede caer antes de que caigan ventas reales.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Encuestas empresariales</h4>
-        <p>Ifo, ZEW, Tankan u otras encuestas captan expectativas de directivos e inversores. Útiles para detectar giros
-        antes de que aparezcan en PIB o empleo.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Sentimiento inversor</h4>
-        <p>Ayuda a detectar exceso de optimismo o miedo. No mide directamente economía real, pero influye en flujos,
-        valoraciones y volatilidad.</p>
-      </div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        PMI/ISM y confianza son adelantados. Producción industrial y ventas son más coincidentes. Tasa de paro y morosidad
-        son retardados. En mercados, los adelantados suelen mover expectativas antes que los datos oficiales de PIB.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       5. ACTIVOS Y SENSIBILIDADES MACRO
-       ============================================================ -->
-  <div class="sec">
-    <h2>5. Sensibilidad macroeconómica de los principales activos</h2>
-    <p class="sec-intro">
-      Cada activo responde a un conjunto distinto de variables. La misma noticia puede beneficiar a un activo
-      y perjudicar a otro. Un dato de inflación alta puede favorecer materias primas, dañar bonos nominales y
-      afectar de forma mixta a acciones según el poder de fijación de precios de las empresas.
+    <h2>Tabla maestra de rotación de activos por fase</h2>
+    <p>
+      Esta tabla sintetiza el comportamiento esperado de cada clase de activo en cada fase del
+      ciclo. Es la herramienta de referencia rápida para el examen y para la práctica
+      profesional.<sup class="fn"><a href="#fn2">[2]</a></sup>
     </p>
 
     <div class="table-wrap">
-      <table>
+      <table class="rot-table">
         <thead>
           <tr>
-            <th>Activo</th>
-            <th>Qué le beneficia</th>
-            <th>Qué le perjudica</th>
-            <th>Indicadores clave</th>
+            <th>Clase de activo</th>
+            <th><span class="fase-badge badge-exp">① Expansión</span></th>
+            <th><span class="fase-badge badge-pico">② Pico</span></th>
+            <th><span class="fase-badge badge-rec">③ Recesión</span></th>
+            <th><span class="fase-badge badge-val">④ Valle</span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Renta variable</strong></td>
-            <td>Crecimiento de beneficios, liquidez, tipos reales bajos</td>
-            <td>Recesión, subida fuerte de tipos, caída de márgenes</td>
-            <td>PMI, ventas, beneficios, empleo, inflación, tipos</td>
+            <td><strong>RV cíclica</strong><br><span style="font-size:var(--fs-xs);color:var(--text-soft)">Industriales, tecnología, consumo discrecional</span></td>
+            <td><span class="asset-tag at-ok">✔✔ Muy buena</span></td>
+            <td><span class="asset-tag at-alt">~ Neutral / reducir</span></td>
+            <td><span class="asset-tag at-bad">✘✘ Muy mala</span></td>
+            <td><span class="asset-tag at-ok">✔ Rebote tardío</span></td>
           </tr>
           <tr>
-            <td><strong>Bonos soberanos</strong></td>
-            <td>Desinflación, recesión, recortes de tipos, búsqueda de refugio</td>
-            <td>Inflación persistente, subidas de tipos, déficit elevado</td>
-            <td>IPC, salarios, PIB, bancos centrales, curva de tipos</td>
+            <td><strong>RV defensiva</strong><br><span style="font-size:var(--fs-xs);color:var(--text-soft)">Utilities, salud, consumo básico</span></td>
+            <td><span class="asset-tag at-alt">~ Rezagada</span></td>
+            <td><span class="asset-tag at-ok">✔ Buena</span></td>
+            <td><span class="asset-tag at-ok">✔ Buena</span></td>
+            <td><span class="asset-tag at-alt">~ Neutral</span></td>
           </tr>
           <tr>
-            <td><strong>Crédito corporativo</strong></td>
-            <td>Crecimiento estable, bajos impagos, liquidez abundante</td>
-            <td>Recesión, caída de beneficios, financiación cara</td>
-            <td>PMI, beneficios, defaults, spreads, condiciones financieras</td>
+            <td><strong>RV financieras / value</strong><br><span style="font-size:var(--fs-xs);color:var(--text-soft)">Bancos, aseguradoras, industriales baratas</span></td>
+            <td><span class="asset-tag at-ok">✔ Buena</span></td>
+            <td><span class="asset-tag at-alt">~ Neutral</span></td>
+            <td><span class="asset-tag at-bad">✘ Mala</span></td>
+            <td><span class="asset-tag at-ok">✔✔ Muy buena</span></td>
           </tr>
           <tr>
-            <td><strong>Mercado monetario</strong></td>
-            <td>Tipos oficiales altos o en subida</td>
-            <td>Recortes de tipos y exceso de liquidez</td>
-            <td>Decisiones del banco central, inflación, €STR/Euribor</td>
+            <td><strong>Bonos soberanos larga dur.</strong><br><span style="font-size:var(--fs-xs);color:var(--text-soft)">Tesoro EE.UU. 10Y+, Bund, OAT</span></td>
+            <td><span class="asset-tag at-bad">✘ Mala (TIR suben)</span></td>
+            <td><span class="asset-tag at-bad">✘✘ Muy mala</span></td>
+            <td><span class="asset-tag at-ok">✔✔ Muy buena</span></td>
+            <td><span class="asset-tag at-alt">~ Neutral / reducir</span></td>
           </tr>
           <tr>
-            <td><strong>Materias primas</strong></td>
-            <td>Demanda global, inflación, restricciones de oferta</td>
-            <td>Recesión global, dólar fuerte, exceso de inventarios</td>
-            <td>Producción industrial, China, inventarios, energía, PMI</td>
+            <td><strong>Crédito Investment Grade (IG)</strong><br><span style="font-size:var(--fs-xs);color:var(--text-soft)">Bonos corporativos alta calidad</span></td>
+            <td><span class="asset-tag at-ok">✔ Buena</span></td>
+            <td><span class="asset-tag at-alt">~ Neutral</span></td>
+            <td><span class="asset-tag at-alt">~ Defensivo</span></td>
+            <td><span class="asset-tag at-ok">✔✔ Muy buena</span></td>
           </tr>
           <tr>
-            <td><strong>Divisas</strong></td>
-            <td>Tipos relativos más altos, crecimiento relativo, superávit externo</td>
-            <td>Déficit externo, tipos reales bajos, riesgo político</td>
-            <td>Diferenciales de tipos, inflación, balanza exterior, bancos centrales</td>
+            <td><strong>Crédito High Yield (HY)</strong><br><span style="font-size:var(--fs-xs);color:var(--text-soft)">Bonos corporativos especulativos</span></td>
+            <td><span class="asset-tag at-ok">✔✔ Muy buena</span></td>
+            <td><span class="asset-tag at-alt">~ Precaución</span></td>
+            <td><span class="asset-tag at-bad">✘✘ Muy mala</span></td>
+            <td><span class="asset-tag at-ok">✔ Rebote</span></td>
+          </tr>
+          <tr>
+            <td><strong>Materias primas industriales</strong><br><span style="font-size:var(--fs-xs);color:var(--text-soft)">Cobre, petróleo, acero</span></td>
+            <td><span class="asset-tag at-ok">✔✔ Muy buena</span></td>
+            <td><span class="asset-tag at-ok">✔ Buena</span></td>
+            <td><span class="asset-tag at-bad">✘✘ Muy mala</span></td>
+            <td><span class="asset-tag at-alt">~ Neutral / rebote</span></td>
+          </tr>
+          <tr>
+            <td><strong>Oro / metales preciosos</strong></td>
+            <td><span class="asset-tag at-alt">~ Neutral</span></td>
+            <td><span class="asset-tag at-ok">✔ Buena (inflación)</span></td>
+            <td><span class="asset-tag at-ok">✔ Buena (refugio)</span></td>
+            <td><span class="asset-tag at-alt">~ Neutral</span></td>
+          </tr>
+          <tr>
+            <td><strong>Mercado monetario / liquidez</strong><br><span style="font-size:var(--fs-xs);color:var(--text-soft)">Depósitos, letras, fondos MM</span></td>
+            <td><span class="asset-tag at-bad">✘ Pierde vs. RV</span></td>
+            <td><span class="asset-tag at-ok">✔ Atractivo (tipos altos)</span></td>
+            <td><span class="asset-tag at-ok">✔ Refugio</span></td>
+            <td><span class="asset-tag at-bad">✘ Muy baja rentabilidad</span></td>
+          </tr>
+          <tr>
+            <td><strong>TIPS / bonos indexados</strong><br><span style="font-size:var(--fs-xs);color:var(--text-soft)">Bonos ligados a inflación</span></td>
+            <td><span class="asset-tag at-alt">~ Neutral</span></td>
+            <td><span class="asset-tag at-ok">✔✔ Muy buena</span></td>
+            <td><span class="asset-tag at-alt">~ Neutral</span></td>
+            <td><span class="asset-tag at-bad">✘ Pierde vs. nominales</span></td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <h3>Duración: el puente entre tipos y precio</h3>
-    <p>
-      Los activos de duración larga son más sensibles a cambios en los tipos de interés. En renta fija, la duración mide
-      sensibilidad del precio del bono ante movimientos de tipos. En renta variable, se habla de duración de forma conceptual:
-      empresas cuyos beneficios se esperan muy lejos en el futuro sufren más cuando sube la tasa de descuento.
-    </p>
-
-    <div class="vs-grid">
-      <div class="vs-box left">
-        <h4>Suben tipos esperados</h4>
-        <p>Bonos existentes bajan de precio. Acciones de crecimiento y activos de larga duración suelen sufrir. Mercado monetario se vuelve más atractivo.</p>
-      </div>
-      <div class="vs-box right">
-        <h4>Bajan tipos esperados</h4>
-        <p>Bonos existentes suben de precio. Se reduce tasa de descuento. Puede apoyar renta variable si no coincide con deterioro severo de beneficios.</p>
-      </div>
+    <div class="callout info">
+      <strong>Nota importante:</strong> esta tabla describe el <em>comportamiento histórico medio</em>.
+      Los mercados financieros descuentan expectativas con 6–12 meses de antelación respecto a la
+      economía real. En la práctica, el giro de los mercados suele preceder al giro del PIB: la renta
+      variable toca suelo en recesión, antes de que el PIB toque fondo, y toca techo en expansión,
+      antes de que el PIB alcance el pico.<sup class="fn"><a href="#fn1">[1]</a></sup>
     </div>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       6. REGÍMENES MACRO
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       INDICADORES QUE SEÑALIZAN CADA FASE
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
-    <h2>6. Regímenes macro: crecimiento e inflación combinados</h2>
-    <p class="sec-intro">
-      Para interpretar mercados no basta con decir "crecimiento alto" o "crecimiento bajo".
-      Hay que combinarlo con inflación. Los cuatro regímenes básicos ayudan a entender por qué
-      los activos reaccionan de forma distinta en cada entorno.
+    <h2>¿Qué indicadores señalizan cada fase?</h2>
+    <p>
+      La aplicación práctica de este marco requiere saber qué indicadores de coyuntura —vistos
+      en la Sección C— confirman o anticipan cada fase. La siguiente tabla recoge las señales
+      más fiables.<sup class="fn"><a href="#fn4">[4]</a></sup>
     </p>
-
-    <div class="regime-grid">
-      <div class="regime-box">
-        <h4>1 · Goldilocks: crecimiento positivo + inflación contenida</h4>
-        <p>
-          Entorno favorable para activos de riesgo: beneficios crecen, tipos no presionan demasiado y los bancos centrales
-          no necesitan endurecer agresivamente. Suele favorecer bolsa, crédito y carteras diversificadas.
-        </p>
-      </div>
-      <div class="regime-box">
-        <h4>2 · Reflación: crecimiento sube + inflación sube</h4>
-        <p>
-          Favorece cíclicos, bancos y materias primas si el crecimiento domina. Puede perjudicar bonos nominales por subida
-          de rentabilidades. Si la inflación se descontrola, pasa a ser negativo para activos de riesgo.
-        </p>
-      </div>
-      <div class="regime-box">
-        <h4>3 · Estanflación: crecimiento baja + inflación alta</h4>
-        <p>
-          Régimen difícil. Los bancos centrales no pueden bajar tipos con comodidad porque la inflación sigue alta.
-          Bonos y acciones pueden sufrir a la vez. Materias primas o activos ligados a inflación pueden resistir mejor.
-        </p>
-      </div>
-      <div class="regime-box">
-        <h4>4 · Deflación / recesión: crecimiento baja + inflación baja</h4>
-        <p>
-          Negativo para beneficios y crédito. Puede favorecer bonos soberanos de alta calidad si el banco central recorta tipos.
-          La renta variable suele sufrir al inicio y recuperarse cuando aparecen señales adelantadas de suelo.
-        </p>
-      </div>
-    </div>
 
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Régimen</th>
-            <th>Renta variable</th>
-            <th>Bonos soberanos</th>
-            <th>Crédito</th>
-            <th>Materias primas</th>
+            <th>Indicador</th>
+            <th><span class="fase-badge badge-exp">① Expansión</span></th>
+            <th><span class="fase-badge badge-pico">② Pico</span></th>
+            <th><span class="fase-badge badge-rec">③ Recesión</span></th>
+            <th><span class="fase-badge badge-val">④ Valle</span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Goldilocks</strong></td>
-            <td><span class="indicator-tag tag-positive">Favorable</span></td>
-            <td><span class="indicator-tag tag-neutral">Estable</span></td>
-            <td><span class="indicator-tag tag-positive">Favorable</span></td>
-            <td><span class="indicator-tag tag-neutral">Mixto</span></td>
+            <td><strong>PMI Manufacturas</strong></td>
+            <td>>50 y subiendo</td>
+            <td>>50 pero girando</td>
+            <td><50 y cayendo</td>
+            <td><50 pero girando al alza</td>
           </tr>
           <tr>
-            <td><strong>Reflación</strong></td>
-            <td><span class="indicator-tag tag-positive">Cíclicos</span></td>
-            <td><span class="indicator-tag tag-negative">Presión</span></td>
-            <td><span class="indicator-tag tag-positive">Mejora</span></td>
-            <td><span class="indicator-tag tag-positive">Favorable</span></td>
+            <td><strong>Curva de tipos</strong></td>
+            <td>Normal (pendiente positiva)</td>
+            <td>Aplanada o invertida</td>
+            <td>Invertida / empinando de nuevo</td>
+            <td>Normal, pendiente positiva</td>
           </tr>
           <tr>
-            <td><strong>Estanflación</strong></td>
-            <td><span class="indicator-tag tag-negative">Difícil</span></td>
-            <td><span class="indicator-tag tag-negative">Difícil</span></td>
-            <td><span class="indicator-tag tag-negative">Spreads</span></td>
-            <td><span class="indicator-tag tag-positive">Relativo</span></td>
+            <td><strong>Spreads crédito HY</strong></td>
+            <td>Comprimiéndose</td>
+            <td>En mínimos / ampliando</td>
+            <td>Disparados</td>
+            <td>Comprimiéndose desde máximos</td>
           </tr>
           <tr>
-            <td><strong>Deflación / recesión</strong></td>
-            <td><span class="indicator-tag tag-negative">Inicialmente mal</span></td>
-            <td><span class="indicator-tag tag-positive">Refugio</span></td>
-            <td><span class="indicator-tag tag-negative">Impagos</span></td>
-            <td><span class="indicator-tag tag-negative">Demanda débil</span></td>
+            <td><strong>Tasa de paro</strong></td>
+            <td>Cayendo</td>
+            <td>En mínimos</td>
+            <td>Subiendo</td>
+            <td>En máximos / estabilizando</td>
+          </tr>
+          <tr>
+            <td><strong>Inflación (IPC)</strong></td>
+            <td>Moderada y al alza</td>
+            <td>Alta y acelerando</td>
+            <td>Moderándose</td>
+            <td>Baja o negativa</td>
+          </tr>
+          <tr>
+            <td><strong>Confianza del consumidor</strong></td>
+            <td>Alta y subiendo</td>
+            <td>En máximos</td>
+            <td>Derrumbándose</td>
+            <td>En mínimos pero girando</td>
+          </tr>
+          <tr>
+            <td><strong>Política monetaria</strong></td>
+            <td>Tipos subiendo gradualmente</td>
+            <td>Tipos en máximos</td>
+            <td>Tipos bajando agresivamente</td>
+            <td>Tipos en mínimos / QE</td>
           </tr>
         </tbody>
       </table>
@@ -888,231 +685,170 @@
     <div class="exam-alert">
       <div>
         <strong>🎯 Frecuente en examen</strong>
-        Estanflación = mala combinación: bajo crecimiento + inflación alta. El banco central tiene dilema:
-        bajar tipos ayuda al crecimiento pero puede empeorar inflación; subir tipos combate inflación pero agrava actividad.
+        Dado un conjunto de datos macroeconómicos (PIB, paro, inflación, PMI, curva de tipos),
+        identificar en qué fase del ciclo se encuentra la economía y qué clase de activos
+        favorecería ese entorno. La curva de tipos invertida como señal adelantada de recesión
+        es una pregunta especialmente recurrente.
       </div>
     </div>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       7. CURVA DE TIPOS Y CICLO
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       EJEMPLOS NUMÉRICOS
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
-    <h2>7. Curva de tipos como indicador de ciclo</h2>
-    <p class="sec-intro">
-      La curva de tipos resume las expectativas de tipos futuros, inflación y prima por plazo. Aunque se estudia con más
-      detalle en renta fija, aquí sirve como puente entre coyuntura macro y mercados financieros.
-    </p>
+    <h2>Ejemplos de aplicación</h2>
 
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Curva creciente</h4>
-        <p>Tipos largos por encima de cortos. Suele asociarse a expansión esperada, inflación futura o prima por plazo positiva.
-        Puede aparecer al inicio de recuperación cuando los bancos centrales mantienen tipos bajos.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Curva plana</h4>
-        <p>Diferencia reducida entre tipos cortos y largos. Suele aparecer cuando el banco central ha subido tipos y el mercado
-        duda sobre la continuidad del crecimiento.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Curva invertida</h4>
-        <p>Tipos cortos por encima de largos. Lectura habitual: el mercado espera que los tipos actuales no sean sostenibles
-        y que el banco central tenga que bajarlos en el futuro por desaceleración o recesión.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Empinamiento tras recortes</h4>
-        <p>Si el tramo corto cae por recortes de tipos y el largo descuenta recuperación futura, la curva se empina.
-        Puede aparecer cerca del valle del ciclo.</p>
-      </div>
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 1 — Diagnóstico de fase y decisión de cartera</h3>
+      <p>
+        Un asesor recibe los siguientes datos de la eurozona en enero de 2026:<br><br>
+        · PIB Q3 2025: <strong>+1,5% interanual</strong> (aceleración desde +1,2%)<br>
+        · Paro: <strong>6,3%</strong> (mínimo histórico)<br>
+        · Inflación general: <strong>3,2%</strong> | Subyacente: <strong>2,5%</strong><br>
+        · PMI Manufacturas HCOB: <strong>49,8</strong> (ligeramente por debajo de 50)<br>
+        · Curva de tipos: invertida en tramos 2Y–10Y desde hace 4 meses<br>
+        · Crédito HY: spreads ampliándose +80 pb en el último trimestre<br><br>
+        <strong>Diagnóstico:</strong> la economía real muestra señales de <em>pico tardío</em>
+        o inicio de desaceleración (fase entre ② y ③). El PIB aún crece pero el PMI por debajo
+        de 50, la curva invertida y la ampliación de spreads HY son señales adelantadas de
+        deterioro inminente.<br><br>
+        <strong>Decisión de cartera:</strong><br>
+        · Reducir renta variable cíclica (industriales, consumo discrecional).<br>
+        · Aumentar exposición a renta variable defensiva (utilities, salud).<br>
+        · Aumentar duración en renta fija soberana (anticipar bajadas de tipos).<br>
+        · Salir de crédito HY; mantener solo IG de alta calidad.<br>
+        · Añadir exposición a oro como cobertura de cola.<br>
+        · Reducir materias primas industriales (cobre, petróleo).
+      </p>
     </div>
 
-    <div class="card accent-navy">
-      <h3>Lectura práctica</h3>
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 2 — Impacto cuantitativo de la fase en una cartera 60/40</h3>
       <p>
-        Una curva invertida no garantiza recesión inmediata, pero sí indica tensión entre política monetaria restrictiva
-        de corto plazo y expectativas de menor crecimiento futuro. En asesoramiento, no se usa como señal única:
-        debe combinarse con PMIs, crédito, empleo, inflación y beneficios.
+        Cartera inicial: 60% RV global (MSCI World ETF) + 40% Bonos Tesoro 10Y.<br>
+        Valor inicial: <strong>100.000 €</strong><br><br>
+        <strong>Escenario A — Expansión (año 1):</strong><br>
+        · RV sube +18% (beneficios crecen, PER se expande): +10.800 €<br>
+        · Bonos bajan −4% (TIR suben de 2% a 2,8%): −1.600 €<br>
+        · <strong>Cartera: +9.200 € → 109.200 €</strong><br><br>
+        <strong>Escenario B — Recesión (año 2):</strong><br>
+        · RV cae −25% (contracción de beneficios + compresión múltiplos): −16.380 €<br>
+        · Bonos suben +14% (TIR caen de 2,8% a 1,2%, duración ~8 años): +6.115 €<br>
+        · <strong>Cartera: −10.265 € → 98.935 €</strong><br><br>
+        Resultado acumulado en 2 años: <strong>−1.065 € (−1,1%)</strong>.<br><br>
+        Sin los bonos (cartera 100% RV), la pérdida en el año 2 habría sido −27.300 €,
+        y el resultado acumulado sería <strong>−8.500 € (−8,5%)</strong>.<br><br>
+        Conclusión: la asignación anticíclica a bonos soberanos (activo anticíclico en recesión)
+        redujo la pérdida máxima en un 77% respecto a una cartera solo de RV. Esta es la lógica
+        cuantitativa de la rotación por fases del ciclo.
+      </p>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 ¿En qué fase estamos? Eurozona, junio 2026</div>
+      <p>
+        Combinando los datos de las secciones anteriores: PIB +1,5% interanual (Q1 2026),
+        paro en mínimos (6,3%), inflación al 3,2% y PMI manufacturero por debajo de 50, con
+        el BCE a punto de subir tipos por primera vez desde 2023, la eurozona se encuentra
+        en una <strong>fase de pico tardío / inicio de desaceleración</strong> —entre ② y ③ del
+        diagrama—. El crecimiento real todavía es positivo, pero los indicadores adelantados
+        (PMI, spreads) empiezan a señalar deterioro. La estrategia de rotación defensiva
+        empieza a tener sentido desde el punto de vista del ciclo.
       </p>
     </div>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       8. SECUENCIA DEL CICLO
-       ============================================================ -->
-  <div class="sec">
-    <h2>8. Secuencia típica de señales en un giro de ciclo</h2>
-    <p class="sec-intro">
-      Los giros de mercado no suelen esperar a que el PIB confirme. La secuencia habitual es: primero cambian las
-      condiciones financieras y expectativas, después los indicadores adelantados, luego los coincidentes y finalmente
-      los retardados como desempleo e impagos.
-    </p>
-
-    <div class="mini-flow">
-      <div class="flow-step"><strong>1 · Condiciones financieras:</strong> bolsa, spreads, curva de tipos, liquidez y crédito reaccionan primero.</div>
-      <div class="flow-step"><strong>2 · Indicadores adelantados:</strong> PMI, nuevos pedidos, permisos de vivienda y confianza empiezan a girar.</div>
-      <div class="flow-step"><strong>3 · Indicadores coincidentes:</strong> producción industrial, ventas, consumo y actividad mensual confirman la dirección.</div>
-      <div class="flow-step"><strong>4 · Datos oficiales:</strong> PIB y beneficios publicados validan lo que el mercado empezó a descontar.</div>
-      <div class="flow-step"><strong>5 · Indicadores retardados:</strong> paro, morosidad e impagos mejoran o empeoran con retraso.</div>
-    </div>
-
-    <div class="card accent-amber">
-      <h3>⚠️ Trampa de asesoramiento</h3>
-      <p>
-        Esperar a que todos los indicadores sean buenos suele significar llegar tarde. En el valle del ciclo, los datos
-        retardados siguen siendo malos; en el pico, todavía pueden parecer excelentes. Por eso el análisis debe ponderar
-        más los indicadores adelantados cuando se buscan puntos de giro.
-      </p>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       9. PROCESO PRÁCTICO
-       ============================================================ -->
-  <div class="sec">
-    <h2>9. Proceso práctico para interpretar indicadores</h2>
-    <p class="sec-intro">
-      Para evitar lecturas aisladas, conviene seguir un proceso estable. El objetivo no es predecir perfectamente la economía,
-      sino construir una hipótesis razonable sobre fase del ciclo, riesgos principales y sensibilidad de cartera.
-    </p>
-
-    <div class="mini-flow">
-      <div class="flow-step"><strong>Paso 1 · Identificar fase:</strong> crecimiento, pico, recesión o valle. Usar PMIs, producción, consumo, empleo e inflación.</div>
-      <div class="flow-step"><strong>Paso 2 · Separar crecimiento e inflación:</strong> un dato fuerte con inflación baja no significa lo mismo que un dato fuerte con inflación alta.</div>
-      <div class="flow-step"><strong>Paso 3 · Comparar con expectativas:</strong> valorar la sorpresa frente al consenso, no solo el dato absoluto.</div>
-      <div class="flow-step"><strong>Paso 4 · Inferir bancos centrales:</strong> preguntarse si el dato aumenta o reduce probabilidad de subidas/bajadas de tipos.</div>
-      <div class="flow-step"><strong>Paso 5 · Traducir a activos:</strong> renta variable, bonos, crédito, divisas, materias primas y liquidez tienen sensibilidades distintas.</div>
-      <div class="flow-step"><strong>Paso 6 · Vigilar contradicciones:</strong> empleo fuerte con PMI débil, inflación baja con salarios altos, PIB fuerte por inventarios, etc.</div>
-    </div>
-
-    <div class="callout tip">
-      <strong>Lectura profesional:</strong> un asesor no debe convertir cada dato en una recomendación inmediata. Debe integrarlo
-      en una visión de cartera, horizonte temporal, perfil de riesgo y objetivos del cliente.
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       10. TRAMPAS DE EXAMEN
-       ============================================================ -->
-  <div class="sec">
-    <h2>10. Trampas típicas de examen</h2>
-
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Confundir dato bueno con mercado positivo</h4>
-        <p>Un dato fuerte puede ser negativo si implica más inflación y tipos más altos. Siempre mirar contexto monetario.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Confundir indicadores adelantados y retardados</h4>
-        <p>PMI y pedidos anticipan. Paro y morosidad confirman tarde. En giros de ciclo, los retardados engañan.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Mirar solo el PIB</h4>
-        <p>El PIB es trimestral y se revisa. Los mercados suelen reaccionar antes a encuestas, producción, ventas y curva.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Ignorar composición del dato</h4>
-        <p>No es igual crecimiento por consumo e inversión que por inventarios o gasto público transitorio.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Aplicar reglas fijas a todos los activos</h4>
-        <p>La misma macro no afecta igual a acciones, bonos, crédito, divisas y materias primas.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Olvidar las expectativas</h4>
-        <p>Los mercados descuentan escenarios. Lo que mueve precios es la sorpresa y la revisión de expectativas.</p>
-      </div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Patrón de pregunta probable</strong>
-        "Si la economía entra en recesión y la inflación cae, ¿qué activo tiende a beneficiarse?" Respuesta esperada:
-        bonos soberanos de alta calidad por expectativa de bajadas de tipos y búsqueda de refugio. Matiz: si la inflación
-        no cae, la protección de los bonos puede ser menor.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- RESUMEN -->
+  <!-- ════════════════════════════════════════════════════════════════
+       RESUMEN
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
     <h2>Resumen de la sección</h2>
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>Concepto</th><th>Idea clave</th><th>Aplicación en mercados</th></tr>
+          <tr><th>Fase</th><th>Economía real (clave)</th><th>Activos favorecidos</th><th>Política monetaria</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Sorpresa macro</strong></td>
-            <td>Diferencia entre dato publicado y expectativa</td>
-            <td>Mueve precios más que el dato absoluto</td>
+            <td><span class="fase-badge badge-exp">① Expansión</span></td>
+            <td>PIB ↑, empleo ↑, inflación ↑ moderada, beneficios ↑</td>
+            <td>RV cíclica, HY, materias primas</td>
+            <td>Tipos subiendo</td>
           </tr>
           <tr>
-            <td><strong>Crecimiento</strong></td>
-            <td>PIB y actividad mejoran desde niveles débiles</td>
-            <td>Favorece renta variable, crédito y activos cíclicos</td>
+            <td><span class="fase-badge badge-pico">② Pico</span></td>
+            <td>Plena capacidad, paro mínimo, inflación máxima</td>
+            <td>RV defensiva, TIPS, oro, liquidez</td>
+            <td>Tipos en máximos / curva plana</td>
           </tr>
           <tr>
-            <td><strong>Auge / Pico</strong></td>
-            <td>Economía fuerte, inflación y tipos en tensión</td>
-            <td>Curva plana/invertida, rotación a calidad, riesgo de corrección</td>
+            <td><span class="fase-badge badge-rec">③ Recesión</span></td>
+            <td>PIB ↓ (≥2 trim.), empleo ↓, inflación ↓, inversión colapsa</td>
+            <td>Bonos soberanos larga dur., oro, refugio</td>
+            <td>Tipos bajando agresivamente / QE</td>
           </tr>
           <tr>
-            <td><strong>Recesión</strong></td>
-            <td>Caen demanda, producción y beneficios; sube riesgo</td>
-            <td>Mal para acciones y crédito; bonos soberanos pueden actuar como refugio</td>
-          </tr>
-          <tr>
-            <td><strong>Depresión / Valle</strong></td>
-            <td>Datos malos, pero dejan de empeorar</td>
-            <td>Mercados pueden anticipar recuperación antes que PIB y empleo</td>
-          </tr>
-          <tr>
-            <td><strong>Indicadores adelantados</strong></td>
-            <td>Anticipan giros</td>
-            <td>PMI, nuevos pedidos, confianza, permisos de construcción</td>
-          </tr>
-          <tr>
-            <td><strong>Indicadores retardados</strong></td>
-            <td>Confirman tarde</td>
-            <td>Paro, morosidad, impagos, beneficios publicados</td>
-          </tr>
-          <tr>
-            <td><strong>Estanflación</strong></td>
-            <td>Bajo crecimiento + inflación alta</td>
-            <td>Entorno difícil para bonos y acciones; dilema de banco central</td>
-          </tr>
-          <tr>
-            <td><strong>Curva invertida</strong></td>
-            <td>Tipos cortos por encima de largos</td>
-            <td>Señal habitual de expectativa de desaceleración o recortes futuros</td>
+            <td><span class="fase-badge badge-val">④ Valle</span></td>
+            <td>Paro máximo, inflación baja, PMI girando al alza</td>
+            <td>RV value/fin., crédito IG, dividendo alto</td>
+            <td>Tipos mínimos / QE en curso</td>
           </tr>
         </tbody>
       </table>
     </div>
+
+    <div class="callout tip">
+      <strong>Regla de oro:</strong> los mercados financieros anticipan el ciclo económico real
+      con una media de 6–12 meses. Nunca hay que esperar a que los datos macroeconómicos confirmen
+      la fase para posicionarse: cuando el PIB confirma la recesión, el mercado ya está
+      descontando la recuperación.
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       NOTAS AL PIE
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Damodaran, A. (2012). <em>Investment Valuation</em>, 3.ª ed. Wiley Finance. Cap. 18:
+        «Valuing the Firm across the Business Cycle». ISBN 978-1-118-01152-2.
+      </li>
+      <li id="fn2">
+        Fidelity Investments. «Business Cycle Framework». Metodología de asignación de activos
+        por fase del ciclo.
+        <a href="https://www.fidelity.com/learning-center/trading-investing/markets-sectors/business-cycle" target="_blank" rel="noopener">fidelity.com/business-cycle</a>
+      </li>
+      <li id="fn3">
+        Harvey, C. R. (1988). «The Real Term Structure and Consumption Growth».
+        <em>Journal of Financial Economics</em>, 22(2), 305–333. La curva de tipos invertida
+        como predictor de recesión.
+        <a href="https://doi.org/10.1016/0304-405X(88)90073-6" target="_blank" rel="noopener">doi.org/10.1016/0304-405X(88)90073-6</a>
+      </li>
+      <li id="fn4">
+        The Conference Board. «Business Cycle Indicators Handbook». Clasificación de
+        indicadores y señales de cambio de fase.
+        <a href="https://www.conference-board.org/data/bcicountry.cfm" target="_blank" rel="noopener">conference-board.org</a>
+      </li>
+    </ol>
   </div>
 
   <!-- NAVEGACIÓN -->
   <div class="sec-nav">
-    <a href="seccion-c.html" class="nav-btn">← C: Indicadores de coyuntura</a>
-    <a href="seccion-e.html" class="nav-btn">E: Políticas monetarias recientes →</a>
+    <a href="seccion-c.html" class="nav-btn">← C: Indicadores de Coyuntura</a>
+    <a href="seccion-e.html" class="nav-btn">E: Política Monetaria Reciente →</a>
   </div>
 
 </div>
 
 <footer>
-  EFA Prep · Módulo 1 · Bloque 1 · Sección D · Basado en la Guía de Certificación EFPA España V1/26 · No constituye asesoramiento financiero
+  EFA Prep · Módulo 1 · Bloque 1 · Sección D · Basado en la Guía de Certificación EFPA España V1/26
 </footer>
 
 <script src="../../assets/ui.js"></script>
