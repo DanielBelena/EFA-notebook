@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B1 · Sección E — Política monetaria reciente y rendimientos financieros · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .concept-grid { grid-template-columns: 1fr; } }
+
+    .concept-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .concept-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      margin-bottom: .35rem;
+      color: var(--navy);
+    }
+    .concept-box p, .concept-box ul, .concept-box ol {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .concept-box ul, .concept-box ol {
+      padding-left: 1.1rem;
+      margin-top: .3rem;
+    }
+    .concept-box li { margin: .25rem 0; }
+
+    .regime-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .75rem;
+      margin: 1rem 0;
+    }
+    .regime-card {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-left: 5px solid var(--navy);
+      border-radius: 14px;
+      padding: 1rem 1.15rem;
+      box-shadow: var(--shadow);
+    }
+    .regime-card.easy { border-left-color: var(--green); }
+    .regime-card.tight { border-left-color: var(--danger); }
+    .regime-card.pause { border-left-color: var(--amber); }
+    .regime-card.normal { border-left-color: var(--navy); }
+    .regime-card h4 {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin: 0 0 .4rem 0;
+    }
+    .regime-card p, .regime-card li {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .regime-card ul { padding-left: 1.15rem; margin-top: .35rem; }
+    .regime-card li { margin: .25rem 0; }
+
+    .transmission-flow {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .55rem;
+      margin: 1rem 0;
+    }
+    .flow-step {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-left: 4px solid var(--navy);
+      border-radius: 12px;
+      padding: .85rem 1rem;
+      font-size: var(--fs-sm);
+      color: var(--text-soft);
+      line-height: 1.65;
+    }
+    .flow-step strong {
+      font-family: var(--font-ui);
+      color: var(--navy);
+    }
+
+    .asset-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .asset-grid { grid-template-columns: 1fr; } }
+    .asset-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+    }
+    .asset-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin: 0 0 .4rem 0;
+    }
+    .asset-box p, .asset-box li {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .asset-box ul { padding-left: 1.1rem; margin-top: .3rem; }
+    .asset-box li { margin: .25rem 0; }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 640px) { .scenario-grid { grid-template-columns: 1fr; } }
+    .scenario-box {
+      border-radius: 14px;
+      padding: 1rem;
+      border: 1.5px solid var(--border);
+      background: var(--card);
+    }
+    .scenario-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: var(--fs-sm);
+      margin: 0 0 .45rem 0;
+      color: var(--navy);
+    }
+    .scenario-box p, .scenario-box li {
+      font-size: var(--fs-xs);
+      line-height: 1.65;
+      color: var(--text-soft);
+      margin: 0;
+    }
+    .scenario-box ul { padding-left: 1.1rem; margin-top: .3rem; }
+    .scenario-box li { margin: .25rem 0; }
+
+    .indicator-tag {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: .68rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-right: 4px;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    .tag-expansive { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
+    .tag-restrictive { background: var(--danger-light); color: var(--danger); border: 1px solid var(--danger); }
+    .tag-neutral { background: var(--bg-alt); color: var(--muted); border: 1px solid var(--border); }
+    .tag-warning { background: var(--amber-light); color: var(--amber); border: 1px solid var(--amber); }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 150px 1fr 1fr;
+      gap: .65rem;
+      align-items: start;
+      padding: .8rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: var(--fs-sm);
+    }
+    .comparison-row:last-child { border-bottom: none; }
+    .comparison-label {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      color: var(--navy);
+    }
+    .comparison-note {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+    @media (max-width: 700px) {
+      .comparison-row { grid-template-columns: 1fr; gap: .25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B1 · E</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Bloque 1</a>
+    <span class="sep">›</span>
+    <span>Sección E</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 1 · Sección E · Nivel II</div>
+    <h1>Políticas monetarias recientes y su impacto en los rendimientos financieros</h1>
+    <p class="hero-sub">
+      Cambios recientes en bancos centrales · Tipos de interés y programas de estímulo ·
+      Relación política monetaria-inflación · Implicaciones para bonos, acciones, crédito, divisas y estrategia de inversión.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       INTRODUCCIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>Qué exige entender esta sección</h2>
+    <p class="sec-intro">
+      Esta sección no va de memorizar el último tipo oficial exacto de cada banco central.
+      Lo importante para EFA es comprender cómo los cambios de política monetaria afectan
+      a los rendimientos financieros: tipos de interés, valoración de bonos, coste de capital,
+      beneficios esperados, crédito, divisas y asignación de activos.
+    </p>
+
+    <div class="card accent-navy">
+      <h3>Idea central</h3>
+      <p>
+        La política monetaria modifica el precio del dinero. Al cambiar el precio del dinero,
+        cambia también el valor actual de los flujos futuros de los activos financieros. Por eso
+        una subida de tipos no afecta solo a los depósitos o hipotecas: afecta a bonos, acciones,
+        inmuebles, divisas, crédito corporativo y materias primas.
+      </p>
+    </div>
+
+    <div class="transmission-flow">
+      <div class="flow-step"><strong>1 · Banco central</strong> cambia tipos oficiales, guía futura o balance.</div>
+      <div class="flow-step"><strong>2 · Mercado monetario</strong> ajusta tipos a corto plazo y expectativas.</div>
+      <div class="flow-step"><strong>3 · Curva de tipos</strong> se desplaza, se aplana o se empina.</div>
+      <div class="flow-step"><strong>4 · Coste de financiación</strong> cambia para familias, empresas y Estados.</div>
+      <div class="flow-step"><strong>5 · Valoración de activos</strong> se ajusta por descuento de flujos, prima de riesgo y expectativas de crecimiento.</div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El examen suele preguntar la cadena causal. No basta con decir "suben tipos".
+        Hay que conectar: tipos oficiales → curva → coste de financiación → inflación/crecimiento → precios de activos.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. REGÍMENES RECIENTES
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. De los estímulos al endurecimiento monetario</h2>
+    <p class="sec-intro">
+      La política monetaria reciente puede entenderse como una secuencia de regímenes. Para estudiar,
+      conviene ordenar el período en cuatro grandes fases: política ultraexpansiva, shock inflacionista,
+      endurecimiento monetario y normalización dependiente de los datos.
+    </p>
+
+    <div class="regime-grid">
+      <div class="regime-card easy">
+        <h4><span class="indicator-tag tag-expansive">Expansiva</span> Tipos muy bajos y compras de activos</h4>
+        <p>
+          Tras la crisis financiera global y, de nuevo, tras la pandemia, muchos bancos centrales
+          mantuvieron tipos oficiales muy bajos y utilizaron compras de bonos para sostener crédito,
+          liquidez y actividad económica. El objetivo era evitar deflación, reducir tipos a largo plazo
+          y facilitar la financiación de hogares, empresas y Estados.
+        </p>
+        <ul>
+          <li>Favorece activos de duración larga: bonos largos, acciones de crecimiento, inmuebles.</li>
+          <li>Comprime las primas de riesgo y estrecha diferenciales de crédito.</li>
+          <li>Puede impulsar valoraciones exigentes si los flujos futuros se descuentan a tasas muy bajas.</li>
+        </ul>
+      </div>
+
+      <div class="regime-card pause">
+        <h4><span class="indicator-tag tag-warning">Shock</span> Inflación y pérdida de poder adquisitivo</h4>
+        <p>
+          El repunte de inflación obligó a los bancos centrales a cambiar de prioridad: de sostener
+          el crecimiento a recuperar la estabilidad de precios. Cuando la inflación deja de parecer transitoria
+          y se transmite a salarios, márgenes o expectativas, la política monetaria tiende a endurecerse.
+        </p>
+        <ul>
+          <li>Suben las expectativas de tipos futuros.</li>
+          <li>Los bonos existentes pierden valor si aumentan las rentabilidades exigidas.</li>
+          <li>Las acciones sensibles a tipos sufren por mayor tasa de descuento.</li>
+        </ul>
+      </div>
+
+      <div class="regime-card tight">
+        <h4><span class="indicator-tag tag-restrictive">Restrictiva</span> Subidas de tipos y retirada de liquidez</h4>
+        <p>
+          El endurecimiento monetario consiste en subir tipos oficiales, reducir compras de activos,
+          retirar liquidez o dejar vencer bonos del balance del banco central. El objetivo es enfriar la demanda,
+          reducir presiones inflacionistas y anclar expectativas.
+        </p>
+        <ul>
+          <li>Sube el coste de la deuda nueva.</li>
+          <li>Se endurecen las condiciones financieras.</li>
+          <li>Aumenta el riesgo de desaceleración o recesión si la restricción es intensa.</li>
+        </ul>
+      </div>
+
+      <div class="regime-card normal">
+        <h4><span class="indicator-tag tag-neutral">Normalización</span> Pausa, divergencia y dependencia de los datos</h4>
+        <p>
+          Una vez la inflación empieza a moderarse, los bancos centrales suelen pasar de subir tipos
+          a observar datos: inflación subyacente, salarios, empleo, crédito y crecimiento. En esta fase
+          los mercados se vuelven muy sensibles a cualquier indicio de recortes o de persistencia inflacionista.
+        </p>
+        <ul>
+          <li>La expectativa de recortes puede favorecer bonos de duración.</li>
+          <li>Si los recortes se esperan por recesión, la renta variable puede no beneficiarse.</li>
+          <li>La divergencia entre bancos centrales mueve divisas y flujos internacionales.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>Clave de asesor financiero:</strong> lo relevante no es solo el nivel de tipos, sino el cambio esperado.
+      Un tipo oficial alto puede estar ya descontado. Lo que mueve mercados es la sorpresa: más subidas de las previstas,
+      recortes antes de lo esperado o mensajes de banco central que cambian la curva de expectativas.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. HERRAMIENTAS DE POLÍTICA MONETARIA
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Herramientas de política monetaria</h2>
+    <p class="sec-intro">
+      Un banco central no actúa solo mediante un tipo de interés. También influye a través de su balance,
+      sus operaciones de liquidez, sus mensajes al mercado y sus expectativas sobre inflación y crecimiento.
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Tipos oficiales</h4>
+        <p>
+          Son el instrumento central. Afectan al coste de financiación a corto plazo y sirven como referencia
+          para el resto de tipos del sistema financiero. Subir tipos enfría demanda; bajarlos estimula crédito y gasto.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Forward guidance</h4>
+        <p>
+          Comunicación sobre la orientación futura de la política monetaria. Puede mover mercados incluso sin cambiar
+          tipos, porque altera expectativas sobre tipos futuros, inflación y crecimiento.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>QE · Expansión cuantitativa</h4>
+        <p>
+          Compra de bonos por parte del banco central. Tiende a reducir rentabilidades a largo plazo, aumentar liquidez,
+          comprimir spreads y apoyar activos de riesgo. No es gasto público: es política monetaria vía balance.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>QT · Restricción cuantitativa</h4>
+        <p>
+          Reducción del balance del banco central, normalmente dejando vencer activos o vendiéndolos. Tiende a retirar
+          liquidez, elevar prima temporal y endurecer condiciones financieras.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Operaciones de liquidez</h4>
+        <p>
+          Préstamos y facilidades al sistema bancario. Buscan asegurar que el crédito siga funcionando y que los tipos
+          de mercado se mantengan cerca de los tipos oficiales.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Reservas y regulación monetaria</h4>
+        <p>
+          Cambios en reservas mínimas o condiciones de financiación afectan a la cantidad de crédito disponible.
+          Es más relevante en algunas economías que en otras.
+        </p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Diferencia clave</strong>
+        Política convencional = tipos oficiales. Política no convencional = compras de activos, forward guidance,
+        provisión extraordinaria de liquidez y gestión del balance.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. TIPOS DE INTERÉS Y RENTA FIJA
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Impacto en renta fija: precio, TIR y duración</h2>
+    <p class="sec-intro">
+      La renta fija es el activo más directamente afectado por la política monetaria. La relación fundamental
+      es inversa: si sube la rentabilidad exigida por el mercado, baja el precio de los bonos existentes.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Relación básica</span>
+      Tipos / TIR ↑  →  Precio del bono ↓
+      <br>
+      Tipos / TIR ↓  →  Precio del bono ↑
+    </div>
+
+    <h3>Por qué ocurre</h3>
+    <p>
+      Un bono paga flujos futuros: cupones y principal. Para valorar esos flujos se descuentan a una tasa.
+      Si la tasa de descuento sube, el valor actual de esos flujos baja. Cuanto más lejos estén los flujos en el tiempo,
+      más sensible será el precio del bono: eso es la duración.
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Bonos de corta duración</h4>
+        <p>
+          Menos sensibles a movimientos de tipos. Su precio fluctúa menos, pero se benefician menos cuando bajan tipos.
+          En ciclos de subidas suelen ser defensivos frente a bonos largos.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Bonos de larga duración</h4>
+        <p>
+          Muy sensibles a cambios en la curva. Sufren más cuando suben tipos, pero pueden beneficiarse mucho si el mercado
+          anticipa recortes de tipos o caída de inflación.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Bonos soberanos de alta calidad</h4>
+        <p>
+          En recesión con inflación controlada pueden actuar como refugio: baja crecimiento, bajan expectativas de tipos,
+          suben precios de bonos. Pero si la recesión viene con inflación alta, la protección es menor.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Crédito corporativo</h4>
+        <p>
+          Depende de dos piezas: tipo libre de riesgo y spread de crédito. En crisis pueden bajar tipos soberanos pero subir
+          mucho los spreads, dañando bonos corporativos de menor calidad.
+        </p>
+      </div>
+    </div>
+
+    <h3>Movimientos de la curva de tipos</h3>
+    <div class="comparison-row">
+      <span class="comparison-label">Desplazamiento al alza</span>
+      <span class="comparison-note">Suben rentabilidades en varios plazos.</span>
+      <span class="comparison-note">Negativo para precios de bonos; especialmente para duración larga.</span>
+    </div>
+    <div class="comparison-row">
+      <span class="comparison-label">Aplanamiento</span>
+      <span class="comparison-note">Suben más los tipos cortos que los largos, o bajan más los largos.</span>
+      <span class="comparison-note">Frecuente cuando el banco central endurece y el mercado anticipa desaceleración.</span>
+    </div>
+    <div class="comparison-row">
+      <span class="comparison-label">Inversión</span>
+      <span class="comparison-note">Tipos cortos por encima de tipos largos.</span>
+      <span class="comparison-note">Suele interpretarse como expectativa de recesión o de futuros recortes.</span>
+    </div>
+    <div class="comparison-row">
+      <span class="comparison-label">Empinamiento</span>
+      <span class="comparison-note">Suben más los largos que los cortos o bajan más los cortos.</span>
+      <span class="comparison-note">Puede indicar recuperación, mayor inflación esperada o aumento de prima temporal.</span>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Si un banco central sube tipos agresivamente, un ETF de bonos largos suele caer por el aumento de la TIR exigida.
+        La duración amplifica la pérdida. Esta idea conecta directamente con renta fija del Bloque 4.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. IMPACTO POR ACTIVO
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Impacto por clase de activo</h2>
+    <p class="sec-intro">
+      La política monetaria no afecta a todos los activos igual. El impacto depende de duración, sensibilidad al ciclo,
+      apalancamiento, calidad crediticia, divisa y expectativas de inflación.
+    </p>
+
+    <div class="asset-grid">
+      <div class="asset-box">
+        <h4>Renta fija soberana</h4>
+        <ul>
+          <li>Subidas de tipos: presión bajista en precios.</li>
+          <li>Bajadas esperadas: soporte para bonos de duración.</li>
+          <li>Mayor inflación esperada: exige mayores rentabilidades nominales.</li>
+          <li>Funciona mejor como refugio si inflación está controlada.</li>
+        </ul>
+      </div>
+      <div class="asset-box">
+        <h4>Crédito corporativo</h4>
+        <ul>
+          <li>Tipos altos encarecen refinanciación.</li>
+          <li>Recesión aumenta probabilidad de impago.</li>
+          <li>High yield sufre más que investment grade.</li>
+          <li>Spreads estrechos pueden ocultar exceso de complacencia.</li>
+        </ul>
+      </div>
+      <div class="asset-box">
+        <h4>Renta variable</h4>
+        <ul>
+          <li>Tipos altos elevan la tasa de descuento.</li>
+          <li>Acciones growth sufren más si sus flujos están lejos en el tiempo.</li>
+          <li>Acciones value/financieras pueden resistir mejor en ciertas fases.</li>
+          <li>Si suben tipos por crecimiento fuerte, el impacto puede ser mixto.</li>
+        </ul>
+      </div>
+      <div class="asset-box">
+        <h4>Bancos y financieras</h4>
+        <ul>
+          <li>Subidas moderadas pueden mejorar margen de intereses.</li>
+          <li>Subidas excesivas pueden elevar morosidad y pérdidas crediticias.</li>
+          <li>Curva invertida presiona el modelo de prestar largo y financiarse corto.</li>
+        </ul>
+      </div>
+      <div class="asset-box">
+        <h4>Inmobiliario y REITs/SOCIMIs</h4>
+        <ul>
+          <li>Muy sensibles a tipos por financiación y valoración por descuento.</li>
+          <li>Tipos altos reducen accesibilidad hipotecaria y valor actual de alquileres.</li>
+          <li>Activos con rentas indexadas a inflación pueden proteger parcialmente.</li>
+        </ul>
+      </div>
+      <div class="asset-box">
+        <h4>Divisas</h4>
+        <ul>
+          <li>Un país con tipos esperados más altos tiende a atraer capital.</li>
+          <li>La divisa puede apreciarse si la subida de tipos no implica crisis.</li>
+          <li>Importa el diferencial de tipos reales, no solo nominales.</li>
+        </ul>
+      </div>
+      <div class="asset-box">
+        <h4>Materias primas y oro</h4>
+        <ul>
+          <li>Tipos reales altos suelen ser viento en contra para oro.</li>
+          <li>Inflación y riesgo geopolítico pueden favorecer materias primas.</li>
+          <li>Un dólar fuerte suele presionar materias primas denominadas en USD.</li>
+        </ul>
+      </div>
+      <div class="asset-box">
+        <h4>Liquidez y monetarios</h4>
+        <ul>
+          <li>Tipos altos aumentan remuneración de letras, depósitos y monetarios.</li>
+          <li>Reducen el coste de oportunidad de esperar.</li>
+          <li>Pero tienen riesgo de reinversión si los tipos bajan rápido.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <strong>Regla útil:</strong> los activos de duración larga sufren con subidas inesperadas de tipos y se benefician con bajadas inesperadas. En renta variable, "duración larga" equivale a empresas cuyo valor depende mucho de beneficios lejanos en el tiempo.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. INFLACIÓN Y ESTRATEGIA
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. Política monetaria, inflación y estrategia de inversión</h2>
+    <p class="sec-intro">
+      Los bancos centrales reaccionan a la inflación, pero los mercados reaccionan a la combinación completa:
+      inflación, crecimiento, empleo, salarios, crédito y expectativas. Por eso el mismo dato de inflación puede tener
+      efectos distintos según el momento del ciclo.
+    </p>
+
+    <h3>Tipos nominales vs. tipos reales</h3>
+    <p>
+      El tipo nominal es el tipo observado. El tipo real descuenta la inflación esperada. Para valorar activos,
+      el tipo real suele ser decisivo porque indica el coste real del dinero y la rentabilidad real exigida por el inversor.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Aproximación de Fisher</span>
+      Tipo real ≈ Tipo nominal − Inflación esperada
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Inflación de demanda</h4>
+        <p>
+          Surge cuando la demanda agregada supera la capacidad productiva. El banco central puede enfriarla subiendo tipos.
+          Suele estar asociada a crecimiento fuerte, bajo paro y presión salarial.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Inflación de oferta</h4>
+        <p>
+          Surge por costes: energía, materias primas, cuellos de botella o shocks externos. Es más incómoda porque subir tipos
+          no produce petróleo ni alimentos, pero sí puede reducir demanda y expectativas.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Expectativas de inflación</h4>
+        <p>
+          Si familias y empresas creen que la inflación seguirá alta, ajustan salarios y precios en consecuencia. Por eso los bancos centrales intentan anclar expectativas.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Inflación subyacente</h4>
+        <p>
+          Excluye componentes volátiles y ayuda a medir persistencia. Una subyacente alta dificulta recortes de tipos aunque la inflación general baje temporalmente.
+        </p>
+      </div>
+    </div>
+
+    <h3>Cuatro escenarios de mercado</h3>
+    <div class="scenario-grid">
+      <div class="scenario-box">
+        <h4>Crecimiento fuerte + inflación alta</h4>
+        <p>
+          Entorno de endurecimiento monetario. Riesgo para bonos de duración y growth. Sectores cíclicos pueden aguantar si beneficios crecen, pero aumenta el riesgo de corrección.
+        </p>
+      </div>
+      <div class="scenario-box">
+        <h4>Crecimiento débil + inflación alta</h4>
+        <p>
+          Estanflación. Es el escenario más difícil: el banco central no puede estimular sin arriesgar más inflación. Mal entorno para bonos nominales y renta variable en general.
+        </p>
+      </div>
+      <div class="scenario-box">
+        <h4>Crecimiento débil + inflación baja</h4>
+        <p>
+          Recesión/desaceleración clásica. Puede favorecer bonos soberanos de calidad por expectativa de recortes. Renta variable y crédito suelen sufrir por caída de beneficios e impagos.
+        </p>
+      </div>
+      <div class="scenario-box">
+        <h4>Crecimiento mejora + inflación baja</h4>
+        <p>
+          Escenario benigno. Política monetaria puede ser más acomodaticia y los activos de riesgo tienden a beneficiarse, siempre que las valoraciones no estén ya excesivamente descontadas.
+        </p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Patrón probable</strong>
+        Si la inflación subyacente se mantiene elevada mientras el crecimiento es débil, el banco central puede mantener tipos altos porque prioriza estabilidad de precios. No asumas automáticamente estímulo por crecimiento débil.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       6. BANCOS CENTRALES GLOBALES
+       ============================================================ -->
+  <div class="sec">
+    <h2>6. Bancos centrales globales: similitudes y diferencias</h2>
+    <p class="sec-intro">
+      Los bancos centrales comparten herramientas, pero no todos tienen el mismo mandato ni reaccionan igual.
+      Para el examen, interesa entender cómo las diferencias de mandato y ciclo económico generan divergencias
+      de política monetaria y, por tanto, movimientos en bonos y divisas.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Banco central</th>
+            <th>Enfoque clave</th>
+            <th>Lectura de mercado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Reserva Federal · Fed</strong></td>
+            <td>Mandato dual: estabilidad de precios y máximo empleo.</td>
+            <td>Mercados vigilan inflación, empleo, salarios y actividad. El dólar reacciona mucho al diferencial de tipos esperados.</td>
+          </tr>
+          <tr>
+            <td><strong>Banco Central Europeo · BCE</strong></td>
+            <td>Objetivo primario: estabilidad de precios en la eurozona.</td>
+            <td>La política debe equilibrar economías muy distintas dentro del euro. Importan inflación subyacente, salarios y fragmentación financiera.</td>
+          </tr>
+          <tr>
+            <td><strong>Banco de Inglaterra · BoE</strong></td>
+            <td>Inflación y estabilidad financiera en una economía abierta y sensible a divisa.</td>
+            <td>La libra responde a inflación, crecimiento, credibilidad fiscal y expectativas de tipos.</td>
+          </tr>
+          <tr>
+            <td><strong>Banco de Japón · BoJ</strong></td>
+            <td>Históricamente condicionado por baja inflación/deflación y tipos muy reducidos.</td>
+            <td>La normalización japonesa puede mover yen, bonos globales y flujos de carry trade.</td>
+          </tr>
+          <tr>
+            <td><strong>Banco Popular de China · PBoC</strong></td>
+            <td>Combina estabilidad financiera, crédito, crecimiento y tipo de cambio gestionado.</td>
+            <td>Sus decisiones afectan a materias primas, emergentes, comercio global y sentimiento sobre crecimiento chino.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout info">
+      <strong>Divisa y divergencia:</strong> si un banco central mantiene tipos altos mientras otro empieza a recortar,
+      la primera divisa puede apreciarse por mayor rentabilidad esperada. Pero si los tipos altos reflejan crisis o pérdida de confianza,
+      el efecto puede invertirse.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       7. QE, QT Y PROGRAMAS DE ESTÍMULO
+       ============================================================ -->
+  <div class="sec">
+    <h2>7. Programas de estímulo: QE, liquidez y efectos secundarios</h2>
+    <p class="sec-intro">
+      Los programas de estímulo monetario no convencional se volvieron relevantes cuando los tipos oficiales llegaron a niveles muy bajos.
+      Al no poder bajar mucho más el tipo a corto plazo, los bancos centrales actuaron sobre los tipos largos y la liquidez del sistema.
+    </p>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>QE · Compra de activos</h4>
+        <p>
+          El banco central compra bonos, aumenta demanda por esos activos, eleva su precio y reduce su rentabilidad.
+          También inyecta liquidez, comprime spreads y empuja a inversores hacia activos con más riesgo.
+        </p>
+      </div>
+      <div class="vs-box right">
+        <h4>QT · Reducción de balance</h4>
+        <p>
+          El banco central reduce su cartera o deja de reinvertir vencimientos. Puede aumentar rentabilidades a largo plazo,
+          retirar liquidez y endurecer condiciones financieras.
+        </p>
+      </div>
+    </div>
+
+    <h3>Efectos esperados del QE</h3>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Canal de tipos largos</h4>
+        <p>Reduce rentabilidades de bonos largos y abarata financiación a largo plazo.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Canal de cartera</h4>
+        <p>Al bajar rentabilidad de activos seguros, inversores buscan rentabilidad en crédito, acciones e inmuebles.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Canal de expectativas</h4>
+        <p>Señala compromiso del banco central con condiciones financieras expansivas.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Canal de liquidez</h4>
+        <p>Mejora funcionamiento de mercados en momentos de tensión y reduce primas de liquidez.</p>
+      </div>
+    </div>
+
+    <div class="card accent-amber">
+      <h3>⚠️ Costes y riesgos</h3>
+      <p>
+        Los estímulos prolongados pueden generar búsqueda excesiva de rentabilidad, valoración elevada de activos,
+        mala asignación de capital y dependencia de los mercados a la liquidez del banco central. Por eso retirar estímulos
+        puede ser delicado: el mercado ajusta no solo a los tipos, sino a la desaparición del comprador marginal.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Diferencia con política fiscal</strong>
+        QE no es lo mismo que gasto público. La política monetaria actúa vía dinero, tipos y balance del banco central.
+        La fiscal actúa vía impuestos, gasto público, déficit y deuda pública.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       8. ESTRATEGIA DE INVERSIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>8. Implicaciones para estrategia de inversión</h2>
+    <p class="sec-intro">
+      En una pregunta de aplicación, no se espera una cartera perfecta. Se espera razonar qué activos se benefician
+      o sufren bajo un escenario de tipos, inflación y crecimiento. La asignación debe conectarse con el diagnóstico macro.
+    </p>
+
+    <div class="scenario-grid">
+      <div class="scenario-box">
+        <h4>Escenario: más subidas de tipos</h4>
+        <ul>
+          <li>Reducir duración en renta fija.</li>
+          <li>Preferir liquidez, monetarios o vencimientos cortos.</li>
+          <li>Revisar exposición a growth, inmobiliario y alto apalancamiento.</li>
+          <li>Vigilar crédito de baja calidad por refinanciación.</li>
+        </ul>
+      </div>
+      <div class="scenario-box">
+        <h4>Escenario: tipos altos durante más tiempo</h4>
+        <ul>
+          <li>La liquidez empieza a competir con activos de riesgo.</li>
+          <li>Empresas con balances débiles sufren más.</li>
+          <li>Los múltiplos bursátiles tienen menos margen de expansión.</li>
+          <li>El carry de renta fija corta gana atractivo.</li>
+        </ul>
+      </div>
+      <div class="scenario-box">
+        <h4>Escenario: recortes por desinflación suave</h4>
+        <ul>
+          <li>Duración de calidad puede beneficiarse.</li>
+          <li>Renta variable puede mejorar si beneficios resisten.</li>
+          <li>Crédito puede comportarse bien si no suben impagos.</li>
+          <li>Entorno favorable a carteras diversificadas.</li>
+        </ul>
+      </div>
+      <div class="scenario-box">
+        <h4>Escenario: recortes por recesión</h4>
+        <ul>
+          <li>Bonos soberanos de calidad pueden hacerlo bien.</li>
+          <li>Renta variable y high yield pueden sufrir por beneficios e impagos.</li>
+          <li>Aumenta preferencia por calidad, liquidez y baja deuda.</li>
+          <li>No todo recorte de tipos es alcista para bolsa.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Método de respuesta en examen</h3>
+      <ol>
+        <li>Identifica el shock: inflación, crecimiento, empleo, crédito o liquidez.</li>
+        <li>Deduce la reacción probable del banco central.</li>
+        <li>Traduce esa reacción a curva de tipos y condiciones financieras.</li>
+        <li>Evalúa impacto por activo: duración, ciclo, crédito, divisa y valoración.</li>
+        <li>Añade el matiz: qué estaba ya descontado por el mercado.</li>
+      </ol>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       9. TRAMPAS DE EXAMEN
+       ============================================================ -->
+  <div class="sec">
+    <h2>9. Trampas típicas de examen</h2>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>“Bajan tipos = sube siempre la bolsa”</h4>
+        <p>
+          Falso. Si bajan tipos porque la economía entra en recesión, los beneficios empresariales pueden caer más que la tasa de descuento.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>“Suben tipos = todos los bancos ganan”</h4>
+        <p>
+          Demasiado simple. Tipos moderadamente altos pueden mejorar márgenes, pero tipos excesivos aumentan mora y deterioro crediticio.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>“Más inflación siempre perjudica a todos los activos”</h4>
+        <p>
+          Perjudica especialmente a bonos nominales y activos de duración, pero algunos activos reales o sectores pueden proteger parcialmente.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>“El QE es imprimir dinero para gastar”</h4>
+        <p>
+          No exactamente. QE es compra de activos por el banco central para influir en tipos largos, liquidez y condiciones financieras.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>“Lo importante es el dato publicado”</h4>
+        <p>
+          Lo importante es el dato frente a expectativas. Un dato malo puede ser alcista si es menos malo de lo esperado y anticipa recortes.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>“Los tipos nominales bastan”</h4>
+        <p>
+          Para valorar poder adquisitivo y oro, importan mucho los tipos reales: nominales menos inflación esperada.
+        </p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Patrón de pregunta probable</strong>
+        "El banco central mantiene tipos altos pese a crecimiento débil porque la inflación subyacente sigue elevada".
+        Respuesta: prioriza estabilidad de precios, evita desanclar expectativas y acepta menor crecimiento a corto plazo.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Concepto</th><th>Idea clave</th><th>Impacto financiero</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Subida de tipos</strong></td>
+            <td>Endurece condiciones financieras</td>
+            <td>Presiona bonos existentes, growth, inmobiliario y crédito débil</td>
+          </tr>
+          <tr>
+            <td><strong>Bajada de tipos</strong></td>
+            <td>Relaja condiciones financieras</td>
+            <td>Favorece duración; efecto en bolsa depende de si hay recesión o aterrizaje suave</td>
+          </tr>
+          <tr>
+            <td><strong>QE</strong></td>
+            <td>Compra de activos por el banco central</td>
+            <td>Reduce tipos largos, comprime spreads y aumenta apetito por riesgo</td>
+          </tr>
+          <tr>
+            <td><strong>QT</strong></td>
+            <td>Reducción del balance</td>
+            <td>Retira liquidez y puede elevar primas de plazo</td>
+          </tr>
+          <tr>
+            <td><strong>Duración</strong></td>
+            <td>Sensibilidad del bono a tipos</td>
+            <td>Alta duración sufre más con subidas y gana más con bajadas</td>
+          </tr>
+          <tr>
+            <td><strong>Tipos reales</strong></td>
+            <td>Tipo nominal menos inflación esperada</td>
+            <td>Clave para oro, valoración de activos y coste real del dinero</td>
+          </tr>
+          <tr>
+            <td><strong>Inflación subyacente</strong></td>
+            <td>Mide persistencia de precios</td>
+            <td>Si sigue alta, dificulta recortes aunque el crecimiento sea débil</td>
+          </tr>
+          <tr>
+            <td><strong>Divergencia monetaria</strong></td>
+            <td>Bancos centrales en fases distintas</td>
+            <td>Mueve divisas, flujos internacionales y diferenciales de tipos</td>
+          </tr>
+          <tr>
+            <td><strong>Sorpresa</strong></td>
+            <td>Diferencia entre dato/decisión y expectativa</td>
+            <td>Principal motor de reacción inmediata en mercados</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-d.html" class="nav-btn">← D: Indicadores y mercados</a>
+    <a href="seccion-f.html" class="nav-btn">F: Políticas fiscales post-COVID →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 1 · Sección E · Basado en la Guía de Certificación EFPA España V1/26 · No constituye asesoramiento financiero
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
