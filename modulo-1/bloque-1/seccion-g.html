@@ -3,17 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M1 · B1 · Sección G — Factores de sostenibilidad · EFA Prep</title>
+  <title>M1 · B1 · Sección G — Factores de Sostenibilidad · EFA Prep</title>
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
+    /* ── Grids ── */
     .concept-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: .8rem;
       margin: 1rem 0;
     }
-    @media (max-width: 560px) { .concept-grid { grid-template-columns: 1fr; } }
-
+    .concept-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 640px) {
+      .concept-grid, .concept-grid-3 { grid-template-columns: 1fr; }
+    }
     .concept-box {
       background: var(--card);
       border: 1.5px solid var(--border);
@@ -27,182 +35,194 @@
       margin-bottom: .35rem;
       color: var(--navy);
     }
-    .concept-box p, .concept-box ul, .concept-box ol {
+    .concept-box p {
       font-size: var(--fs-xs);
       color: var(--text-soft);
       line-height: 1.65;
       margin: 0;
     }
-    .concept-box ul, .concept-box ol {
-      padding-left: 1.1rem;
-      margin-top: .3rem;
-    }
-    .concept-box li { margin: .25rem 0; }
 
-    .esg-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: .8rem;
-      margin: 1rem 0;
-    }
-    @media (max-width: 720px) { .esg-grid { grid-template-columns: 1fr; } }
-
-    .esg-card {
-      background: var(--card);
-      border: 1.5px solid var(--border);
-      border-top: 5px solid var(--navy);
-      border-radius: 14px;
-      padding: 1rem;
-      box-shadow: var(--shadow);
-    }
-    .esg-card.environment { border-top-color: var(--green); }
-    .esg-card.social { border-top-color: var(--amber); }
-    .esg-card.governance { border-top-color: var(--navy); }
-    .esg-card h4 {
-      font-family: var(--font-ui);
-      font-weight: 900;
-      font-size: var(--fs-sm);
-      color: var(--navy);
-      margin: 0 0 .45rem 0;
-    }
-    .esg-card p, .esg-card li {
-      font-size: var(--fs-xs);
-      color: var(--text-soft);
-      line-height: 1.65;
-      margin: 0;
-    }
-    .esg-card ul { padding-left: 1.15rem; margin-top: .35rem; }
-    .esg-card li { margin: .25rem 0; }
-
-    .timeline {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: .65rem;
-      margin: 1rem 0;
-    }
-    .timeline-item {
-      background: var(--card);
-      border: 1.5px solid var(--border);
-      border-left: 5px solid var(--navy);
-      border-radius: 14px;
-      padding: .95rem 1.1rem;
-      box-shadow: var(--shadow);
-    }
-    .timeline-item.green { border-left-color: var(--green); }
-    .timeline-item.amber { border-left-color: var(--amber); }
-    .timeline-item.danger { border-left-color: var(--danger); }
-    .timeline-item h4 {
-      font-family: var(--font-ui);
-      font-weight: 900;
-      font-size: var(--fs-sm);
-      color: var(--navy);
-      margin: 0 0 .35rem 0;
-    }
-    .timeline-item p, .timeline-item li {
-      font-size: var(--fs-xs);
-      color: var(--text-soft);
-      line-height: 1.65;
-      margin: 0;
-    }
-    .timeline-item ul { padding-left: 1.1rem; margin-top: .3rem; }
-    .timeline-item li { margin: .25rem 0; }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .35rem;
-      margin: .7rem 0 0;
-    }
-    .mini-tag {
+    /* ── ESG risk tag ── */
+    .esg-tag {
       display: inline-block;
       font-family: var(--font-ui);
       font-weight: 800;
-      font-size: .68rem;
-      color: var(--navy);
-      background: var(--navy-light);
-      border: 1px solid var(--navy);
-      border-radius: 999px;
-      padding: 2px 8px;
+      font-size: .72rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-right: 4px;
+      vertical-align: middle;
     }
-    .mini-tag.green { color: var(--green); background: var(--green-light); border-color: var(--green); }
-    .mini-tag.amber { color: var(--amber); background: var(--amber-light); border-color: var(--amber); }
-    .mini-tag.danger { color: var(--danger); background: var(--danger-light); border-color: var(--danger); }
+    .esg-e { background: #dcfce7; color: #166534; border: 1px solid #16a34a; }
+    .esg-s { background: #dbeafe; color: #1e40af; border: 1px solid #3b82f6; }
+    .esg-g { background: #fef3c7; color: #92400e; border: 1px solid #d97706; }
 
-    .objective-grid {
+    /* ── ODS grid ── */
+    .ods-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .8rem;
+      grid-template-columns: repeat(6, 1fr);
+      gap: .5rem;
       margin: 1rem 0;
     }
-    @media (max-width: 640px) { .objective-grid { grid-template-columns: 1fr; } }
-
-    .objective-box {
-      background: var(--card);
-      border: 1.5px solid var(--border);
-      border-left: 5px solid var(--green);
-      border-radius: 14px;
-      padding: 1rem 1.1rem;
+    @media (max-width: 640px) { .ods-grid { grid-template-columns: repeat(3, 1fr); } }
+    .ods-item {
+      border-radius: 10px;
+      padding: .6rem .5rem;
+      text-align: center;
+      font-family: var(--font-ui);
     }
-    .objective-box h4 {
+    .ods-num {
+      font-weight: 900;
+      font-size: 1.1rem;
+      line-height: 1;
+      margin-bottom: .25rem;
+    }
+    .ods-label {
+      font-size: .62rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    /* Colores ODS oficiales aproximados */
+    .ods-1  { background: #e5243b20; color: #e5243b; border: 1.5px solid #e5243b; }
+    .ods-2  { background: #dda83a20; color: #dda83a; border: 1.5px solid #dda83a; }
+    .ods-3  { background: #4c9f3820; color: #4c9f38; border: 1.5px solid #4c9f38; }
+    .ods-4  { background: #c5192d20; color: #c5192d; border: 1.5px solid #c5192d; }
+    .ods-5  { background: #ff3a2120; color: #ff3a21; border: 1.5px solid #ff3a21; }
+    .ods-6  { background: #26bde220; color: #1a97bb; border: 1.5px solid #26bde2; }
+    .ods-7  { background: #fcc30b20; color: #c9960a; border: 1.5px solid #fcc30b; }
+    .ods-8  { background: #a2175620; color: #a21756; border: 1.5px solid #a21756; }
+    .ods-9  { background: #fd6925b0; color: #c04f10; border: 1.5px solid #fd6925; }
+    .ods-10 { background: #dd126920; color: #aa0e52; border: 1.5px solid #dd1269; }
+    .ods-11 { background: #fd9d2420; color: #c4770e; border: 1.5px solid #fd9d24; }
+    .ods-12 { background: #bf8b2e20; color: #8a6320; border: 1.5px solid #bf8b2e; }
+    .ods-13 { background: #3f7e4420; color: #3f7e44; border: 1.5px solid #3f7e44; }
+    .ods-14 { background: #0a97d920; color: #0a97d9; border: 1.5px solid #0a97d9; }
+    .ods-15 { background: #56c02b20; color: #3e8a1e; border: 1.5px solid #56c02b; }
+    .ods-16 { background: #00689d20; color: #00689d; border: 1.5px solid #00689d; }
+    .ods-17 { background: #19486a20; color: #19486a; border: 1.5px solid #19486a; }
+
+    /* ── Objetivo medioambiental box ── */
+    .obj-env-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: .7rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 600px) { .obj-env-grid { grid-template-columns: 1fr; } }
+    .obj-env-box {
+      background: var(--green-light);
+      border: 1.5px solid var(--green);
+      border-radius: 12px;
+      padding: .8rem 1rem;
+    }
+    .obj-env-box .obj-num {
       font-family: var(--font-ui);
       font-weight: 900;
+      font-size: 1.3rem;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: .2rem;
+    }
+    .obj-env-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-xs);
+      color: var(--green);
+      margin: 0 0 .3rem;
+    }
+    .obj-env-box p {
+      font-size: .72rem;
+      color: #166534;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* ── Acción plan 10 acciones ── */
+    .accion-row {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: .7rem;
+      padding: .75rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .accion-row:last-child { border-bottom: none; }
+    .accion-num {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: var(--navy);
+      text-align: center;
+      opacity: .35;
+      line-height: 1.2;
+    }
+    .accion-body h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
       font-size: var(--fs-sm);
       color: var(--navy);
-      margin: 0 0 .35rem 0;
+      margin: 0 0 .2rem;
     }
-    .objective-box p {
+    .accion-body p {
       font-size: var(--fs-xs);
       color: var(--text-soft);
       line-height: 1.65;
       margin: 0;
     }
 
-    .flow {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: .55rem;
-      margin: 1rem 0;
-    }
-    .flow-step {
+    /* ── Contexto actual ── */
+    .contexto-actual {
       background: var(--card);
-      border: 1.5px solid var(--border);
-      border-left: 4px solid var(--navy);
-      border-radius: 12px;
-      padding: .85rem 1rem;
-      font-size: var(--fs-sm);
-      color: var(--text-soft);
-      line-height: 1.65;
+      border-left: 4px solid var(--green);
+      border-radius: 0 14px 14px 0;
+      padding: 1.1rem 1.3rem;
+      margin: 1.2rem 0;
     }
-    .flow-step strong {
+    .contexto-actual .ctx-title {
       font-family: var(--font-ui);
-      color: var(--navy);
-    }
-
-    .taxonomy-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: .65rem;
-      margin: 1rem 0;
-    }
-    .taxonomy-item {
-      background: var(--card);
-      border: 1.5px solid var(--border);
-      border-radius: 14px;
-      padding: .95rem 1.1rem;
-    }
-    .taxonomy-item h4 {
-      font-family: var(--font-ui);
-      font-weight: 900;
+      font-weight: 800;
       font-size: var(--fs-sm);
       color: var(--green);
-      margin: 0 0 .35rem 0;
+      margin-bottom: .5rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
     }
-    .taxonomy-item p {
+    .contexto-actual p {
+      font-size: var(--fs-sm);
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0 0 .4rem;
+    }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+
+    /* ── Notas al pie ── */
+    .footnotes {
+      border-top: 1px solid var(--border);
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
+    }
+    .footnotes h4 {
+      font-family: var(--font-ui);
       font-size: var(--fs-xs);
+      font-weight: 800;
       color: var(--text-soft);
-      line-height: 1.65;
-      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .8rem;
     }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li {
+      font-size: .78rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+      margin-bottom: .35rem;
+    }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -226,1117 +246,850 @@
     <span class="sep">›</span>
     <a href="../index.html">Módulo 1</a>
     <span class="sep">›</span>
-    <a href="../index.html">Bloque 1</a>
+    <a href="index.html">Bloque 1</a>
     <span class="sep">›</span>
     <span>Sección G</span>
   </div>
 
   <div class="hero">
     <div class="pill">Módulo 1 · Bloque 1 · Sección G · Nivel II</div>
-    <h1>Factores de sostenibilidad</h1>
+    <h1>Factores de Sostenibilidad</h1>
     <p class="hero-sub">
-      Factores ESG y economía · Valor compartido · Agenda 2030 · Acuerdo de París ·
-      Plan de Acción de Finanzas Sostenibles de la UE · Pacto Verde Europeo · Taxonomía UE.
+      Factores ESG y su impacto en empresas y economía · Valor Compartido (Porter &amp; Kramer) ·
+      Agenda 2030 ONU · Acuerdo de París · Plan de Acción de Finanzas Sostenibles ·
+      Reglamento de Taxonomía UE 2020/852 · Pacto Verde Europeo.
     </p>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       0. ENFOQUE GENERAL
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       1. FACTORES ESG
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
-    <h2>0. Qué pide exactamente esta sección</h2>
-    <p class="sec-intro">
-      Esta sección cierra el Bloque 1 de factores macroeconómicos. A diferencia de las
-      secciones anteriores, aquí la sostenibilidad no se estudia como una cuestión ética
-      aislada, sino como un conjunto de <strong>riesgos, oportunidades, normas y cambios
-      estructurales</strong> que afectan a la economía real y a los mercados financieros.
-    </p>
-
-    <div class="card accent-navy">
-      <h3>Idea central</h3>
-      <p>
-        Los factores de sostenibilidad importan al asesor financiero porque pueden alterar
-        los flujos de caja esperados, el coste de capital, la regulación aplicable, la reputación,
-        la demanda de productos, el valor de los activos y la probabilidad de pérdidas futuras.
-        No son “decoración ESG”: son variables económicas que pueden afectar a rentabilidad
-        y riesgo.
-      </p>
-    </div>
-
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Qué debes saber para examen</h4>
-        <ul>
-          <li>Qué significan los factores ESG.</li>
-          <li>Por qué son relevantes para empresas y economía.</li>
-          <li>Qué es el valor compartido de Porter y Kramer.</li>
-          <li>Qué son Agenda 2030, ODS y Acuerdo de París.</li>
-          <li>Qué objetivos persigue la UE en finanzas sostenibles.</li>
-          <li>Qué es la Taxonomía UE y cuáles son sus requisitos.</li>
-        </ul>
-      </div>
-      <div class="concept-box">
-        <h4>Cómo lo piensa un asesor</h4>
-        <ul>
-          <li>¿Qué riesgo ESG puede impactar financieramente a una inversión?</li>
-          <li>¿Qué sectores quedan favorecidos o penalizados por regulación climática?</li>
-          <li>¿La cartera está expuesta a activos varados, litigios o transición energética?</li>
-          <li>¿El producto se comunica de forma transparente o puede incurrir en greenwashing?</li>
-          <li>¿La inversión encaja con preferencias de sostenibilidad del cliente?</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        No reduzcas ESG a “invertir en empresas buenas”. La lógica EFA es más técnica:
-        identificar riesgos y oportunidades ambientales, sociales y de gobernanza que puedan
-        afectar a economía, empresas, activos financieros y asesoramiento.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       1. ESG
-       ============================================================ -->
-  <div class="sec">
-    <h2>1. Factores ESG: significado e importancia económica</h2>
-    <p class="sec-intro">
-      ESG son las siglas de <strong>Environmental, Social and Governance</strong>:
-      factores medioambientales, sociales y de gobernanza. Funcionan como un marco para
-      analizar riesgos no puramente financieros que pueden terminar teniendo consecuencias
-      financieras muy reales.
-    </p>
-
-    <div class="esg-grid">
-      <div class="esg-card environment">
-        <h4>E · Medioambiental</h4>
-        <p>
-          Evalúa cómo interactúa una empresa, país o proyecto con el entorno natural.
-        </p>
-        <ul>
-          <li>Emisiones de gases de efecto invernadero.</li>
-          <li>Consumo de energía, agua y materias primas.</li>
-          <li>Contaminación, residuos y economía circular.</li>
-          <li>Exposición a sequías, inundaciones, incendios o eventos extremos.</li>
-          <li>Riesgo de activos varados por transición energética.</li>
-        </ul>
-      </div>
-
-      <div class="esg-card social">
-        <h4>S · Social</h4>
-        <p>
-          Evalúa la relación con trabajadores, clientes, proveedores y comunidades.
-        </p>
-        <ul>
-          <li>Condiciones laborales y seguridad en el trabajo.</li>
-          <li>Derechos humanos en la cadena de suministro.</li>
-          <li>Privacidad, protección de datos y seguridad del consumidor.</li>
-          <li>Diversidad, inclusión y relaciones laborales.</li>
-          <li>Impacto en comunidades locales.</li>
-        </ul>
-      </div>
-
-      <div class="esg-card governance">
-        <h4>G · Gobernanza</h4>
-        <p>
-          Evalúa cómo se dirige, controla y supervisa una organización.
-        </p>
-        <ul>
-          <li>Independencia y calidad del consejo.</li>
-          <li>Remuneración de directivos y alineación con accionistas.</li>
-          <li>Corrupción, sobornos, conflictos de interés.</li>
-          <li>Transparencia contable y calidad de la información.</li>
-          <li>Derechos de accionistas minoritarios.</li>
-        </ul>
-      </div>
-    </div>
-
-    <h3>Por qué los factores ESG importan para la economía</h3>
+    <h2>1. Factores ESG y su importancia para la economía</h2>
     <p>
-      Los factores ESG se han vuelto relevantes porque muchos riesgos que antes se trataban
-      como externos a la empresa ahora se traducen en costes, regulación, litigios, impuestos,
-      restricciones de financiación, daños reputacionales y cambios de demanda. Una economía
-      con alto riesgo climático, baja cohesión social o mala gobernanza institucional es una
-      economía con más incertidumbre y menor calidad de crecimiento.
+      Los factores <strong>ESG</strong> (Environmental, Social, Governance — Medioambientales,
+      Sociales y de Gobernanza) son criterios no financieros que evalúan el impacto y el
+      comportamiento de una empresa o actividad económica más allá de sus estados financieros.
+      Su relevancia ha pasado de ser un nicho de inversión ética a convertirse en un requisito
+      regulatorio y en un factor de riesgo material para cualquier cartera de inversión.<sup class="fn"><a href="#fn1">[1]</a></sup>
     </p>
 
-    <div class="concept-grid">
+    <div class="concept-grid-3">
       <div class="concept-box">
-        <h4>Canal de costes</h4>
-        <p>
-          Una empresa intensiva en carbono puede enfrentar costes por derechos de emisión,
-          inversión obligatoria en descarbonización, seguros más caros o encarecimiento de
-          materias primas. El impacto aparece en márgenes y beneficios.
-        </p>
+        <h4><span class="esg-tag esg-e">E</span> Medioambiental</h4>
+        <p>Emisiones de CO₂, huella de carbono, uso del agua, gestión de residuos, biodiversidad,
+        exposición a desastres naturales, dependencia de combustibles fósiles, estrategia de
+        transición energética.</p>
       </div>
       <div class="concept-box">
-        <h4>Canal regulatorio</h4>
-        <p>
-          Nuevas normas ambientales o sociales pueden prohibir ciertas actividades, exigir
-          adaptación tecnológica o modificar ventajas competitivas. La regulación puede crear
-          ganadores y perdedores sectoriales.
-        </p>
+        <h4><span class="esg-tag esg-s">S</span> Social</h4>
+        <p>Condiciones laborales, brecha salarial de género, seguridad en el trabajo, gestión de
+        la cadena de suministro, relaciones con comunidades locales, privacidad de datos de clientes,
+        diversidad e inclusión.</p>
       </div>
       <div class="concept-box">
-        <h4>Canal financiero</h4>
-        <p>
-          Inversores y bancos pueden exigir mayor rentabilidad a empresas con alto riesgo ESG.
-          Eso eleva el coste de capital, reduce valoraciones y dificulta refinanciaciones.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Canal de demanda</h4>
-        <p>
-          Clientes, administraciones y empresas pueden preferir productos menos contaminantes,
-          cadenas de suministro trazables o proveedores con mejores estándares laborales.
-        </p>
+        <h4><span class="esg-tag esg-g">G</span> Gobernanza</h4>
+        <p>Composición y diversidad del consejo de administración, independencia de auditores,
+        políticas anticorrupción, transparencia fiscal, remuneración ejecutiva alineada con el
+        largo plazo, derechos de los accionistas minoritarios.</p>
       </div>
     </div>
 
-    <div class="callout tip">
-      Para EFA, lo importante no es “ESG = moralidad”, sino <strong>ESG = información relevante
-      para estimar riesgos, flujos de caja, valoración y adecuación de la inversión al cliente</strong>.
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       2. RIESGOS ESG
-       ============================================================ -->
-  <div class="sec">
-    <h2>2. Riesgos ESG: físicos, de transición y de gobernanza</h2>
-    <p class="sec-intro">
-      El análisis ESG se vuelve financiero cuando se identifica cómo un factor de sostenibilidad
-      puede afectar a una empresa, un sector, un país o una cartera. La forma más clara de
-      estudiarlo es separando riesgos físicos, riesgos de transición, riesgos sociales y riesgos
-      de gobernanza.
-    </p>
-
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Riesgos físicos</h4>
-        <p>
-          Derivan del impacto directo del cambio climático o de la degradación ambiental:
-          inundaciones, sequías, olas de calor, incendios, pérdida de biodiversidad, interrupciones
-          logísticas o menor productividad agrícola. Afectan activos reales, seguros, suministros,
-          infraestructuras y valoración inmobiliaria.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Riesgos de transición</h4>
-        <p>
-          Derivan del cambio hacia una economía baja en carbono: regulación, impuestos al carbono,
-          nuevas tecnologías, cambios de preferencias y sustitución de actividades intensivas en
-          emisiones. Pueden provocar activos varados y deterioro de balances.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Riesgos sociales</h4>
-        <p>
-          Incluyen conflictos laborales, malas condiciones de trabajo, violaciones de derechos
-          humanos, fallos de seguridad del producto, problemas de privacidad o tensiones con
-          comunidades. Suelen convertirse en multas, boicots, litigios o interrupciones operativas.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Riesgos de gobernanza</h4>
-        <p>
-          Incluyen fraude, corrupción, mala supervisión, conflictos de interés, información contable
-          deficiente, estructuras accionariales opacas o incentivos mal alineados. Son riesgos
-          especialmente importantes porque pueden destruir valor de forma brusca.
-        </p>
-      </div>
-    </div>
-
-    <h3>Activos varados</h3>
-    <div class="card accent-amber">
-      <h3>Concepto clave</h3>
-      <p>
-        Un <strong>activo varado</strong> es un activo que pierde valor antes de lo esperado porque
-        deja de ser económicamente viable, regulatoriamente aceptable o tecnológicamente competitivo.
-        Ejemplo: reservas de combustibles fósiles que no pueden explotarse si la regulación climática
-        endurece el límite de emisiones; plantas industriales que requieren inversiones enormes para
-        adaptarse; inmuebles vulnerables a riesgos físicos no asegurables.
-      </p>
-    </div>
-
-    <h3>Materialidad financiera y doble materialidad</h3>
+    <h3>1.1 Riesgos ESG para las empresas y la economía</h3>
     <p>
-      Aunque la doble materialidad se desarrolla con más detalle en el bloque de inversiones
-      sostenibles, aquí conviene introducir la lógica porque explica por qué ESG se ha integrado
-      en regulación y análisis financiero.
+      Los riesgos ESG son riesgos financieros materiales, no solo reputacionales. El regulador
+      europeo (BCE, ESMA, EBA) ha exigido a las entidades financieras que los integren en sus
+      modelos de riesgo desde 2022.<sup class="fn"><a href="#fn2">[2]</a></sup>
     </p>
 
-    <div class="vs-grid">
-      <div class="vs-box left">
-        <h4>Materialidad financiera</h4>
-        <p>
-          Mira cómo los factores ESG afectan al valor financiero de una empresa o inversión.
-          Pregunta: <strong>¿cómo impacta el mundo en la empresa?</strong> Ejemplo: una subida del
-          precio del carbono reduce márgenes de una cementera.
-        </p>
-      </div>
-      <div class="vs-box right">
-        <h4>Doble materialidad</h4>
-        <p>
-          Añade cómo la empresa impacta sobre sociedad y medioambiente. Pregunta:
-          <strong>¿cómo impacta la empresa en el mundo?</strong> Ejemplo: emisiones, uso de agua,
-          condiciones laborales o impacto en biodiversidad.
-        </p>
-      </div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        La gobernanza no es un factor secundario: una empresa con buena huella ambiental pero mala
-        gobernanza puede ser una mala inversión. Fraude, mala contabilidad o incentivos directivos
-        mal diseñados pueden destruir valor incluso en sectores “verdes”.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       3. VALOR COMPARTIDO
-       ============================================================ -->
-  <div class="sec">
-    <h2>3. Valor compartido — Porter &amp; Kramer</h2>
-    <p class="sec-intro">
-      La guía exige conocer el concepto de <strong>valor compartido</strong> de Michael Porter
-      y Mark Kramer. La idea es importante porque conecta estrategia empresarial, ventaja
-      competitiva y mejora social sin reducir la sostenibilidad a filantropía.
-    </p>
-
-    <div class="card accent-green">
-      <h3>Definición operativa</h3>
-      <p>
-        El <strong>valor compartido</strong> consiste en crear valor económico para la empresa
-        de una forma que también genere valor para la sociedad. No es donar una parte del
-        beneficio después de ganarlo: es diseñar el propio modelo de negocio, producto o cadena
-        de valor para resolver necesidades sociales o ambientales de forma rentable.
-      </p>
-    </div>
-
-    <h3>Valor compartido vs. RSC tradicional</h3>
-    <div class="vs-grid">
-      <div class="vs-box left">
-        <h4>RSC / filantropía</h4>
-        <p>
-          La empresa gana dinero con su actividad normal y después destina una parte a causas
-          sociales o ambientales. Puede ser positivo, pero suele quedar separado del núcleo
-          estratégico del negocio.
-        </p>
-      </div>
-      <div class="vs-box right">
-        <h4>Valor compartido</h4>
-        <p>
-          La empresa incorpora el problema social o ambiental dentro de su estrategia competitiva.
-          La solución crea ingresos, reduce costes, mejora productividad o abre mercados.
-        </p>
-      </div>
-    </div>
-
-    <h3>Tres vías habituales para crear valor compartido</h3>
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>1 · Reconcebir productos y mercados</h4>
-        <p>
-          Desarrollar productos que atienden necesidades sociales o ambientales no cubiertas:
-          eficiencia energética, salud preventiva, inclusión financiera, movilidad limpia o
-          alimentación más saludable.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>2 · Redefinir productividad en la cadena de valor</h4>
-        <p>
-          Reducir consumo de energía, agua, residuos o accidentes laborales no solo mejora el
-          impacto externo: también puede reducir costes, elevar productividad y hacer la cadena
-          más resiliente.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>3 · Desarrollar clusters locales</h4>
-        <p>
-          Mejorar proveedores, infraestructuras, formación o instituciones del entorno donde opera
-          la empresa. Una comunidad más productiva puede convertirse en una base competitiva
-          más fuerte.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Lectura financiera</h4>
-        <p>
-          Una estrategia de valor compartido puede aumentar ingresos, reducir riesgos regulatorios,
-          mejorar reputación, atraer talento, reducir costes y estabilizar relaciones con clientes,
-          proveedores y comunidades.
-        </p>
-      </div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        Valor compartido no equivale a caridad corporativa. La clave es la simultaneidad:
-        <strong>valor económico para la empresa + valor social o ambiental para el entorno</strong>.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       4. AGENDA 2030 Y ODS
-       ============================================================ -->
-  <div class="sec">
-    <h2>4. Agenda 2030 de la ONU y Objetivos de Desarrollo Sostenible</h2>
-    <p class="sec-intro">
-      La <strong>Agenda 2030</strong> es el marco global de Naciones Unidas para orientar
-      el desarrollo sostenible. Se articula a través de los <strong>17 Objetivos de Desarrollo
-      Sostenible</strong> (ODS), que sirven como lenguaje común para gobiernos, empresas,
-      inversores y sociedad civil.
-    </p>
-
-    <div class="card accent-navy">
-      <h3>Qué debes recordar</h3>
-      <p>
-        La Agenda 2030 fue adoptada por los Estados miembros de Naciones Unidas en 2015.
-        Su objetivo es avanzar hacia un desarrollo económico, social y ambientalmente sostenible.
-        Los ODS cubren pobreza, hambre, salud, educación, igualdad, agua, energía, trabajo,
-        industria, desigualdad, ciudades, consumo, clima, océanos, ecosistemas, paz e instituciones
-        y alianzas.
-      </p>
-    </div>
-
-    <h3>Los 17 ODS</h3>
-    <div class="tag-row">
-      <span class="mini-tag green">1 · Fin de la pobreza</span>
-      <span class="mini-tag green">2 · Hambre cero</span>
-      <span class="mini-tag green">3 · Salud y bienestar</span>
-      <span class="mini-tag green">4 · Educación de calidad</span>
-      <span class="mini-tag green">5 · Igualdad de género</span>
-      <span class="mini-tag green">6 · Agua limpia y saneamiento</span>
-      <span class="mini-tag green">7 · Energía asequible y no contaminante</span>
-      <span class="mini-tag green">8 · Trabajo decente y crecimiento económico</span>
-      <span class="mini-tag green">9 · Industria, innovación e infraestructura</span>
-      <span class="mini-tag green">10 · Reducción de desigualdades</span>
-      <span class="mini-tag green">11 · Ciudades sostenibles</span>
-      <span class="mini-tag green">12 · Producción y consumo responsables</span>
-      <span class="mini-tag green">13 · Acción por el clima</span>
-      <span class="mini-tag green">14 · Vida submarina</span>
-      <span class="mini-tag green">15 · Vida de ecosistemas terrestres</span>
-      <span class="mini-tag green">16 · Paz, justicia e instituciones sólidas</span>
-      <span class="mini-tag green">17 · Alianzas para lograr los objetivos</span>
-    </div>
-
-    <h3>Cómo se relacionan los ODS con finanzas</h3>
-    <p>
-      Los ODS no son una norma financiera por sí mismos. Funcionan como un mapa de grandes
-      objetivos sociales y ambientales. En inversión, se usan para clasificar temáticas, medir impacto,
-      estructurar bonos sostenibles o comunicar cómo una estrategia contribuye a determinados
-      resultados. El riesgo es usarlos de forma superficial: decir que una inversión “contribuye al
-      ODS 13” sin métricas, causalidad ni evidencia puede convertirse en greenwashing.
-    </p>
-
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Uso legítimo</h4>
-        <ul>
-          <li>Vincular financiación a proyectos concretos.</li>
-          <li>Medir indicadores de impacto.</li>
-          <li>Reportar contribuciones de forma transparente.</li>
-          <li>Comparar objetivos de inversión sostenible.</li>
-        </ul>
-      </div>
-      <div class="concept-box">
-        <h4>Uso débil o cosmético</h4>
-        <ul>
-          <li>Asociar un fondo a ODS sin metodología.</li>
-          <li>Confundir exposición sectorial con impacto real.</li>
-          <li>No distinguir ingresos actuales de transición futura.</li>
-          <li>No explicar indicadores ni fuentes de medición.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        Los ODS son <strong>17</strong> y pertenecen a la Agenda 2030 de la ONU. No son una
-        regulación europea de productos financieros, ni una lista de activos invertibles, ni una
-        certificación automática de sostenibilidad.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       5. ACUERDO DE PARÍS
-       ============================================================ -->
-  <div class="sec">
-    <h2>5. Acuerdo de París sobre cambio climático</h2>
-    <p class="sec-intro">
-      El <strong>Acuerdo de París</strong> es el principal pacto internacional sobre cambio climático.
-      Su relevancia financiera nace de que orienta políticas públicas, regulación, inversión en
-      transición energética y expectativas de descarbonización a largo plazo.
-    </p>
-
-    <div class="card accent-green">
-      <h3>Objetivo climático central</h3>
-      <p>
-        El acuerdo busca mantener el aumento de la temperatura media mundial muy por debajo
-        de 2 °C respecto a niveles preindustriales, y continuar los esfuerzos para limitarlo a
-        1,5 °C. Esta referencia se ha convertido en una brújula para planes de transición,
-        escenarios climáticos, objetivos corporativos y carteras alineadas con clima.
-      </p>
-    </div>
-
-    <h3>Tres grandes objetivos de largo plazo</h3>
-    <div class="objective-grid">
-      <div class="objective-box">
-        <h4>1 · Mitigación</h4>
-        <p>
-          Reducir emisiones de gases de efecto invernadero para limitar el calentamiento global.
-          Implica energía limpia, eficiencia, electrificación, cambios industriales y reducción de
-          dependencia de combustibles fósiles.
-        </p>
-      </div>
-      <div class="objective-box">
-        <h4>2 · Adaptación y resiliencia</h4>
-        <p>
-          Aumentar la capacidad de adaptación a impactos climáticos y promover un desarrollo
-          resiliente. No basta con reducir emisiones: también hay que preparar infraestructuras,
-          agricultura, ciudades y seguros.
-        </p>
-      </div>
-      <div class="objective-box">
-        <h4>3 · Flujos financieros coherentes</h4>
-        <p>
-          Hacer que los flujos financieros sean compatibles con una senda de bajas emisiones
-          y resiliencia climática. Este punto conecta directamente clima y mercados de capitales.
-        </p>
-      </div>
-      <div class="objective-box">
-        <h4>Implicación de inversión</h4>
-        <p>
-          La transición climática puede desplazar capital desde actividades intensivas en carbono
-          hacia energías renovables, redes eléctricas, almacenamiento, eficiencia, transporte limpio,
-          adaptación y tecnologías de transición.
-        </p>
-      </div>
-    </div>
-
-    <h3>Contribuciones determinadas a nivel nacional (NDC)</h3>
-    <p>
-      Las <strong>NDC</strong> son los compromisos climáticos que cada país presenta dentro del
-      marco del Acuerdo de París. Indican cómo pretende reducir emisiones y adaptarse al cambio
-      climático. Son relevantes porque traducen un acuerdo internacional en políticas nacionales:
-      impuestos, regulación, estándares, subsidios, inversión pública y señales al sector privado.
-    </p>
-
-    <div class="flow">
-      <div class="flow-step"><strong>Acuerdo de París</strong> → fija marco global de temperatura, adaptación y flujos financieros.</div>
-      <div class="flow-step"><strong>NDC nacionales</strong> → cada país define objetivos y planes propios.</div>
-      <div class="flow-step"><strong>Políticas públicas</strong> → regulación, impuestos, subvenciones, inversión y estándares.</div>
-      <div class="flow-step"><strong>Mercados financieros</strong> → revalorización o penalización de sectores según riesgos y oportunidades.</div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        Las NDC no son compromisos idénticos impuestos a todos los países. Son contribuciones
-        nacionales dentro de un marco común, revisables y con diferente nivel de ambición según país.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       6. PLAN DE ACCIÓN UE
-       ============================================================ -->
-  <div class="sec">
-    <h2>6. Plan de Acción de Finanzas Sostenibles de la Unión Europea</h2>
-    <p class="sec-intro">
-      La UE ha desarrollado un marco de finanzas sostenibles para movilizar capital privado,
-      mejorar la transparencia y gestionar riesgos derivados de sostenibilidad. El Plan de Acción
-      de 2018 es una pieza central de esa arquitectura.
-    </p>
-
-    <h3>Tres objetivos estratégicos</h3>
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>1 · Reorientar flujos de capital</h4>
-        <p>
-          Canalizar inversión hacia actividades sostenibles, especialmente en transición energética,
-          mitigación y adaptación climática, infraestructuras sostenibles y modelos productivos más
-          eficientes.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>2 · Gestionar riesgos de sostenibilidad</h4>
-        <p>
-          Integrar riesgos climáticos, ambientales, sociales y de gobernanza en la gestión financiera,
-          supervisión, análisis de inversión, préstamos, seguros y gestión de carteras.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>3 · Fomentar transparencia y largo plazo</h4>
-        <p>
-          Mejorar la información disponible para inversores y evitar que el mercado venda sostenibilidad
-          sin criterios claros, datos comparables o procesos verificables.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Lectura de examen</h4>
-        <p>
-          La UE no solo busca “más inversión verde”. También busca que el sistema financiero mida,
-          publique y gestione correctamente los riesgos derivados de sostenibilidad.
-        </p>
-      </div>
-    </div>
-
-    <h3>Principales líneas de actuación</h3>
-    <div class="timeline">
-      <div class="timeline-item green">
-        <h4>Taxonomía de actividades sostenibles</h4>
-        <p>
-          Crear un lenguaje común para determinar qué actividades económicas pueden considerarse
-          ambientalmente sostenibles bajo criterios técnicos comparables.
-        </p>
-      </div>
-      <div class="timeline-item">
-        <h4>Normas y etiquetas</h4>
-        <p>
-          Desarrollar estándares y etiquetas que faciliten identificar productos financieros o proyectos
-          con características sostenibles, reduciendo ambigüedad y riesgo de greenwashing.
-        </p>
-      </div>
-      <div class="timeline-item amber">
-        <h4>Transparencia y divulgación</h4>
-        <p>
-          Exigir más información a empresas y participantes financieros para que los inversores puedan
-          comparar riesgos, impactos y características de sostenibilidad.
-        </p>
-      </div>
-      <div class="timeline-item">
-        <h4>Integración en asesoramiento e inversión</h4>
-        <p>
-          Incorporar preferencias de sostenibilidad y riesgos ESG en procesos de asesoramiento,
-          gestión de carteras y deberes fiduciarios.
-        </p>
-      </div>
-      <div class="timeline-item green">
-        <h4>Benchmarks y señales de mercado</h4>
-        <p>
-          Crear referencias climáticas y mejorar índices para que los inversores puedan evaluar
-          exposición a transición, carbono y objetivos climáticos.
-        </p>
-      </div>
-    </div>
-
-    <div class="callout info">
-      La lógica del Plan de Acción UE es crear infraestructura de mercado: definiciones comunes,
-      transparencia, datos comparables, integración en procesos financieros y mecanismos para
-      canalizar capital hacia la transición.
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       7. TAXONOMÍA UE
-       ============================================================ -->
-  <div class="sec">
-    <h2>7. Reglamento de Taxonomía UE — Reglamento (UE) 2020/852</h2>
-    <p class="sec-intro">
-      La <strong>Taxonomía UE</strong> es un sistema de clasificación para identificar actividades
-      económicas ambientalmente sostenibles. Su objetivo es crear un lenguaje común que permita
-      comparar, reportar y reducir el greenwashing.
-    </p>
-
-    <div class="card accent-navy">
-      <h3>Qué es y qué no es</h3>
-      <p>
-        La Taxonomía UE <strong>no es una lista de empresas buenas</strong>. Clasifica actividades
-        económicas concretas según criterios ambientales. Una misma empresa puede tener actividades
-        alineadas con la Taxonomía y otras que no lo estén. Tampoco garantiza rentabilidad ni elimina
-        riesgo financiero: solo aporta un marco técnico para evaluar sostenibilidad ambiental.
-      </p>
-    </div>
-
-    <h3>Los cuatro requisitos para que una actividad sea ambientalmente sostenible</h3>
-    <div class="taxonomy-list">
-      <div class="taxonomy-item">
-        <h4>1 · Contribución sustancial</h4>
-        <p>
-          La actividad debe contribuir de forma sustancial al menos a uno de los objetivos ambientales
-          definidos por la Taxonomía.
-        </p>
-      </div>
-      <div class="taxonomy-item">
-        <h4>2 · No causar perjuicio significativo — DNSH</h4>
-        <p>
-          La actividad no debe causar un perjuicio significativo al resto de objetivos ambientales.
-          No vale contribuir al clima destruyendo biodiversidad, agua o generando contaminación severa.
-        </p>
-      </div>
-      <div class="taxonomy-item">
-        <h4>3 · Garantías sociales mínimas</h4>
-        <p>
-          La actividad debe respetar garantías sociales mínimas, como principios laborales y derechos
-          humanos básicos. La sostenibilidad ambiental no puede ignorar estándares sociales esenciales.
-        </p>
-      </div>
-      <div class="taxonomy-item">
-        <h4>4 · Criterios técnicos de selección</h4>
-        <p>
-          Debe cumplir criterios técnicos específicos, medibles y comparables. Esto evita que la
-          clasificación dependa solo de declaraciones generales de la empresa.
-        </p>
-      </div>
-    </div>
-
-    <h3>Los seis objetivos medioambientales de la Taxonomía</h3>
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>1 · Mitigación del cambio climático</h4>
-        <p>
-          Reducir o evitar emisiones de gases de efecto invernadero, o aumentar sumideros de carbono.
-          Ejemplos: renovables, eficiencia energética, transporte limpio.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>2 · Adaptación al cambio climático</h4>
-        <p>
-          Reducir vulnerabilidad frente a impactos físicos del clima. Ejemplos: infraestructuras
-          resilientes, gestión de inundaciones, adaptación urbana.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>3 · Agua y recursos marinos</h4>
-        <p>
-          Uso sostenible y protección de aguas y recursos marinos. Ejemplos: tratamiento de aguas,
-          reducción de contaminación hídrica, eficiencia en consumo de agua.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>4 · Economía circular</h4>
-        <p>
-          Transición hacia modelos de reutilización, reparación, reciclaje, reducción de residuos y
-          menor dependencia de materias primas vírgenes.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>5 · Prevención y control de contaminación</h4>
-        <p>
-          Reducir emisiones contaminantes al aire, agua o suelo, limitar sustancias peligrosas y
-          mejorar procesos industriales contaminantes.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>6 · Biodiversidad y ecosistemas</h4>
-        <p>
-          Proteger y restaurar biodiversidad, ecosistemas terrestres y marinos, suelos, bosques y
-          capital natural.
-        </p>
-      </div>
-    </div>
-
-    <h3>Ejemplo rápido de aplicación</h3>
-    <div class="card accent-green">
-      <h3>Proyecto de energía renovable</h3>
-      <p>
-        Una planta solar puede contribuir sustancialmente a mitigación climática. Pero para estar
-        alineada con la Taxonomía también debe comprobar que no causa perjuicio significativo a otros
-        objetivos —por ejemplo biodiversidad, agua o contaminación—, que respeta garantías sociales
-        mínimas y que cumple criterios técnicos concretos.
-      </p>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        Memoriza la secuencia: <strong>contribución sustancial + DNSH + garantías sociales mínimas
-        + criterios técnicos</strong>. Y memoriza los seis objetivos ambientales. Es carne de test.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       8. PACTO VERDE EUROPEO
-       ============================================================ -->
-  <div class="sec">
-    <h2>8. Pacto Verde Europeo — European Green Deal</h2>
-    <p class="sec-intro">
-      El <strong>Pacto Verde Europeo</strong> es la estrategia de crecimiento de la UE para transformar
-      la economía hacia un modelo climáticamente neutro, eficiente en recursos y competitivo.
-      Es más amplio que la Taxonomía: incluye energía, industria, transporte, agricultura, edificios,
-      biodiversidad, economía circular y financiación.
-    </p>
-
-    <div class="card accent-green">
-      <h3>Objetivo de fondo</h3>
-      <p>
-        La meta política central es alcanzar la neutralidad climática en la UE en 2050. Para ello,
-        el Pacto Verde impulsa una transformación estructural de la economía: menos emisiones,
-        más eficiencia energética, mayor electrificación, economía circular, protección de biodiversidad
-        y transición industrial.
-      </p>
-    </div>
-
-    <h3>Áreas principales de transformación</h3>
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Energía</h4>
-        <p>
-          Descarbonización del sistema energético, impulso a renovables, redes, almacenamiento,
-          eficiencia y reducción de dependencia de combustibles fósiles.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Industria</h4>
-        <p>
-          Modernización de sectores intensivos en energía, tecnologías limpias, hidrógeno, captura
-          de carbono y mejora de procesos productivos.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Transporte</h4>
-        <p>
-          Electrificación, movilidad sostenible, reducción de emisiones del transporte por carretera,
-          marítimo y aéreo, e infraestructura de recarga.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Edificios</h4>
-        <p>
-          Rehabilitación energética, eficiencia, aislamiento, bombas de calor y reducción de consumo
-          energético en vivienda y edificios públicos.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Economía circular</h4>
-        <p>
-          Diseño de productos duraderos, reutilización, reciclaje, reducción de residuos y menor
-          dependencia de materias primas críticas.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Biodiversidad y agricultura</h4>
-        <p>
-          Protección de ecosistemas, uso sostenible del suelo, reducción de contaminación y transición
-          hacia sistemas alimentarios más sostenibles.
-        </p>
-      </div>
-    </div>
-
-    <h3>Impacto financiero del Pacto Verde</h3>
-    <p>
-      El Pacto Verde afecta a la asignación de capital porque cambia prioridades de inversión pública,
-      incentivos regulatorios y expectativas sectoriales. Puede favorecer sectores vinculados a
-      transición energética, eficiencia, redes, infraestructuras resilientes, tecnologías limpias y
-      economía circular. También puede penalizar modelos de negocio con alta intensidad de carbono
-      o baja capacidad de adaptación.
-    </p>
-
-    <div class="callout info">
-      La Taxonomía es una herramienta de clasificación. El Pacto Verde es una estrategia política y
-      económica mucho más amplia. Confundir ambos es una trampa típica: están relacionados, pero
-      no son lo mismo.
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       9. EU ECOLABEL Y GREENWASHING
-       ============================================================ -->
-  <div class="sec">
-    <h2>9. Etiqueta verde de la UE, transparencia y greenwashing</h2>
-    <p class="sec-intro">
-      La guía menciona la etiqueta verde o <strong>ecolabel</strong> de la Unión Europea. La idea
-      general es que una etiqueta común ayuda a identificar productos o servicios que cumplen
-      determinados criterios ambientales, facilitando comparación y reduciendo afirmaciones vagas.
-    </p>
-
-    <div class="card accent-navy">
-      <h3>Qué es una etiqueta verde</h3>
-      <p>
-        Una etiqueta verde es un distintivo que señala que un producto, servicio o actividad cumple
-        ciertos criterios ambientales. En finanzas, la lógica de las etiquetas es similar: ayudar al
-        inversor a identificar productos con características sostenibles bajo criterios definidos,
-        comparables y verificables.
-      </p>
-    </div>
-
-    <h3>Greenwashing</h3>
-    <p>
-      El <strong>greenwashing</strong> consiste en presentar como sostenible, verde o responsable
-      una actividad, empresa o producto financiero sin base suficiente, con información incompleta
-      o de forma que induce a error. En asesoramiento financiero, el problema no es solo reputacional:
-      puede implicar mala información al cliente y desalineación con sus preferencias.
-    </p>
-
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Señales de buen uso</h4>
-        <ul>
-          <li>Criterios claros y documentados.</li>
-          <li>Métricas cuantitativas.</li>
-          <li>Datos comparables y trazables.</li>
-          <li>Explicación de metodología.</li>
-          <li>Separación entre objetivo, proceso e impacto real.</li>
-        </ul>
-      </div>
-      <div class="concept-box">
-        <h4>Señales de greenwashing</h4>
-        <ul>
-          <li>Uso de términos genéricos: “verde”, “responsable”, “ético”.</li>
-          <li>Sin métricas ni umbrales.</li>
-          <li>Solo se muestra lo positivo y se ocultan exclusiones.</li>
-          <li>Confundir baja exposición a carbono con impacto climático.</li>
-          <li>Prometer sostenibilidad sin explicar proceso de inversión.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        Transparencia y comparabilidad son claves en finanzas sostenibles. Una etiqueta o clasificación
-        sirve para reducir ambigüedad, no para garantizar rentabilidad ni eliminar todos los riesgos.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       10. APLICACIÓN A MERCADOS
-       ============================================================ -->
-  <div class="sec">
-    <h2>10. Aplicación a mercados financieros y carteras</h2>
-    <p class="sec-intro">
-      La sostenibilidad entra en mercados financieros por tres canales principales: riesgo,
-      oportunidad y regulación. Para un asesor, lo relevante es traducir estos canales a decisiones
-      de asignación de activos, selección de fondos, diversificación y explicación al cliente.
-    </p>
-
-    <h3>Impacto por activo financiero</h3>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Activo</th>
-            <th>Cómo entra ESG</th>
-            <th>Ejemplo de impacto</th>
+            <th>Factor</th>
+            <th>Riesgo para la empresa</th>
+            <th>Riesgo sistémico / macroeconómico</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Renta variable</strong></td>
-            <td>Flujos de caja, márgenes, reputación, regulación, crecimiento sectorial</td>
-            <td>Empresa intensiva en carbono con mayor capex de transición y menor valoración</td>
+            <td><span class="esg-tag esg-e">E</span> <strong>Riesgo físico climático</strong></td>
+            <td>Daños en activos productivos por fenómenos extremos (inundaciones, sequías, huracanes);
+            aumento de costes de seguros; interrupción de cadenas de suministro.</td>
+            <td>Pérdidas en el PIB de regiones afectadas; presión sobre el gasto público en catástrofes;
+            potencial "stranded assets" (activos varados) en sectores fósiles.</td>
           </tr>
           <tr>
-            <td><strong>Renta fija corporativa</strong></td>
-            <td>Riesgo de crédito, spreads, refinanciación, covenants, rating</td>
-            <td>Mal gobierno corporativo eleva prima de riesgo y dificulta emitir deuda</td>
+            <td><span class="esg-tag esg-e">E</span> <strong>Riesgo de transición</strong></td>
+            <td>Activos fósiles que pierden valor ante regulación más estricta o sustitución tecnológica;
+            coste de adaptación a nuevos estándares de emisiones; riesgo de litigación ambiental.</td>
+            <td>Riesgo de Minsky verde: una transición abrupta podría desestabilizar el sistema financiero
+            si los activos varados concentrados en bancos se deprecian súbitamente.</td>
           </tr>
           <tr>
-            <td><strong>Deuda soberana</strong></td>
-            <td>Riesgo climático país, estabilidad institucional, cohesión social, capacidad fiscal</td>
-            <td>País vulnerable a desastres climáticos puede sufrir mayor coste de financiación</td>
+            <td><span class="esg-tag esg-s">S</span> <strong>Riesgo laboral / social</strong></td>
+            <td>Huelgas, rotación de personal, daño reputacional por condiciones en cadena de suministro;
+            sanciones regulatorias por incumplimiento de normativa laboral.</td>
+            <td>Desigualdad creciente reduce el consumo de los deciles inferiores y crea tensiones políticas
+            que generan inestabilidad regulatoria y fiscal.</td>
           </tr>
           <tr>
-            <td><strong>Inmobiliario</strong></td>
-            <td>Eficiencia energética, riesgo físico, normativa de edificios, seguros</td>
-            <td>Edificio ineficiente exige rehabilitación o pierde valor frente a nueva normativa</td>
+            <td><span class="esg-tag esg-s">S</span> <strong>Riesgo de privacidad / datos</strong></td>
+            <td>Multas RGPD, pérdida de confianza del cliente, interrupción de operaciones digitales.</td>
+            <td>Riesgo sistémico si grandes plataformas sufren ciberataques; afectación a la estabilidad
+            del sistema de pagos.</td>
           </tr>
           <tr>
-            <td><strong>Fondos</strong></td>
-            <td>Política ESG, exclusiones, integración, impacto, transparencia, benchmark</td>
-            <td>Un fondo sostenible debe explicar proceso, métricas y límites de su estrategia</td>
-          </tr>
-          <tr>
-            <td><strong>Bonos verdes/sociales/sostenibles</strong></td>
-            <td>Uso de fondos vinculado a proyectos específicos o metas de sostenibilidad</td>
-            <td>Financiación de renovables, transporte limpio, vivienda social o eficiencia energética</td>
+            <td><span class="esg-tag esg-g">G</span> <strong>Riesgo de gobernanza</strong></td>
+            <td>Fraude contable, corrupción, conflictos de interés en el consejo; destrucción de valor para
+            el accionista; sanciones regulatorias y penales.</td>
+            <td>Pérdida de confianza institucional en los mercados; casos sistémicos (Enron, Wirecard)
+            que generan crisis de credibilidad del sistema financiero.</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <h3>Cómo explicarlo a un cliente sin vender humo</h3>
-    <div class="concept-grid">
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Distinguir riesgo físico climático (daño directo por fenómenos naturales) de riesgo de
+        transición (pérdida de valor por el cambio hacia una economía baja en carbono). Saber que
+        los tres factores ESG representan riesgos financieros materiales, no solo éticos.
+      </div>
+    </div>
+
+    <h3>1.2 Concepto de "Valor Compartido" — Porter &amp; Kramer (2011)</h3>
+    <div class="card accent-navy">
+      <p>
+        Michael Porter y Mark Kramer acuñaron el concepto de <strong>Valor Compartido</strong>
+        (<em>Creating Shared Value</em>) en su artículo publicado en <em>Harvard Business Review</em>
+        en enero de 2011. Su tesis central es que la competitividad empresarial y el progreso social
+        no son objetivos contrapuestos, sino que pueden y deben reforzarse mutuamente.<sup class="fn"><a href="#fn3">[3]</a></sup>
+      </p>
+      <p style="margin-top:.6rem;">
+        El Valor Compartido se define como <em>"políticas y prácticas operativas que mejoran la
+        competitividad de una empresa a la vez que hacen avanzar las condiciones económicas y sociales
+        de las comunidades en las que opera"</em>. A diferencia de la RSC (Responsabilidad Social
+        Corporativa), que los autores critican por ser periférica y desvinculada del negocio, el
+        Valor Compartido está en el núcleo de la estrategia empresarial.
+      </p>
+    </div>
+
+    <p>Porter y Kramer identifican <strong>tres formas</strong> de crear valor compartido:</p>
+    <div class="concept-grid-3">
       <div class="concept-box">
-        <h4>Frase correcta</h4>
-        <p>
-          “Integramos sostenibilidad porque puede afectar al riesgo y retorno esperados, y porque
-          queremos que la cartera sea coherente con tus preferencias, siempre sin prometer mayor
-          rentabilidad ni ausencia de riesgo.”
-        </p>
+        <h4>① Reconcepcionar productos y mercados</h4>
+        <p>Desarrollar productos que respondan a necesidades sociales desatendidas: alimentos
+        más saludables, seguros más accesibles, tecnología para mercados de bajos ingresos.
+        La necesidad social abre un mercado nuevo y rentable.</p>
       </div>
       <div class="concept-box">
-        <h4>Frase peligrosa</h4>
-        <p>
-          “Este fondo es verde, así que es mejor, más seguro y más rentable.” Esa afirmación mezcla
-          criterios de sostenibilidad con garantías de rentabilidad que no existen.
-        </p>
+        <h4>② Redefinir la productividad en la cadena de valor</h4>
+        <p>Mejorar las condiciones laborales, reducir el consumo energético o de agua, gestionar
+        mejor los residuos, fortalecer a los proveedores locales. Todo ello reduce costes o
+        mejora la calidad a la vez que genera beneficio social.</p>
+      </div>
+      <div class="concept-box">
+        <h4>③ Construir clústeres locales de apoyo</h4>
+        <p>Invertir en el ecosistema local —formación, infraestructura, proveedores fiables—
+        para mejorar la productividad de la empresa y simultáneamente el desarrollo económico
+        de la región donde opera.</p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>Distinción clave para el examen:</strong> Valor Compartido ≠ RSC (Responsabilidad
+      Social Corporativa). La RSC trata de minimizar el daño social de la actividad empresarial,
+      como una externalidad. El Valor Compartido trata de que la propia actividad empresarial
+      genere valor social y económico simultáneamente, integrándolo en la estrategia central.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       2. ACUERDOS INTERNACIONALES
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="sec">
+    <h2>2. Principales acuerdos internacionales</h2>
+
+    <h3>2.1 Agenda 2030 de la ONU para el Desarrollo Sostenible</h3>
+
+    <div class="card accent-navy">
+      <h3>Antecedentes y objetivo</h3>
+      <p>
+        La Agenda 2030 es el marco global de desarrollo sostenible adoptado por los 193 Estados
+        miembros de la ONU en septiembre de 2015, sustituyendo a los Objetivos de Desarrollo del
+        Milenio (ODM, 2000–2015). Su propósito es <em>"transformar nuestro mundo"</em> estableciendo
+        un plan de acción universal, integrador y que equilibra las tres dimensiones del desarrollo
+        sostenible: económica, social y medioambiental.<sup class="fn"><a href="#fn4">[4]</a></sup>
+      </p>
+      <p style="margin-top:.6rem;">
+        Distintivo respecto a sus predecesores: es universal (aplica a todos los países, no solo
+        a los "en desarrollo"), indivisible (los 17 objetivos están interconectados y no pueden
+        lograrse de forma aislada) y establece el horizonte temporal de <strong>2030</strong> como
+        meta de transformación.
+      </p>
+    </div>
+
+    <h3>Los 17 Objetivos de Desarrollo Sostenible (ODS)</h3>
+
+    <div class="ods-grid">
+      <div class="ods-item ods-1"><div class="ods-num">1</div><div class="ods-label">Fin de la pobreza</div></div>
+      <div class="ods-item ods-2"><div class="ods-num">2</div><div class="ods-label">Hambre cero</div></div>
+      <div class="ods-item ods-3"><div class="ods-num">3</div><div class="ods-label">Salud y bienestar</div></div>
+      <div class="ods-item ods-4"><div class="ods-num">4</div><div class="ods-label">Educación de calidad</div></div>
+      <div class="ods-item ods-5"><div class="ods-num">5</div><div class="ods-label">Igualdad de género</div></div>
+      <div class="ods-item ods-6"><div class="ods-num">6</div><div class="ods-label">Agua limpia y saneamiento</div></div>
+      <div class="ods-item ods-7"><div class="ods-num">7</div><div class="ods-label">Energía asequible y no contaminante</div></div>
+      <div class="ods-item ods-8"><div class="ods-num">8</div><div class="ods-label">Trabajo decente y crecimiento</div></div>
+      <div class="ods-item ods-9"><div class="ods-num">9</div><div class="ods-label">Industria, innovación e infraestructura</div></div>
+      <div class="ods-item ods-10"><div class="ods-num">10</div><div class="ods-label">Reducción de desigualdades</div></div>
+      <div class="ods-item ods-11"><div class="ods-num">11</div><div class="ods-label">Ciudades y comunidades sostenibles</div></div>
+      <div class="ods-item ods-12"><div class="ods-num">12</div><div class="ods-label">Producción y consumo responsables</div></div>
+      <div class="ods-item ods-13"><div class="ods-num">13</div><div class="ods-label">Acción por el clima</div></div>
+      <div class="ods-item ods-14"><div class="ods-num">14</div><div class="ods-label">Vida submarina</div></div>
+      <div class="ods-item ods-15"><div class="ods-num">15</div><div class="ods-label">Vida de ecosistemas terrestres</div></div>
+      <div class="ods-item ods-16"><div class="ods-num">16</div><div class="ods-label">Paz, justicia e instituciones sólidas</div></div>
+      <div class="ods-item ods-17"><div class="ods-num">17</div><div class="ods-label">Alianzas para lograr los objetivos</div></div>
+    </div>
+
+    <div class="callout tip">
+      Para memorizar los ODS, agrúpalos temáticamente: ODS 1–2 (pobreza y hambre), ODS 3–5
+      (personas: salud, educación, género), ODS 6–7 (recursos básicos: agua y energía), ODS 8–9
+      (economía y trabajo), ODS 10–11 (desigualdad y ciudades), ODS 12–15 (planeta: producción,
+      clima, océanos, ecosistemas), ODS 16–17 (instituciones y alianzas globales).
+    </div>
+
+    <h3>2.2 Acuerdo de París sobre el Cambio Climático</h3>
+
+    <div class="card accent-green">
+      <h3>Antecedentes</h3>
+      <p>
+        El Acuerdo de París fue adoptado en la <strong>COP21</strong> (21ª Conferencia de las Partes
+        de la CMNUCC) celebrada en París en diciembre de 2015, y entró en vigor el 4 de noviembre
+        de 2016 tras ser ratificado por más de 55 países que representaban más del 55% de las
+        emisiones globales.<sup class="fn"><a href="#fn5">[5]</a></sup> Es el primer acuerdo climático
+        universal y legalmente vinculante, aunque con compromisos de reducción de emisiones de
+        carácter voluntario (las NDC, ver abajo).
+      </p>
+      <p style="margin-top:.5rem;">
+        Sucede al Protocolo de Kioto (1997), que solo obligaba a los países desarrollados y cuya
+        segunda fase fue rechazada por grandes emisores como EE.UU. y Canadá. El Acuerdo de París
+        adopta un enfoque bottom-up: cada país define sus propios compromisos.
+      </p>
+    </div>
+
+    <h3>Los tres objetivos a largo plazo del Acuerdo de París</h3>
+    <div class="concept-grid-3">
+      <div class="concept-box">
+        <h4>① Temperatura — el objetivo central</h4>
+        <p>Limitar el aumento de la temperatura media global <strong>muy por debajo de 2°C</strong>
+        respecto a niveles preindustriales, y proseguir esfuerzos para limitarlo a
+        <strong>1,5°C</strong>. La diferencia entre 1,5°C y 2°C implica diferencias significativas
+        en la frecuencia e intensidad de eventos climáticos extremos.</p>
+      </div>
+      <div class="concept-box">
+        <h4>② Adaptación — resiliencia climática</h4>
+        <p>Aumentar la capacidad de adaptación a los efectos adversos del cambio climático y
+        fomentar la resiliencia climática y el desarrollo con bajas emisiones, de manera que no
+        se comprometa la producción de alimentos.</p>
+      </div>
+      <div class="concept-box">
+        <h4>③ Finanzas — flujos financieros coherentes</h4>
+        <p>Hacer que los flujos financieros sean coherentes con una senda de desarrollo bajo en
+        emisiones y resiliente al clima. Es el origen directo del Plan de Acción de Finanzas
+        Sostenibles de la UE.</p>
+      </div>
+    </div>
+
+    <h3>Las Contribuciones Determinadas a Nivel Nacional (NDC)</h3>
+    <p>
+      Las <strong>NDC</strong> (<em>Nationally Determined Contributions</em>) son los compromisos
+      climáticos que cada país firmante del Acuerdo de París establece y actualiza por sí mismo.
+      Cada país determina qué objetivos de reducción de emisiones puede alcanzar, de acuerdo con
+      sus circunstancias nacionales. Los mecanismos clave son:<sup class="fn"><a href="#fn5">[5]</a></sup>
+    </p>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Ciclo de ambición creciente</h4>
+        <p>Cada 5 años, los países deben presentar una NDC actualizada que sea <em>progresivamente
+        más ambiciosa</em> que la anterior. El primer ciclo de revisión fue en 2020; el segundo
+        en 2025. No hay sanción formal por incumplimiento, pero sí mecanismos de transparencia
+        y revisión por pares.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Principio de responsabilidades comunes pero diferenciadas</h4>
+        <p>Los países desarrollados asumen mayores compromisos de reducción y de financiación
+        climática hacia países en desarrollo. El objetivo de 100.000 millones de dólares anuales
+        de los países ricos hacia los pobres para financiación climática es parte de este principio.</p>
       </div>
     </div>
 
     <div class="exam-alert">
       <div>
         <strong>🎯 Frecuente en examen</strong>
-        Una inversión sostenible puede tener riesgo de mercado, riesgo de crédito, riesgo de liquidez,
-        riesgo de concentración o riesgo de valoración. ESG no elimina los riesgos financieros clásicos.
+        Los tres objetivos del Acuerdo de París: temperatura (&lt;2°C / esfuerzos para 1,5°C),
+        adaptación y finanzas. El concepto de NDC como compromiso voluntario pero con ciclo de
+        revisión obligatorio cada 5 años. La diferencia entre el Acuerdo de París (universal,
+        bottom-up) y el Protocolo de Kioto (solo países desarrollados, compromisos vinculantes
+        top-down).
       </div>
     </div>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       11. TRAMPAS
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       3. INICIATIVAS DE LA UE
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
-    <h2>11. Errores típicos al estudiar sostenibilidad</h2>
+    <h2>3. Iniciativas de la Unión Europea</h2>
 
-    <div class="card accent-danger">
-      <h3>Errores que conviene evitar</h3>
-      <ul>
-        <li><strong>Confundir ESG con impacto.</strong> Un fondo ESG puede integrar riesgos sin buscar impacto medible directo.</li>
-        <li><strong>Confundir Taxonomía con SFDR.</strong> La Taxonomía clasifica actividades ambientales; SFDR regula divulgación de sostenibilidad en productos financieros.</li>
-        <li><strong>Creer que una empresa es “taxonómica”.</strong> Lo que se alinea son actividades concretas, no la empresa entera de forma automática.</li>
-        <li><strong>Ignorar el DNSH.</strong> No basta con contribuir a un objetivo si se perjudican significativamente otros.</li>
-        <li><strong>Reducir el Acuerdo de París a 2 °C.</strong> También incluye adaptación y alineación de flujos financieros.</li>
-        <li><strong>Usar ODS como prueba de sostenibilidad.</strong> Los ODS orientan, pero no certifican por sí solos.</li>
-        <li><strong>Olvidar la gobernanza.</strong> Mala gobernanza puede invalidar una tesis de inversión aparentemente sostenible.</li>
-        <li><strong>Prometer rentabilidad por sostenibilidad.</strong> La sostenibilidad puede mejorar análisis de riesgos, pero no garantiza resultados.</li>
-      </ul>
+    <h3>3.1 Plan de Acción de Finanzas Sostenibles (marzo 2018)</h3>
+
+    <div class="card accent-navy">
+      <h3>Antecedentes y propósito general</h3>
+      <p>
+        El Plan de Acción sobre Finanzas Sostenibles fue publicado por la Comisión Europea el
+        8 de marzo de 2018, a raíz de las recomendaciones del Grupo de Expertos de Alto Nivel
+        sobre Finanzas Sostenibles (HLEG) constituido en 2016. Su aprobación se enmarca directamente
+        en el compromiso de la UE con el Acuerdo de París y la Agenda 2030 de la ONU.<sup class="fn"><a href="#fn6">[6]</a></sup>
+      </p>
+      <p style="margin-top:.5rem;">
+        El propósito general es orientar el sistema financiero europeo hacia la financiación del
+        desarrollo sostenible, garantizando que los flujos de capital privado se dirijan hacia
+        actividades y proyectos que contribuyan a los objetivos climáticos y de sostenibilidad,
+        y evitando el <em>greenwashing</em> mediante criterios objetivos y verificables.
+      </p>
     </div>
 
-    <h3>Preguntas de repaso mental</h3>
+    <h3>Los 3 objetivos estratégicos del Plan de Acción</h3>
+    <div class="concept-grid-3">
+      <div class="concept-box">
+        <h4>① Reorientar los flujos de capital</h4>
+        <p>Dirigir el capital privado hacia inversiones sostenibles, a fin de lograr un
+        crecimiento sostenible e inclusivo. Para ello se necesita un lenguaje común
+        (taxonomía) y etiquetas verificables.</p>
+      </div>
+      <div class="concept-box">
+        <h4>② Integrar la sostenibilidad en la gestión de riesgos</h4>
+        <p>Que las entidades financieras incorporen los factores ESG en sus modelos de riesgo
+        y en los procesos de toma de decisiones de inversión y crédito.</p>
+      </div>
+      <div class="concept-box">
+        <h4>③ Fomentar la transparencia y el largoplacismo</h4>
+        <p>Garantizar que empresas e inversores divulguen información sobre sostenibilidad de
+        forma comparable, fiable y pertinente, para capacitar a todos los participantes del
+        mercado en sus decisiones.</p>
+      </div>
+    </div>
+
+    <h3>Las 10 acciones del Plan de Acción</h3>
+    <div style="border:1.5px solid var(--border);border-radius:14px;padding:0 1.2rem;margin:1rem 0;">
+      <div class="accion-row">
+        <div class="accion-num">1</div>
+        <div class="accion-body">
+          <h4>Establecer un sistema de clasificación unificado (taxonomía)</h4>
+          <p>Crear una lista de actividades económicas consideradas medioambientalmente sostenibles,
+          con criterios objetivos y uniformes. Origen del Reglamento UE 2020/852.</p>
+        </div>
+      </div>
+      <div class="accion-row">
+        <div class="accion-num">2</div>
+        <div class="accion-body">
+          <h4>Crear estándares y etiquetas de productos financieros verdes</h4>
+          <p>Desarrollar un estándar europeo de bonos verdes (EU Green Bond Standard) y un
+          sistema de <em>ecolabel</em> para fondos de inversión minoristas que inviertan
+          en activos sostenibles.</p>
+        </div>
+      </div>
+      <div class="accion-row">
+        <div class="accion-num">3</div>
+        <div class="accion-body">
+          <h4>Fomentar la inversión en proyectos sostenibles</h4>
+          <p>Vincular las herramientas de financiación sostenible con los fondos UE
+          (InvestEU, NGEU) para catalizar inversión privada en proyectos de impacto
+          medioambiental y social.</p>
+        </div>
+      </div>
+      <div class="accion-row">
+        <div class="accion-num">4</div>
+        <div class="accion-body">
+          <h4>Incorporar la sostenibilidad en el asesoramiento financiero</h4>
+          <p>Modificar las directivas MiFID II e IDD para que los asesores financieros pregunten
+          a sus clientes sobre sus preferencias de sostenibilidad e integren factores ESG
+          en las recomendaciones. Directamente relevante para el EFA.</p>
+        </div>
+      </div>
+      <div class="accion-row">
+        <div class="accion-num">5</div>
+        <div class="accion-body">
+          <h4>Desarrollar índices de referencia de sostenibilidad</h4>
+          <p>Crear benchmarks europeos de baja huella de carbono y de transición climática para
+          servir como referencia a inversores institucionales. Origen de los EU Climate Transition
+          Benchmarks y Paris-Aligned Benchmarks.</p>
+        </div>
+      </div>
+      <div class="accion-row">
+        <div class="accion-num">6</div>
+        <div class="accion-body">
+          <h4>Integrar mejor la sostenibilidad en las calificaciones crediticias y estudios de mercado</h4>
+          <p>Que las agencias de rating (Moody's, S&amp;P, Fitch) y los analistas incorporen
+          los riesgos ESG en sus metodologías de calificación.</p>
+        </div>
+      </div>
+      <div class="accion-row">
+        <div class="accion-num">7</div>
+        <div class="accion-body">
+          <h4>Clarificar los deberes de los inversores institucionales y gestores de activos</h4>
+          <p>Que los deberes fiduciarios incluyan explícitamente la consideración de factores ESG
+          como parte de la gestión prudente y responsable de los activos de los clientes.</p>
+        </div>
+      </div>
+      <div class="accion-row">
+        <div class="accion-num">8</div>
+        <div class="accion-body">
+          <h4>Incorporar la sostenibilidad en los requisitos prudenciales</h4>
+          <p>Analizar si los requisitos de capital (Basilea/CRR) para bancos y aseguradoras
+          (Solvencia II) deberían ajustarse para reflejar los riesgos climáticos y de sostenibilidad.</p>
+        </div>
+      </div>
+      <div class="accion-row">
+        <div class="accion-num">9</div>
+        <div class="accion-body">
+          <h4>Fortalecer la divulgación de información sobre sostenibilidad y contabilidad</h4>
+          <p>Reforzar los requisitos de información no financiera de las empresas cotizadas.
+          Origen de la CSRD (Corporate Sustainability Reporting Directive), que sustituyó y
+          amplió la NFRD.</p>
+        </div>
+      </div>
+      <div class="accion-row">
+        <div class="accion-num">10</div>
+        <div class="accion-body">
+          <h4>Fomentar el gobierno corporativo sostenible y reducir el cortoplacismo</h4>
+          <p>Reformar el gobierno corporativo para que los consejos de administración integren
+          la sostenibilidad a largo plazo en su estrategia, y reducir la presión sobre los
+          resultados trimestrales que fomenta el cortoplacismo.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>3.2 Reglamento de Taxonomía — UE 2020/852</h3>
+
+    <div class="card accent-green">
+      <p>
+        El <strong>Reglamento (UE) 2020/852</strong> del Parlamento Europeo y del Consejo, de
+        18 de junio de 2020, establece el marco para facilitar las inversiones sostenibles,
+        creando un sistema de clasificación (taxonomía) que define qué actividades económicas
+        pueden considerarse <em>medioambientalmente sostenibles</em>.<sup class="fn"><a href="#fn7">[7]</a></sup>
+        Es la Acción 1 del Plan de Acción de Finanzas Sostenibles, convertida en norma vinculante.
+      </p>
+    </div>
+
+    <h3>Requisitos para que una actividad califique como económicamente sostenible</h3>
+    <p>
+      Según el artículo 3 del Reglamento, una actividad económica tiene la consideración de
+      medioambientalmente sostenible cuando cumple <strong>cuatro condiciones acumulativas</strong>:
+    </p>
     <div class="concept-grid">
       <div class="concept-box">
-        <h4>Para cualquier política ESG</h4>
-        <ol>
-          <li>¿Qué factor se analiza: E, S o G?</li>
-          <li>¿Es riesgo financiero, impacto externo o ambas cosas?</li>
-          <li>¿La métrica es clara y comparable?</li>
-          <li>¿Hay riesgo de greenwashing?</li>
-        </ol>
+        <h4>① Contribución sustancial</h4>
+        <p>Contribuye de forma sustancial a uno o varios de los <strong>seis objetivos
+        medioambientales</strong> definidos en el artículo 9 del Reglamento.</p>
       </div>
       <div class="concept-box">
-        <h4>Para Taxonomía UE</h4>
-        <ol>
-          <li>¿Contribuye sustancialmente a un objetivo?</li>
-          <li>¿Respeta DNSH?</li>
-          <li>¿Cumple garantías sociales mínimas?</li>
-          <li>¿Cumple criterios técnicos?</li>
-        </ol>
+        <h4>② Principio DNSH</h4>
+        <p><em>Do No Significant Harm</em>: no causa ningún <strong>perjuicio significativo</strong>
+        a ninguno de los otros objetivos medioambientales del Reglamento.</p>
+      </div>
+      <div class="concept-box">
+        <h4>③ Garantías mínimas sociales</h4>
+        <p>Se lleva a cabo de conformidad con las <strong>garantías mínimas sociales</strong>
+        establecidas en el artículo 18 (Directrices OCDE y Principios Rectores ONU sobre
+        empresas y derechos humanos).</p>
+      </div>
+      <div class="concept-box">
+        <h4>④ Criterios técnicos de selección</h4>
+        <p>Se ajusta a los <strong>criterios técnicos de selección</strong> específicos establecidos
+        por la Comisión mediante actos delegados para cada sector y actividad.</p>
+      </div>
+    </div>
+
+    <h3>Los seis objetivos medioambientales (artículo 9)</h3>
+
+    <div class="obj-env-grid">
+      <div class="obj-env-box">
+        <div class="obj-num">1</div>
+        <h4>Mitigación del cambio climático</h4>
+        <p>Actividades que reducen o evitan emisiones de gases de efecto invernadero, o que
+        aumentan su absorción (sumideros de carbono).</p>
+      </div>
+      <div class="obj-env-box">
+        <div class="obj-num">2</div>
+        <h4>Adaptación al cambio climático</h4>
+        <p>Actividades que reducen la vulnerabilidad de personas, naturaleza o activos económicos
+        frente a los efectos adversos presentes y esperados del cambio climático.</p>
+      </div>
+      <div class="obj-env-box">
+        <div class="obj-num">3</div>
+        <h4>Uso sostenible y protección de los recursos hídricos y marinos</h4>
+        <p>Actividades que gestionan el agua de forma sostenible, protegen los ecosistemas
+        acuáticos y reducen la contaminación de masas de agua.</p>
+      </div>
+      <div class="obj-env-box">
+        <div class="obj-num">4</div>
+        <h4>Transición hacia una economía circular</h4>
+        <p>Actividades que aumentan la durabilidad, reparabilidad y reciclabilidad de los
+        productos, reducen los residuos y fomentan el uso de materias primas secundarias.</p>
+      </div>
+      <div class="obj-env-box">
+        <div class="obj-num">5</div>
+        <h4>Prevención y control de la contaminación</h4>
+        <p>Actividades que previenen o reducen la contaminación del aire, el agua o el suelo,
+        o el uso de sustancias peligrosas.</p>
+      </div>
+      <div class="obj-env-box">
+        <div class="obj-num">6</div>
+        <h4>Protección y recuperación de la biodiversidad y los ecosistemas</h4>
+        <p>Actividades que conservan, restauran o mejoran los ecosistemas terrestres y marinos
+        y la biodiversidad que albergan.</p>
+      </div>
+    </div>
+
+    <h3>El principio DNSH — Do No Significant Harm</h3>
+    <p>
+      El principio de <strong>no ocasionar un perjuicio significativo</strong> a los objetivos
+      medioambientales (DNSH por sus siglas en inglés) es el filtro negativo de la taxonomía. Una
+      actividad puede contribuir sustancialmente a uno de los seis objetivos, pero si en el proceso
+      daña significativamente a otro de ellos, no puede calificarse como sostenible.<sup class="fn"><a href="#fn7">[7]</a></sup>
+    </p>
+    <p>
+      Por ejemplo: una central de gas natural puede contribuir a la mitigación climática si desplaza
+      al carbón (menor CO₂), pero si en su operación contamina acuíferos locales, daña el objetivo
+      nº 3 (recursos hídricos) y no supera el filtro DNSH. El criterio se aplica para cada par de
+      objetivos y se especifica en los actos delegados sectoriales.
+    </p>
+
+    <h3>Garantías mínimas sociales</h3>
+    <p>
+      Las garantías mínimas sociales (artículo 18) exigen que las actividades se lleven a cabo de
+      conformidad con:<sup class="fn"><a href="#fn7">[7]</a></sup>
+    </p>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Directrices OCDE para Empresas Multinacionales</h4>
+        <p>Marco de referencia de conducta empresarial responsable: derechos humanos, empleo,
+        medioambiente, anticorrupción, transparencia fiscal e intereses del consumidor.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Principios Rectores ONU sobre Empresas y Derechos Humanos</h4>
+        <p>Los "Principios de Ruggie" (2011): que las empresas respeten los derechos humanos
+        en sus operaciones y cadenas de suministro, con mecanismos de diligencia debida.</p>
+      </div>
+    </div>
+
+    <h3>La ecolabel o etiqueta ecológica de la UE</h3>
+    <p>
+      La <strong>ecolabel de la UE</strong> (<em>EU Ecolabel</em>) es un sistema europeo voluntario
+      de certificación ambiental para productos y servicios, creado en 1992 (Reglamento (CE) 66/2010).
+      En el contexto de las finanzas sostenibles, el Plan de Acción propuso extender el concepto
+      de ecolabel a <strong>productos financieros</strong> (fondos de inversión), para indicar a
+      los inversores minoristas que el producto financiero invierte en activos alineados con
+      la taxonomía de la UE y cumple criterios estrictos de sostenibilidad.<sup class="fn"><a href="#fn6">[6]</a></sup>
+    </p>
+    <p>
+      Para obtener la ecolabel, un fondo de inversión debe acreditar que la mayoría de sus inversiones
+      cumplen los criterios de la taxonomía y que la empresa gestora aplica políticas de exclusión de
+      actividades altamente perjudiciales (armamento controvertido, tabaco, combustibles fósiles de
+      alta intensidad). La ecolabel es distinta de las etiquetas de los fondos SFDR (Artículo 8 y
+      Artículo 9), aunque complementaria.
+    </p>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Los cuatro requisitos acumulativos para que una actividad sea "taxonomía-conforme": contribución
+        sustancial, DNSH, garantías mínimas sociales y criterios técnicos de selección. Los seis objetivos
+        medioambientales, especialmente los dos primeros (mitigación y adaptación climática). El principio
+        DNSH como filtro negativo que puede vetar actividades que contribuyen positivamente a un objetivo
+        si dañan significativamente otro.
       </div>
     </div>
   </div>
 
   <hr>
 
-  <!-- RESUMEN -->
+  <!-- ════════════════════════════════════════════════════════════════
+       4. PACTO VERDE EUROPEO
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="sec">
+    <h2>4. El Pacto Verde Europeo (European Green Deal)</h2>
+
+    <div class="card accent-green">
+      <h3>Origen y objetivo</h3>
+      <p>
+        El <strong>Pacto Verde Europeo</strong> fue presentado por la Comisión Von der Leyen el
+        <strong>11 de diciembre de 2019</strong> en la COP25 de Madrid, y aprobado formalmente
+        a principios de 2020. Es la estrategia de crecimiento de la UE para el siglo XXI: una
+        hoja de ruta de más de 50 puntos de actuación política para hacer que la economía europea
+        sea sostenible, competitiva y climáticamente neutra.<sup class="fn"><a href="#fn8">[8]</a></sup>
+      </p>
+      <p style="margin-top:.5rem;">
+        Su objetivo central es que la UE sea el <strong>primer continente climáticamente neutro
+        del mundo para 2050</strong>. El Pacto Verde es la contribución de la UE al Acuerdo de
+        París, y en él se basan todas las iniciativas de finanzas sostenibles descritas en esta
+        sección. La Ley del Clima Europea (junio 2021) hace legalmente vinculante el objetivo
+        de neutralidad climática en 2050 y el de reducción de emisiones del <strong>55% para
+        2030</strong> respecto a niveles de 1990 (el llamado paquete "Fit for 55").
+      </p>
+    </div>
+
+    <h3>Los tres grandes objetivos del Pacto Verde Europeo</h3>
+    <div class="concept-grid-3">
+      <div class="concept-box">
+        <h4>① Neutralidad climática en 2050</h4>
+        <p>Cero emisiones netas de gases de efecto invernadero. Para lograrlo: reducir emisiones
+        un 55% antes de 2030 (Fit for 55), descarbonizar la energía (75%+ del mix eléctrico con
+        renovables), electrificar el transporte y reformar el mercado de carbono (ETS).</p>
+      </div>
+      <div class="concept-box">
+        <h4>② Disociación crecimiento / uso de recursos</h4>
+        <p>El crecimiento económico debe dejar de depender del consumo de recursos naturales no
+        renovables. La economía circular es el instrumento: mantener los recursos en uso el mayor
+        tiempo posible, reducir residuos y diseñar productos para su reparación y reciclaje.</p>
+      </div>
+      <div class="concept-box">
+        <h4>③ Transición justa: nadie queda atrás</h4>
+        <p>Los beneficios y costes de la transición verde deben distribuirse equitativamente.
+        El Mecanismo de Transición Justa (60.000 M€) financia la reconversión de regiones
+        carbono-intensivas (cuencas mineras, zonas industriales) y la formación de sus trabajadores.</p>
+      </div>
+    </div>
+
+    <h3>Conceptos clave del Pacto Verde</h3>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Neutralidad climática</h4>
+        <p>Estado en el que las emisiones de gases de efecto invernadero generadas por la actividad
+        humana son iguales o inferiores a las absorbidas por sumideros naturales (bosques, suelos,
+        océanos) y tecnológicos. También llamada "cero emisiones netas". No implica cero emisiones
+        brutas, sino equilibrio entre emisiones y absorciones.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Economía circular</h4>
+        <p>Modelo económico que contrasta con el lineal (producir → usar → tirar). En la economía
+        circular, los materiales y productos se diseñan para durar más, ser reparables, reutilizables
+        y reciclables. Los residuos de una industria son el insumo de otra. La UE lo impulsa con
+        el Plan de Acción de Economía Circular (2020) y con requisitos de diseño ecológico (Ecodesign).</p>
+      </div>
+    </div>
+
+    <h3>Principales áreas de actuación del Pacto Verde</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Área</th><th>Iniciativa / instrumento clave</th><th>Objetivo</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Energía</strong></td>
+            <td>Directiva de Energías Renovables (revisada), Mercado Interior de la Electricidad</td>
+            <td>Electrificar el consumo; objetivo 42,5%–45% renovables en el mix energético para 2030</td>
+          </tr>
+          <tr>
+            <td><strong>Transporte</strong></td>
+            <td>Prohibición de coches nuevos de combustión interna a partir de 2035</td>
+            <td>Electrificar el transporte privado; potenciar ferrocarril y transporte público</td>
+          </tr>
+          <tr>
+            <td><strong>Edificación</strong></td>
+            <td>Directiva de Eficiencia Energética de los Edificios (EPBD revisada)</td>
+            <td>Renovar el parque inmobiliario europeo para alcanzar clase A/B antes de 2050</td>
+          </tr>
+          <tr>
+            <td><strong>Industria</strong></td>
+            <td>Mecanismo de Ajuste en Frontera por Carbono (CBAM)</td>
+            <td>Evitar la "fuga de carbono" igualando el precio del carbono para importaciones</td>
+          </tr>
+          <tr>
+            <td><strong>Alimentación</strong></td>
+            <td>Estrategia "de la granja a la mesa" (Farm to Fork)</td>
+            <td>Reducir un 50% el uso de pesticidas; 25% de la agricultura ecológica; reducir emisiones</td>
+          </tr>
+          <tr>
+            <td><strong>Biodiversidad</strong></td>
+            <td>Estrategia de Biodiversidad 2030</td>
+            <td>Proteger el 30% de la superficie terrestre y marina; restaurar ecosistemas degradados</td>
+          </tr>
+          <tr>
+            <td><strong>Carbono</strong></td>
+            <td>Reforma del mercado de derechos de emisión (ETS)</td>
+            <td>Extender el ETS al transporte marítimo y edificios; crear un ETS2 para carburantes</td>
+          </tr>
+          <tr>
+            <td><strong>Finanzas</strong></td>
+            <td>Plan de Acción de Finanzas Sostenibles, Taxonomía, Bonos Verdes</td>
+            <td>Movilizar al menos 1 billón € en inversión verde en la próxima década</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Estado del Pacto Verde en junio 2026</div>
+      <p>
+        La mayoría de las piezas legislativas del Pacto Verde han sido aprobadas (Ley del Clima,
+        Fit for 55, CBAM, revisión ETS, Directiva de Edificios, prohibición de combustión en 2035).
+        Sin embargo, el debate político en la segunda Comisión Von der Leyen (2024–2029) se ha
+        centrado en el <strong>Pacto Verde Industrial</strong>, que busca equilibrar las ambiciones
+        climáticas con la competitividad industrial europea ante la presión de China y del
+        Inflation Reduction Act de EE.UU. La revisión del Green Deal tiene en cuenta que la
+        industria europea necesita certidumbre regulatoria y acceso a energía asequible para no
+        perder competitividad en la transición verde.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Fecha de presentación del Pacto Verde: diciembre 2019. Los tres objetivos: neutralidad
+        climática 2050, disociación crecimiento/recursos, transición justa. La Ley del Clima hace
+        vinculante el −55% para 2030. El paquete Fit for 55. El concepto de neutralidad climática
+        (cero emisiones netas, no cero brutas) y el de economía circular (contraposición al modelo
+        lineal de producir-usar-tirar).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       RESUMEN
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
     <h2>Resumen de la sección</h2>
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>Concepto</th><th>Idea clave</th><th>Aplicación financiera</th></tr>
+          <tr><th>Concepto</th><th>Definición clave</th><th>Dato / Implicación</th></tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>ESG</strong></td>
-            <td>Factores ambientales, sociales y de gobernanza</td>
-            <td>Permiten identificar riesgos y oportunidades no siempre visibles en estados financieros históricos</td>
+            <td>Factores medioambientales, sociales y de gobernanza; riesgos financieros materiales</td>
+            <td>Integración obligatoria en MiFID II desde 2022</td>
           </tr>
           <tr>
-            <td><strong>Riesgo físico</strong></td>
-            <td>Daños o costes por eventos climáticos y ambientales</td>
-            <td>Afecta inmuebles, seguros, infraestructuras, agricultura, logística y deuda soberana</td>
+            <td><strong>Valor Compartido</strong></td>
+            <td>Porter &amp; Kramer (2011): competitividad empresarial + progreso social simultáneos</td>
+            <td>3 formas: reconcepcionar productos, redefinir cadena de valor, construir clústeres</td>
           </tr>
           <tr>
-            <td><strong>Riesgo de transición</strong></td>
-            <td>Costes derivados de descarbonización, regulación y cambio tecnológico</td>
-            <td>Puede crear activos varados y cambiar valoraciones sectoriales</td>
-          </tr>
-          <tr>
-            <td><strong>Valor compartido</strong></td>
-            <td>Crear valor económico y social/ambiental a la vez</td>
-            <td>Integra sostenibilidad en la estrategia competitiva, no como donación externa</td>
-          </tr>
-          <tr>
-            <td><strong>Agenda 2030</strong></td>
-            <td>Marco ONU con 17 ODS</td>
-            <td>Sirve como lenguaje de objetivos, pero no certifica automáticamente inversiones</td>
+            <td><strong>Agenda 2030 / ODS</strong></td>
+            <td>193 países, 17 ODS, horizonte 2030; universal, indivisible, integrador</td>
+            <td>Adoptada sept. 2015; sustituye a los ODM 2000–2015</td>
           </tr>
           <tr>
             <td><strong>Acuerdo de París</strong></td>
-            <td>Marco climático global: temperatura, adaptación y flujos financieros</td>
-            <td>Orienta regulación climática, transición energética y análisis de carteras</td>
+            <td>COP21, dic. 2015; límite +2°C / esfuerzos 1,5°C; NDC voluntarias + ciclo revisión</td>
+            <td>Universal (todos los países); bottom-up (vs. Kioto top-down)</td>
           </tr>
           <tr>
-            <td><strong>NDC</strong></td>
-            <td>Compromisos climáticos nacionales</td>
-            <td>Traducen el acuerdo global en políticas concretas por país</td>
+            <td><strong>Plan Acción Finanzas Sostenibles</strong></td>
+            <td>CE, marzo 2018; 3 objetivos, 10 acciones; origen de la taxonomía y SFDR</td>
+            <td>Acción 1 → Taxonomía; Acción 4 → MiFID II ESG; Acción 9 → CSRD</td>
           </tr>
           <tr>
-            <td><strong>Plan de Acción UE</strong></td>
-            <td>Reorientar capital, gestionar riesgos y fomentar transparencia</td>
-            <td>Construye la arquitectura europea de finanzas sostenibles</td>
+            <td><strong>Taxonomía UE 2020/852</strong></td>
+            <td>4 requisitos: contribución sustancial + DNSH + garantías sociales + criterios técnicos</td>
+            <td>6 objetivos medioambientales; DNSH = filtro negativo cruzado</td>
           </tr>
           <tr>
-            <td><strong>Taxonomía UE</strong></td>
-            <td>Clasificación de actividades ambientalmente sostenibles</td>
-            <td>Reduce ambigüedad y greenwashing, pero no garantiza rentabilidad</td>
-          </tr>
-          <tr>
-            <td><strong>DNSH</strong></td>
-            <td>No causar perjuicio significativo a otros objetivos ambientales</td>
-            <td>Evita que una actividad sea “verde” por un lado y dañina por otro</td>
+            <td><strong>Principio DNSH</strong></td>
+            <td>Do No Significant Harm: no causar perjuicio significativo a ningún otro objetivo ambiental</td>
+            <td>Filtro que puede vetar una actividad "verde" si daña otro objetivo</td>
           </tr>
           <tr>
             <td><strong>Pacto Verde Europeo</strong></td>
-            <td>Estrategia UE de transformación hacia neutralidad climática</td>
-            <td>Impacta sectores, inversión pública, regulación, valoración y asignación de activos</td>
+            <td>Dic. 2019; neutralidad climática 2050; −55% emisiones 2030 (Fit for 55)</td>
+            <td>Ley del Clima: objetivos legalmente vinculantes</td>
           </tr>
           <tr>
-            <td><strong>Greenwashing</strong></td>
-            <td>Presentar sostenibilidad sin base suficiente o de forma engañosa</td>
-            <td>Riesgo de mala información al cliente y mala adecuación del producto</td>
+            <td><strong>Economía circular</strong></td>
+            <td>Sustituye al modelo lineal; productos diseñados para durar, reparar y reciclar</td>
+            <td>Plan de Acción de Economía Circular 2020; Ecodesign Regulation</td>
+          </tr>
+          <tr>
+            <td><strong>Neutralidad climática</strong></td>
+            <td>Emisiones netas = cero; equilibrio entre emisiones y absorción de CO₂</td>
+            <td>No implica cero emisiones brutas; incluye capturas tecnológicas y naturales</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 
+  <!-- ════════════════════════════════════════════════════════════════
+       NOTAS AL PIE
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        CFA Institute. «ESG Integration in the Americas: Markets, Practices and Data». 2018.
+        <a href="https://www.cfainstitute.org/en/research/survey-reports/esg-integration-in-the-americas" target="_blank" rel="noopener">cfainstitute.org</a>
+      </li>
+      <li id="fn2">
+        Banco Central Europeo. «La supervisión bancaria del BCE evalúa los riesgos climáticos y medioambientales de los bancos». 2021.
+        <a href="https://www.bankingsupervision.europa.eu/press/pr/date/2021/html/ssm.pr211104~4ab3bec6b3.es.html" target="_blank" rel="noopener">bankingsupervision.europa.eu</a>
+      </li>
+      <li id="fn3">
+        Porter, M. E. &amp; Kramer, M. R. (2011). «Creating Shared Value».
+        <em>Harvard Business Review</em>, enero–febrero 2011.
+        <a href="https://hbr.org/2011/01/the-big-idea-creating-shared-value" target="_blank" rel="noopener">hbr.org</a>
+      </li>
+      <li id="fn4">
+        ONU. «Resolución A/RES/70/1 — Transformar nuestro mundo: la Agenda 2030 para el Desarrollo Sostenible». Septiembre 2015.
+        <a href="https://www.un.org/ga/search/view_doc.asp?symbol=A/RES/70/1&Lang=S" target="_blank" rel="noopener">un.org</a>
+      </li>
+      <li id="fn5">
+        UNFCCC. «Acuerdo de París». Texto íntegro del Acuerdo adoptado en la COP21, París, diciembre 2015.
+        <a href="https://unfccc.int/es/acuerdo-de-paris" target="_blank" rel="noopener">unfccc.int</a>
+      </li>
+      <li id="fn6">
+        Comisión Europea. «Plan de Acción: Financiar el desarrollo sostenible». COM(2018) 97 final.
+        8 de marzo de 2018.
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018DC0097" target="_blank" rel="noopener">eur-lex.europa.eu</a>
+      </li>
+      <li id="fn7">
+        BOE / DOUE. «Reglamento (UE) 2020/852 del Parlamento Europeo y del Consejo de 18 de junio de 2020
+        relativo al establecimiento de un marco para facilitar las inversiones sostenibles».
+        <a href="https://www.boe.es/buscar/doc.php?id=DOUE-L-2020-80947" target="_blank" rel="noopener">boe.es / DOUE</a>
+      </li>
+      <li id="fn8">
+        Consejo Europeo. «Pacto Verde Europeo».
+        <a href="https://www.consilium.europa.eu/es/policies/european-green-deal/" target="_blank" rel="noopener">consilium.europa.eu</a> ·
+        Parlamento Europeo. «Pacto Verde Europeo: clave para una UE climáticamente neutral y sostenible».
+        <a href="https://www.europarl.europa.eu/topics/es/article/20200618STO81513/pacto-verde-europeo-clave-para-una-ue-climaticamente-neutral-y-sostenible" target="_blank" rel="noopener">europarl.europa.eu</a>
+      </li>
+    </ol>
+  </div>
+
   <!-- NAVEGACIÓN -->
   <div class="sec-nav">
-    <a href="seccion-f.html" class="nav-btn">← F: Política fiscal post-COVID</a>
-    <a href="../bloque-2/seccion-a.html" class="nav-btn">Bloque 2 · A: Valor temporal del dinero →</a>
+    <a href="seccion-f.html" class="nav-btn">← F: Políticas Fiscales Post-COVID</a>
+    <a href="../bloque-2/index.html" class="nav-btn">Bloque 2: Fundamentos de la Inversión →</a>
   </div>
 
 </div>
 
 <footer>
-  EFA Prep · Módulo 1 · Bloque 1 · Sección G · Basado en la Guía de Certificación EFPA España V1/26 · No constituye asesoramiento financiero
+  EFA Prep · Módulo 1 · Bloque 1 · Sección G · Basado en la Guía de Certificación EFPA España V1/26
 </footer>
 
 <script src="../../assets/ui.js"></script>
