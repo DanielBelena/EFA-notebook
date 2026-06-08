@@ -3,17 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M1 · B1 · Sección E — Política monetaria reciente y rendimientos financieros · EFA Prep</title>
+  <title>M1 · B1 · Sección E — Políticas Monetarias Recientes · EFA Prep</title>
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
+    /* ── Grids ── */
     .concept-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: .8rem;
       margin: 1rem 0;
     }
-    @media (max-width: 560px) { .concept-grid { grid-template-columns: 1fr; } }
-
+    .concept-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 640px) {
+      .concept-grid, .concept-grid-3 { grid-template-columns: 1fr; }
+    }
     .concept-box {
       background: var(--card);
       border: 1.5px solid var(--border);
@@ -27,170 +35,171 @@
       margin-bottom: .35rem;
       color: var(--navy);
     }
-    .concept-box p, .concept-box ul, .concept-box ol {
+    .concept-box p {
       font-size: var(--fs-xs);
       color: var(--text-soft);
       line-height: 1.65;
       margin: 0;
     }
-    .concept-box ul, .concept-box ol {
-      padding-left: 1.1rem;
-      margin-top: .3rem;
-    }
-    .concept-box li { margin: .25rem 0; }
 
-    .regime-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: .75rem;
-      margin: 1rem 0;
+    /* ── Timeline ── */
+    .timeline {
+      position: relative;
+      padding: 0 0 0 2.2rem;
+      margin: 1.2rem 0;
     }
-    .regime-card {
-      background: var(--card);
-      border: 1.5px solid var(--border);
-      border-left: 5px solid var(--navy);
-      border-radius: 14px;
-      padding: 1rem 1.15rem;
-      box-shadow: var(--shadow);
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: .65rem;
+      top: .5rem;
+      bottom: .5rem;
+      width: 2px;
+      background: var(--border);
     }
-    .regime-card.easy { border-left-color: var(--green); }
-    .regime-card.tight { border-left-color: var(--danger); }
-    .regime-card.pause { border-left-color: var(--amber); }
-    .regime-card.normal { border-left-color: var(--navy); }
-    .regime-card h4 {
-      font-family: var(--font-ui);
-      font-weight: 900;
-      font-size: var(--fs-sm);
-      color: var(--navy);
-      margin: 0 0 .4rem 0;
+    .tl-item {
+      position: relative;
+      margin-bottom: 1.1rem;
     }
-    .regime-card p, .regime-card li {
-      font-size: var(--fs-xs);
-      color: var(--text-soft);
-      line-height: 1.65;
-      margin: 0;
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-dot {
+      position: absolute;
+      left: -1.6rem;
+      top: .35rem;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--navy);
+      border: 2px solid var(--bg);
     }
-    .regime-card ul { padding-left: 1.15rem; margin-top: .35rem; }
-    .regime-card li { margin: .25rem 0; }
-
-    .transmission-flow {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: .55rem;
-      margin: 1rem 0;
-    }
-    .flow-step {
-      background: var(--card);
-      border: 1.5px solid var(--border);
-      border-left: 4px solid var(--navy);
-      border-radius: 12px;
-      padding: .85rem 1rem;
-      font-size: var(--fs-sm);
-      color: var(--text-soft);
-      line-height: 1.65;
-    }
-    .flow-step strong {
-      font-family: var(--font-ui);
-      color: var(--navy);
-    }
-
-    .asset-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .8rem;
-      margin: 1rem 0;
-    }
-    @media (max-width: 560px) { .asset-grid { grid-template-columns: 1fr; } }
-    .asset-box {
-      background: var(--card);
-      border: 1.5px solid var(--border);
-      border-radius: 14px;
-      padding: 1rem;
-    }
-    .asset-box h4 {
-      font-family: var(--font-ui);
-      font-weight: 900;
-      font-size: var(--fs-sm);
-      color: var(--navy);
-      margin: 0 0 .4rem 0;
-    }
-    .asset-box p, .asset-box li {
-      font-size: var(--fs-xs);
-      color: var(--text-soft);
-      line-height: 1.65;
-      margin: 0;
-    }
-    .asset-box ul { padding-left: 1.1rem; margin-top: .3rem; }
-    .asset-box li { margin: .25rem 0; }
-
-    .scenario-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .8rem;
-      margin: 1rem 0;
-    }
-    @media (max-width: 640px) { .scenario-grid { grid-template-columns: 1fr; } }
-    .scenario-box {
-      border-radius: 14px;
-      padding: 1rem;
-      border: 1.5px solid var(--border);
-      background: var(--card);
-    }
-    .scenario-box h4 {
-      font-family: var(--font-ui);
-      font-weight: 900;
-      font-size: var(--fs-sm);
-      margin: 0 0 .45rem 0;
-      color: var(--navy);
-    }
-    .scenario-box p, .scenario-box li {
-      font-size: var(--fs-xs);
-      line-height: 1.65;
-      color: var(--text-soft);
-      margin: 0;
-    }
-    .scenario-box ul { padding-left: 1.1rem; margin-top: .3rem; }
-    .scenario-box li { margin: .25rem 0; }
-
-    .indicator-tag {
-      display: inline-block;
+    .tl-dot.green  { background: var(--green); }
+    .tl-dot.amber  { background: var(--amber); }
+    .tl-dot.red    { background: #ef4444; }
+    .tl-label {
       font-family: var(--font-ui);
       font-weight: 800;
-      font-size: .68rem;
-      padding: 2px 8px;
-      border-radius: 10px;
-      margin-right: 4px;
-      vertical-align: middle;
-      white-space: nowrap;
+      font-size: var(--fs-xs);
+      color: var(--navy);
+      margin-bottom: .2rem;
     }
-    .tag-expansive { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
-    .tag-restrictive { background: var(--danger-light); color: var(--danger); border: 1px solid var(--danger); }
-    .tag-neutral { background: var(--bg-alt); color: var(--muted); border: 1px solid var(--border); }
-    .tag-warning { background: var(--amber-light); color: var(--amber); border: 1px solid var(--amber); }
+    .tl-body {
+      font-size: var(--fs-sm);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-    .comparison-row {
+    /* ── Asset impact rows ── */
+    .impact-row {
       display: grid;
-      grid-template-columns: 150px 1fr 1fr;
-      gap: .65rem;
+      grid-template-columns: 180px 1fr 1fr;
+      gap: .6rem;
       align-items: start;
-      padding: .8rem 0;
+      padding: .75rem 0;
       border-bottom: 1px solid var(--border);
       font-size: var(--fs-sm);
     }
-    .comparison-row:last-child { border-bottom: none; }
-    .comparison-label {
+    .impact-row:last-child { border-bottom: none; }
+    .impact-asset {
       font-family: var(--font-ui);
-      font-weight: 900;
-      color: var(--navy);
-    }
-    .comparison-note {
+      font-weight: 800;
       font-size: var(--fs-xs);
+      color: var(--navy);
+      padding-top: .1rem;
+    }
+    .impact-up   { color: var(--green); font-weight: 700; }
+    .impact-down { color: #b91c1c;      font-weight: 700; }
+    .impact-neut { color: var(--amber); font-weight: 700; }
+
+    /* ── Tag de impacto ── */
+    .imp-tag {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: .68rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-right: 3px;
+      vertical-align: middle;
+    }
+    .imp-pos  { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
+    .imp-neg  { background: #fde8e8;            color: #b91c1c;      border: 1px solid #ef4444; }
+    .imp-neut { background: var(--amber-light);  color: #92400e;      border: 1px solid var(--amber); }
+
+    /* ── Bancos centrales ── */
+    .cb-block {
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+    .cb-header {
+      background: var(--navy);
+      color: #fff;
+      padding: .7rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      font-family: var(--font-ui);
+      font-weight: 800;
+    }
+    .cb-flag { font-size: 1.3rem; }
+    .cb-name { font-size: var(--fs-base); }
+    .cb-body { padding: .9rem 1.2rem; }
+    .cb-body p { font-size: var(--fs-sm); line-height: 1.7; margin: 0 0 .5rem; color: var(--text); }
+    .cb-body p:last-child { margin: 0; }
+
+    /* ── Contexto actual ── */
+    .contexto-actual {
+      background: var(--card);
+      border-left: 4px solid var(--green);
+      border-radius: 0 14px 14px 0;
+      padding: 1.1rem 1.3rem;
+      margin: 1.2rem 0;
+    }
+    .contexto-actual .ctx-title {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--green);
+      margin-bottom: .5rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .contexto-actual p {
+      font-size: var(--fs-sm);
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0 0 .4rem;
+    }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+
+    /* ── Notas al pie ── */
+    .footnotes {
+      border-top: 1px solid var(--border);
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
+    }
+    .footnotes h4 {
+      font-family: var(--font-ui);
+      font-size: var(--fs-xs);
+      font-weight: 800;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .8rem;
+    }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li {
+      font-size: .78rem;
       color: var(--text-soft);
       line-height: 1.6;
+      margin-bottom: .35rem;
     }
-    @media (max-width: 700px) {
-      .comparison-row { grid-template-columns: 1fr; gap: .25rem; }
-    }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -214,786 +223,798 @@
     <span class="sep">›</span>
     <a href="../index.html">Módulo 1</a>
     <span class="sep">›</span>
-    <a href="../index.html">Bloque 1</a>
+    <a href="index.html">Bloque 1</a>
     <span class="sep">›</span>
     <span>Sección E</span>
   </div>
 
   <div class="hero">
     <div class="pill">Módulo 1 · Bloque 1 · Sección E · Nivel II</div>
-    <h1>Políticas monetarias recientes y su impacto en los rendimientos financieros</h1>
+    <h1>Políticas Monetarias Recientes y su Impacto en los Rendimientos</h1>
     <p class="hero-sub">
-      Cambios recientes en bancos centrales · Tipos de interés y programas de estímulo ·
-      Relación política monetaria-inflación · Implicaciones para bonos, acciones, crédito, divisas y estrategia de inversión.
+      El ciclo 2020–2026 · BCE, Fed, BoE, BoJ · Tipos de interés y programas de estímulo ·
+      Impacto en bonos, renta variable y divisas · Inflación y estrategia de inversión.
     </p>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       INTRODUCCIÓN
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       1. CONTEXTO: POR QUÉ IMPORTA ESTA SECCIÓN
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
-    <h2>Qué exige entender esta sección</h2>
-    <p class="sec-intro">
-      Esta sección no va de memorizar el último tipo oficial exacto de cada banco central.
-      Lo importante para EFA es comprender cómo los cambios de política monetaria afectan
-      a los rendimientos financieros: tipos de interés, valoración de bonos, coste de capital,
-      beneficios esperados, crédito, divisas y asignación de activos.
-    </p>
-
-    <div class="card accent-navy">
-      <h3>Idea central</h3>
-      <p>
-        La política monetaria modifica el precio del dinero. Al cambiar el precio del dinero,
-        cambia también el valor actual de los flujos futuros de los activos financieros. Por eso
-        una subida de tipos no afecta solo a los depósitos o hipotecas: afecta a bonos, acciones,
-        inmuebles, divisas, crédito corporativo y materias primas.
-      </p>
-    </div>
-
-    <div class="transmission-flow">
-      <div class="flow-step"><strong>1 · Banco central</strong> cambia tipos oficiales, guía futura o balance.</div>
-      <div class="flow-step"><strong>2 · Mercado monetario</strong> ajusta tipos a corto plazo y expectativas.</div>
-      <div class="flow-step"><strong>3 · Curva de tipos</strong> se desplaza, se aplana o se empina.</div>
-      <div class="flow-step"><strong>4 · Coste de financiación</strong> cambia para familias, empresas y Estados.</div>
-      <div class="flow-step"><strong>5 · Valoración de activos</strong> se ajusta por descuento de flujos, prima de riesgo y expectativas de crecimiento.</div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        El examen suele preguntar la cadena causal. No basta con decir "suben tipos".
-        Hay que conectar: tipos oficiales → curva → coste de financiación → inflación/crecimiento → precios de activos.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       1. REGÍMENES RECIENTES
-       ============================================================ -->
-  <div class="sec">
-    <h2>1. De los estímulos al endurecimiento monetario</h2>
-    <p class="sec-intro">
-      La política monetaria reciente puede entenderse como una secuencia de regímenes. Para estudiar,
-      conviene ordenar el período en cuatro grandes fases: política ultraexpansiva, shock inflacionista,
-      endurecimiento monetario y normalización dependiente de los datos.
-    </p>
-
-    <div class="regime-grid">
-      <div class="regime-card easy">
-        <h4><span class="indicator-tag tag-expansive">Expansiva</span> Tipos muy bajos y compras de activos</h4>
-        <p>
-          Tras la crisis financiera global y, de nuevo, tras la pandemia, muchos bancos centrales
-          mantuvieron tipos oficiales muy bajos y utilizaron compras de bonos para sostener crédito,
-          liquidez y actividad económica. El objetivo era evitar deflación, reducir tipos a largo plazo
-          y facilitar la financiación de hogares, empresas y Estados.
-        </p>
-        <ul>
-          <li>Favorece activos de duración larga: bonos largos, acciones de crecimiento, inmuebles.</li>
-          <li>Comprime las primas de riesgo y estrecha diferenciales de crédito.</li>
-          <li>Puede impulsar valoraciones exigentes si los flujos futuros se descuentan a tasas muy bajas.</li>
-        </ul>
-      </div>
-
-      <div class="regime-card pause">
-        <h4><span class="indicator-tag tag-warning">Shock</span> Inflación y pérdida de poder adquisitivo</h4>
-        <p>
-          El repunte de inflación obligó a los bancos centrales a cambiar de prioridad: de sostener
-          el crecimiento a recuperar la estabilidad de precios. Cuando la inflación deja de parecer transitoria
-          y se transmite a salarios, márgenes o expectativas, la política monetaria tiende a endurecerse.
-        </p>
-        <ul>
-          <li>Suben las expectativas de tipos futuros.</li>
-          <li>Los bonos existentes pierden valor si aumentan las rentabilidades exigidas.</li>
-          <li>Las acciones sensibles a tipos sufren por mayor tasa de descuento.</li>
-        </ul>
-      </div>
-
-      <div class="regime-card tight">
-        <h4><span class="indicator-tag tag-restrictive">Restrictiva</span> Subidas de tipos y retirada de liquidez</h4>
-        <p>
-          El endurecimiento monetario consiste en subir tipos oficiales, reducir compras de activos,
-          retirar liquidez o dejar vencer bonos del balance del banco central. El objetivo es enfriar la demanda,
-          reducir presiones inflacionistas y anclar expectativas.
-        </p>
-        <ul>
-          <li>Sube el coste de la deuda nueva.</li>
-          <li>Se endurecen las condiciones financieras.</li>
-          <li>Aumenta el riesgo de desaceleración o recesión si la restricción es intensa.</li>
-        </ul>
-      </div>
-
-      <div class="regime-card normal">
-        <h4><span class="indicator-tag tag-neutral">Normalización</span> Pausa, divergencia y dependencia de los datos</h4>
-        <p>
-          Una vez la inflación empieza a moderarse, los bancos centrales suelen pasar de subir tipos
-          a observar datos: inflación subyacente, salarios, empleo, crédito y crecimiento. En esta fase
-          los mercados se vuelven muy sensibles a cualquier indicio de recortes o de persistencia inflacionista.
-        </p>
-        <ul>
-          <li>La expectativa de recortes puede favorecer bonos de duración.</li>
-          <li>Si los recortes se esperan por recesión, la renta variable puede no beneficiarse.</li>
-          <li>La divergencia entre bancos centrales mueve divisas y flujos internacionales.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="callout info">
-      <strong>Clave de asesor financiero:</strong> lo relevante no es solo el nivel de tipos, sino el cambio esperado.
-      Un tipo oficial alto puede estar ya descontado. Lo que mueve mercados es la sorpresa: más subidas de las previstas,
-      recortes antes de lo esperado o mensajes de banco central que cambian la curva de expectativas.
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       2. HERRAMIENTAS DE POLÍTICA MONETARIA
-       ============================================================ -->
-  <div class="sec">
-    <h2>2. Herramientas de política monetaria</h2>
-    <p class="sec-intro">
-      Un banco central no actúa solo mediante un tipo de interés. También influye a través de su balance,
-      sus operaciones de liquidez, sus mensajes al mercado y sus expectativas sobre inflación y crecimiento.
-    </p>
-
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Tipos oficiales</h4>
-        <p>
-          Son el instrumento central. Afectan al coste de financiación a corto plazo y sirven como referencia
-          para el resto de tipos del sistema financiero. Subir tipos enfría demanda; bajarlos estimula crédito y gasto.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Forward guidance</h4>
-        <p>
-          Comunicación sobre la orientación futura de la política monetaria. Puede mover mercados incluso sin cambiar
-          tipos, porque altera expectativas sobre tipos futuros, inflación y crecimiento.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>QE · Expansión cuantitativa</h4>
-        <p>
-          Compra de bonos por parte del banco central. Tiende a reducir rentabilidades a largo plazo, aumentar liquidez,
-          comprimir spreads y apoyar activos de riesgo. No es gasto público: es política monetaria vía balance.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>QT · Restricción cuantitativa</h4>
-        <p>
-          Reducción del balance del banco central, normalmente dejando vencer activos o vendiéndolos. Tiende a retirar
-          liquidez, elevar prima temporal y endurecer condiciones financieras.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Operaciones de liquidez</h4>
-        <p>
-          Préstamos y facilidades al sistema bancario. Buscan asegurar que el crédito siga funcionando y que los tipos
-          de mercado se mantengan cerca de los tipos oficiales.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Reservas y regulación monetaria</h4>
-        <p>
-          Cambios en reservas mínimas o condiciones de financiación afectan a la cantidad de crédito disponible.
-          Es más relevante en algunas economías que en otras.
-        </p>
-      </div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Diferencia clave</strong>
-        Política convencional = tipos oficiales. Política no convencional = compras de activos, forward guidance,
-        provisión extraordinaria de liquidez y gestión del balance.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       3. TIPOS DE INTERÉS Y RENTA FIJA
-       ============================================================ -->
-  <div class="sec">
-    <h2>3. Impacto en renta fija: precio, TIR y duración</h2>
-    <p class="sec-intro">
-      La renta fija es el activo más directamente afectado por la política monetaria. La relación fundamental
-      es inversa: si sube la rentabilidad exigida por el mercado, baja el precio de los bonos existentes.
-    </p>
-
-    <div class="formula">
-      <span class="formula-label">Relación básica</span>
-      Tipos / TIR ↑  →  Precio del bono ↓
-      <br>
-      Tipos / TIR ↓  →  Precio del bono ↑
-    </div>
-
-    <h3>Por qué ocurre</h3>
+    <h2>1. Por qué importa el historial reciente de política monetaria</h2>
     <p>
-      Un bono paga flujos futuros: cupones y principal. Para valorar esos flujos se descuentan a una tasa.
-      Si la tasa de descuento sube, el valor actual de esos flujos baja. Cuanto más lejos estén los flujos en el tiempo,
-      más sensible será el precio del bono: eso es la duración.
+      El período 2020–2026 ha sido el más intenso en política monetaria global desde los años
+      ochenta. En menos de seis años, los bancos centrales pasaron de tipos cero y balances
+      récord (QE pandémico) al ciclo de subidas más rápido de las últimas décadas (2022–2023),
+      de vuelta a bajadas (2024–2025) y ahora de nuevo ante la disyuntiva de endurecer por
+      un rebrote inflacionario (2026). Entender esta secuencia es indispensable para el asesor
+      porque condiciona directamente el punto de partida de valoración de todos los activos
+      financieros de su cartera.
     </p>
-
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Bonos de corta duración</h4>
-        <p>
-          Menos sensibles a movimientos de tipos. Su precio fluctúa menos, pero se benefician menos cuando bajan tipos.
-          En ciclos de subidas suelen ser defensivos frente a bonos largos.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Bonos de larga duración</h4>
-        <p>
-          Muy sensibles a cambios en la curva. Sufren más cuando suben tipos, pero pueden beneficiarse mucho si el mercado
-          anticipa recortes de tipos o caída de inflación.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Bonos soberanos de alta calidad</h4>
-        <p>
-          En recesión con inflación controlada pueden actuar como refugio: baja crecimiento, bajan expectativas de tipos,
-          suben precios de bonos. Pero si la recesión viene con inflación alta, la protección es menor.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Crédito corporativo</h4>
-        <p>
-          Depende de dos piezas: tipo libre de riesgo y spread de crédito. En crisis pueden bajar tipos soberanos pero subir
-          mucho los spreads, dañando bonos corporativos de menor calidad.
-        </p>
-      </div>
-    </div>
-
-    <h3>Movimientos de la curva de tipos</h3>
-    <div class="comparison-row">
-      <span class="comparison-label">Desplazamiento al alza</span>
-      <span class="comparison-note">Suben rentabilidades en varios plazos.</span>
-      <span class="comparison-note">Negativo para precios de bonos; especialmente para duración larga.</span>
-    </div>
-    <div class="comparison-row">
-      <span class="comparison-label">Aplanamiento</span>
-      <span class="comparison-note">Suben más los tipos cortos que los largos, o bajan más los largos.</span>
-      <span class="comparison-note">Frecuente cuando el banco central endurece y el mercado anticipa desaceleración.</span>
-    </div>
-    <div class="comparison-row">
-      <span class="comparison-label">Inversión</span>
-      <span class="comparison-note">Tipos cortos por encima de tipos largos.</span>
-      <span class="comparison-note">Suele interpretarse como expectativa de recesión o de futuros recortes.</span>
-    </div>
-    <div class="comparison-row">
-      <span class="comparison-label">Empinamiento</span>
-      <span class="comparison-note">Suben más los largos que los cortos o bajan más los cortos.</span>
-      <span class="comparison-note">Puede indicar recuperación, mayor inflación esperada o aumento de prima temporal.</span>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        Si un banco central sube tipos agresivamente, un ETF de bonos largos suele caer por el aumento de la TIR exigida.
-        La duración amplifica la pérdida. Esta idea conecta directamente con renta fija del Bloque 4.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       4. IMPACTO POR ACTIVO
-       ============================================================ -->
-  <div class="sec">
-    <h2>4. Impacto por clase de activo</h2>
-    <p class="sec-intro">
-      La política monetaria no afecta a todos los activos igual. El impacto depende de duración, sensibilidad al ciclo,
-      apalancamiento, calidad crediticia, divisa y expectativas de inflación.
-    </p>
-
-    <div class="asset-grid">
-      <div class="asset-box">
-        <h4>Renta fija soberana</h4>
-        <ul>
-          <li>Subidas de tipos: presión bajista en precios.</li>
-          <li>Bajadas esperadas: soporte para bonos de duración.</li>
-          <li>Mayor inflación esperada: exige mayores rentabilidades nominales.</li>
-          <li>Funciona mejor como refugio si inflación está controlada.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Crédito corporativo</h4>
-        <ul>
-          <li>Tipos altos encarecen refinanciación.</li>
-          <li>Recesión aumenta probabilidad de impago.</li>
-          <li>High yield sufre más que investment grade.</li>
-          <li>Spreads estrechos pueden ocultar exceso de complacencia.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Renta variable</h4>
-        <ul>
-          <li>Tipos altos elevan la tasa de descuento.</li>
-          <li>Acciones growth sufren más si sus flujos están lejos en el tiempo.</li>
-          <li>Acciones value/financieras pueden resistir mejor en ciertas fases.</li>
-          <li>Si suben tipos por crecimiento fuerte, el impacto puede ser mixto.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Bancos y financieras</h4>
-        <ul>
-          <li>Subidas moderadas pueden mejorar margen de intereses.</li>
-          <li>Subidas excesivas pueden elevar morosidad y pérdidas crediticias.</li>
-          <li>Curva invertida presiona el modelo de prestar largo y financiarse corto.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Inmobiliario y REITs/SOCIMIs</h4>
-        <ul>
-          <li>Muy sensibles a tipos por financiación y valoración por descuento.</li>
-          <li>Tipos altos reducen accesibilidad hipotecaria y valor actual de alquileres.</li>
-          <li>Activos con rentas indexadas a inflación pueden proteger parcialmente.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Divisas</h4>
-        <ul>
-          <li>Un país con tipos esperados más altos tiende a atraer capital.</li>
-          <li>La divisa puede apreciarse si la subida de tipos no implica crisis.</li>
-          <li>Importa el diferencial de tipos reales, no solo nominales.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Materias primas y oro</h4>
-        <ul>
-          <li>Tipos reales altos suelen ser viento en contra para oro.</li>
-          <li>Inflación y riesgo geopolítico pueden favorecer materias primas.</li>
-          <li>Un dólar fuerte suele presionar materias primas denominadas en USD.</li>
-        </ul>
-      </div>
-      <div class="asset-box">
-        <h4>Liquidez y monetarios</h4>
-        <ul>
-          <li>Tipos altos aumentan remuneración de letras, depósitos y monetarios.</li>
-          <li>Reducen el coste de oportunidad de esperar.</li>
-          <li>Pero tienen riesgo de reinversión si los tipos bajan rápido.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="callout tip">
-      <strong>Regla útil:</strong> los activos de duración larga sufren con subidas inesperadas de tipos y se benefician con bajadas inesperadas. En renta variable, "duración larga" equivale a empresas cuyo valor depende mucho de beneficios lejanos en el tiempo.
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       5. INFLACIÓN Y ESTRATEGIA
-       ============================================================ -->
-  <div class="sec">
-    <h2>5. Política monetaria, inflación y estrategia de inversión</h2>
-    <p class="sec-intro">
-      Los bancos centrales reaccionan a la inflación, pero los mercados reaccionan a la combinación completa:
-      inflación, crecimiento, empleo, salarios, crédito y expectativas. Por eso el mismo dato de inflación puede tener
-      efectos distintos según el momento del ciclo.
-    </p>
-
-    <h3>Tipos nominales vs. tipos reales</h3>
     <p>
-      El tipo nominal es el tipo observado. El tipo real descuenta la inflación esperada. Para valorar activos,
-      el tipo real suele ser decisivo porque indica el coste real del dinero y la rentabilidad real exigida por el inversor.
+      El Nivel II del EFA exige no solo describir los cambios, sino <em>analizar</em> su
+      impacto en los distintos activos y <em>aplicar</em> la relación inflación–política
+      monetaria a las decisiones de inversión.
     </p>
-
-    <div class="formula">
-      <span class="formula-label">Aproximación de Fisher</span>
-      Tipo real ≈ Tipo nominal − Inflación esperada
-    </div>
-
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Inflación de demanda</h4>
-        <p>
-          Surge cuando la demanda agregada supera la capacidad productiva. El banco central puede enfriarla subiendo tipos.
-          Suele estar asociada a crecimiento fuerte, bajo paro y presión salarial.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Inflación de oferta</h4>
-        <p>
-          Surge por costes: energía, materias primas, cuellos de botella o shocks externos. Es más incómoda porque subir tipos
-          no produce petróleo ni alimentos, pero sí puede reducir demanda y expectativas.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Expectativas de inflación</h4>
-        <p>
-          Si familias y empresas creen que la inflación seguirá alta, ajustan salarios y precios en consecuencia. Por eso los bancos centrales intentan anclar expectativas.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Inflación subyacente</h4>
-        <p>
-          Excluye componentes volátiles y ayuda a medir persistencia. Una subyacente alta dificulta recortes de tipos aunque la inflación general baje temporalmente.
-        </p>
-      </div>
-    </div>
-
-    <h3>Cuatro escenarios de mercado</h3>
-    <div class="scenario-grid">
-      <div class="scenario-box">
-        <h4>Crecimiento fuerte + inflación alta</h4>
-        <p>
-          Entorno de endurecimiento monetario. Riesgo para bonos de duración y growth. Sectores cíclicos pueden aguantar si beneficios crecen, pero aumenta el riesgo de corrección.
-        </p>
-      </div>
-      <div class="scenario-box">
-        <h4>Crecimiento débil + inflación alta</h4>
-        <p>
-          Estanflación. Es el escenario más difícil: el banco central no puede estimular sin arriesgar más inflación. Mal entorno para bonos nominales y renta variable en general.
-        </p>
-      </div>
-      <div class="scenario-box">
-        <h4>Crecimiento débil + inflación baja</h4>
-        <p>
-          Recesión/desaceleración clásica. Puede favorecer bonos soberanos de calidad por expectativa de recortes. Renta variable y crédito suelen sufrir por caída de beneficios e impagos.
-        </p>
-      </div>
-      <div class="scenario-box">
-        <h4>Crecimiento mejora + inflación baja</h4>
-        <p>
-          Escenario benigno. Política monetaria puede ser más acomodaticia y los activos de riesgo tienden a beneficiarse, siempre que las valoraciones no estén ya excesivamente descontadas.
-        </p>
-      </div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Patrón probable</strong>
-        Si la inflación subyacente se mantiene elevada mientras el crecimiento es débil, el banco central puede mantener tipos altos porque prioriza estabilidad de precios. No asumas automáticamente estímulo por crecimiento débil.
-      </div>
-    </div>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       6. BANCOS CENTRALES GLOBALES
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       2. EL GRAN CICLO 2020–2026
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
-    <h2>6. Bancos centrales globales: similitudes y diferencias</h2>
-    <p class="sec-intro">
-      Los bancos centrales comparten herramientas, pero no todos tienen el mismo mandato ni reaccionan igual.
-      Para el examen, interesa entender cómo las diferencias de mandato y ciclo económico generan divergencias
-      de política monetaria y, por tanto, movimientos en bonos y divisas.
+    <h2>2. El gran ciclo monetario 2020–2026</h2>
+    <p>
+      La cronología de decisiones puede organizarse en cuatro fases bien diferenciadas, comunes
+      —con matices— a todos los grandes bancos centrales de economías avanzadas.
     </p>
 
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot green"></div>
+        <div class="tl-label">Fase 1 — Estímulo pandémico (2020–2021)</div>
+        <div class="tl-body">
+          Ante el colapso económico del COVID-19, la Fed recortó tipos hasta el 0%–0,25% en marzo
+          de 2020 y lanzó un programa de compra de activos sin límite (<em>QE ilimitado</em>).
+          El BCE activó el <strong>PEPP</strong> (Pandemic Emergency Purchase Programme) dotado
+          inicialmente con 750.000 M€ y ampliado hasta los 1,85 billones de euros. El BoE y el
+          BoJ siguieron pautas similares. Los balances de los bancos centrales se dispararon a
+          niveles históricos: el de la Fed superó los 9 billones de dólares; el del BCE rebasó
+          los 8 billones de euros.<sup class="fn"><a href="#fn1">[1]</a></sup> El dinero ultra-
+          barato y abundante fue el principal catalizador del mercado alcista de 2020–2021.
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-label">Fase 2 — El endurecimiento más rápido en décadas (2022–2023)</div>
+        <div class="tl-body">
+          La inflación, que los bancos centrales habían calificado inicialmente de "transitoria",
+          se reveló persistente: la guerra de Ucrania (feb. 2022) disparó los precios energéticos
+          y alimentarios sobre una base ya sobrecalentada por la demanda post-pandémica. La
+          respuesta fue la más agresiva desde los años de Volcker en la Fed.<sup class="fn"><a href="#fn2">[2]</a></sup>
+          <br><br>
+          La <strong>Fed</strong> subió los <em>fed funds</em> desde el 0,25% hasta el 5,50%
+          en 17 meses (marzo 2022–julio 2023): 525 pb en total, incluyendo cuatro subidas
+          consecutivas de 75 pb. El <strong>BCE</strong> subió el tipo de depósito desde el
+          −0,50% hasta el 4,00% entre julio 2022 y septiembre 2023: 450 pb, el ciclo de
+          endurecimiento más intenso de su historia.<sup class="fn"><a href="#fn3">[3]</a></sup>
+          Simultáneamente, ambos bancos iniciaron el <strong>QT</strong> (Quantitative Tightening):
+          reducción de sus balances dejando vencer los bonos sin reinversión.
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot amber"></div>
+        <div class="tl-label">Fase 3 — Pausa y normalización (2023–2025)</div>
+        <div class="tl-body">
+          Confirmada la desinflación, los bancos centrales iniciaron el ciclo bajista.
+          El <strong>BCE</strong> realizó ocho recortes consecutivos de 25 pb entre junio de
+          2024 y junio de 2025, llevando el tipo de depósito desde el 4,00% hasta el 2,00%
+          —su estimación de tipo neutral—.<sup class="fn"><a href="#fn4">[4]</a></sup>
+          La <strong>Fed</strong> recortó 100 pb entre septiembre y diciembre de 2024 (hasta
+          el 4,25%–4,50%) y realizó recortes adicionales en 2025, dejando los fondos federales
+          en el rango 3,50%–3,75%.<sup class="fn"><a href="#fn5">[5]</a></sup>
+          El <strong>BoJ</strong>, atípicamente, salió de su política de tipos negativos y
+          comenzó a subir tipos a principios de 2024 —movimiento singular por ir en dirección
+          opuesta al resto.
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-label">Fase 4 — Rebrote inflacionario y dilema (2025–2026)</div>
+        <div class="tl-body">
+          Un nuevo shock energético derivado del conflicto en Oriente Medio elevó la inflación
+          general de la eurozona al 3,2% en mayo de 2026, con la energía subiendo un 10,9%
+          interanual. El BCE —que había llegado al 2,00% en junio de 2025 y se mantenía en
+          pausa— se enfrenta de nuevo a la disyuntiva de subir tipos para anclar expectativas
+          o esperar para no ahogar un crecimiento ya moderado. El mercado descuenta una primera
+          subida de 25 pb en su reunión del 11 de junio de 2026, que llevaría el tipo de depósito
+          al 2,25%.<sup class="fn"><a href="#fn6">[6]</a></sup> La Fed, con los fondos en el
+          3,50%–3,75% y una inflación PCE en torno al 3,8%–4,2%, enfrenta un dilema similar
+          agravado por los aranceles comerciales.<sup class="fn"><a href="#fn7">[7]</a></sup>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Tabla resumen ciclo -->
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
             <th>Banco central</th>
-            <th>Enfoque clave</th>
-            <th>Lectura de mercado</th>
+            <th>Tipo mínimo (2020–21)</th>
+            <th>Tipo máximo (2023)</th>
+            <th>Tipo actual (jun. 2026)</th>
+            <th>Variación total</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Reserva Federal · Fed</strong></td>
-            <td>Mandato dual: estabilidad de precios y máximo empleo.</td>
-            <td>Mercados vigilan inflación, empleo, salarios y actividad. El dólar reacciona mucho al diferencial de tipos esperados.</td>
+            <td><strong>🇺🇸 Fed</strong> (fed funds)</td>
+            <td>0,00%–0,25%</td>
+            <td>5,25%–5,50%</td>
+            <td>3,50%–3,75%</td>
+            <td>+525 pb subida / −175 pb bajada</td>
           </tr>
           <tr>
-            <td><strong>Banco Central Europeo · BCE</strong></td>
-            <td>Objetivo primario: estabilidad de precios en la eurozona.</td>
-            <td>La política debe equilibrar economías muy distintas dentro del euro. Importan inflación subyacente, salarios y fragmentación financiera.</td>
+            <td><strong>🇪🇺 BCE</strong> (tipo depósito)</td>
+            <td>−0,50%</td>
+            <td>4,00%</td>
+            <td>~2,00%–2,25%</td>
+            <td>+450 pb subida / −175/200 pb bajada</td>
           </tr>
           <tr>
-            <td><strong>Banco de Inglaterra · BoE</strong></td>
-            <td>Inflación y estabilidad financiera en una economía abierta y sensible a divisa.</td>
-            <td>La libra responde a inflación, crecimiento, credibilidad fiscal y expectativas de tipos.</td>
+            <td><strong>🇬🇧 BoE</strong> (Bank Rate)</td>
+            <td>0,10%</td>
+            <td>5,25%</td>
+            <td>~3,75%</td>
+            <td>+515 pb subida / ~−150 pb bajada</td>
           </tr>
           <tr>
-            <td><strong>Banco de Japón · BoJ</strong></td>
-            <td>Históricamente condicionado por baja inflación/deflación y tipos muy reducidos.</td>
-            <td>La normalización japonesa puede mover yen, bonos globales y flujos de carry trade.</td>
+            <td><strong>🇯🇵 BoJ</strong> (overnight)</td>
+            <td>−0,10%</td>
+            <td>+0,10% (YCC)</td>
+            <td>~0,50%–0,75%</td>
+            <td>Salida de tipos negativos (movimiento opuesto)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen (Nivel II)</strong>
+        Describir el ciclo de endurecimiento 2022–2023 y sus causas. Distinguir QE (compra de
+        activos → expansión del balance) de QT (reducción del balance → contracción de liquidez).
+        El caso del BoJ es pregunta habitual por ir a contracorriente del resto de bancos centrales.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       3. QE Y QT — QUÉ SON Y CÓMO FUNCIONAN
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="sec">
+    <h2>3. Programas de estímulo: QE, PEPP y QT</h2>
+    <p>
+      Cuando los tipos de interés alcanzan el límite inferior (cero o negativo), los bancos
+      centrales recurren a <strong>medidas no convencionales</strong> para seguir estimulando
+      la economía. La más importante es la compra masiva de activos financieros en el mercado
+      secundario, conocida como <em>Quantitative Easing</em> (QE).<sup class="fn"><a href="#fn8">[8]</a></sup>
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>QE — Quantitative Easing</h4>
+        <p>El banco central compra bonos del Estado (y en algunos casos deuda corporativa o
+        MBS) en el mercado secundario. Aumenta su balance, inyecta reservas en el sistema
+        bancario, presiona a la baja las TIR y sube el precio de los bonos. Efecto neto: tipos
+        reales más bajos → estimulo a la inversión y el consumo. También deprecia la moneda
+        (más oferta monetaria), favoreciendo las exportaciones.</p>
+      </div>
+      <div class="concept-box">
+        <h4>QT — Quantitative Tightening</h4>
+        <p>El proceso inverso: el banco central reduce su balance dejando vencer los bonos sin
+        reinvertir el principal, o directamente vendiéndolos. Retira liquidez del sistema,
+        presiona al alza las TIR de largo plazo (incluso sin mover el tipo oficial a corto) y
+        puede endurecer las condiciones financieras de forma complementaria a las subidas de tipos.
+        La Fed inició QT en junio de 2022; el BCE en julio de 2023.</p>
+      </div>
+    </div>
+
+    <h3>Principales programas del BCE (2020–2025)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Programa</th><th>Período activo</th><th>Dotación</th><th>Objetivo</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>APP</strong> (Asset Purchase Programme)</td>
+            <td>2015–2022 (compras netas)</td>
+            <td>~3,3 billones €</td>
+            <td>Estimular la economía y llevar la inflación al 2%</td>
           </tr>
           <tr>
-            <td><strong>Banco Popular de China · PBoC</strong></td>
-            <td>Combina estabilidad financiera, crédito, crecimiento y tipo de cambio gestionado.</td>
-            <td>Sus decisiones afectan a materias primas, emergentes, comercio global y sentimiento sobre crecimiento chino.</td>
+            <td><strong>PEPP</strong> (Pandemic Emergency Purchase Programme)</td>
+            <td>Mar. 2020–Mar. 2022</td>
+            <td>1,85 billones €</td>
+            <td>Contrarrestar el shock pandémico; flexibilidad por país</td>
+          </tr>
+          <tr>
+            <td><strong>TPI</strong> (Transmission Protection Instrument)</td>
+            <td>Jul. 2022– (en reserva)</td>
+            <td>Sin límite predefinido</td>
+            <td>Evitar la fragmentación de spreads entre países de la eurozona</td>
+          </tr>
+          <tr>
+            <td><strong>QT / normalización del balance</strong></td>
+            <td>Jul. 2023–presente</td>
+            <td>Reducción gradual</td>
+            <td>Retirar el exceso de liquidez acumulado en el balance</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="callout info">
-      <strong>Divisa y divergencia:</strong> si un banco central mantiene tipos altos mientras otro empieza a recortar,
-      la primera divisa puede apreciarse por mayor rentabilidad esperada. Pero si los tipos altos reflejan crisis o pérdida de confianza,
-      el efecto puede invertirse.
+      <strong>El TPI es específico del BCE:</strong> diseñado para evitar que las primas de
+      riesgo (spreads) de los países periféricos (Italia, España, Grecia) se disparen de forma
+      desordenada durante el ciclo de subidas. Es el sucesor conceptual del histórico «whatever
+      it takes» de Draghi (2012). Su mera existencia como herramienta de reserva ha bastado
+      para anclar los spreads sin necesidad de activarlo.
     </div>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       7. QE, QT Y PROGRAMAS DE ESTÍMULO
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       4. IMPACTO EN LOS DISTINTOS ACTIVOS
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
-    <h2>7. Programas de estímulo: QE, liquidez y efectos secundarios</h2>
-    <p class="sec-intro">
-      Los programas de estímulo monetario no convencional se volvieron relevantes cuando los tipos oficiales llegaron a niveles muy bajos.
-      Al no poder bajar mucho más el tipo a corto plazo, los bancos centrales actuaron sobre los tipos largos y la liquidez del sistema.
+    <h2>4. Impacto de los tipos de interés y el QE/QT en los activos financieros</h2>
+    <p>
+      El mecanismo de transmisión de la política monetaria a los mercados financieros opera a
+      través de tres canales principales: el canal de tipos de interés, el canal del precio de
+      los activos, y el canal del crédito.<sup class="fn"><a href="#fn8">[8]</a></sup> A continuación
+      se analiza el impacto en cada clase de activo.
     </p>
 
-    <div class="vs-grid">
-      <div class="vs-box left">
-        <h4>QE · Compra de activos</h4>
-        <p>
-          El banco central compra bonos, aumenta demanda por esos activos, eleva su precio y reduce su rentabilidad.
-          También inyecta liquidez, comprime spreads y empuja a inversores hacia activos con más riesgo.
-        </p>
+    <!-- RENTA FIJA -->
+    <h3>4.1 Renta fija soberana</h3>
+    <p>
+      Es el activo más directamente afectado. La relación entre tipos de interés y precio del
+      bono es <strong>inversa</strong> y está formalizada en la duración modificada (Sección B4).
+    </p>
+
+    <div style="border:1.5px solid var(--border);border-radius:14px;padding:0 1.2rem;margin:1rem 0;">
+      <div class="impact-row">
+        <div class="impact-asset">Subida de tipos (2022–23)</div>
+        <div>
+          <span class="imp-tag imp-neg">↓ Precio</span>
+          La mayor subida de tipos en décadas provocó las mayores pérdidas anuales en renta fija
+          soberana de la historia reciente. El índice Bloomberg Global Aggregate cayó un
+          <strong>−16,2%</strong> en 2022 —la peor caída desde su creación.<sup class="fn"><a href="#fn9">[9]</a></sup>
+          Los bonos a largo plazo (30 años EE.UU.) llegaron a perder un 40% desde máximos.
+        </div>
+        <div>
+          <span class="imp-tag imp-pos">↑ TIR</span>
+          El bono del Tesoro EE.UU. a 10 años pasó de ~1,5% en enero 2022 a ~5% en octubre 2023.
+          El Bund alemán a 10 años subió de −0,20% a +3%. Inversores que compraron bonos en 2021
+          vieron su valoración destruida en tiempo récord.
+        </div>
       </div>
-      <div class="vs-box right">
-        <h4>QT · Reducción de balance</h4>
-        <p>
-          El banco central reduce su cartera o deja de reinvertir vencimientos. Puede aumentar rentabilidades a largo plazo,
-          retirar liquidez y endurecer condiciones financieras.
-        </p>
+      <div class="impact-row">
+        <div class="impact-asset">Bajada de tipos (2024–25)</div>
+        <div>
+          <span class="imp-tag imp-pos">↑ Precio</span>
+          Las bajadas de la Fed y el BCE generaron rentabilidades positivas en renta fija:
+          los bonos a largo plazo recuperaron parte del terreno perdido. El carry (cupón) volvió
+          a ser atractivo con rendimientos del 3%–5% en deuda de alta calidad.
+        </div>
+        <div>
+          <span class="imp-tag imp-neg">↓ TIR</span>
+          Las TIR se comprimieron, pero de forma incompleta: la incertidumbre sobre la senda
+          futura de tipos y el volumen de emisión de deuda pública mantuvieron los tramos
+          largos de la curva elevados (prima de plazo positiva).
+        </div>
+      </div>
+      <div class="impact-row">
+        <div class="impact-asset">QE (2020–21)</div>
+        <div>
+          <span class="imp-tag imp-pos">↑ Precio fuerte</span>
+          Las compras masivas de bonos del BCE y la Fed suprimieron artificialmente las TIR:
+          el Bund alemán cotizó en territorio negativo (hasta −0,90%) durante años.
+          El precio de los bonos alcanzó máximos históricos. Paradoja: los inversores en bonos
+          ganaban dinero aunque los cupones eran cero o negativos.
+        </div>
+        <div>
+          <span class="imp-tag imp-neg">↓ TIR hasta zona negativa</span>
+          En el pico del QE europeo, más de 18 billones de dólares de deuda global cotizaba
+          con TIR negativa. Un entorno sin precedentes históricos que distorsionó todos los
+          modelos de valoración de activos.
+        </div>
       </div>
     </div>
 
-    <h3>Efectos esperados del QE</h3>
+    <!-- RENTA VARIABLE -->
+    <h3>4.2 Renta variable</h3>
+    <p>
+      El impacto de los tipos sobre la renta variable opera principalmente a través de dos
+      mecanismos: el efecto descuento sobre los flujos de caja futuros (valoración) y el
+      efecto sobre los beneficios empresariales (fundamentales).<sup class="fn"><a href="#fn10">[10]</a></sup>
+    </p>
+
     <div class="concept-grid">
       <div class="concept-box">
-        <h4>Canal de tipos largos</h4>
-        <p>Reduce rentabilidades de bonos largos y abarata financiación a largo plazo.</p>
+        <h4>Tipos bajos → RV al alza</h4>
+        <p>Tipos bajos reducen la tasa de descuento (k) aplicada a los flujos futuros:
+        mayor valor presente de los beneficios esperados. Además, el crédito barato reduce
+        los costes financieros y aumenta los beneficios. El período 2020–2021 fue el ejemplo
+        más claro: la bolsa global subió un 60%+ desde los mínimos de marzo 2020.</p>
       </div>
       <div class="concept-box">
-        <h4>Canal de cartera</h4>
-        <p>Al bajar rentabilidad de activos seguros, inversores buscan rentabilidad en crédito, acciones e inmuebles.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Canal de expectativas</h4>
-        <p>Señala compromiso del banco central con condiciones financieras expansivas.</p>
-      </div>
-      <div class="concept-box">
-        <h4>Canal de liquidez</h4>
-        <p>Mejora funcionamiento de mercados en momentos de tensión y reduce primas de liquidez.</p>
+        <h4>Tipos altos → RV bajo presión</h4>
+        <p>Tipos altos elevan la tasa de descuento: valor presente de los flujos futuros más
+        bajo. Especialmente perjudicial para empresas de alta duración (tecnología, growth),
+        que generan la mayor parte de sus beneficios en el futuro lejano. En 2022, el Nasdaq
+        cayó un −33% y muchas tecnológicas perdieron el 60%–90% de su valor.</p>
       </div>
     </div>
 
-    <div class="card accent-amber">
-      <h3>⚠️ Costes y riesgos</h3>
+    <div class="callout tip">
+      <strong>Impacto diferenciado por estilo:</strong> las acciones de <em>crecimiento</em>
+      (growth, alta duración) son mucho más sensibles a los tipos que las de <em>valor</em>
+      (value, flujos de caja cercanos). En el ciclo 2022–2023, el factor value superó al factor
+      growth en más de 20 puntos porcentuales, la mayor divergencia desde los años 2000.
+      Los bancos y aseguradoras —acciones financieras— se beneficiaron del margen de intereses
+      más elevado con tipos altos.
+    </div>
+
+    <!-- CRÉDITO -->
+    <h3>4.3 Crédito corporativo</h3>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Investment Grade (IG)</h4>
+        <p>Los spreads de crédito IG son relativamente estables, pero el precio del bono
+        corporativo cae con los tipos (efecto duración). En 2022, los IG perdieron junto con
+        los soberanos. En el ciclo bajista posterior, recuperaron con TIR atractivas del
+        3,5%–5%. Actualmente ofrecen el mejor carry ajustado por riesgo en años.</p>
+      </div>
+      <div class="concept-box">
+        <h4>High Yield (HY)</h4>
+        <p>Más sensible al ciclo económico que a los tipos en sí. En fases de endurecimiento
+        agresivo, el riesgo de impago aumenta: los spreads HY se ampliaron significativamente en
+        2022–2023. Sin embargo, en la fase de normalización de 2024–2025, los spreads se
+        comprimieron hasta mínimos históricos al no materializarse la recesión esperada.</p>
+      </div>
+    </div>
+
+    <!-- DIVISAS -->
+    <h3>4.4 Divisas</h3>
+    <p>
+      La teoría de la paridad de tipos de interés establece que las divisas de países con tipos
+      más altos tienden a apreciarse (carry trade). En la práctica, el ciclo de subidas de la
+      Fed en 2022–2023 fue uno de los principales factores del dólar fuerte: el DXY (índice
+      del dólar) alcanzó máximos de 20 años en septiembre de 2022 (DXY ~115).<sup class="fn"><a href="#fn11">[11]</a></sup>
+      El EUR/USD llegó a cotizar por debajo de la paridad (0,96) por primera vez en dos décadas.
+      Con los recortes de la Fed en 2024–2025 y el diferencial de tipos comprimiéndose, el dólar
+      se debilitó y el EUR/USD recuperó hasta niveles de 1,10–1,17.
+    </p>
+
+    <!-- INMOBILIARIO -->
+    <h3>4.5 Inmobiliario y activos reales</h3>
+    <p>
+      Los tipos hipotecarios son función directa de los tipos del banco central y la TIR del bono
+      a 10 años. En EE.UU., la hipoteca fija a 30 años pasó del 3% al 8% entre 2021 y 2023: el
+      mercado inmobiliario americano sufrió una contracción de las ventas del 40%+. En Europa,
+      el Euribor —referencia de las hipotecas variables— subió de −0,50% a +4%, disparando las
+      cuotas mensuales de los hogares endeudados. Las valoraciones de los REITs (fondos
+      inmobiliarios cotizados) cayeron un 20–30% en el ciclo de subidas, al utilizarse el bono
+      soberano como referencia de descuento de sus flujos de alquiler.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Efecto duración en un bono</h3>
       <p>
-        Los estímulos prolongados pueden generar búsqueda excesiva de rentabilidad, valoración elevada de activos,
-        mala asignación de capital y dependencia de los mercados a la liquidez del banco central. Por eso retirar estímulos
-        puede ser delicado: el mercado ajusta no solo a los tipos, sino a la desaparición del comprador marginal.
+        Un inversor tiene una cartera con:<br>
+        · Bono del Tesoro EE.UU. 10Y · Nominal: <strong>100.000 €</strong> · Cupón: 1,5% ·
+        TIR inicial: <strong>1,5%</strong> · Precio: <strong>100 (a la par)</strong> ·
+        Duración modificada: <strong>~9 años</strong><br><br>
+        La Fed sube tipos 525 pb en 17 meses. La TIR del bono pasa del 1,5% al 5,0%
+        (Δ = +3,5%).<br><br>
+        <strong>Variación estimada del precio:</strong><br>
+        ΔP ≈ −Duración Modificada × ΔTiR = −9 × (+0,035) = <strong>−31,5%</strong><br><br>
+        El valor de mercado cae de 100.000 € a <strong>~68.500 €</strong>: una pérdida latente
+        de 31.500 € sobre el nominal. Esto es exactamente lo que vivieron los tenedores de bonos
+        largos en 2022. En términos anualizados (17 meses), la pérdida sería de ~22% anual —algo
+        sin precedentes en renta fija soberana de alta calidad. La conclusión práctica: en la
+        fase de subidas de tipos, hay que <em>reducir duración</em> (pasar a bonos cortos o
+        flotantes); en la fase de bajadas, hay que <em>alargar duración</em> para capturar la
+        apreciación del precio.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       5. INFLACIÓN Y POLÍTICA MONETARIA — RELACIÓN E IMPLICACIONES
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="sec">
+    <h2>5. Relación inflación–política monetaria e implicaciones de inversión</h2>
+
+    <h3>5.1 El mecanismo de transmisión</h3>
+    <p>
+      La cadena causal es la siguiente: el banco central sube tipos → el crédito se encarece →
+      la demanda de consumo e inversión cae → la presión sobre precios se modera → la inflación
+      baja. Sin embargo, el mecanismo opera con <strong>retardos largos e inciertos</strong>
+      (Friedman estimó entre 6 y 18 meses).<sup class="fn"><a href="#fn12">[12]</a></sup> Esto
+      explica por qué los errores de política monetaria son frecuentes: cuando los efectos de
+      las subidas son visibles, a veces ya es tarde para evitar la recesión.
+    </p>
+
+    <div class="concept-grid-3">
+      <div class="concept-box">
+        <h4>Canal del crédito</h4>
+        <p>Tipos más altos → préstamos más caros → menos consumo de bienes duraderos y menos
+        inversión empresarial → menor demanda → menos presión sobre precios.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Canal de la riqueza</h4>
+        <p>Tipos más altos → precio de activos cae (bonos, bolsa, inmuebles) → el "efecto riqueza"
+        reduce el consumo de los hogares más expuestos → menor demanda → inflación baja.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Canal del tipo de cambio</h4>
+        <p>Tipos más altos → divisa se aprecia → importaciones más baratas → inflación
+        importada cae (especialmente energía y materias primas cotizadas en dólares).</p>
+      </div>
+    </div>
+
+    <h3>5.2 Inflación de demanda vs. inflación de oferta</h3>
+    <p>
+      No toda inflación responde igual a la política monetaria. Esta distinción es crucial para
+      el asesor, porque condiciona la respuesta del banco central y, por tanto, el entorno de
+      tipos.<sup class="fn"><a href="#fn13">[13]</a></sup>
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Inflación de demanda</h4>
+        <p>Causada por exceso de demanda sobre la oferta (output gap positivo). Responde bien a
+        las subidas de tipos. Es la inflación que "necesita" política restrictiva. Ejemplo:
+        la inflación post-pandémica de 2021 en EE.UU., alimentada por el ahorro forzado y los
+        cheques de estímulo.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Inflación de oferta (shock de costes)</h4>
+        <p>Causada por encarecimiento de inputs (energía, alimentos, cuellos de botella
+        logísticos). Subir tipos no resuelve la causa raíz y puede producir <em>estanflación</em>:
+        inflación alta + recesión simultánea. El dilema del BCE hoy (jun. 2026) ante la inflación
+        energética por el conflicto de Oriente Medio es un ejemplo clásico.</p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>Dilema estanflacionario (2026):</strong> el BCE se enfrenta exactamente a este
+      escenario. La inflación general al 3,2% es principalmente un shock de oferta (energía
+      +10,9%), mientras la inflación subyacente es más moderada (2,5%) y el crecimiento se
+      desacelera. Subir tipos resolverá poco la inflación energética, pero sí puede frenar
+      un crecimiento ya débil. El error histórico de Trichet en 2008 y 2011 —subir tipos ante
+      shocks de petróleo y tener que revertirlo de inmediato— es el referente negativo que
+      el BCE trata de evitar.<sup class="fn"><a href="#fn14">[14]</a></sup>
+    </div>
+
+    <h3>5.3 Implicaciones para la estrategia de inversión</h3>
+    <p>
+      Combinar el diagnóstico de inflación con el de la fase del ciclo permite construir una
+      estrategia de inversión robusta. La tabla siguiente integra ambas dimensiones:
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Escenario inflación / crecimiento</th>
+            <th>Política monetaria esperada</th>
+            <th>Activos favorecidos</th>
+            <th>Activos perjudicados</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Inflación alta + crecimiento alto</strong><br><span style="font-size:var(--fs-xs);color:var(--text-soft)">(Recalentamiento)</span></td>
+            <td>Tipos subiendo agresivamente</td>
+            <td>TIPS, materias primas, RV value, sector financiero, liquidez</td>
+            <td>Bonos larga duración, RV growth/tecnología, inmobiliario</td>
+          </tr>
+          <tr>
+            <td><strong>Inflación alta + crecimiento bajo</strong><br><span style="font-size:var(--fs-xs);color:var(--text-soft)">(Estanflación)</span></td>
+            <td>Dilema: tipos estables o subida suave</td>
+            <td>Oro, materias primas energéticas, TIPS, activos reales</td>
+            <td>Bonos nominales, RV cíclica, crédito HY</td>
+          </tr>
+          <tr>
+            <td><strong>Inflación baja + crecimiento alto</strong><br><span style="font-size:var(--fs-xs);color:var(--text-soft)">(Goldilocks)</span></td>
+            <td>Tipos estables o bajadas leves</td>
+            <td>RV growth, crédito HY, bonos corporativos, RV global</td>
+            <td>Oro, liquidez de bajo rendimiento</td>
+          </tr>
+          <tr>
+            <td><strong>Inflación baja + crecimiento bajo</strong><br><span style="font-size:var(--fs-xs);color:var(--text-soft)">(Recesión / desinflación)</span></td>
+            <td>Tipos bajando agresivamente / QE</td>
+            <td>Bonos soberanos larga duración, oro, divisas refugio (CHF, JPY)</td>
+            <td>RV cíclica, crédito HY, materias primas industriales</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Cartera según escenario inflacionario</h3>
+      <p>
+        Un asesor gestiona una cartera de 200.000 € y debe posicionarse para el escenario de
+        inflación alta + crecimiento moderado/bajo (estanflación) que describe el entorno de
+        junio 2026.<br><br>
+        <strong>Asignación sugerida:</strong><br>
+        · 25% TIPS / bonos indexados a inflación → 50.000 € (protección directa contra IPC)<br>
+        · 20% Oro y metales preciosos (ETF) → 40.000 € (refugio anti-inflación)<br>
+        · 20% Materias primas energéticas (ETF diversificado) → 40.000 € (captura el driver del shock)<br>
+        · 20% RV defensiva (utilities, salud, consumo básico) → 40.000 € (flujos estables)<br>
+        · 10% Bonos corporativos IG corto plazo (1–3 años) → 20.000 € (carry + baja duración)<br>
+        · 5% Liquidez (fondos monetarios) → 10.000 € (opcionalidad ante subida de tipos)<br><br>
+        <strong>Qué se evita:</strong> bonos soberanos larga duración (TIR subirán si BCE sube
+        tipos), RV tecnológica / growth (alta duración, sufren con tipos altos), crédito HY
+        (en entorno de bajo crecimiento el riesgo de impago aumenta).<br><br>
+        El rendimiento esperado dependerá de si el shock energético es transitorio o persistente.
+        Si la inflación baja en 6 meses (transitorio), la posición en TIPS y materias primas
+        podría revisarse para rotar hacia bonos soberanos y RV cíclica.
       </p>
     </div>
 
     <div class="exam-alert">
       <div>
-        <strong>🎯 Diferencia con política fiscal</strong>
-        QE no es lo mismo que gasto público. La política monetaria actúa vía dinero, tipos y balance del banco central.
-        La fiscal actúa vía impuestos, gasto público, déficit y deuda pública.
+        <strong>🎯 Frecuente en examen (Nivel II)</strong>
+        Dado un escenario de inflación y crecimiento, identificar la respuesta de política
+        monetaria esperada y los activos favorecidos / perjudicados. Saber distinguir inflación
+        de demanda (responde a subidas de tipos) de inflación de oferta (no responde y puede
+        generar estanflación). La relación inversa tipos / precio del bono y el cálculo mediante
+        duración modificada son herramientas aplicadas habitualmente.
       </div>
     </div>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       8. ESTRATEGIA DE INVERSIÓN
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       6. LOS BANCOS CENTRALES HOY
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
-    <h2>8. Implicaciones para estrategia de inversión</h2>
-    <p class="sec-intro">
-      En una pregunta de aplicación, no se espera una cartera perfecta. Se espera razonar qué activos se benefician
-      o sufren bajo un escenario de tipos, inflación y crecimiento. La asignación debe conectarse con el diagnóstico macro.
-    </p>
+    <h2>6. Posición actual de los principales bancos centrales (junio 2026)</h2>
 
-    <div class="scenario-grid">
-      <div class="scenario-box">
-        <h4>Escenario: más subidas de tipos</h4>
-        <ul>
-          <li>Reducir duración en renta fija.</li>
-          <li>Preferir liquidez, monetarios o vencimientos cortos.</li>
-          <li>Revisar exposición a growth, inmobiliario y alto apalancamiento.</li>
-          <li>Vigilar crédito de baja calidad por refinanciación.</li>
-        </ul>
-      </div>
-      <div class="scenario-box">
-        <h4>Escenario: tipos altos durante más tiempo</h4>
-        <ul>
-          <li>La liquidez empieza a competir con activos de riesgo.</li>
-          <li>Empresas con balances débiles sufren más.</li>
-          <li>Los múltiplos bursátiles tienen menos margen de expansión.</li>
-          <li>El carry de renta fija corta gana atractivo.</li>
-        </ul>
-      </div>
-      <div class="scenario-box">
-        <h4>Escenario: recortes por desinflación suave</h4>
-        <ul>
-          <li>Duración de calidad puede beneficiarse.</li>
-          <li>Renta variable puede mejorar si beneficios resisten.</li>
-          <li>Crédito puede comportarse bien si no suben impagos.</li>
-          <li>Entorno favorable a carteras diversificadas.</li>
-        </ul>
-      </div>
-      <div class="scenario-box">
-        <h4>Escenario: recortes por recesión</h4>
-        <ul>
-          <li>Bonos soberanos de calidad pueden hacerlo bien.</li>
-          <li>Renta variable y high yield pueden sufrir por beneficios e impagos.</li>
-          <li>Aumenta preferencia por calidad, liquidez y baja deuda.</li>
-          <li>No todo recorte de tipos es alcista para bolsa.</li>
-        </ul>
+    <div class="cb-block">
+      <div class="cb-header"><span class="cb-flag">🇪🇺</span><span class="cb-name">Banco Central Europeo (BCE)</span></div>
+      <div class="cb-body">
+        <p>Tipo de depósito: <strong>2,00%</strong> (desde junio 2025, tras ocho bajadas de 25 pb desde el 4,00%).
+        En pausa desde hace casi un año, pero con el conflicto en Oriente Medio relanzando la inflación
+        al 3,2% en mayo de 2026, el mercado descuenta con probabilidad >90% una subida de 25 pb el
+        11 de junio de 2026, la primera desde 2023.<sup class="fn"><a href="#fn6">[6]</a></sup></p>
+        <p>El BCE proyecta una inflación del 2,6% en 2026 (revisada al alza), crecimiento del 0,9%
+        en 2026 (revisado a la baja). El dilema estanflacionario está sobre la mesa: subir tipos
+        para anclar expectativas de inflación, pero a riesgo de comprimir un crecimiento ya débil.<sup class="fn"><a href="#fn15">[15]</a></sup></p>
       </div>
     </div>
 
-    <div class="card accent-green">
-      <h3>📌 Método de respuesta en examen</h3>
-      <ol>
-        <li>Identifica el shock: inflación, crecimiento, empleo, crédito o liquidez.</li>
-        <li>Deduce la reacción probable del banco central.</li>
-        <li>Traduce esa reacción a curva de tipos y condiciones financieras.</li>
-        <li>Evalúa impacto por activo: duración, ciclo, crédito, divisa y valoración.</li>
-        <li>Añade el matiz: qué estaba ya descontado por el mercado.</li>
-      </ol>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       9. TRAMPAS DE EXAMEN
-       ============================================================ -->
-  <div class="sec">
-    <h2>9. Trampas típicas de examen</h2>
-
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>“Bajan tipos = sube siempre la bolsa”</h4>
-        <p>
-          Falso. Si bajan tipos porque la economía entra en recesión, los beneficios empresariales pueden caer más que la tasa de descuento.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>“Suben tipos = todos los bancos ganan”</h4>
-        <p>
-          Demasiado simple. Tipos moderadamente altos pueden mejorar márgenes, pero tipos excesivos aumentan mora y deterioro crediticio.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>“Más inflación siempre perjudica a todos los activos”</h4>
-        <p>
-          Perjudica especialmente a bonos nominales y activos de duración, pero algunos activos reales o sectores pueden proteger parcialmente.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>“El QE es imprimir dinero para gastar”</h4>
-        <p>
-          No exactamente. QE es compra de activos por el banco central para influir en tipos largos, liquidez y condiciones financieras.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>“Lo importante es el dato publicado”</h4>
-        <p>
-          Lo importante es el dato frente a expectativas. Un dato malo puede ser alcista si es menos malo de lo esperado y anticipa recortes.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>“Los tipos nominales bastan”</h4>
-        <p>
-          Para valorar poder adquisitivo y oro, importan mucho los tipos reales: nominales menos inflación esperada.
-        </p>
+    <div class="cb-block">
+      <div class="cb-header"><span class="cb-flag">🇺🇸</span><span class="cb-name">Reserva Federal (Fed)</span></div>
+      <div class="cb-body">
+        <p>Fed funds: <strong>3,50%–3,75%</strong> (tras recortes acumulados de ~175 pb desde el pico
+        de 5,25%–5,50%). En pausa desde principios de 2026, esperando señales más claras de desinflación.
+        La inflación PCE está estimada en el 3,8%–4,2%, notablemente por encima del objetivo 2%,
+        con el componente arancelario aportando 50–75 pb adicionales.<sup class="fn"><a href="#fn7">[7]</a></sup></p>
+        <p>Bankinter prevé solo un recorte adicional de 25 pb en 2026 (en la segunda parte del año),
+        con los types manteniéndose elevados más tiempo de lo que el mercado descuenta. Los
+        <em>treasury notes</em> a 10 años se mantienen en el rango 4,20%–4,40%.</p>
       </div>
     </div>
 
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Patrón de pregunta probable</strong>
-        "El banco central mantiene tipos altos pese a crecimiento débil porque la inflación subyacente sigue elevada".
-        Respuesta: prioriza estabilidad de precios, evita desanclar expectativas y acepta menor crecimiento a corto plazo.
+    <div class="cb-block">
+      <div class="cb-header"><span class="cb-flag">🇬🇧</span><span class="cb-name">Banco de Inglaterra (BoE)</span></div>
+      <div class="cb-body">
+        <p>Bank Rate: <strong>~3,75%</strong>, habiendo recortado desde el 5,25% de pico.
+        El BoE enfrenta un dilema similar al BCE: la inflación sigue por encima del objetivo,
+        el crecimiento es débil (tasa de desempleo subiendo al 5,2%) y el Brexit sigue
+        generando fricciones en las cadenas de suministro. El mercado espera una pausa
+        prolongada.</p>
       </div>
+    </div>
+
+    <div class="cb-block">
+      <div class="cb-header"><span class="cb-flag">🇯🇵</span><span class="cb-name">Banco de Japón (BoJ)</span></div>
+      <div class="cb-body">
+        <p>Tipo <em>overnight</em>: <strong>~0,50%–0,75%</strong> — el más bajo del G7, pero
+        históricamente alto para Japón. El BoJ salió de los tipos negativos en 2024 y ha realizado
+        subidas graduales, rompiendo con tres décadas de política ultraexpansiva. La inflación japonesa
+        superó el 2% de forma sostenida por primera vez desde los años noventa. El yen se ha
+        depreciado significativamente frente al dólar durante el ciclo de divergencia monetaria,
+        lo que ha generado tensiones por el carry trade JPY y episodios de volatilidad aguda en
+        los mercados globales.</p>
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 La gran divergencia: BCE vs. Fed (junio 2026)</div>
+      <p>
+        El diferencial de tipos entre la Fed (3,50%–3,75%) y el BCE (~2,00%–2,25%) se ha
+        reducido desde los 150 pb del pico hasta ~125–150 pb actuales. Esta compresión del
+        diferencial ha sido uno de los motores de la recuperación del EUR/USD desde la
+        paridad (0,96) de 2022 hasta los niveles actuales de ~1,17. Si el BCE sube tipos
+        mientras la Fed pausa, el diferencial se comprime aún más y el euro podría apreciarse
+        adicionalmente, lo que a su vez reduciría la inflación importada en la eurozona —un
+        efecto parcialmente estabilizador.
+      </p>
     </div>
   </div>
 
   <hr>
 
-  <!-- RESUMEN -->
+  <!-- ════════════════════════════════════════════════════════════════
+       RESUMEN
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
     <h2>Resumen de la sección</h2>
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>Concepto</th><th>Idea clave</th><th>Impacto financiero</th></tr>
+          <tr><th>Concepto</th><th>Definición clave</th><th>Dato relevante</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Subida de tipos</strong></td>
-            <td>Endurece condiciones financieras</td>
-            <td>Presiona bonos existentes, growth, inmobiliario y crédito débil</td>
-          </tr>
-          <tr>
-            <td><strong>Bajada de tipos</strong></td>
-            <td>Relaja condiciones financieras</td>
-            <td>Favorece duración; efecto en bolsa depende de si hay recesión o aterrizaje suave</td>
-          </tr>
-          <tr>
             <td><strong>QE</strong></td>
-            <td>Compra de activos por el banco central</td>
-            <td>Reduce tipos largos, comprime spreads y aumenta apetito por riesgo</td>
+            <td>Compra masiva de activos por el banco central; inyecta liquidez, baja TIR</td>
+            <td>BCE: APP (3,3 B€) + PEPP (1,85 B€)</td>
           </tr>
           <tr>
             <td><strong>QT</strong></td>
-            <td>Reducción del balance</td>
-            <td>Retira liquidez y puede elevar primas de plazo</td>
+            <td>Reducción del balance del banco central; retira liquidez, sube TIR largo</td>
+            <td>Fed desde jun. 2022; BCE desde jul. 2023</td>
           </tr>
           <tr>
-            <td><strong>Duración</strong></td>
-            <td>Sensibilidad del bono a tipos</td>
-            <td>Alta duración sufre más con subidas y gana más con bajadas</td>
+            <td><strong>Ciclo de subidas 2022–23</strong></td>
+            <td>El más rápido en décadas; Fed +525 pb, BCE +450 pb</td>
+            <td>Bloomberg Agg. −16,2% en 2022</td>
           </tr>
           <tr>
-            <td><strong>Tipos reales</strong></td>
-            <td>Tipo nominal menos inflación esperada</td>
-            <td>Clave para oro, valoración de activos y coste real del dinero</td>
+            <td><strong>Duración modificada</strong></td>
+            <td>Sensibilidad del precio del bono a cambios en los tipos</td>
+            <td>Dur. mod. 9 × ΔTiR 3,5% = −31,5% precio</td>
           </tr>
           <tr>
-            <td><strong>Inflación subyacente</strong></td>
-            <td>Mide persistencia de precios</td>
-            <td>Si sigue alta, dificulta recortes aunque el crecimiento sea débil</td>
+            <td><strong>Inflación de demanda</strong></td>
+            <td>Causada por exceso de demanda; responde a subidas de tipos</td>
+            <td>EE.UU. 2021 (cheques de estímulo + ahorro pandémico)</td>
           </tr>
           <tr>
-            <td><strong>Divergencia monetaria</strong></td>
-            <td>Bancos centrales en fases distintas</td>
-            <td>Mueve divisas, flujos internacionales y diferenciales de tipos</td>
+            <td><strong>Inflación de oferta</strong></td>
+            <td>Causada por encarecimiento de inputs; riesgo de estanflación</td>
+            <td>Energía 2022 (Ucrania) y 2026 (Oriente Medio)</td>
           </tr>
           <tr>
-            <td><strong>Sorpresa</strong></td>
-            <td>Diferencia entre dato/decisión y expectativa</td>
-            <td>Principal motor de reacción inmediata en mercados</td>
+            <td><strong>Estanflación</strong></td>
+            <td>Inflación alta + crecimiento bajo simultáneos; dilema de política</td>
+            <td>Dilema BCE jun. 2026: inflación 3,2%, crecimiento 0,9%</td>
+          </tr>
+          <tr>
+            <td><strong>TPI (BCE)</strong></td>
+            <td>Herramienta anti-fragmentación: compra bonos periféricos si spreads se disparan</td>
+            <td>Creado jul. 2022; nunca activado formalmente</td>
+          </tr>
+          <tr>
+            <td><strong>Goldilocks</strong></td>
+            <td>Escenario ideal: inflación controlada + crecimiento robusto</td>
+            <td>Favorece RV growth, crédito HY, bonos corporativos</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 
+  <!-- ════════════════════════════════════════════════════════════════
+       NOTAS AL PIE
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Federal Reserve. «Recent balance sheet trends». Board of Governors.
+        <a href="https://www.federalreserve.gov/monetarypolicy/bst_recenttrends.htm" target="_blank" rel="noopener">federalreserve.gov</a>
+      </li>
+      <li id="fn2">
+        El Español / Invertia. «La política monetaria en 2025». Diciembre 2024.
+        <a href="https://www.elespanol.com/invertia/opinion/20241222/politica-monetaria/910788913_13.html" target="_blank" rel="noopener">elespanol.com</a>
+      </li>
+      <li id="fn3">
+        Banco Central Europeo. «Informe Anual 2024». Descripción de las tres fases del ciclo
+        monetario 2022–2024 y la subida acumulada de 450 pb.
+        <a href="https://www.ecb.europa.eu/press/annual-reports-financial-statements/annual/html/ecb.ar2024~8402d8191f.es.html" target="_blank" rel="noopener">ecb.europa.eu</a>
+      </li>
+      <li id="fn4">
+        Funcas. «Tipos de interés: perspectivas a medio plazo para la política del BCE».
+        Noviembre 2025. El BCE realizó ocho recortes consecutivos de 25 pb hasta el 2,00% en junio 2025.
+        <a href="https://www.funcas.es/articulos/tipos-de-interes-perspectivas-a-medio-plazo-para-la-politica-del-bce/" target="_blank" rel="noopener">funcas.es</a>
+      </li>
+      <li id="fn5">
+        Raisin. «Tipos de interés de la Fed». Actualizado mayo 2026. Fed funds en 3,50%–3,75% tras
+        recortes en 2024–2025.
+        <a href="https://www.raisin.com/es-es/ahorro/tipos-de-interes-fed/" target="_blank" rel="noopener">raisin.com</a>
+      </li>
+      <li id="fn6">
+        CaixaBank Research. «La inflación de mayo respalda la subida de tipos del BCE en junio».
+        Junio 2026. Probabilidad >90% de subida 25 pb el 11 de junio.
+        <a href="https://www.caixabankresearch.com/es/publicaciones/notas-breves-actualidad-economica-y-financiera/internacional/inflacion-mayo-respalda" target="_blank" rel="noopener">caixabankresearch.com</a>
+      </li>
+      <li id="fn7">
+        Bankinter. «Previsión tipos de interés en EE.UU. para 2026 y 2027». Junio 2026.
+        PCE estimado 3,8%–4,2%; impacto arancelario de 50–75 pb.
+        <a href="https://www.bankinter.com/blog/economia/prevision-tipos-interes-eeuu" target="_blank" rel="noopener">bankinter.com</a>
+      </li>
+      <li id="fn8">
+        Banco Central Europeo. «¿Qué es el quantitative easing?»
+        <a href="https://www.ecb.europa.eu/ecb/educational/explainers/tell-me-more/html/what-is-quantitative-easing.es.html" target="_blank" rel="noopener">ecb.europa.eu</a>
+      </li>
+      <li id="fn9">
+        Bloomberg. «Bloomberg Global Aggregate Bond Index — 2022 returns». La peor caída anual
+        del índice desde su creación, −16,2% en dólares no cubiertos.
+      </li>
+      <li id="fn10">
+        Damodaran, A. (2012). <em>Investment Valuation</em>, 3.ª ed. Wiley Finance. Cap. 8:
+        «Estimating the Discount Rate». ISBN 978-1-118-01152-2.
+      </li>
+      <li id="fn11">
+        Banco de la Reserva Federal de St. Louis (FRED). «Trade Weighted U.S. Dollar Index (DXY)».
+        <a href="https://fred.stlouisfed.org/series/DTWEXBGS" target="_blank" rel="noopener">fred.stlouisfed.org</a>
+      </li>
+      <li id="fn12">
+        Friedman, M. (1961). «The Lag in Effect of Monetary Policy».
+        <em>Journal of Political Economy</em>, 69(5), 447–466.
+      </li>
+      <li id="fn13">
+        Mankiw, N. G. (2021). <em>Macroeconomics</em>, 10.ª ed. Worth Publishers. Cap. 15:
+        «A Dynamic Model of Aggregate Demand and Aggregate Supply». ISBN 978-1-319-26390-6.
+      </li>
+      <li id="fn14">
+        Idealista / Renta 4. «El BCE aguanta la presión del mercado y mantiene los tipos en el 2%».
+        Abril 2026. Referencia al error histórico de Trichet (2008 y 2011).
+        <a href="https://www.idealista.com/news/finanzas/economia/2026/04/30/895677-el-bce-aguanta-la-presion-del-mercado-y-mantiene-los-tipos-de-interes-en-el-2" target="_blank" rel="noopener">idealista.com</a>
+      </li>
+      <li id="fn15">
+        BCE. «Decisiones de política monetaria». Marzo 2026. Inflación general proyectada 2,6%
+        en 2026 (revisada al alza); crecimiento 0,9% en 2026 (revisado a la baja).
+        <a href="https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260319~3057739775.es.html" target="_blank" rel="noopener">ecb.europa.eu</a>
+      </li>
+    </ol>
+  </div>
+
   <!-- NAVEGACIÓN -->
   <div class="sec-nav">
-    <a href="seccion-d.html" class="nav-btn">← D: Indicadores y mercados</a>
-    <a href="seccion-f.html" class="nav-btn">F: Políticas fiscales post-COVID →</a>
+    <a href="seccion-d.html" class="nav-btn">← D: Indicadores y Mercados</a>
+    <a href="seccion-f.html" class="nav-btn">F: Políticas Fiscales Post-COVID →</a>
   </div>
 
 </div>
 
 <footer>
-  EFA Prep · Módulo 1 · Bloque 1 · Sección E · Basado en la Guía de Certificación EFPA España V1/26 · No constituye asesoramiento financiero
+  EFA Prep · Módulo 1 · Bloque 1 · Sección E · Basado en la Guía de Certificación EFPA España V1/26
 </footer>
 
 <script src="../../assets/ui.js"></script>
