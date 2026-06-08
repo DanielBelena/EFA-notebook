@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B2 · Sección G — Conceptos básicos de estadística · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .concept-grid { grid-template-columns: 1fr; } }
+
+    .concept-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .concept-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      margin-bottom: .35rem;
+      color: var(--navy);
+    }
+    .concept-box p, .concept-box ul, .concept-box ol {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .concept-box ul, .concept-box ol { padding-left: 1.1rem; }
+    .concept-box li { margin: .25rem 0; }
+
+    .formula-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .formula-grid { grid-template-columns: 1fr; } }
+
+    .formula-card {
+      background: var(--bg-alt);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+    }
+    .formula-card h4 {
+      font-family: var(--font-ui);
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin: 0 0 .45rem 0;
+    }
+    .formula-card p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: .25rem 0 0;
+    }
+
+    .mini-formula {
+      display: inline-block;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: var(--fs-xs);
+      color: var(--navy);
+      background: var(--navy-light);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px 8px;
+      margin: 2px 0;
+      white-space: nowrap;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 680px) { .stat-grid { grid-template-columns: 1fr; } }
+
+    .stat-card {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+    }
+    .stat-card h4 {
+      font-family: var(--font-ui);
+      font-size: var(--fs-sm);
+      font-weight: 900;
+      color: var(--navy);
+      margin: 0 0 .45rem 0;
+    }
+    .stat-card p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .example-box {
+      background: var(--green-light);
+      border: 1.5px solid var(--green);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      margin: 1rem 0;
+    }
+    .example-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      color: var(--green);
+      font-size: var(--fs-sm);
+      margin: 0 0 .5rem 0;
+    }
+    .example-box p, .example-box li {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+    }
+    .example-box ul, .example-box ol { padding-left: 1.2rem; }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: .75rem;
+      margin: 1rem 0;
+    }
+    .step {
+      counter-increment: step;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem 1rem 3.2rem;
+      position: relative;
+    }
+    .step::before {
+      content: counter(step);
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      width: 1.55rem;
+      height: 1.55rem;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: var(--fs-xs);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step h4 {
+      font-family: var(--font-ui);
+      font-size: var(--fs-sm);
+      font-weight: 900;
+      color: var(--navy);
+      margin: 0 0 .25rem 0;
+    }
+    .step p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .scale-line {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: .35rem;
+      margin: 1rem 0;
+      font-family: var(--font-ui);
+      font-size: var(--fs-xs);
+      text-align: center;
+    }
+    @media (max-width: 560px) { .scale-line { grid-template-columns: 1fr; text-align: left; } }
+    .scale-item {
+      border: 1.5px solid var(--border);
+      background: var(--card);
+      border-radius: 10px;
+      padding: .55rem .4rem;
+      color: var(--text-soft);
+    }
+    .scale-item strong {
+      display: block;
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .warning-mini {
+      font-family: var(--font-ui);
+      font-size: var(--fs-xs);
+      color: var(--danger);
+      background: var(--danger-light);
+      border: 1.5px solid var(--danger);
+      border-radius: 10px;
+      padding: .55rem .8rem;
+      margin: .7rem 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B2 · G</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Bloque 2</a>
+    <span class="sep">›</span>
+    <span>Sección G</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 2 · Sección G · Conocimiento + Análisis + Aplicación</div>
+    <h1>Conceptos básicos de estadística</h1>
+    <p class="hero-sub">
+      Media y esperanza matemática · Varianza y desviación típica · Covarianza ·
+      Coeficiente de correlación · Recta de regresión por mínimos cuadrados · Coeficiente de determinación.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. PARA QUÉ SIRVE LA ESTADÍSTICA EN INVERSIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Para qué sirve la estadística en inversión</h2>
+    <p class="sec-intro">
+      La estadística permite convertir series de rentabilidades en medidas útiles para tomar decisiones:
+      rentabilidad media, rentabilidad esperada, riesgo, relación entre activos y sensibilidad frente a un índice.
+      En EFA no interesa una estadística abstracta: interesa saber calcular e interpretar números que luego aparecen
+      en carteras, fondos, renta variable, renta fija y gestión del riesgo.
+    </p>
+
+    <div class="card accent-navy">
+      <h3>La idea central</h3>
+      <p>
+        Una inversión no se analiza solo por cuánto puede ganar, sino por <strong>cuánto varía</strong>,
+        <strong>cómo se comporta respecto a otros activos</strong> y <strong>qué parte de esa variación puede explicarse</strong>
+        por un factor común, como el mercado. Por eso esta sección es la antesala natural de la gestión de carteras.
+      </p>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Rentabilidad media</h4>
+        <p>Resume qué ha ocurrido en una serie histórica. Es descriptiva: mira al pasado.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Esperanza matemática</h4>
+        <p>Resume qué se espera que ocurra en escenarios futuros con probabilidades asignadas.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Volatilidad</h4>
+        <p>Mide dispersión. Cuanto más se alejan los datos de la media, mayor riesgo estadístico.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Correlación</h4>
+        <p>Mide si dos activos tienden a moverse juntos, en sentido contrario o sin relación lineal clara.</p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Enfoque de examen</strong>
+        No basta con memorizar fórmulas. Lo normal es que te den una serie de rentabilidades o escenarios
+        con probabilidades y te pidan calcular media, esperanza, varianza, desviación típica, covarianza,
+        correlación o una recta de regresión sencilla.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. SERIES HISTÓRICAS VS ESCENARIOS FUTUROS
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Series históricas vs. escenarios futuros</h2>
+    <p>
+      La primera distinción importante es si estamos trabajando con <strong>datos observados</strong> o con
+      <strong>escenarios esperados</strong>. El cálculo se parece, pero no es exactamente el mismo.
+    </p>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Serie histórica</h4>
+        <p>
+          Son datos ya ocurridos: rentabilidades mensuales de un fondo, precios diarios de una acción,
+          variaciones anuales de un índice. Se usan para calcular media histórica, varianza histórica
+          y desviación típica histórica.
+        </p>
+      </div>
+      <div class="vs-box right">
+        <h4>Escenarios futuros</h4>
+        <p>
+          Son posibles resultados futuros con una probabilidad asociada: escenario optimista, base y pesimista.
+          Se usan para calcular esperanza matemática, varianza esperada y riesgo esperado.
+        </p>
+      </div>
+    </div>
+
+    <div class="card accent-amber">
+      <h3>⚠️ Error típico</h3>
+      <p>
+        En una serie histórica todos los datos suelen ponderar igual, salvo que el enunciado diga lo contrario.
+        En escenarios futuros, cada resultado se multiplica por su <strong>probabilidad</strong>.
+        Mezclar ambos enfoques suele llevar a respuestas incorrectas.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. MEDIA ARITMÉTICA
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Media aritmética</h2>
+    <p class="sec-intro">
+      La media aritmética resume el valor promedio de una serie histórica. En inversión se usa, por ejemplo,
+      para calcular la rentabilidad media de un activo durante varios períodos.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Media aritmética</span>
+      x̄ = (x₁ + x₂ + ... + xₙ) / n
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Qué mide</h4>
+        <p>El promedio simple de una serie de observaciones pasadas.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Cuándo usarla</h4>
+        <p>Cuando el enunciado te dé datos históricos sin probabilidades: años, meses, trimestres, sesiones.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Limitación</h4>
+        <p>No mide riesgo. Dos activos pueden tener la misma media y volatilidades muy distintas.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Relación con rentabilidad</h4>
+        <p>Sirve como estimación simple del rendimiento promedio, pero no garantiza rendimiento futuro.</p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <h4>📌 Ejemplo</h4>
+      <p>
+        Un fondo obtiene estas rentabilidades anuales: <strong>4%, 8%, −2% y 10%</strong>.
+      </p>
+      <p>
+        <span class="mini-formula">x̄ = (4 + 8 − 2 + 10) / 4 = 20 / 4 = 5%</span>
+      </p>
+      <p>
+        La rentabilidad media histórica del fondo es <strong>5%</strong> anual.
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>Media aritmética vs. rentabilidad compuesta:</strong> la media aritmética no incorpora el efecto acumulativo
+      de pérdidas y ganancias encadenadas. Para medir crecimiento acumulado anualizado se usa la rentabilidad geométrica,
+      vista en la sección de rentabilidad.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. ESPERANZA MATEMÁTICA
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Esperanza matemática</h2>
+    <p class="sec-intro">
+      La esperanza matemática es el promedio ponderado de los posibles resultados futuros según sus probabilidades.
+      Es la rentabilidad esperada de un activo cuando trabajamos por escenarios.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Esperanza matemática</span>
+      E(R) = Σ pᵢ · Rᵢ
+    </div>
+
+    <div class="formula-grid">
+      <div class="formula-card">
+        <h4>pᵢ</h4>
+        <p>Probabilidad del escenario i. La suma de probabilidades debe ser 100% o 1.</p>
+      </div>
+      <div class="formula-card">
+        <h4>Rᵢ</h4>
+        <p>Rentabilidad esperada en el escenario i: optimista, base, pesimista, etc.</p>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Escenario</th>
+            <th>Probabilidad</th>
+            <th>Rentabilidad</th>
+            <th>Aportación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Optimista</td>
+            <td>20%</td>
+            <td>15%</td>
+            <td>0,20 × 15% = 3,0%</td>
+          </tr>
+          <tr>
+            <td>Base</td>
+            <td>50%</td>
+            <td>8%</td>
+            <td>0,50 × 8% = 4,0%</td>
+          </tr>
+          <tr>
+            <td>Pesimista</td>
+            <td>30%</td>
+            <td>−5%</td>
+            <td>0,30 × −5% = −1,5%</td>
+          </tr>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td><strong>100%</strong></td>
+            <td>—</td>
+            <td><strong>5,5%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Si el enunciado da escenarios con probabilidades, calcula rentabilidad esperada como suma de
+        <strong>probabilidad × rentabilidad</strong>. No hagas una media simple de los escenarios.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. VARIANZA
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. Varianza</h2>
+    <p class="sec-intro">
+      La varianza mide cuánto se alejan los datos respecto a la media. Es una medida de dispersión.
+      En finanzas, dispersión significa incertidumbre: cuanto mayor sea la varianza, más irregular es la rentabilidad.
+    </p>
+
+    <div class="formula-grid">
+      <div class="formula-card">
+        <h4>Varianza histórica</h4>
+        <p><span class="mini-formula">σ² = Σ(xᵢ − x̄)² / n</span></p>
+        <p>Se usa cuando trabajas con observaciones pasadas y el examen no pide corrección muestral.</p>
+      </div>
+      <div class="formula-card">
+        <h4>Varianza por escenarios</h4>
+        <p><span class="mini-formula">σ² = Σ pᵢ · (Rᵢ − E(R))²</span></p>
+        <p>Se usa cuando cada escenario tiene una probabilidad explícita.</p>
+      </div>
+    </div>
+
+    <h3>Cómo se calcula paso a paso</h3>
+    <div class="steps">
+      <div class="step">
+        <h4>Calcula la media o esperanza</h4>
+        <p>Primero necesitas el centro de la distribución: x̄ si son datos históricos, E(R) si son escenarios.</p>
+      </div>
+      <div class="step">
+        <h4>Calcula las desviaciones</h4>
+        <p>A cada dato le restas la media: <span class="mini-formula">xᵢ − x̄</span>.</p>
+      </div>
+      <div class="step">
+        <h4>Eleva al cuadrado</h4>
+        <p>Se eleva al cuadrado para que desviaciones positivas y negativas no se cancelen.</p>
+      </div>
+      <div class="step">
+        <h4>Promedia o pondera</h4>
+        <p>En datos históricos divides entre n; en escenarios multiplicas por probabilidad y sumas.</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Interpretación financiera</h3>
+      <p>
+        La varianza no se interpreta de forma tan intuitiva como la desviación típica porque está expresada
+        en unidades al cuadrado. Por eso en finanzas se suele usar más la <strong>desviación típica</strong>,
+        que vuelve a estar expresada en porcentaje de rentabilidad.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       6. DESVIACIÓN TÍPICA
+       ============================================================ -->
+  <div class="sec">
+    <h2>6. Desviación típica</h2>
+    <p class="sec-intro">
+      La desviación típica es la raíz cuadrada de la varianza. Es la medida de riesgo más usada en el temario
+      porque se expresa en las mismas unidades que la rentabilidad: porcentaje anual, mensual, etc.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Desviación típica</span>
+      σ = √σ²
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>σ alta</h4>
+        <p>Rentabilidades muy dispersas. Activo más volátil, más incierto y con mayor amplitud de resultados posibles.</p>
+      </div>
+      <div class="concept-box">
+        <h4>σ baja</h4>
+        <p>Rentabilidades más estables alrededor de la media. Menor variabilidad histórica o esperada.</p>
+      </div>
+      <div class="concept-box">
+        <h4>No mide pérdida máxima</h4>
+        <p>Volatilidad no es lo mismo que pérdida máxima. Mide variabilidad, no el peor caso posible.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Simetría implícita</h4>
+        <p>Penaliza igual desviaciones positivas y negativas. Un activo que sube mucho también aumenta su volatilidad.</p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <h4>📌 Ejemplo rápido</h4>
+      <p>
+        Si la varianza de una cartera es <span class="mini-formula">0,0144</span>, entonces:
+      </p>
+      <p>
+        <span class="mini-formula">σ = √0,0144 = 0,12 = 12%</span>
+      </p>
+      <p>
+        La cartera tiene una volatilidad o desviación típica del <strong>12%</strong>.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Ojo con las unidades</strong>
+        Si trabajas en porcentajes, decide desde el principio si usas 8 o 0,08. No mezcles ambos formatos.
+        La raíz cuadrada debe devolverte una desviación típica en la misma escala que la rentabilidad.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       7. VARIANZA Y DESVIACIÓN POR ESCENARIOS
+       ============================================================ -->
+  <div class="sec">
+    <h2>7. Varianza y desviación por escenarios</h2>
+    <p>
+      Cuando hay probabilidades, el cálculo de la varianza se hace ponderando cada desviación al cuadrado por su probabilidad.
+      Recuperamos el ejemplo anterior: rentabilidad esperada <strong>5,5%</strong>.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Escenario</th>
+            <th>pᵢ</th>
+            <th>Rᵢ</th>
+            <th>Rᵢ − E(R)</th>
+            <th>(Rᵢ − E(R))²</th>
+            <th>pᵢ · desviación²</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Optimista</td>
+            <td>0,20</td>
+            <td>15%</td>
+            <td>9,5%</td>
+            <td>90,25</td>
+            <td>18,05</td>
+          </tr>
+          <tr>
+            <td>Base</td>
+            <td>0,50</td>
+            <td>8%</td>
+            <td>2,5%</td>
+            <td>6,25</td>
+            <td>3,125</td>
+          </tr>
+          <tr>
+            <td>Pesimista</td>
+            <td>0,30</td>
+            <td>−5%</td>
+            <td>−10,5%</td>
+            <td>110,25</td>
+            <td>33,075</td>
+          </tr>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td>1,00</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td><strong>54,25</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card accent-navy">
+      <h3>Resultado</h3>
+      <p>
+        Usando porcentajes directamente, la varianza es <strong>54,25</strong> y la desviación típica es:
+        <span class="mini-formula">σ = √54,25 = 7,37%</span>
+      </p>
+      <p style="margin-top:.6rem;">
+        Si se trabaja en decimales, el resultado equivalente sería varianza <strong>0,005425</strong> y desviación típica
+        <strong>0,0737 = 7,37%</strong>.
+      </p>
+    </div>
+
+    <div class="warning-mini">
+      La mayoría de errores salen de mezclar porcentajes y decimales dentro del mismo ejercicio.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       8. COVARIANZA
+       ============================================================ -->
+  <div class="sec">
+    <h2>8. Covarianza</h2>
+    <p class="sec-intro">
+      La covarianza mide el grado en que dos variables se mueven conjuntamente. En inversión, sirve para saber si dos activos
+      tienden a subir y bajar a la vez, en sentido contrario o sin patrón claro.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Covarianza histórica</span>
+      Cov(X,Y) = Σ[(xᵢ − x̄) · (yᵢ − ȳ)] / n
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <h4>Covarianza positiva</h4>
+        <p>Cuando X está por encima de su media, Y también tiende a estarlo. Los activos se mueven en la misma dirección.</p>
+      </div>
+      <div class="stat-card">
+        <h4>Covarianza negativa</h4>
+        <p>Cuando X está por encima de su media, Y tiende a estar por debajo. Los activos se mueven en sentido contrario.</p>
+      </div>
+      <div class="stat-card">
+        <h4>Covarianza cercana a cero</h4>
+        <p>No hay una relación lineal clara. No significa independencia perfecta, solo ausencia de co-movimiento lineal fuerte.</p>
+      </div>
+    </div>
+
+    <div class="card accent-amber">
+      <h3>⚠️ Limitación de la covarianza</h3>
+      <p>
+        La covarianza indica el <strong>signo</strong> de la relación, pero su magnitud es difícil de interpretar porque depende
+        de las unidades de medida de cada variable. Para comparar relaciones entre activos se usa mejor el
+        <strong>coeficiente de correlación</strong>.
+      </p>
+    </div>
+
+    <div class="callout tip">
+      En carteras, la covarianza importa porque el riesgo total no depende solo de la volatilidad individual de los activos,
+      sino también de cómo se mueven entre sí. Esta es la base matemática de la diversificación.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       9. COEFICIENTE DE CORRELACIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>9. Coeficiente de correlación</h2>
+    <p class="sec-intro">
+      El coeficiente de correlación estandariza la covarianza. Su ventaja es que siempre se mueve entre
+      <strong>−1</strong> y <strong>+1</strong>, lo que facilita la interpretación.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Correlación</span>
+      ρₓᵧ = Cov(X,Y) / (σₓ · σᵧ)
+    </div>
+
+    <div class="scale-line">
+      <div class="scale-item"><strong>−1</strong>Relación negativa perfecta</div>
+      <div class="scale-item"><strong>−0,5</strong>Relación negativa moderada</div>
+      <div class="scale-item"><strong>0</strong>Sin relación lineal</div>
+      <div class="scale-item"><strong>+0,5</strong>Relación positiva moderada</div>
+      <div class="scale-item"><strong>+1</strong>Relación positiva perfecta</div>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>ρ = +1</h4>
+        <p>Los activos se mueven perfectamente en la misma dirección. No hay beneficio de diversificación lineal.</p>
+      </div>
+      <div class="concept-box">
+        <h4>ρ = 0</h4>
+        <p>No hay relación lineal. Puede haber diversificación, pero no necesariamente independencia total.</p>
+      </div>
+      <div class="concept-box">
+        <h4>ρ = −1</h4>
+        <p>Relación inversa perfecta. En determinadas ponderaciones puede construirse una cartera sin riesgo.</p>
+      </div>
+      <div class="concept-box">
+        <h4>ρ entre 0 y 1</h4>
+        <p>Es el caso habitual en mercados: activos positivamente correlacionados, pero con algún beneficio de diversificación.</p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <h4>📌 Ejemplo de cálculo</h4>
+      <p>
+        Si <span class="mini-formula">Cov(A,B)=0,003</span>, <span class="mini-formula">σA=10%</span> y
+        <span class="mini-formula">σB=15%</span>, entonces:
+      </p>
+      <p>
+        <span class="mini-formula">ρAB = 0,003 / (0,10 × 0,15) = 0,003 / 0,015 = 0,20</span>
+      </p>
+      <p>
+        La correlación es positiva pero baja. Hay cierta relación directa, pero también potencial de diversificación.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Muy importante</strong>
+        La correlación no mide causalidad. Que dos activos estén correlacionados no significa que uno cause al otro.
+        Para EFA, lo relevante es su interpretación en diversificación y riesgo de cartera.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       10. CORRELACIÓN Y DIVERSIFICACIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>10. Correlación y diversificación</h2>
+    <p>
+      La diversificación funciona cuando los activos no se mueven exactamente igual. Cuanto menor sea la correlación,
+      mayor será el potencial de reducción de volatilidad de la cartera.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Correlación</th>
+            <th>Lectura</th>
+            <th>Efecto en cartera</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>+1</strong></td>
+            <td>Movimiento perfectamente conjunto.</td>
+            <td>No reduce riesgo por diversificación; la volatilidad es combinación lineal.</td>
+          </tr>
+          <tr>
+            <td><strong>Entre 0 y +1</strong></td>
+            <td>Movimiento conjunto imperfecto.</td>
+            <td>Reduce parte del riesgo. Es el caso más habitual entre activos financieros.</td>
+          </tr>
+          <tr>
+            <td><strong>0</strong></td>
+            <td>Sin relación lineal.</td>
+            <td>Mayor diversificación que con correlación positiva.</td>
+          </tr>
+          <tr>
+            <td><strong>Entre −1 y 0</strong></td>
+            <td>Movimiento parcialmente opuesto.</td>
+            <td>Fuerte capacidad de reducción de riesgo.</td>
+          </tr>
+          <tr>
+            <td><strong>−1</strong></td>
+            <td>Movimiento opuesto perfecto.</td>
+            <td>Puede eliminar completamente el riesgo en una combinación concreta.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card accent-green">
+      <h3>Idea que conecta con Markowitz</h3>
+      <p>
+        Una cartera puede tener menos volatilidad que sus activos individuales si las correlaciones son suficientemente bajas.
+        Por eso no basta con elegir activos “buenos” por separado: hay que analizar cómo encajan entre sí.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       11. RECTA DE REGRESIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>11. Recta de regresión</h2>
+    <p class="sec-intro">
+      La regresión lineal permite ajustar una recta que relaciona dos variables. En finanzas, se usa mucho para estudiar
+      la relación entre la rentabilidad de un activo y la rentabilidad del mercado. Esta idea aparecerá después en beta,
+      alfa y modelo de mercado de Sharpe.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Recta de regresión simple</span>
+      y = a + b·x
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Variable dependiente · y</h4>
+        <p>La variable que queremos explicar. Ejemplo: rentabilidad de una acción o de un fondo.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Variable independiente · x</h4>
+        <p>La variable explicativa. Ejemplo: rentabilidad del índice de mercado.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Ordenada en el origen · a</h4>
+        <p>Punto de corte con el eje vertical. En finanzas se asocia conceptualmente al alfa en modelos de mercado.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Pendiente · b</h4>
+        <p>Sensibilidad de y ante cambios en x. En finanzas se relaciona con la beta cuando x es el mercado.</p>
+      </div>
+    </div>
+
+    <h3>Mínimos cuadrados ordinarios</h3>
+    <p>
+      El método de mínimos cuadrados ordinarios elige la recta que minimiza la suma de los errores al cuadrado.
+      Es decir, busca la línea que mejor ajusta los datos reduciendo al máximo la distancia entre los puntos observados
+      y la recta estimada.
+    </p>
+
+    <div class="formula-grid">
+      <div class="formula-card">
+        <h4>Pendiente</h4>
+        <p><span class="mini-formula">b = Cov(X,Y) / Var(X)</span></p>
+        <p>Mide cuánto cambia Y por cada unidad que cambia X.</p>
+      </div>
+      <div class="formula-card">
+        <h4>Ordenada</h4>
+        <p><span class="mini-formula">a = ȳ − b·x̄</span></p>
+        <p>Se obtiene una vez calculada la pendiente.</p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <h4>📌 Ejemplo sencillo</h4>
+      <p>
+        Supón que para un fondo y su índice tenemos:
+        <span class="mini-formula">Cov(X,Y)=0,012</span>,
+        <span class="mini-formula">Var(X)=0,010</span>,
+        <span class="mini-formula">x̄=6%</span> y
+        <span class="mini-formula">ȳ=8%</span>.
+      </p>
+      <p>
+        Pendiente: <span class="mini-formula">b = 0,012 / 0,010 = 1,2</span>
+      </p>
+      <p>
+        Ordenada: <span class="mini-formula">a = 8% − 1,2 × 6% = 0,8%</span>
+      </p>
+      <p>
+        Recta estimada: <span class="mini-formula">Y = 0,8% + 1,2X</span>
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>Lectura financiera:</strong> una pendiente de 1,2 indica que el fondo tiende a moverse más que el índice.
+      Si el índice sube 1%, el modelo estima que el fondo sube 1,2%, más el componente constante de la recta.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       12. COEFICIENTE DE DETERMINACIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>12. Coeficiente de determinación</h2>
+    <p class="sec-intro">
+      El coeficiente de determinación, conocido como <strong>R²</strong>, mide qué proporción de la variabilidad de Y
+      queda explicada por X dentro del modelo lineal.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Coeficiente de determinación</span>
+      R² = ρ²
+    </div>
+
+    <p>
+      En una regresión simple, el R² es el cuadrado del coeficiente de correlación entre X e Y.
+      Su valor se sitúa entre <strong>0</strong> y <strong>1</strong>, o entre <strong>0%</strong> y <strong>100%</strong>.
+    </p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <h4>R² = 0%</h4>
+        <p>El modelo no explica la variación de Y. La variable X no aporta explicación lineal relevante.</p>
+      </div>
+      <div class="stat-card">
+        <h4>R² = 60%</h4>
+        <p>El 60% de la variación de Y se explica por X; el 40% queda sin explicar por este modelo.</p>
+      </div>
+      <div class="stat-card">
+        <h4>R² = 100%</h4>
+        <p>Ajuste perfecto: toda la variación de Y queda explicada por X. En mercados reales es raro.</p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <h4>📌 Ejemplo</h4>
+      <p>
+        Si la correlación entre una acción y el índice es <span class="mini-formula">ρ = 0,80</span>, entonces:
+      </p>
+      <p>
+        <span class="mini-formula">R² = 0,80² = 0,64 = 64%</span>
+      </p>
+      <p>
+        El 64% de la variación de la acción queda explicada por la variación del índice. El 36% restante
+        responde a factores específicos de la acción u otros factores no incluidos en el modelo.
+      </p>
+    </div>
+
+    <div class="card accent-amber">
+      <h3>⚠️ R² alto no significa “mejor inversión”</h3>
+      <p>
+        Un R² alto solo significa que el modelo explica bien la variación de la rentabilidad respecto al factor usado.
+        No significa que la rentabilidad sea alta, que el activo sea seguro ni que esté barato. Es una medida de ajuste,
+        no de calidad de inversión.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       13. CONEXIÓN CON CARTERAS Y CAPM
+       ============================================================ -->
+  <div class="sec">
+    <h2>13. Conexión con carteras y CAPM</h2>
+    <p>
+      Esta sección prepara varias piezas que reaparecen más adelante en gestión de carteras.
+      Conviene tenerlas conectadas desde ya.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto estadístico</th>
+            <th>Uso financiero posterior</th>
+            <th>Idea clave</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Media / esperanza</strong></td>
+            <td>Rentabilidad esperada de activos y carteras.</td>
+            <td>Qué rendimiento se espera obtener.</td>
+          </tr>
+          <tr>
+            <td><strong>Varianza / desviación típica</strong></td>
+            <td>Riesgo de un activo o cartera.</td>
+            <td>Cuánto puede desviarse la rentabilidad respecto a su media.</td>
+          </tr>
+          <tr>
+            <td><strong>Covarianza</strong></td>
+            <td>Riesgo conjunto entre activos.</td>
+            <td>Cómo se mueven dos activos entre sí.</td>
+          </tr>
+          <tr>
+            <td><strong>Correlación</strong></td>
+            <td>Diversificación.</td>
+            <td>Cuanto menor sea, mayor potencial de reducción de riesgo.</td>
+          </tr>
+          <tr>
+            <td><strong>Regresión</strong></td>
+            <td>Beta, alfa y modelo de mercado.</td>
+            <td>Relación entre un activo y un índice o factor explicativo.</td>
+          </tr>
+          <tr>
+            <td><strong>R²</strong></td>
+            <td>Calidad del ajuste de la regresión.</td>
+            <td>Qué parte de la variación queda explicada por el modelo.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout tip">
+      Dominar esta sección hace mucho más fácil el Módulo 3: volatilidad de carteras, diversificación,
+      beta, alfa, CAPM, tracking error y medidas de rentabilidad ajustada al riesgo.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       14. TRAMPAS DE EXAMEN
+       ============================================================ -->
+  <div class="sec">
+    <h2>14. Trampas frecuentes de examen</h2>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>1. Media simple vs esperanza</h4>
+        <p>Datos históricos → media simple. Escenarios con probabilidades → esperanza ponderada.</p>
+      </div>
+      <div class="concept-box">
+        <h4>2. Varianza vs desviación típica</h4>
+        <p>La desviación típica es la raíz de la varianza. No entregues varianza cuando preguntan volatilidad.</p>
+      </div>
+      <div class="concept-box">
+        <h4>3. Signo de la covarianza</h4>
+        <p>Positiva: se mueven juntos. Negativa: se mueven en sentido contrario. Cero: sin relación lineal clara.</p>
+      </div>
+      <div class="concept-box">
+        <h4>4. Correlación fuera de rango</h4>
+        <p>Una correlación nunca puede ser menor que −1 ni mayor que +1. Si sale 1,4, hay error de cálculo.</p>
+      </div>
+      <div class="concept-box">
+        <h4>5. R² no tiene signo</h4>
+        <p>R² es el cuadrado de la correlación en regresión simple, por tanto no puede ser negativo.</p>
+      </div>
+      <div class="concept-box">
+        <h4>6. Regresión no implica causalidad</h4>
+        <p>Una recta ajustada mide relación estadística, no prueba que X cause Y.</p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Checklist antes de responder</strong>
+        Identifica si el problema usa datos históricos o escenarios, revisa unidades, calcula primero la media o esperanza,
+        no confundas varianza con desviación típica y recuerda que la correlación siempre está entre −1 y +1.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       15. RESUMEN
+       ============================================================ -->
+  <div class="sec">
+    <h2>15. Resumen operativo</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>Fórmula básica</th>
+            <th>Interpretación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Media aritmética</strong></td>
+            <td><span class="mini-formula">x̄ = Σxᵢ/n</span></td>
+            <td>Promedio de una serie histórica.</td>
+          </tr>
+          <tr>
+            <td><strong>Esperanza matemática</strong></td>
+            <td><span class="mini-formula">E(R)=ΣpᵢRᵢ</span></td>
+            <td>Rentabilidad esperada ponderada por probabilidades.</td>
+          </tr>
+          <tr>
+            <td><strong>Varianza</strong></td>
+            <td><span class="mini-formula">σ²=Σ(xᵢ−x̄)²/n</span></td>
+            <td>Dispersión de los datos respecto a la media.</td>
+          </tr>
+          <tr>
+            <td><strong>Desviación típica</strong></td>
+            <td><span class="mini-formula">σ=√σ²</span></td>
+            <td>Volatilidad o riesgo expresado en la misma unidad que la rentabilidad.</td>
+          </tr>
+          <tr>
+            <td><strong>Covarianza</strong></td>
+            <td><span class="mini-formula">Cov(X,Y)=Σ[(xᵢ−x̄)(yᵢ−ȳ)]/n</span></td>
+            <td>Co-movimiento entre dos variables.</td>
+          </tr>
+          <tr>
+            <td><strong>Correlación</strong></td>
+            <td><span class="mini-formula">ρ=Cov/(σx·σy)</span></td>
+            <td>Relación lineal estandarizada entre −1 y +1.</td>
+          </tr>
+          <tr>
+            <td><strong>Regresión</strong></td>
+            <td><span class="mini-formula">y=a+b·x</span></td>
+            <td>Recta que ajusta la relación entre dos variables.</td>
+          </tr>
+          <tr>
+            <td><strong>Coeficiente de determinación</strong></td>
+            <td><span class="mini-formula">R²=ρ²</span></td>
+            <td>Porcentaje de variación explicada por el modelo.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Lo que debes dominar</strong>
+        Calcular media y esperanza, obtener varianza y desviación típica, interpretar covarianza y correlación,
+        estimar una recta de regresión simple y entender el significado de R².
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-nav">
+    <a class="nav-btn" href="m1-b2-seccion-f-rentas-financieras.html">← Sección F · Rentas financieras</a>
+    <a class="nav-btn" href="m1-b3-seccion-a-componentes-sistema-financiero.html">Bloque 3 · Sistema financiero →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 2 · Sección G · Conceptos básicos de estadística · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B2 · Sección D — Tipos de interés spot y forward · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .concept-grid { grid-template-columns: 1fr; } }
+
+    .concept-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .concept-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      margin-bottom: .35rem;
+      color: var(--navy);
+    }
+    .concept-box p, .concept-box ul {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .concept-box ul { padding-left: 1.1rem; }
+    .concept-box li { margin: .25rem 0; }
+
+    .formula-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .formula-grid { grid-template-columns: 1fr; } }
+
+    .formula-card {
+      background: var(--bg-alt);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+    }
+    .formula-card h4 {
+      font-family: var(--font-ui);
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin: 0 0 .45rem 0;
+    }
+    .formula-card p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: .25rem 0 0;
+    }
+    .mini-formula {
+      display: inline-block;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: var(--fs-xs);
+      color: var(--navy);
+      background: var(--navy-light);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px 8px;
+      margin: 2px 0;
+    }
+
+    .timeline-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.1rem 1.2rem;
+      margin: 1rem 0;
+      box-shadow: var(--shadow);
+    }
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 84px 1fr 84px 1fr 84px;
+      gap: .5rem;
+      align-items: center;
+      font-family: var(--font-ui);
+      font-size: var(--fs-xs);
+    }
+    @media (max-width: 560px) {
+      .timeline-row { grid-template-columns: 1fr; }
+      .time-arrow { min-height: 18px; transform: rotate(90deg); margin: .3rem auto; width: 60px; }
+    }
+    .time-node {
+      background: var(--navy-light);
+      border: 1.5px solid var(--navy);
+      color: var(--navy);
+      border-radius: 12px;
+      padding: .45rem .55rem;
+      text-align: center;
+      font-weight: 800;
+    }
+    .time-arrow {
+      position: relative;
+      height: 3px;
+      background: var(--border);
+      border-radius: 999px;
+    }
+    .time-arrow::after {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border-top: 3px solid var(--border);
+      border-right: 3px solid var(--border);
+      transform: translateY(-50%) rotate(45deg);
+      background: transparent;
+    }
+    .timeline-caption {
+      font-family: var(--font-ui);
+      font-size: var(--fs-xs);
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: .8rem;
+    }
+
+    .curve-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 720px) { .curve-grid { grid-template-columns: 1fr; } }
+
+    .curve-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+      border-top: 5px solid var(--navy);
+    }
+    .curve-box.normal { border-top-color: var(--green); }
+    .curve-box.flat { border-top-color: var(--amber); }
+    .curve-box.inverted { border-top-color: var(--danger); }
+    .curve-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: var(--fs-sm);
+      margin: 0 0 .4rem 0;
+      color: var(--navy);
+    }
+    .curve-box p, .curve-box ul {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .curve-box ul { padding-left: 1.1rem; margin-top: .3rem; }
+    .curve-box li { margin: .25rem 0; }
+
+    .example-steps { counter-reset: step; margin: 1rem 0; }
+    .example-step {
+      counter-increment: step;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: .85rem 1rem .85rem 3rem;
+      margin-bottom: .65rem;
+      position: relative;
+      font-size: var(--fs-sm);
+      color: var(--text-soft);
+      line-height: 1.65;
+    }
+    .example-step::before {
+      content: counter(step);
+      position: absolute;
+      left: 1rem;
+      top: .85rem;
+      width: 1.35rem;
+      height: 1.35rem;
+      border-radius: 50%;
+      background: var(--navy);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-ui);
+      font-size: var(--fs-xs);
+      font-weight: 900;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: .72rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+    .tag-spot { background: var(--navy-light); color: var(--navy); border: 1px solid var(--navy); }
+    .tag-forward { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
+    .tag-risk { background: var(--amber-light); color: var(--amber); border: 1px solid var(--amber); }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B2 · D</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Bloque 2</a>
+    <span class="sep">›</span>
+    <span>Sección D</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 2 · Sección D · Conocimiento + Análisis + Aplicación</div>
+    <h1>Tipos de interés spot y forward</h1>
+    <p class="hero-sub">
+      Curva de tipos · Tipos spot · Tipos forward · Cálculo de tipos implícitos a partir de tipos spot ·
+      Interpretación financiera y trampas habituales de examen.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. IDEA CENTRAL
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Idea central: el precio del dinero depende del plazo</h2>
+    <p class="sec-intro">
+      En finanzas, el tipo de interés no es único. Normalmente existe un tipo para cada plazo:
+      3 meses, 6 meses, 1 año, 2 años, 5 años, 10 años, etc. La relación entre esos tipos y sus
+      vencimientos forma la <strong>curva de tipos</strong>. Esta sección enseña a leer esa curva y a calcular
+      el tipo forward implícito que conecta dos tipos spot.
+    </p>
+
+    <div class="card accent-navy">
+      <h3>La intuición</h3>
+      <p>
+        Un euro hoy puede invertirse a varios plazos. Puedes invertirlo durante un año, durante dos
+        años, o invertirlo un año y luego reinvertirlo otro año. Si no hubiera oportunidades de arbitraje,
+        esas alternativas deben ser coherentes entre sí. Los <strong>tipos forward</strong> nacen justo de esa
+        coherencia: son los tipos futuros que hacen indiferente invertir directamente a largo plazo o
+        encadenar inversiones más cortas.
+      </p>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-row">
+        <div class="time-node">Hoy<br>t = 0</div>
+        <div class="time-arrow"></div>
+        <div class="time-node">Año 1<br>t = 1</div>
+        <div class="time-arrow"></div>
+        <div class="time-node">Año 2<br>t = 2</div>
+      </div>
+      <p class="timeline-caption">
+        El tipo spot a 2 años lleva el dinero desde hoy hasta el año 2. El tipo spot a 1 año lleva el dinero
+        desde hoy hasta el año 1. El tipo forward 1-2 es el tipo implícito para el tramo que va del año 1 al año 2.
+      </p>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4><span class="tag tag-spot">Spot</span> Tipo desde hoy</h4>
+        <p>
+          Tipo aplicable a una operación que empieza hoy y termina en un vencimiento futuro concreto.
+          Ejemplo: tipo spot a 1 año, tipo spot a 2 años, tipo spot a 10 años.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4><span class="tag tag-forward">Forward</span> Tipo entre dos fechas futuras</h4>
+        <p>
+          Tipo implícito acordado hoy para un período que comienza en el futuro. Ejemplo: tipo forward
+          del año 1 al año 2, calculado a partir de los tipos spot a 1 y 2 años.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Curva de tipos</h4>
+        <p>
+          Representación gráfica de los tipos de interés para distintos vencimientos. En el eje horizontal
+          está el plazo; en el eje vertical, el tipo de interés correspondiente a cada plazo.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>ETTI</h4>
+        <p>
+          La Estructura Temporal de Tipos de Interés describe cómo varían los tipos según el vencimiento.
+          En la práctica, se aproxima mediante la curva de rentabilidades de bonos o instrumentos sin cupón.
+        </p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        No confundas <strong>spot</strong> con <strong>forward</strong>. Spot = empieza hoy. Forward = empieza en una fecha futura,
+        aunque se calcula o pacta hoy. Esta distinción es la base de todos los ejercicios de esta sección.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. TIPO SPOT
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Tipos de interés spot</h2>
+    <p class="sec-intro">
+      El tipo spot es el tipo de interés vigente hoy para una inversión o financiación que empieza hoy
+      y vence en una fecha determinada. En ejercicios de valoración, suele utilizarse para descontar
+      flujos de caja concretos al plazo que corresponda.
+    </p>
+
+    <h3>Definición operativa</h3>
+    <div class="card accent-green">
+      <p>
+        El <strong>tipo spot a n años</strong>, normalmente expresado como <em>s<sub>n</sub></em>, es el tipo que permite
+        capitalizar o descontar dinero desde hoy hasta el año <em>n</em>. Si inviertes 1 € hoy al tipo spot
+        a 2 años, el capital final será <strong>(1 + s<sub>2</sub>)²</strong>, suponiendo capitalización anual compuesta.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Capitalización con tipo spot anual efectivo</span>
+      Capital final = C₀ × (1 + sₙ)ⁿ
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Descuento con tipo spot anual efectivo</span>
+      Valor actual = Flujo futuro / (1 + sₙ)ⁿ
+    </div>
+
+    <h3>Relación con bonos cupón cero</h3>
+    <p>
+      Una forma limpia de entender los tipos spot es pensar en bonos cupón cero. Un bono cupón cero no
+      paga intereses intermedios: solo paga un importe final al vencimiento. Por eso, su rentabilidad
+      hasta vencimiento para cada plazo refleja de forma directa un tipo spot.
+    </p>
+
+    <div class="formula-grid">
+      <div class="formula-card">
+        <h4>Precio de un cupón cero</h4>
+        <span class="mini-formula">P₀ = N / (1 + sₙ)ⁿ</span>
+        <p>
+          P₀ es el precio hoy, N es el nominal que se recibirá al vencimiento y sₙ es el tipo spot del plazo n.
+        </p>
+      </div>
+      <div class="formula-card">
+        <h4>Tipo spot implícito</h4>
+        <span class="mini-formula">sₙ = (N / P₀)^(1/n) − 1</span>
+        <p>
+          Si conoces el precio actual del bono cupón cero y su nominal, puedes despejar el tipo spot.
+        </p>
+      </div>
+    </div>
+
+    <div class="card accent-amber">
+      <h3>⚠️ Matiz importante</h3>
+      <p>
+        En muchos ejercicios se usan tipos anuales efectivos y vencimientos en años. Pero en la práctica
+        los tipos pueden estar expresados con distintas convenciones: simple, compuesto, nominal anual,
+        efectivo anual, semestral, continuo, etc. Para el examen, la clave es no mezclar convenciones:
+        usa siempre la misma base temporal y la misma forma de capitalización.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Si un flujo vence dentro de 1 año, se descuenta con el spot a 1 año. Si vence dentro de 2 años,
+        con el spot a 2 años. No uses el mismo tipo para todos los flujos salvo que el enunciado lo indique.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. CURVA DE TIPOS
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. La curva de tipos</h2>
+    <p class="sec-intro">
+      La curva de tipos resume el coste del dinero para distintos plazos. Es una herramienta central
+      para interpretar expectativas de mercado, valorar renta fija, detectar tensiones de liquidez y
+      aproximar el ciclo económico.
+    </p>
+
+    <h3>Formas habituales de la curva</h3>
+    <div class="curve-grid">
+      <div class="curve-box normal">
+        <h4>Curva normal o creciente</h4>
+        <p>
+          Los tipos largos son superiores a los tipos cortos. Es la forma más habitual cuando la economía
+          crece y los inversores exigen más rentabilidad por prestar a más plazo.
+        </p>
+        <ul>
+          <li>Se asocia a crecimiento esperado.</li>
+          <li>Incluye prima por plazo o liquidez.</li>
+          <li>Forward futuros suelen salir altos.</li>
+        </ul>
+      </div>
+      <div class="curve-box flat">
+        <h4>Curva plana</h4>
+        <p>
+          Los tipos cortos y largos son parecidos. Puede indicar transición de ciclo, incertidumbre o
+          expectativa de que los tipos oficiales no cambien mucho.
+        </p>
+        <ul>
+          <li>Señal ambigua.</li>
+          <li>Puede aparecer al final de expansiones.</li>
+          <li>Reduce el margen de intermediación bancaria.</li>
+        </ul>
+      </div>
+      <div class="curve-box inverted">
+        <h4>Curva invertida</h4>
+        <p>
+          Los tipos cortos superan a los tipos largos. Suele interpretarse como expectativa de bajadas
+          futuras de tipos, normalmente por desaceleración o riesgo de recesión.
+        </p>
+        <ul>
+          <li>Señal de tensión macro.</li>
+          <li>No garantiza recesión, pero alerta.</li>
+          <li>Forward futuros suelen salir bajos.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Lectura financiera de la curva</h3>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Expectativas de tipos oficiales</h4>
+        <p>
+          Si el mercado espera que el banco central suba tipos, la parte corta/media de la curva puede
+          repuntar. Si espera bajadas futuras, los tipos largos pueden caer antes que los cortos.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Prima por plazo</h4>
+        <p>
+          Prestar a largo plazo suele exigir compensación adicional por incertidumbre, inflación futura,
+          liquidez y riesgo de duración. Por eso una curva creciente no implica solo expectativas de subidas.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Inflación esperada</h4>
+        <p>
+          Tipos largos altos pueden reflejar mayor inflación esperada, mayor tipo real esperado o mayor
+          prima de riesgo. Hay que separar componentes antes de sacar conclusiones.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Riesgo y liquidez</h4>
+        <p>
+          En momentos de estrés, los inversores pueden comprar deuda pública a largo plazo como refugio,
+          bajando sus rentabilidades y aplanando o invirtiendo la curva.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      Para EFA, no necesitas convertirte en trader de curva. Lo esencial es entender qué representa la
+      curva, cómo se relacionan spot y forward, y qué interpretación básica tienen las formas creciente,
+      plana e invertida.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. TIPO FORWARD
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Tipos forward</h2>
+    <p class="sec-intro">
+      El tipo forward es el tipo de interés implícito para un período futuro. Se obtiene comparando
+      dos inversiones equivalentes: invertir directamente hasta un vencimiento largo o invertir a corto
+      y reinvertir después al tipo forward.
+    </p>
+
+    <h3>Definición con ejemplo verbal</h3>
+    <div class="card accent-navy">
+      <p>
+        Imagina que tienes dos opciones para invertir 1 € durante dos años:
+      </p>
+      <ul>
+        <li><strong>Opción 1:</strong> invertir hoy a 2 años al tipo spot a 2 años.</li>
+        <li><strong>Opción 2:</strong> invertir hoy a 1 año al tipo spot a 1 año y, al acabar ese año, reinvertir otro año.</li>
+      </ul>
+      <p style="margin-top:.6rem;">
+        El tipo que hace que ambas opciones den el mismo resultado es el <strong>tipo forward del año 1 al año 2</strong>.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Relación fundamental sin arbitraje</span>
+      (1 + s₂)² = (1 + s₁) × (1 + f₁,₂)
+    </div>
+
+    <p>
+      Esta ecuación dice que invertir directamente dos años debe equivaler a invertir un año y luego
+      reinvertir otro año al tipo forward implícito. Si no fuera así, habría arbitraje: una estrategia
+      dominaría sistemáticamente a la otra sin riesgo comparable.
+    </p>
+
+    <h3>Fórmula general</h3>
+    <div class="formula">
+      <span class="formula-label">Tipo forward entre m y n años · capitalización anual compuesta</span>
+      fₘ,ₙ = [(1 + sₙ)ⁿ / (1 + sₘ)ᵐ]^(1/(n−m)) − 1
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>sₘ</h4>
+        <p>Tipo spot hasta el vencimiento corto <strong>m</strong>. Ejemplo: spot a 1 año.</p>
+      </div>
+      <div class="concept-box">
+        <h4>sₙ</h4>
+        <p>Tipo spot hasta el vencimiento largo <strong>n</strong>. Ejemplo: spot a 2 años.</p>
+      </div>
+      <div class="concept-box">
+        <h4>fₘ,ₙ</h4>
+        <p>Tipo forward implícito para el período futuro entre <strong>m</strong> y <strong>n</strong>.</p>
+      </div>
+      <div class="concept-box">
+        <h4>n − m</h4>
+        <p>Duración del tramo forward. Si va del año 1 al 2, dura 1 año. Si va del año 2 al 5, dura 3 años.</p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        La fórmula se memoriza mejor como igualdad de capitales: <strong>capital acumulado hasta n</strong> dividido
+        entre <strong>capital acumulado hasta m</strong>. Luego se toma la raíz correspondiente al número de años del tramo.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. EJEMPLO 1
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. Ejemplo: forward 1 año dentro de 1 año</h2>
+    <p class="sec-intro">
+      Este es el ejercicio base. Si entiendes este caso, entiendes la lógica de todos los forwards.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Enunciado</h3>
+      <p>
+        El tipo spot a 1 año es <strong>3%</strong>. El tipo spot a 2 años es <strong>4%</strong> anual efectivo.
+        Calcula el tipo forward implícito del año 1 al año 2.
+      </p>
+    </div>
+
+    <div class="example-steps">
+      <div class="example-step">
+        Planteamos la igualdad sin arbitraje:<br>
+        <span class="mini-formula">(1 + s₂)² = (1 + s₁) × (1 + f₁,₂)</span>
+      </div>
+      <div class="example-step">
+        Sustituimos los datos:<br>
+        <span class="mini-formula">(1,04)² = (1,03) × (1 + f₁,₂)</span>
+      </div>
+      <div class="example-step">
+        Despejamos el forward:<br>
+        <span class="mini-formula">1 + f₁,₂ = (1,04)² / 1,03</span>
+      </div>
+      <div class="example-step">
+        Calculamos:<br>
+        <span class="mini-formula">1 + f₁,₂ = 1,0816 / 1,03 = 1,050097</span><br>
+        <span class="mini-formula">f₁,₂ = 5,0097%</span>
+      </div>
+    </div>
+
+    <div class="card accent-navy">
+      <h3>Interpretación</h3>
+      <p>
+        Aunque el spot a 2 años sea del 4%, el forward del segundo año sale aproximadamente <strong>5,01%</strong>.
+        Esto ocurre porque el primer año solo renta al 3%; para que la rentabilidad acumulada de dos años
+        equivalga al 4% anual compuesto, el segundo año implícito debe ser superior al 4%.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Trampa típica</strong>
+        No calcules el forward como media simple ni como diferencia entre tipos. Si s₁ = 3% y s₂ = 4%,
+        el forward no es 1%. Tampoco es 4%. Se calcula por composición: en este caso, aproximadamente 5,01%.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       6. EJEMPLO 2
+       ============================================================ -->
+  <div class="sec">
+    <h2>6. Ejemplo: forward plurianual entre año 2 y año 5</h2>
+    <p class="sec-intro">
+      El mismo razonamiento sirve cuando el tramo forward dura más de un año. La única diferencia es
+      que hay que tomar una raíz para convertir el acumulado del tramo en tipo anual equivalente.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Enunciado</h3>
+      <p>
+        El tipo spot a 2 años es <strong>3%</strong> y el tipo spot a 5 años es <strong>4,20%</strong>, ambos anuales efectivos.
+        Calcula el tipo forward anual implícito entre el año 2 y el año 5.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Aplicación de la fórmula general</span>
+      f₂,₅ = [(1,042)⁵ / (1,03)²]^(1/3) − 1
+    </div>
+
+    <div class="example-steps">
+      <div class="example-step">
+        Capital acumulado a 5 años al spot de 5 años:<br>
+        <span class="mini-formula">(1,042)⁵ = 1,2281 aprox.</span>
+      </div>
+      <div class="example-step">
+        Capital acumulado a 2 años al spot de 2 años:<br>
+        <span class="mini-formula">(1,03)² = 1,0609</span>
+      </div>
+      <div class="example-step">
+        Ratio del tramo entre año 2 y año 5:<br>
+        <span class="mini-formula">1,2281 / 1,0609 = 1,1576 aprox.</span>
+      </div>
+      <div class="example-step">
+        Como el tramo dura 3 años, tomamos raíz cúbica:<br>
+        <span class="mini-formula">f₂,₅ = 1,1576^(1/3) − 1 = 5,00% aprox.</span>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      Regla práctica: si el forward cubre varios años, no olvides anualizar el tramo. En el ejemplo, el ratio
+      acumulado entre año 2 y año 5 no es el tipo anual: hay que convertirlo en tipo anual equivalente.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       7. INTERPRETACIÓN DE FORWARDS
+       ============================================================ -->
+  <div class="sec">
+    <h2>7. ¿El forward es una predicción?</h2>
+    <p class="sec-intro">
+      El tipo forward puede interpretarse como un tipo futuro implícito en la curva actual, pero no debe
+      confundirse con una predicción segura. Es una señal de mercado, no una garantía.
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Lo que sí dice</h4>
+        <ul>
+          <li>Qué tipo futuro haría coherentes los tipos spot actuales.</li>
+          <li>Qué rentabilidad implícita descuenta la curva para un tramo futuro.</li>
+          <li>Qué precio relativo existe hoy entre vencimientos.</li>
+        </ul>
+      </div>
+      <div class="concept-box">
+        <h4>Lo que no garantiza</h4>
+        <ul>
+          <li>Que el tipo futuro real vaya a coincidir con el forward.</li>
+          <li>Que el mercado esté “acertando” en su expectativa.</li>
+          <li>Que no exista prima por riesgo, liquidez o duración.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card accent-amber">
+      <h3>⚠️ Forward ≠ forecast puro</h3>
+      <p>
+        Bajo la teoría de expectativas puras, los forwards reflejarían expectativas de tipos futuros.
+        Pero en mercados reales también incorporan primas de riesgo, prima por plazo, liquidez,
+        oferta y demanda de bonos, compras de bancos centrales y preferencias regulatorias.
+        Por eso conviene hablar de <strong>tipo implícito</strong>, no de profecía.
+      </p>
+    </div>
+
+    <h3>Relación con la política monetaria</h3>
+    <p>
+      La parte corta de la curva suele estar muy influida por las expectativas sobre los tipos oficiales
+      del banco central. Si el mercado espera bajadas de tipos, los forwards de corto y medio plazo pueden
+      caer. Si espera subidas, pueden subir. Aun así, los forwards de plazos largos incorporan más elementos:
+      inflación esperada, prima temporal, riesgo fiscal, crecimiento real esperado y demanda global de deuda.
+    </p>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Si una curva está invertida, la lectura habitual es que el mercado descuenta tipos futuros más bajos.
+        Pero no digas que “garantiza recesión” o que “garantiza bajadas”: en finanzas casi nada garantiza nada.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       8. DESCUENTO DE FLUJOS CON CURVA SPOT
+       ============================================================ -->
+  <div class="sec">
+    <h2>8. Uso de tipos spot para valorar flujos</h2>
+    <p class="sec-intro">
+      Una aplicación directa de la curva spot es valorar activos con varios flujos futuros. Cada flujo
+      debe descontarse con el tipo spot correspondiente a su vencimiento.
+    </p>
+
+    <div class="card accent-navy">
+      <h3>Ejemplo conceptual</h3>
+      <p>
+        Supón un bono que paga 30 € dentro de 1 año, 30 € dentro de 2 años y 1.030 € dentro de 3 años.
+        Si la curva spot indica tipos distintos para 1, 2 y 3 años, el precio teórico será:
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Valoración con curva spot</span>
+      P₀ = 30/(1+s₁) + 30/(1+s₂)² + 1.030/(1+s₃)³
+    </div>
+
+    <p>
+      Esta lógica es más precisa que descontar todos los flujos con una única TIR plana, porque respeta
+      la estructura temporal de tipos. En la práctica, la TIR resume el precio en un único número, pero
+      la curva spot muestra mejor de dónde procede el valor de cada flujo.
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Curva spot</h4>
+        <p>
+          Sirve para valorar cada flujo con su tipo de vencimiento. Es una herramienta de valoración por tramos.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>TIR</h4>
+        <p>
+          Es el tipo único que iguala el precio del bono con el valor actual de todos sus flujos. Resume, pero oculta la forma de la curva.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      En Bloque 4 se profundizará en renta fija y curva de rentabilidades. Aquí basta con dominar la idea:
+      spot para descontar desde hoy; forward para obtener tipos futuros implícitos entre vencimientos.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       9. CONVENCIONES Y ERRORES
+       ============================================================ -->
+  <div class="sec">
+    <h2>9. Convenciones y errores típicos</h2>
+    <p class="sec-intro">
+      La mayoría de errores en ejercicios de spot-forward no vienen de la teoría, sino de aplicar mal
+      exponentes, plazos, porcentajes o convenciones de capitalización.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Error</th>
+            <th>Por qué está mal</th>
+            <th>Cómo evitarlo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Usar porcentajes como números enteros</strong></td>
+            <td>Meter 4 en lugar de 0,04 destruye la fórmula.</td>
+            <td>Convierte siempre 4% en 0,04 antes de calcular.</td>
+          </tr>
+          <tr>
+            <td><strong>Restar tipos spot</strong></td>
+            <td>El forward no es s₂ − s₁. Se obtiene por capitalización compuesta.</td>
+            <td>Usa la igualdad: (1+s₂)² = (1+s₁)(1+f₁,₂).</td>
+          </tr>
+          <tr>
+            <td><strong>Olvidar la raíz</strong></td>
+            <td>Cuando el tramo forward dura varios años, el ratio acumulado no es tipo anual.</td>
+            <td>Eleva a 1/(n−m) para anualizar el tramo.</td>
+          </tr>
+          <tr>
+            <td><strong>Mezclar tipos simples y compuestos</strong></td>
+            <td>Una fórmula compuesta no puede mezclarse con tipos simples sin adaptar.</td>
+            <td>Respeta la convención del enunciado. Si no dice nada, suele asumirse capitalización compuesta efectiva.</td>
+          </tr>
+          <tr>
+            <td><strong>Confundir vencimiento con tramo</strong></td>
+            <td>f₂,₅ no dura 5 años: dura 3 años, del año 2 al año 5.</td>
+            <td>Calcula siempre n−m antes de aplicar la fórmula.</td>
+          </tr>
+          <tr>
+            <td><strong>Tratar el forward como certeza</strong></td>
+            <td>El forward es implícito de mercado, no garantía del tipo futuro realizado.</td>
+            <td>Di “tipo implícito” o “tipo descontado por la curva”, no “tipo seguro futuro”.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card accent-danger">
+      <h3>⚠️ Cuidado con el enunciado</h3>
+      <p>
+        Si el examen da tipos para 6 meses, 1 año o 18 meses, adapta los exponentes al plazo real.
+        No conviertas todos los ejercicios mentalmente a años enteros salvo que el enunciado lo permita.
+        La aritmética de tipos funciona solo si la línea temporal está bien definida.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       10. RESUMEN DE EXAMEN
+       ============================================================ -->
+  <div class="sec">
+    <h2>10. Resumen de examen</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>Definición</th>
+            <th>Fórmula / idea clave</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Tipo spot</strong></td>
+            <td>Tipo que empieza hoy y vence en un plazo determinado.</td>
+            <td><span class="mini-formula">CFₙ / (1+sₙ)ⁿ</span></td>
+          </tr>
+          <tr>
+            <td><strong>Curva de tipos</strong></td>
+            <td>Relación entre tipos de interés y vencimientos.</td>
+            <td>Creciente, plana o invertida.</td>
+          </tr>
+          <tr>
+            <td><strong>Tipo forward</strong></td>
+            <td>Tipo implícito para un período futuro.</td>
+            <td><span class="mini-formula">fₘ,ₙ = [(1+sₙ)ⁿ/(1+sₘ)ᵐ]^(1/(n−m))−1</span></td>
+          </tr>
+          <tr>
+            <td><strong>Relación sin arbitraje</strong></td>
+            <td>Dos estrategias equivalentes deben dar el mismo capital final.</td>
+            <td><span class="mini-formula">Largo plazo = corto plazo × forward</span></td>
+          </tr>
+          <tr>
+            <td><strong>Curva creciente</strong></td>
+            <td>Tipos largos superiores a cortos.</td>
+            <td>Suele asociarse a crecimiento, inflación esperada o prima por plazo.</td>
+          </tr>
+          <tr>
+            <td><strong>Curva invertida</strong></td>
+            <td>Tipos cortos superiores a largos.</td>
+            <td>Suele indicar expectativas de bajadas futuras de tipos o desaceleración.</td>
+          </tr>
+          <tr>
+            <td><strong>Forward como señal</strong></td>
+            <td>Tipo futuro implícito en precios actuales.</td>
+            <td>No es una predicción segura: incorpora primas y condiciones de mercado.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Lo que debes saber hacer</strong>
+        Construir la curva a partir de tipos spot, interpretar su forma básica y calcular un tipo forward
+        a partir de dos tipos spot. Este apartado es pequeño en teoría, pero muy agradecido en examen:
+        fórmula clara, pasos mecánicos y pocas ambigüedades si respetas los plazos.
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-nav">
+    <a class="nav-btn" href="m1-b2-seccion-c-descuento.html">← Sección C · Descuento</a>
+    <a class="nav-btn" href="m1-b2-seccion-e-rentabilidad.html">Sección E · Rentabilidad →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 2 · Sección D · Tipos de interés spot y forward · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

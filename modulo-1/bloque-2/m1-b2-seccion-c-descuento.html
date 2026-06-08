@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B2 · Sección C — Descuento · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .concept-grid { grid-template-columns: 1fr; } }
+
+    .concept-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .concept-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      margin-bottom: .35rem;
+      color: var(--navy);
+    }
+    .concept-box p, .concept-box ul {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .concept-box ul { padding-left: 1.1rem; }
+    .concept-box li { margin: .25rem 0; }
+
+    .formula-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .formula-grid { grid-template-columns: 1fr; } }
+
+    .formula-card {
+      background: var(--bg-alt);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+    }
+    .formula-card h4 {
+      font-family: var(--font-ui);
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin: 0 0 .45rem 0;
+    }
+    .formula-card p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: .25rem 0 0;
+    }
+    .mini-formula {
+      display: inline-block;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: var(--fs-xs);
+      color: var(--navy);
+      background: var(--navy-light);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px 8px;
+      margin: 2px 0;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .comparison-grid { grid-template-columns: 1fr; } }
+
+    .comparison-box {
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      border: 1.5px solid var(--border);
+    }
+    .comparison-box.comercial {
+      background: var(--amber-light);
+      border-color: var(--amber);
+    }
+    .comparison-box.racional {
+      background: var(--green-light);
+      border-color: var(--green);
+    }
+    .comparison-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: var(--fs-sm);
+      margin: 0 0 .4rem 0;
+    }
+    .comparison-box.comercial h4 { color: var(--amber); }
+    .comparison-box.racional h4 { color: var(--green); }
+    .comparison-box p, .comparison-box li {
+      font-size: var(--fs-xs);
+      line-height: 1.65;
+      color: var(--text-soft);
+      margin: 0;
+    }
+    .comparison-box ul { padding-left: 1.1rem; margin-top: .3rem; }
+    .comparison-box li { margin: .25rem 0; }
+
+    .example-steps {
+      counter-reset: step;
+      margin: 1rem 0;
+    }
+    .example-step {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: .75rem;
+      align-items: start;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 13px;
+      padding: .85rem 1rem;
+      margin-bottom: .65rem;
+    }
+    .example-step::before {
+      content: counter(step);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--navy-light);
+      border: 1.5px solid var(--navy);
+      color: var(--navy);
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: var(--fs-xs);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: .1rem;
+    }
+    .example-step p {
+      font-size: var(--fs-sm);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: .72rem;
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: 999px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+    .tag-green { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
+    .tag-navy { background: var(--navy-light); color: var(--navy); border: 1px solid var(--navy); }
+    .tag-amber { background: var(--amber-light); color: var(--amber); border: 1px solid var(--amber); }
+    .tag-danger { background: var(--danger-light); color: var(--danger); border: 1px solid var(--danger); }
+
+    .time-note {
+      font-size: var(--fs-xs);
+      color: var(--muted);
+      line-height: 1.65;
+      margin-top: .45rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B2 · C</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Bloque 2</a>
+    <span class="sep">›</span>
+    <span>Sección C</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 2 · Sección C · Conocimiento, análisis y aplicación</div>
+    <h1>Descuento</h1>
+    <p class="hero-sub">
+      Descuento simple comercial y racional · Descuento compuesto · Suma financiera ·
+      Valor actual y valor final · Efecto de comisiones en operaciones de descuento.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. IDEA CENTRAL
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Qué significa descontar</h2>
+    <p class="sec-intro">
+      Descontar es la operación inversa a capitalizar: en vez de llevar un capital presente
+      hacia el futuro, traemos un capital futuro al presente. En finanzas, esto permite saber
+      cuánto vale hoy un cobro que se recibirá más adelante.
+    </p>
+
+    <div class="card accent-navy">
+      <h3>Idea clave</h3>
+      <p>
+        Si capitalizar responde a la pregunta <strong>“¿cuánto tendré en el futuro?”</strong>,
+        descontar responde a <strong>“¿cuánto vale hoy un dinero que cobraré en el futuro?”</strong>.
+        El dinero futuro vale menos que el dinero presente porque el dinero de hoy puede invertirse,
+        genera intereses y evita incertidumbre temporal.
+      </p>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Capital nominal o futuro</h4>
+        <p>
+          Es el importe que vence en una fecha futura. En una letra, pagaré o efecto comercial,
+          suele representarse como <strong>N</strong>, <strong>C<sub>n</sub></strong> o valor nominal.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Capital efectivo o actual</h4>
+        <p>
+          Es el importe que se recibe o se valora hoy después de descontar intereses.
+          Suele representarse como <strong>E</strong>, <strong>C<sub>0</sub></strong> o valor actual.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Descuento</h4>
+        <p>
+          Es la diferencia entre el nominal futuro y el efectivo actual:
+          <span class="mini-formula">D = N − E</span>.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Plazo</h4>
+        <p>
+          Es el tiempo entre la fecha de valoración y la fecha de vencimiento. Puede expresarse
+          en años, meses o días. En ejercicios de examen suele usarse base 360 o 365.
+        </p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        No mezcles capitalización y descuento. Capitalizar mueve dinero hacia delante;
+        descontar mueve dinero hacia atrás. La pregunta suele esconderse en frases como
+        “valor actual”, “valor efectivo”, “nominal”, “vencimiento”, “remesa” o “descuento bancario”.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. DESCUENTO SIMPLE COMERCIAL
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Descuento simple comercial</h2>
+    <p class="sec-intro">
+      El descuento simple comercial, también llamado descuento bancario, calcula el descuento
+      aplicando el tanto de descuento sobre el <strong>nominal futuro</strong>. Es el método habitual
+      en operaciones de descuento de efectos comerciales a corto plazo.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Descuento comercial</span>
+      D = N × d × n
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Efectivo o valor actual comercial</span>
+      E = N − D = N × (1 − d × n)
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>N</h4>
+        <p>Nominal o capital que se cobrará al vencimiento.</p>
+      </div>
+      <div class="concept-box">
+        <h4>d</h4>
+        <p>Tanto de descuento comercial anual. No es exactamente lo mismo que un tipo de interés vencido.</p>
+      </div>
+      <div class="concept-box">
+        <h4>n</h4>
+        <p>Plazo expresado en años. Si hay días: <span class="mini-formula">n = días / base</span>.</p>
+      </div>
+      <div class="concept-box">
+        <h4>E</h4>
+        <p>Importe efectivo que se recibe hoy antes de comisiones y gastos.</p>
+      </div>
+    </div>
+
+    <h3>Despejes importantes</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <h4>Nominal</h4>
+        <span class="mini-formula">N = E / (1 − d×n)</span>
+        <p>Se usa cuando conocemos el efectivo que queremos recibir hoy.</p>
+      </div>
+      <div class="formula-card">
+        <h4>Tanto de descuento</h4>
+        <span class="mini-formula">d = (N − E) / (N×n)</span>
+        <p>Se usa cuando conocemos nominal, efectivo y plazo.</p>
+      </div>
+      <div class="formula-card">
+        <h4>Plazo</h4>
+        <span class="mini-formula">n = (N − E) / (N×d)</span>
+        <p>Permite calcular cuánto tiempo falta hasta el vencimiento.</p>
+      </div>
+      <div class="formula-card">
+        <h4>Condición lógica</h4>
+        <span class="mini-formula">1 − d×n &gt; 0</span>
+        <p>Si no se cumple, el efectivo sería cero o negativo, lo cual no tiene sentido económico.</p>
+      </div>
+    </div>
+
+    <h3>Ejemplo de descuento comercial</h3>
+    <div class="card accent-green">
+      <h3>📌 Ejemplo</h3>
+      <p>
+        Una empresa descuenta un efecto de <strong>10.000 €</strong> que vence dentro de
+        <strong>90 días</strong>. El banco aplica un descuento comercial anual del <strong>5%</strong>
+        sobre base 360.
+      </p>
+      <div class="example-steps">
+        <div class="example-step">
+          <p><strong>Convertimos el plazo:</strong> n = 90 / 360 = 0,25 años.</p>
+        </div>
+        <div class="example-step">
+          <p><strong>Calculamos el descuento:</strong> D = 10.000 × 0,05 × 0,25 = <strong>125 €</strong>.</p>
+        </div>
+        <div class="example-step">
+          <p><strong>Calculamos el efectivo:</strong> E = 10.000 − 125 = <strong>9.875 €</strong>.</p>
+        </div>
+      </div>
+      <p>
+        Interpretación: la empresa recibe hoy 9.875 € y el banco cobrará 10.000 € al vencimiento.
+        La diferencia de 125 € es el coste financiero básico antes de comisiones.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        En descuento comercial, el porcentaje se aplica sobre el <strong>nominal</strong>, no sobre
+        el efectivo recibido. Esta es la trampa principal frente al descuento racional.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. DESCUENTO SIMPLE RACIONAL
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Descuento simple racional o matemático</h2>
+    <p class="sec-intro">
+      El descuento simple racional calcula el valor actual como la operación inversa de la
+      capitalización simple. Aquí el descuento se apoya en un tipo de interés vencido aplicado
+      sobre el valor actual, no sobre el nominal.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Valor actual racional</span>
+      E = N / (1 + i × n)
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Descuento racional</span>
+      D = N − E = N × i × n / (1 + i × n)
+    </div>
+
+    <div class="card accent-navy">
+      <h3>Relación con la capitalización simple</h3>
+      <p>
+        En descuento racional, si el efectivo actual <strong>E</strong> se capitaliza a interés simple
+        durante el plazo <strong>n</strong>, se obtiene el nominal futuro <strong>N</strong>:
+      </p>
+      <div class="formula" style="margin-bottom:.4rem;">
+        <span class="formula-label">Equivalencia</span>
+        N = E × (1 + i × n)
+      </div>
+      <p>
+        Por eso se llama “racional” o “matemático”: es coherente con la lógica de interés vencido.
+      </p>
+    </div>
+
+    <h3>Ejemplo de descuento racional</h3>
+    <div class="card accent-green">
+      <h3>📌 Ejemplo</h3>
+      <p>
+        Usamos el mismo nominal: <strong>10.000 €</strong>, vencimiento a <strong>90 días</strong>,
+        tipo anual <strong>5%</strong>, base 360.
+      </p>
+      <div class="example-steps">
+        <div class="example-step">
+          <p><strong>Plazo:</strong> n = 90 / 360 = 0,25.</p>
+        </div>
+        <div class="example-step">
+          <p><strong>Valor actual:</strong> E = 10.000 / (1 + 0,05 × 0,25) = <strong>9.876,54 €</strong>.</p>
+        </div>
+        <div class="example-step">
+          <p><strong>Descuento:</strong> D = 10.000 − 9.876,54 = <strong>123,46 €</strong>.</p>
+        </div>
+      </div>
+      <p>
+        Con el mismo porcentaje y plazo, el descuento racional da un efectivo ligeramente mayor
+        que el descuento comercial, porque el coste se calcula de forma coherente con el valor actual.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. COMERCIAL VS RACIONAL
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Descuento comercial vs. descuento racional</h2>
+    <p class="sec-intro">
+      Ambos métodos descuentan un capital futuro, pero no calculan el coste sobre la misma base.
+      Esta diferencia es pequeña para plazos cortos y tipos bajos, pero aumenta cuando suben el
+      plazo o el tipo.
+    </p>
+
+    <div class="comparison-grid">
+      <div class="comparison-box comercial">
+        <h4>Descuento comercial</h4>
+        <ul>
+          <li>Aplica el descuento sobre el <strong>nominal futuro</strong>.</li>
+          <li>Fórmula: <span class="mini-formula">E = N(1 − d×n)</span></li>
+          <li>Es habitual en descuento bancario de efectos.</li>
+          <li>Para un mismo tipo y plazo, suele dar <strong>menor efectivo</strong>.</li>
+          <li>El tanto <strong>d</strong> es un tanto de descuento, no un tipo vencido puro.</li>
+        </ul>
+      </div>
+      <div class="comparison-box racional">
+        <h4>Descuento racional</h4>
+        <ul>
+          <li>Calcula el valor actual como inversa de la capitalización simple.</li>
+          <li>Fórmula: <span class="mini-formula">E = N/(1+i×n)</span></li>
+          <li>Es conceptualmente más limpio desde matemática financiera.</li>
+          <li>Para un mismo tipo y plazo, suele dar <strong>mayor efectivo</strong>.</li>
+          <li>El tipo <strong>i</strong> es un tipo de interés vencido.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Criterio</th>
+            <th>Comercial</th>
+            <th>Racional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Base de cálculo</strong></td>
+            <td>Nominal futuro</td>
+            <td>Valor actual</td>
+          </tr>
+          <tr>
+            <td><strong>Tipo usado</strong></td>
+            <td>Tanto de descuento d</td>
+            <td>Tipo de interés i</td>
+          </tr>
+          <tr>
+            <td><strong>Fórmula del efectivo</strong></td>
+            <td>E = N(1 − d×n)</td>
+            <td>E = N/(1+i×n)</td>
+          </tr>
+          <tr>
+            <td><strong>Coste para el cliente</strong></td>
+            <td>Mayor, si d = i y n &gt; 0</td>
+            <td>Menor, si d = i y n &gt; 0</td>
+          </tr>
+          <tr>
+            <td><strong>Uso típico</strong></td>
+            <td>Descuento bancario de efectos</td>
+            <td>Valoración financiera teórica</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Si te dan “tanto de descuento”, piensa en comercial. Si te dan “tipo de interés” y te piden
+        valor actual coherente con capitalización simple, piensa en racional. En muchos ejercicios
+        la clave está en identificar la palabra usada.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. COMISIONES EN DESCUENTO DE EFECTOS
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. Comisiones y gastos en una remesa de efectos</h2>
+    <p class="sec-intro">
+      En la práctica bancaria, el cliente no recibe simplemente el nominal menos el descuento.
+      El banco puede cargar comisiones y gastos adicionales. Por tanto, el efectivo líquido recibido
+      puede ser inferior al efectivo financiero básico.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Líquido recibido</span>
+      Líquido = Nominal − Descuento − Comisiones − Gastos
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Descuento financiero</h4>
+        <p>Coste por anticipar el cobro. Depende del nominal, el tipo aplicado y el plazo.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Comisión porcentual</h4>
+        <p>Puede calcularse sobre el nominal o sobre otra base pactada. En examen, usa la base indicada.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Comisión fija</h4>
+        <p>Importe fijo por efecto, por remesa o por operación. Reduce directamente el líquido recibido.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Coste efectivo</h4>
+        <p>El coste real para el cliente debe medirse contra el líquido recibido, no solo contra el nominal.</p>
+      </div>
+    </div>
+
+    <h3>Ejemplo con comisiones</h3>
+    <div class="card accent-green">
+      <h3>📌 Ejemplo</h3>
+      <p>
+        Una empresa descuenta un efecto de <strong>10.000 €</strong> a <strong>90 días</strong>,
+        con descuento comercial anual del <strong>5%</strong>, comisión del <strong>0,40%</strong>
+        sobre nominal y gasto fijo de <strong>10 €</strong>. Base 360.
+      </p>
+      <div class="example-steps">
+        <div class="example-step">
+          <p><strong>Descuento:</strong> D = 10.000 × 0,05 × 90/360 = <strong>125 €</strong>.</p>
+        </div>
+        <div class="example-step">
+          <p><strong>Comisión:</strong> 10.000 × 0,004 = <strong>40 €</strong>.</p>
+        </div>
+        <div class="example-step">
+          <p><strong>Gasto fijo:</strong> 10 €.</p>
+        </div>
+        <div class="example-step">
+          <p><strong>Líquido recibido:</strong> 10.000 − 125 − 40 − 10 = <strong>9.825 €</strong>.</p>
+        </div>
+      </div>
+      <p>
+        Aunque el descuento financiero era de 125 €, el coste total de anticipar el cobro asciende a
+        175 €. Por eso las comisiones elevan el coste efectivo de la operación.
+      </p>
+    </div>
+
+    <div class="card accent-amber">
+      <h3>⚠️ Trampa habitual</h3>
+      <p>
+        Si el enunciado pide el <strong>efectivo</strong>, normalmente se refiere a nominal menos descuento.
+        Si pide el <strong>líquido</strong>, debes restar además comisiones y gastos. En banca, efectivo y
+        líquido no siempre son lo mismo.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       6. DESCUENTO COMPUESTO
+       ============================================================ -->
+  <div class="sec">
+    <h2>6. Descuento compuesto</h2>
+    <p class="sec-intro">
+      El descuento compuesto se usa cuando el plazo es largo o cuando se trabaja con interés
+      compuesto. Es la operación inversa de la capitalización compuesta.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Valor actual con descuento compuesto</span>
+      C<sub>0</sub> = C<sub>n</sub> / (1+i)<sup>n</sup>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Factor de actualización</span>
+      v<sup>n</sup> = 1 / (1+i)<sup>n</sup>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Descuento compuesto</span>
+      D = C<sub>n</sub> − C<sub>0</sub>
+    </div>
+
+    <div class="card accent-navy">
+      <h3>Lectura financiera</h3>
+      <p>
+        Cuanto mayor sea el tipo de interés o el plazo, menor será el valor actual de un capital futuro.
+        La razón es simple: si el dinero de hoy puede rentar más durante más tiempo, necesitas menos
+        dinero hoy para llegar al mismo importe futuro.
+      </p>
+    </div>
+
+    <h3>Ejemplo de descuento compuesto</h3>
+    <div class="card accent-green">
+      <h3>📌 Ejemplo</h3>
+      <p>
+        Queremos saber cuánto valen hoy <strong>5.000 €</strong> que se cobrarán dentro de
+        <strong>3 años</strong>, usando un tipo compuesto anual del <strong>4%</strong>.
+      </p>
+      <div class="example-steps">
+        <div class="example-step">
+          <p><strong>Aplicamos la fórmula:</strong> C<sub>0</sub> = 5.000 / (1,04)<sup>3</sup>.</p>
+        </div>
+        <div class="example-step">
+          <p><strong>Calculamos:</strong> C<sub>0</sub> = 5.000 / 1,124864 = <strong>4.444,98 €</strong>.</p>
+        </div>
+        <div class="example-step">
+          <p><strong>Descuento:</strong> D = 5.000 − 4.444,98 = <strong>555,02 €</strong>.</p>
+        </div>
+      </div>
+      <p>
+        Interpretación: si invierto hoy 4.444,98 € al 4% compuesto anual durante 3 años,
+        llegaré aproximadamente a 5.000 €.
+      </p>
+    </div>
+
+    <h3>Descuento compuesto con tipos variables</h3>
+    <p>
+      Si los tipos cambian cada período, no se puede aplicar un único 
+      <span class="mini-formula">(1+i)<sup>n</sup></span>. Debe usarse el producto de todos los factores:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Valor actual con tipos variables</span>
+      C<sub>0</sub> = C<sub>n</sub> / [(1+i<sub>1</sub>) × (1+i<sub>2</sub>) × ... × (1+i<sub>n</sub>)]
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        En descuento compuesto, el error típico es dividir por <strong>1+i×n</strong> cuando debería
+        dividirse por <strong>(1+i)<sup>n</sup></strong>. Simple: lineal. Compuesto: exponencial.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       7. SUMA FINANCIERA
+       ============================================================ -->
+  <div class="sec">
+    <h2>7. Suma financiera</h2>
+    <p class="sec-intro">
+      La suma financiera consiste en sumar capitales que vencen en fechas distintas, pero
+      llevándolos antes a una misma fecha de valoración. No se pueden sumar directamente
+      cantidades situadas en momentos temporales diferentes.
+    </p>
+
+    <div class="card accent-danger">
+      <h3>Principio básico</h3>
+      <p>
+        <strong>No se suman euros de fechas distintas sin moverlos primero a una fecha común.</strong>
+        1.000 € hoy no son equivalentes a 1.000 € dentro de tres años. Para sumarlos, hay que
+        capitalizar o descontar según la fecha elegida.
+      </p>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Fecha focal</h4>
+        <p>
+          Es la fecha común a la que se trasladan todos los capitales. Puede ser hoy, una fecha
+          futura o una fecha intermedia.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Si el capital está antes de la fecha focal</h4>
+        <p>
+          Se capitaliza hacia delante hasta la fecha focal.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Si el capital está después de la fecha focal</h4>
+        <p>
+          Se descuenta hacia atrás hasta la fecha focal.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Si el capital ya está en la fecha focal</h4>
+        <p>
+          Se deja igual. No se toca.
+        </p>
+      </div>
+    </div>
+
+    <h3>Ejemplo: valor final de varios capitales</h3>
+    <div class="card accent-green">
+      <h3>📌 Ejemplo</h3>
+      <p>
+        Calcula el valor final en el año 3 de tres cobros: <strong>1.000 €</strong> en el año 1,
+        <strong>1.500 €</strong> en el año 2 y <strong>2.000 €</strong> en el año 3. Tipo compuesto anual: <strong>5%</strong>.
+      </p>
+      <div class="example-steps">
+        <div class="example-step">
+          <p>El cobro del año 1 se capitaliza dos años: 1.000 × (1,05)<sup>2</sup> = <strong>1.102,50 €</strong>.</p>
+        </div>
+        <div class="example-step">
+          <p>El cobro del año 2 se capitaliza un año: 1.500 × 1,05 = <strong>1.575,00 €</strong>.</p>
+        </div>
+        <div class="example-step">
+          <p>El cobro del año 3 ya está en la fecha focal: <strong>2.000,00 €</strong>.</p>
+        </div>
+        <div class="example-step">
+          <p>Valor final total: 1.102,50 + 1.575,00 + 2.000,00 = <strong>4.677,50 €</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Ejemplo: valor actual de varios capitales</h3>
+    <div class="card accent-green">
+      <h3>📌 Ejemplo</h3>
+      <p>
+        Con los mismos cobros y el mismo tipo del <strong>5%</strong>, calcula el valor actual en el año 0.
+      </p>
+      <div class="example-steps">
+        <div class="example-step">
+          <p>1.000 € del año 1: 1.000 / 1,05 = <strong>952,38 €</strong>.</p>
+        </div>
+        <div class="example-step">
+          <p>1.500 € del año 2: 1.500 / (1,05)<sup>2</sup> = <strong>1.360,54 €</strong>.</p>
+        </div>
+        <div class="example-step">
+          <p>2.000 € del año 3: 2.000 / (1,05)<sup>3</sup> = <strong>1.727,68 €</strong>.</p>
+        </div>
+        <div class="example-step">
+          <p>Valor actual total: 952,38 + 1.360,54 + 1.727,68 = <strong>4.040,60 €</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       8. VALOR ACTUAL Y VALOR FINAL
+       ============================================================ -->
+  <div class="sec">
+    <h2>8. Valor actual y valor final</h2>
+    <p class="sec-intro">
+      El valor actual y el valor final son dos formas de expresar la misma realidad financiera
+      desde fechas distintas. La clave es no comparar cantidades situadas en momentos temporales
+      diferentes sin actualizarlas o capitalizarlas.
+    </p>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Valor actual</h4>
+        <p>
+          Valor equivalente hoy de uno o varios capitales futuros. Se calcula descontando los flujos
+          hasta la fecha presente. Es la base del precio de bonos, préstamos, rentas y proyectos de inversión.
+        </p>
+      </div>
+      <div class="vs-box right">
+        <h4>Valor final</h4>
+        <p>
+          Valor equivalente futuro de uno o varios capitales. Se calcula capitalizando los flujos hasta
+          una fecha futura común. Sirve para conocer cuánto se acumulará en una inversión.
+        </p>
+      </div>
+    </div>
+
+    <div class="formula-grid">
+      <div class="formula-card">
+        <h4>Valor actual de un capital</h4>
+        <span class="mini-formula">VA = VF / (1+i)<sup>n</sup></span>
+        <p>Se usa cuando traemos un capital futuro al presente.</p>
+      </div>
+      <div class="formula-card">
+        <h4>Valor final de un capital</h4>
+        <span class="mini-formula">VF = VA × (1+i)<sup>n</sup></span>
+        <p>Se usa cuando llevamos un capital presente al futuro.</p>
+      </div>
+      <div class="formula-card">
+        <h4>Valor actual de varios capitales</h4>
+        <span class="mini-formula">VA = Σ C<sub>t</sub>/(1+i)<sup>t</sup></span>
+        <p>Cada flujo se descuenta según su fecha.</p>
+      </div>
+      <div class="formula-card">
+        <h4>Valor final de varios capitales</h4>
+        <span class="mini-formula">VF = Σ C<sub>t</sub>(1+i)<sup>n−t</sup></span>
+        <p>Cada flujo se capitaliza hasta la fecha final elegida.</p>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      Para no equivocarte, dibuja una línea temporal. Coloca cada flujo en su fecha, elige una fecha focal
+      y mueve todos los capitales hacia esa fecha. En matemática financiera, la línea temporal evita más
+      errores que memorizar fórmulas sueltas.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       9. GUÍA DE EJERCICIOS
+       ============================================================ -->
+  <div class="sec">
+    <h2>9. Cómo resolver ejercicios de descuento</h2>
+    <p class="sec-intro">
+      En el examen, los ejercicios de descuento suelen ser mecánicos, pero castigan mucho leer mal
+      el enunciado. La dificultad no suele estar en la fórmula, sino en saber cuál usar.
+    </p>
+
+    <div class="example-steps">
+      <div class="example-step">
+        <p>
+          <strong>Identifica qué te piden:</strong> nominal, efectivo, líquido, descuento, tipo o plazo.
+        </p>
+      </div>
+      <div class="example-step">
+        <p>
+          <strong>Identifica el método:</strong> comercial, racional o compuesto.
+          Las palabras “descuento bancario” y “tanto de descuento” suelen apuntar a comercial.
+        </p>
+      </div>
+      <div class="example-step">
+        <p>
+          <strong>Convierte el plazo:</strong> si te dan días, divide entre la base indicada:
+          360, 365 o la que especifique el enunciado.
+        </p>
+      </div>
+      <div class="example-step">
+        <p>
+          <strong>Calcula primero el descuento financiero</strong> y después, si procede, resta comisiones
+          y gastos para obtener el líquido recibido.
+        </p>
+      </div>
+      <div class="example-step">
+        <p>
+          <strong>Comprueba el sentido económico:</strong> el valor actual debe ser menor que el nominal
+          futuro cuando el tipo es positivo.
+        </p>
+      </div>
+    </div>
+
+    <div class="card accent-amber">
+      <h3>⚠️ Errores típicos</h3>
+      <ul>
+        <li>Usar <span class="mini-formula">N×i×n</span> en descuento racional como si fuera comercial.</li>
+        <li>No convertir días a años.</li>
+        <li>Restar comisiones cuando solo piden efectivo, o no restarlas cuando piden líquido.</li>
+        <li>Confundir tipo de descuento <strong>d</strong> con tipo de interés vencido <strong>i</strong>.</li>
+        <li>Sumar capitales de fechas distintas sin llevarlos a una fecha focal común.</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       RESUMEN FINAL
+       ============================================================ -->
+  <div class="sec">
+    <h2>Resumen ejecutivo</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>Fórmula clave</th>
+            <th>Uso típico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Descuento</strong></td>
+            <td>D = N − E</td>
+            <td>Diferencia entre nominal futuro y efectivo actual</td>
+          </tr>
+          <tr>
+            <td><strong>Descuento comercial</strong></td>
+            <td>D = N×d×n</td>
+            <td>Descuento bancario de efectos a corto plazo</td>
+          </tr>
+          <tr>
+            <td><strong>Efectivo comercial</strong></td>
+            <td>E = N(1−d×n)</td>
+            <td>Importe recibido antes de comisiones</td>
+          </tr>
+          <tr>
+            <td><strong>Descuento racional</strong></td>
+            <td>E = N/(1+i×n)</td>
+            <td>Valor actual coherente con interés simple vencido</td>
+          </tr>
+          <tr>
+            <td><strong>Líquido recibido</strong></td>
+            <td>L = N − D − Comisiones − Gastos</td>
+            <td>Importe realmente abonado al cliente</td>
+          </tr>
+          <tr>
+            <td><strong>Descuento compuesto</strong></td>
+            <td>C<sub>0</sub> = C<sub>n</sub>/(1+i)<sup>n</sup></td>
+            <td>Valoración de capitales a medio/largo plazo</td>
+          </tr>
+          <tr>
+            <td><strong>Factor de actualización</strong></td>
+            <td>v<sup>n</sup> = 1/(1+i)<sup>n</sup></td>
+            <td>Coeficiente por el que multiplicar un flujo futuro</td>
+          </tr>
+          <tr>
+            <td><strong>Suma financiera</strong></td>
+            <td>Σ capitales llevados a fecha focal</td>
+            <td>Sumar flujos de fechas distintas correctamente</td>
+          </tr>
+          <tr>
+            <td><strong>Valor actual</strong></td>
+            <td>VA = Σ C<sub>t</sub>/(1+i)<sup>t</sup></td>
+            <td>Precio hoy de flujos futuros</td>
+          </tr>
+          <tr>
+            <td><strong>Valor final</strong></td>
+            <td>VF = Σ C<sub>t</sub>(1+i)<sup>n−t</sup></td>
+            <td>Importe equivalente acumulado en una fecha futura</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec-nav">
+    <a class="nav-btn" href="m1-b2-seccion-b-capitalizacion.html">← M1 · B2 · B · Capitalización</a>
+    <a class="nav-btn" href="m1-b2-seccion-d-tipos-de-interes-spot-y-forward.html">M1 · B2 · D · Tipos spot y forward →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 2 · Sección C · Basado en la Guía de Certificación EFPA España V1/26 · No constituye asesoramiento financiero
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

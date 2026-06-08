@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B2 · Sección A — Valor temporal del dinero · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .concept-grid { grid-template-columns: 1fr; } }
+
+    .concept-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .concept-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      margin-bottom: .35rem;
+      color: var(--navy);
+    }
+    .concept-box p, .concept-box ul {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .concept-box ul { padding-left: 1.1rem; }
+    .concept-box li { margin: .25rem 0; }
+
+    .timeline {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.1rem 1.2rem;
+      margin: 1rem 0;
+      box-shadow: var(--shadow);
+    }
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 92px 1fr 92px;
+      gap: .7rem;
+      align-items: center;
+      font-family: var(--font-ui);
+      font-size: var(--fs-sm);
+    }
+    .time-node {
+      background: var(--navy-light);
+      border: 1.5px solid var(--navy);
+      color: var(--navy);
+      border-radius: 12px;
+      padding: .45rem .55rem;
+      text-align: center;
+      font-weight: 800;
+    }
+    .time-arrow {
+      position: relative;
+      height: 3px;
+      background: var(--border);
+      border-radius: 999px;
+    }
+    .time-arrow::after {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border-top: 3px solid var(--border);
+      border-right: 3px solid var(--border);
+      transform: translateY(-50%) rotate(45deg);
+      background: transparent;
+    }
+    .timeline-caption {
+      font-size: var(--fs-xs);
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: .75rem;
+    }
+
+    .operation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .operation-grid { grid-template-columns: 1fr; } }
+
+    .operation-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+    }
+    .operation-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: var(--fs-sm);
+      margin: 0 0 .45rem 0;
+      color: var(--navy);
+    }
+    .operation-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .mini-formula {
+      display: inline-block;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: var(--fs-xs);
+      color: var(--navy);
+      background: var(--navy-light);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2px 7px;
+      margin: 2px 0;
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .flow-grid { grid-template-columns: 1fr; } }
+
+    .flow-box {
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      border: 1.5px solid var(--border);
+    }
+    .flow-box.forward {
+      background: var(--green-light);
+      border-color: var(--green);
+    }
+    .flow-box.backward {
+      background: var(--navy-light);
+      border-color: var(--navy);
+    }
+    .flow-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: var(--fs-sm);
+      margin: 0 0 .4rem 0;
+    }
+    .flow-box.forward h4 { color: var(--green); }
+    .flow-box.backward h4 { color: var(--navy); }
+    .flow-box p {
+      font-size: var(--fs-xs);
+      line-height: 1.65;
+      color: var(--text-soft);
+      margin: 0;
+    }
+
+    .example-steps {
+      counter-reset: step;
+      margin: 1rem 0;
+    }
+    .example-step {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: .75rem;
+      align-items: start;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 13px;
+      padding: .85rem 1rem;
+      margin-bottom: .65rem;
+    }
+    .example-step::before {
+      content: counter(step);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--navy-light);
+      border: 1.5px solid var(--navy);
+      color: var(--navy);
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: var(--fs-xs);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: .1rem;
+    }
+    .example-step p {
+      font-size: var(--fs-sm);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: .72rem;
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: 999px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+    .tag-green { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
+    .tag-navy { background: var(--navy-light); color: var(--navy); border: 1px solid var(--navy); }
+    .tag-amber { background: var(--amber-light); color: var(--amber); border: 1px solid var(--amber); }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B2 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Bloque 2</a>
+    <span class="sep">›</span>
+    <span>Sección A</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 2 · Sección A · Conocimiento, análisis y aplicación</div>
+    <h1>Valor temporal del dinero</h1>
+    <p class="hero-sub">
+      Capital financiero · Operación financiera · Capitalización vs. actualización ·
+      Precio total, unitario y medio · Interés explícito e implícito.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. IDEA CENTRAL
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Idea central: un euro hoy no equivale a un euro mañana</h2>
+    <p class="sec-intro">
+      El valor temporal del dinero es la base matemática de casi todo lo que aparece después:
+      depósitos, bonos, Letras del Tesoro, préstamos, TAE, TIR, rentas financieras, valoración
+      de activos y planificación financiera. La idea es simple: una cantidad de dinero solo está
+      completamente definida si sabemos <strong>cuánto dinero es</strong> y <strong>en qué fecha está disponible</strong>.
+    </p>
+
+    <div class="card accent-navy">
+      <h3>Definición práctica</h3>
+      <p>
+        Dos capitales monetarios no pueden compararse directamente si vencen en fechas distintas.
+        Para compararlos hay que llevarlos a una misma fecha mediante una ley financiera:
+        <strong>capitalizar</strong> si llevamos dinero hacia el futuro, o <strong>actualizar</strong> si traemos
+        dinero futuro al presente.
+      </p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-row">
+        <div class="time-node">Hoy<br><span style="font-size:.72rem;">t = 0</span></div>
+        <div class="time-arrow"></div>
+        <div class="time-node">Futuro<br><span style="font-size:.72rem;">t = n</span></div>
+      </div>
+      <p class="timeline-caption">
+        El dinero cambia de valor porque puede invertirse, porque existe inflación, porque hay riesgo
+        de impago y porque los agentes prefieren liquidez presente frente a cobros futuros inciertos.
+      </p>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Preferencia por liquidez</h4>
+        <p>Normalmente preferimos cobrar antes. El dinero hoy permite consumir, invertir o reducir deuda inmediatamente.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Coste de oportunidad</h4>
+        <p>Si renuncio a 1.000 € hoy, renuncio a la rentabilidad que habría podido obtener invirtiéndolos.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Inflación</h4>
+        <p>Con precios crecientes, una misma cantidad nominal compra menos bienes en el futuro.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Riesgo e incertidumbre</h4>
+        <p>Cuanto más lejano sea el cobro, mayor puede ser la prima exigida por esperar y asumir riesgo.</p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        No basta con decir “1.000 €”. En matemática financiera debe decirse <strong>1.000 € en una fecha concreta</strong>.
+        La fecha forma parte del capital financiero. Esta idea sostiene todas las fórmulas de capitalización,
+        descuento y rentas financieras.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. CAPITAL FINANCIERO
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Capital financiero</h2>
+    <p class="sec-intro">
+      Un capital financiero es una cantidad de dinero asociada a un momento temporal determinado.
+      Formalmente puede representarse como un par <strong>(C, t)</strong>, donde <strong>C</strong> es la cuantía
+      y <strong>t</strong> la fecha de disponibilidad o vencimiento.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Capital financiero</span>
+      Capital financiero = (Cuantía, Momento temporal) = (C, t)
+    </div>
+
+    <h3>Capitales equivalentes</h3>
+    <p>
+      Dos capitales son financieramente equivalentes cuando, aunque tengan cuantías y vencimientos distintos,
+      tienen el mismo valor en una fecha de comparación dada bajo una ley financiera concreta.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo intuitivo</h3>
+      <p>
+        Si el tipo de interés anual es del <strong>5%</strong>, recibir <strong>1.000 € hoy</strong> puede ser
+        equivalente a recibir <strong>1.050 € dentro de un año</strong>. No son la misma cantidad nominal,
+        pero sí pueden ser equivalentes financieramente si 1.000 € invertidos al 5% se convierten en 1.050 €.
+      </p>
+    </div>
+
+    <h3>Fecha focal o fecha de valoración</h3>
+    <p>
+      La <strong>fecha focal</strong> es la fecha a la que trasladamos todos los capitales para poder compararlos.
+      Puede ser el presente, el vencimiento final o cualquier fecha intermedia. Lo importante es que todos
+      los flujos se expresen en la misma fecha.
+    </p>
+
+    <div class="callout info">
+      <strong>Regla mental:</strong> no sumes ni compares importes situados en fechas distintas. Primero llévalos
+      a una fecha común. Después ya puedes sumar, comparar o decidir.
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Capital</th>
+            <th>Cuantía</th>
+            <th>Fecha</th>
+            <th>¿Se puede comparar directamente?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>A</strong></td>
+            <td>1.000 €</td>
+            <td>Hoy</td>
+            <td>No, si el otro capital está en otra fecha</td>
+          </tr>
+          <tr>
+            <td><strong>B</strong></td>
+            <td>1.080 €</td>
+            <td>Dentro de 1 año</td>
+            <td>No directamente: hay que actualizar o capitalizar</td>
+          </tr>
+          <tr>
+            <td><strong>Comparación correcta</strong></td>
+            <td colspan="2">Ambos importes en la misma fecha focal</td>
+            <td>Sí</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. OPERACIÓN FINANCIERA
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Operación financiera</h2>
+    <p class="sec-intro">
+      Una operación financiera es un intercambio no simultáneo de capitales financieros entre dos o más sujetos.
+      En una operación típica, una parte entrega dinero hoy y recibe dinero en el futuro, o al revés.
+    </p>
+
+    <div class="card accent-navy">
+      <h3>Definición</h3>
+      <p>
+        Una <strong>operación financiera</strong> transforma capitales disponibles en una fecha en otros capitales
+        disponibles en otra fecha. Esa transformación se realiza mediante una ley financiera que determina
+        el precio del tiempo: el tipo de interés, descuento o rendimiento exigido.
+      </p>
+    </div>
+
+    <h3>Elementos de una operación financiera</h3>
+    <div class="operation-grid">
+      <div class="operation-box">
+        <h4>Sujetos</h4>
+        <p>Prestamista e inversor, prestatario y emisor, comprador y vendedor. Según la operación, una parte cede liquidez y otra la recibe.</p>
+      </div>
+      <div class="operation-box">
+        <h4>Prestación</h4>
+        <p>Capital o conjunto de capitales que una de las partes entrega. Ejemplo: 10.000 € entregados hoy al contratar un depósito.</p>
+      </div>
+      <div class="operation-box">
+        <h4>Contraprestación</h4>
+        <p>Capital o conjunto de capitales que se reciben a cambio. Ejemplo: devolución del principal más intereses al vencimiento.</p>
+      </div>
+      <div class="operation-box">
+        <h4>Duración</h4>
+        <p>Intervalo temporal entre el inicio y el final de la operación. Puede medirse en días, meses, años o fracciones de año.</p>
+      </div>
+      <div class="operation-box">
+        <h4>Ley financiera</h4>
+        <p>Regla matemática que conecta los capitales en el tiempo. Puede ser simple, compuesta, de descuento comercial, racional, etc.</p>
+      </div>
+      <div class="operation-box">
+        <h4>Tipo de interés o descuento</h4>
+        <p>Precio del tiempo y de la renuncia a liquidez. Es la variable que permite pasar de valor actual a valor final o viceversa.</p>
+      </div>
+    </div>
+
+    <h3>Clasificación básica</h3>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Operación simple</h4>
+        <p>Una prestación y una contraprestación. Ejemplo: entregar 1.000 € hoy y recibir 1.050 € dentro de un año.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Operación compleja</h4>
+        <p>Varios flujos de entrada o salida. Ejemplo: un bono con cupones anuales y devolución del nominal al vencimiento.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Operación de inversión</h4>
+        <p>Hoy sale dinero y en el futuro entran cobros. Ejemplo: comprar una Letra, un bono o un fondo.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Operación de financiación</h4>
+        <p>Hoy entra dinero y en el futuro se devuelve. Ejemplo: préstamo personal, hipoteca o emisión de deuda.</p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Una operación de inversión para una parte puede ser una operación de financiación para la otra.
+        Quien compra un bono invierte; quien emite el bono se financia. El flujo es el mismo, pero cambia
+        el punto de vista.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. CAPITALIZACIÓN VS ACTUALIZACIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Capitalización y actualización</h2>
+    <p class="sec-intro">
+      La matemática financiera se apoya en dos movimientos básicos en el eje temporal:
+      llevar dinero del presente al futuro o traer dinero del futuro al presente.
+    </p>
+
+    <div class="flow-grid">
+      <div class="flow-box forward">
+        <h4>Capitalización</h4>
+        <p>
+          Llevar un capital desde una fecha inicial hasta una fecha futura. Responde a la pregunta:
+          <strong>“¿Cuánto valdrá mañana el dinero que tengo hoy?”</strong>
+        </p>
+        <p style="margin-top:.5rem;"><span class="mini-formula">Valor final = Valor actual × Factor de capitalización</span></p>
+      </div>
+      <div class="flow-box backward">
+        <h4>Actualización</h4>
+        <p>
+          Traer un capital futuro a una fecha anterior, normalmente al presente. Responde a la pregunta:
+          <strong>“¿Cuánto vale hoy un cobro futuro?”</strong>
+        </p>
+        <p style="margin-top:.5rem;"><span class="mini-formula">Valor actual = Valor futuro × Factor de actualización</span></p>
+      </div>
+    </div>
+
+    <h3>Capitalización: moverse hacia delante</h3>
+    <p>
+      Si deposito dinero hoy, espero recibir más dinero en el futuro. La diferencia entre el valor final
+      y el valor inicial es el rendimiento o interés generado por la operación.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Relación general de capitalización</span>
+      C<sub>n</sub> = C<sub>0</sub> × F(0,n)
+    </div>
+
+    <p>
+      Donde <strong>C<sub>0</sub></strong> es el capital inicial, <strong>C<sub>n</sub></strong> el capital final
+      y <strong>F(0,n)</strong> el factor de capitalización entre el momento 0 y el momento n.
+      La forma exacta del factor dependerá de si trabajamos con interés simple, compuesto u otra ley financiera.
+    </p>
+
+    <h3>Actualización: moverse hacia atrás</h3>
+    <p>
+      Si me prometen un cobro futuro, su valor actual será menor cuanto mayor sea el tipo exigido y cuanto más lejano
+      sea el vencimiento. El descuento refleja que recibir dinero dentro de un año no es igual que recibirlo hoy.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Relación general de actualización</span>
+      C<sub>0</sub> = C<sub>n</sub> × v(0,n)
+    </div>
+
+    <p>
+      Donde <strong>v(0,n)</strong> es el factor de actualización o descuento. En términos simples:
+      cuanto mayor sea el tipo aplicado, menor será el valor actual del cobro futuro.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo básico</h3>
+      <p>
+        Si puedes invertir al <strong>5%</strong> anual, <strong>1.000 € hoy</strong> se convierten en
+        <strong>1.050 € dentro de un año</strong>. Inversamente, un cobro de <strong>1.050 € dentro de un año</strong>
+        vale <strong>1.000 € hoy</strong> si el tipo de actualización adecuado es el 5%.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Capitalizar = avanzar en el tiempo. Actualizar = retroceder en el tiempo. Muchos errores de examen
+        son simplemente usar la dirección temporal equivocada.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. PRECIO TOTAL, UNITARIO Y MEDIO
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. Precio total, precio unitario y precio unitario medio</h2>
+    <p class="sec-intro">
+      En una operación financiera simple también se exige entender cómo se forma el precio cuando se compran
+      o venden unidades de un activo financiero. Es una parte sencilla, pero muy útil para no confundirse
+      cuando aparezcan bonos, acciones, fondos, letras o participaciones.
+    </p>
+
+    <h3>Precio unitario</h3>
+    <p>
+      El <strong>precio unitario</strong> es el precio de una sola unidad del activo: una acción, una participación,
+      un título de deuda o una unidad nominal si el activo se expresa como porcentaje sobre nominal.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Precio unitario</span>
+      Precio unitario = Precio total / Número de unidades
+    </div>
+
+    <h3>Precio total</h3>
+    <p>
+      El <strong>precio total</strong> es el importe global de la operación. En una compra sencilla sin costes adicionales,
+      es el precio unitario multiplicado por el número de unidades. Si hay comisiones, corretajes o gastos, deben
+      incorporarse cuando el enunciado lo indique.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Precio total de compra</span>
+      Precio total = Precio unitario × Número de unidades + Gastos de compra
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Precio total de venta</span>
+      Importe neto de venta = Precio unitario × Número de unidades − Gastos de venta
+    </div>
+
+    <h3>Precio unitario medio</h3>
+    <p>
+      El <strong>precio unitario medio</strong> aparece cuando se compran unidades a distintos precios. Resume el coste
+      medio por unidad, ponderando cada compra por el número de unidades adquiridas.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Precio unitario medio</span>
+      Precio medio = Coste total acumulado / Número total de unidades
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo</h3>
+      <p>
+        Compras 10 participaciones a <strong>100 €</strong> y luego 5 participaciones a <strong>110 €</strong>.
+        El coste total es <strong>10×100 + 5×110 = 1.550 €</strong>. Tienes 15 participaciones.
+        El precio unitario medio es <strong>1.550 / 15 = 103,33 €</strong>.
+      </p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>Qué significa</th>
+            <th>Fórmula útil</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Precio unitario</strong></td>
+            <td>Precio de una unidad del activo</td>
+            <td>Precio total / unidades</td>
+          </tr>
+          <tr>
+            <td><strong>Precio total</strong></td>
+            <td>Importe global de la operación</td>
+            <td>Precio unitario × unidades ± gastos</td>
+          </tr>
+          <tr>
+            <td><strong>Precio medio</strong></td>
+            <td>Coste medio por unidad tras varias compras</td>
+            <td>Coste acumulado / unidades totales</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Si el enunciado da comisiones o gastos, no los ignores salvo que diga expresamente que no se consideran.
+        En compras aumentan el coste total. En ventas reducen el importe neto recibido.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       6. INTERÉS EXPLÍCITO E IMPLÍCITO
+       ============================================================ -->
+  <div class="sec">
+    <h2>6. Interés explícito e interés implícito</h2>
+    <p class="sec-intro">
+      Una operación financiera puede remunerar al inversor de dos formas: pagando intereses de forma separada
+      o incorporando la rentabilidad dentro del precio de compra y de reembolso. La diferencia es muy relevante
+      para entender Letras del Tesoro, bonos cupón cero, depósitos y bonos con cupón.
+    </p>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Interés explícito</h4>
+        <p>
+          La remuneración aparece separada del principal. El inversor ve claramente el pago de intereses,
+          por ejemplo mediante cupones periódicos o intereses abonados en cuenta.
+        </p>
+      </div>
+      <div class="vs-box right">
+        <h4>Interés implícito</h4>
+        <p>
+          La remuneración no se paga como cupón separado, sino que está incluida en la diferencia entre
+          el precio de compra y el importe recibido al vencimiento.
+        </p>
+      </div>
+    </div>
+
+    <h3>Ejemplos típicos</h3>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4><span class="tag tag-navy">Explícito</span> Bono con cupón</h4>
+        <p>Compras un bono de nominal 1.000 € que paga un cupón anual del 4%. Cada año recibes 40 € de interés explícito.</p>
+      </div>
+      <div class="concept-box">
+        <h4><span class="tag tag-green">Implícito</span> Letra del Tesoro</h4>
+        <p>Compras una Letra por debajo de su nominal y recibes el nominal al vencimiento. La rentabilidad está en la diferencia.</p>
+      </div>
+      <div class="concept-box">
+        <h4><span class="tag tag-green">Implícito</span> Bono cupón cero</h4>
+        <p>No paga cupones periódicos. Se emite con descuento y al vencimiento devuelve un importe superior.</p>
+      </div>
+      <div class="concept-box">
+        <h4><span class="tag tag-navy">Explícito</span> Depósito con intereses</h4>
+        <p>El banco devuelve el principal y abona intereses pactados de forma visible en el contrato.</p>
+      </div>
+    </div>
+
+    <div class="card accent-amber">
+      <h3>⚠️ Distinción clave</h3>
+      <p>
+        Que el interés sea implícito no significa que no exista rentabilidad. Significa que la rentabilidad
+        no aparece como pago periódico independiente, sino como diferencia de precios. Una Letra del Tesoro
+        puede no pagar cupón y aun así ofrecer rendimiento positivo.
+      </p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Tipo de remuneración</th>
+            <th>Cómo gana dinero el inversor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Bono con cupón</strong></td>
+            <td>Explícita</td>
+            <td>Cobra cupones y recupera nominal al vencimiento</td>
+          </tr>
+          <tr>
+            <td><strong>Letra del Tesoro</strong></td>
+            <td>Implícita</td>
+            <td>Compra con descuento y cobra nominal al vencimiento</td>
+          </tr>
+          <tr>
+            <td><strong>Bono cupón cero</strong></td>
+            <td>Implícita</td>
+            <td>Compra barato hoy y recibe un valor mayor al vencimiento</td>
+          </tr>
+          <tr>
+            <td><strong>Depósito tradicional</strong></td>
+            <td>Normalmente explícita</td>
+            <td>Recibe principal más intereses pactados</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Las Letras del Tesoro son el ejemplo clásico de interés <strong>implícito</strong>.
+        Los bonos con cupón son el ejemplo clásico de interés <strong>explícito</strong>.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       7. RELACIÓN CON LOS SIGUIENTES TEMAS
+       ============================================================ -->
+  <div class="sec">
+    <h2>7. Cómo encaja esta sección con el resto del bloque</h2>
+    <p class="sec-intro">
+      Esta sección es el mapa conceptual. Las siguientes secciones convierten estas ideas en fórmulas concretas.
+      No conviene memorizar fórmulas aisladas: todas responden a la misma lógica de mover capitales en el tiempo.
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>B · Capitalización</h4>
+        <p>Estudia cómo crece un capital hacia el futuro con interés simple, compuesto, vencido o anticipado.</p>
+      </div>
+      <div class="concept-box">
+        <h4>C · Descuento</h4>
+        <p>Estudia cómo traer capitales futuros al presente mediante descuento comercial, racional o compuesto.</p>
+      </div>
+      <div class="concept-box">
+        <h4>D · Spot y forward</h4>
+        <p>Usa la equivalencia financiera para construir curvas de tipos y tipos implícitos a futuro.</p>
+      </div>
+      <div class="concept-box">
+        <h4>E · Rentabilidad</h4>
+        <p>Convierte precios, flujos y plazos en medidas comparables: TAE, TIR, TRE, TGR, rentabilidad real.</p>
+      </div>
+      <div class="concept-box">
+        <h4>F · Rentas financieras</h4>
+        <p>Generaliza el problema a secuencias de pagos: anualidades, perpetuidades, rentas prepagables y postpagables.</p>
+      </div>
+      <div class="concept-box">
+        <h4>G · Estadística</h4>
+        <p>Añade riesgo, dispersión y relación entre variables: media, varianza, desviación típica, covarianza y correlación.</p>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <strong>Regla de estudio:</strong> para cada ejercicio, identifica primero la dirección temporal del movimiento:
+      presente → futuro = capitalización; futuro → presente = actualización/descuento. Después eliges la fórmula.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       8. ESQUEMA DE RESOLUCIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>8. Esquema para resolver ejercicios de valor temporal</h2>
+    <p class="sec-intro">
+      Antes de calcular, ordena los datos. La mayoría de errores nacen de no situar bien los flujos en el tiempo,
+      mezclar tipos anuales con plazos mensuales o comparar capitales en fechas distintas.
+    </p>
+
+    <div class="example-steps">
+      <div class="example-step">
+        <p><strong>Dibuja la línea temporal.</strong> Marca hoy, vencimiento y fechas intermedias. Coloca cada cobro y cada pago en su fecha.</p>
+      </div>
+      <div class="example-step">
+        <p><strong>Define la fecha focal.</strong> Decide a qué fecha llevarás todos los capitales: presente, futuro o una fecha intermedia.</p>
+      </div>
+      <div class="example-step">
+        <p><strong>Identifica la ley financiera.</strong> Simple, compuesta, descuento comercial, racional, etc. Si el enunciado no lo dice, no lo inventes.</p>
+      </div>
+      <div class="example-step">
+        <p><strong>Ajusta unidades.</strong> Tipo anual con plazo anual; tipo mensual con plazo mensual. No mezcles 6 meses con tipo anual sin adaptar.</p>
+      </div>
+      <div class="example-step">
+        <p><strong>Calcula y revisa sentido económico.</strong> Si capitalizas, el importe futuro normalmente debe ser mayor. Si actualizas, el valor actual normalmente debe ser menor.</p>
+      </div>
+    </div>
+
+    <div class="card accent-danger">
+      <h3>Errores típicos</h3>
+      <ul>
+        <li>Sumar importes de fechas distintas como si fueran homogéneos.</li>
+        <li>Usar un tipo anual para un plazo mensual sin convertir el plazo o el tipo.</li>
+        <li>Confundir interés explícito con interés implícito.</li>
+        <li>Olvidar gastos y comisiones cuando el enunciado indica que deben incluirse.</li>
+        <li>Aplicar capitalización cuando el ejercicio pide valor actual.</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       RESUMEN FINAL
+       ============================================================ -->
+  <div class="sec">
+    <h2>Resumen ejecutivo</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>Definición útil</th>
+            <th>Clave de examen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Capital financiero</strong></td>
+            <td>Cantidad de dinero asociada a una fecha concreta</td>
+            <td>No compares capitales en fechas distintas sin homogeneizarlos</td>
+          </tr>
+          <tr>
+            <td><strong>Operación financiera</strong></td>
+            <td>Intercambio no simultáneo de capitales financieros</td>
+            <td>Puede ser inversión para una parte y financiación para otra</td>
+          </tr>
+          <tr>
+            <td><strong>Capitalización</strong></td>
+            <td>Llevar dinero del presente al futuro</td>
+            <td>Movimiento hacia delante en la línea temporal</td>
+          </tr>
+          <tr>
+            <td><strong>Actualización</strong></td>
+            <td>Traer dinero futuro al presente</td>
+            <td>Movimiento hacia atrás en la línea temporal</td>
+          </tr>
+          <tr>
+            <td><strong>Precio total</strong></td>
+            <td>Importe global de la operación</td>
+            <td>Incluir gastos si el enunciado lo exige</td>
+          </tr>
+          <tr>
+            <td><strong>Precio unitario</strong></td>
+            <td>Precio de una unidad del activo</td>
+            <td>Precio total / unidades</td>
+          </tr>
+          <tr>
+            <td><strong>Precio medio</strong></td>
+            <td>Coste medio por unidad tras varias compras</td>
+            <td>Coste total acumulado / unidades totales</td>
+          </tr>
+          <tr>
+            <td><strong>Interés explícito</strong></td>
+            <td>Remuneración pagada separadamente del principal</td>
+            <td>Ejemplo típico: bono con cupón</td>
+          </tr>
+          <tr>
+            <td><strong>Interés implícito</strong></td>
+            <td>Remuneración incluida en la diferencia de precios</td>
+            <td>Ejemplo típico: Letra del Tesoro o cupón cero</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec-nav">
+    <a class="nav-btn" href="../bloque-1/seccion-g.html">← M1 · B1 · G · Factores de sostenibilidad</a>
+    <a class="nav-btn" href="m1-b2-seccion-b-capitalizacion.html">M1 · B2 · B · Capitalización →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 2 · Sección A · Basado en la Guía de Certificación EFPA España V1/26 · No constituye asesoramiento financiero
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
