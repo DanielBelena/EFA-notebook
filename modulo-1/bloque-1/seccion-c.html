@@ -3,17 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M1 · B1 · Sección C — Indicadores de coyuntura · EFA Prep</title>
+  <title>M1 · B1 · Sección C — Indicadores de Coyuntura · EFA Prep</title>
   <link rel="stylesheet" href="../../assets/style.css">
   <style>
+    /* ── Grids ── */
     .concept-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: .8rem;
       margin: 1rem 0;
     }
-    @media (max-width: 560px) { .concept-grid { grid-template-columns: 1fr; } }
-
+    .concept-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 640px) {
+      .concept-grid, .concept-grid-3 { grid-template-columns: 1fr; }
+    }
     .concept-box {
       background: var(--card);
       border: 1.5px solid var(--border);
@@ -27,120 +35,155 @@
       margin-bottom: .35rem;
       color: var(--navy);
     }
-    .concept-box p, .concept-box ul {
+    .concept-box p {
       font-size: var(--fs-xs);
       color: var(--text-soft);
       line-height: 1.65;
       margin: 0;
     }
-    .concept-box ul {
-      padding-left: 1.1rem;
-      margin-top: .3rem;
-    }
-    .concept-box li { margin: .25rem 0; }
 
+    /* ── Tags temporales ── */
     .indicator-tag {
       display: inline-block;
       font-family: var(--font-ui);
-      font-weight: 800;
+      font-weight: 700;
       font-size: .68rem;
       padding: 2px 8px;
       border-radius: 10px;
-      margin-right: 4px;
+      margin-right: 3px;
       vertical-align: middle;
       white-space: nowrap;
     }
-    .tag-demanda { background: var(--navy-light); color: var(--navy); border: 1px solid var(--navy); }
-    .tag-oferta { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
-    .tag-sentimiento { background: var(--amber-light); color: var(--amber); border: 1px solid var(--amber); }
-    .tag-adelantado { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
-    .tag-coincidente { background: var(--navy-light); color: var(--navy); border: 1px solid var(--navy); }
-    .tag-retardado { background: var(--amber-light); color: var(--amber); border: 1px solid var(--amber); }
+    .tag-adelantado  { background: var(--green-light); color: var(--green);  border: 1px solid var(--green); }
+    .tag-retardado   { background: var(--amber-light);  color: var(--amber);  border: 1px solid var(--amber); }
+    .tag-coincidente { background: var(--navy-light);  color: var(--navy);   border: 1px solid var(--navy); }
 
-    .reading-row {
-      display: grid;
-      grid-template-columns: 150px 1fr 1fr;
-      gap: .65rem;
-      align-items: start;
-      padding: .8rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: var(--fs-sm);
-    }
-    .reading-row:last-child { border-bottom: none; }
-    .reading-label {
+    /* ── Tags de tipo (demanda / oferta / sentimiento) ── */
+    .type-tag {
+      display: inline-block;
       font-family: var(--font-ui);
-      font-weight: 900;
-      color: var(--navy);
+      font-weight: 700;
+      font-size: .68rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-right: 3px;
+      vertical-align: middle;
+      white-space: nowrap;
     }
-    .reading-note {
-      font-size: var(--fs-xs);
-      color: var(--text-soft);
-      line-height: 1.6;
-    }
-    @media (max-width: 640px) {
-      .reading-row { grid-template-columns: 1fr; gap: .25rem; }
-    }
+    .type-dem  { background: #ede9fe; color: #6d28d9; border: 1px solid #7c3aed; }
+    .type-ofe  { background: #fef3c7; color: #92400e; border: 1px solid #d97706; }
+    .type-sent { background: #fce7f3; color: #9d174d; border: 1px solid #db2777; }
 
-    .country-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      margin: 1.1rem 0;
-    }
-    .country-card {
-      background: var(--card);
+    /* ── Bloque por país ── */
+    .pais-block {
       border: 1.5px solid var(--border);
-      border-left: 5px solid var(--navy);
-      border-radius: 14px;
-      padding: 1.1rem 1.2rem;
-      box-shadow: var(--shadow);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 1.4rem 0;
     }
-    .country-card h4 {
-      margin: 0 0 .5rem 0;
-      font-family: var(--font-ui);
-      font-weight: 900;
-      font-size: var(--fs-base);
-      color: var(--navy);
-    }
-    .country-card p, .country-card li {
-      font-size: var(--fs-xs);
-      color: var(--text-soft);
-      line-height: 1.65;
-    }
-    .country-card ul {
-      padding-left: 1.2rem;
-      margin: .4rem 0 0 0;
-    }
-    .country-card li { margin: .25rem 0; }
-
-    .market-impact {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    .pais-header {
+      display: flex;
+      align-items: center;
       gap: .8rem;
-      margin: 1rem 0;
+      padding: .85rem 1.2rem;
+      background: var(--navy);
+      color: #fff;
     }
-    @media (max-width: 560px) { .market-impact { grid-template-columns: 1fr; } }
-    .impact-box {
-      border-radius: 14px;
-      border: 1.5px solid var(--border);
-      background: var(--card);
-      padding: 1rem;
+    .pais-flag {
+      font-size: 1.4rem;
+      line-height: 1;
     }
-    .impact-box h4 {
-      margin: 0 0 .4rem 0;
+    .pais-name {
       font-family: var(--font-ui);
-      font-size: var(--fs-sm);
-      font-weight: 900;
-      color: var(--navy);
+      font-weight: 800;
+      font-size: var(--fs-base);
     }
-    .impact-box ul {
-      margin: 0;
-      padding-left: 1.2rem;
+    .pais-sub {
+      font-family: var(--font-ui);
       font-size: var(--fs-xs);
+      opacity: .75;
+      margin-left: auto;
+    }
+    .pais-body {
+      padding: 1rem 1.2rem;
+    }
+    .pais-body p {
+      font-size: var(--fs-sm);
+      line-height: 1.7;
+      color: var(--text);
+      margin: 0 0 .6rem;
+    }
+    .pais-body p:last-child { margin-bottom: 0; }
+
+    /* ── Contexto actual ── */
+    .contexto-actual {
+      background: var(--card);
+      border-left: 4px solid var(--green);
+      border-radius: 0 14px 14px 0;
+      padding: 1.1rem 1.3rem;
+      margin: 1.2rem 0;
+    }
+    .contexto-actual .ctx-title {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--green);
+      margin-bottom: .5rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .contexto-actual p {
+      font-size: var(--fs-sm);
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0 0 .4rem;
+    }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+
+    /* ── Notas al pie ── */
+    .footnotes {
+      border-top: 1px solid var(--border);
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
+    }
+    .footnotes h4 {
+      font-family: var(--font-ui);
+      font-size: var(--fs-xs);
+      font-weight: 800;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .8rem;
+    }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li {
+      font-size: .78rem;
       color: var(--text-soft);
       line-height: 1.6;
+      margin-bottom: .35rem;
     }
-    .impact-box li { margin: .25rem 0; }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
+
+    /* ── Tabla compacta de indicadores por país ── */
+    .ind-table td, .ind-table th { vertical-align: middle; }
+    .ind-name { font-weight: 700; font-size: var(--fs-sm); }
+    .ind-desc { font-size: var(--fs-xs); color: var(--text-soft); }
+
+    /* ── Separador de subsección dentro de país ── */
+    .pais-section-label {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-xs);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--text-soft);
+      margin: 1rem 0 .4rem;
+    }
   </style>
 </head>
 <body>
@@ -164,1094 +207,1114 @@
     <span class="sep">›</span>
     <a href="../index.html">Módulo 1</a>
     <span class="sep">›</span>
-    <a href="../index.html">Bloque 1</a>
+    <a href="index.html">Bloque 1</a>
     <span class="sep">›</span>
     <span>Sección C</span>
   </div>
 
   <div class="hero">
     <div class="pill">Módulo 1 · Bloque 1 · Sección C · Nivel I</div>
-    <h1>Indicadores de coyuntura</h1>
+    <h1>Indicadores de Coyuntura</h1>
     <p class="hero-sub">
       Indicadores de demanda, oferta y sentimiento · Adelantados vs. retardados ·
-      Lectura práctica por economías: EE. UU., Reino Unido, Europa, China y Japón.
+      Indicadores clave por economía: EE.UU., Reino Unido, Europa, China y Japón.
     </p>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       INTRODUCCIÓN
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       1. QUÉ ES UN INDICADOR DE COYUNTURA
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
-    <h2>¿Qué son los indicadores de coyuntura?</h2>
-    <p class="sec-intro">
-      Los indicadores de coyuntura son datos económicos publicados con frecuencia mensual,
-      semanal o trimestral que permiten evaluar el estado actual de una economía y anticipar
-      su posible evolución a corto plazo. Mientras el PIB ofrece una foto amplia pero tardía,
-      los indicadores de coyuntura funcionan como un panel de control: consumo, producción,
-      empleo, confianza, precios, crédito y comercio exterior.
-    </p>
-
-    <div class="card accent-navy">
-      <h3>Idea central para EFA</h3>
-      <p>
-        Un asesor financiero no necesita memorizar todos los indicadores de cada país,
-        pero sí debe saber <strong>qué mide cada dato</strong>, <strong>si pertenece a demanda,
-        oferta o sentimiento</strong>, <strong>si es adelantado o retardado</strong> y
-        <strong>cómo puede afectar a tipos, bonos, renta variable y divisas</strong>.
-      </p>
-      <p style="margin-top:.6rem;">
-        La lectura correcta no es “dato bueno = mercado sube”. Depende del contexto:
-        en una economía débil, un dato fuerte puede ser positivo para bolsa; en una economía
-        con inflación elevada, el mismo dato puede ser negativo si aumenta la probabilidad
-        de tipos más altos.
-      </p>
-    </div>
-
-    <h3>Las tres familias principales</h3>
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4><span class="indicator-tag tag-demanda">Demanda</span> Qué quieren comprar hogares, empresas y exterior</h4>
-        <p>
-          Captan el gasto de la economía: consumo privado, inversión, ventas minoristas,
-          pedidos, vivienda, crédito y exportaciones. Son clave para estimar si el PIB puede
-          acelerarse o enfriarse.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4><span class="indicator-tag tag-oferta">Oferta</span> Qué produce la economía</h4>
-        <p>
-          Miden producción industrial, utilización de capacidad, productividad, costes,
-          inventarios y actividad empresarial. Ayudan a detectar cuellos de botella, presión
-          de costes y margen de crecimiento sin inflación.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4><span class="indicator-tag tag-sentimiento">Sentimiento</span> Qué esperan los agentes</h4>
-        <p>
-          Encuestas a consumidores, empresas, gestores de compras, inversores o analistas.
-          Suelen ser muy útiles como indicadores adelantados, porque las expectativas cambian
-          antes que el gasto o la producción real.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>La clave práctica: combinar familias</h4>
-        <p>
-          Un único dato aislado rara vez basta. Una señal robusta aparece cuando varias familias
-          apuntan en la misma dirección: PMIs bajando, confianza cayendo, ventas débiles e
-          inventarios subiendo sugieren enfriamiento claro.
-        </p>
-      </div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        Preguntas de clasificación: distinguir si un indicador es de demanda, oferta o
-        sentimiento, y si es adelantado o retardado. Ejemplo: las ventas minoristas son
-        principalmente demanda; el PMI es sentimiento empresarial con capacidad adelantada;
-        la tasa de paro suele ser retardada.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       1. INDICADORES ADELANTADOS VS RETARDADOS
-       ============================================================ -->
-  <div class="sec">
-    <h2>1. Indicadores adelantados, coincidentes y retardados</h2>
-    <p class="sec-intro">
-      La guía EFA exige diferenciar entre indicadores retardados o de confirmación e indicadores
-      adelantados o rastreadores de tendencia. Esta distinción es esencial: algunos datos explican
-      lo que ya ha pasado, mientras otros anticipan lo que probablemente ocurrirá.
-    </p>
-
-    <div class="vs-grid">
-      <div class="vs-box left">
-        <h4>Adelantados o rastreadores de tendencia</h4>
-        <p>
-          Cambian antes que la economía agregada. Sirven para anticipar giros del ciclo.
-          Ejemplos: nuevos pedidos, PMIs, confianza, permisos de construcción, condiciones
-          financieras, curva de tipos, peticiones iniciales de desempleo.
-        </p>
-      </div>
-      <div class="vs-box right">
-        <h4>Retardados o de confirmación</h4>
-        <p>
-          Se mueven después de que el ciclo ya haya cambiado. Confirman la fase, pero llegan
-          tarde para anticiparla. Ejemplos: desempleo, beneficios empresariales publicados,
-          morosidad, salarios agregados, PIB revisado.
-        </p>
-      </div>
-    </div>
-
-    <h3>Indicadores coincidentes</h3>
+    <h2>1. ¿Qué es un indicador de coyuntura?</h2>
     <p>
-      Entre ambos están los <strong>indicadores coincidentes</strong>: se mueven casi al mismo tiempo
-      que la actividad económica. No anticipan tanto como un indicador adelantado, pero ofrecen
-      una lectura contemporánea bastante fiel. Ejemplos: producción industrial, empleo mensual,
-      renta personal, ventas minoristas y PIB trimestral preliminar.
+      Los indicadores de coyuntura son estadísticas publicadas con alta frecuencia (mensual,
+      semanal o incluso diaria) que permiten hacer un seguimiento del estado de la economía
+      <em>entre</em> la publicación de los grandes agregados macroeconómicos, como el PIB
+      trimestral. Su función principal es anticipar, confirmar o matizar el diagnóstico
+      sobre la fase del ciclo económico en que se encuentra una economía.<sup class="fn"><a href="#fn1">[1]</a></sup>
+    </p>
+    <p>
+      Para el asesor financiero son herramientas de primer orden: los mercados financieros
+      descuentan expectativas, no datos pasados, y los indicadores de coyuntura son la materia
+      prima con la que el mercado construye esas expectativas. Un ISM Manufacturing que
+      sorprende a la baja en EE.UU. puede mover la renta variable global en cuestión de minutos.
     </p>
 
-    <h3>Tabla de clasificación rápida</h3>
+    <div class="concept-grid-3">
+      <div class="concept-box">
+        <h4><span class="type-tag type-dem">Demanda</span></h4>
+        <p>Miden el comportamiento del gasto de los agentes económicos: consumo de los hogares,
+        inversión empresarial, exportaciones. Reflejan la presión por el lado de la demanda
+        agregada.</p>
+      </div>
+      <div class="concept-box">
+        <h4><span class="type-tag type-ofe">Oferta</span></h4>
+        <p>Miden la actividad productiva: producción industrial, capacidad utilizada, pedidos
+        de fábrica. Reflejan cómo responde el aparato productivo a la demanda existente.</p>
+      </div>
+      <div class="concept-box">
+        <h4><span class="type-tag type-sent">Sentimiento</span></h4>
+        <p>Recogen las expectativas y la confianza de hogares y empresas. Son los indicadores
+        más adelantados porque el comportamiento económico futuro empieza en la percepción
+        presente.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       2. ADELANTADOS VS. RETARDADOS
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="sec">
+    <h2>2. Indicadores adelantados, coincidentes y retardados</h2>
+    <p>
+      La clasificación más importante para el examen EFA es la que distingue los indicadores
+      según su <strong>relación temporal con el ciclo económico</strong>.<sup class="fn"><a href="#fn2">[2]</a></sup>
+    </p>
+
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Tipo temporal</th>
-            <th>Qué aporta</th>
-            <th>Ejemplos típicos</th>
-            <th>Uso práctico</th>
+            <th>Tipo</th>
+            <th>Cuándo se mueve</th>
+            <th>Utilidad principal</th>
+            <th>Ejemplos</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
-            <td>Anticipa cambios futuros del ciclo</td>
-            <td>PMI, ISM, nuevos pedidos, permisos de construcción, confianza, peticiones iniciales</td>
-            <td>Detectar giros antes de que aparezcan en PIB o empleo</td>
+            <td><strong>Antes</strong> que el ciclo: anticipa giros</td>
+            <td>Anticipar expansión o recesión; ajustar asignación de activos</td>
+            <td>PMI manufacturas, permisos de construcción, curva de tipos, confianza del consumidor</td>
           </tr>
           <tr>
             <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
-            <td>Mide el pulso actual de la economía</td>
-            <td>Producción industrial, ventas minoristas, empleo mensual, renta personal</td>
-            <td>Confirmar si la economía está creciendo o frenándose ahora</td>
+            <td><strong>Al mismo tiempo</strong> que el ciclo</td>
+            <td>Confirmar la fase actual del ciclo en tiempo casi real</td>
+            <td>PIB (flash), nóminas no agrícolas, producción industrial, ventas minoristas</td>
           </tr>
           <tr>
             <td><span class="indicator-tag tag-retardado">Retardado</span></td>
-            <td>Confirma una tendencia ya iniciada</td>
-            <td>Tasa de paro, morosidad, beneficios publicados, salarios agregados, IPC acumulado</td>
-            <td>Validar la fase del ciclo y estimar persistencia</td>
+            <td><strong>Después</strong> del ciclo: confirma lo que ya ocurrió</td>
+            <td>Validar el diagnóstico; calibrar política monetaria</td>
+            <td>Tasa de paro, inflación IPC, morosidad bancaria, salarios negociados</td>
           </tr>
         </tbody>
       </table>
-    </div>
-
-    <div class="card accent-amber">
-      <h3>⚠️ Trampa típica</h3>
-      <p>
-        Un indicador con mucho impacto de mercado no tiene por qué ser adelantado.
-        El dato de empleo de EE. UU. mueve mucho los mercados, pero buena parte del empleo
-        es <strong>coincidente o retardado</strong>: las empresas suelen contratar o despedir después
-        de que la demanda ya haya cambiado. En cambio, los nuevos pedidos o las expectativas
-        empresariales suelen girar antes.
-      </p>
-    </div>
-
-    <h3>Cómo leer un indicador correctamente</h3>
-    <div class="reading-row">
-      <span class="reading-label">Nivel</span>
-      <span class="reading-note">Valor actual del indicador: PMI en 48, paro en 6%, inflación en 3%.</span>
-      <span class="reading-note">Responde a: ¿la situación actual es fuerte, débil o neutral?</span>
-    </div>
-    <div class="reading-row">
-      <span class="reading-label">Variación</span>
-      <span class="reading-note">Cambio respecto al mes o trimestre anterior.</span>
-      <span class="reading-note">Responde a: ¿la economía mejora o empeora respecto al dato previo?</span>
-    </div>
-    <div class="reading-row">
-      <span class="reading-label">Expectativa</span>
-      <span class="reading-note">Comparación contra el consenso de analistas.</span>
-      <span class="reading-note">Responde a: ¿el dato sorprende al mercado o ya estaba descontado?</span>
-    </div>
-    <div class="reading-row">
-      <span class="reading-label">Revisión</span>
-      <span class="reading-note">Corrección de datos anteriores.</span>
-      <span class="reading-note">Una revisión fuerte puede importar más que el dato nuevo.</span>
     </div>
 
     <div class="callout info">
-      <strong>Lectura profesional:</strong> los mercados reaccionan sobre todo a la <strong>sorpresa</strong>,
-      no al dato en bruto. Un crecimiento del PIB del 1,5% puede ser positivo si se esperaba 0,5%,
-      o negativo si se esperaba 2,5%.
+      <strong>Regla práctica:</strong> los indicadores de <em>sentimiento</em> tienden a ser
+      adelantados (las expectativas cambian antes que la realidad); los de <em>oferta y demanda</em>
+      son generalmente coincidentes; los de <em>empleo e inflación</em> son retardados. Hay
+      excepciones notables —las peticiones semanales de desempleo en EE.UU. son adelantadas pese
+      a ser un dato de empleo.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo — Cómo leer una secuencia de indicadores</h3>
+      <p>
+        Imagina que en un trimestre observas la siguiente secuencia de datos:<br><br>
+        1. El PMI manufacturero cae por debajo de 50 dos meses consecutivos
+        <span class="indicator-tag tag-adelantado">Adelantado</span><br>
+        2. Las ventas minoristas empiezan a caer un mes después
+        <span class="indicator-tag tag-coincidente">Coincidente</span><br>
+        3. El PIB del trimestre siguiente es negativo
+        <span class="indicator-tag tag-coincidente">Coincidente</span><br>
+        4. Tres meses después sube el paro y los salarios se moderan
+        <span class="indicator-tag tag-retardado">Retardado</span><br><br>
+        El PMI por debajo de 50 fue la primera señal de alerta: un asesor que lo leyera
+        correctamente habría podido reducir exposición a renta variable cíclica <em>antes</em>
+        de que el PIB confirmara la recesión. Los indicadores retardados —paro e inflación—
+        llegan cuando la economía ya está tocando fondo y el banco central empieza a bajar tipos,
+        señal de que puede volver a incrementarse el peso en bonos y en activos de riesgo.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Clasificar indicadores como adelantados, coincidentes o retardados. El PMI por encima
+        de 50 indica expansión; por debajo de 50, contracción. Memorizar que la curva de tipos
+        invertida (tipos cortos > tipos largos) es uno de los indicadores adelantados de recesión
+        más fiables históricamente.
+      </div>
     </div>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       2. INDICADORES DE DEMANDA
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       3. INDICADORES POR TIPO (TAXONOMÍA GENERAL)
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
-    <h2>2. Indicadores de demanda</h2>
-    <p class="sec-intro">
-      Los indicadores de demanda miden el gasto de hogares, empresas, gobierno y sector exterior.
-      En términos del PIB por el método del gasto, se relacionan con <strong>C + I + G + (X − M)</strong>.
-      Son esenciales para anticipar crecimiento, beneficios empresariales e inflación por presión
-      de demanda.
-    </p>
-
-    <h3>Consumo privado</h3>
+    <h2>3. Taxonomía: demanda, oferta y sentimiento</h2>
     <p>
-      El consumo privado suele ser el mayor componente del PIB en economías desarrolladas.
-      Cuando los hogares gastan más, aumentan ventas, producción y empleo. Pero si la economía
-      ya está cerca del pleno empleo, un exceso de consumo puede traducirse en inflación y tipos
-      más altos.
+      Antes de ver los indicadores país a país, conviene interiorizar la taxonomía general.
+      Los mismos tipos de indicadores aparecen —con nombres distintos y organismos distintos—
+      en todas las economías desarrolladas.
     </p>
 
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Ventas minoristas</h4>
-        <p>
-          Miden el gasto en comercios y bienes de consumo. Son mensuales y bastante observadas
-          porque anticipan el consumo privado. Lectura fuerte: demanda doméstica sólida.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Confianza del consumidor</h4>
-        <p>
-          Aunque es sentimiento, afecta directamente al consumo. Si los hogares esperan perder
-          empleo o renta, tienden a ahorrar más y gastar menos.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Renta disponible</h4>
-        <p>
-          Renta de los hogares después de impuestos y transferencias. Si crece en términos reales,
-          sostiene consumo sin necesidad de endeudamiento.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Crédito al consumo</h4>
-        <p>
-          Expansión del crédito puede impulsar ventas a corto plazo, pero si se acelera demasiado
-          puede señalar vulnerabilidad financiera de los hogares.
-        </p>
-      </div>
-    </div>
-
-    <h3>Inversión empresarial</h3>
+    <h3>3.1 Indicadores de demanda <span class="type-tag type-dem">Demanda</span></h3>
     <p>
-      La inversión empresarial es más volátil que el consumo. Las empresas invierten si esperan
-      demanda futura, financiación accesible y rentabilidad suficiente. Por eso los indicadores
-      relacionados con pedidos, bienes duraderos y capex suelen actuar como señales tempranas
-      del ciclo.
+      Miden el volumen de gasto efectivo de los agentes. Son generalmente coincidentes: reflejan
+      lo que ya se ha consumido o invertido, aunque algunos datos de pedidos son ligeramente
+      adelantados.<sup class="fn"><a href="#fn1">[1]</a></sup>
     </p>
-
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Pedidos de bienes duraderos</h4>
-        <p>
-          Bienes que duran varios años: maquinaria, transporte, equipos. Son sensibles al ciclo.
-          Una caída sostenida anticipa menor inversión y producción futura.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Nuevos pedidos industriales</h4>
-        <p>
-          Muy relevantes dentro de PMIs/ISM. Si los pedidos caen, las fábricas tienden a producir
-          menos en los meses siguientes.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Capex e inversión fija</h4>
-        <p>
-          Gasto de empresas en activos productivos. Suele repuntar cuando hay confianza y capacidad
-          utilizada alta.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Condiciones de financiación</h4>
-        <p>
-          Tipos de interés, spreads de crédito y disponibilidad bancaria. Si el crédito se endurece,
-          la inversión suele frenarse antes que el consumo básico.
-        </p>
-      </div>
-    </div>
-
-    <h3>Vivienda y construcción</h3>
-    <p>
-      La vivienda mezcla demanda, oferta y condiciones financieras. Es muy sensible a tipos de
-      interés porque depende de hipotecas. Por eso los permisos de construcción, ventas de vivienda
-      e inicios de obra suelen anticipar cambios en crecimiento y empleo asociado a construcción.
-    </p>
-
     <div class="table-wrap">
-      <table>
+      <table class="ind-table">
         <thead>
-          <tr>
-            <th>Indicador</th>
-            <th>Tipo</th>
-            <th>Lectura fuerte</th>
-            <th>Lectura débil</th>
-          </tr>
+          <tr><th>Indicador</th><th>Qué mide</th><th>Timing</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Permisos de construcción</strong></td>
-            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
-            <td>Más actividad futura en construcción</td>
-            <td>Posible freno futuro del sector</td>
-          </tr>
-          <tr>
-            <td><strong>Inicios de vivienda</strong></td>
+            <td class="ind-name">Ventas minoristas</td>
+            <td class="ind-desc">Volumen de ventas al por menor; proxy del consumo privado</td>
             <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
-            <td>Construcción activa y empleo asociado</td>
-            <td>Menor inversión residencial</td>
           </tr>
           <tr>
-            <td><strong>Ventas de vivienda</strong></td>
-            <td><span class="indicator-tag tag-demanda">Demanda</span></td>
-            <td>Demanda inmobiliaria sólida</td>
-            <td>Tipos altos o confianza débil</td>
+            <td class="ind-name">Ventas de viviendas</td>
+            <td class="ind-desc">Transmisiones de inmuebles; sensible al ciclo de tipos y crédito</td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
           </tr>
           <tr>
-            <td><strong>Precios de vivienda</strong></td>
-            <td><span class="indicator-tag tag-retardado">Retardado</span></td>
-            <td>Mercado tensionado / efecto riqueza</td>
-            <td>Ajuste inmobiliario ya iniciado</td>
+            <td class="ind-name">Permisos de construcción</td>
+            <td class="ind-desc">Autorizaciones para nueva edificación; anticipa inversión residencial</td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+          </tr>
+          <tr>
+            <td class="ind-name">Pedidos de bienes duraderos</td>
+            <td class="ind-desc">Nuevos pedidos de bienes de vida útil larga; proxy de inversión empresarial</td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+          </tr>
+          <tr>
+            <td class="ind-name">Importaciones</td>
+            <td class="ind-desc">Refleja la demanda interna de bienes extranjeros</td>
+            <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+          </tr>
+          <tr>
+            <td class="ind-name">Matriculación de vehículos</td>
+            <td class="ind-desc">Ventas de coches nuevos; refleja confianza y renta disponible</td>
+            <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <h3>Sector exterior</h3>
+    <h3>3.2 Indicadores de oferta <span class="type-tag type-ofe">Oferta</span></h3>
     <p>
-      Exportaciones e importaciones conectan la economía doméstica con el ciclo global. Un país
-      exportador se beneficia cuando sus socios comerciales crecen. Un aumento de importaciones
-      puede señalar demanda interna fuerte, pero también resta al PIB en el componente
-      <strong>(X − M)</strong> si no viene acompañado de exportaciones.
+      Miden la actividad productiva del sector empresarial. Son en general coincidentes o
+      ligeramente adelantados, ya que la producción responde con algo de lag a los cambios
+      en la demanda.<sup class="fn"><a href="#fn1">[1]</a></sup>
     </p>
-
-    <div class="card accent-green">
-      <h3>📌 Ejemplo de lectura</h3>
-      <p>
-        Si una economía muestra ventas minoristas fuertes, crédito al consumo creciendo y confianza
-        del consumidor al alza, la señal de demanda interna es positiva. Pero si la inflación ya está
-        por encima del objetivo del banco central, el mercado puede interpretar esa fortaleza como
-        presión para mantener tipos altos.
-      </p>
+    <div class="table-wrap">
+      <table class="ind-table">
+        <thead>
+          <tr><th>Indicador</th><th>Qué mide</th><th>Timing</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="ind-name">Producción industrial (IPI)</td>
+            <td class="ind-desc">Volumen de producción manufacturera, minera y energética</td>
+            <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+          </tr>
+          <tr>
+            <td class="ind-name">Tasa de utilización de capacidad</td>
+            <td class="ind-desc">% de la capacidad productiva instalada que está en uso</td>
+            <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+          </tr>
+          <tr>
+            <td class="ind-name">Pedidos de fábrica</td>
+            <td class="ind-desc">Nuevos pedidos recibidos por el sector manufacturero</td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+          </tr>
+          <tr>
+            <td class="ind-name">Exportaciones</td>
+            <td class="ind-desc">Demanda externa de bienes/servicios nacionales</td>
+            <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+          </tr>
+          <tr>
+            <td class="ind-name">Variación de existencias (inventarios)</td>
+            <td class="ind-desc">Cambio en los stocks almacenados; adelanta ajustes de producción</td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        Demanda = gasto. Ventas minoristas, consumo, pedidos, crédito, vivienda y exportaciones
-        son indicadores de demanda. La pregunta no será necesariamente numérica: puede pedir
-        identificar qué indicador anticipa mejor un cambio en consumo o inversión.
+    <h3>3.3 Indicadores de sentimiento <span class="type-tag type-sent">Sentimiento</span></h3>
+    <p>
+      Recogen percepciones y expectativas de hogares y directivos empresariales mediante
+      encuestas. Son los indicadores más adelantados porque las decisiones de gasto e inversión
+      se toman en función de expectativas, no de datos históricos. Un dato de sentimiento puede
+      mover los mercados incluso cuando la economía real aún no ha reaccionado.<sup class="fn"><a href="#fn3">[3]</a></sup>
+    </p>
+    <div class="table-wrap">
+      <table class="ind-table">
+        <thead>
+          <tr><th>Indicador</th><th>Qué mide</th><th>Timing</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="ind-name">PMI (Purchasing Managers' Index)</td>
+            <td class="ind-desc">Encuesta a directores de compras: >50 expansión, <50 contracción. Existe versión Manufacturas y Servicios</td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+          </tr>
+          <tr>
+            <td class="ind-name">Confianza del consumidor</td>
+            <td class="ind-desc">Percepción de los hogares sobre su situación económica presente y futura</td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+          </tr>
+          <tr>
+            <td class="ind-name">Confianza empresarial / IFO</td>
+            <td class="ind-desc">Expectativas de directivos sobre producción, pedidos y empleo</td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+          </tr>
+          <tr>
+            <td class="ind-name">ZEW (expectativas de analistas)</td>
+            <td class="ind-desc">Expectativas de inversores y analistas financieros sobre la economía</td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+          </tr>
+          <tr>
+            <td class="ind-name">Índice de condiciones financieras</td>
+            <td class="ind-desc">Agrega tipos de interés, spreads crediticios y precio de activos</td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       4. INDICADORES POR ECONOMÍA
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="sec">
+    <h2>4. Indicadores por economía</h2>
+    <p>
+      Cada economía tiene sus propios indicadores de referencia, elaborados por organismos
+      específicos y publicados con calendarios propios. El asesor financiero global debe conocer
+      cuáles son los que mueven los mercados en cada plaza. A continuación, los más relevantes
+      para el examen EFA, organizados por tipo.
+    </p>
+
+    <!-- ── EE.UU. ── -->
+    <div class="pais-block">
+      <div class="pais-header">
+        <span class="pais-flag">🇺🇸</span>
+        <span class="pais-name">Estados Unidos</span>
+        <span class="pais-sub">Fed · BEA · BLS · ISM · Conference Board</span>
+      </div>
+      <div class="pais-body">
+        <p>
+          EE.UU. es la mayor economía del mundo (~25% del PIB global) y sus indicadores mueven
+          los mercados financieros internacionales. La Reserva Federal (Fed) tiene un mandato
+          dual —estabilidad de precios y máximo empleo— por lo que presta especial atención a
+          los datos de inflación <em>y</em> mercado laboral.<sup class="fn"><a href="#fn4">[4]</a></sup>
+        </p>
+
+        <p class="pais-section-label"><span class="type-tag type-dem">Demanda</span></p>
+        <div class="table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Indicador</th><th>Fuente</th><th>Frecuencia</th><th>Tipo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="ind-name">Ventas minoristas (Retail Sales)</td>
+                <td class="ind-desc">Census Bureau</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Pedidos de bienes duraderos (Durable Goods Orders)</td>
+                <td class="ind-desc">Census Bureau</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Ventas de viviendas nuevas / existentes</td>
+                <td class="ind-desc">Census / NAR</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">PCE (Personal Consumption Expenditures)</td>
+                <td class="ind-desc">BEA</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="pais-section-label"><span class="type-tag type-ofe">Oferta</span></p>
+        <div class="table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Indicador</th><th>Fuente</th><th>Frecuencia</th><th>Tipo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="ind-name">Producción industrial (Industrial Production Index)</td>
+                <td class="ind-desc">Fed</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Tasa de utilización de capacidad (Capacity Utilization)</td>
+                <td class="ind-desc">Fed</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Nóminas no agrícolas (Non-Farm Payrolls)</td>
+                <td class="ind-desc">BLS</td>
+                <td class="ind-desc">Mensual (1er viernes)</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Peticiones semanales de desempleo (Jobless Claims)</td>
+                <td class="ind-desc">DOL</td>
+                <td class="ind-desc">Semanal (jueves)</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="pais-section-label"><span class="type-tag type-sent">Sentimiento</span></p>
+        <div class="table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Indicador</th><th>Fuente</th><th>Frecuencia</th><th>Tipo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="ind-name">ISM Manufacturing PMI</td>
+                <td class="ind-desc">ISM</td>
+                <td class="ind-desc">Mensual (1er día hábil)</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">ISM Services PMI</td>
+                <td class="ind-desc">ISM</td>
+                <td class="ind-desc">Mensual (3er día hábil)</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Confianza del consumidor (Consumer Confidence)</td>
+                <td class="ind-desc">Conference Board</td>
+                <td class="ind-desc">Mensual (último martes)</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Sentimiento del consumidor (Michigan)</td>
+                <td class="ind-desc">Univ. Michigan</td>
+                <td class="ind-desc">Mensual (2 lecturas)</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Permisos de construcción (Building Permits)</td>
+                <td class="ind-desc">Census Bureau</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout tip" style="margin-top:.8rem;">
+          <strong>Dato clave:</strong> el <strong>ISM Manufacturing</strong> es el indicador de
+          sentimiento más seguido globalmente. Un dato por encima de 50 indica expansión de la
+          actividad manufacturera; por debajo, contracción. Los mercados de renta variable y
+          divisas reaccionan al instante de su publicación. El <strong>PCE</strong> —no el IPC—
+          es la medida de inflación preferida de la Fed para calibrar su política monetaria.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── REINO UNIDO ── -->
+    <div class="pais-block">
+      <div class="pais-header">
+        <span class="pais-flag">🇬🇧</span>
+        <span class="pais-name">Reino Unido</span>
+        <span class="pais-sub">BoE · ONS · GfK · S&P Global</span>
+      </div>
+      <div class="pais-body">
+        <p>
+          El Reino Unido es una economía de servicios (~80% del PIB) con un banco central
+          independiente, el Banco de Inglaterra (BoE), cuyo objetivo primario es mantener
+          la inflación en el 2%. El ONS (Office for National Statistics) es el principal
+          organismo estadístico.<sup class="fn"><a href="#fn5">[5]</a></sup>
+        </p>
+
+        <p class="pais-section-label"><span class="type-tag type-dem">Demanda</span></p>
+        <div class="table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Indicador</th><th>Fuente</th><th>Frecuencia</th><th>Tipo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="ind-name">Ventas minoristas (Retail Sales)</td>
+                <td class="ind-desc">ONS</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Precios de vivienda (Halifax / Nationwide)</td>
+                <td class="ind-desc">Halifax / Nationwide BS</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Aprobaciones de hipotecas (Mortgage Approvals)</td>
+                <td class="ind-desc">BoE</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="pais-section-label"><span class="type-tag type-ofe">Oferta</span></p>
+        <div class="table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Indicador</th><th>Fuente</th><th>Frecuencia</th><th>Tipo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="ind-name">Producción industrial</td>
+                <td class="ind-desc">ONS</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">PIB mensual (Monthly GDP)</td>
+                <td class="ind-desc">ONS</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Tasa de desempleo (Labour Force Survey)</td>
+                <td class="ind-desc">ONS</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-retardado">Retardado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="pais-section-label"><span class="type-tag type-sent">Sentimiento</span></p>
+        <div class="table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Indicador</th><th>Fuente</th><th>Frecuencia</th><th>Tipo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="ind-name">PMI Compuesto UK (S&P Global / CIPS)</td>
+                <td class="ind-desc">S&P Global</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Confianza del consumidor GfK</td>
+                <td class="ind-desc">GfK</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Encuesta CBI (Confederation of British Industry)</td>
+                <td class="ind-desc">CBI</td>
+                <td class="ind-desc">Mensual / Trimestral</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout tip" style="margin-top:.8rem;">
+          <strong>Particularidad:</strong> el ONS publica un <strong>PIB mensual</strong>,
+          algo inusual entre las grandes economías. Esto da al mercado una lectura más
+          frecuente del estado de la economía británica que en la eurozona, donde el PIB
+          solo se publica trimestralmente.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── EUROPA / EUROZONA ── -->
+    <div class="pais-block">
+      <div class="pais-header">
+        <span class="pais-flag">🇪🇺</span>
+        <span class="pais-name">Europa / Eurozona</span>
+        <span class="pais-sub">BCE · Eurostat · Comisión Europea · S&P Global · IFO</span>
+      </div>
+      <div class="pais-body">
+        <p>
+          La eurozona agrupa a 20 países con una política monetaria común (BCE) pero políticas
+          fiscales nacionales. Los indicadores más relevantes son los que recogen el pulso del
+          bloque en conjunto, aunque los datos nacionales de Alemania y Francia tienen especial
+          peso por ser las mayores economías.<sup class="fn"><a href="#fn6">[6]</a></sup>
+        </p>
+
+        <p class="pais-section-label"><span class="type-tag type-dem">Demanda</span></p>
+        <div class="table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Indicador</th><th>Fuente</th><th>Frecuencia</th><th>Tipo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="ind-name">Ventas minoristas zona euro</td>
+                <td class="ind-desc">Eurostat</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Pedidos de bienes duraderos (Alemania)</td>
+                <td class="ind-desc">Destatis</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Balanza comercial eurozona</td>
+                <td class="ind-desc">Eurostat</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="pais-section-label"><span class="type-tag type-ofe">Oferta</span></p>
+        <div class="table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Indicador</th><th>Fuente</th><th>Frecuencia</th><th>Tipo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="ind-name">IPI zona euro (Producción industrial)</td>
+                <td class="ind-desc">Eurostat</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">IPI Alemania</td>
+                <td class="ind-desc">Destatis</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Tasa de desempleo eurozona</td>
+                <td class="ind-desc">Eurostat</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-retardado">Retardado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="pais-section-label"><span class="type-tag type-sent">Sentimiento</span></p>
+        <div class="table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Indicador</th><th>Fuente</th><th>Frecuencia</th><th>Tipo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="ind-name">PMI Manufacturas zona euro (S&P Global)</td>
+                <td class="ind-desc">S&P Global / HCOB</td>
+                <td class="ind-desc">Mensual (flash ~22 de mes)</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">PMI Servicios zona euro</td>
+                <td class="ind-desc">S&P Global / HCOB</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">IFO Business Climate (Alemania)</td>
+                <td class="ind-desc">IFO Institut</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">ZEW Economic Sentiment (Alemania)</td>
+                <td class="ind-desc">ZEW Institut</td>
+                <td class="ind-desc">Mensual (2º martes)</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Economic Sentiment Indicator (ESI)</td>
+                <td class="ind-desc">Comisión Europea</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Confianza del consumidor zona euro</td>
+                <td class="ind-desc">Comisión Europea</td>
+                <td class="ind-desc">Mensual (flash a final de mes)</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout tip" style="margin-top:.8rem;">
+          <strong>Los dos indicadores estrella de Europa:</strong> el <strong>IFO</strong> alemán
+          (confianza empresarial) es el que más mueve el EUR/USD cuando sorprende. El <strong>ZEW</strong>
+          recoge expectativas de analistas —no de empresas— y es más volátil, pero muy útil como
+          termómetro de la visión financiera del ciclo europeo.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CHINA ── -->
+    <div class="pais-block">
+      <div class="pais-header">
+        <span class="pais-flag">🇨🇳</span>
+        <span class="pais-name">China</span>
+        <span class="pais-sub">NBS · Caixin · PBOC · MOFCOM</span>
+      </div>
+      <div class="pais-body">
+        <p>
+          China es la segunda mayor economía del mundo y el mayor exportador global. Sus
+          indicadores tienen un impacto directo sobre las materias primas, la renta variable
+          emergente y las divisas de economías exportadoras. Existe una dualidad importante:
+          los datos del <strong>NBS</strong> (oficiales, calculados por el gobierno) y los
+          de <strong>Caixin</strong> (privados, más centrados en PYMEs), que a veces
+          divergen.<sup class="fn"><a href="#fn7">[7]</a></sup>
+        </p>
+
+        <p class="pais-section-label"><span class="type-tag type-dem">Demanda</span></p>
+        <div class="table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Indicador</th><th>Fuente</th><th>Frecuencia</th><th>Tipo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="ind-name">Ventas minoristas</td>
+                <td class="ind-desc">NBS</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Inversión en activos fijos (FAI)</td>
+                <td class="ind-desc">NBS</td>
+                <td class="ind-desc">Mensual (acumulado año)</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Importaciones</td>
+                <td class="ind-desc">Aduana China / MOFCOM</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="pais-section-label"><span class="type-tag type-ofe">Oferta</span></p>
+        <div class="table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Indicador</th><th>Fuente</th><th>Frecuencia</th><th>Tipo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="ind-name">Producción industrial</td>
+                <td class="ind-desc">NBS</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Exportaciones</td>
+                <td class="ind-desc">Aduana China</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Crédito nuevo (New Yuan Loans)</td>
+                <td class="ind-desc">PBOC</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="pais-section-label"><span class="type-tag type-sent">Sentimiento</span></p>
+        <div class="table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Indicador</th><th>Fuente</th><th>Frecuencia</th><th>Tipo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="ind-name">PMI Manufacturas NBS</td>
+                <td class="ind-desc">NBS</td>
+                <td class="ind-desc">Mensual (último día hábil)</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">PMI Manufacturas Caixin</td>
+                <td class="ind-desc">Caixin / S&P Global</td>
+                <td class="ind-desc">Mensual (1er día hábil)</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">PMI Servicios Caixin</td>
+                <td class="ind-desc">Caixin / S&P Global</td>
+                <td class="ind-desc">Mensual (3er día hábil)</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout tip" style="margin-top:.8rem;">
+          <strong>NBS vs. Caixin:</strong> el PMI del NBS incluye principalmente grandes empresas
+          y estatales; el de Caixin cubre más PYMEs exportadoras. Cuando divergen, Caixin suele
+          reflejar mejor la presión del ciclo global sobre el sector privado chino. Una caída del
+          PMI chino Caixin Manufacturing por debajo de 50 suele presionar a la baja el precio del
+          cobre y el AUD/USD.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── JAPÓN ── -->
+    <div class="pais-block">
+      <div class="pais-header">
+        <span class="pais-flag">🇯🇵</span>
+        <span class="pais-name">Japón</span>
+        <span class="pais-sub">BoJ · MIC · METI · Jibun Bank / au Jibun</span>
+      </div>
+      <div class="pais-body">
+        <p>
+          Japón es la cuarta mayor economía del mundo, con características estructurales propias:
+          deflación crónica durante décadas, envejecimiento demográfico acelerado y política
+          monetaria ultraexpansiva hasta 2024. El Banco de Japón (BoJ) es el banco central; el
+          MIC (Ministry of Internal Affairs) y el METI (Ministry of Economy, Trade and Industry)
+          publican los principales datos.<sup class="fn"><a href="#fn8">[8]</a></sup>
+        </p>
+
+        <p class="pais-section-label"><span class="type-tag type-dem">Demanda</span></p>
+        <div class="table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Indicador</th><th>Fuente</th><th>Frecuencia</th><th>Tipo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="ind-name">Ventas minoristas</td>
+                <td class="ind-desc">METI</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Gasto de los hogares</td>
+                <td class="ind-desc">MIC</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Pedidos de maquinaria (Machine Orders)</td>
+                <td class="ind-desc">Gabinete de Japón</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="pais-section-label"><span class="type-tag type-ofe">Oferta</span></p>
+        <div class="table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Indicador</th><th>Fuente</th><th>Frecuencia</th><th>Tipo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="ind-name">Producción industrial</td>
+                <td class="ind-desc">METI</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Exportaciones</td>
+                <td class="ind-desc">MOF</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Tasa de paro</td>
+                <td class="ind-desc">MIC</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-retardado">Retardado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="pais-section-label"><span class="type-tag type-sent">Sentimiento</span></p>
+        <div class="table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Indicador</th><th>Fuente</th><th>Frecuencia</span></th><th>Tipo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="ind-name">Tankan (encuesta empresarial BoJ)</td>
+                <td class="ind-desc">Banco de Japón</td>
+                <td class="ind-desc">Trimestral (enero, abril, julio, octubre)</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">PMI Manufacturas Jibun Bank</td>
+                <td class="ind-desc">au Jibun / S&P Global</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+              <tr>
+                <td class="ind-name">Índice de confianza del consumidor</td>
+                <td class="ind-desc">Gabinete de Japón</td>
+                <td class="ind-desc">Mensual</td>
+                <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout tip" style="margin-top:.8rem;">
+          <strong>El Tankan es único:</strong> es la encuesta trimestral del Banco de Japón a
+          grandes empresas sobre situación y expectativas. Su componente principal —el índice
+          de difusión de las grandes empresas manufactureras— es el indicador de sentimiento
+          empresarial más importante de Japón y mueve el yen en el momento de su publicación.
+          Un Tankan positivo indica que los optimistas superan a los pesimistas.
+        </div>
       </div>
     </div>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       3. INDICADORES DE OFERTA
-       ============================================================ -->
+  <!-- ════════════════════════════════════════════════════════════════
+       5. CUADRO DE MANDO GLOBAL
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
-    <h2>3. Indicadores de oferta</h2>
-    <p class="sec-intro">
-      Los indicadores de oferta miden la capacidad productiva y el lado real de la economía:
-      producción, utilización de recursos, inventarios, costes y productividad. Son especialmente
-      importantes para distinguir entre crecimiento sano y crecimiento con cuellos de botella.
-    </p>
-
-    <h3>Producción industrial</h3>
+    <h2>5. Cuadro comparativo global</h2>
     <p>
-      La producción industrial mide la actividad de industria manufacturera, minería, energía
-      y otros sectores productivos. Aunque las economías desarrolladas están dominadas por servicios,
-      la industria sigue siendo un indicador muy sensible al ciclo: cae rápido cuando se debilitan
-      pedidos y comercio mundial.
+      Para memorizar rápidamente los indicadores estrella de cada economía, este cuadro resume
+      el indicador de sentimiento más seguido por el mercado en cada plaza:
     </p>
 
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Manufacturas</h4>
-        <p>
-          Componente más cíclico. Reacciona a demanda de bienes, comercio exterior, inventarios
-          y confianza empresarial.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Energía</h4>
-        <p>
-          Puede moverse por clima, precios energéticos o actividad económica. Es relevante, pero
-          puede distorsionar la lectura del ciclo si hay shocks externos.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Bienes intermedios</h4>
-        <p>
-          Productos usados para fabricar otros bienes. Su caída puede anticipar menor producción
-          futura en toda la cadena.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Bienes de equipo</h4>
-        <p>
-          Maquinaria y equipos. Reflejan inversión empresarial y suelen ser muy sensibles a tipos
-          de interés y expectativas.
-        </p>
-      </div>
-    </div>
-
-    <h3>Utilización de capacidad</h3>
-    <p>
-      La utilización de capacidad indica qué porcentaje de la capacidad productiva está siendo
-      usado. Si es baja, la economía puede crecer sin generar demasiada inflación. Si es muy alta,
-      aparecen cuellos de botella: las empresas no pueden aumentar producción fácilmente y pueden
-      subir precios.
-    </p>
-
-    <div class="vs-grid">
-      <div class="vs-box left">
-        <h4>Capacidad ociosa</h4>
-        <p>
-          Hay fábricas, trabajadores o recursos infrautilizados. El crecimiento puede recuperarse
-          sin presión inflacionaria fuerte. Es típico de salida de recesión o fase de valle.
-        </p>
-      </div>
-      <div class="vs-box right">
-        <h4>Capacidad tensionada</h4>
-        <p>
-          La economía opera cerca del límite productivo. Aumentan retrasos, costes y poder de fijación
-          de precios. Es típico de expansión tardía o pico.
-        </p>
-      </div>
-    </div>
-
-    <h3>Inventarios</h3>
-    <p>
-      Los inventarios son bienes producidos pero no vendidos. Su interpretación exige cuidado:
-      pueden subir porque las empresas esperan más ventas y acumulan stock de forma voluntaria,
-      o porque las ventas se debilitan y quedan productos sin vender. La clave es compararlos
-      con ventas y pedidos.
-    </p>
-
-    <div class="card accent-amber">
-      <h3>⚠️ Inventarios: señal ambigua</h3>
-      <p>
-        Inventarios al alza con pedidos fuertes puede ser señal de preparación ante demanda futura.
-        Inventarios al alza con ventas débiles suele ser mala señal: las empresas tendrán que recortar
-        producción, descuentos o márgenes.
-      </p>
-    </div>
-
-    <h3>Costes de producción y precios de productor</h3>
-    <p>
-      Los costes de materias primas, salarios, transporte y energía condicionan márgenes empresariales
-      e inflación futura. El índice de precios de producción o precios industriales mide precios en
-      fases previas al consumo. Si los costes suben y las empresas pueden trasladarlos al consumidor,
-      el IPC puede subir más adelante.
-    </p>
-
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Precios de producción</h4>
-        <p>
-          Señalan presiones de costes antes de llegar al consumidor final. Más relevantes cuando
-          el shock viene de energía, materias primas o cadenas de suministro.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Costes laborales unitarios</h4>
-        <p>
-          Relacionan salarios con productividad. Si salarios suben más que productividad, puede
-          aumentar presión sobre precios o reducir márgenes.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Productividad</h4>
-        <p>
-          Producción por trabajador u hora. Aumentos de productividad permiten crecer más sin
-          tanta inflación.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Plazos de entrega</h4>
-        <p>
-          En encuestas PMI, plazos largos pueden señalar tensión de oferta o exceso de demanda.
-          Es una señal útil de cuellos de botella.
-        </p>
-      </div>
-    </div>
-
-    <h3>Servicios</h3>
-    <p>
-      En economías desarrolladas, los servicios pesan más que la industria. Indicadores como PMI
-      de servicios, actividad hotelera, transporte, ocio, servicios profesionales y empleo en servicios
-      ayudan a leer la parte dominante del PIB. En fases post-recesión puede haber recuperación
-      industrial antes que de servicios, o al revés, según el tipo de shock.
-    </p>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        Oferta = producción y capacidad. Producción industrial, utilización de capacidad,
-        inventarios, productividad, costes y precios de productor son indicadores de oferta.
-        Cuidado con inventarios: por sí solos no dicen si la señal es positiva o negativa.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       4. INDICADORES DE SENTIMIENTO
-       ============================================================ -->
-  <div class="sec">
-    <h2>4. Indicadores de sentimiento</h2>
-    <p class="sec-intro">
-      Los indicadores de sentimiento no miden directamente producción o gasto efectivo, sino
-      expectativas. Aun así, son muy valiosos porque consumidores, empresas e inversores cambian
-      primero sus expectativas y después sus decisiones reales: consumo, inversión, contratación
-      y asignación de cartera.
-    </p>
-
-    <h3>PMI e ISM</h3>
-    <p>
-      Los PMIs (Purchasing Managers' Index) son encuestas a responsables de compras. Preguntan
-      sobre producción, nuevos pedidos, empleo, precios, inventarios y plazos de entrega. El ISM
-      en EE. UU. cumple una función similar y tiene gran impacto en mercado.
-    </p>
-
-    <div class="card accent-navy">
-      <h3>Regla práctica del PMI</h3>
-      <p>
-        En la mayoría de PMIs, <strong>50</strong> es el umbral neutral: por encima de 50 indica expansión
-        respecto al mes anterior; por debajo de 50 indica contracción. Lo importante no es solo el
-        nivel, sino la tendencia: un PMI en 52 que cae desde 58 puede señalar desaceleración;
-        un PMI en 48 que sube desde 42 puede indicar mejora desde niveles débiles.
-      </p>
-    </div>
-
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>PMI manufacturero</h4>
-        <p>
-          Más sensible a comercio global, inventarios, energía y pedidos de bienes. Suele girar antes
-          que el PIB.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>PMI servicios</h4>
-        <p>
-          Muy importante en economías avanzadas. Refleja actividad en servicios, empleo, precios
-          cobrados y confianza empresarial.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>PMI compuesto</h4>
-        <p>
-          Agrega manufacturas y servicios. Útil para lectura general de crecimiento de corto plazo.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Nuevos pedidos</h4>
-        <p>
-          Subcomponente especialmente adelantado. Si los pedidos caen, producción y empleo pueden
-          deteriorarse después.
-        </p>
-      </div>
-    </div>
-
-    <h3>Confianza del consumidor</h3>
-    <p>
-      La confianza del consumidor mide percepción sobre empleo, renta, situación financiera y
-      expectativas económicas. Importa porque un hogar pesimista tiende a ahorrar más, aplazar
-      compras duraderas y evitar endeudamiento. Es especialmente útil para anticipar consumo.
-    </p>
-
-    <h3>Confianza empresarial</h3>
-    <p>
-      Las encuestas a empresas reflejan expectativas sobre ventas, producción, contratación,
-      inversión y precios. En Europa destacan encuestas como el clima empresarial alemán Ifo,
-      el ZEW de expectativas financieras y los indicadores de sentimiento económico de la Comisión
-      Europea. En Japón destaca el Tankan del Banco de Japón.
-    </p>
-
-    <h3>Sentimiento de mercado financiero</h3>
-    <p>
-      Además de encuestas económicas, existen indicadores financieros que captan apetito por riesgo:
-      volatilidad implícita, spreads de crédito, flujos hacia fondos, encuestas a gestores y condiciones
-      financieras. Aunque no sean “macro puro”, ayudan a anticipar si el mercado está descontando
-      expansión, recesión o estrés financiero.
-    </p>
-
-    <div class="market-impact">
-      <div class="impact-box">
-        <h4>Sentimiento mejora</h4>
-        <ul>
-          <li>Consumidores más dispuestos a gastar</li>
-          <li>Empresas más dispuestas a invertir y contratar</li>
-          <li>Mercados tienden a asumir más riesgo</li>
-          <li>Puede presionar tipos al alza si aumenta inflación esperada</li>
-        </ul>
-      </div>
-      <div class="impact-box">
-        <h4>Sentimiento empeora</h4>
-        <ul>
-          <li>Mayor ahorro precautorio</li>
-          <li>Empresas aplazan inversión</li>
-          <li>Sube demanda de activos refugio</li>
-          <li>Bonos soberanos pueden beneficiarse si se espera bajada de tipos</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exam-alert">
-      <div>
-        <strong>🎯 Frecuente en examen</strong>
-        PMI, confianza del consumidor y confianza empresarial son indicadores de sentimiento,
-        aunque tengan impacto real. Suelen ser adelantados porque captan expectativas antes de
-        que aparezcan en producción, consumo o PIB.
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       5. INDICADORES POR ECONOMÍA
-       ============================================================ -->
-  <div class="sec">
-    <h2>5. Indicadores por principales economías</h2>
-    <p class="sec-intro">
-      El temario EFA exige saber discriminar indicadores de demanda, oferta y sentimiento en
-      EE. UU., Reino Unido, Europa, China y Japón. No se trata de memorizar todos los calendarios,
-      sino de reconocer las fuentes más relevantes y qué lectura aporta cada bloque.
-    </p>
-
-    <div class="country-grid">
-      <div class="country-card">
-        <h4>Estados Unidos</h4>
-        <p>
-          Es la economía más seguida por los mercados globales. Sus datos afectan a expectativas
-          sobre la Reserva Federal, tipos del Tesoro, dólar, bolsas globales y crédito.
-        </p>
-        <ul>
-          <li><strong>Demanda:</strong> ventas minoristas, consumo personal, pedidos de bienes duraderos, vivienda nueva y existente.</li>
-          <li><strong>Oferta:</strong> producción industrial, utilización de capacidad, productividad, costes laborales unitarios.</li>
-          <li><strong>Sentimiento:</strong> ISM manufacturero y servicios, confianza del consumidor, encuestas regionales de la Fed.</li>
-          <li><strong>Empleo:</strong> nóminas no agrícolas, tasa de paro, salarios, peticiones iniciales de desempleo.</li>
-          <li><strong>Fuentes habituales:</strong> BEA, BLS, Census Bureau, Federal Reserve, ISM, Conference Board, University of Michigan.</li>
-        </ul>
-      </div>
-
-      <div class="country-card">
-        <h4>Reino Unido</h4>
-        <p>
-          Muy relevante para libra esterlina, gilts y expectativas sobre el Banco de Inglaterra.
-          Su economía combina servicios financieros, consumo doméstico y sensibilidad a tipos hipotecarios.
-        </p>
-        <ul>
-          <li><strong>Demanda:</strong> ventas minoristas, consumo de hogares, vivienda, crédito y comercio exterior.</li>
-          <li><strong>Oferta:</strong> producción industrial, construcción, productividad y costes laborales.</li>
-          <li><strong>Sentimiento:</strong> PMI S&amp;P Global/CIPS, confianza GfK, encuestas empresariales del CBI.</li>
-          <li><strong>Empleo:</strong> tasa de paro, salarios medios, vacantes y participación laboral.</li>
-          <li><strong>Fuentes habituales:</strong> ONS, Bank of England, S&amp;P Global/CIPS, GfK, CBI.</li>
-        </ul>
-      </div>
-
-      <div class="country-card">
-        <h4>Europa / Eurozona</h4>
-        <p>
-          La lectura europea debe distinguir entre Eurozona agregada y países núcleo como Alemania,
-          Francia, Italia y España. Los datos influyen en expectativas sobre el BCE, deuda soberana,
-          euro y renta variable europea.
-        </p>
-        <ul>
-          <li><strong>Demanda:</strong> ventas minoristas, consumo, inversión, crédito bancario, exportaciones e importaciones.</li>
-          <li><strong>Oferta:</strong> producción industrial, construcción, costes laborales, precios industriales.</li>
-          <li><strong>Sentimiento:</strong> PMI compuesto, PMI manufacturero y servicios, Economic Sentiment Indicator, Ifo y ZEW.</li>
-          <li><strong>Precios:</strong> IPCA general y subyacente, muy relevantes para política monetaria del BCE.</li>
-          <li><strong>Fuentes habituales:</strong> Eurostat, BCE, Comisión Europea, S&amp;P Global, institutos nacionales.</li>
-        </ul>
-      </div>
-
-      <div class="country-card">
-        <h4>China</h4>
-        <p>
-          China es clave para materias primas, comercio mundial, lujo europeo, emergentes asiáticos
-          y divisas ligadas a commodities. Su ciclo combina demanda interna, inversión pública,
-          sector inmobiliario, exportaciones y política crediticia.
-        </p>
-        <ul>
-          <li><strong>Demanda:</strong> ventas minoristas, inversión en activos fijos, ventas inmobiliarias, financiación social agregada.</li>
-          <li><strong>Oferta:</strong> producción industrial, PMIs oficiales, beneficios industriales, energía y construcción.</li>
-          <li><strong>Sentimiento:</strong> PMI oficial y Caixin PMI; pueden dar señales distintas por composición sectorial.</li>
-          <li><strong>Sector exterior:</strong> exportaciones e importaciones, muy relevantes para el ciclo manufacturero global.</li>
-          <li><strong>Fuentes habituales:</strong> National Bureau of Statistics, PBoC, Caixin/S&amp;P Global, aduanas chinas.</li>
-        </ul>
-      </div>
-
-      <div class="country-card">
-        <h4>Japón</h4>
-        <p>
-          Japón es relevante por yen, deuda soberana, política del Banco de Japón y sensibilidad
-          a comercio global. Tiene particularidades: baja inflación histórica, envejecimiento,
-          grandes exportadores e influencia fuerte del tipo de cambio.
-        </p>
-        <ul>
-          <li><strong>Demanda:</strong> consumo de hogares, ventas minoristas, inversión empresarial, comercio exterior.</li>
-          <li><strong>Oferta:</strong> producción industrial, utilización de capacidad, pedidos de maquinaria.</li>
-          <li><strong>Sentimiento:</strong> Tankan del Banco de Japón, PMI, Economy Watchers Survey.</li>
-          <li><strong>Precios y salarios:</strong> IPC, salarios negociados y expectativas de inflación, claves para el BoJ.</li>
-          <li><strong>Fuentes habituales:</strong> Bank of Japan, Cabinet Office, Statistics Bureau, METI, MHLW.</li>
-        </ul>
-      </div>
-    </div>
-
-    <h3>Tabla comparativa de indicadores clave</h3>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
             <th>Economía</th>
-            <th>Demanda</th>
-            <th>Oferta</th>
-            <th>Sentimiento</th>
-            <th>Dato especialmente sensible</th>
+            <th>Indicador estrella</th>
+            <th>Tipo</th>
+            <th>Frecuencia</th>
+            <th>Impacto en mercados</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>EE. UU.</strong></td>
-            <td>Retail sales, consumo personal, vivienda</td>
-            <td>Industrial production, capacity utilization</td>
-            <td>ISM, Michigan, Conference Board</td>
-            <td>Empleo y salarios por impacto en Fed</td>
+            <td>🇺🇸 EE.UU.</td>
+            <td><strong>ISM Manufacturing PMI</strong></td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+            <td>Mensual</td>
+            <td>S&P500, USD, bonos T10Y</td>
           </tr>
           <tr>
-            <td><strong>UK</strong></td>
-            <td>Retail sales, vivienda, crédito</td>
-            <td>Producción, construcción</td>
-            <td>PMI, GfK, CBI</td>
-            <td>Salarios e inflación de servicios</td>
+            <td>🇺🇸 EE.UU.</td>
+            <td><strong>Non-Farm Payrolls</strong></td>
+            <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
+            <td>Mensual (1er viernes)</td>
+            <td>Fed expectations, USD</td>
           </tr>
           <tr>
-            <td><strong>Eurozona</strong></td>
-            <td>Ventas minoristas, crédito, exportaciones</td>
-            <td>Producción industrial, costes</td>
-            <td>PMI, ESI, Ifo, ZEW</td>
-            <td>IPCA subyacente por impacto en BCE</td>
+            <td>🇬🇧 UK</td>
+            <td><strong>PMI Compuesto S&P/CIPS</strong></td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+            <td>Mensual</td>
+            <td>GBP, FTSE 100</td>
           </tr>
           <tr>
-            <td><strong>China</strong></td>
-            <td>Retail sales, fixed asset investment, vivienda</td>
-            <td>Producción industrial, energía, construcción</td>
-            <td>PMI oficial, Caixin PMI</td>
-            <td>Crédito e inmobiliario</td>
+            <td>🇪🇺 Eurozona</td>
+            <td><strong>IFO Business Climate</strong></td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+            <td>Mensual</td>
+            <td>EUR/USD, DAX, Bund</td>
           </tr>
           <tr>
-            <td><strong>Japón</strong></td>
-            <td>Consumo, inversión, comercio exterior</td>
-            <td>Producción industrial, maquinaria</td>
-            <td>Tankan, PMI, Economy Watchers</td>
-            <td>Salarios e inflación para BoJ</td>
+            <td>🇪🇺 Eurozona</td>
+            <td><strong>PMI Manufacturas HCOB</strong></td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+            <td>Mensual (flash ~22)</td>
+            <td>EUR, EuroStoxx</td>
+          </tr>
+          <tr>
+            <td>🇨🇳 China</td>
+            <td><strong>PMI Caixin Manufacturing</strong></td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+            <td>Mensual (1er día)</td>
+            <td>Cobre, AUD, mercados emergentes</td>
+          </tr>
+          <tr>
+            <td>🇯🇵 Japón</td>
+            <td><strong>Tankan BoJ</strong></td>
+            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
+            <td>Trimestral</td>
+            <td>JPY, Nikkei</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <p style="font-size:var(--fs-xs); color:var(--text-soft); margin-top:.4rem;">
-      Fuentes orientativas: 
-      <a href="https://www.bea.gov/" target="_blank" rel="noopener">BEA</a> ·
-      <a href="https://www.bls.gov/" target="_blank" rel="noopener">BLS</a> ·
-      <a href="https://www.federalreserve.gov/" target="_blank" rel="noopener">Federal Reserve</a> ·
-      <a href="https://www.ons.gov.uk/" target="_blank" rel="noopener">ONS</a> ·
-      <a href="https://www.ecb.europa.eu/" target="_blank" rel="noopener">BCE</a> ·
-      <a href="https://ec.europa.eu/eurostat" target="_blank" rel="noopener">Eurostat</a> ·
-      <a href="https://www.stats.gov.cn/english/" target="_blank" rel="noopener">NBS China</a> ·
-      <a href="https://www.boj.or.jp/en/" target="_blank" rel="noopener">Bank of Japan</a>
-    </p>
-  </div>
-
-  <hr>
-
-  <!-- ============================================================
-       6. LECTURA MACRO-FINANCIERA
-       ============================================================ -->
-  <div class="sec">
-    <h2>6. Lectura macro-financiera de los datos</h2>
-    <p class="sec-intro">
-      La Sección D desarrollará la interpretación de indicadores en mercados financieros por fase
-      del ciclo. Aquí conviene dejar una regla práctica: el mismo dato puede tener una lectura
-      distinta según inflación, política monetaria y punto del ciclo.
-    </p>
-
-    <h3>Dato fuerte: no siempre es positivo</h3>
-    <div class="market-impact">
-      <div class="impact-box">
-        <h4>Economía débil + inflación controlada</h4>
-        <ul>
-          <li>Dato fuerte suele ser positivo para renta variable</li>
-          <li>Reduce probabilidad de recesión</li>
-          <li>Puede subir rentabilidades de bonos por menor expectativa de recortes</li>
-          <li>Divisa puede apreciarse si mejora expectativa de crecimiento</li>
-        </ul>
-      </div>
-      <div class="impact-box">
-        <h4>Economía fuerte + inflación alta</h4>
-        <ul>
-          <li>Dato fuerte puede ser negativo para bonos</li>
-          <li>Mercado descuenta tipos más altos durante más tiempo</li>
-          <li>Renta variable puede sufrir si suben tipos reales</li>
-          <li>Divisa puede apreciarse por diferencial de tipos</li>
-        </ul>
-      </div>
-    </div>
-
-    <h3>Dato débil: no siempre es negativo</h3>
-    <div class="market-impact">
-      <div class="impact-box">
-        <h4>Economía sobrecalentada</h4>
-        <ul>
-          <li>Dato débil puede aliviar presión inflacionaria</li>
-          <li>Bonos pueden subir si bajan expectativas de tipos</li>
-          <li>Bolsa puede reaccionar bien si implica banco central menos restrictivo</li>
-          <li>Lectura típica: “bad news is good news”</li>
-        </ul>
-      </div>
-      <div class="impact-box">
-        <h4>Economía cerca de recesión</h4>
-        <ul>
-          <li>Dato débil confirma deterioro del ciclo</li>
-          <li>Puede aumentar aversión al riesgo</li>
-          <li>Acciones cíclicas y crédito suelen sufrir</li>
-          <li>Bonos soberanos de calidad pueden actuar como refugio</li>
-        </ul>
-      </div>
-    </div>
-
-    <h3>Secuencia típica de deterioro cíclico</h3>
-    <p>
-      Aunque cada ciclo es diferente, una desaceleración suele seguir esta cadena: primero caen
-      expectativas y nuevos pedidos; después se frena producción; luego se reducen horas trabajadas,
-      contratación e inversión; finalmente sube el paro y aparecen problemas de morosidad.
-    </p>
-
-    <div class="formula">
-      <span class="formula-label">Secuencia simplificada</span>
-      Sentimiento ↓ → Pedidos ↓ → Producción ↓ → Empleo ↓ → Paro ↑ → Morosidad ↑
-    </div>
-
     <div class="card accent-green">
-      <h3>📌 Ejemplo aplicado</h3>
+      <h3>📌 Ejemplo — Leer un titular de coyuntura global</h3>
       <p>
-        Si el PMI manufacturero cae por debajo de 50 durante varios meses, los nuevos pedidos se
-        contraen y los inventarios suben por ventas débiles, la señal es de deterioro adelantado.
-        Si meses después cae la producción industrial y suben las peticiones de desempleo, la señal
-        pasa de anticipación a confirmación. Si finalmente sube la tasa de paro, el ciclo ya se ha
-        debilitado claramente.
+        Titular hipotético de un lunes por la mañana:<br><br>
+        <em>«PMI Caixin Manufacturing China: 48,2 (prev. 50,1) · ISM Manufacturing EE.UU.:
+        49,8 (prev. 51,2) · IFO Alemania: 86,4 (prev. 89,1)»</em><br><br>
+        <strong>Lectura para el asesor:</strong><br>
+        Los tres indicadores están por debajo de 50 (contracción) y por debajo de las previsiones
+        (sorpresa negativa). Esto señaliza:<br>
+        · Desaceleración simultánea en los tres grandes bloques → riesgo de sincronización bajista global.<br>
+        · El cobre y el petróleo abrirán probablemente a la baja (menor demanda industrial China).<br>
+        · La renta variable europea y americana podría caer en la apertura.<br>
+        · El mercado podría descontar mayor probabilidad de recorte de tipos → presión bajista
+        en las TIR de bonos → precio del bono al alza.<br>
+        · El oro y el JPY, como activos refugio, podrían apreciarse.<br><br>
+        Todo esto a partir de tres datos de sentimiento publicados antes de que abran los mercados.
       </p>
-    </div>
-
-    <h3>Errores comunes al leer indicadores</h3>
-    <div class="concept-grid">
-      <div class="concept-box">
-        <h4>Confundir nivel con tendencia</h4>
-        <p>
-          Un indicador puede estar alto pero cayendo, o bajo pero mejorando. El mercado suele fijarse
-          mucho en la dirección del cambio.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Ignorar el consenso</h4>
-        <p>
-          Los precios ya descuentan expectativas. La sorpresa frente al consenso suele mover más que
-          el dato absoluto.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Sobreinterpretar un dato aislado</h4>
-        <p>
-          Un mes puede estar distorsionado por clima, huelgas, calendario, energía o efectos base.
-          Mejor confirmar con varios indicadores.
-        </p>
-      </div>
-      <div class="concept-box">
-        <h4>Olvidar inflación y banco central</h4>
-        <p>
-          El impacto financiero depende de cómo el dato cambia las expectativas de política monetaria,
-          no solo de si parece “bueno” o “malo”.
-        </p>
-      </div>
     </div>
 
     <div class="exam-alert">
       <div>
         <strong>🎯 Frecuente en examen</strong>
-        Para responder bien, separar tres capas: (1) qué mide el indicador; (2) si adelanta,
-        coincide o confirma el ciclo; (3) cómo cambia la probabilidad de política monetaria
-        expansiva o restrictiva.
+        Asociar cada indicador con su economía y organismo emisor. Saber que el PMI > 50 indica
+        expansión y &lt; 50 contracción. Distinguir NBS vs. Caixin en China. Saber que el Tankan
+        japonés es trimestral y del Banco de Japón. El ISM de EE.UU. es el indicador de sentimiento
+        manufacturero más seguido globalmente.
       </div>
     </div>
   </div>
 
   <hr>
 
-  <!-- ============================================================
-       7. MAPA DE INDICADORES
-       ============================================================ -->
-  <div class="sec">
-    <h2>7. Mapa de indicadores para memorizar</h2>
-    <p class="sec-intro">
-      Esta tabla resume la clasificación más útil para examen. Algunos indicadores pueden tener
-      doble naturaleza; se clasifican aquí por su lectura dominante.
-    </p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Indicador</th>
-            <th>Familia</th>
-            <th>Tiempo</th>
-            <th>Lectura principal</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Ventas minoristas</strong></td>
-            <td><span class="indicator-tag tag-demanda">Demanda</span></td>
-            <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
-            <td>Consumo de hogares</td>
-          </tr>
-          <tr>
-            <td><strong>Confianza del consumidor</strong></td>
-            <td><span class="indicator-tag tag-sentimiento">Sentimiento</span></td>
-            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
-            <td>Disposición futura a consumir</td>
-          </tr>
-          <tr>
-            <td><strong>Pedidos de bienes duraderos</strong></td>
-            <td><span class="indicator-tag tag-demanda">Demanda</span></td>
-            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
-            <td>Inversión y producción futura</td>
-          </tr>
-          <tr>
-            <td><strong>Permisos de construcción</strong></td>
-            <td><span class="indicator-tag tag-demanda">Demanda</span></td>
-            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
-            <td>Actividad residencial futura</td>
-          </tr>
-          <tr>
-            <td><strong>Producción industrial</strong></td>
-            <td><span class="indicator-tag tag-oferta">Oferta</span></td>
-            <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
-            <td>Pulso productivo actual</td>
-          </tr>
-          <tr>
-            <td><strong>Utilización de capacidad</strong></td>
-            <td><span class="indicator-tag tag-oferta">Oferta</span></td>
-            <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
-            <td>Holgura o tensión productiva</td>
-          </tr>
-          <tr>
-            <td><strong>Inventarios</strong></td>
-            <td><span class="indicator-tag tag-oferta">Oferta</span></td>
-            <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
-            <td>Necesidad futura de ajustar producción</td>
-          </tr>
-          <tr>
-            <td><strong>PMI / ISM</strong></td>
-            <td><span class="indicator-tag tag-sentimiento">Sentimiento</span></td>
-            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
-            <td>Expectativas empresariales y nuevos pedidos</td>
-          </tr>
-          <tr>
-            <td><strong>Tasa de paro</strong></td>
-            <td><span class="indicator-tag tag-demanda">Demanda laboral</span></td>
-            <td><span class="indicator-tag tag-retardado">Retardado</span></td>
-            <td>Confirmación del ciclo laboral</td>
-          </tr>
-          <tr>
-            <td><strong>Peticiones iniciales de desempleo</strong></td>
-            <td><span class="indicator-tag tag-sentimiento">Laboral</span></td>
-            <td><span class="indicator-tag tag-adelantado">Adelantado</span></td>
-            <td>Deterioro temprano del empleo</td>
-          </tr>
-          <tr>
-            <td><strong>IPC / inflación</strong></td>
-            <td><span class="indicator-tag tag-oferta">Precios</span></td>
-            <td><span class="indicator-tag tag-retardado">Retardado</span></td>
-            <td>Presión de precios ya observada</td>
-          </tr>
-          <tr>
-            <td><strong>Precios de producción</strong></td>
-            <td><span class="indicator-tag tag-oferta">Oferta</span></td>
-            <td><span class="indicator-tag tag-coincidente">Coincidente</span></td>
-            <td>Costes que pueden trasladarse al IPC</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="card accent-amber">
-      <h3>⚠️ Matiz de clasificación</h3>
-      <p>
-        La clasificación no siempre es perfecta. Un PMI es una encuesta de sentimiento, pero incluye
-        subcomponentes de demanda (nuevos pedidos), oferta (plazos de entrega) y empleo. En examen,
-        clasifícalo por su naturaleza principal: encuesta empresarial y, normalmente, indicador
-        adelantado.
-      </p>
-    </div>
-  </div>
-
-  <hr>
-
-  <!-- RESUMEN -->
+  <!-- ════════════════════════════════════════════════════════════════
+       RESUMEN
+       ════════════════════════════════════════════════════════════════ -->
   <div class="sec">
     <h2>Resumen de la sección</h2>
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>Concepto</th><th>Definición clave</th><th>Ejemplos</th></tr>
+          <tr><th>Concepto</th><th>Definición clave</th><th>Ejemplo</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Indicadores de coyuntura</strong></td>
-            <td>Datos frecuentes para leer situación actual y tendencia de corto plazo</td>
-            <td>Ventas, producción, PMIs, empleo, confianza</td>
+            <td><strong>Indicador adelantado</strong></td>
+            <td>Se mueve antes que el ciclo; anticipa giros</td>
+            <td>PMI, permisos de construcción, curva invertida</td>
           </tr>
           <tr>
-            <td><strong>Demanda</strong></td>
-            <td>Mide gasto de hogares, empresas, gobierno y exterior</td>
-            <td>Ventas minoristas, pedidos, vivienda, crédito, exportaciones</td>
+            <td><strong>Indicador coincidente</strong></td>
+            <td>Se mueve al mismo tiempo que el ciclo</td>
+            <td>PIB, producción industrial, nóminas no agrícolas</td>
           </tr>
           <tr>
-            <td><strong>Oferta</strong></td>
-            <td>Mide producción, capacidad, costes e inventarios</td>
-            <td>Producción industrial, utilización de capacidad, PPI, productividad</td>
+            <td><strong>Indicador retardado</strong></td>
+            <td>Se mueve después del ciclo; confirma</td>
+            <td>Tasa de paro, IPC, morosidad</td>
           </tr>
           <tr>
-            <td><strong>Sentimiento</strong></td>
-            <td>Mide expectativas de consumidores, empresas o inversores</td>
-            <td>PMI, ISM, confianza consumidor, Ifo, ZEW, Tankan</td>
+            <td><strong>PMI &gt; 50</strong></td>
+            <td>Expansión de la actividad económica</td>
+            <td>ISM, S&P Global, Caixin, Tankan</td>
           </tr>
           <tr>
-            <td><strong>Adelantado</strong></td>
-            <td>Anticipa giros del ciclo</td>
-            <td>PMI, nuevos pedidos, permisos, confianza</td>
+            <td><strong>ISM Manufacturing</strong></td>
+            <td>Indicador de sentimiento manufacturero EE.UU.; el más seguido globalmente</td>
+            <td>Publicado el 1er día hábil de cada mes</td>
           </tr>
           <tr>
-            <td><strong>Coincidente</strong></td>
-            <td>Se mueve con la economía actual</td>
-            <td>Producción industrial, ventas, empleo mensual</td>
+            <td><strong>IFO / ZEW</strong></td>
+            <td>Confianza empresarial / expectativas analistas en Alemania</td>
+            <td>Mueve EUR/USD en su publicación</td>
           </tr>
           <tr>
-            <td><strong>Retardado</strong></td>
-            <td>Confirma una fase ya iniciada</td>
-            <td>Tasa de paro, morosidad, beneficios publicados</td>
+            <td><strong>Tankan</strong></td>
+            <td>Encuesta trimestral del BoJ; referencia de sentimiento en Japón</td>
+            <td>Enero, abril, julio, octubre</td>
           </tr>
           <tr>
-            <td><strong>Sorpresa macro</strong></td>
-            <td>Diferencia entre dato publicado y expectativa de mercado</td>
-            <td>Dato mejor/peor que consenso</td>
+            <td><strong>Caixin vs. NBS</strong></td>
+            <td>PMI privado (PYMEs) vs. oficial (grandes empresas) en China</td>
+            <td>Caixin más sensible al ciclo exportador</td>
+          </tr>
+          <tr>
+            <td><strong>Non-Farm Payrolls</strong></td>
+            <td>Variación mensual de empleo no agrícola en EE.UU.</td>
+            <td>Publicado 1er viernes de cada mes; mueve la Fed</td>
+          </tr>
+          <tr>
+            <td><strong>PCE</strong></td>
+            <td>Inflación preferida de la Fed (no el IPC)</td>
+            <td>BEA, mensual</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 
+  <!-- ════════════════════════════════════════════════════════════════
+       NOTAS AL PIE
+       ════════════════════════════════════════════════════════════════ -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Mankiw, N. G. (2021). <em>Macroeconomics</em>, 10.ª ed. Worth Publishers. Cap. 10
+        («Economic Fluctuations») y Cap. 12 («Short-Run Economic Fluctuations»).
+        ISBN 978-1-319-26390-6.
+      </li>
+      <li id="fn2">
+        The Conference Board. «Business Cycle Indicators Handbook». Metodología de clasificación
+        de indicadores en adelantados, coincidentes y retardados.
+        <a href="https://www.conference-board.org/data/bcicountry.cfm" target="_blank" rel="noopener">conference-board.org</a>
+      </li>
+      <li id="fn3">
+        S&P Global. «PMI Methodology». Descripción del proceso de encuesta, cálculo del índice
+        de difusión y umbrales de expansión / contracción.
+        <a href="https://www.spglobal.com/marketintelligence/en/mi/products/pmi.html" target="_blank" rel="noopener">spglobal.com/pmi</a>
+      </li>
+      <li id="fn4">
+        Bureau of Economic Analysis (BEA). «Personal Consumption Expenditures».
+        <a href="https://www.bea.gov/data/personal-consumption-expenditures-price-index" target="_blank" rel="noopener">bea.gov</a> ·
+        Bureau of Labor Statistics (BLS). «Employment Situation».
+        <a href="https://www.bls.gov/news.release/empsit.toc.htm" target="_blank" rel="noopener">bls.gov</a> ·
+        Institute for Supply Management (ISM). «Manufacturing PMI».
+        <a href="https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/" target="_blank" rel="noopener">ismworld.org</a>
+      </li>
+      <li id="fn5">
+        Office for National Statistics (ONS). «GDP monthly estimate, UK».
+        <a href="https://www.ons.gov.uk/economy/grossdomesticproductgdp/bulletins/gdpmonthlyestimateuk" target="_blank" rel="noopener">ons.gov.uk</a> ·
+        GfK. «GfK Consumer Confidence».
+        <a href="https://www.gfk.com/insights/press-release/gfk-consumer-confidence" target="_blank" rel="noopener">gfk.com</a>
+      </li>
+      <li id="fn6">
+        IFO Institut. «ifo Business Climate Germany».
+        <a href="https://www.ifo.de/en/survey/ifo-business-climate-index" target="_blank" rel="noopener">ifo.de</a> ·
+        ZEW. «ZEW Indicator of Economic Sentiment».
+        <a href="https://www.zew.de/en/publications/zew-indicator-of-economic-sentiment" target="_blank" rel="noopener">zew.de</a> ·
+        Comisión Europea. «Business and Consumer Surveys».
+        <a href="https://economy.ec.europa.eu/economic-forecast-and-surveys/business-and-consumer-surveys_en" target="_blank" rel="noopener">economy.ec.europa.eu</a>
+      </li>
+      <li id="fn7">
+        Caixin / S&P Global. «Caixin China Manufacturing PMI».
+        <a href="https://www.pmi.spglobal.com/Public/Home/PressRelease/a8f2a89b28a94c34a25af8547748b59a" target="_blank" rel="noopener">spglobal.com/caixin</a> ·
+        National Bureau of Statistics of China (NBS). «PMI».
+        <a href="https://www.stats.gov.cn/english/" target="_blank" rel="noopener">stats.gov.cn</a>
+      </li>
+      <li id="fn8">
+        Bank of Japan. «Tankan (Short-Term Economic Survey of Enterprises in Japan)».
+        <a href="https://www.boj.or.jp/en/statistics/tk/index.htm/" target="_blank" rel="noopener">boj.or.jp</a> ·
+        Ministry of Economy, Trade and Industry (METI). «Indices of Industrial Production».
+        <a href="https://www.meti.go.jp/english/statistics/tyo/iip/index.html" target="_blank" rel="noopener">meti.go.jp</a>
+      </li>
+    </ol>
+  </div>
+
   <!-- NAVEGACIÓN -->
   <div class="sec-nav">
-    <a href="seccion-b.html" class="nav-btn">← B: Ciclos económicos</a>
-    <a href="seccion-d.html" class="nav-btn">D: Indicadores y mercados →</a>
+    <a href="seccion-b.html" class="nav-btn">← B: Ciclos Económicos</a>
+    <a href="seccion-d.html" class="nav-btn">D: Indicadores y Mercados →</a>
   </div>
 
 </div>
