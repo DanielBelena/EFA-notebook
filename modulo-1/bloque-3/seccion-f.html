@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B3 · Sección F — Tipos de interés de referencia · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B3 · F</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 3</a><span class="sep">›</span>
+    <span>Sección F</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 3 · Sección F · Nivel I · Conocimiento</div>
+    <h1>Tipos de interés de referencia</h1>
+    <p class="hero-sub">
+      Subastas del BCE y generación de los tipos oficiales · Transmisión al interbancario ·
+      €STR y EURIBOR: definición y fijación · Aplicaciones del Euribor ·
+      Bancos centrales, expectativas e implícitos en la curva.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Cómo se generan los tipos de referencia: las subastas del BCE</h2>
+    <p class="sec-intro">
+      El punto de partida de todos los tipos del euro es el precio al que el BCE presta liquidez
+      a la banca en sus operaciones principales de financiación (OPF) semanales.
+    </p>
+
+    <div class="card accent-navy">
+      <p>
+        Las OPF se adjudican mediante <strong>subasta</strong> entre las entidades de
+        contrapartida, siempre contra colateral. Dos formatos<sup><a href="#fn1">1</a></sup>:
+      </p>
+    </div>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Subasta a tipo fijo</h4>
+        <p>El BCE anuncia el tipo (el oficial de las OPF, hoy 2,15%) y las entidades pujan
+        solo cantidades. Desde 2008 se aplica con <strong>adjudicación plena</strong> (full
+        allotment): se sirve toda la liquidez solicitada. Es el formato vigente.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Subasta a tipo variable</h4>
+        <p>Las entidades pujan cantidad <em>y</em> tipo; el BCE adjudica de mayor a menor tipo
+        hasta cubrir el importe decidido, con un tipo mínimo de puja. Fue el formato habitual
+        antes de la crisis financiera.</p>
+      </div>
+    </div>
+
+    <h3>2. Transmisión a los tipos interbancarios</h3>
+    <p>
+      Los tipos oficiales delimitan el <strong>pasillo</strong> en el que se negocia el dinero
+      entre bancos: ninguna entidad presta a un día por debajo de la facilidad de depósito
+      (2,00%, su alternativa segura) ni pide prestado por encima de la facilidad marginal de
+      crédito (2,40%, su alternativa en el BCE). Con el actual exceso de liquidez, los tipos a
+      un día se pegan al suelo del pasillo; los plazos más largos (1 a 12 meses) añaden las
+      <strong>expectativas</strong> sobre los tipos oficiales futuros más una prima de riesgo y
+      liquidez. Así, cada decisión (o expectativa de decisión) del BCE se traslada primero al
+      interbancario y de ahí, vía Euribor, a hipotecas, préstamos y depósitos.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. El €STR</h2>
+    <div class="card accent-navy">
+      <p>
+        El <strong>€STR (euro short-term rate)</strong> es el tipo de referencia a un día del
+        euro, calculado y publicado por el <strong>BCE</strong> cada día hábil (a las 08:00,
+        con datos del día anterior). Refleja el coste de la financiación <strong>no
+        garantizada a un día (overnight)</strong> de los bancos de la zona euro, y se calcula
+        exclusivamente con <strong>transacciones reales</strong> comunicadas por un panel de
+        grandes bancos bajo el reglamento de estadísticas del mercado monetario (MMSR) —
+        media recortada ponderada por volumen, eliminando el 25% superior e inferior<sup><a href="#fn2">2</a></sup>.
+        Sustituyó al EONIA (extinguido en enero de 2022).
+      </p>
+    </div>
+
+    <h3>4. El EURIBOR</h3>
+    <div class="card accent-navy">
+      <p>
+        El <strong>EURIBOR</strong> es el índice de referencia del mercado interbancario del
+        euro a plazo, administrado por el <strong>EMMI</strong> (European Money Markets
+        Institute) y publicado cada día hábil a las 11:00 para <strong>cinco plazos: 1 semana,
+        1, 3, 6 y 12 meses</strong>. Mide el tipo al que los bancos del panel pueden financiarse
+        sin garantía en el mercado mayorista. Desde su reforma (2019) se fija con una
+        <strong>metodología híbrida en cascada</strong>: nivel 1, transacciones reales del banco
+        del panel; nivel 2, transacciones en plazos próximos ajustadas; nivel 3, juicio experto
+        basado en datos de mercado — priorizando siempre el dato real sobre la estimación<sup><a href="#fn3">3</a></sup>.
+      </p>
+    </div>
+
+    <h3>5. Funciones y aplicaciones del Euribor</h3>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Euribor 12 meses</h4>
+        <p>La referencia de las <strong>hipotecas variables españolas</strong>: cuota = Euribor
+        (media mensual publicada en el BOE) + diferencial, con revisión anual o semestral.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Euribor 3 y 6 meses</h4>
+        <p>Referencia habitual de <strong>préstamos corporativos y sindicados</strong>, emisiones
+        de renta fija a tipo flotante (FRN) y derivados de tipos (swaps, FRAs).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Plazos cortos (1 semana, 1 mes)</h4>
+        <p>Gestión de tesorería, valoración de fondos monetarios y operaciones de financiación
+        a muy corto plazo.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Función macro</h4>
+        <p>Termómetro de la transmisión de la política monetaria y de la confianza interbancaria:
+        su diferencial frente al €STR/OIS mide la tensión del sistema bancario.</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — revisión de hipoteca</h3>
+      <p>
+        Hipoteca variable: 150.000&nbsp;€ pendientes a 25 años, Euribor + 0,99%, revisión anual.<br>
+        Con el Euribor de mayo de 2026 (2,804%), el tipo aplicable pasa a 3,794%.<br>
+        Cuota ≈ <strong>774&nbsp;€/mes</strong>. Hace un año, con Euribor ≈ 2,08%, el tipo era
+        3,07% y la cuota ≈ 715&nbsp;€: el repunte del índice encarece la cuota en unos
+        <strong>59&nbsp;€/mes</strong>. Así se traslada, contrato a contrato, la política
+        monetaria (y sus expectativas) al bolsillo del cliente.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>6. Bancos centrales, expectativas de inflación y financiación</h2>
+    <p>
+      El vínculo opera en cadena: si las <strong>expectativas de inflación</strong> suben, el
+      mercado anticipa que el banco central endurecerá su política → los tipos a plazo
+      (Euribor, deuda) suben <em>antes</em> incluso de que el BCE mueva los oficiales →
+      se encarecen las <strong>necesidades de financiación</strong> de hogares, empresas y
+      Estados. A la inversa con expectativas de relajación. Otros factores que influyen en los
+      tipos de mercado: la <strong>oferta y demanda de fondos</strong> (volumen de emisiones de
+      deuda pública), las <strong>primas de riesgo</strong> de crédito y de liquidez, el exceso
+      de liquidez del sistema, los flujos internacionales de capital y los episodios
+      geopolíticos que alteran precios de la energía y expectativas.
+    </p>
+
+    <h3>7. Tipos implícitos y lectura de las curvas</h3>
+    <div class="card accent-navy">
+      <p>
+        Un <strong>tipo implícito (forward)</strong> es el tipo futuro que queda "encerrado"
+        entre dos puntos de la curva: el que iguala invertir directo a plazo largo con invertir
+        a plazo corto y reinvertir después (no arbitraje, Bloque 2-D). Leer la curva a través de
+        sus implícitos permite extraer <strong>qué trayectoria de tipos oficiales descuenta el
+        mercado</strong>: implícitos por encima de los tipos actuales → el mercado espera
+        subidas; por debajo → bajadas.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — qué descuenta hoy el interbancario</h3>
+      <p>
+        Con €STR ≈ 1,92% (anclado a la facilidad de depósito del 2,00%) y Euribor 12M ≈ 2,81%,
+        el implícito que el mercado incorpora en el plazo de 12 meses está claramente por encima
+        del tipo a un día actual: el interbancario <strong>descuenta tensión al alza</strong>
+        sobre los tipos oficiales en el horizonte de un año (expectativas de inflación
+        reavivadas por el conflicto en Irán), y no las bajadas que se descontaban en 2025.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      Euribor 12M: media de mayo 2,804% (BOE); la media provisional de junio ronda el
+      2,81%<sup><a href="#fn4">4</a></sup>, +0,7 puntos frente a junio de 2025. El €STR cotiza
+      pegado a la facilidad de depósito (2,00%). La pendiente positiva del tramo corto refleja
+      la incertidumbre sobre la reunión del BCE del 11 de junio.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) €STR: lo publica el <em>BCE</em>, a un día, solo con <em>transacciones reales</em>.
+        (2) Euribor: lo administra el <em>EMMI</em>, cinco plazos, metodología híbrida.
+        (3) Subasta a tipo fijo con adjudicación plena = régimen vigente de las OPF.
+        (4) "Si los implícitos superan a los tipos actuales, el mercado espera…" → subidas.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Generación de tipos</strong></td><td>Subastas OPF: tipo fijo con adjudicación plena (vigente) o tipo variable</td></tr>
+          <tr><td><strong>Transmisión</strong></td><td>Pasillo de facilidades → tipo a un día → plazos (expectativas + primas) → crédito</td></tr>
+          <tr><td><strong>€STR</strong></td><td>BCE · overnight · no garantizado · transacciones reales · sustituye al EONIA</td></tr>
+          <tr><td><strong>EURIBOR</strong></td><td>EMMI · 1s, 1m, 3m, 6m, 12m · metodología híbrida en cascada</td></tr>
+          <tr><td><strong>Aplicación estrella</strong></td><td>Euribor 12M + diferencial = hipoteca variable española</td></tr>
+          <tr><td><strong>Tipos implícitos</strong></td><td>Forwards de la curva: revelan la trayectoria de tipos que descuenta el mercado</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1"><a href="https://www.ecb.europa.eu/mopo/implement/omo/html/index.en.html" target="_blank">BCE — Open market operations</a>: procedimientos de subasta y adjudicación plena.</li>
+      <li id="fn2"><a href="https://www.ecb.europa.eu/stats/financial_markets_and_interest_rates/euro_short-term_rate/html/index.en.html" target="_blank">BCE — Euro short-term rate (€STR)</a>: definición, panel y metodología de cálculo.</li>
+      <li id="fn3"><a href="https://www.emmi-benchmarks.eu/benchmarks/euribor/" target="_blank">EMMI — Euribor</a>: gobernanza, plazos publicados y metodología híbrida.</li>
+      <li id="fn4"><a href="https://www.bde.es/wbe/es/estadisticas/temas/tipos-interes.html" target="_blank">Banco de España — Tipos de interés de referencia</a>: Euribor mensual publicado en el BOE (mayo 2026: 2,804%).</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-e.html" class="nav-btn">← E: El BCE y la política monetaria</a>
+    <a href="seccion-g.html" class="nav-btn">G: Mercados monetarios →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 3 · Sección F · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
