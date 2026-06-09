@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B2 · Sección E — Rentabilidad · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .method-row { display:grid; grid-template-columns:160px 1fr 1fr; gap:.5rem; align-items:start; padding:.7rem 0; border-bottom:1px solid var(--border); font-size:var(--fs-sm); }
+    .method-row:last-child { border-bottom:none; }
+    .method-label { font-family:var(--font-ui); font-weight:800; color:var(--navy); }
+    .method-formula { font-family:'Courier New',monospace; font-size:var(--fs-xs); color:var(--navy); background:var(--navy-light); border-radius:6px; padding:3px 8px; display:inline-block; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B2 · E</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 2</a><span class="sep">›</span>
+    <span>Sección E</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 2 · Sección E · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Rentabilidad</h1>
+    <p class="hero-sub">
+      Rentabilidad nominal y real · Rentabilidad simple · Interés efectivo anual y TAE ·
+      TIR y ecuación de equilibrio · TRE y tasa de reinversión · TGR.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Rentabilidad nominal vs. real</h2>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Rentabilidad nominal (i)</h4>
+        <p>La pactada o medida <strong>en euros corrientes</strong>, sin descontar la pérdida de
+        poder adquisitivo. Es el dato que figura en el contrato o en la ficha del producto.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Rentabilidad real (r)</h4>
+        <p>La nominal <strong>corregida por la inflación π</strong>: mide la ganancia efectiva de
+        poder adquisitivo. Es la magnitud relevante para el cliente a largo plazo.</p>
+      </div>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Ecuación de Fisher exacta</span>
+      (1 + r) = (1 + i) / (1 + π)  →  r = (1+i)/(1+π) − 1
+    </div>
+    <div class="formula">
+      <span class="formula-label">Aproximación (inflaciones bajas)</span>
+      r ≈ i − π
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1</h3>
+      <p>
+        Depósito al 3% nominal con inflación del 1,9%.<br>
+        Real exacta: 1,03/1,019 − 1 = <strong>1,08%</strong> · Aproximada: 3 − 1,9 = 1,1%.<br>
+        Si la inflación repuntara al 4%, la rentabilidad real sería <strong>negativa</strong>
+        (−0,96%): el ahorrador pierde poder adquisitivo aunque cobre intereses.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      Las proyecciones del Eurosistema sitúan la inflación de la eurozona en el
+      <strong>1,9% para 2026</strong><sup><a href="#fn1">1</a></sup>. Con depósitos bancarios
+      remunerados cerca del 2% y Letras en torno a ese nivel, la rentabilidad real del ahorro
+      conservador es hoy aproximadamente <strong>cero</strong> — el argumento central del asesor
+      para justificar carteras diversificadas frente al depósito puro.
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Rentabilidad simple de un período</h2>
+    <div class="card accent-navy">
+      <p>
+        La <strong>rentabilidad simple</strong> de un activo en un período es la variación de
+        valor más los rendimientos cobrados (dividendos, cupones), en proporción al valor inicial.
+        No anualiza ni compone: mide solo ese período.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Rentabilidad simple</span>
+      R = (P₁ − P₀ + D) / P₀
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2</h3>
+      <p>
+        Acción comprada a 20&nbsp;€, vendida a 21,5&nbsp;€ tras cobrar 0,5&nbsp;€ de dividendo.<br>
+        R = (21,5 − 20 + 0,5) / 20 = 2/20 = <strong>10%</strong>
+        (7,5% plusvalía + 2,5% dividendo).
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. Interés efectivo anual y TAE</h2>
+
+    <h3>Interés efectivo anual</h3>
+    <p>
+      Cuando una operación capitaliza m veces al año a un tanto nominal anual j (TIN), el tipo
+      aplicado por subperíodo es i<sub>m</sub> = j/m. El <strong>interés efectivo anual</strong>
+      es el tanto compuesto anual que produce el mismo resultado:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Efectivo anual a partir del nominal fraccionado</span>
+      i = (1 + j/m)ᵐ − 1
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 3</h3>
+      <p>
+        TIN del 6% con capitalización mensual (m = 12):<br>
+        i = (1 + 0,06/12)¹² − 1 = (1,005)¹² − 1 = <strong>6,17%</strong> efectivo anual.<br>
+        Cuanto mayor la frecuencia de capitalización, mayor el efectivo respecto al nominal.
+      </p>
+    </div>
+
+    <h3>La Tasa Anual Equivalente (TAE)</h3>
+    <div class="card accent-navy">
+      <p>
+        La <strong>TAE</strong> es el tipo efectivo anual calculado conforme a la normativa del
+        Banco de España (Circular 5/2012)<sup><a href="#fn2">2</a></sup>, que las entidades deben
+        publicar obligatoriamente. Incorpora la frecuencia de capitalización <strong>y además las
+        comisiones y gastos</strong> que la norma exige incluir (en préstamos: comisiones de
+        apertura, estudio…; quedan fuera algunos gastos a cargo de terceros).
+      </p>
+    </div>
+
+    <h3>Relación entre efectivo anual y TAE</h3>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Sin comisiones</h4>
+        <p>TAE = interés efectivo anual: ambas son (1 + j/m)ᵐ − 1. Es el caso típico de un depósito sin gastos.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Con comisiones</h4>
+        <p>La TAE se separa del efectivo: en un <strong>préstamo</strong>, las comisiones la elevan por encima
+        del efectivo del tipo pactado; en una <strong>inversión</strong>, la reducen. La TAE es, en realidad,
+        la TIR anualizada de los flujos totales de la operación.</p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Conversión TIN ↔ TAE con distintas frecuencias: trimestral (m=4), mensual (m=12),
+        semestral (m=2). Y la pregunta conceptual: "¿en qué se diferencia la TAE del tipo efectivo?"
+        → en que la TAE incluye comisiones según la normativa del Banco de España.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>4. La Tasa Interna de Rentabilidad (TIR)</h2>
+    <div class="card accent-navy">
+      <p>
+        La <strong>TIR</strong> es el tipo de interés compuesto que iguala el valor actual de la
+        prestación con el valor actual de la contraprestación: el tanto que hace que el valor
+        actual neto (VAN) de todos los flujos de la operación sea <strong>cero</strong>.
+        Es "interna" porque se deduce exclusivamente de los flujos de la propia operación.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Ecuación de equilibrio de la TIR</span>
+      C₀ = Σ  Fₜ / (1 + TIR)ᵗ    ⇔    −C₀ + Σ Fₜ·(1+TIR)⁻ᵗ = 0
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 4 — bono a 2 años</h3>
+      <p>
+        Bono comprado a 980&nbsp;€, cupón anual 30&nbsp;€, reembolso 1.000&nbsp;€ en t=2.<br>
+        980 = 30/(1+TIR) + 1.030/(1+TIR)²<br>
+        Probando TIR = 4,05%: 28,83 + 951,52 = 980,35 ≈ 980 → <strong>TIR ≈ 4,06%</strong><br><br>
+        En el examen, la TIR de flujos múltiples se resuelve por tanteo entre las opciones de
+        respuesta o con calculadora financiera; con un solo flujo, despeja directa:
+        TIR = (Cₙ/C₀)^(1/n) − 1.
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>Supuesto oculto de la TIR:</strong> asume implícitamente que los flujos intermedios se
+      <strong>reinvierten a la propia TIR</strong>. Si la reinversión real se hace a otro tanto,
+      la rentabilidad finalmente obtenida difiere — y eso es exactamente lo que mide la TRE.
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>5. La Tasa de Rentabilidad Efectiva (TRE)</h2>
+    <div class="card accent-navy">
+      <p>
+        La <strong>TRE</strong> es la rentabilidad anual compuesta <strong>realmente obtenida</strong>
+        por el inversor, calculada capitalizando todos los cobros intermedios hasta el final de la
+        operación a la <strong>tasa de reinversión efectiva i<sub>r</sub></strong> disponible en el
+        mercado, y comparando ese valor final con el capital invertido.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Valor final de los flujos reinvertidos</span>
+      VF = Σ Fₜ · (1 + i_r)^(n−t)
+    </div>
+    <div class="formula">
+      <span class="formula-label">Tasa de Rentabilidad Efectiva</span>
+      TRE = ( VF / C₀ )^(1/n) − 1
+    </div>
+
+    <h3>Relación TRE ↔ TIR</h3>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>i_r = TIR</h4>
+        <p>TRE = TIR. La TIR se materializa solo si cada cobro se reinvierte exactamente a la TIR.</p>
+      </div>
+      <div class="concept-box">
+        <h4>i_r &gt; TIR</h4>
+        <p>TRE &gt; TIR: la reinversión a tipos superiores mejora la rentabilidad efectiva final.</p>
+      </div>
+      <div class="concept-box">
+        <h4>i_r &lt; TIR</h4>
+        <p>TRE &lt; TIR: el riesgo de reinversión erosiona la rentabilidad (típico al comprar bonos
+        con cupón alto antes de un ciclo de bajadas).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Sin flujos intermedios</h4>
+        <p>En un cupón cero no hay nada que reinvertir: TRE = TIR siempre.</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 5 — TRE del bono anterior</h3>
+      <p>
+        Mismo bono (C₀ = 980, cupón 30 en t=1, 1.030 en t=2; TIR ≈ 4,06%), pero el cupón de t=1
+        solo puede reinvertirse al 2%:<br><br>
+        VF = 30 × 1,02 + 1.030 = 30,6 + 1.030 = 1.060,60&nbsp;€<br>
+        TRE = (1.060,60 / 980)^(1/2) − 1 = (1,082245)^0,5 − 1 = <strong>4,03%</strong><br><br>
+        TRE (4,03%) &lt; TIR (4,06%) porque i_r (2%) &lt; TIR. ✓
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>6. La Tasa Geométrica de Rentabilidad (TGR)</h2>
+    <div class="card accent-navy">
+      <p>
+        La <strong>TGR</strong> es la media geométrica de las rentabilidades simples de los
+        subperíodos: el tanto anual constante que, compuesto, replica la rentabilidad acumulada.
+        Al encadenar períodos, <strong>neutraliza el efecto de las aportaciones y reembolsos</strong>,
+        por lo que es la medida estándar de la rentabilidad <em>del gestor</em> (rentabilidad
+        ponderada por tiempo), frente a la TIR, que mide la rentabilidad <em>del inversor</em>
+        (ponderada por dinero) — distinción que se desarrolla en el Módulo 3<sup><a href="#fn3">3</a></sup>.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Tasa Geométrica de Rentabilidad</span>
+      TGR = [ (1+R₁) · (1+R₂) · … · (1+Rₙ) ]^(1/n) − 1
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 6 — el espejismo de la media aritmética</h3>
+      <p>
+        Un fondo gana +50% el año 1 y pierde −50% el año 2.<br>
+        Media aritmética: 0%. ¿Realidad?<br>
+        TGR = (1,5 × 0,5)^(1/2) − 1 = (0,75)^0,5 − 1 = <strong>−13,4% anual</strong><br><br>
+        100&nbsp;€ → 150&nbsp;€ → 75&nbsp;€: el inversor ha perdido un 25% acumulado. La TGR
+        (geométrica) refleja la realidad; la aritmética la sobreestima siempre que hay volatilidad.
+      </p>
+    </div>
+
+    <h3>Relación TRE ↔ TGR</h3>
+    <div class="callout info">
+      Ambas son tasas anuales compuestas, pero responden a preguntas distintas. La
+      <strong>TGR</strong> encadena rentabilidades de subperíodos sin considerar reinversión externa
+      de los cobros (mide la gestión). La <strong>TRE</strong> incorpora explícitamente la tasa a la
+      que el inversor reinvierte sus cobros (mide la experiencia del inversor). Si no hay flujos
+      intermedios ni aportaciones, TGR = TRE = TIR: todas colapsan en (Cₙ/C₀)^(1/n) − 1.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Calcular la TGR de 2–3 rentabilidades anuales encadenadas — recuerda multiplicar
+        factores (1+R), no promediar porcentajes. (2) Caso conceptual TRE vs. TIR: "si la tasa de
+        reinversión es inferior a la TIR, la TRE será…" → menor. (3) El ejemplo +50%/−50% con
+        resultado negativo es un clásico de EFPA.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Medida</th><th>Qué responde</th><th>Fórmula</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Real (Fisher)</strong></td><td>Ganancia de poder adquisitivo</td><td>(1+r) = (1+i)/(1+π)</td></tr>
+          <tr><td><strong>Simple</strong></td><td>Rendimiento de un período</td><td>(P₁−P₀+D)/P₀</td></tr>
+          <tr><td><strong>Efectivo anual</strong></td><td>Equivalente anual del nominal fraccionado</td><td>(1+j/m)ᵐ−1</td></tr>
+          <tr><td><strong>TAE</strong></td><td>Efectivo anual + comisiones (norma BdE)</td><td>TIR anualizada de flujos totales</td></tr>
+          <tr><td><strong>TIR</strong></td><td>Tanto que anula el VAN</td><td>C₀ = ΣFₜ(1+TIR)⁻ᵗ</td></tr>
+          <tr><td><strong>TRE</strong></td><td>Rentabilidad real con reinversión a i_r</td><td>(VF/C₀)^(1/n)−1</td></tr>
+          <tr><td><strong>TGR</strong></td><td>Media geométrica de rentabilidades</td><td>[Π(1+Rₜ)]^(1/n)−1</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1"><a href="https://www.ecb.europa.eu/press/projections/html/index.es.html" target="_blank">BCE — Proyecciones macroeconómicas del Eurosistema</a>: inflación general media del 1,9% prevista para 2026.</li>
+      <li id="fn2"><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-9058" target="_blank">Circular 5/2012 del Banco de España</a>, sobre transparencia de los servicios bancarios: definición y método de cálculo de la TAE (Anejo 7).</li>
+      <li id="fn3">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 2, Sección E; la distinción TIR (inversor) / TGR (gestor) se retoma en el Módulo 3, Bloque 5 (Medición y atribución de resultados).</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-d.html" class="nav-btn">← D: Tipos spot y forward</a>
+    <a href="seccion-f.html" class="nav-btn">F: Rentas financieras →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 2 · Sección E · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

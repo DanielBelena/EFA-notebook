@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B2 · Sección D — Tipos de interés spot y forward · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .curve-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:680px){ .curve-grid{ grid-template-columns:1fr; } }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B2 · D</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 2</a><span class="sep">›</span>
+    <span>Sección D</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 2 · Sección D · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Tipos de interés spot y forward</h1>
+    <p class="hero-sub">
+      Tipos al contado · Construcción de la curva de tipos · Pendiente creciente, decreciente y
+      plana · Tipos implícitos a plazo · Cálculo del forward a partir de dos spots.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. El tipo de interés spot</h2>
+    <div class="card accent-navy">
+      <p>
+        Un <strong>tipo de interés spot (al contado)</strong> s<sub>n</sub> es el tipo de una
+        operación que <strong>comienza hoy</strong> y vence en n: el tanto de un préstamo o
+        inversión cupón cero contratado en el momento actual a plazo n<sup><a href="#fn1">1</a></sup>.
+        Cada plazo tiene su propio spot: s₁ (a 1 año), s₂ (a 2 años), etc.
+      </p>
+      <p style="margin-top:.6rem;">
+        Los spots se observan en el mercado a través de los precios de los activos cupón cero:
+        si una Letra a 1 año cotiza al 97,2% del nominal, el spot a 1 año es
+        100/97,2 − 1 ≈ 2,88%.
+      </p>
+    </div>
+
+    <h3>La curva de tipos (estructura temporal de tipos de interés, ETTI)</h3>
+    <p>
+      La <strong>curva de tipos</strong> es la representación gráfica de los tipos spot
+      en función del plazo: en abscisas los vencimientos (3 meses, 1, 2, 5, 10, 30 años),
+      en ordenadas el tipo spot de cada uno. Se construye con instrumentos cupón cero o,
+      cuando no existen para todos los plazos, extrayendo los spots implícitos de bonos
+      con cupón (método <em>bootstrapping</em>). Refleja, en una sola imagen, el precio del
+      dinero a todos los horizontes y las expectativas del mercado sobre los tipos futuros.
+    </p>
+
+    <h3>Formas de la curva y su lectura</h3>
+    <div class="curve-grid">
+      <div class="concept-box">
+        <h4>📈 Creciente (normal)</h4>
+        <p>Tipos a largo &gt; tipos a corto. Es la forma habitual: a mayor plazo, mayor prima por
+        riesgo e iliquidez. Lectura: el mercado espera tipos estables o al alza; ciclo expansivo.</p>
+      </div>
+      <div class="concept-box">
+        <h4>📉 Decreciente (invertida)</h4>
+        <p>Tipos a corto &gt; tipos a largo. Lectura: el mercado espera bajadas de tipos
+        (relajación monetaria futura). Históricamente, señal adelantada de recesión.</p>
+      </div>
+      <div class="concept-box">
+        <h4>➖ Plana</h4>
+        <p>Tipos similares en todos los plazos. Lectura: transición entre las dos anteriores;
+        incertidumbre sobre la dirección de los tipos.</p>
+      </div>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      El tramo corto de la curva euro muestra hoy <strong>pendiente positiva</strong>: la
+      facilidad de depósito del BCE marca el suelo en el 2,00% mientras el Euribor 12M cotiza
+      en torno al 2,8%<sup><a href="#fn2">2</a></sup> — el mercado interbancario descuenta cierta
+      probabilidad de subidas ante el repunte de expectativas de inflación. Compárese con
+      2023, cuando la curva euro estuvo invertida durante meses tras el ciclo de subidas del BCE.
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. El tipo de interés forward</h2>
+    <div class="card accent-navy">
+      <p>
+        Un <strong>tipo forward</strong> f<sub>(m,n)</sub> es el tipo de una operación
+        <strong>futura</strong>: comienza en m y vence en n (con n &gt; m), pero su tanto se
+        <strong>pacta hoy</strong>. Es el tipo implícito que la propia curva spot "esconde"
+        entre dos plazos, y representa la expectativa del mercado (más primas de riesgo)
+        sobre el tipo que regirá entre m y n.
+      </p>
+    </div>
+
+    <h3>Cálculo del forward a partir de dos spots</h3>
+    <p>
+      Por <strong>ausencia de arbitraje</strong>, invertir hasta n directamente debe rendir lo
+      mismo que invertir hasta m y reinvertir de m a n al forward pactado hoy:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Ecuación de no arbitraje</span>
+      (1 + sₙ)ⁿ = (1 + sₘ)ᵐ · (1 + f₍ₘ,ₙ₎)ⁿ⁻ᵐ
+    </div>
+    <div class="formula">
+      <span class="formula-label">Tipo forward despejado</span>
+      f₍ₘ,ₙ₎ = [ (1 + sₙ)ⁿ / (1 + sₘ)ᵐ ]^(1/(n−m)) − 1
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — forward a 1 año dentro de 1 año</h3>
+      <p>
+        Spots: s₁ = 2,5% · s₂ = 3,0%. ¿Forward f₍₁,₂₎?<br><br>
+        (1,03)² = (1,025) × (1 + f₍₁,₂₎)<br>
+        1,0609 / 1,025 = 1,03502 → f₍₁,₂₎ = <strong>3,502%</strong><br><br>
+        Lectura: el mercado descuenta que el tipo a 1 año, dentro de 1 año, será ≈ 3,5%
+        — superior a ambos spots, coherente con una curva creciente.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — curva invertida</h3>
+      <p>
+        Spots: s₁ = 3,5% · s₃ = 2,8%. ¿Forward f₍₁,₃₎ (tipo a 2 años dentro de 1 año)?<br><br>
+        (1,028)³ = (1,035) × (1 + f)²<br>
+        (1 + f)² = 1,086374 / 1,035 = 1,049637 → 1 + f = √1,049637 = 1,02451<br>
+        f₍₁,₃₎ = <strong>2,451%</strong><br><br>
+        Con curva invertida, el forward cae <strong>por debajo</strong> de ambos spots: el mercado
+        descuenta bajadas de tipos.
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>Regla rápida de coherencia:</strong> curva creciente → forward &gt; spot largo &gt; spot corto.
+      Curva decreciente → forward &lt; spot largo &lt; spot corto. Si tu resultado rompe este orden,
+      revisa el cálculo. (Aproximación lineal para verificar: f ≈ (n·sₙ − m·sₘ)/(n−m).)
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El cálculo del forward entre dos spots es <strong>uno de los ejercicios numéricos más
+        repetidos de todo el Módulo 1</strong>. Variantes: (1) calcular f₍₁,₂₎ con s₁ y s₂;
+        (2) despejar el spot largo dado un spot corto y un forward; (3) pregunta conceptual sobre
+        qué señala una curva invertida (expectativa de bajadas / recesión). El forward también
+        reaparece en divisas (forward cambiario, Bloque 6) con lógica análoga de no arbitraje.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Definición clave</th><th>Fórmula</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Tipo spot sₙ</strong></td><td>Operación que empieza hoy y vence en n</td><td>Observado en cupón cero</td></tr>
+          <tr><td><strong>Curva de tipos</strong></td><td>Spots por plazo (ETTI)</td><td>—</td></tr>
+          <tr><td><strong>Curva creciente</strong></td><td>Normal; expectativa de tipos estables/al alza</td><td>sₙ &gt; sₘ si n &gt; m</td></tr>
+          <tr><td><strong>Curva invertida</strong></td><td>Expectativa de bajadas; señal de recesión</td><td>sₙ &lt; sₘ si n &gt; m</td></tr>
+          <tr><td><strong>Tipo forward</strong></td><td>Tipo futuro pactado hoy, implícito en la curva</td><td>—</td></tr>
+          <tr><td><strong>No arbitraje</strong></td><td>Invertir a n = invertir a m y reinvertir al forward</td><td>(1+sₙ)ⁿ = (1+sₘ)ᵐ(1+f)ⁿ⁻ᵐ</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 2, Sección D. Tratamiento estándar de la ETTI en manuales de mercados financieros (Fabozzi, <em>Bond Markets, Analysis and Strategies</em>; BCE, <a href="https://www.ecb.europa.eu/stats/financial_markets_and_interest_rates/euro_area_yield_curves/html/index.en.html" target="_blank">Euro area yield curves</a>).</li>
+      <li id="fn2"><a href="https://www.ecb.europa.eu/press/pr/date/2026/html/index.es.html" target="_blank">BCE — Decisiones de política monetaria (abril 2026)</a>: facilidad de depósito 2,00%. Euribor 12M, media de mayo 2026: 2,804% (BOE / Banco de España).</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-b.html" class="nav-btn">← B: Capitalización y descuento</a>
+    <a href="seccion-e.html" class="nav-btn">E: Rentabilidad →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 2 · Sección D · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

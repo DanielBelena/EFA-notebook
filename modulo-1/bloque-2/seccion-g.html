@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B2 · Sección G — Conceptos básicos de estadística · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .corr-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:.5rem; margin:1rem 0; text-align:center; }
+    @media (max-width:680px){ .corr-grid{ grid-template-columns:1fr 1fr; } }
+    .corr-cell { border:1.5px solid var(--border); border-radius:10px; padding:.6rem .4rem; font-size:var(--fs-xs); background:var(--card); }
+    .corr-cell strong { display:block; font-family:var(--font-ui); color:var(--navy); margin-bottom:.2rem; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B2 · G</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 2</a><span class="sep">›</span>
+    <span>Sección G</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 2 · Sección G · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Conceptos básicos de estadística</h1>
+    <p class="hero-sub">
+      Media y esperanza matemática · Varianza y desviación típica · Covarianza ·
+      Coeficiente de correlación · Recta de regresión (MCO) · Coeficiente de determinación.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Datos históricos vs. datos futuros con probabilidades</h2>
+    <p class="sec-intro">
+      Esta sección es la caja de herramientas de la teoría de carteras (Módulo 3): la
+      desviación típica será el "riesgo", la covarianza el motor de la diversificación,
+      y la recta de regresión la beta del CAPM.
+    </p>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Serie histórica</h4>
+        <p>Observaciones <strong>ya ocurridas</strong> (rentabilidades de los últimos n años).
+        Cada dato pesa lo mismo: 1/n. Los estadísticos se llaman <em>muestrales</em>:
+        media, varianza histórica.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Serie futura (escenarios)</h4>
+        <p>Valores <strong>posibles</strong>, cada uno con una probabilidad pₛ asignada
+        (Σpₛ = 1). Los datos pesan según su probabilidad. Los estadísticos se llaman
+        <em>esperados</em>: esperanza matemática, varianza esperada.</p>
+      </div>
+    </div>
+
+    <h3>Media aritmética y esperanza matemática</h3>
+    <div class="formula">
+      <span class="formula-label">Media aritmética (datos históricos)</span>
+      x̄ = ( Σ xₜ ) / n
+    </div>
+    <div class="formula">
+      <span class="formula-label">Esperanza matemática (escenarios futuros)</span>
+      E(X) = Σ pₛ · xₛ
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — esperanza por escenarios</h3>
+      <p>
+        Una acción puede rendir: +20% (prob. 30%), +5% (prob. 50%), −10% (prob. 20%).<br>
+        E(R) = 0,3×20 + 0,5×5 + 0,2×(−10) = 6 + 2,5 − 2 = <strong>6%</strong>
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Dispersión: varianza y desviación típica</h2>
+    <div class="card accent-navy">
+      <p>
+        La <strong>dispersión</strong> mide cuánto se alejan los datos de su valor central.
+        En finanzas es la definición operativa del <strong>riesgo</strong>: dos activos con la
+        misma rentabilidad media pueden tener perfiles de riesgo opuestos. La <strong>varianza
+        σ²</strong> promedia las desviaciones al cuadrado; la <strong>desviación típica σ</strong>
+        (su raíz cuadrada) devuelve la medida a las unidades originales (%).
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Varianza histórica</span>
+      σ² = Σ (xₜ − x̄)² / n
+    </div>
+    <div class="formula">
+      <span class="formula-label">Varianza esperada (escenarios)</span>
+      σ² = Σ pₛ · (xₛ − E(X))²
+    </div>
+    <div class="formula">
+      <span class="formula-label">Desviación típica</span>
+      σ = √σ²
+    </div>
+
+    <div class="callout info">
+      <strong>Nota técnica:</strong> en estadística inferencial la varianza muestral divide por
+      (n−1) (cuasivarianza). En el temario EFA y en sus ejercicios se emplea el divisor
+      <strong>n</strong> salvo indicación expresa.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — varianza histórica</h3>
+      <p>
+        Rentabilidades de un fondo en 4 años: 8%, 2%, −4%, 10%.<br>
+        x̄ = (8+2−4+10)/4 = <strong>4%</strong><br>
+        σ² = [(8−4)² + (2−4)² + (−4−4)² + (10−4)²] / 4 = [16+4+64+36]/4 = <strong>30</strong><br>
+        σ = √30 = <strong>5,48%</strong>
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. Covarianza</h2>
+    <div class="card accent-navy">
+      <p>
+        La <strong>covarianza σ<sub>xy</sub></strong> mide si dos series se mueven
+        <strong>conjuntamente</strong>: promedia el producto de las desviaciones simultáneas
+        de cada serie respecto a su media.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Covarianza (histórica)</span>
+      σₓᵧ = Σ (xₜ − x̄)(yₜ − ȳ) / n
+    </div>
+    <div class="formula">
+      <span class="formula-label">Covarianza (escenarios)</span>
+      σₓᵧ = Σ pₛ · (xₛ − E(X)) · (yₛ − E(Y))
+    </div>
+
+    <h3>Interpretación del signo</h3>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>σₓᵧ &gt; 0</h4>
+        <p>Las series tienden a moverse <strong>en la misma dirección</strong> (cuando una está por
+        encima de su media, la otra también). Ej.: dos bancos del mismo índice.</p>
+      </div>
+      <div class="concept-box">
+        <h4>σₓᵧ &lt; 0</h4>
+        <p>Se mueven <strong>en direcciones opuestas</strong>. Es el santo grial de la
+        diversificación: combinar activos con covarianza negativa reduce el riesgo total.</p>
+      </div>
+      <div class="concept-box">
+        <h4>σₓᵧ ≈ 0</h4>
+        <p>Sin relación lineal apreciable. La diversificación también funciona (menos intensamente).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Limitación</h4>
+        <p>Su <strong>magnitud no es interpretable</strong>: depende de las unidades. Para graduar
+        la intensidad de la relación se normaliza → coeficiente de correlación.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>4. Coeficiente de correlación</h2>
+    <div class="formula">
+      <span class="formula-label">Coeficiente de correlación lineal (Pearson)</span>
+      ρₓᵧ = σₓᵧ / (σₓ · σᵧ)      con −1 ≤ ρ ≤ +1
+    </div>
+
+    <h3>Lectura numérica y gráfica</h3>
+    <div class="corr-grid">
+      <div class="corr-cell"><strong>ρ = +1</strong>Correlación perfecta positiva. Nube de puntos: línea recta ascendente exacta.</div>
+      <div class="corr-cell"><strong>0 &lt; ρ &lt; 1</strong>Relación positiva imperfecta. Nube elíptica ascendente, más estrecha cuanto mayor ρ.</div>
+      <div class="corr-cell"><strong>ρ = 0</strong>Sin relación lineal. Nube circular sin orientación.</div>
+      <div class="corr-cell"><strong>−1 &lt; ρ &lt; 0</strong>Relación negativa imperfecta. Nube elíptica descendente.</div>
+      <div class="corr-cell"><strong>ρ = −1</strong>Correlación perfecta negativa. Recta descendente exacta. Permite eliminar todo el riesgo combinando los activos.</div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 3 — correlación entre dos fondos</h3>
+      <p>
+        Si σₓᵧ = 24, σₓ = 5,48% y σᵧ = 6%:<br>
+        ρ = 24 / (5,48 × 6) = 24 / 32,88 = <strong>0,73</strong><br><br>
+        Relación positiva fuerte: ambos fondos tienden a subir y bajar juntos →
+        combinarlos diversifica poco.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Despejar la covarianza a partir de ρ y las desviaciones (σₓᵧ = ρ·σₓ·σᵧ): es el dato
+        que pide la fórmula del riesgo de una cartera de dos activos (Módulo 3). Y la conceptual:
+        "¿con qué correlación se maximiza el efecto diversificación?" → ρ = −1.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>5. Regresión lineal por mínimos cuadrados ordinarios</h2>
+    <div class="card accent-navy">
+      <p>
+        La <strong>regresión</strong> busca la recta ŷ = a + b·x que mejor se ajusta a la nube de
+        puntos de dos series, minimizando la suma de los cuadrados de los errores verticales
+        (método de <strong>mínimos cuadrados ordinarios, MCO</strong>)<sup><a href="#fn1">1</a></sup>.
+        El "grado de ajuste" mide cuánto de la variabilidad de Y queda explicado por X.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Pendiente de la recta</span>
+      b = σₓᵧ / σₓ²
+    </div>
+    <div class="formula">
+      <span class="formula-label">Ordenada en el origen (punto de corte con el eje Y)</span>
+      a = ȳ − b · x̄
+    </div>
+
+    <div class="callout info">
+      <strong>Puente al CAPM:</strong> si X es la rentabilidad del mercado e Y la de un activo,
+      la pendiente b es exactamente la <strong>beta</strong> (β = σ<sub>activo,mercado</sub>/σ²<sub>mercado</sub>)
+      y la recta es la línea característica del activo (Módulo 3, Bloque 3).
+    </div>
+
+    <h3>Coeficiente de determinación R²</h3>
+    <div class="formula">
+      <span class="formula-label">Coeficiente de determinación</span>
+      R² = ρ²ₓᵧ      con 0 ≤ R² ≤ 1
+    </div>
+    <p>
+      R² es el <strong>porcentaje de la varianza de Y explicado por la recta</strong> (por X).
+      R² = 0,81 → el 81% de las variaciones de Y se explican por X; el 19% restante es residuo
+      (en el CAPM: riesgo específico). A mayor R², mejor ajuste.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 4 — recta de regresión completa</h3>
+      <p>
+        Series (rentabilidades %): mercado X = {2, 4, 6, 8}, fondo Y = {3, 5, 6, 10}.<br><br>
+        x̄ = 5 · ȳ = 6<br>
+        σₓ² = [(−3)²+(−1)²+1²+3²]/4 = 20/4 = 5<br>
+        σₓᵧ = [(−3)(−3)+(−1)(−1)+(1)(0)+(3)(4)]/4 = (9+1+0+12)/4 = 5,5<br><br>
+        <strong>b</strong> = 5,5/5 = <strong>1,1</strong> · <strong>a</strong> = 6 − 1,1×5 = <strong>0,5</strong><br>
+        Recta: <strong>ŷ = 0,5 + 1,1·x</strong><br><br>
+        σᵧ² = [9+1+0+16]/4 = 6,5 → ρ = 5,5/√(5×6,5) = 5,5/5,70 = 0,965<br>
+        <strong>R² = 0,93</strong>: el 93% de la variabilidad del fondo la explica el mercado.
+        El fondo amplifica los movimientos del mercado (b &gt; 1: "beta agresiva").
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      Estas herramientas son hoy el estándar de la información a clientes: los indicadores de
+      riesgo de los KID de PRIIPs y de los folletos UCITS se construyen sobre la volatilidad
+      (desviación típica) de las rentabilidades históricas, y las gestoras reportan la beta y el
+      R² de sus fondos frente al benchmark. Saber leerlos es competencia evaluable en idoneidad
+      (Módulo 9).
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Estadístico</th><th>Histórico</th><th>Futuro (escenarios)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Posición central</strong></td><td>x̄ = Σxₜ/n</td><td>E(X) = Σpₛ·xₛ</td></tr>
+          <tr><td><strong>Varianza</strong></td><td>Σ(xₜ−x̄)²/n</td><td>Σpₛ(xₛ−E(X))²</td></tr>
+          <tr><td><strong>Desv. típica</strong></td><td colspan="2">σ = √σ² (medida del riesgo)</td></tr>
+          <tr><td><strong>Covarianza</strong></td><td>Σ(xₜ−x̄)(yₜ−ȳ)/n</td><td>Σpₛ(xₛ−E(X))(yₛ−E(Y))</td></tr>
+          <tr><td><strong>Correlación</strong></td><td colspan="2">ρ = σₓᵧ/(σₓσᵧ) ∈ [−1, +1]</td></tr>
+          <tr><td><strong>Recta MCO</strong></td><td colspan="2">b = σₓᵧ/σₓ² · a = ȳ − b·x̄</td></tr>
+          <tr><td><strong>Determinación</strong></td><td colspan="2">R² = ρ² (% de varianza explicada)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 2, Sección G. Formulación estándar de estadística descriptiva bivariante (Newbold, Carlson & Thorne, <em>Statistics for Business and Economics</em>, Pearson). La aplicación a carteras procede de H. Markowitz, <a href="https://www.jstor.org/stable/2975974" target="_blank">"Portfolio Selection", <em>Journal of Finance</em>, 1952</a>.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-f.html" class="nav-btn">← F: Rentas financieras</a>
+    <a href="../bloque-3/seccion-a.html" class="nav-btn">Bloque 3 · A: Componentes del sistema financiero →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 2 · Sección G · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B2 · Sección A — Valor temporal del dinero · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .method-row { display:grid; grid-template-columns:160px 1fr 1fr; gap:.5rem; align-items:start; padding:.7rem 0; border-bottom:1px solid var(--border); font-size:var(--fs-sm); }
+    .method-row:last-child { border-bottom:none; }
+    .method-label { font-family:var(--font-ui); font-weight:800; color:var(--navy); }
+    .method-formula { font-family:'Courier New',monospace; font-size:var(--fs-xs); color:var(--navy); background:var(--navy-light); border-radius:6px; padding:3px 8px; display:inline-block; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .context-box strong:first-child { font-family:var(--font-ui); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B2 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 2</a><span class="sep">›</span>
+    <span>Sección A</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 2 · Sección A · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Valor temporal del dinero</h1>
+    <p class="hero-sub">
+      Capital financiero · Operaciones financieras · Capitalización vs. actualización ·
+      Precio total, unitario y unitario medio · Interés implícito vs. explícito.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Capital financiero y operación financiera</h2>
+    <p class="sec-intro">
+      Toda la matemática financiera del examen EFA descansa sobre una idea: un euro hoy
+      no vale lo mismo que un euro mañana. El instrumento formal que captura esta idea
+      es el <strong>capital financiero</strong>.
+    </p>
+
+    <h3>¿Qué es el capital financiero?</h3>
+    <div class="card accent-navy">
+      <p>
+        Un <strong>capital financiero</strong> es un par ordenado <strong>(C, t)</strong>:
+        una cuantía monetaria <em>C</em> asociada al momento del tiempo <em>t</em> en que
+        está disponible<sup><a href="#fn1">1</a></sup>. La cuantía por sí sola no define el capital:
+        1.000&nbsp;€ disponibles hoy y 1.000&nbsp;€ disponibles dentro de tres años son
+        <strong>capitales financieros distintos</strong>, porque difieren en su vencimiento.
+      </p>
+      <p style="margin-top:.6rem;">
+        El <strong>principio de subestimación de capitales futuros</strong> (preferencia por la
+        liquidez) establece que, a igual cuantía, se prefiere siempre el capital más próximo
+        en el tiempo. De ahí que el tiempo tenga un precio: el <strong>interés</strong>.
+      </p>
+    </div>
+
+    <h3>¿Qué es una operación financiera?</h3>
+    <p>
+      Una <strong>operación financiera</strong> es un intercambio no simultáneo de capitales
+      financieros entre dos partes, realizado conforme a una <strong>ley financiera</strong>
+      pactada (la regla que establece la equivalencia entre capitales en momentos distintos).
+      Intervienen:
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Prestación</h4>
+        <p>Conjunto de capitales que entrega la parte acreedora (quien financia). En un depósito, el cliente; en un préstamo, el banco.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Contraprestación</h4>
+        <p>Conjunto de capitales que entrega la parte deudora como devolución. Debe ser financieramente equivalente a la prestación según la ley pactada.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Origen y final</h4>
+        <p>El origen es el vencimiento del primer capital; el final, el del último. La diferencia es la <strong>duración</strong> de la operación.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Operación simple</h4>
+        <p>Un único capital en la prestación y un único capital en la contraprestación: (C₀, t₀) ↔ (Cₙ, tₙ). Es el caso base de toda esta sección.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Capitalización vs. actualización</h2>
+    <p class="sec-intro">
+      Son las dos direcciones posibles de desplazamiento de un capital en el tiempo.
+      Toda fórmula del Bloque 2 es una variante de una de las dos.
+    </p>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Capitalización</h4>
+        <p>Desplaza un capital <strong>hacia el futuro</strong>: dado un capital inicial C₀,
+        calcula su equivalente Cₙ en un momento posterior. Se <strong>añaden intereses</strong>.
+        El multiplicador empleado se llama <strong>factor de capitalización</strong> (&gt; 1).</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Actualización (descuento)</h4>
+        <p>Desplaza un capital <strong>hacia el presente</strong>: dado un capital futuro Cₙ,
+        calcula su equivalente C₀ hoy. Se <strong>detraen intereses</strong>.
+        El multiplicador es el <strong>factor de actualización o descuento</strong> (&lt; 1).</p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>Idea clave:</strong> capitalizar y actualizar son operaciones inversas. Si el factor de
+      capitalización a un período es (1 + i), el de actualización es 1 / (1 + i). Esta dualidad
+      reaparece en renta fija (precio de un bono = actualización de sus flujos) y en valoración
+      de carteras.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1</h3>
+      <p>
+        Deposito 5.000&nbsp;€ a 1 año al 3% anual.<br>
+        <strong>Capitalización:</strong> Cₙ = 5.000 × (1 + 0,03) = <strong>5.150&nbsp;€</strong>.<br><br>
+        Me ofrecen cobrar 5.150&nbsp;€ dentro de 1 año y quiero saber cuánto valen hoy al 3%:<br>
+        <strong>Actualización:</strong> C₀ = 5.150 / (1 + 0,03) = <strong>5.000&nbsp;€</strong>.<br><br>
+        Ambos capitales, (5.000&nbsp;€; hoy) y (5.150&nbsp;€; 1 año), son <strong>financieramente
+        equivalentes</strong> al 3% anual.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. Precio de una operación financiera simple</h2>
+    <p class="sec-intro">
+      El "precio" de una operación financiera es lo que cuesta disponer del capital ajeno:
+      los intereses. Se puede expresar de tres formas, cada una respondiendo a una pregunta distinta.
+    </p>
+
+    <div class="method-row">
+      <span class="method-label">Precio total (I)</span>
+      <span class="method-formula">I = Cₙ − C₀</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">
+        Intereses totales en euros: diferencia entre capital final e inicial.
+      </span>
+    </div>
+    <div class="method-row">
+      <span class="method-label">Precio unitario</span>
+      <span class="method-formula">p = (Cₙ − C₀) / C₀</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">
+        Interés por cada euro invertido durante toda la duración. Es la rentabilidad del período completo.
+      </span>
+    </div>
+    <div class="method-row">
+      <span class="method-label">Precio unitario medio</span>
+      <span class="method-formula">p̄ = (Cₙ − C₀) / (C₀ × n)</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">
+        Interés por euro <strong>y por unidad de tiempo</strong>. Es el "tipo de interés medio" de la operación.
+      </span>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2</h3>
+      <p>
+        Invierto C₀ = 10.000&nbsp;€ y recibo Cₙ = 10.900&nbsp;€ al cabo de n = 3 años.<br><br>
+        Precio total: I = 10.900 − 10.000 = <strong>900&nbsp;€</strong><br>
+        Precio unitario: p = 900 / 10.000 = <strong>0,09 → 9% en 3 años</strong><br>
+        Precio unitario medio: p̄ = 900 / (10.000 × 3) = <strong>0,03 → 3% anual medio</strong>
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Pregunta tipo: <em>"Una operación transforma 10.000&nbsp;€ en 10.900&nbsp;€ en 3 años.
+        ¿Cuál es su precio unitario medio?"</em> → 3% anual. Cuidado con confundir precio unitario
+        (del período completo) con precio unitario medio (por unidad de tiempo): es el distractor habitual.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>4. Interés implícito vs. interés explícito</h2>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Interés explícito</h4>
+        <p>La remuneración se paga de forma <strong>separada y periódica</strong> (cupones,
+        intereses de un depósito). El capital invertido se devuelve íntegro al final.
+        Ejemplo: un Bono del Estado a 10 años con cupón anual del 3%.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Interés implícito</h4>
+        <p>La remuneración está <strong>incorporada en la diferencia</strong> entre el precio de
+        adquisición y el valor de reembolso. No hay pagos intermedios (estructura
+        <em>cupón cero</em>). Ejemplo: una Letra del Tesoro comprada a 97,2 y reembolsada a 100<sup><a href="#fn2">2</a></sup>.</p>
+      </div>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      Con los tipos oficiales del BCE estabilizados (facilidad de depósito en el 2,00%<sup><a href="#fn3">3</a></sup>),
+      las Letras del Tesoro español —el activo de interés implícito por excelencia— se emiten
+      al descuento con rentabilidades en el entorno del tipo de referencia. La distinción
+      implícito/explícito tiene además relevancia fiscal: ambos tributan como rendimiento del
+      capital mobiliario, pero el momento del devengo difiere (Módulo 8).
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Identificar qué activos son de rendimiento implícito (Letras, pagarés de empresa,
+        bonos cupón cero) y cuáles de rendimiento explícito (bonos y obligaciones con cupón,
+        depósitos a plazo con liquidación periódica). También puede aparecer el caso mixto
+        (bono emitido bajo la par con cupón periódico).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Definición clave</th><th>Fórmula</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Capital financiero</strong></td><td>Cuantía + vencimiento</td><td>(C, t)</td></tr>
+          <tr><td><strong>Capitalización</strong></td><td>Llevar un capital al futuro</td><td>Cₙ = C₀ × factor &gt; 1</td></tr>
+          <tr><td><strong>Actualización</strong></td><td>Traer un capital al presente</td><td>C₀ = Cₙ × factor &lt; 1</td></tr>
+          <tr><td><strong>Precio total</strong></td><td>Intereses en euros</td><td>I = Cₙ − C₀</td></tr>
+          <tr><td><strong>Precio unitario</strong></td><td>Interés por euro invertido</td><td>(Cₙ − C₀)/C₀</td></tr>
+          <tr><td><strong>Precio unitario medio</strong></td><td>Interés por euro y por período</td><td>(Cₙ − C₀)/(C₀·n)</td></tr>
+          <tr><td><strong>Interés explícito</strong></td><td>Cupones o pagos periódicos</td><td>—</td></tr>
+          <tr><td><strong>Interés implícito</strong></td><td>Diferencia compra/reembolso</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 2, Sección A. La formalización (C, t) y el principio de preferencia por la liquidez siguen el tratamiento clásico de la matemática financiera española (L. Gil Peláez, <em>Matemática de las operaciones financieras</em>, Ed. AC).</li>
+      <li id="fn2"><a href="https://www.tesoro.es/deuda-publica/los-valores-del-tesoro/letras-del-tesoro" target="_blank">Tesoro Público — Letras del Tesoro</a>: "son valores emitidos al descuento", definición oficial del rendimiento implícito.</li>
+      <li id="fn3"><a href="https://www.ecb.europa.eu/press/pr/date/2026/html/index.es.html" target="_blank">BCE — Decisiones de política monetaria (abril 2026)</a>: tipos oficiales mantenidos en 2,00% / 2,15% / 2,40%.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="index.html" class="nav-btn">← Índice Bloque 2</a>
+    <a href="seccion-b.html" class="nav-btn">B: Capitalización y descuento →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 2 · Sección A · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

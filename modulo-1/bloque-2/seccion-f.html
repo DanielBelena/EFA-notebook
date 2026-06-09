@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B2 · Sección F — Rentas financieras · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B2 · F</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 2</a><span class="sep">›</span>
+    <span>Sección F</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 2 · Sección F · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Rentas financieras</h1>
+    <p class="hero-sub">
+      Concepto y clasificación · Rentas constantes y en progresión geométrica ·
+      Valor actual y final: pospagables, prepagables, diferidas · Rentas perpetuas.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Concepto y clasificación</h2>
+    <p class="sec-intro">
+      Cuotas de un préstamo, cupones de un bono, aportaciones a un plan de pensiones,
+      alquileres: casi todos los productos financieros son rentas. Valorarlas es la
+      competencia de cálculo más transversal del examen.
+    </p>
+
+    <div class="card accent-navy">
+      <p>
+        Una <strong>renta financiera</strong> es un conjunto de capitales (términos) con
+        vencimientos equidistantes en el tiempo<sup><a href="#fn1">1</a></sup>. Sus elementos:
+        <strong>término</strong> (cuantía de cada capital), <strong>período</strong> (intervalo
+        entre términos), <strong>origen</strong> y <strong>final</strong>, y el tipo de
+        <strong>valoración i</strong> aplicado por período.
+      </p>
+    </div>
+
+    <h3>Clasificación</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Criterio</th><th>Tipos</th><th>Ejemplo</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Nº de términos</strong></td><td>Temporal (n finito) · Perpetua (n → ∞)</td><td>Préstamo a 20 años · Deuda perpetua</td></tr>
+          <tr><td><strong>Cuantía</strong></td><td>Constante · Variable (aritmética o geométrica)</td><td>Cuota fija · Alquiler que sube con IPC</td></tr>
+          <tr><td><strong>Vencimiento del término</strong></td><td>Pospagable (fin de período) · Prepagable (inicio)</td><td>Cupón de bono · Alquiler</td></tr>
+          <tr><td><strong>Origen</strong></td><td>Inmediata (empieza ya) · Diferida (empieza tras d períodos)</td><td>Pensión que cobro hoy · Plan que cobraré a los 67</td></tr>
+          <tr><td><strong>Frecuencia</strong></td><td>Anual · Fraccionada (mensual, trimestral…)</td><td>Cupón anual · Cuota hipotecaria mensual</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Renta constante</h4>
+        <p>Todos los términos tienen la misma cuantía a. Es el caso base: todas las fórmulas de
+        esta sección la asumen.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Renta variable en progresión geométrica</h4>
+        <p>Cada término es el anterior multiplicado por (1+g): a, a(1+g), a(1+g)²… Modela flujos
+        que crecen a tasa constante (dividendos, alquileres indexados). Su VA con n → ∞ es la base
+        del modelo de Gordon-Shapiro: VA = a / (i − g), válido si i &gt; g.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Renta temporal, inmediata y pospagable (la renta base)</h2>
+    <p>
+      n términos de cuantía a, pagaderos al <strong>final</strong> de cada período, valorados al tanto i.
+      Su valor actual se denota a<sub>n¬i</sub> y su valor final s<sub>n¬i</sub>:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Valor actual (pospagable)</span>
+      VA = a · aₙ¬ᵢ = a · [ 1 − (1+i)⁻ⁿ ] / i
+    </div>
+    <div class="formula">
+      <span class="formula-label">Valor final (pospagable)</span>
+      VF = a · sₙ¬ᵢ = a · [ (1+i)ⁿ − 1 ] / i
+    </div>
+
+    <div class="callout info">
+      <strong>Relación clave:</strong> VF = VA · (1+i)ⁿ. Basta memorizar una de las dos fórmulas
+      y desplazar el resultado. El VA queda valorado un período <em>antes</em> del primer término;
+      el VF, en el momento del último término.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — ¿cuánto vale una pensión temporal?</h3>
+      <p>
+        Renta de 6.000&nbsp;€/año durante 10 años, pospagable, i = 4%.<br><br>
+        VA = 6.000 × [1 − (1,04)⁻¹⁰] / 0,04 = 6.000 × [1 − 0,675564] / 0,04<br>
+        VA = 6.000 × 8,110896 = <strong>48.665,37&nbsp;€</strong><br><br>
+        VF = 48.665,37 × (1,04)¹⁰ = 48.665,37 × 1,480244 = <strong>72.036,64&nbsp;€</strong><br>
+        (Comprobación directa: 6.000 × [(1,04)¹⁰−1]/0,04 = 6.000 × 12,006107 = 72.036,64 ✓)
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. Renta prepagable</h2>
+    <p>
+      Los términos vencen al <strong>inicio</strong> de cada período (alquileres, primas de seguro).
+      Cada término se cobra un período antes que en la pospagable, luego cada uno vale (1+i) veces más:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Valor actual (prepagable)</span>
+      VA¨ = a · aₙ¬ᵢ · (1 + i)
+    </div>
+    <div class="formula">
+      <span class="formula-label">Valor final (prepagable)</span>
+      VF¨ = a · sₙ¬ᵢ · (1 + i)
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — misma renta, prepagable</h3>
+      <p>
+        La renta del ejemplo 1 (6.000&nbsp;€, 10 años, 4%) pero cobrada a inicio de cada año:<br>
+        VA¨ = 48.665,37 × 1,04 = <strong>50.611,99&nbsp;€</strong><br>
+        VF¨ = 72.036,64 × 1,04 = <strong>74.918,11&nbsp;€</strong><br><br>
+        Una renta prepagable siempre vale más que su gemela pospagable: se cobra antes.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>4. Renta diferida</h2>
+    <p>
+      El primer término no llega hasta dentro de <strong>d períodos</strong> (típico de la
+      jubilación: aporto hoy, cobro dentro de 20 años). El VA de la renta base se calcula en su
+      origen y luego se <strong>actualiza d períodos</strong> hasta hoy. El valor final
+      <strong>no cambia</strong> por el diferimiento (los términos caen donde caen):
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">VA de renta diferida pospagable</span>
+      VA = a · aₙ¬ᵢ · (1 + i)⁻ᵈ
+    </div>
+    <div class="formula">
+      <span class="formula-label">VA de renta diferida prepagable</span>
+      VA = a · aₙ¬ᵢ · (1 + i) · (1 + i)⁻ᵈ
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 3 — renta de jubilación diferida</h3>
+      <p>
+        Cliente de 55 años; a los 65 (d = 10) empezará a cobrar 6.000&nbsp;€/año pospagables
+        durante 10 años (i = 4%). ¿Cuánto capital necesita hoy?<br><br>
+        VA = 48.665,37 × (1,04)⁻¹⁰ = 48.665,37 × 0,675564 = <strong>32.876,52&nbsp;€</strong><br><br>
+        El diferimiento de 10 años reduce el capital necesario en un 32%: el tiempo trabaja
+        a favor del que planifica pronto. El VF en el año 20 sigue siendo 72.036,64&nbsp;€.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>5. Renta perpetua</h2>
+    <div class="card accent-navy">
+      <p>
+        Una <strong>renta perpetua</strong> paga indefinidamente (n → ∞). Solo tiene
+        <strong>valor actual</strong> (el valor final no existe: divergiría). Tomando el límite de
+        aₙ¬ᵢ cuando n → ∞, el término (1+i)⁻ⁿ tiende a cero:
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">VA de perpetua inmediata pospagable</span>
+      VA = a / i
+    </div>
+    <div class="formula">
+      <span class="formula-label">Variantes</span>
+      Prepagable: (a/i)·(1+i) · Diferida d: (a/i)·(1+i)⁻ᵈ · Creciente al g% (Gordon): a/(i−g)
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 4</h3>
+      <p>
+        ¿Cuánto pagar por un activo que promete 6.000&nbsp;€/año a perpetuidad, al 4%?<br>
+        VA = 6.000 / 0,04 = <strong>150.000&nbsp;€</strong><br><br>
+        Relación con la temporal: la renta de 10 años (ej. 1) valía 48.665&nbsp;€ — un 32% de la
+        perpetua. La perpetua es la <strong>cota superior</strong> de todas las rentas temporales
+        del mismo término y tanto, y la diferencia (VA perpetua − VA temporal) es exactamente una
+        perpetua diferida n períodos: 150.000 × (1,04)⁻¹⁰ = 101.334,6 = 150.000 − 48.665,4 ✓
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) VA de renta temporal pospagable — la fórmula más usada del examen (cuotas, pensiones).
+        (2) Convertir entre pospagable y prepagable: multiplicar (o dividir) por (1+i); el error
+        típico es aplicarlo al revés. (3) Perpetua a/i para valorar dividendos constantes, y su
+        versión creciente a/(i−g) — puente directo al modelo de Gordon-Shapiro de renta variable
+        (Módulo 1, Bloque 5). (4) Diferidas: identificar bien d (nº de períodos completos sin pago).
+      </div>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      Con tipos de valoración del entorno del 2–3% (facilidad de depósito BCE en 2,00%, Euribor 12M
+      ≈ 2,8%<sup><a href="#fn2">2</a></sup>), el VA de las rentas es muy sensible al tanto: una
+      perpetua de 6.000&nbsp;€ vale 300.000&nbsp;€ al 2% pero solo 150.000&nbsp;€ al 4%.
+      Esta sensibilidad inversa valor-tipos es la misma que gobierna el precio de los bonos
+      (duración, Bloque 4) y explica el repricing de activos de renta cuando el BCE mueve tipos.
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Renta</th><th>Valor actual</th><th>Valor final</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Temporal pospagable</strong></td><td>a·[1−(1+i)⁻ⁿ]/i</td><td>a·[(1+i)ⁿ−1]/i</td></tr>
+          <tr><td><strong>Temporal prepagable</strong></td><td>VA pospagable × (1+i)</td><td>VF pospagable × (1+i)</td></tr>
+          <tr><td><strong>Diferida d períodos</strong></td><td>VA × (1+i)⁻ᵈ</td><td>Sin cambio</td></tr>
+          <tr><td><strong>Perpetua pospagable</strong></td><td>a / i</td><td>No existe</td></tr>
+          <tr><td><strong>Perpetua creciente (g)</strong></td><td>a / (i − g), si i &gt; g</td><td>No existe</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 2, Sección F. Notación actuarial estándar (aₙ¬ᵢ, sₙ¬ᵢ) conforme a la matemática financiera clásica (L. Gil Peláez, <em>Matemática de las operaciones financieras</em>).</li>
+      <li id="fn2"><a href="https://www.ecb.europa.eu/press/pr/date/2026/html/index.es.html" target="_blank">BCE — Decisiones de política monetaria (abril 2026)</a>; Euribor 12M media de mayo 2026: 2,804% (BOE / Banco de España).</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-e.html" class="nav-btn">← E: Rentabilidad</a>
+    <a href="seccion-g.html" class="nav-btn">G: Estadística básica →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 2 · Sección F · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B2 · Sección B — Capitalización y sistemas de descuento · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .method-row { display:grid; grid-template-columns:160px 1fr 1fr; gap:.5rem; align-items:start; padding:.7rem 0; border-bottom:1px solid var(--border); font-size:var(--fs-sm); }
+    .method-row:last-child { border-bottom:none; }
+    .method-label { font-family:var(--font-ui); font-weight:800; color:var(--navy); }
+    .method-formula { font-family:'Courier New',monospace; font-size:var(--fs-xs); color:var(--navy); background:var(--navy-light); border-radius:6px; padding:3px 8px; display:inline-block; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B2 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 2</a><span class="sep">›</span>
+    <span>Sección B</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 2 · Sección B (incluye C) · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Capitalización y sistemas de descuento</h1>
+    <p class="hero-sub">
+      Interés simple vencido y anticipado · Números comerciales y cuentas corrientes ·
+      Interés compuesto a tanto constante y variable · Descuento comercial y racional ·
+      Suma financiera, valor actual y valor final.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ===================== 1. CAPITALIZACIÓN SIMPLE ===================== -->
+  <div class="sec">
+    <h2>1. Capitalización simple</h2>
+    <p class="sec-intro">
+      Régimen propio de operaciones a <strong>corto plazo (≤ 1 año)</strong>: depósitos,
+      cuentas corrientes, descuento de efectos, mercado monetario. Su rasgo definitorio:
+      <strong>los intereses no se acumulan al capital</strong> — se calculan siempre sobre el
+      capital inicial.
+    </p>
+
+    <h3>Interés simple vencido</h3>
+    <div class="card accent-navy">
+      <p>
+        Una operación se pacta a <strong>interés simple vencido</strong> cuando los intereses
+        se calculan sobre el capital inicial C₀ y se abonan <strong>al final</strong> del plazo
+        (vencimiento), sin generar a su vez nuevos intereses<sup><a href="#fn1">1</a></sup>.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Factor de capitalización simple vencida</span>
+      (1 + n · i)
+    </div>
+    <div class="formula">
+      <span class="formula-label">Capital final</span>
+      Cₙ = C₀ · (1 + n · i)
+    </div>
+
+    <p>Los <strong>despejes</strong> que el examen exige dominar:</p>
+    <div class="method-row">
+      <span class="method-label">Capital inicial</span>
+      <span class="method-formula">C₀ = Cₙ / (1 + n·i)</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">¿Cuánto debo invertir hoy?</span>
+    </div>
+    <div class="method-row">
+      <span class="method-label">Tipo de interés</span>
+      <span class="method-formula">i = (Cₙ/C₀ − 1) / n</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">¿A qué tanto se pactó?</span>
+    </div>
+    <div class="method-row">
+      <span class="method-label">Plazo</span>
+      <span class="method-formula">n = (Cₙ/C₀ − 1) / i</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">¿Cuánto tiempo se necesita? (n en años; si el plazo va en días, n = días/360 en la práctica bancaria)</span>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — depósito a 9 meses</h3>
+      <p>
+        Depósito de 20.000&nbsp;€ a 9 meses al 2,5% anual simple.<br>
+        n = 9/12 = 0,75 años.<br>
+        Cₙ = 20.000 × (1 + 0,75 × 0,025) = 20.000 × 1,01875 = <strong>20.375&nbsp;€</strong>.<br>
+        Intereses brutos: <strong>375&nbsp;€</strong>.
+      </p>
+    </div>
+
+    <h3>Números comerciales y saldo medio de una cuenta corriente</h3>
+    <p>
+      Las cuentas corrientes liquidan intereses por el <strong>método hamburgués</strong> o de
+      saldos: cada saldo se pondera por los días que permanece vigente. El producto
+      <strong>saldo × días</strong> es el <strong>número comercial</strong><sup><a href="#fn1">1</a></sup>.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Número comercial</span>
+      N = Saldo × días de vigencia
+    </div>
+    <div class="formula">
+      <span class="formula-label">Intereses brutos (año comercial de 360 días)</span>
+      I = ( Σ N ) × i / 360
+    </div>
+    <div class="formula">
+      <span class="formula-label">Saldo medio</span>
+      Saldo medio = Σ N / Σ días
+    </div>
+
+    <div class="callout info">
+      <strong>Deudores y acreedores:</strong> se suman por separado los números comerciales
+      <strong>acreedores</strong> (saldo a favor del cliente → generan intereses a su favor) y los
+      <strong>deudores</strong> (descubiertos → generan intereses a favor del banco, a un tipo
+      distinto y mayor). Cada suma se multiplica por su tipo correspondiente.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — liquidación trimestral (90 días)</h3>
+      <p>
+        Movimientos de una cuenta remunerada al 1% anual (acreedor):<br><br>
+        · Saldo 6.000&nbsp;€ durante 30 días → N₁ = 180.000<br>
+        · Saldo 9.000&nbsp;€ durante 40 días → N₂ = 360.000<br>
+        · Saldo 3.000&nbsp;€ durante 20 días → N₃ = 60.000<br><br>
+        Σ N = 600.000 · Σ días = 90<br>
+        <strong>Saldo medio</strong> = 600.000 / 90 = <strong>6.666,67&nbsp;€</strong><br>
+        <strong>Intereses brutos</strong> = 600.000 × 0,01 / 360 = <strong>16,67&nbsp;€</strong>
+      </p>
+    </div>
+
+    <h3>Interés simple anticipado</h3>
+    <div class="card accent-navy">
+      <p>
+        Una operación se pacta a <strong>interés simple anticipado</strong> cuando los intereses
+        se calculan sobre el <strong>capital final</strong> y se cobran <strong>al inicio</strong>
+        de la operación (se detraen del capital entregado). Es el régimen del descuento bancario.
+        Llamando i<sub>a</sub> al tanto anticipado:
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Factor de capitalización a interés simple anticipado</span>
+      1 / (1 − n · iₐ)
+    </div>
+    <div class="formula">
+      <span class="formula-label">Capital final</span>
+      Cₙ = C₀ / (1 − n · iₐ)
+    </div>
+
+    <h3>Relación entre tanto vencido y tanto anticipado</h3>
+    <p>
+      Dos tantos son <strong>equivalentes</strong> si producen el mismo capital final.
+      Igualando (1 + n·i) = 1/(1 − n·iₐ) y despejando:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Vencido a partir del anticipado</span>
+      i = iₐ / (1 − n · iₐ)
+    </div>
+    <div class="formula">
+      <span class="formula-label">Anticipado a partir del vencido</span>
+      iₐ = i / (1 + n · i)
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Dado un tanto anticipado, calcular el vencido equivalente (o viceversa) a un plazo
+        concreto. Regla nemotécnica: <strong>el tanto vencido equivalente siempre es mayor</strong>
+        que el anticipado (cobrar antes "vale más"). Si en el examen tu resultado da un vencido
+        menor que el anticipado, has invertido la fórmula.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===================== 2. CAPITALIZACIÓN COMPUESTA ===================== -->
+  <div class="sec">
+    <h2>2. Capitalización compuesta</h2>
+    <p class="sec-intro">
+      Régimen propio del <strong>largo plazo (&gt; 1 año)</strong>: préstamos, bonos, fondos,
+      planes de pensiones. Rasgo definitorio: <strong>los intereses se acumulan al capital</strong>
+      al final de cada período y generan a su vez intereses (anatocismo).
+    </p>
+
+    <h3>Interés compuesto a tanto constante</h3>
+    <div class="card accent-navy">
+      <p>
+        Una operación se pacta a <strong>interés compuesto a tanto constante</strong> cuando, al
+        final de cada período, los intereses devengados se incorporan al capital y el conjunto
+        se reinvierte al <strong>mismo tipo i</strong> durante toda la operación<sup><a href="#fn1">1</a></sup>.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Factor de capitalización compuesta</span>
+      (1 + i)ⁿ
+    </div>
+    <div class="formula">
+      <span class="formula-label">Capital final</span>
+      Cₙ = C₀ · (1 + i)ⁿ
+    </div>
+
+    <p>Despejes habituales:</p>
+    <div class="method-row">
+      <span class="method-label">Tipo de interés</span>
+      <span class="method-formula">i = (Cₙ/C₀)^(1/n) − 1</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">Raíz n-ésima del cociente de capitales, menos 1.</span>
+    </div>
+    <div class="method-row">
+      <span class="method-label">Plazo</span>
+      <span class="method-formula">n = ln(Cₙ/C₀) / ln(1+i)</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">Requiere logaritmos (raro en examen, pero posible).</span>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 3 — simple vs. compuesto</h3>
+      <p>
+        10.000&nbsp;€ al 4% durante 5 años.<br><br>
+        Simple: Cₙ = 10.000 × (1 + 5×0,04) = <strong>12.000&nbsp;€</strong><br>
+        Compuesto: Cₙ = 10.000 × (1,04)⁵ = <strong>12.166,53&nbsp;€</strong><br><br>
+        La diferencia (166,53&nbsp;€) es el <em>interés sobre interés</em>. Para plazos &gt; 1 año
+        el compuesto siempre produce más; para plazos &lt; 1 año, al mismo tanto, produce más el simple;
+        a 1 año exacto coinciden.
+      </p>
+    </div>
+
+    <h3>Interés compuesto a tanto variable</h3>
+    <p>
+      Si el tipo cambia por tramos (i₁ durante n₁ períodos, i₂ durante n₂…), el capital final
+      se obtiene <strong>encadenando los factores</strong> de cada tramo:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Capital final a tanto variable</span>
+      Cₙ = C₀ · (1 + i₁)ⁿ¹ · (1 + i₂)ⁿ² · … · (1 + iₖ)ⁿᵏ
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 4 — depósito escalonado</h3>
+      <p>
+        15.000&nbsp;€: 2 años al 2% y luego 3 años al 3%.<br>
+        Cₙ = 15.000 × (1,02)² × (1,03)³ = 15.000 × 1,0404 × 1,092727 = <strong>17.053,06&nbsp;€</strong>
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Cálculo directo de Cₙ con (1+i)ⁿ, y el despeje del tanto i dado el capital inicial y final
+        (p. ej. "un fondo pasa de 100 a 121 en 2 años → i = √1,21 − 1 = 10%"). En tanto variable,
+        el distractor típico es <em>sumar</em> los tipos en vez de <em>multiplicar</em> los factores.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===================== 3. SISTEMAS DE DESCUENTO ===================== -->
+  <div class="sec">
+    <h2>3. Sistemas de descuento</h2>
+    <p class="sec-intro">
+      El descuento es la operación de actualización: anticipar hoy el cobro de un capital
+      futuro (el <strong>nominal N</strong>), recibiendo a cambio un importe menor
+      (el <strong>efectivo E</strong>). La diferencia N − E es el descuento D.
+    </p>
+
+    <h3>Descuento simple o comercial</h3>
+    <div class="card accent-navy">
+      <p>
+        En el <strong>descuento comercial</strong> los intereses se calculan sobre el
+        <strong>nominal</strong> (el capital futuro) a un tipo de descuento d. Es el sistema
+        empleado por la banca para el descuento de efectos comerciales (letras, pagarés)<sup><a href="#fn1">1</a></sup>.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Factor de actualización (descuento comercial)</span>
+      (1 − n · d)
+    </div>
+    <div class="formula">
+      <span class="formula-label">Efectivo</span>
+      E = N · (1 − n · d)
+    </div>
+
+    <div class="method-row">
+      <span class="method-label">Nominal</span>
+      <span class="method-formula">N = E / (1 − n·d)</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">Capital futuro equivalente al efectivo recibido.</span>
+    </div>
+    <div class="method-row">
+      <span class="method-label">Tipo de descuento</span>
+      <span class="method-formula">d = (1 − E/N) / n</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">Tanto aplicado sobre el nominal.</span>
+    </div>
+    <div class="method-row">
+      <span class="method-label">Plazo</span>
+      <span class="method-formula">n = (1 − E/N) / d</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">En años (días/360 en la práctica).</span>
+    </div>
+
+    <h3>Efecto de las comisiones en una remesa de efectos</h3>
+    <p>
+      Al descontar una remesa, el banco detrae además una <strong>comisión c</strong> (porcentaje
+      sobre el nominal, con mínimos) y otros gastos fijos G. El efectivo neto se reduce y el
+      <strong>coste efectivo</strong> de la financiación sube por encima del tipo de descuento pactado:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Efectivo neto con comisiones</span>
+      E = N · (1 − n·d − c) − G
+    </div>
+    <div class="formula">
+      <span class="formula-label">Coste efectivo anualizado (interés simple)</span>
+      i = (N − E) / (E · n)
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 5 — remesa con comisión</h3>
+      <p>
+        Letra de N = 10.000&nbsp;€ a 90 días, d = 5% anual, comisión 0,4% sobre el nominal.<br><br>
+        Descuento: 10.000 × (90/360) × 0,05 = 125&nbsp;€<br>
+        Comisión: 10.000 × 0,004 = 40&nbsp;€<br>
+        Efectivo: E = 10.000 − 125 − 40 = <strong>9.835&nbsp;€</strong><br><br>
+        Coste efectivo: i = 165 / (9.835 × 0,25) = <strong>6,71% anual</strong> — sensiblemente
+        superior al 5% nominal pactado. Las comisiones encarecen el coste real porque se pagan
+        sobre el nominal pero la financiación obtenida es solo el efectivo.
+      </p>
+    </div>
+
+    <h3>Descuento matemático o racional</h3>
+    <div class="card accent-navy">
+      <p>
+        En el <strong>descuento racional</strong> los intereses se calculan sobre el
+        <strong>efectivo</strong> (el capital realmente anticipado), a un tipo de interés i.
+        Es la inversa exacta de la capitalización simple: financieramente coherente, aunque
+        menos usado por la banca comercial (que prefiere el comercial, más favorable para ella).
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Factor de actualización (descuento racional)</span>
+      1 / (1 + n · i)
+    </div>
+    <div class="formula">
+      <span class="formula-label">Efectivo</span>
+      E = N / (1 + n · i)
+    </div>
+
+    <div class="method-row">
+      <span class="method-label">Nominal</span>
+      <span class="method-formula">N = E · (1 + n·i)</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">Capitalización simple del efectivo.</span>
+    </div>
+    <div class="method-row">
+      <span class="method-label">Tipo de interés</span>
+      <span class="method-formula">i = (N/E − 1) / n</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">Tanto sobre el efectivo.</span>
+    </div>
+    <div class="method-row">
+      <span class="method-label">Plazo</span>
+      <span class="method-formula">n = (N/E − 1) / i</span>
+      <span style="font-size:var(--fs-xs);color:var(--text-soft);">En años.</span>
+    </div>
+
+    <div class="callout info">
+      <strong>Comercial vs. racional:</strong> a igual tanto y plazo, el descuento comercial detrae
+      <strong>más</strong> (calcula sobre N, que es mayor que E) → el efectivo recibido es menor.
+      Por eso el tipo de las Letras del Tesoro se cotiza como interés (racional / régimen de
+      mercado), no como descuento comercial bancario<sup><a href="#fn2">2</a></sup>.
+    </div>
+
+    <h3>Actualización compuesta</h3>
+    <div class="formula">
+      <span class="formula-label">Factor de actualización compuesta</span>
+      (1 + i)⁻ⁿ
+    </div>
+    <div class="formula">
+      <span class="formula-label">Capital inicial</span>
+      C₀ = Cₙ · (1 + i)⁻ⁿ = Cₙ / (1 + i)ⁿ
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 6 — valor actual compuesto</h3>
+      <p>
+        ¿Cuánto debo invertir hoy al 3% compuesto anual para tener 50.000&nbsp;€ en 10 años?<br>
+        C₀ = 50.000 / (1,03)¹⁰ = 50.000 / 1,343916 = <strong>37.204,70&nbsp;€</strong><br><br>
+        Esta operación es la base de toda la planificación financiera de objetivos (jubilación,
+        estudios): determinar el ahorro presente necesario para un capital futuro.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===================== 4. SUMA FINANCIERA, VA Y VF ===================== -->
+  <div class="sec">
+    <h2>4. Suma financiera, valor actual y valor final de un conjunto de capitales</h2>
+
+    <h3>Suma financiera</h3>
+    <div class="card accent-navy">
+      <p>
+        La <strong>suma financiera</strong> de un conjunto de capitales (C₁,t₁), (C₂,t₂), …, (Cₖ,tₖ)
+        en un momento de referencia τ es el capital único equivalente que resulta de
+        <strong>desplazar cada capital hasta τ</strong> con la ley financiera pactada y sumar
+        los importes resultantes. Capitales anteriores a τ se capitalizan; posteriores, se actualizan.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Suma financiera en τ (ley compuesta)</span>
+      S(τ) = Σ Cₛ · (1 + i)^(τ − tₛ)
+    </div>
+
+    <h3>Suma financiera vs. suma aritmética</h3>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Suma aritmética</h4>
+        <p>Σ Cₛ: suma directa de cuantías <strong>ignorando sus vencimientos</strong>. Carece de
+        sentido financiero — equivale a tratar como iguales euros de fechas distintas.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Suma financiera</h4>
+        <p>Suma de cuantías <strong>homogeneizadas en un mismo instante</strong>. Su valor depende
+        del momento de referencia τ y del tipo i. Es la única suma válida para comparar o agregar capitales.</p>
+      </div>
+    </div>
+
+    <h3>Valor actual y valor final</h3>
+    <p>
+      Son los dos casos particulares de la suma financiera:
+    </p>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Valor actual (VA)</h4>
+        <p>Suma financiera en τ = 0 (hoy): VA = Σ Cₛ · (1+i)^(−tₛ). Todos los capitales se actualizan. Es la base de la valoración de bonos, rentas y proyectos.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Valor final (VF)</h4>
+        <p>Suma financiera en τ = final de la operación: VF = Σ Cₛ · (1+i)^(T−tₛ). Todos los capitales se capitalizan. Relación: VF = VA · (1+i)ᵀ.</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 7 — VA y VF de tres capitales</h3>
+      <p>
+        Cobros de 1.000&nbsp;€ en t=1, 2.000&nbsp;€ en t=2 y 3.000&nbsp;€ en t=3 (años), i = 5%.<br><br>
+        VA = 1.000/1,05 + 2.000/1,05² + 3.000/1,05³<br>
+        VA = 952,38 + 1.814,06 + 2.591,51 = <strong>5.357,95&nbsp;€</strong><br><br>
+        VF (en t=3) = 1.000×1,05² + 2.000×1,05 + 3.000 = 1.102,50 + 2.100 + 3.000 = <strong>6.202,50&nbsp;€</strong><br><br>
+        Comprobación: VF = VA × 1,05³ = 5.357,95 × 1,157625 = 6.202,50 ✓<br>
+        La suma aritmética (6.000&nbsp;€) no coincide con ninguno de los dos: no es un valor financiero.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Calcular el VA de un conjunto de flujos al tipo dado (antesala directa de la valoración de
+        bonos del Bloque 4 y de la TIR de la Sección E). También: verificar la relación
+        VF = VA·(1+i)ⁿ, que permite resolver por la vía más corta.
+      </div>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      Con la facilidad de depósito del BCE en el 2,00% y el Euribor 12M en torno al 2,8%<sup><a href="#fn3">3</a></sup>,
+      los tipos a corto que un asesor usa hoy como referencia de actualización para horizontes
+      de 1 año se sitúan en esa banda. Diez años atrás, con tipos negativos, el factor de
+      actualización a 1 año era &gt; 1 — una anomalía histórica que el examen puede usar como
+      caso conceptual (¿puede el VA superar al nominal? Sí, con tipos negativos).
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Régimen</th><th>Factor</th><th>Base de cálculo</th><th>Uso típico</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Simple vencido</strong></td><td>(1 + n·i)</td><td>Capital inicial</td><td>Depósitos y operaciones ≤ 1 año</td></tr>
+          <tr><td><strong>Simple anticipado</strong></td><td>1/(1 − n·iₐ)</td><td>Capital final</td><td>Intereses cobrados al inicio</td></tr>
+          <tr><td><strong>Compuesto constante</strong></td><td>(1 + i)ⁿ</td><td>Capital acumulado</td><td>Largo plazo, fondos, préstamos</td></tr>
+          <tr><td><strong>Compuesto variable</strong></td><td>Π (1 + iₖ)ⁿᵏ</td><td>Capital acumulado</td><td>Tipos por tramos</td></tr>
+          <tr><td><strong>Descuento comercial</strong></td><td>(1 − n·d)</td><td>Nominal</td><td>Descuento bancario de efectos</td></tr>
+          <tr><td><strong>Descuento racional</strong></td><td>1/(1 + n·i)</td><td>Efectivo</td><td>Letras del Tesoro, mercado</td></tr>
+          <tr><td><strong>Actualización compuesta</strong></td><td>(1 + i)⁻ⁿ</td><td>—</td><td>Valor actual a largo plazo</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap" style="margin-top:1rem;">
+      <table>
+        <thead><tr><th>Concepto C/C</th><th>Fórmula</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Número comercial</strong></td><td>N = saldo × días</td></tr>
+          <tr><td><strong>Intereses brutos</strong></td><td>I = ΣN × i / 360</td></tr>
+          <tr><td><strong>Saldo medio</strong></td><td>ΣN / Σ días</td></tr>
+          <tr><td><strong>Equivalencia vencido↔anticipado</strong></td><td>i = iₐ/(1−n·iₐ) · iₐ = i/(1+n·i)</td></tr>
+          <tr><td><strong>Suma financiera</strong></td><td>S(τ) = Σ Cₛ·(1+i)^(τ−tₛ)</td></tr>
+          <tr><td><strong>VF ↔ VA</strong></td><td>VF = VA·(1+i)ᵀ</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 2, Secciones B y C. Desarrollo conforme al tratamiento estándar de la matemática financiera (L. Gil Peláez, <em>Matemática de las operaciones financieras</em>; A. Rodríguez Rodríguez, <em>Matemática de la financiación</em>).</li>
+      <li id="fn2"><a href="https://www.tesoro.es/deuda-publica/los-valores-del-tesoro/letras-del-tesoro" target="_blank">Tesoro Público — Letras del Tesoro</a>: emisión al descuento y cálculo de la rentabilidad sobre el efectivo.</li>
+      <li id="fn3"><a href="https://www.bde.es/wbe/es/estadisticas/temas/tipos-interes.html" target="_blank">Banco de España — Tipos de interés</a>; Euribor 12M, media de mayo 2026: 2,804% (publicación BOE).</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-a.html" class="nav-btn">← A: Valor temporal del dinero</a>
+    <a href="seccion-d.html" class="nav-btn">D: Tipos spot y forward →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 2 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
