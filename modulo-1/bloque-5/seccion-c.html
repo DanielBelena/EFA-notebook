@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B5 · Sección C — Tipos de operaciones bursátiles · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B5 · C</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 5</a><span class="sep">›</span>
+    <span>Sección C</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 5 · Sección C · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Tipos de operaciones bursátiles</h1>
+    <p class="hero-sub">
+      OPV y OPS · OPAs y contraopas · Splits · Ampliaciones, reducciones y operación acordeón ·
+      El derecho de suscripción preferente · Operativa a crédito · Dividendos y recompras.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Salida a bolsa: OPV y OPS</h2>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>OPV — Oferta Pública de Venta</h4>
+        <p>Se venden al público <strong>acciones ya existentes</strong>: los accionistas actuales
+        (fundadores, capital riesgo, el Estado en las privatizaciones) <strong>desinvierten</strong>.
+        El dinero va a los vendedores, no a la empresa. No hay dilución.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>OPS — Oferta Pública de Suscripción</h4>
+        <p>Se ofrecen <strong>acciones nuevas</strong> de una ampliación de capital: el dinero
+        <strong>entra en la empresa</strong> para financiar su crecimiento. Los antiguos
+        accionistas se diluyen (salvo que acudan).</p>
+      </div>
+    </div>
+    <p>
+      <strong>Procedimiento común:</strong> decisión societaria → registro del <strong>folleto
+      informativo en la CNMV</strong> → prospección de demanda y <em>book building</em> entre
+      institucionales → fijación del precio → período de suscripción por tramos (institucional /
+      minorista, si lo hay) → admisión a cotización y primer día de negociación. Muchas salidas
+      combinan ambas fórmulas (OPV + OPS)<sup><a href="#fn1">1</a></sup>.
+    </p>
+
+    <h3>Las OPAs</h3>
+    <div class="card accent-navy">
+      <p>
+        Una <strong>Oferta Pública de Adquisición</strong> es la propuesta pública de comprar
+        acciones de una cotizada a un precio determinado. La normativa española (Ley del Mercado
+        de Valores y RD 1066/2007) la hace <strong>obligatoria</strong> cuando se alcanza el
+        <strong>control</strong>: adquisición del <strong>30% de los derechos de voto</strong> (o
+        nombramiento de más de la mitad del consejo), debiendo lanzarse entonces por el
+        <strong>100% del capital a un precio equitativo</strong><sup><a href="#fn2">2</a></sup>.
+      </p>
+      <p style="margin-top:.6rem;">
+        <strong>Mecanismos de control:</strong> autorización previa de la <strong>CNMV</strong>
+        (folleto, garantías de pago), regla del precio equitativo (no inferior al mayor pagado por
+        el oferente en los 12 meses previos), pasividad del consejo de la opada salvo aprobación
+        de la junta, y <strong>compraventas forzosas (squeeze-out/sell-out)</strong> si se alcanza
+        el 90%. Una <strong>contraOPA</strong> (oferta competidora) es una OPA alternativa de un
+        tercero sobre la misma sociedad, que debe mejorar las condiciones de la inicial; abre un
+        proceso de mejoras en sobre cerrado.
+      </p>
+    </div>
+
+    <h3>Split y contrasplit</h3>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Split (desdoblamiento)</h4>
+        <p>Dividir cada acción en varias (1×N): más acciones a menor precio, <strong>sin cambiar
+        el valor de la empresa ni el de cada accionista</strong>. Causas: mejorar la
+        <strong>liquidez</strong> y la "óptica" de un precio que se percibe caro.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Contrasplit (agrupamiento)</h4>
+        <p>Agrupar N acciones en una: menos acciones a mayor precio. Causas: dignificar valores
+        "céntimo" (evitar la imagen de chicharro y la volatilidad porcentual del tick) y cumplir
+        precios mínimos de cotización.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Ampliaciones, reducciones y operación acordeón</h2>
+
+    <h3>Ampliación de capital</h3>
+    <p>
+      <strong>Emisión de acciones nuevas</strong> (o elevación del nominal) para aumentar los
+      fondos propios. <strong>Vías:</strong> con aportaciones <strong>dinerarias</strong> (la
+      habitual: captar caja para crecer o sanear), <strong>no dinerarias</strong> (pagar una
+      adquisición con acciones), por <strong>compensación de créditos</strong> (los acreedores
+      capitalizan deuda) o <strong>con cargo a reservas</strong> ("liberada": gratis para el
+      accionista, solo reclasifica fondos propios). Puede emitirse a la par o <strong>con prima</strong>.
+      <strong>Objetivo último:</strong> reforzar la estructura financiera y financiar la inversión
+      sin endeudarse.
+    </p>
+
+    <h3>Reducción de capital</h3>
+    <p>
+      Disminución de la cifra de capital por: <strong>devolución de aportaciones</strong> a los
+      socios, <strong>condonación de dividendos pasivos</strong>, dotación de
+      <strong>reservas</strong>, o — la más relevante — <strong>compensación de pérdidas</strong>
+      para restablecer el equilibrio patrimonial. Se ejecuta amortizando acciones o reduciendo su
+      nominal.
+    </p>
+
+    <div class="card accent-navy">
+      <p>
+        La <strong>operación acordeón</strong> combina ambas <strong>simultáneamente</strong>: una
+        reducción (incluso a cero) que absorbe las pérdidas acumuladas, seguida en unidad de acto
+        de una ampliación que aporta capital nuevo. <strong>Finalidad:</strong> sanear y
+        recapitalizar de golpe una empresa en crisis — los nuevos inversores entran en una
+        sociedad limpia de pérdidas y los antiguos accionistas soportan el ajuste (su
+        participación queda diluida o extinguida).
+      </p>
+    </div>
+
+    <h3>El derecho de suscripción preferente (DSP)</h3>
+    <p>
+      En las ampliaciones dinerarias, el accionista antiguo tiene preferencia para suscribir
+      nuevas acciones en proporción a las suyas, evitando su dilución. El derecho
+      <strong>cotiza separadamente</strong> y su valor teórico compensa exactamente la caída
+      teórica del precio tras la ampliación. Con <em>v</em> acciones antiguas a cotización C por
+      cada <em>n</em> nuevas a precio de emisión E:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Valor teórico del derecho de suscripción</span>
+      d = n · (C − E) / (v + n)
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — VTD paso a paso</h3>
+      <p>
+        Ampliación 1×4 (una nueva por cada 4 antiguas), C = 20&nbsp;€, E = 15&nbsp;€:<br>
+        d = 1 × (20 − 15) / (4 + 1) = 5/5 = <strong>1&nbsp;€</strong><br><br>
+        Comprobación: el precio teórico tras la ampliación es (4×20 + 1×15)/5 = 95/5 =
+        <strong>19&nbsp;€</strong> — exactamente C − d. El antiguo accionista no gana ni pierde:
+        su acción baja 1&nbsp;€ pero posee un derecho que vale 1&nbsp;€ (puede venderlo o usarlo).
+        Quien no haga nada, pierde ese euro por acción: por eso el asesor debe avisar siempre en
+        período de ampliación.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. La operativa a crédito</h2>
+    <div class="card accent-navy">
+      <p>
+        Operar <strong>a crédito</strong> es comprar valores con <strong>dinero prestado</strong>
+        (compra a crédito, apuesta alcista) o vender valores <strong>prestados</strong> que no se
+        poseen (venta a crédito o en corto, apuesta bajista), depositando unas
+        <strong>garantías</strong> iniciales (porcentaje del efectivo) que se reponen si la
+        posición va en contra. El apalancamiento <strong>multiplica las ganancias y las
+        pérdidas</strong> sobre el capital propio: perfil de inversor <strong>especulativo, de
+        corto plazo y alta tolerancia al riesgo</strong> — producto no apto para el minorista
+        conservador<sup><a href="#fn1">1</a></sup>.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Resultado y rentabilidad de una operación a crédito</span>
+      Resultado = (P_venta − P_compra) × títulos − costes      ·      Rentabilidad = Resultado / Garantía aportada
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — compra a crédito (el efecto multiplicador)</h3>
+      <p>
+        Compro 1.000 acciones a 10&nbsp;€ (inversión 10.000&nbsp;€) aportando una garantía del
+        25% (2.500&nbsp;€); el resto lo presta la entidad. Ignoramos intereses y comisiones para
+        ver el efecto puro.<br><br>
+        (a) La acción sube a 11&nbsp;€: resultado = +1.000&nbsp;€ →
+        rentabilidad = 1.000/2.500 = <strong>+40%</strong> (la acción solo subió un 10%:
+        apalancamiento ×4).<br>
+        (b) La acción cae a 9&nbsp;€: resultado = −1.000&nbsp;€ → <strong>−40%</strong>, y la
+        entidad exigirá <strong>reponer garantías</strong>; de no hacerlo, cierra la posición.<br><br>
+        En una <strong>venta a crédito</strong> la mecánica se invierte: vendo a 10 títulos
+        prestados y gano si recompro más barato (a 9: +40% sobre garantía); si sube, pierdo —
+        y la pérdida potencial es ilimitada, porque el precio puede subir sin techo.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>4. La retribución al accionista: dividendos y recompras</h2>
+
+    <h3>Dividendos: tipos y formas de pago</h3>
+    <div class="concept-grid">
+      <div class="concept-box"><h4>A cuenta</h4><p>Anticipo del dividendo del ejercicio en curso, pagado antes de aprobar las cuentas.</p></div>
+      <div class="concept-box"><h4>Complementario</h4><p>El que completa, tras la junta, lo ya entregado a cuenta hasta el total aprobado.</p></div>
+      <div class="concept-box"><h4>Extraordinario</h4><p>Por hechos no recurrentes (venta de una filial, exceso de caja); no compromete recurrencia.</p></div>
+      <div class="concept-box"><h4>Fijo / estatutario</h4><p>El mínimo preferente de las acciones sin voto o privilegiadas, cuando existe.</p></div>
+    </div>
+    <p>
+      <strong>Formas de pago:</strong> en <strong>efectivo</strong> (la tradicional, con retención
+      fiscal); en <strong>acciones — scrip dividend</strong> ("dividendo elección": el accionista
+      opta entre efectivo, vender los derechos o recibir acciones nuevas de una ampliación
+      liberada, con dilución para quien cobra en metálico); y <strong>en especie</strong>
+      (entrega de acciones de una filial u otros activos, excepcional).
+    </p>
+
+    <h3>Recompra y amortización de acciones</h3>
+    <div class="card accent-navy">
+      <p>
+        En el <strong>buyback</strong>, la empresa compra sus propias acciones en mercado y
+        posteriormente las <strong>amortiza</strong> (reducción de capital). Al reducir el número
+        de acciones, el <strong>beneficio por acción y la participación de cada accionista
+        aumentan</strong> sin pasar por un pago: es retribución vía precio, fiscalmente más
+        eficiente para el accionista que el dividendo (no tributa hasta que vende, y entonces
+        como ganancia patrimonial). Señaliza además que la dirección considera la acción
+        infravalorada. Crítica habitual: puede sustituir a la inversión productiva.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 3 — dividendo vs. recompra</h3>
+      <p>
+        Empresa con 100 M de acciones, beneficio de 200 M€ (BPA = 2&nbsp;€) y 100 M€ para retribuir:<br>
+        (a) <strong>Dividendo</strong>: 1&nbsp;€/acción en efectivo; el BPA sigue en 2&nbsp;€.<br>
+        (b) <strong>Recompra</strong> al precio de 20&nbsp;€: retira 5 M de acciones →
+        BPA = 200/95 = <strong>2,105&nbsp;€ (+5,3%)</strong>; a PER constante, el precio teórico
+        sube en esa proporción.<br><br>
+        Mismo desembolso, dos vías: renta hoy (tributando) o más valor por acción mañana.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      La banca española y las grandes del IBEX combinan hoy dividendos crecientes con programas
+      masivos de recompra — uno de los motores del rally que mantiene al índice cerca de máximos
+      históricos (~18.250 puntos)<sup><a href="#fn3">3</a></sup>. El scrip dividend, omnipresente
+      en 2010-2015 para preservar capital, ha quedado relegado a casos puntuales ahora que los
+      balances están saneados.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) OPV = acciones viejas (desinversión) vs. OPS = nuevas (financiación). (2) OPA
+        obligatoria al alcanzar el 30% de los votos, por el 100% y a precio equitativo;
+        squeeze-out al 90%. (3) El split no crea valor: pura divisibilidad. (4) Cálculo del VTD
+        con d = n(C−E)/(v+n) — ejercicio recurrente. (5) Acordeón = reducir (sanear) + ampliar
+        (recapitalizar) en unidad de acto. (6) Rentabilidad a crédito se calcula sobre la
+        <em>garantía</em>, no sobre el efectivo total. (7) Buyback: ↓acciones → ↑BPA.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Operación</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>OPV / OPS</strong></td><td>Venta de viejas vs. suscripción de nuevas (solo la OPS financia a la empresa)</td></tr>
+          <tr><td><strong>OPA</strong></td><td>Obligatoria al 30% de votos · 100% del capital · precio equitativo · CNMV autoriza · contraopa mejora</td></tr>
+          <tr><td><strong>Split / contrasplit</strong></td><td>Liquidez y óptica del precio; valor del accionista intacto</td></tr>
+          <tr><td><strong>Ampliación / reducción</strong></td><td>Dineraria, no dineraria, por compensación, liberada / devolución, reservas, pérdidas</td></tr>
+          <tr><td><strong>Acordeón</strong></td><td>Reducción (a cero) + ampliación simultánea: saneamiento y recapitalización</td></tr>
+          <tr><td><strong>DSP</strong></td><td>d = n(C−E)/(v+n)</td></tr>
+          <tr><td><strong>A crédito</strong></td><td>Apalancamiento con garantías; rentabilidad sobre la garantía; perfil especulativo</td></tr>
+          <tr><td><strong>Dividendos</strong></td><td>A cuenta · complementario · extraordinario; efectivo, scrip o especie</td></tr>
+          <tr><td><strong>Recompra</strong></td><td>Amortizar autocartera: ↑BPA, retribución vía precio, eficiencia fiscal</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 5, Sección C; <a href="https://www.cnmv.es/portal/inversor/OPAS.aspx" target="_blank">CNMV — OPVs y OPAs</a> y Ley de Sociedades de Capital (ampliaciones, reducciones y derecho de suscripción: arts. 295 y ss., 304 y ss.).</li>
+      <li id="fn2"><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2007-14483" target="_blank">Real Decreto 1066/2007 sobre el régimen de las ofertas públicas de adquisición</a>: umbral de control del 30%, precio equitativo y ofertas competidoras.</li>
+      <li id="fn3">Mercado del 10 de junio de 2026: <a href="https://www.estrategiasdeinversion.com/cotizaciones/indices/ibex-35" target="_blank">Estrategias de Inversión — IBEX 35</a>.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-b.html" class="nav-btn">← B: Estructura del mercado</a>
+    <a href="seccion-d.html" class="nav-btn">D: Índices bursátiles →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 5 · Sección C · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

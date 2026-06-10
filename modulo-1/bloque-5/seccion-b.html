@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B5 · Sección B — Estructura del mercado bursátil · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B5 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 5</a><span class="sep">›</span>
+    <span>Sección B</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 5 · Sección B · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Estructura del mercado bursátil</h1>
+    <p class="hero-sub">
+      Funciones de la bolsa · CNMV, Sociedades Rectoras e Iberclear · El SIBE ·
+      Fases de la sesión y subastas de volatilidad · Tipología de órdenes y prioridad precio-tiempo.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Primario vs. secundario y funciones de la bolsa</h2>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Mercado primario</h4>
+        <p>El inversor suscribe valores <strong>de nueva emisión</strong> y el dinero llega a la
+        empresa: la bolsa actúa como <strong>vehículo canalizador del ahorro hacia la
+        financiación empresarial</strong> (OPS, ampliaciones).</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Mercado secundario</h4>
+        <p>Compraventa de valores <strong>ya emitidos</strong> entre inversores: la empresa no
+        recibe fondos. La bolsa actúa aquí como <strong>mercado financiero</strong>: da liquidez,
+        forma precios y valora continuamente las compañías.</p>
+      </div>
+    </div>
+
+    <p>
+      <strong>Funciones de la bolsa:</strong> canalizar ahorro hacia inversión productiva,
+      proporcionar <strong>liquidez</strong> (poder deshacer la inversión en segundos),
+      <strong>valoración objetiva y continua</strong> de las empresas, <strong>protección del
+      inversor</strong> mediante transparencia y supervisión, y servir de <strong>termómetro</strong>
+      de la economía. Sin secundario líquido nadie acudiría al primario: ambas funciones se
+      retroalimentan<sup><a href="#fn1">1</a></sup>.
+    </p>
+
+    <h3>Estructura institucional básica</h3>
+    <div class="concept-grid">
+      <div class="concept-box"><h4>CNMV</h4><p><strong>Supervisor</strong>: vela por la transparencia, la correcta formación de precios y la protección del inversor; autoriza folletos y OPAs y sanciona el abuso de mercado.</p></div>
+      <div class="concept-box"><h4>Sociedades Rectoras</h4><p>Administran cada una de las cuatro bolsas (Madrid, Barcelona, Bilbao y Valencia), integradas en <strong>BME</strong> (grupo SIX). La <strong>Sociedad de Bolsas</strong>, participada por las cuatro, gestiona el SIBE.</p></div>
+      <div class="concept-box"><h4>Iberclear</h4><p>El depositario central de valores: <strong>registro, compensación y liquidación</strong>. Heredero del antiguo Servicio de Compensación y Liquidación de Valores (SCLV).</p></div>
+      <div class="concept-box"><h4>Miembros del mercado</h4><p>Bancos, sociedades y agencias de valores autorizados a introducir órdenes; el inversor final opera siempre a través de ellos.</p></div>
+    </div>
+
+    <h3>Sistemas de liquidación</h3>
+    <p>
+      La liquidación bursátil española sigue el principio de <strong>entrega contra pago</strong>
+      (<em>delivery versus payment</em>, DvP): la transferencia de los valores y la del efectivo
+      son <strong>simultáneas y condicionadas entre sí</strong> — nadie entrega sin cobrar ni paga
+      sin recibir, eliminando el riesgo de principal. El ciclo estándar europeo es
+      <strong>D+2</strong> (dos días hábiles tras la contratación), con la entidad de
+      contrapartida central (BME Clearing) interponiéndose entre comprador y vendedor, y la
+      liquidación final en Iberclear sobre la plataforma europea T2S<sup><a href="#fn1">1</a></sup>.
+    </p>
+
+    <h3>Sistemas de contratación</h3>
+    <div class="concept-grid">
+      <div class="concept-box"><h4>Corros (histórico)</h4><p>Contratación <strong>a viva voz</strong> por subastas presenciales de pocos minutos por valor. Desaparecido en España (los últimos corros cerraron en 2009): valor de contexto histórico y de examen.</p></div>
+      <div class="concept-box"><h4>Mercado continuo (SIBE)</h4><p>Contratación <strong>electrónica y continua</strong> en un libro de órdenes único para las cuatro bolsas. Es el sistema vigente; el fixing (doble subasta diaria) se reserva a valores poco líquidos.</p></div>
+    </div>
+
+    <div class="card accent-navy">
+      <p>
+        El <strong>SIBE</strong> (Sistema de Interconexión Bursátil Español) conecta las cuatro
+        bolsas en una única plataforma electrónica dirigida por órdenes: un <strong>libro central
+        de órdenes</strong> por valor donde compras y ventas casan automáticamente por
+        <strong>prioridad precio-tiempo</strong>, con difusión de precios en tiempo real.
+        Es gestionado por la Sociedad de Bolsas (BME).
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Fases de la sesión en contratación continua</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Fase</th><th>Horario</th><th>Qué ocurre</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Subasta de apertura</strong></td><td>8:30 – 9:00</td><td>Se introducen, modifican y cancelan órdenes <strong>sin cruzar operaciones</strong>; el sistema difunde un precio de equilibrio indicativo. Termina con un <strong>cierre aleatorio de 30 segundos</strong> (anti-manipulación) y la asignación al precio de equilibrio: el precio de apertura.</td></tr>
+          <tr><td><strong>Mercado abierto</strong></td><td>9:00 – 17:30</td><td>Negociación continua: las órdenes casan automáticamente por prioridad precio-tiempo.</td></tr>
+          <tr><td><strong>Subasta de cierre</strong></td><td>17:30 – 17:35</td><td>Misma mecánica que la apertura, con cierre aleatorio de 30 s. Fija el <strong>precio de cierre oficial</strong> (referencia de fondos, derivados y valoraciones).</td></tr>
+          <tr><td><strong>Mercado de operaciones especiales</strong></td><td>17:40 – 20:00</td><td>Operaciones bilaterales ya pactadas, sujetas a requisitos de volumen y precio (comunicadas o autorizadas según importe).</td></tr>
+          <tr><td><strong>Mercado de bloques</strong></td><td>Durante mercado abierto</td><td>Cauce para <strong>grandes volúmenes institucionales</strong> fuera del libro principal, con condiciones de tamaño mínimo y bandas de precio: evita que un bloque "barra" el libro.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Subastas de volatilidad</h3>
+    <div class="card accent-navy">
+      <p>
+        Si el precio intenta cruzarse <strong>fuera de los rangos permitidos</strong>, el valor
+        se suspende temporalmente y pasa a una <strong>subasta de volatilidad de 5 minutos</strong>
+        (más cierre aleatorio de 30 s), que concentra órdenes y forma un nuevo precio de
+        equilibrio ordenadamente. Dos tipologías según el rango vulnerado<sup><a href="#fn2">2</a></sup>:
+      </p>
+    </div>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Por rango estático</h4>
+        <p>Variación máxima permitida respecto al <strong>precio estático</strong> (el de la
+        última subasta: apertura o la última de volatilidad). Vigila la deriva acumulada de la sesión.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Por rango dinámico</h4>
+        <p>Variación máxima respecto al <strong>último precio negociado</strong>. Vigila los
+        saltos bruscos entre dos cruces consecutivos. Los rangos (estático y dinámico) se fijan
+        por valor según su volatilidad histórica.</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo aplicado — una subasta de volatilidad en acción</h3>
+      <p>
+        Un valor con rango estático ±4% y dinámico ±2% abre a 10,00&nbsp;€ y cotiza a 10,10.
+        Llega una venta masiva que intentaría cruzar a 9,85: la variación frente al último precio
+        (10,10 → 9,85 = −2,5%) <strong>rompe el rango dinámico</strong> → subasta de volatilidad
+        de 5 min + 30 s aleatorios. Si el nuevo equilibrio sale a 9,80 (−2% frente a 10,00,
+        dentro del estático), la negociación continua se reanuda con 9,80 como nuevo precio
+        estático. El mecanismo no impide que el precio caiga: impide que caiga <em>desordenadamente</em>.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. Tipología de órdenes y reglas de prioridad</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Orden</th><th>Cómo funciona</th><th>Riesgo característico</th></tr></thead>
+        <tbody>
+          <tr><td><strong>De mercado</strong></td><td>Sin límite de precio: cruza contra las mejores posiciones contrarias, <strong>barriendo niveles</strong> hasta completarse.</td><td>Ejecución segura, <strong>precio incierto</strong> en valores estrechos</td></tr>
+          <tr><td><strong>Limitada</strong></td><td>Fija un precio máximo de compra o mínimo de venta; solo se ejecuta a ese precio <strong>o mejor</strong>. Lo no ejecutado queda en el libro.</td><td>Precio asegurado, <strong>ejecución incierta</strong></td></tr>
+          <tr><td><strong>Por lo mejor</strong></td><td>Sin precio: se limita automáticamente al <strong>mejor precio de la contrapartida</strong> en ese momento; si no se completa a ese nivel, el resto queda limitado a él (no barre niveles).</td><td>Ejecución parcial posible</td></tr>
+          <tr><td><strong>Con volumen oculto (iceberg)</strong></td><td>Solo muestra al mercado una parte del volumen; al ejecutarse, aflora otro tramo (que pierde prioridad temporal frente a lo ya visible).</td><td>Discreción para grandes órdenes</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Condiciones de ejecución</h3>
+    <div class="concept-grid">
+      <div class="concept-box"><h4>Ejecutar o anular</h4><p>Se ejecuta inmediatamente lo posible y <strong>el resto se cancela</strong> (no queda en el libro).</p></div>
+      <div class="concept-box"><h4>Volumen mínimo</h4><p>Debe ejecutarse al menos un volumen mínimo al entrar; si no lo logra, se anula entera.</p></div>
+      <div class="concept-box"><h4>Todo o nada</h4><p>O se ejecuta <strong>íntegramente</strong> en el acto o se anula (caso extremo de la anterior: mínimo = total).</p></div>
+    </div>
+
+    <h3>Prioridad precio-tiempo</h3>
+    <div class="card accent-navy">
+      <p>
+        El libro ordena las órdenes por dos criterios jerárquicos: primero <strong>prioridad de
+        precio</strong> (compra más alta y venta más baja, delante) y, a igual precio,
+        <strong>prioridad temporal</strong> (la introducida antes se ejecuta antes). Las órdenes de
+        mercado y por lo mejor tienen la máxima prioridad de precio en el momento de su entrada.
+        Modificar el precio o aumentar el volumen de una orden le hace <strong>perder su prioridad
+        temporal</strong>.
+      </p>
+    </div>
+
+    <p>
+      <strong>Combinaciones según la fase:</strong> en <strong>subastas</strong> (apertura, cierre,
+      volatilidad) pueden introducirse órdenes de mercado, por lo mejor y limitadas — pero no se
+      cruzan hasta la asignación, y las condiciones de ejecución inmediata (ejecutar o anular,
+      todo o nada, mínimo) <strong>no están permitidas</strong>, pues exigen mercado abierto.
+      En <strong>mercado abierto</strong> se admiten todos los tipos y condiciones; el volumen
+      oculto es válido en ambas fases (en subasta, sin mostrar el tramo oculto).
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — el libro en acción</h3>
+      <p>
+        Libro de un valor — Ventas: 500 títulos a 10,02 · 800 a 10,05. Compras: 600 a 10,00 ·
+        900 a 9,98.<br><br>
+        (a) Entra <strong>compra de mercado</strong> de 1.000: cruza 500 a 10,02 y 500 a 10,05
+        → precio medio 10,035&nbsp;€, ha barrido dos niveles.<br>
+        (b) La misma orden <strong>por lo mejor</strong>: cruza 500 a 10,02 y los 500 restantes
+        quedan <em>limitados a 10,02</em> en el libro, primeros por prioridad de precio.<br>
+        (c) La misma orden <strong>limitada a 10,02</strong>: idéntico resultado que (b) —
+        y si fuera "todo o nada", se anularía entera al no haber 1.000 títulos a 10,02.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      La microestructura importa más que nunca: la sesión de hoy del IBEX (≈18.250 puntos) se
+      mueve con fuertes oscilaciones por la tensión en Oriente Medio, y valores como ACS o Indra
+      registran movimientos intradía de varios puntos porcentuales<sup><a href="#fn3">3</a></sup>
+      — el escenario típico en que saltan subastas de volatilidad y en que la diferencia entre
+      orden de mercado y limitada se traduce en dinero. En el plano técnico, la UE prepara la
+      migración del ciclo de liquidación de D+2 a <strong>D+1</strong> (prevista para octubre de
+      2027), siguiendo a EE.UU.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Orden de mercado barre niveles; por lo mejor se limita al mejor precio de
+        contrapartida y NO barre. (2) Limitada: precio cierto, ejecución incierta (y viceversa
+        para la de mercado). (3) Subasta de apertura 8:30–9:00 y cierre 17:30–17:35, ambas con
+        cierre aleatorio de 30 s. (4) Volatilidad: estático = vs. última subasta; dinámico = vs.
+        último precio negociado; duración 5 min. (5) Prioridad: primero precio, luego tiempo.
+        (6) DvP: valores y efectivo se entregan simultáneamente.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Funciones de la bolsa</strong></td><td>Canalizar ahorro (primario) + liquidez, precios y valoración (secundario)</td></tr>
+          <tr><td><strong>Instituciones</strong></td><td>CNMV (supervisa) · Rectoras/Sociedad de Bolsas-BME (gestionan) · Iberclear (liquida)</td></tr>
+          <tr><td><strong>SIBE</strong></td><td>Libro único electrónico de las 4 bolsas, dirigido por órdenes</td></tr>
+          <tr><td><strong>Sesión</strong></td><td>Subasta apertura → mercado abierto → subasta cierre → operaciones especiales (+bloques)</td></tr>
+          <tr><td><strong>Volatilidad</strong></td><td>Rango estático (vs. última subasta) y dinámico (vs. último precio): subasta de 5 min</td></tr>
+          <tr><td><strong>Órdenes</strong></td><td>Mercado · limitada · por lo mejor · iceberg — con EoA, mínimo, todo o nada</td></tr>
+          <tr><td><strong>Prioridad</strong></td><td>Precio primero, tiempo después</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 5, Sección B; estructura y liquidación: <a href="https://www.bolsasymercados.es" target="_blank">BME</a> e <a href="https://www.iberclear.es" target="_blank">Iberclear</a>.</li>
+      <li id="fn2"><a href="https://www.bolsasymercados.es/bme-exchange/es/Mercados-y-Cotizaciones/Acciones/Mercado-Continuo/Normas-de-contratacion" target="_blank">BME Exchange — Modelo de mercado del SIBE</a>: fases de la sesión, subastas de volatilidad, tipología de órdenes y reglas de prioridad.</li>
+      <li id="fn3">Sesión bursátil del 10 de junio de 2026: <a href="https://www.estrategiasdeinversion.com/cotizaciones/indices/ibex-35" target="_blank">Estrategias de Inversión</a> y El Español–Invertia.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-a.html" class="nav-btn">← A: Características de la RV</a>
+    <a href="seccion-c.html" class="nav-btn">C: Operaciones bursátiles →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 5 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

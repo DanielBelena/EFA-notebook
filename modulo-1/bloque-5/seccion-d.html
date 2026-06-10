@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B5 · Sección D — Índices bursátiles · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B5 · D</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 5</a><span class="sep">›</span>
+    <span>Sección D</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 5 · Sección D · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Índices bursátiles</h1>
+    <p class="hero-sub">
+      Qué es un índice y para qué se construye · Métodos: Laspeyres, Paasche, precios ·
+      Clasificaciones · El IBEX 35 paso a paso: capitalización y capital flotante ·
+      FTSE4Good Ibex e IBEX Gender Equality.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Concepto, finalidad y criterios de selección</h2>
+    <div class="card accent-navy">
+      <p>
+        Un <strong>índice bursátil</strong> es un número que sintetiza la evolución conjunta de
+        una cesta representativa de valores respecto a un momento base. <strong>Para qué se
+        construye:</strong> como <strong>termómetro</strong> del mercado y la economía, como
+        <strong>benchmark</strong> para medir la gestión de carteras y fondos, como
+        <strong>subyacente</strong> de productos (futuros, opciones, ETFs, fondos indexados) y
+        como base del análisis histórico y de riesgo<sup><a href="#fn1">1</a></sup>.
+      </p>
+    </div>
+    <p>
+      <strong>Criterios para escoger los valores:</strong> representatividad del mercado o
+      segmento que se quiere medir, <strong>liquidez y frecuencia de contratación</strong>
+      (que el índice sea replicable), <strong>capitalización</strong> suficiente, difusión
+      (free float) y, según el índice, criterios sectoriales, geográficos o de sostenibilidad.
+      Un comité técnico revisa periódicamente la composición.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Métodos estadísticos de construcción</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Método</th><th>Ponderación</th><th>Índice típico</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Laspeyres</strong></td>
+            <td>Pondera por las cantidades (capitalización) del <strong>período base</strong>; en la práctica bursátil se usa encadenado, actualizando la base en cada ajuste</td>
+            <td><strong>IGBM</strong> (Índice General de la Bolsa de Madrid) y la gran mayoría de índices de capitalización</td>
+          </tr>
+          <tr>
+            <td><strong>Paasche</strong></td>
+            <td>Pondera por las cantidades del <strong>período corriente</strong> (composición actual)</td>
+            <td>Formulación a la que responde el cálculo encadenado del <strong>IBEX 35</strong> (capitalización vigente en cada sesión)</td>
+          </tr>
+          <tr>
+            <td><strong>Media simple de precios</strong></td>
+            <td>Sin ponderar por tamaño: solo el <strong>precio</strong> de cada valor (los valores "caros" pesan más)</td>
+            <td><strong>Dow Jones</strong> Industrial Average (y Nikkei 225)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Precio base y clasificaciones de los índices</h3>
+    <div class="concept-grid">
+      <div class="concept-box"><h4>Precio base</h4><p>El valor del índice en su fecha de referencia inicial (p. ej., IBEX 35 = 3.000 puntos el 29/12/1989). Todos los niveles posteriores se leen contra esa base.</p></div>
+      <div class="concept-box"><h4>Por el momento de referencia</h4><p>Índices de <strong>base fija</strong> (siempre contra la misma fecha) vs. <strong>encadenados</strong> (cada valor se calcula sobre el del período anterior, permitiendo ajustar composición sin saltos).</p></div>
+      <div class="concept-box"><h4>Por los valores que incorporan</h4><p><strong>Generales</strong> (todo el mercado: IGBM) vs. <strong>selectivos o parciales</strong> (una muestra: IBEX 35; o un sector: bancos, utilities).</p></div>
+      <div class="concept-box"><h4>Por el tiempo de construcción</h4><p>Índices <strong>cortos</strong> (se reinician cada año natural, base 100 a 1 de enero) vs. <strong>largos</strong> (serie continua desde su base histórica).</p></div>
+      <div class="concept-box"><h4>Por su objeto</h4><p>Índices de <strong>precios</strong> (solo cotizaciones: IBEX 35 estándar) vs. de <strong>rendimiento o total return</strong> (reinvierten dividendos: IBEX 35 con Dividendos) — clave al comparar con fondos.</p></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. El IBEX 35</h2>
+    <div class="card accent-navy">
+      <p>
+        <strong>Criterios de construcción:</strong> los <strong>35 valores más líquidos</strong>
+        del SIBE, elegidos por el <strong>Comité Asesor Técnico</strong> (revisiones ordinarias
+        semestrales) atendiendo al <strong>volumen efectivo negociado</strong>, a la calidad de
+        esa negociación y a una <strong>capitalización flotante mínima</strong> (≥0,30% de la
+        capitalización media del índice). <strong>No hay criterio sectorial ni de
+        nacionalidad</strong>: solo liquidez y tamaño<sup><a href="#fn2">2</a></sup>.
+        Es un índice de precios, ponderado por capitalización ajustada por capital flotante,
+        con base 3.000 (29/12/1989).
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Cálculo diario por capitalización</span>
+      IBEX(t) = IBEX(t−1) · [ Σ Capᵢ(t) ] / [ Σ Capᵢ(t−1) ± J ]
+    </div>
+    <p style="font-size:var(--fs-xs);color:var(--text-soft);">
+      donde Capᵢ = precio × nº acciones computables (ajustadas por free float) y J es el ajuste
+      por operaciones financieras (ampliaciones, exclusiones…) que garantiza la continuidad del
+      índice — los dividendos ordinarios <em>no</em> se ajustan (por eso existe la versión "con
+      dividendos").
+    </p>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Capital flotante (free float)</h4>
+        <p>Acciones <strong>realmente disponibles para negociar</strong> en el mercado. Es la
+        parte que computa en el índice, aplicando coeficientes por tramos según el flotante de
+        cada valor.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Capital cautivo</h4>
+        <p>Participaciones <strong>estables y de control</strong> (paquetes significativos,
+        consejos, autocartera, pactos) que no circulan. Se <strong>excluye</strong> del cómputo:
+        ponderar con él sobreestimaría el peso negociable del valor.</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — un "mini-IBEX" de dos valores</h3>
+      <p>
+        Índice ayer: 18.000. Capitalizaciones computables ayer: A = 60.000 M€, B = 40.000 M€
+        (Σ = 100.000). Hoy A sube un 2% (61.200) y B baja un 1% (39.600): Σ = 100.800. Sin
+        operaciones financieras (J = 0):<br><br>
+        Índice hoy = 18.000 × 100.800/100.000 = <strong>18.144 (+0,80%)</strong><br><br>
+        A, con el 60% del peso, "manda": +2%×0,6 − 1%×0,4 = +0,8% ✓. Así se explica que cuatro o
+        cinco grandes valores (Inditex, los bancos, Iberdrola) muevan el IBEX real.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — el efecto del free float</h3>
+      <p>
+        Un valor con 1.000 M de acciones a 10&nbsp;€ (capitalización total 10.000 M€) tiene un
+        accionista de control con el 55%: su flotante es del 45%, y el coeficiente aplicable
+        hace que compute con menos capitalización que otro valor de 10.000 M€ con 100% de
+        flotante. Mismo tamaño bursátil, distinto peso en el índice: el índice pondera lo
+        <em>invertible</em>, no lo nominal.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>4. Los índices ESG de BME</h2>
+
+    <h3>FTSE4Good Ibex</h3>
+    <div class="card accent-navy">
+      <p>
+        Índice conjunto de <strong>FTSE Russell y BME</strong> (lanzado en 2008): seleciona los
+        valores del <strong>IBEX 35 y del resto del IGBM</strong> que cumplen los
+        <strong>criterios de sostenibilidad del estándar global FTSE4Good</strong>: buenas
+        prácticas medioambientales (incluido el cambio climático), respeto a los <strong>derechos
+        humanos y laborales</strong>, buen <strong>gobierno corporativo</strong> y anticorrupción,
+        y gestión de la cadena de suministro — con exclusión de sectores controvertidos (tabaco,
+        armamento). La evaluación corre a cargo de FTSE con criterios exigentes y revisables, que
+        van elevándose para estimular la mejora continua de las cotizadas<sup><a href="#fn3">3</a></sup>.
+      </p>
+    </div>
+
+    <h3>IBEX Gender Equality</h3>
+    <div class="card accent-navy">
+      <p>
+        Primer índice español de <strong>igualdad de género</strong> (BME, 2021). Toma como
+        universo el <strong>IGBM</strong> e incluye las compañías con presencia femenina de
+        <strong>entre el 25% y el 75% en el Consejo de Administración</strong> y de
+        <strong>entre el 15% y el 85% en la alta dirección</strong>, según los datos publicados
+        por la CNMV. <strong>No tiene un número fijo de componentes</strong> (crece a medida que
+        más empresas cumplen), se revisa anualmente y se calcula también en versiones con
+        dividendos (total return)<sup><a href="#fn4">4</a></sup>. Su finalidad: dar visibilidad
+        e incentivo al ODS 5 (igualdad de género) entre las cotizadas y servir de subyacente a
+        productos de inversión con criterio de diversidad.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      El IBEX 35 cotiza en torno a <strong>18.250 puntos</strong> (+5,5% en el año), tras 16
+      máximos históricos en 2026 y con la referencia intradía en 18.573,8<sup><a href="#fn5">5</a></sup>.
+      Los índices ESG de BME (FTSE4Good Ibex, IBEX Gender Equality y la familia IBEX ESG) se han
+      convertido en referencia para los fondos artículo 8/9 del SFDR — el puente entre esta
+      sección y los criterios de sostenibilidad del Bloque 1-G.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Dow Jones = media de <em>precios</em> (sin ponderar por tamaño); IGBM = Laspeyres;
+        IBEX = capitalización ajustada por flotante. (2) IBEX 35: criterio de <em>liquidez</em>,
+        sin criterio sectorial; Comité Asesor Técnico; base 3.000 de 1989. (3) Flotante computa,
+        cautivo se excluye. (4) Los dividendos ordinarios no ajustan el IBEX estándar →
+        versión "con dividendos". (5) Gender Equality: 25–75% en consejo y 15–85% en alta
+        dirección, universo IGBM, sin número fijo. (6) FTSE4Good: criterios ESG del estándar
+        FTSE4Good global aplicados a la bolsa española.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Índice</strong></td><td>Síntesis de una cesta de valores: termómetro, benchmark y subyacente</td></tr>
+          <tr><td><strong>Métodos</strong></td><td>Laspeyres (base — IGBM) · Paasche (corriente — IBEX) · media de precios (DJ)</td></tr>
+          <tr><td><strong>Clasificaciones</strong></td><td>Base fija/encadenado · general/selectivo · corto/largo · precios/total return</td></tr>
+          <tr><td><strong>IBEX 35</strong></td><td>35 más líquidos · capitalización × free float · ajuste J · sin criterio sectorial</td></tr>
+          <tr><td><strong>Flotante vs. cautivo</strong></td><td>Solo computa lo negociable; el control se excluye</td></tr>
+          <tr><td><strong>FTSE4Good Ibex</strong></td><td>Cotizadas españolas que cumplen los estándares ESG de FTSE4Good</td></tr>
+          <tr><td><strong>IBEX Gender Equality</strong></td><td>IGBM con 25–75% mujeres en consejo y 15–85% en alta dirección</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 5, Sección D.</li>
+      <li id="fn2"><a href="https://www.bolsasymercados.es/bme-exchange/es/Indices/Ibex" target="_blank">BME — Normas técnicas para la composición y cálculo de los índices IBEX</a>: criterios del Comité Asesor Técnico, coeficientes de free float y fórmula de cálculo.</li>
+      <li id="fn3"><a href="https://www.cnmv.es/webservices/verdocumento/ver?e=zuQHF1ktq5dGKxF8DEkqL3oVWDfesgkpo6eZDnmbdpma3phc/KDdGHMm7I9fO0VE" target="_blank">Nota de lanzamiento del FTSE4Good IBEX (BME/FTSE, CNMV)</a> y <a href="https://www.bolsasymercados.es/bme-exchange/es/indices/ESG" target="_blank">BME — Índices ESG</a>.</li>
+      <li id="fn4"><a href="https://www.bolsasymercados.es/bme-exchange/docs/SB/FS-IbexGenderEquality_ESP.pdf" target="_blank">BME — Factsheet IBEX Gender Equality</a>: criterios del 25–75% (consejo) y 15–85% (alta dirección), universo IGBM y revisión anual con datos de la CNMV.</li>
+      <li id="fn5">Sesión del 10 de junio de 2026: <a href="https://www.estrategiasdeinversion.com/cotizaciones/indices/ibex-35" target="_blank">Estrategias de Inversión — IBEX 35</a>.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-c.html" class="nav-btn">← C: Operaciones bursátiles</a>
+    <a href="../index.html" class="nav-btn">Índice Módulo 1 →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 5 · Sección D · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
