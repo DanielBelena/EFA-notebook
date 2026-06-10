@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B4 · Sección F — Valoración de renta fija · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .tri-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:680px){ .tri-grid{ grid-template-columns:1fr; } }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B4 · F</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 4</a><span class="sep">›</span>
+    <span>Sección F</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 4 · Sección F · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Valoración de renta fija a corto y largo plazo</h1>
+    <p class="hero-sub">
+      Bases de cálculo · Letras y pagarés · Sobre, a y bajo la par · Precio del bono por TIR y
+      por cupón cero · Precio entero, ex cupón y cupón corrido · Rentabilidad efectiva ·
+      El cupón cero.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. El concepto de base</h2>
+    <div class="card accent-navy">
+      <p>
+        La <strong>base</strong> es la convención para contar los días al calcular intereses:
+        cuántos días tiene el período y cuántos el año. Cambiar la base cambia el resultado, por
+        lo que toda fórmula debe explicitarla<sup><a href="#fn1">1</a></sup>. El cómputo general
+        es:
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Fracción de año según la base</span>
+      n = días del período / días del año según convención
+    </div>
+
+    <div class="tri-grid">
+      <div class="concept-box"><h4>Act/360</h4><p>Días reales sobre año de 360. La base del <strong>mercado monetario</strong> del euro: Letras, pagarés, repos, Euribor.</p></div>
+      <div class="concept-box"><h4>Act/Act</h4><p>Días reales sobre días reales del año/período. La base de los <strong>bonos y obligaciones</strong> (cupón corrido) en el mercado de deuda europeo.</p></div>
+      <div class="concept-box"><h4>30/360</h4><p>Meses de 30 días y año de 360. Habitual en algunos bonos corporativos y swaps.</p></div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — la base importa</h3>
+      <p>
+        Intereses de 1.000.000&nbsp;€ al 3% durante 91 días:<br>
+        Base Act/360: 1.000.000 × 0,03 × 91/360 = <strong>7.583,33&nbsp;€</strong><br>
+        Base Act/365: 1.000.000 × 0,03 × 91/365 = <strong>7.479,45&nbsp;€</strong><br>
+        Diferencia: 103,88&nbsp;€ solo por la convención. Un mismo "3%" no es comparable sin
+        conocer la base.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Valoración a corto plazo: Letras y pagarés</h2>
+    <p>
+      Activos al descuento, sin cupones: precio = valor actual del nominal. La convención del
+      mercado español es <strong>interés simple para plazos ≤ 376 días</strong> (base Act/360) y
+      <strong>compuesto para plazos superiores</strong> (base Act/360):
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Precio (plazo ≤ 376 días) — interés simple</span>
+      E = N / ( 1 + i · d/360 )
+    </div>
+    <div class="formula">
+      <span class="formula-label">Precio (plazo &gt; 376 días) — interés compuesto</span>
+      E = N / ( 1 + i )^(d/360)
+    </div>
+    <div class="formula">
+      <span class="formula-label">Rentabilidad despejada (≤ 376 días)</span>
+      i = ( N/E − 1 ) · 360/d
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — precio de una Letra a 12 meses</h3>
+      <p>
+        Letra a 360 días con tipo de adjudicación del 2,635% (media de la subasta de mayo
+        2026<sup><a href="#fn2">2</a></sup>):<br>
+        E = 1.000 / (1 + 0,02635 × 360/360) = 1.000 / 1,02635 = <strong>974,33&nbsp;€</strong><br><br>
+        Comprobación inversa: comprada a 974,33 y reembolsada a 1.000,<br>
+        i = (1.000/974,33 − 1) × 360/360 = <strong>2,635%</strong> ✓
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 3 — pagaré a 90 días con venta anticipada</h3>
+      <p>
+        Pagaré de nominal 1.000&nbsp;€ comprado al 3% a 90 días:<br>
+        E = 1.000/(1 + 0,03 × 90/360) = 1.000/1,0075 = <strong>992,56&nbsp;€</strong><br><br>
+        A los 30 días se vende cuando el mercado exige el 2,6% para los 60 días restantes:<br>
+        P_venta = 1.000/(1 + 0,026 × 60/360) = <strong>995,69&nbsp;€</strong><br>
+        Rentabilidad obtenida: (995,69/992,56 − 1) × 360/30 = 0,3154% × 12 = <strong>3,78%</strong>
+        — superior al 3% inicial porque los tipos bajaron tras la compra (riesgo de precio a favor).
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. Valoración a largo plazo: el bono con cupones</h2>
+
+    <h3>Sobre la par, a la par, bajo la par</h3>
+    <div class="tri-grid">
+      <div class="concept-box"><h4>Bajo la par (P &lt; 100)</h4><p>Cotiza con descuento. Ocurre cuando <strong>cupón &lt; TIR</strong> exigida: el mercado compensa el cupón pobre con ganancia de capital.</p></div>
+      <div class="concept-box"><h4>A la par (P = 100)</h4><p><strong>Cupón = TIR</strong>. Toda la rentabilidad procede del cupón.</p></div>
+      <div class="concept-box"><h4>Sobre la par (P &gt; 100)</h4><p>Cotiza con prima. <strong>Cupón &gt; TIR</strong>: el cupón generoso se paga por adelantado en el precio (habrá pérdida de capital hasta el vencimiento).</p></div>
+    </div>
+
+    <h3>Precio mediante la TIR (descuento de flujos)</h3>
+    <div class="formula">
+      <span class="formula-label">Precio con TIR única (r)</span>
+      P = Σ  Cₜ / (1 + r)ᵗ  +  N / (1 + r)ⁿ
+    </div>
+
+    <h3>Precio mediante tipos cupón cero (ETTI)</h3>
+    <div class="formula">
+      <span class="formula-label">Precio con curva cupón cero (s₁, s₂, …)</span>
+      P = C₁/(1+s₁) + C₂/(1+s₂)² + … + (Cₙ+N)/(1+sₙ)ⁿ
+    </div>
+    <div class="callout info">
+      <strong>Diferencia conceptual:</strong> la TIR descuenta todos los flujos a un único tanto
+      (es el resumen del bono); la curva cupón cero descuenta <strong>cada flujo a su tipo de
+      plazo</strong> (es la valoración teórica de no arbitraje). La TIR del bono resulta ser una
+      media compleja de los spots. Si el precio de mercado difiere del teórico por spots, hay
+      arbitraje vía STRIPS (Sección B).
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 4 — mismo bono, dos métodos</h3>
+      <p>
+        Bono a 3 años, cupón anual 3%, nominal 1.000&nbsp;€.<br><br>
+        <strong>(a) Con TIR del 2,8%:</strong><br>
+        P = 30/1,028 + 30/1,028² + 1.030/1,028³<br>
+        P = 29,18 + 28,39 + 948,49 = <strong>1.006,06&nbsp;€ (100,61% — sobre la par, cupón &gt; TIR)</strong><br><br>
+        <strong>(b) Con curva cupón cero s₁=2,4%, s₂=2,7%, s₃=2,85%:</strong><br>
+        P = 30/1,024 + 30/1,027² + 1.030/1,0285³<br>
+        P = 29,30 + 28,44 + 946,84 = <strong>1.004,58&nbsp;€</strong><br><br>
+        La TIR implícita de ese precio teórico sería ≈ 2,85%: la "media ponderada" de los spots,
+        cargada hacia s₃ porque el flujo final domina.
+      </p>
+    </div>
+
+    <h3>Precio entero, precio ex cupón y cupón corrido</h3>
+    <div class="card accent-navy">
+      <p>
+        Entre dos pagos de cupón, el vendedor ha "devengado" la parte proporcional del próximo
+        cupón: el <strong>cupón corrido (CC)</strong>. Los mercados cotizan el <strong>precio ex
+        cupón ("limpio")</strong> para que las cotizaciones sean comparables día a día, pero el
+        comprador paga el <strong>precio entero ("sucio")</strong>:
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Cupón corrido (base Act/Act)</span>
+      CC = C · ( días desde el último cupón / días del período de cupón )
+    </div>
+    <div class="formula">
+      <span class="formula-label">Relación fundamental</span>
+      Precio entero = Precio ex cupón + Cupón corrido
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 5 — cuánto pago realmente</h3>
+      <p>
+        Obligación con cupón anual del 3,3% (33&nbsp;€); el último cupón se pagó hace 146 días
+        (período de 365). Cotización ex cupón: 98,40%.<br><br>
+        CC = 33 × 146/365 = <strong>13,20&nbsp;€ (1,32%)</strong><br>
+        Precio entero = 984,00 + 13,20 = <strong>997,20&nbsp;€</strong> por título.<br><br>
+        El comprador adelanta al vendedor su parte del cupón devengado; lo recuperará al cobrar
+        el cupón completo dentro de 219 días. El precio que se descuenta con la TIR es siempre
+        el <strong>entero</strong>: es el dinero que realmente cambia de manos.
+      </p>
+    </div>
+
+    <h3>Rentabilidad efectiva con reinversión (las tres fuentes)</h3>
+    <p>
+      La rentabilidad efectivamente obtenida en renta fija procede de tres fuentes:
+      (1) los <strong>cupones</strong>, (2) los <strong>intereses por reinversión de los
+      cupones</strong> al tanto i<sub>r</sub> disponible, y (3) la <strong>ganancia o pérdida de
+      capital</strong> (diferencia entre precio de venta o reembolso y precio de compra).
+      Capitalizando todo al final (mecánica TRE del Bloque 2-E):
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Rentabilidad efectiva anual</span>
+      TRE = [ ( Σ Cₜ·(1+i_r)^(n−t) + P_final ) / P_compra ]^(1/n) − 1
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 6 — TRE del bono del ejemplo 4</h3>
+      <p>
+        Compro el bono (a) por 1.006,06&nbsp;€ (TIR 2,8%) y mantengo a vencimiento, reinvirtiendo
+        cupones al 2%:<br><br>
+        VF = 30×(1,02)² + 30×(1,02) + 1.030 = 31,21 + 30,60 + 1.030 = 1.091,81&nbsp;€<br>
+        TRE = (1.091,81/1.006,06)^(1/3) − 1 = (1,08524)^(1/3) − 1 = <strong>2,76%</strong><br><br>
+        TRE &lt; TIR porque i_r (2%) &lt; TIR (2,8%): el riesgo de reinversión de la Sección E,
+        cuantificado.
+      </p>
+    </div>
+
+    <h3>El bono cupón cero</h3>
+    <div class="formula">
+      <span class="formula-label">Precio del cupón cero</span>
+      P = N / (1 + i)ⁿ
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 7</h3>
+      <p>
+        Strip de principal a 8 años con TIR del 3,2%:<br>
+        P = 1.000 / (1,032)⁸ = 1.000 / 1,28663 = <strong>777,23&nbsp;€</strong><br><br>
+        Sin cupones: sin riesgo de reinversión y TRE = TIR garantizada si se mantiene a
+        vencimiento. A cambio, máxima sensibilidad al tipo (su duración es igual a su plazo
+        — Sección I).
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      Con la curva del Tesoro entre el 2,4% (Letras 6M) y el ~3,9% (15 años)<sup><a href="#fn2">2</a></sup>,
+      los bonos emitidos en la era de cupones ultrabajos (2019-2021, cupones del 0–1%) cotizan
+      claramente <strong>bajo la par</strong>, mientras las referencias antiguas de cupón alto lo
+      hacen sobre la par: el mercado iguala por precio lo que el cupón diferencia. Buen ejercicio:
+      verificarlo en las pantallas de cotización de deuda pública.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Precio de Letra/pagaré con Act/360 (¡simple ≤ 376 días!). (2) Cupón &lt; TIR → bajo
+        la par (y viceversa). (3) Cupón corrido y precio entero vs. ex cupón — cae casi siempre.
+        (4) Precio de un bono de 2–3 flujos por TIR. (5) Cupón cero: P = N/(1+i)ⁿ y su despeje.
+        Lleva la calculadora dominada: esta sección es la más numérica del examen.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Fórmula / regla</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Base</strong></td><td>Act/360 (monetario) · Act/Act (bonos) · 30/360</td></tr>
+          <tr><td><strong>Letra ≤ 376 días</strong></td><td>E = N/(1 + i·d/360)</td></tr>
+          <tr><td><strong>Letra &gt; 376 días</strong></td><td>E = N/(1+i)^(d/360)</td></tr>
+          <tr><td><strong>Precio bono (TIR)</strong></td><td>P = ΣCₜ(1+r)⁻ᵗ + N(1+r)⁻ⁿ</td></tr>
+          <tr><td><strong>Precio bono (ETTI)</strong></td><td>Cada flujo a su spot sₜ</td></tr>
+          <tr><td><strong>Par</strong></td><td>Cupón vs. TIR: &lt; bajo par · = par · &gt; sobre par</td></tr>
+          <tr><td><strong>Cupón corrido</strong></td><td>CC = C × días transcurridos/días período; Entero = Ex cupón + CC</td></tr>
+          <tr><td><strong>TRE renta fija</strong></td><td>Cupones + reinversión + ganancia de capital, anualizado</td></tr>
+          <tr><td><strong>Cupón cero</strong></td><td>P = N/(1+i)ⁿ</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 4, Sección F; convenciones de mercado conforme a <a href="https://www.tesoro.es/deuda-publica/los-valores-del-tesoro/letras-del-tesoro" target="_blank">Tesoro Público — Letras del Tesoro</a> (cálculo del precio) y Fabozzi, <em>Bond Markets, Analysis and Strategies</em>.</li>
+      <li id="fn2"><a href="https://www.tesoro.es/deuda-publica/subastas/resultados-subastas-anteriores" target="_blank">Tesoro Público — Resultados de subastas</a>: Letras 12M al 2,635% medio (5 mayo 2026); obligaciones 15 años 3,863%.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-e.html" class="nav-btn">← E: Riesgos de la renta fija</a>
+    <a href="seccion-g.html" class="nav-btn">G: Principios de Malkiel →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 4 · Sección F · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

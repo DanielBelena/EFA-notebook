@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B4 · Sección C — Mercado de renta fija privada · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B4 · C</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 4</a><span class="sep">›</span>
+    <span>Sección C</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 4 · Sección C · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Mercado de renta fija privada</h1>
+    <p class="hero-sub">
+      Estructura y agentes del mercado español · Pagarés, bonos, cédulas, titulizaciones,
+      preferentes, convertibles y canjeables · Bonos verdes, sociales, sostenibles y SLB.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Estructura y agentes del mercado español</h2>
+    <div class="card accent-navy">
+      <p>
+        La renta fija privada española se negocia principalmente en <strong>AIAF</strong>
+        (mercado regulado de renta fija de BME, mayorista), con la plataforma minorista
+        <strong>SEND</strong>, y en el <strong>MARF</strong> (Mercado Alternativo de Renta Fija,
+        sistema multilateral para emisores medianos con requisitos más ágiles). Buena parte de la
+        negociación institucional es además <strong>OTC</strong><sup><a href="#fn1">1</a></sup>.
+      </p>
+      <p style="margin-top:.6rem;">
+        <strong>Agentes:</strong> emisores (entidades financieras y corporaciones), bancos
+        colocadores/aseguradores de las emisiones, inversores institucionales (fondos,
+        aseguradoras, planes) y minoristas, agencias de rating, e infraestructura común con la
+        deuda pública: liquidación en <strong>Iberclear</strong> y supervisión de la
+        <strong>CNMV</strong> (folletos, transparencia).
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Los activos y sus características específicas</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Activo</th><th>Características específicas</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Pagarés de empresa</strong></td>
+            <td>Corto plazo (días–24 meses), emisión <strong>al descuento</strong> (rendimiento implícito), normalmente bajo programas registrados. El "equivalente privado" de la Letra, con prima por riesgo de crédito del emisor.</td>
+          </tr>
+          <tr>
+            <td><strong>Bonos y obligaciones privados</strong></td>
+            <td>Medio y largo plazo con cupón (fijo o flotante). Jerarquía: <strong>senior</strong> (preferentes en cobro) vs. <strong>subordinados</strong> (cobran detrás; más rentabilidad por más riesgo).</td>
+          </tr>
+          <tr>
+            <td><strong>Cédulas hipotecarias / territoriales</strong></td>
+            <td>Emitidas por entidades de crédito con <strong>doble garantía</strong>: la del emisor más, de forma privilegiada, su <strong>cartera de préstamos</strong> (hipotecarios o al sector público). Bonos garantizados ("covered bonds") regulados por la Ley 5/2019 de cédulas y el RDL 24/2021 (directiva europea); muy alta calidad crediticia.</td>
+          </tr>
+          <tr>
+            <td><strong>Bonos y participaciones hipotecarias</strong></td>
+            <td>Vinculados a préstamos hipotecarios <strong>concretos</strong> (no a toda la cartera): el bono hipotecario afecta préstamos específicos; la participación <strong>cede</strong> una parte de un préstamo, transmitiendo su riesgo al inversor.</td>
+          </tr>
+          <tr>
+            <td><strong>Participaciones preferentes</strong></td>
+            <td>Híbrido entre deuda y capital: <strong>perpetuas</strong>, cupón <strong>condicionado</strong> a la existencia de beneficios, sin derechos políticos, y prelación solo por delante de las acciones. En banca, sus herederos actuales son los <strong>CoCos/AT1</strong> (convertibles contingentes que absorben pérdidas). Producto complejo: protagonista de la crisis de comercialización minorista 2008-2012.</td>
+          </tr>
+          <tr>
+            <td><strong>Activos titulizados</strong></td>
+            <td>Bonos emitidos por un <strong>fondo de titulización</strong> que compra carteras de derechos de cobro (hipotecas, préstamos al consumo, facturas) cedidas por una entidad. El inversor cobra de los flujos de la cartera, estructurados en <strong>tramos</strong> (senior/mezzanine/equity) con distinto riesgo. Sacan el riesgo del balance del cedente.</td>
+          </tr>
+          <tr>
+            <td><strong>Bonos convertibles</strong></td>
+            <td>Incorporan el derecho (u obligación) de convertir el bono en <strong>acciones nuevas del propio emisor</strong> (ampliación de capital) según una relación de conversión. Cupón inferior al de un bono normal: la opción tiene valor.</td>
+          </tr>
+          <tr>
+            <td><strong>Bonos canjeables</strong></td>
+            <td>Igual que el convertible pero se entregan <strong>acciones ya existentes</strong> (autocartera u otra sociedad): no hay ampliación de capital ni dilución.</td>
+          </tr>
+          <tr>
+            <td><strong>Bonos de cupón fijo</strong></td>
+            <td>El caso estándar: cupón constante pactado en la emisión. Máxima previsibilidad de flujos y, por ello, máxima sensibilidad del precio a los tipos (Secciones G e I).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>La familia sostenible</h3>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>🌿 Bonos verdes</h4>
+        <p>Los fondos se destinan <strong>exclusivamente a proyectos ambientales</strong>
+        (renovables, eficiencia, transporte limpio), con marco verificado y reporting
+        (Green Bond Principles de ICMA; estándar europeo EuGB desde finales de 2024).</p>
+      </div>
+      <div class="concept-box">
+        <h4>🤝 Bonos sociales</h4>
+        <p>Fondos destinados a <strong>proyectos sociales</strong>: vivienda asequible, sanidad,
+        educación, empleo (Social Bond Principles).</p>
+      </div>
+      <div class="concept-box">
+        <h4>♻️ Bonos sostenibles</h4>
+        <p>Mezclan ambos: financian conjuntamente proyectos <strong>verdes y sociales</strong>
+        (Sustainability Bond Guidelines).</p>
+      </div>
+      <div class="concept-box">
+        <h4>🎯 Bonos vinculados a la sostenibilidad (SLB)</h4>
+        <p>Diferencia clave: el dinero es de <strong>uso general</strong>, pero las condiciones
+        financieras dependen de <strong>objetivos ESG del emisor</strong> (KPIs): si incumple
+        (p. ej., no reduce emisiones), el cupón sube (<em>step-up</em>).</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo aplicado — convertible vs. canjeable</h3>
+      <p>
+        Bono convertible de 1.000&nbsp;€ con relación de conversión de 40 acciones
+        (precio de conversión = 1.000/40 = 25&nbsp;€).<br><br>
+        Si la acción cotiza a 30&nbsp;€: convertir entrega acciones por valor de 40 × 30 =
+        1.200&nbsp;€ → conviene convertir (+20%).<br>
+        Si cotiza a 20&nbsp;€: el paquete valdría 800&nbsp;€ → mejor conservar el bono y cobrar
+        cupones y nominal.<br><br>
+        Si el bono fuera <em>canjeable</em>, la mecánica sería idéntica pero recibiendo acciones
+        viejas: sin ampliación de capital y sin dilución para los accionistas actuales.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo aplicado — SLB con step-up</h3>
+      <p>
+        Una eléctrica emite un SLB a 7 años, cupón 3,4%, con KPI "reducir un 30% las emisiones
+        antes de 2029". Si en la fecha de observación incumple, el cupón sube 25 pb (a 3,65%)
+        hasta vencimiento: sobre 500 M€ emitidos, el incumplimiento le costaría 1,25 M€ extra
+        por año. El incentivo es financiero, no solo reputacional — y para el inversor es el
+        rasgo distintivo frente a un bono verde (donde lo comprometido es el <em>destino</em>
+        de los fondos, no un KPI).
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      El segmento sostenible es ya estructural en el primario europeo: el propio Tesoro español
+      mantiene su programa de bonos verdes soberanos y el estándar europeo de bonos verdes
+      (EU Green Bond Standard) opera desde diciembre de 2024 como etiqueta voluntaria de máxima
+      exigencia, alineada con la taxonomía de la UE<sup><a href="#fn2">2</a></sup>. Para el
+      asesor, distinguir "uso de fondos" (verde/social/sostenible) de "vinculado a KPIs" (SLB)
+      es ya pregunta de idoneidad ESG, no solo de examen.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Cédula (garantía de <em>toda</em> la cartera) vs. bono hipotecario (préstamos
+        concretos) vs. participación (cesión del préstamo). (2) Convertible = acciones nuevas
+        (dilución) vs. canjeable = acciones viejas. (3) Preferentes: perpetuas + cupón
+        condicionado + sin voto. (4) Verde/social/sostenible = uso de fondos; SLB = KPIs con
+        step-up. (5) En titulizaciones, el tramo equity absorbe las primeras pérdidas.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Activo</th><th>Rasgo distintivo</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Pagaré</strong></td><td>Corto plazo al descuento; "Letra privada"</td></tr>
+          <tr><td><strong>Cédula</strong></td><td>Doble garantía: emisor + cartera (covered bond)</td></tr>
+          <tr><td><strong>Participación hipotecaria</strong></td><td>Cesión de préstamo concreto con su riesgo</td></tr>
+          <tr><td><strong>Preferente</strong></td><td>Perpetua, cupón condicionado, híbrido</td></tr>
+          <tr><td><strong>Titulización</strong></td><td>Fondo que empaqueta carteras en tramos</td></tr>
+          <tr><td><strong>Convertible / canjeable</strong></td><td>Opción sobre acciones nuevas / existentes</td></tr>
+          <tr><td><strong>Verde · social · sostenible</strong></td><td>Compromiso sobre el destino de los fondos</td></tr>
+          <tr><td><strong>SLB</strong></td><td>Uso general + cupón ligado a KPIs (step-up)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 4, Sección C; estructura de mercados en <a href="https://www.bmerf.es" target="_blank">BME Renta Fija (AIAF, SEND, MARF)</a> y <a href="https://www.cnmv.es/portal/inversor/Renta-Fija.aspx" target="_blank">CNMV — Renta fija</a>.</li>
+      <li id="fn2"><a href="https://www.icmagroup.org/sustainable-finance/the-principles-guidelines-and-handbooks/" target="_blank">ICMA — Green/Social Bond Principles y Sustainability-Linked Bond Principles</a>; Reglamento (UE) 2023/2631 sobre bonos verdes europeos.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-b.html" class="nav-btn">← B: Deuda pública</a>
+    <a href="seccion-d.html" class="nav-btn">D: Rating →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 4 · Sección C · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

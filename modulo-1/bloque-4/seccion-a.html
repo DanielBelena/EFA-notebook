@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B4 · Sección A — Características generales de la renta fija · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B4 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 4</a><span class="sep">›</span>
+    <span>Sección A</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 4 · Sección A · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Características generales de la renta fija</h1>
+    <p class="hero-sub">
+      Qué es un activo de renta fija · El mapa de activos · Los siete parámetros de toda emisión:
+      nominal, precio de emisión, vencimiento, cupón, frecuencia y amortización.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Qué es la renta fija y cuáles son sus activos</h2>
+    <p class="sec-intro">
+      "Renta fija" no significa que la inversión no pueda perder valor: significa que los
+      <strong>flujos están predeterminados</strong> en el contrato de emisión (o ligados a una
+      regla conocida). El precio del activo, en cambio, fluctúa cada día con los tipos y el
+      crédito — el corazón de este bloque.
+    </p>
+
+    <div class="card accent-navy">
+      <p>
+        Un <strong>activo de renta fija</strong> es un valor negociable que representa una
+        <strong>parte alícuota de un préstamo</strong> a la entidad emisora: el inversor es
+        <strong>acreedor</strong> (no propietario, a diferencia del accionista), con derecho a
+        percibir los intereses pactados y la devolución del principal, y con
+        <strong>prelación</strong> sobre los accionistas en caso de liquidación<sup><a href="#fn1">1</a></sup>.
+      </p>
+    </div>
+
+    <h3>El mapa de activos de renta fija</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Activo</th><th>Emisor</th><th>Plazo típico</th><th>Rendimiento</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Letras del Tesoro</strong></td><td>Estado</td><td>3–12 meses</td><td>Implícito (al descuento)</td></tr>
+          <tr><td><strong>Pagarés de empresa</strong></td><td>Empresas / bancos</td><td>Días–24 meses</td><td>Implícito (al descuento)</td></tr>
+          <tr><td><strong>Bonos del Estado</strong></td><td>Estado</td><td>2–5 años</td><td>Explícito (cupón anual)</td></tr>
+          <tr><td><strong>Obligaciones del Estado</strong></td><td>Estado</td><td>10–50 años</td><td>Explícito (cupón anual)</td></tr>
+          <tr><td><strong>Bonos y obligaciones privados</strong></td><td>Empresas</td><td>2–30 años</td><td>Explícito (fijo o flotante)</td></tr>
+          <tr><td><strong>Cédulas (hipotecarias/territoriales)</strong></td><td>Entidades de crédito</td><td>1–10 años</td><td>Explícito + garantía de cartera</td></tr>
+          <tr><td><strong>Titulizaciones</strong></td><td>Fondos de titulización</td><td>Variable</td><td>Ligado a la cartera cedida</td></tr>
+          <tr><td><strong>Participaciones preferentes / híbridos</strong></td><td>Bancos y empresas</td><td>Perpetuo</td><td>Condicionado a resultados</td></tr>
+          <tr><td><strong>Convertibles / canjeables</strong></td><td>Empresas</td><td>3–7 años</td><td>Cupón + opción sobre acciones</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:var(--fs-xs);color:var(--text-soft);">Cada familia se desarrolla en las Secciones B (pública) y C (privada).</p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Los parámetros de toda emisión</h2>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Emisión</h4>
+        <p>Acto por el que el emisor crea y coloca los valores en el mercado primario (subasta,
+        colocación sindicada o privada), documentado en el folleto registrado ante el supervisor.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Valor nominal (N)</h4>
+        <p>Importe sobre el que se calculan los cupones y que (salvo pacto distinto) se devuelve a
+        vencimiento. En deuda pública española: 1.000&nbsp;€ por título.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Precio de emisión</h4>
+        <p>Precio de colocación en primario, expresado en % del nominal: <strong>a la par</strong>
+        (100%), <strong>bajo la par</strong> (&lt;100%, con descuento) o <strong>sobre la par</strong>
+        (&gt;100%, con prima).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Fecha de vencimiento</h4>
+        <p>Momento en que el emisor devuelve el principal y se extingue la deuda. Define el plazo
+        de la emisión y, junto al cupón, su sensibilidad a los tipos (Sección I).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Cupón</h4>
+        <p>Interés periódico, en % del nominal. Puede ser <strong>fijo</strong>, <strong>flotante</strong>
+        (referenciado, p. ej., a Euribor + margen), <strong>indexado</strong> (a inflación) o
+        <strong>cero</strong> (sin cupones: todo el rendimiento es implícito).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Frecuencia de pago</h4>
+        <p>Periodicidad del cupón: anual (estándar en deuda pública española y europea), semestral
+        (mercado estadounidense), trimestral (flotantes). Afecta a la TIR efectiva comparable.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Amortización</h4>
+        <p>Forma de devolución del principal: <strong>a vencimiento</strong> (bullet, la habitual),
+        <strong>anticipada</strong> mediante opciones <em>call</em> (del emisor) o <em>put</em>
+        (del inversor), por <strong>sorteo o reducción de nominal</strong>, o <strong>perpetua</strong>
+        (sin vencimiento).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Otros rasgos del folleto</h4>
+        <p>Orden de prelación (senior/subordinado), garantías (colateral), divisa, ley aplicable
+        y cláusulas (covenants). Determinan el riesgo de crédito efectivo (Secciones C–E).</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo aplicado — leer una ficha de emisión real</h3>
+      <p>
+        "Obligación del Estado, cupón 3,30%, pago anual, vencimiento 31/10/2036, nominal
+        1.000&nbsp;€, precio de emisión 99,45%".<br><br>
+        Traducción: el inversor paga hoy 994,50&nbsp;€ por título (bajo la par), cobrará
+        33&nbsp;€ cada 31 de octubre durante 10 años, y recibirá 1.000&nbsp;€ al vencimiento.
+        Como compra bajo la par, su rentabilidad (TIR ≈ 3,37%) supera ligeramente al cupón:
+        suma el cupón explícito y la pequeña ganancia implícita de 5,50&nbsp;€.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo aplicado — cupón flotante</h3>
+      <p>
+        Bono corporativo "Euribor 3M + 0,85%, pago trimestral". Con Euribor 3M ≈ 2,3%, el cupón
+        anualizado del próximo trimestre es 3,15%, es decir 7,875&nbsp;€ por trimestre y título de
+        1.000&nbsp;€ (3,15% / 4). Si el Euribor sube, el cupón se reajusta al alza en la siguiente
+        fijación: por eso los flotantes tienen riesgo de precio muy inferior al de los fijos.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      Referencias del mercado primario español: Letras a 12 meses al 2,635% (tipo medio, subasta
+      del 5 de mayo), bonos a 3 años al 2,675%, a 5 años al 2,911% y obligaciones a 15 años al
+      3,863%<sup><a href="#fn2">2</a></sup>. La curva del Tesoro vuelve a ofrecer cupones
+      positivos en todos los tramos tras la época de tipos cero — y el repunte de expectativas de
+      inflación está empinando el tramo largo.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) "El inversor en renta fija es acreedor del emisor" (vs. accionista = propietario).
+        (2) Identificar el rendimiento implícito (Letras, pagarés, cupón cero) vs. explícito
+        (bonos con cupón). (3) Vocabulario de la ficha: emisión bajo/sobre/a la par; amortización
+        bullet vs. call. (4) Renta fija ≠ rentabilidad garantizada si se vende antes del
+        vencimiento: el precio fluctúa.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Parámetro</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Naturaleza</strong></td><td>Parte alícuota de un préstamo: el tenedor es acreedor con prelación sobre el accionista</td></tr>
+          <tr><td><strong>Nominal</strong></td><td>Base de cálculo de cupones y devolución (1.000&nbsp;€ en deuda pública)</td></tr>
+          <tr><td><strong>Precio de emisión</strong></td><td>A la par / bajo par (descuento) / sobre par (prima)</td></tr>
+          <tr><td><strong>Cupón</strong></td><td>Fijo · flotante · indexado · cero — con frecuencia anual, semestral o trimestral</td></tr>
+          <tr><td><strong>Amortización</strong></td><td>Bullet a vencimiento (estándar) · anticipada (call/put) · perpetua</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 4, Sección A; caracterización conforme a la <a href="https://www.cnmv.es/portal/inversor/Renta-Fija.aspx" target="_blank">CNMV — Guía del inversor en renta fija</a> y Fabozzi, <em>Bond Markets, Analysis and Strategies</em> (Pearson).</li>
+      <li id="fn2"><a href="https://www.tesoro.es/deuda-publica/subastas/resultados-subastas-anteriores" target="_blank">Tesoro Público — Resultados de subastas</a> (mayo–junio 2026) y <a href="https://www.ocu.org/inversiones/invertir/obligaciones/articulos/2026/05/subastas-tesoro-merecen-la-pena" target="_blank">OCU Inversiones</a>, tipos medios de las subastas de mayo de 2026.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="index.html" class="nav-btn">← Índice Bloque 4</a>
+    <a href="seccion-b.html" class="nav-btn">B: Mercado de deuda pública →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 4 · Sección A · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

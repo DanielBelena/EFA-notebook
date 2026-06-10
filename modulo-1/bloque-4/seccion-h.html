@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B4 · Sección H — Curva de rentabilidades y ETTI · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .tri-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:680px){ .tri-grid{ grid-template-columns:1fr; } }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B4 · H</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 4</a><span class="sep">›</span>
+    <span>Sección H</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 4 · Sección H · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Curva de rentabilidades y ETTI</h1>
+    <p class="hero-sub">
+      Curva de rentabilidad vs. estructura temporal (cupón cero) · Formas de la pendiente ·
+      Forwards a partir de la ETTI · Teorías: expectativas, liquidez y segmentación.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Curva de rentabilidad y ETTI</h2>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Curva de rentabilidades (yield curve)</h4>
+        <p>Representa la <strong>TIR de bonos con cupón</strong> de un mismo emisor (típicamente
+        deuda pública) frente a su plazo. Es la curva observable directamente en las pantallas,
+        pero cada TIR está "contaminada" por el efecto del cupón de cada bono.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>ETTI (curva cupón cero)</h4>
+        <p>La <strong>estructura temporal de los tipos de interés</strong>: tipos
+        <strong>cupón cero (spot)</strong> puros para cada plazo. Es la curva teóricamente
+        correcta para descontar cada flujo (Sección F). Se obtiene de strips o por
+        <em>bootstrapping</em> a partir de bonos con cupón.</p>
+      </div>
+    </div>
+
+    <h3>Formas de la pendiente</h3>
+    <div class="tri-grid">
+      <div class="concept-box"><h4>📈 Creciente (normal)</h4><p>Largos &gt; cortos. Expectativas de tipos estables o al alza + primas por plazo. La forma habitual en expansión.</p></div>
+      <div class="concept-box"><h4>📉 Decreciente (invertida)</h4><p>Cortos &gt; largos. El mercado descuenta bajadas de tipos; históricamente, antesala de recesión.</p></div>
+      <div class="concept-box"><h4>➖ Plana / ∩ jorobada</h4><p>Tipos similares en todos los plazos (transición), o con máximo en plazos intermedios (joroba).</p></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Tipos implícitos (forward) a partir de la ETTI</h2>
+    <p>
+      Mecánica idéntica a la del Bloque 2-D, ahora aplicada a la curva de deuda: por no
+      arbitraje, el forward entre m y n queda determinado por los spots:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Forward implícito en la ETTI</span>
+      (1 + sₙ)ⁿ = (1 + sₘ)ᵐ · (1 + f₍ₘ,ₙ₎)ⁿ⁻ᵐ
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — con la curva española actual</h3>
+      <p>
+        Aproximando spots del Tesoro: s₁ ≈ 2,64% (Letra 12M) y s₃ ≈ 2,68% (bono 3 años)<sup><a href="#fn1">1</a></sup>.
+        ¿Qué tipo a 2 años, dentro de 1 año, descuenta el mercado?<br><br>
+        (1,0268)³ = (1,0264) × (1+f)²<br>
+        (1+f)² = 1,082603 / 1,0264 = 1,054757 → f = √1,054757 − 1 = <strong>2,70%</strong><br><br>
+        El implícito apenas supera a los spots: la curva corta española está casi plana —
+        el mercado no descuenta grandes movimientos del BCE a ese horizonte.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — despejar el spot largo</h3>
+      <p>
+        Si s₁ = 2,5% y el mercado cotiza el forward a 1 año dentro de 1 año en f = 3,3%,
+        el spot a 2 años coherente es:<br>
+        (1+s₂)² = 1,025 × 1,033 = 1,058825 → s₂ = √1,058825 − 1 = <strong>2,90%</strong>
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. Teorías explicativas de la ETTI</h2>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Teoría de las expectativas (puras)</h4>
+        <p>Los tipos a largo son el <strong>promedio de los tipos a corto esperados</strong>:
+        los forwards son estimadores insesgados de los tipos futuros. Implicación: una curva
+        creciente solo refleja expectativas de subidas; invertir a largo o encadenar cortos sería
+        indiferente. Explica bien la <em>dirección</em> de la curva, pero no por qué casi siempre
+        es creciente.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Teoría de la preferencia por la liquidez</h4>
+        <p>Los inversores exigen una <strong>prima creciente con el plazo</strong> por inmovilizar
+        fondos y asumir más riesgo de precio: tipo largo = media de cortos esperados <strong>+ prima
+        de liquidez</strong>. Explica el sesgo estructural creciente de la curva; los forwards
+        sobreestiman los tipos futuros en la cuantía de la prima.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Teoría de la segmentación de mercados</h4>
+        <p>Cada plazo es un <strong>mercado separado</strong> con su propia oferta y demanda
+        (bancos en el corto; aseguradoras y fondos de pensiones en el largo, por casar sus
+        pasivos). Los tipos de cada tramo se forman con independencia: la curva puede adoptar
+        cualquier forma, incluso jorobada.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Variante: hábitat preferido</h4>
+        <p>Versión intermedia de la segmentación: cada inversor tiene su tramo preferido pero
+        <strong>se mueve si la prima compensa</strong>. Combina expectativas, primas y efectos de
+        oferta/demanda — la lectura más realista del mercado actual.</p>
+      </div>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      Las tres teorías se ven hoy a la vez en la curva española (≈2,4% a 6 meses → ≈3,9% a 15
+      años<sup><a href="#fn1">1</a></sup>): expectativas (el mercado descuenta cierta tensión al
+      alza por la inflación), prima por plazo (el tramo 10-30 años paga claramente más) y
+      segmentación (la fuerte demanda aseguradora del tramo largo modera su pendiente). La curva
+      euro llegó a invertirse en 2023 — el caso de estudio reciente de la teoría de expectativas.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Emparejar teoría ↔ enunciado: "los tipos largos son promedio de los cortos
+        esperados" → expectativas; "prima creciente con el plazo" → liquidez; "cada plazo, un
+        mercado" → segmentación. (2) Bajo expectativas puras, ¿qué implica una curva plana? →
+        tipos estables. (3) Cálculo del forward desde dos spots (repaso del Bloque 2-D — cae
+        muchísimo). (4) Diferencia curva de TIRes vs. curva cupón cero.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Curva de rentabilidad</strong></td><td>TIR de bonos con cupón por plazo (observable)</td></tr>
+          <tr><td><strong>ETTI</strong></td><td>Tipos cupón cero por plazo (la curva de descuento correcta)</td></tr>
+          <tr><td><strong>Formas</strong></td><td>Creciente · invertida · plana · jorobada</td></tr>
+          <tr><td><strong>Forward</strong></td><td>(1+sₙ)ⁿ = (1+sₘ)ᵐ(1+f)ⁿ⁻ᵐ</td></tr>
+          <tr><td><strong>Expectativas</strong></td><td>Largos = promedio de cortos esperados</td></tr>
+          <tr><td><strong>Liquidez</strong></td><td>+ prima creciente con el plazo (sesgo creciente)</td></tr>
+          <tr><td><strong>Segmentación</strong></td><td>Oferta y demanda independientes por tramo (hábitat preferido como variante)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 4, Sección H; teorías de la ETTI conforme a Fabozzi, <em>Bond Markets</em>, y Mishkin, <em>The Economics of Money, Banking and Financial Markets</em>. Datos de curva: <a href="https://www.tesoro.es/deuda-publica/subastas/resultados-subastas-anteriores" target="_blank">Tesoro Público — Resultados de subastas</a> (mayo–junio 2026); curvas cupón cero del área euro: <a href="https://www.ecb.europa.eu/stats/financial_markets_and_interest_rates/euro_area_yield_curves/html/index.en.html" target="_blank">BCE — Euro area yield curves</a>.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-g.html" class="nav-btn">← G: Principios de Malkiel</a>
+    <a href="seccion-i.html" class="nav-btn">I: Duración e inmunización →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 4 · Sección H · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

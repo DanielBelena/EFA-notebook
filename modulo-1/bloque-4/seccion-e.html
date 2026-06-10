@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B4 · Sección E — Riesgos de la renta fija · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B4 · E</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 4</a><span class="sep">›</span>
+    <span>Sección E</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 4 · Sección E · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Riesgos asociados a la renta fija</h1>
+    <p class="hero-sub">
+      Precio · Reinversión · Crédito · Liquidez · Tipo de cambio ·
+      Amortización anticipada · Inflación — y cómo se relacionan entre sí.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. El mapa de riesgos</h2>
+    <p class="sec-intro">
+      "Fija" es la renta pactada, no el resultado: quien venda antes del vencimiento, reinvierta
+      cupones o compre en divisa extranjera asume riesgos muy reales. El examen pide identificar
+      cada riesgo a partir de un caso.
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>📉 Riesgo de precio (de tipo de interés)</h4>
+        <p>Si los tipos de mercado <strong>suben</strong>, el precio del bono <strong>baja</strong>
+        (relación inversa: los flujos se descuentan a un tipo mayor). Afecta a quien vende antes
+        del vencimiento. Crece con el plazo y decrece con el cupón — se mide con la duración
+        (Sección I)<sup><a href="#fn1">1</a></sup>.</p>
+      </div>
+      <div class="concept-box">
+        <h4>🔁 Riesgo de reinversión</h4>
+        <p>Si los tipos <strong>bajan</strong>, los cupones cobrados se reinvierten a tantos
+        peores y la rentabilidad efectiva final (TRE) queda por debajo de la TIR prometida.
+        Es el <strong>espejo del riesgo de precio</strong>: el cupón cero lo elimina por completo.</p>
+      </div>
+      <div class="concept-box">
+        <h4>🏚️ Riesgo de crédito (insolvencia)</h4>
+        <p>Posibilidad de que el emisor <strong>no pague</strong> cupones o principal (default), o de
+        que su solvencia percibida empeore (rebaja de rating → ampliación de spread → caída de
+        precio sin necesidad de impago). Se gradúa con el rating (Sección D).</p>
+      </div>
+      <div class="concept-box">
+        <h4>💧 Riesgo de liquidez</h4>
+        <p>Dificultad de vender el título <strong>rápido y sin rebaja relevante de precio</strong>
+        por falta de mercado secundario activo. Se paga en forma de horquillas amplias; típico de
+        emisiones pequeñas o no cotizadas.</p>
+      </div>
+      <div class="concept-box">
+        <h4>💱 Riesgo de tipo de cambio</h4>
+        <p>En bonos denominados en <strong>otra divisa</strong>: la depreciación de esa divisa
+        frente al euro erosiona (o revierte) la rentabilidad al convertir los flujos. Cubrible
+        con derivados, a un coste.</p>
+      </div>
+      <div class="concept-box">
+        <h4>📞 Riesgo de amortización anticipada</h4>
+        <p>En bonos con <strong>call</strong> del emisor: este cancela cuando le conviene —
+        precisamente cuando los tipos han bajado —, devolviendo el principal en el peor momento
+        para reinvertirlo. Limita además la subida del precio del bono.</p>
+      </div>
+      <div class="concept-box">
+        <h4>🎈 Riesgo de inflación</h4>
+        <p>Pérdida de <strong>poder adquisitivo</strong> de unos flujos nominales fijos: si la
+        inflación supera lo esperado, la rentabilidad real cae (Fisher, Bloque 2-E). Lo mitigan
+        los bonos indexados a inflación.</p>
+      </div>
+      <div class="concept-box">
+        <h4>🧭 Cómo se combinan</h4>
+        <p>Precio y reinversión van en sentidos opuestos ante un mismo movimiento de tipos: esa
+        compensación es la base de la <strong>inmunización</strong> por duración (Sección I).</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — riesgo de precio en acción</h3>
+      <p>
+        Obligación a 10 años, cupón 3,3%, comprada a la par (TIR 3,3%). Si la TIR de mercado sube
+        100 pb (al 4,3%), con duración corregida ≈ 8,2 el precio cae aproximadamente un
+        <strong>8,2%</strong> (a ≈ 91,8%). Quien mantenga a vencimiento cobrará todo lo pactado;
+        quien venda mañana, materializa la pérdida. Mismo activo, dos riesgos distintos según el
+        horizonte del inversor.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — riesgo de reinversión</h3>
+      <p>
+        Bono a 3 años, cupón 4%, TIR de compra 4% (a la par). La TIR "promete" reinvertir cada
+        cupón al 4%. Si los tipos caen y los cupones solo se reinvierten al 2%:<br>
+        VF = 40×(1,02)² + 40×(1,02) + 1.040 = 41,62 + 40,80 + 1.040 = 1.122,42&nbsp;€<br>
+        TRE = (1.122,42/1.000)^(1/3) − 1 = <strong>3,93% &lt; 4%</strong>.<br>
+        La diferencia es el coste del riesgo de reinversión — inexistente en un cupón cero al
+        mismo plazo.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      2022 fue la demostración histórica del riesgo de precio: la subida de tipos del BCE provocó
+      caídas de dos dígitos en índices de deuda a largo plazo, las mayores en décadas. Hoy, con
+      la facilidad de depósito en el 2,00% y las expectativas de inflación repuntando por el
+      conflicto en Irán, el tramo largo español (obligaciones 10 años ~3,5%, 15 años ~3,9%<sup><a href="#fn2">2</a></sup>)
+      vuelve a incorporar prima de inflación — riesgo de inflación y de precio cotizando a la vez.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Identificar el riesgo descrito en un caso: "vende antes de vencimiento tras subida de
+        tipos" → precio; "los cupones se reinvierten a tipos menores" → reinversión; "el emisor
+        ejerce la call tras una bajada de tipos" → amortización anticipada; "emisión pequeña sin
+        compradores" → liquidez. Y la pareja conceptual: subida de tipos perjudica al precio pero
+        <em>beneficia</em> a la reinversión (y viceversa).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Riesgo</th><th>Detonante</th><th>Quién lo sufre / mitigación</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Precio</strong></td><td>Subida de tipos</td><td>Quien vende antes de vencimiento · duración corta</td></tr>
+          <tr><td><strong>Reinversión</strong></td><td>Bajada de tipos</td><td>Quien cobra cupones · cupón cero, inmunización</td></tr>
+          <tr><td><strong>Crédito</strong></td><td>Impago o rebaja de rating</td><td>Todo tenedor · diversificación, investment grade</td></tr>
+          <tr><td><strong>Liquidez</strong></td><td>Mercado estrecho</td><td>Quien necesita vender · emisiones líquidas</td></tr>
+          <tr><td><strong>Tipo de cambio</strong></td><td>Depreciación de la divisa</td><td>Bonos en divisa · cobertura cambiaria</td></tr>
+          <tr><td><strong>Amortización anticipada</strong></td><td>Call con tipos a la baja</td><td>Bonos callable · exigir mayor TIR</td></tr>
+          <tr><td><strong>Inflación</strong></td><td>IPC sobre lo esperado</td><td>Flujos nominales · bonos indexados</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 4, Sección E; taxonomía de riesgos conforme a Fabozzi, <em>Bond Markets, Analysis and Strategies</em> (Pearson) y <a href="https://www.cnmv.es/portal/inversor/Renta-Fija.aspx" target="_blank">CNMV — Los riesgos de la renta fija</a>.</li>
+      <li id="fn2"><a href="https://www.tesoro.es/deuda-publica/subastas/resultados-subastas-anteriores" target="_blank">Tesoro Público — Resultados de subastas</a> (abril–junio 2026).</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-d.html" class="nav-btn">← D: Rating</a>
+    <a href="seccion-f.html" class="nav-btn">F: Valoración de renta fija →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 4 · Sección E · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

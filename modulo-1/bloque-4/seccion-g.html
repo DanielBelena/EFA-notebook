@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B4 · Sección G — Relación precio-TIR: principios de Malkiel · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B4 · G</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 4</a><span class="sep">›</span>
+    <span>Sección G</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 4 · Sección G · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Relación precio-TIR: los principios de Malkiel</h1>
+    <p class="hero-sub">
+      Los cinco teoremas que gobiernan cómo reacciona el precio de un bono ante los tipos —
+      el fundamento conceptual de la duración (Sección I).
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Qué son los principios de Malkiel</h2>
+    <div class="card accent-navy">
+      <p>
+        Burton G. Malkiel formalizó en 1962 cinco <strong>teoremas sobre la relación entre el
+        precio de un bono y su rentabilidad exigida (TIR)</strong><sup><a href="#fn1">1</a></sup>.
+        Describen, sin necesidad de cálculo, en qué dirección y con qué intensidad se mueve el
+        precio cuando cambian los tipos, y cómo modulan esa reacción el plazo y el cupón. Son el
+        esqueleto conceptual del que la duración (Sección I) es la métrica.
+      </p>
+    </div>
+
+    <h3>Los cinco principios</h3>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>1º · Relación inversa</h4>
+        <p>El precio de un bono se mueve en <strong>sentido contrario</strong> a su TIR: tipos
+        arriba → precio abajo, y viceversa. Es consecuencia directa del descuento de flujos.</p>
+      </div>
+      <div class="concept-box">
+        <h4>2º · A más plazo, más sensibilidad</h4>
+        <p>Para una misma variación de la TIR, la variación porcentual del precio es
+        <strong>mayor cuanto mayor es el plazo</strong> hasta el vencimiento.</p>
+      </div>
+      <div class="concept-box">
+        <h4>3º · …pero a ritmo decreciente</h4>
+        <p>La sensibilidad <strong>crece con el plazo a tasa decreciente</strong>: pasar de 1 a 5
+        años añade mucha más sensibilidad que pasar de 26 a 30.</p>
+      </div>
+      <div class="concept-box">
+        <h4>4º · Asimetría (convexidad)</h4>
+        <p>Una <strong>bajada</strong> de la TIR sube el precio <strong>más</strong> de lo que
+        una subida de igual magnitud lo baja. La curva precio-TIR es convexa: trabaja a favor
+        del bonista.</p>
+      </div>
+      <div class="concept-box">
+        <h4>5º · A menor cupón, más sensibilidad</h4>
+        <p>A igual plazo, el bono de <strong>cupón bajo</strong> varía porcentualmente más ante
+        un mismo movimiento de la TIR: sus flujos están más concentrados al final. El caso
+        extremo es el cupón cero.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Síntesis operativa</h4>
+        <p>El bono más sensible (más riesgo de precio) es el de <strong>plazo largo y cupón
+        bajo</strong>; el menos sensible, el de plazo corto y cupón alto. Exactamente lo que
+        ordenará la duración.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Los principios, en números</h2>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — principios 1º, 2º y 3º (plazo)</h3>
+      <p>
+        Bonos con cupón 3% a la par (TIR 3%). La TIR sube al 4% (+100 pb):<br><br>
+        · Bono a <strong>3 años</strong>: P = 30/1,04 + 30/1,04² + 1.030/1,04³ = 972,25 →
+        <strong>−2,78%</strong><br>
+        · Bono a <strong>10 años</strong>: P = 918,89 → <strong>−8,11%</strong><br>
+        · Bono a <strong>30 años</strong>: P = 827,08 → <strong>−17,29%</strong><br><br>
+        1º: todos caen al subir la TIR. 2º: el de 30 años cae mucho más que el de 3.
+        3º: de 3 a 10 años la sensibilidad casi se triplica (+5,3 puntos), pero de 10 a 30
+        (¡20 años más!) solo se duplica (+9,2): crece a ritmo decreciente.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — principio 4º (asimetría)</h3>
+      <p>
+        El bono a 10 años, cupón 3%, a la par:<br>
+        · TIR 4% (+100 pb): P = 918,89 → <strong>−8,11%</strong><br>
+        · TIR 2% (−100 pb): P = 1.089,83 → <strong>+8,98%</strong><br><br>
+        La bajada de tipos genera +8,98%; la subida equivalente solo −8,11%. La diferencia
+        (0,87 puntos) es la <strong>convexidad</strong>: la curvatura juega a favor del inversor
+        en ambos sentidos.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 3 — principio 5º (cupón)</h3>
+      <p>
+        Dos bonos a 10 años con TIR inicial 3%, que sube al 4%:<br>
+        · Cupón <strong>6%</strong> (precio inicial 1.255,91): nuevo precio 1.162,22 →
+        <strong>−7,46%</strong><br>
+        · Cupón <strong>cero</strong> (precio inicial 744,09): nuevo precio 675,56 →
+        <strong>−9,21%</strong><br><br>
+        Mismo plazo, misma variación de TIR: el cupón cero cae casi 2 puntos más. Cuanto menor
+        el cupón, más tarde llega el dinero y más pesa el descuento.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      Los principios explican la actualidad: el repunte de expectativas de inflación por el
+      conflicto en Irán ha golpeado más al tramo largo de la curva (obligaciones a 15-30 años,
+      máxima sensibilidad por el 2º principio) que a las Letras, casi inmunes por su plazo corto.
+      Y los bonos de cupón bajo emitidos en 2020-2021 siguen siendo los más volátiles de las
+      carteras conservadoras (5º principio).
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Preguntas conceptuales directas: "¿qué bono cae más ante una subida de tipos?" → el de
+        mayor plazo y menor cupón. "¿Sube más el precio ante una bajada de 1% de lo que baja ante
+        una subida de 1%?" → sí (convexidad, 4º principio). A veces se pide identificar qué
+        principio describe un enunciado. Memoriza los cinco con sus matices ("a tasa decreciente",
+        "asimétrica").
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Principio</th><th>Enunciado</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1º</strong></td><td>Precio y TIR se mueven en sentido inverso</td></tr>
+          <tr><td><strong>2º</strong></td><td>A mayor plazo, mayor sensibilidad del precio</td></tr>
+          <tr><td><strong>3º</strong></td><td>La sensibilidad crece con el plazo a tasa decreciente</td></tr>
+          <tr><td><strong>4º</strong></td><td>Las bajadas de TIR suben el precio más de lo que las subidas iguales lo bajan (convexidad)</td></tr>
+          <tr><td><strong>5º</strong></td><td>A menor cupón, mayor sensibilidad (máxima en el cupón cero)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">B. G. Malkiel, <a href="https://www.jstor.org/stable/1880816" target="_blank">"Expectations, Bond Prices, and the Term Structure of Interest Rates", <em>Quarterly Journal of Economics</em>, 1962</a>; Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 4, Sección G.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-f.html" class="nav-btn">← F: Valoración</a>
+    <a href="seccion-h.html" class="nav-btn">H: Curva de rentabilidades y ETTI →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 4 · Sección G · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

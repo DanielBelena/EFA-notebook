@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B4 · Sección B — Estructura del mercado de deuda pública · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B4 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 4</a><span class="sep">›</span>
+    <span>Sección B</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 4 · Sección B · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Estructura del mercado de deuda pública</h1>
+    <p class="hero-sub">
+      Emisores y activos (Letras, Bonos, Obligaciones) · Miembros del mercado ·
+      La subasta del Tesoro: marginal, medio, no competitivas, prorrateo ·
+      Secundario: simples, dobles (repos y simultáneas), segregación y STRIPS.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============ SUBSECCIÓN 1: ACTIVOS ============ -->
+  <div class="sec">
+    <h2>1. Activos que se negocian</h2>
+
+    <h3>Emisores de deuda pública en España</h3>
+    <p>
+      El emisor central es el <strong>Estado</strong>, a través del <strong>Tesoro Público</strong>
+      (Secretaría General del Tesoro y Financiación Internacional). Emiten también deuda pública
+      las <strong>Comunidades Autónomas</strong>, algunas <strong>corporaciones locales</strong> y
+      <strong>organismos y entidades públicas</strong> (ICO, FADE, SEPI…), cada uno con su propio
+      riesgo de crédito y rating<sup><a href="#fn1">1</a></sup>. El grueso de la negociación
+      corresponde a los valores del Estado, conocidos como "los valores del Tesoro".
+    </p>
+
+    <h3>Los tres valores del Tesoro</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th>Letras del Tesoro</th><th>Bonos del Estado</th><th>Obligaciones del Estado</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Plazo</strong></td><td>3, 6, 9 y 12 meses</td><td>2, 3 y 5 años</td><td>10, 15, 30 y 50 años</td></tr>
+          <tr><td><strong>Rendimiento</strong></td><td>Implícito: emisión <strong>al descuento</strong></td><td>Explícito: <strong>cupón anual</strong> fijo</td><td>Explícito: <strong>cupón anual</strong> fijo (hay referencias indexadas a inflación)</td></tr>
+          <tr><td><strong>Nominal</strong></td><td>1.000&nbsp;€</td><td>1.000&nbsp;€</td><td>1.000&nbsp;€</td></tr>
+          <tr><td><strong>Forma</strong></td><td colspan="3">Anotaciones en cuenta (registro en Iberclear)</td></tr>
+          <tr><td><strong>Fiscalidad práctica</strong></td><td>Rendimiento sin retención</td><td colspan="2">Cupones con retención; ambos tributan como rendimiento del capital mobiliario</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:var(--fs-xs);color:var(--text-soft);">
+      Bonos y Obligaciones son jurídicamente idénticos: solo difieren en el plazo de emisión.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============ SUBSECCIÓN 2: MIEMBROS ============ -->
+  <div class="sec">
+    <h2>2. Miembros y estructura del mercado</h2>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Tesoro Público</h4>
+        <p>El <strong>emisor</strong>: decide los instrumentos, el calendario anual de subastas y
+        los objetivos de colocación para financiar al Estado.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Banco de España</h4>
+        <p><strong>Agente financiero</strong> de la deuda: organiza y resuelve las subastas,
+        gestiona los pagos y mantiene las Cuentas Directas de particulares. La compensación y
+        liquidación corresponde a <strong>Iberclear</strong> (grupo BME).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Titulares de cuenta</h4>
+        <p>Entidades autorizadas a mantener valores <strong>por cuenta propia</strong> en el
+        registro central (bancos, ESIs, instituciones).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Entidades gestoras</h4>
+        <p>Llevan el registro de los valores de <strong>terceros</strong> (clientes minoristas e
+        institucionales) y canalizan sus órdenes al mercado.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Creadores de mercado (market makers)</h4>
+        <p>Entidades comprometidas a <strong>cotizar precios de compra y venta en firme</strong>
+        y a participar activamente en subastas. A cambio reciben ventajas, como el acceso
+        exclusivo a las <strong>segundas vueltas</strong> de las subastas.</p>
+      </div>
+      <div class="concept-box">
+        <h4>El particular</h4>
+        <p>Accede vía entidad gestora o directamente por Cuenta Directa en el Banco de España /
+        web del Tesoro (peticiones no competitivas).</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============ SUBSECCIÓN 3: PRIMARIO ============ -->
+  <div class="sec">
+    <h2>3. Mercado primario: la subasta del Tesoro</h2>
+
+    <div class="card accent-navy">
+      <p>
+        El Tesoro coloca sus valores por <strong>subasta competitiva</strong>. Las entidades
+        presentan <strong>peticiones competitivas</strong> (indican nominal <em>y</em> precio
+        ofrecido) y los minoristas, <strong>no competitivas</strong> (solo nominal: aceptan el
+        precio medio resultante; máximo 5 millones de euros por postor). El Tesoro ordena las
+        competitivas de mejor a peor precio y decide cuánto adjudicar<sup><a href="#fn2">2</a></sup>.
+      </p>
+    </div>
+
+    <h3>Conceptos clave de la resolución</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Definición</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Nominal solicitado</strong></td><td>Suma de todas las peticiones presentadas (demanda total)</td></tr>
+          <tr><td><strong>Nominal adjudicado</strong></td><td>Importe que el Tesoro decide emitir (oferta aceptada)</td></tr>
+          <tr><td><strong>Ratio de cobertura</strong></td><td>Solicitado / adjudicado: mide el apetito de la demanda</td></tr>
+          <tr><td><strong>Precio marginal (mínimo aceptado)</strong></td><td>El precio más bajo al que el Tesoro adjudica; su rentabilidad equivalente es el <strong>tipo marginal</strong> (el más alto pagado)</td></tr>
+          <tr><td><strong>Precio medio ponderado</strong></td><td>Media de los precios aceptados ponderada por importes; su rentabilidad es el <strong>tipo medio</strong></td></tr>
+          <tr><td><strong>Regla de precios (subasta "española", híbrida)</strong></td><td>Las peticiones entre el marginal y el medio pagan <strong>su precio pujado</strong>; las que pujaron por encima del medio pagan el <strong>precio medio</strong>. Las no competitivas pagan el precio medio</td></tr>
+          <tr><td><strong>Prorrateo</strong></td><td>Si al precio marginal hay más peticiones que importe restante, se adjudican proporcionalmente</td></tr>
+          <tr><td><strong>Segunda vuelta</strong></td><td>Tras la subasta, los creadores de mercado pueden suscribir un importe adicional al precio medio</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo real — subasta de Letras a 6 meses (2 de junio de 2026)</h3>
+      <p>
+        Resultado oficial del Tesoro<sup><a href="#fn3">3</a></sup>:<br>
+        · Nominal solicitado: 4.622,43 M€ · Nominal adjudicado: 1.981,63 M€ →
+        <strong>ratio de cobertura 2,33</strong><br>
+        · Precio mínimo aceptado (marginal): 98,803% → <strong>tipo marginal 2,398%</strong><br>
+        · Precio medio: 98,813% → <strong>tipo medio 2,376%</strong><br>
+        · Peticiones no competitivas: 1.079,13 M€ (pagan el precio medio)<br>
+        · Adjudicado al marginal: 80 M€ — el primer precio no admitido fue 98,802%<br><br>
+        Lectura: la demanda dobló con creces la oferta; el marginal quedó solo 1 milésima por
+        debajo del primer precio rechazado. Un minorista que acudió por no competitiva pagó
+        988,13&nbsp;€ por título y cobrará 1.000&nbsp;€ a los 6 meses.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — del precio al tipo de una Letra</h3>
+      <p>
+        Letra a 6 meses (184 días) adjudicada al precio medio 98,813%:<br>
+        i = (100/98,813 − 1) × 360/184 = 0,012013 × 1,9565 = <strong>2,35%</strong> ≈ tipo medio
+        publicado (las décimas de diferencia dependen de los días exactos de la referencia).
+        La mecánica completa de valoración se desarrolla en la Sección F.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Marginal = precio <em>mínimo</em> aceptado = tipo <em>máximo</em> pagado (la relación
+        inversa precio-tipo despista). (2) Las no competitivas no indican precio y pagan el
+        <em>precio medio</em>. (3) Regla de adjudicación híbrida española: entre marginal y medio
+        se paga lo pujado; por encima del medio, el medio. (4) Segunda vuelta = exclusiva de
+        creadores de mercado.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============ SUBSECCIÓN 4: SECUNDARIO ============ -->
+  <div class="sec">
+    <h2>4. Mercado secundario</h2>
+
+    <h3>Operaciones simples y dobles</h3>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Operaciones simples</h4>
+        <p>Una sola compraventa, con transmisión <strong>plena y definitiva</strong> del valor:
+        al <strong>contado</strong> (liquidación en pocos días) o <strong>a plazo</strong>
+        (liquidación diferida pactada hoy).</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Operaciones dobles</h4>
+        <p><strong>Dos compraventas de sentido contrario pactadas a la vez</strong> sobre el mismo
+        valor: venta hoy + recompra futura a precio cerrado. Económicamente, un préstamo de dinero
+        garantizado por los títulos. Dos variantes: <strong>repo</strong> (el comprador temporal no
+        puede disponer libremente del valor, salvo repos sucesivos hasta la fecha pactada) y
+        <strong>simultánea</strong> (plena disponibilidad: puede venderlo o cederlo).</p>
+      </div>
+    </div>
+
+    <h3>El tipo de interés de un repo o simultánea</h3>
+    <p>
+      La rentabilidad del prestamista de dinero sale de la diferencia entre el precio de recompra
+      (P<sub>v</sub>) y el de compra inicial (P<sub>c</sub>), anualizada en base 360:
+    </p>
+    <div class="formula">
+      <span class="formula-label">Tipo repo (interés simple, base 360)</span>
+      i = ( Pᵥ / P꜀ − 1 ) × 360 / días
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — repo a 30 días</h3>
+      <p>
+        Compro hoy deuda pública por 1.000.000&nbsp;€ con pacto de reventa en 30 días por
+        1.001.700&nbsp;€.<br>
+        i = (1.001.700/1.000.000 − 1) × 360/30 = 0,0017 × 12 = <strong>2,04% anual</strong>.<br>
+        He prestado dinero al 2,04% con la deuda como colateral — coherente con un mercado
+        monetario anclado a la facilidad de depósito del 2,00%.
+      </p>
+    </div>
+
+    <h3>Segregación, reconstitución y el mercado de STRIPS</h3>
+    <div class="card accent-navy">
+      <p>
+        La <strong>segregación</strong> descompone un bono u obligación "segregable" en valores
+        independientes: cada cupón futuro y el principal pasan a negociarse por separado como
+        <strong>bonos cupón cero</strong> (los <em>STRIPS</em>: Separate Trading of Registered
+        Interest and Principal Securities). La <strong>reconstitución</strong> es la operación
+        inversa: reagrupar todos los strips para recomponer el bono original. Solo pueden
+        realizarlas los creadores de mercado<sup><a href="#fn2">2</a></sup>.
+      </p>
+      <p style="margin-top:.6rem;">
+        Utilidad: crean activos cupón cero a cualquier plazo (sin riesgo de reinversión, ideales
+        para inmunizar — Sección I) y permiten observar directamente la curva cupón cero (ETTI,
+        Sección H). Un bono a 10 años con cupón anual genera 11 strips: 10 de cupones + 1 de principal.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      El Tesoro mantiene un calendario denso: en las últimas semanas ha subastado Letras a 3, 6,
+      9 y 12 meses y Bonos/Obligaciones a 3, 5, 10, 15 y 30 años, incluidas referencias indexadas
+      a la inflación europea<sup><a href="#fn3">3</a></sup>. Las rentabilidades marginales se
+      mueven del ~2,4% (Letras 6M) al ~3,9% (15 años), con ratios de cobertura superiores a 2:
+      la demanda institucional y minorista sigue firme pese al repunte de tipos.
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Valores del Tesoro</strong></td><td>Letras (≤12m, descuento) · Bonos (2–5a, cupón) · Obligaciones (10–50a, cupón)</td></tr>
+          <tr><td><strong>Miembros</strong></td><td>Tesoro (emite) · BdE (agente) · titulares de cuenta · gestoras (terceros) · creadores de mercado</td></tr>
+          <tr><td><strong>Subasta</strong></td><td>Competitivas vs. no competitivas; marginal (peor precio aceptado) vs. medio; regla híbrida; prorrateo; 2ª vuelta</td></tr>
+          <tr><td><strong>Secundario</strong></td><td>Simples (contado/plazo) vs. dobles (repo/simultánea)</td></tr>
+          <tr><td><strong>Tipo repo</strong></td><td>i = (Pᵥ/P꜀ − 1) × 360/días</td></tr>
+          <tr><td><strong>STRIPS</strong></td><td>Segregar cupones y principal en cupones cero negociables; reconstitución = inversa</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1"><a href="https://www.tesoro.es/deuda-publica/los-valores-del-tesoro" target="_blank">Tesoro Público — Los valores del Tesoro</a>: características oficiales de Letras, Bonos y Obligaciones.</li>
+      <li id="fn2">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 4, Sección B; <a href="https://www.tesoro.es/deuda-publica/subastas" target="_blank">Tesoro Público — Subastas</a> (procedimiento y resolución) y normativa del mercado de deuda pública en anotaciones.</li>
+      <li id="fn3"><a href="https://www.tesoro.es/deuda-publica/subastas/resultados-subastas-anteriores" target="_blank">Tesoro Público — Resultados de subastas</a>: Letras a 6 meses, 2 de junio de 2026 (marginal 2,398%, medio 2,376%, cobertura 2,33).</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-a.html" class="nav-btn">← A: Características generales</a>
+    <a href="seccion-c.html" class="nav-btn">C: Renta fija privada →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 4 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

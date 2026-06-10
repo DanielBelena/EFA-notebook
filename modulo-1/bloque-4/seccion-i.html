@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B4 · Sección I — Duración e inmunización · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B4 · I</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 4</a><span class="sep">›</span>
+    <span>Sección I</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 4 · Sección I · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Medición y gestión del riesgo de tipo de interés</h1>
+    <p class="hero-sub">
+      Duración de Macaulay · Duración corregida · Efecto de los tipos en el precio (bono y
+      cartera) · Propiedades de la duración · Sensibilidad · Inmunización.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. La duración (Macaulay)</h2>
+    <div class="card accent-navy">
+      <p>
+        La <strong>duración</strong> (F. Macaulay, 1938) es el <strong>plazo medio ponderado</strong>
+        de los flujos de un bono, donde cada momento t se pondera por el <strong>peso del valor
+        actual de su flujo</strong> sobre el precio total<sup><a href="#fn1">1</a></sup>. Se mide
+        en años: es el "centro de gravedad temporal" del bono — y resulta ser, a la vez, su
+        medida de sensibilidad a los tipos.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Duración de Macaulay</span>
+      D = [ Σ t · Fₜ/(1+r)ᵗ ] / P
+    </div>
+
+    <h3>Duración corregida (o modificada)</h3>
+    <div class="formula">
+      <span class="formula-label">Duración corregida</span>
+      D* = D / (1 + r)
+    </div>
+    <div class="formula">
+      <span class="formula-label">Efecto de los tipos en el precio (aproximación lineal)</span>
+      ΔP / P ≈ − D* · Δr      →      ΔP ≈ − D* · Δr · P
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — duración paso a paso</h3>
+      <p>
+        Bono a 3 años, cupón anual 4%, TIR 4% (cotiza a la par: P = 1.000&nbsp;€).<br><br>
+        <strong>Valores actuales:</strong> 40/1,04 = 38,46 · 40/1,04² = 36,98 · 1.040/1,04³ = 924,56<br>
+        <strong>Ponderación temporal:</strong> 1×38,46 + 2×36,98 + 3×924,56 = 38,46 + 73,96 + 2.773,67 = 2.886,09<br><br>
+        <strong>D</strong> = 2.886,09 / 1.000 = <strong>2,89 años</strong><br>
+        <strong>D*</strong> = 2,89 / 1,04 = <strong>2,78</strong><br><br>
+        Si la TIR sube 100 pb (Δr = +0,01): ΔP/P ≈ −2,78 × 0,01 = <strong>−2,78%</strong> →
+        P ≈ 972,2&nbsp;€. (El precio exacto recalculado es 972,25&nbsp;€: la aproximación lineal
+        clava el resultado para movimientos pequeños; para movimientos grandes la convexidad
+        — 4º principio de Malkiel — la mejora a favor del inversor.)
+      </p>
+    </div>
+
+    <h3>Duración de una cartera</h3>
+    <div class="formula">
+      <span class="formula-label">Duración (corregida) de una cartera</span>
+      D*꜀ = Σ wᵢ · D*ᵢ      (wᵢ = peso de cada bono a valor de mercado)
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — cartera de dos bonos</h3>
+      <p>
+        Cartera: 60% en el bono anterior (D* = 2,78) y 40% en una obligación con D* = 8,20.<br>
+        D*꜀ = 0,6 × 2,78 + 0,4 × 8,20 = 1,67 + 3,28 = <strong>4,95</strong><br><br>
+        Ante una subida general de tipos de 50 pb: ΔV/V ≈ −4,95 × 0,005 =
+        <strong>−2,47%</strong>. Sobre 1.000.000&nbsp;€, una pérdida estimada de 24.750&nbsp;€.
+        Gestionar la duración de la cartera <em>es</em> gestionar su riesgo de tipos.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Propiedades de la duración</h2>
+    <div class="concept-grid">
+      <div class="concept-box"><h4>Cupón cero</h4><p><strong>D = plazo</strong> hasta el vencimiento (un único flujo al final). Es el máximo posible para ese plazo.</p></div>
+      <div class="concept-box"><h4>Bono con cupón</h4><p><strong>D &lt; plazo</strong>: los cupones intermedios adelantan el centro de gravedad.</p></div>
+      <div class="concept-box"><h4>A menor cupón…</h4><p>…<strong>mayor duración</strong> (los flujos se concentran al final). Coherente con el 5º principio de Malkiel.</p></div>
+      <div class="concept-box"><h4>A menor TIR…</h4><p>…<strong>mayor duración</strong>: los flujos lejanos pesan relativamente más al descontarse menos.</p></div>
+      <div class="concept-box"><h4>A mayor plazo…</h4><p>…<strong>mayor duración</strong>, creciendo a ritmo decreciente (3º principio de Malkiel).</p></div>
+      <div class="concept-box"><h4>Perpetua</h4><p>D = (1+r)/r, finita aunque el plazo sea infinito (al 4%: 26 años).</p></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. La sensibilidad</h2>
+    <div class="card accent-navy">
+      <p>
+        La <strong>sensibilidad</strong> expresa la variación del precio ante un movimiento dado
+        de los tipos. En términos <strong>relativos</strong>, la sensibilidad de un bono es su
+        duración corregida (ΔP/P por unidad de Δr). En términos <strong>absolutos</strong> (en
+        euros), se calcula multiplicando por el precio:
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Sensibilidad absoluta (por 1 punto porcentual de Δr)</span>
+      S = D* · P / 100
+    </div>
+    <div class="formula">
+      <span class="formula-label">Efecto en el precio usando la sensibilidad</span>
+      ΔP ≈ − S · Δr (en puntos porcentuales)
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 3 — sensibilidad en euros</h3>
+      <p>
+        Obligación con P = 985&nbsp;€ y D* = 8,20:<br>
+        S = 8,20 × 985 / 100 = <strong>80,77&nbsp;€ por punto porcentual</strong>.<br><br>
+        Subida de tipos de 0,25 puntos: ΔP ≈ −80,77 × 0,25 = <strong>−20,19&nbsp;€</strong>
+        (el precio pasaría a ≈ 964,8&nbsp;€). Para una cartera, se suman las sensibilidades en
+        euros de cada posición — el equivalente renta-fija del "DV01" profesional (que usa
+        1 punto básico en lugar de 1 punto porcentual).
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>4. Inmunización por duración</h2>
+    <div class="card accent-navy">
+      <p>
+        <strong>Inmunizar</strong> una cartera es construirla de modo que su valor final a un
+        horizonte H quede <strong>asegurado frente a movimientos de tipos</strong>. La regla:
+        <strong>igualar la duración (Macaulay) de la cartera al horizonte de inversión</strong>
+        (D = H). La lógica: ante un movimiento de tipos, el riesgo de precio y el de reinversión
+        actúan en sentidos opuestos (Sección E); con D = H ambos efectos se
+        <strong>compensan exactamente</strong> al horizonte<sup><a href="#fn1">1</a></sup>.
+        Requiere reequilibrar periódicamente (la duración cambia con el tiempo y con los tipos).
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Condición de inmunización</span>
+      D꜀ₐᵣₜₑᵣₐ = Horizonte H      con      D꜀ = Σ wᵢ·Dᵢ
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 4 — inmunizar un objetivo a 5 años</h3>
+      <p>
+        Un cliente necesita un capital cierto dentro de <strong>H = 5 años</strong>. Disponemos de
+        dos bonos: A con D = 2,89 (el del ejemplo 1) y B con D = 8,00.<br><br>
+        w × 2,89 + (1−w) × 8,00 = 5 → w = (8 − 5) / (8 − 2,89) = 3 / 5,11 = <strong>58,7%</strong><br><br>
+        Cartera inmunizada: <strong>58,7% en A y 41,3% en B</strong>. Si los tipos suben, los
+        precios caen pero los cupones se reinvierten mejor; si bajan, al revés — y en t = 5 ambos
+        efectos se anulan. La solución más sencilla, cuando existe: comprar directamente un
+        <strong>cupón cero a 5 años</strong> (D = 5 automática y sin reequilibrios — para eso
+        sirven los STRIPS de la Sección B).
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      La gestión por duración es hoy el primer dial de las carteras conservadoras: con la curva
+      española en ≈2,4%–3,9%<sup><a href="#fn2">2</a></sup> y expectativas de inflación al alza,
+      muchas gestoras mantienen duraciones cortas (2–4) para limitar el riesgo de precio,
+      renunciando a parte de la rentabilidad del tramo largo. Las estrategias de "cartera
+      objetivo" y los fondos de rentabilidad objetivo a vencimiento que comercializa la banca
+      española son, en esencia, inmunizaciones empaquetadas.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Calcular D de un bono de 2-3 flujos y derivar D* = D/(1+r). (2) Aplicar
+        ΔP/P ≈ −D*·Δr — el ejercicio estrella del bloque (¡ojo al signo!). (3) Propiedades:
+        cupón cero D = plazo; D baja si sube el cupón o la TIR. (4) Duración de cartera = media
+        ponderada por valor. (5) Inmunizar = igualar duración al horizonte; pregunta típica:
+        "¿qué cartera asegura el capital a 5 años?" → la de D = 5.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Fórmula / regla</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Duración (Macaulay)</strong></td><td>D = Σ t·VA(Fₜ) / P — plazo medio ponderado, en años</td></tr>
+          <tr><td><strong>Duración corregida</strong></td><td>D* = D/(1+r)</td></tr>
+          <tr><td><strong>Efecto precio</strong></td><td>ΔP/P ≈ −D*·Δr</td></tr>
+          <tr><td><strong>Sensibilidad absoluta</strong></td><td>S = D*·P/100 (€ por punto porcentual)</td></tr>
+          <tr><td><strong>Cartera</strong></td><td>D media ponderada por valor de mercado</td></tr>
+          <tr><td><strong>Propiedades</strong></td><td>Cupón cero: D = plazo · D ↑ si cupón ↓, TIR ↓, plazo ↑</td></tr>
+          <tr><td><strong>Inmunización</strong></td><td>D = horizonte (compensa precio ↔ reinversión); reequilibrio periódico</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">F. R. Macaulay, <em>Some Theoretical Problems Suggested by the Movements of Interest Rates</em> (NBER, 1938); inmunización: F. M. Redington (1952) y Fabozzi, <em>Bond Markets, Analysis and Strategies</em>. Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 4, Sección I.</li>
+      <li id="fn2"><a href="https://www.tesoro.es/deuda-publica/subastas/resultados-subastas-anteriores" target="_blank">Tesoro Público — Resultados de subastas</a> (mayo–junio 2026).</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-h.html" class="nav-btn">← H: Curva y ETTI</a>
+    <a href="../index.html" class="nav-btn">Índice Módulo 1 →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 4 · Sección I · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

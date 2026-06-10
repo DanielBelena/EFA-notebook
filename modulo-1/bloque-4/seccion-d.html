@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B4 · Sección D — Rating: concepto y clasificación · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B4 · D</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 4</a><span class="sep">›</span>
+    <span>Sección D</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 4 · Sección D · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Rating: concepto y clasificación</h1>
+    <p class="hero-sub">
+      Qué mide el rating y qué papel cumple · Las agencias y sus escalas ·
+      Grado de inversión vs. alto rendimiento · Outlook, revisiones y efectos en el precio.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Concepto y papel del rating</h2>
+    <div class="card accent-navy">
+      <p>
+        El <strong>rating o calificación crediticia</strong> es una opinión independiente,
+        emitida por una agencia especializada, sobre la <strong>capacidad y voluntad de un emisor
+        de atender puntualmente sus obligaciones de pago</strong> — es decir, sobre su
+        <strong>riesgo de crédito</strong><sup><a href="#fn1">1</a></sup>. Se asigna tanto a
+        emisores como a emisiones concretas (una subordinada del mismo banco tendrá peor rating
+        que su deuda senior).
+      </p>
+    </div>
+
+    <h3>Su papel en el mercado de renta fija</h3>
+    <div class="concept-grid">
+      <div class="concept-box"><h4>Reduce asimetrías de información</h4><p>Sintetiza en una letra un análisis de solvencia que el inversor medio no puede realizar; abarata el coste de evaluar emisores.</p></div>
+      <div class="concept-box"><h4>Determina el coste de financiación</h4><p>A peor rating, mayor prima de riesgo (spread) exigida sobre la curva de referencia: el rating fija de facto el precio del crédito.</p></div>
+      <div class="concept-box"><h4>Funciona como umbral regulatorio</h4><p>Mandatos de fondos, colateral del BCE y normas de solvencia usan el rating como filtro: perder el grado de inversión expulsa al emisor de muchas carteras ("ángeles caídos").</p></div>
+      <div class="concept-box"><h4>Sus límites</h4><p>Es una opinión, no una garantía ni recomendación de compra; reacciona a veces con retraso (crisis 2008) y los emisores pagan por ser calificados (conflicto regulado por ESMA en la UE).</p></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Las escalas: clasificación de los bonos según su calificación</h2>
+    <p>
+      Las tres grandes agencias son <strong>Moody's, S&P Global y Fitch</strong>. Sus escalas de
+      largo plazo son equivalentes y se dividen en dos grandes universos:
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Categoría</th><th>Moody's</th><th>S&P / Fitch</th><th>Lectura</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="4" style="background:var(--green-light);"><strong>Grado de inversión<br>(investment grade)</strong></td>
+              <td>Aaa</td><td>AAA</td><td>Máxima calidad</td></tr>
+          <tr><td>Aa1–Aa3</td><td>AA+ – AA−</td><td>Calidad muy alta</td></tr>
+          <tr><td>A1–A3</td><td>A+ – A−</td><td>Calidad alta</td></tr>
+          <tr><td>Baa1–Baa3</td><td>BBB+ – BBB−</td><td>Calidad media; <strong>BBB−/Baa3 es la frontera</strong></td></tr>
+          <tr><td rowspan="3" style="background:var(--amber-light);"><strong>Alto rendimiento<br>(high yield / especulativo)</strong></td>
+              <td>Ba1–Ba3</td><td>BB+ – BB−</td><td>Especulativo</td></tr>
+          <tr><td>B1–B3 / Caa–Ca</td><td>B+ – B− / CCC–CC</td><td>Altamente especulativo · riesgo sustancial</td></tr>
+          <tr><td>C</td><td>C / D</td><td>Cerca del impago · <strong>impago (default)</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Complementos de la calificación: la <strong>perspectiva (outlook)</strong> — positiva,
+      estable o negativa, sobre la dirección probable a 1-2 años — y la <strong>revisión
+      (credit watch)</strong>, que anticipa un posible cambio inminente. Existen además escalas
+      de <strong>corto plazo</strong> (P-1/A-1/F1…) para pagarés y papel comercial.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — el rating en precio</h3>
+      <p>
+        Dos bonos a 5 años: emisor AA cotiza con TIR del 3,1%; emisor BB, del 5,4%. El
+        <strong>spread de crédito</strong> de 230 pb es la compensación anual extra por el mayor
+        riesgo de impago. Si el emisor BB fuera rebajado a B, su TIR exigida podría irse al
+        ~6,5%: con duración ≈ 4,2, su precio caería en torno a un 4,6% (mecánica de la Sección I)
+        sin que los tipos de mercado se hayan movido — puro riesgo de crédito.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      El Reino de España mantiene calificaciones en la zona A de las tres grandes agencias
+      (con mejoras escalonadas en 2024-2025), lo que sostiene la demanda institucional vista en
+      las subastas del Tesoro (ratios de cobertura &gt; 2). En la UE, las agencias están
+      registradas y supervisadas por <strong>ESMA</strong> desde el Reglamento de agencias de
+      rating (CRA), una de las respuestas regulatorias a 2008<sup><a href="#fn2">2</a></sup>.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) La frontera grado de inversión / high yield: <strong>BBB− (S&P/Fitch) = Baa3
+        (Moody's)</strong>. Por debajo, especulativo. (2) El rating mide riesgo de
+        <em>crédito</em>, no de mercado ni de liquidez. (3) Identificar equivalencias entre
+        escalas (Ba1 = BB+). (4) "Ángel caído" = emisor que pierde el grado de inversión.
+        (5) El rating es una opinión: no garantiza el cobro.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Rating</strong></td><td>Opinión sobre el riesgo de crédito de emisor o emisión</td></tr>
+          <tr><td><strong>Agencias</strong></td><td>Moody's · S&P · Fitch (supervisadas por ESMA en la UE)</td></tr>
+          <tr><td><strong>Investment grade</strong></td><td>De AAA/Aaa hasta BBB−/Baa3</td></tr>
+          <tr><td><strong>High yield</strong></td><td>De BB+/Ba1 hacia abajo; D = default</td></tr>
+          <tr><td><strong>Papel</strong></td><td>Información, coste de financiación (spread) y umbral regulatorio</td></tr>
+          <tr><td><strong>Outlook / watch</strong></td><td>Dirección probable del rating a medio plazo / cambio inminente</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 4, Sección D; definición y escalas conforme a <a href="https://www.spglobal.com/ratings/en/about/intro-to-credit-ratings" target="_blank">S&P Global — Intro to Credit Ratings</a> y <a href="https://ratings.moodys.com/rating-definitions" target="_blank">Moody's — Rating Definitions</a>.</li>
+      <li id="fn2"><a href="https://www.esma.europa.eu/supervision/credit-rating-agencies" target="_blank">ESMA — Credit Rating Agencies</a>: registro y supervisión europea (Reglamento CE 1060/2009).</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-c.html" class="nav-btn">← C: Renta fija privada</a>
+    <a href="seccion-e.html" class="nav-btn">E: Riesgos de la renta fija →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 4 · Sección D · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
