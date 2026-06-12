@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B6 · Sección D — Operativa en el mercado de divisas · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B6 · D</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 6</a><span class="sep">›</span>
+    <span>Sección D</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 6 · Sección D · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Operativa en el mercado de divisas</h1>
+    <p class="hero-sub">
+      Contado vs. plazo y fechas valor · Tipos cruzados · Bid-ask · El forward de divisas ·
+      Puntos swap · Criptodivisas: principios y principales por capitalización.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Contado vs. plazo y la fecha valor</h2>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Mercado al contado (spot)</h4>
+        <p>Compraventa al precio de hoy con entrega "inmediata": <strong>fecha valor D+2</strong>
+        (dos días hábiles tras la contratación), la convención estándar del interbancario
+        (hay pares con D+1, como USD/CAD).</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Mercado a plazo (forward)</h4>
+        <p>El precio se pacta <strong>hoy</strong> pero la entrega es en una <strong>fecha valor
+        futura pactada</strong> (&gt; D+2: 1 semana, 1, 3, 6, 12 meses…), calculada añadiendo el
+        plazo a la fecha valor spot. Permite asegurar hoy el cambio de un cobro o pago futuro.</p>
+      </div>
+    </div>
+
+    <h3>Tipos de cambio cruzados</h3>
+    <p>
+      Cuando un par no cotiza directamente, su tipo se obtiene <strong>cruzando dos pares contra
+      una moneda común</strong> (normalmente el dólar). La coherencia la garantiza el arbitraje
+      triangular:
+    </p>
+    <div class="formula">
+      <span class="formula-label">Tipo cruzado</span>
+      EUR/JPY = EUR/USD × USD/JPY      ·      EUR/GBP = EUR/USD ÷ GBP/USD
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — cruzado EUR/JPY</h3>
+      <p>
+        EUR/USD = 1,156 y USD/JPY = 155,00:<br>
+        EUR/JPY = 1,156 × 155,00 = <strong>179,18</strong><br><br>
+        Y con GBP/USD = 1,3400: EUR/GBP = 1,156 / 1,3400 = <strong>0,8627</strong>.
+        Regla mnemotécnica: si el dólar es <em>cotizada</em> en ambos pares, se divide;
+        si en uno es base y en otro cotizada, se multiplica — comprueba siempre que las unidades
+        "se cancelen".
+      </p>
+    </div>
+
+    <h3>El diferencial bid-ask</h3>
+    <div class="card accent-navy">
+      <p>
+        Los creadores de mercado cotizan dos precios: <strong>bid</strong> (al que ellos
+        <em>compran</em> la divisa base) y <strong>ask u offer</strong> (al que la
+        <em>venden</em>). El cliente opera siempre por el lado malo: <strong>compra al ask y
+        vende al bid</strong>. La horquilla (spread) es la remuneración del market maker y crece
+        con la iliquidez del par y la volatilidad.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — el coste de la horquilla</h3>
+      <p>
+        EUR/USD cotiza 1,1558 / 1,1562 (bid/ask).<br>
+        Una empresa compra 1 M€ contra dólares: paga al <strong>ask</strong> → entrega
+        1.156.200&nbsp;$. Si se arrepiente y deshace al instante, vende al <strong>bid</strong>
+        → recibe 1.155.800&nbsp;$. Coste del viaje de ida y vuelta: <strong>400&nbsp;$</strong>
+        (4 pips) sin que el mercado se haya movido. En un par exótico con horquilla de 50 pips,
+        el mismo viaje costaría 5.000&nbsp;$: la liquidez es dinero.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. El tipo de cambio forward y los puntos swap</h2>
+
+    <div class="card accent-navy">
+      <p>
+        El <strong>tipo forward</strong> es el cambio pactado hoy para una entrega futura.
+        <strong>No es una predicción</strong>: es el resultado del arbitraje de la paridad
+        cubierta de tipos de interés (Sección C) — el único precio que impide ganar dinero sin
+        riesgo combinando spot, depósito y forward<sup><a href="#fn1">1</a></sup>.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Forward de divisas (par base/cotizada, plazo n días)</span>
+      F = S × (1 + i_cotizada · n/360) / (1 + i_base · n/360)
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Puntos swap</span>
+      Puntos swap = F − S      (se cotizan en pips: positivos = premio o "reporte"; negativos = descuento o "deporte")
+    </div>
+
+    <p>
+      Los <strong>puntos swap</strong> expresan la diferencia entre el precio futuro y el spot,
+      derivada exclusivamente del <strong>diferencial de tipos de interés</strong> entre las dos
+      monedas durante el plazo. Si la divisa cotizada tiene tipos más altos, F &gt; S (la base
+      cotiza a plazo con premio); si los tiene más bajos, F &lt; S. El mercado interbancario no
+      cotiza el forward completo sino directamente estos puntos, que se suman al spot.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 3 — forward y puntos swap a 6 meses</h3>
+      <p>
+        S (EUR/USD) = 1,1560. Tipos a 6 meses (180 días): euro 2,0%, dólar 4,0%.<br><br>
+        F = 1,1560 × (1 + 0,04 × 180/360) / (1 + 0,02 × 180/360)<br>
+        F = 1,1560 × 1,02/1,01 = 1,1560 × 1,009901 = <strong>1,1674</strong><br><br>
+        <strong>Puntos swap</strong> = 1,1674 − 1,1560 = +0,0114 → <strong>+114 pips</strong>
+        (el euro cotiza a plazo con premio: el dólar, con tipos más altos, con descuento).<br><br>
+        Aplicación: la bodega de la Sección B que cobrará 500.000&nbsp;$ en 6 meses vende hoy
+        esos dólares a 1,1674 y asegura 428.302&nbsp;€ — pase lo que pase con el spot.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Spot = D+2; forward = fecha pactada &gt; D+2. (2) Cálculo del forward con la fórmula
+        de la paridad (¡los tipos de la <em>cotizada</em> en el numerador!). (3) Puntos swap =
+        F − S, fruto del diferencial de tipos, no de expectativas. (4) La divisa con tipos más
+        altos cotiza a plazo con descuento. (5) Cruzados: multiplicar o dividir según la posición
+        del dólar. (6) El cliente compra al ask y vende al bid — siempre.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. Las criptodivisas</h2>
+    <div class="card accent-navy">
+      <p>
+        Las <strong>criptodivisas o criptomonedas</strong> son representaciones digitales de
+        valor que utilizan <strong>criptografía</strong> y registros distribuidos
+        (<strong>blockchain</strong>) para emitirse y transferirse <strong>sin necesidad de un
+        emisor central ni intermediarios</strong>. No son moneda de curso legal ni pasivo de
+        ningún banco central: en la UE se consideran <strong>criptoactivos</strong>, regulados
+        desde 2024 por el reglamento <strong>MiCA</strong><sup><a href="#fn2">2</a></sup>
+        (Módulo 9 para el detalle regulatorio).
+      </p>
+    </div>
+
+    <h3>Principios en los que se basan</h3>
+    <div class="concept-grid">
+      <div class="concept-box"><h4>Descentralización</h4><p>El registro lo mantiene una red de nodos: ninguna autoridad única valida ni puede censurar las transacciones.</p></div>
+      <div class="concept-box"><h4>Blockchain</h4><p>Libro mayor distribuido e inmutable: bloques de transacciones encadenados criptográficamente, públicos y verificables.</p></div>
+      <div class="concept-box"><h4>Criptografía de clave pública</h4><p>La propiedad se acredita con claves privadas; las firmas digitales garantizan autenticidad sin revelar identidades.</p></div>
+      <div class="concept-box"><h4>Mecanismos de consenso</h4><p>Cómo acuerda la red la verdad: <strong>prueba de trabajo</strong> (PoW, minería — Bitcoin) o <strong>prueba de participación</strong> (PoS — Ethereum desde 2022), más eficiente energéticamente.</p></div>
+      <div class="concept-box"><h4>Oferta predeterminada</h4><p>Emisión fijada por protocolo, no por decisión discrecional: Bitcoin tiene techo de 21 millones y "halvings" cuatrienales — su tesis de escasez digital.</p></div>
+      <div class="concept-box"><h4>Riesgos para el inversor</h4><p>Volatilidad extrema, custodia (pérdida de claves, hackeos de plataformas), riesgo regulatorio y ausencia de flujos de caja que anclen una valoración fundamental.</p></div>
+    </div>
+
+    <h3>Principales criptomonedas por capitalización</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Criptoactivo</th><th>Rasgo definitorio</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1. Bitcoin (BTC)</strong></td><td>La original (2009, "Satoshi Nakamoto"): PoW, techo de 21 M, narrativa de "oro digital". Domina ~58% del mercado</td></tr>
+          <tr><td><strong>2. Ethereum (ETH)</strong></td><td>Plataforma de contratos inteligentes y aplicaciones descentralizadas; PoS desde 2022. ~9% del mercado</td></tr>
+          <tr><td><strong>Siguientes posiciones</strong></td><td>Stablecoins como <strong>Tether (USDT)</strong> (ligadas 1:1 al dólar, puente entre cripto y dinero tradicional) y plataformas/tokens como <strong>XRP, BNB y Solana</strong>, que rotan posiciones según el ciclo</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      El mercado cripto capitaliza ~2,1 billones de dólares, con Bitcoin en torno a los
+      <strong>61.000&nbsp;$</strong> tras la fuerte corrección desde su máximo histórico de
+      126.188&nbsp;$ (octubre de 2025)<sup><a href="#fn3">3</a></sup> — un recordatorio de la
+      volatilidad estructural del activo: −50% desde máximos en ocho meses. En España, los
+      proveedores de servicios de criptoactivos operan ya bajo licencia MiCA supervisados por
+      la CNMV, y la publicidad cripto dirigida a minoristas está sujeta a advertencias
+      obligatorias de riesgo.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Las criptomonedas NO son dinero de curso legal ni pasivo de un banco central
+        (a diferencia del futuro euro digital). (2) Principios: descentralización, blockchain,
+        criptografía, consenso (PoW vs. PoS), oferta limitada. (3) Bitcoin = mayor capitalización
+        y PoW con techo de 21 M; Ethereum = contratos inteligentes y PoS. (4) Stablecoins =
+        criptoactivos referenciados a una moneda fiat. (5) Marco europeo: reglamento MiCA.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Fórmula / regla</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Spot</strong></td><td>Fecha valor D+2</td></tr>
+          <tr><td><strong>Forward</strong></td><td>F = S·(1+i_cot·n/360)/(1+i_base·n/360); fecha valor pactada</td></tr>
+          <tr><td><strong>Puntos swap</strong></td><td>F − S (en pips): premio o descuento por diferencial de tipos</td></tr>
+          <tr><td><strong>Cruzados</strong></td><td>Vía dólar: EUR/JPY = EUR/USD × USD/JPY; EUR/GBP = EUR/USD ÷ GBP/USD</td></tr>
+          <tr><td><strong>Bid-ask</strong></td><td>El cliente compra al ask, vende al bid; el spread es coste</td></tr>
+          <tr><td><strong>Criptodivisas</strong></td><td>Criptoactivos descentralizados (blockchain, PoW/PoS, oferta fija); BTC y ETH dominan; marco MiCA</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 6, Sección D; convenciones de mercado y forward conforme a Krugman, Obstfeld &amp; Melitz, <em>International Economics</em>, y BIS.</li>
+      <li id="fn2"><a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX%3A32023R1114" target="_blank">Reglamento (UE) 2023/1114 (MiCA)</a>, sobre los mercados de criptoactivos; <a href="https://www.cnmv.es" target="_blank">CNMV</a> — supervisión de proveedores de servicios de criptoactivos.</li>
+      <li id="fn3">Capitalización y dominancias del mercado cripto (BTC ~58%, ETH ~9%, total ~2,1 billones $; BTC ~61.000&nbsp;$, máximo histórico 126.188&nbsp;$ en octubre de 2025): CoinMarketCap vía prensa financiera (iProUP, 5 de junio de 2026; Infobae, enero de 2026).</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-c.html" class="nav-btn">← C: Formación de los precios</a>
+    <a href="../index.html" class="nav-btn">Índice Módulo 1 →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 6 · Sección D · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

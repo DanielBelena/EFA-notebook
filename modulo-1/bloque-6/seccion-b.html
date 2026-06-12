@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B6 · Sección B — El mercado FOREX · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B6 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 6</a><span class="sep">›</span>
+    <span>Sección B</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 6 · Sección B · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Características del mercado de divisas</h1>
+    <p class="hero-sub">
+      Qué es el FOREX · Organización: OTC, 24 horas, centros y participantes ·
+      Segmentos de negociación y pares de divisas.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Qué es el mercado FOREX</h2>
+    <div class="card accent-navy">
+      <p>
+        El <strong>FOREX</strong> (<em>Foreign Exchange</em>) es el mercado global donde se
+        intercambian las divisas. Es el <strong>mayor mercado financiero del mundo</strong>:
+        negocia en torno a <strong>7,5 billones de dólares diarios</strong> según la encuesta
+        trienal del BIS<sup><a href="#fn1">1</a></sup> — más en un día que la bolsa mundial en
+        semanas. Su función: dar contrapartida al comercio y la inversión internacional, permitir
+        la cobertura del riesgo de cambio y formar los precios relativos de las monedas.
+      </p>
+    </div>
+
+    <h3>Cómo se organiza</h3>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>OTC y descentralizado</h4>
+        <p><strong>No existe una bolsa central</strong>: es una red electrónica de bancos y
+        plataformas que cotizan bilateralmente (over-the-counter). Sin precio oficial único:
+        múltiples cotizaciones simultáneas casi idénticas por arbitraje.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Continuo: 24 horas, 5 días</h4>
+        <p>Abre de domingo noche a viernes noche siguiendo al sol: <strong>Asia (Tokio,
+        Singapur, Hong Kong) → Europa (Londres, el mayor centro) → América (Nueva York)</strong>.
+        La máxima liquidez: el solapamiento Londres–Nueva York.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Mayorista e interbancario</h4>
+        <p>El núcleo es el <strong>mercado interbancario</strong> (grandes bancos creadores de
+        mercado cotizando bid-ask). Importes estándar elevados; el minorista accede vía su banco
+        o brokers con precios derivados del interbancario.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Liquidación</h4>
+        <p>Al no haber cámara central tradicional, el riesgo de liquidación (riesgo Herstatt:
+        entregar sin recibir) se mitiga con el sistema <strong>CLS</strong>, que liquida pago
+        contra pago las principales divisas.</p>
+      </div>
+    </div>
+
+    <h3>Participantes</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Agente</th><th>Papel</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Bancos comerciales y de inversión</strong></td><td>Creadores de mercado: cotizan compra y venta en firme y concentran el grueso del volumen</td></tr>
+          <tr><td><strong>Bancos centrales</strong></td><td>Gestionan reservas y pueden <strong>intervenir</strong> comprando/vendiendo su moneda para influir en el tipo de cambio</td></tr>
+          <tr><td><strong>Empresas (importadores/exportadores)</strong></td><td>Demanda "real": cobros y pagos internacionales y su cobertura</td></tr>
+          <tr><td><strong>Inversores institucionales y hedge funds</strong></td><td>Diversificación internacional, cobertura de carteras y especulación (carry trade)</td></tr>
+          <tr><td><strong>Brokers y plataformas electrónicas</strong></td><td>Casan contrapartidas (EBS, Refinitiv) y dan acceso al minorista</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Segmentos y pares</h3>
+    <p>
+      Por <strong>instrumento</strong>: contado (spot), plazo directo (forward outright),
+      <strong>swaps de divisas</strong> (el segmento de mayor volumen), futuros y opciones —
+      la operativa se desarrolla en la Sección D. Por <strong>pares</strong>:
+      <strong>mayores</strong> (los más líquidos, todos contra el dólar: EUR/USD — el más
+      negociado del mundo —, USD/JPY, GBP/USD…), <strong>cruces</strong> (sin dólar: EUR/JPY,
+      EUR/GBP) y <strong>exóticos</strong> (con divisas emergentes: USD/MXN, EUR/TRY — menos
+      líquidos, horquillas mayores).
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo aplicado — el FOREX visto desde una pyme española</h3>
+      <p>
+        Una bodega exporta a EE.UU. y cobrará 500.000&nbsp;$ en 90 días. Su banco le cotiza el
+        riesgo: al contado EUR/USD 1,156, pero si en 90 días el euro se aprecia a 1,20, los
+        dólares valdrán 416.667&nbsp;€ en vez de 432.526&nbsp;€: <strong>−15.860&nbsp;€</strong>
+        solo por el cambio. La bodega no "juega" al FOREX, pero está dentro de él: cubrirse con
+        un forward (Sección D) convierte esa incertidumbre en un precio cierto hoy.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      El EUR/USD (~1,15–1,16) concentra los focos: la divergencia entre una Fed recortando tipos
+      y un BCE en pausa en el 2,00% mueve flujos masivos hacia el euro, mientras la tensión en
+      Oriente Medio dispara la demanda puntual de dólar como refugio<sup><a href="#fn2">2</a></sup> —
+      las dos fuerzas de corto plazo (diferenciales y aversión al riesgo) que la Sección C
+      formaliza, operando en direcciones opuestas la misma semana.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) FOREX = mayor mercado del mundo, OTC, descentralizado, continuo 24h/5d.
+        (2) Londres es el principal centro de negociación; EUR/USD el par más líquido.
+        (3) Los bancos centrales participan para intervenir, no para especular.
+        (4) Swaps de divisas = el segmento de mayor volumen (no el spot).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>FOREX</strong></td><td>Mercado global de divisas: ~7,5 billones $/día (BIS)</td></tr>
+          <tr><td><strong>Organización</strong></td><td>OTC, descentralizado, interbancario, 24h siguiendo al sol</td></tr>
+          <tr><td><strong>Centros</strong></td><td>Londres &gt; Nueva York &gt; Asia; máxima liquidez en el solapamiento</td></tr>
+          <tr><td><strong>Participantes</strong></td><td>Bancos (market makers), bancos centrales, empresas, institucionales, brokers</td></tr>
+          <tr><td><strong>Pares</strong></td><td>Mayores (vs. USD) · cruces · exóticos</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1"><a href="https://www.bis.org/statistics/rpfx22.htm" target="_blank">BIS — Triennial Central Bank Survey of FX markets</a>: volumen diario de ~7,5 billones de dólares. Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 6, Sección B.</li>
+      <li id="fn2">Mercado de divisas, semana del 8-12 de junio de 2026: prensa financiera (El Español–Invertia).</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-a.html" class="nav-btn">← A: Definición de divisa</a>
+    <a href="seccion-c.html" class="nav-btn">C: Formación de los precios →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 6 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

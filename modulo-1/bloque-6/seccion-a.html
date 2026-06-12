@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B6 · Sección A — Definición de divisa · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .tri-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:680px){ .tri-grid{ grid-template-columns:1fr; } }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B6 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 6</a><span class="sep">›</span>
+    <span>Sección A</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 6 · Sección A · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Definición de divisa y tipo de cambio</h1>
+    <p class="hero-sub">
+      Divisa vs. billetes · Tipo de cambio nominal, efectivo y real ·
+      Cotización directa e indirecta · Divisa base y divisa cotizada.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Qué es una divisa y qué es el tipo de cambio</h2>
+    <div class="card accent-navy">
+      <p>
+        Una <strong>divisa</strong> es todo medio de pago denominado en <strong>moneda
+        extranjera</strong>: depósitos bancarios, transferencias, cheques y demás instrumentos
+        cifrados en otra moneda. En sentido estricto se distingue del <strong>billete</strong>
+        físico (que cotiza con horquillas mayores por sus costes de manipulación): el mercado de
+        divisas negocia esencialmente <strong>saldos bancarios</strong><sup><a href="#fn1">1</a></sup>.
+      </p>
+      <p style="margin-top:.6rem;">
+        El <strong>tipo de cambio</strong> es el <strong>precio de una moneda expresado en
+        otra</strong>: cuántas unidades de una divisa hay que entregar por una unidad de la otra.
+        Es un precio relativo — cuando el euro "sube" frente al dólar, el dólar "baja" frente al
+        euro, necesariamente.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Nominal, efectivo y real</h2>
+    <div class="tri-grid">
+      <div class="concept-box">
+        <h4>Tipo de cambio nominal</h4>
+        <p>El precio <strong>observado en el mercado</strong> entre dos monedas concretas:
+        EUR/USD = 1,156. Es el que aparece en pantallas y se aplica en las operaciones.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Tipo de cambio efectivo</h4>
+        <p>Un <strong>índice</strong> del valor de una moneda frente a una <strong>cesta</strong>
+        de divisas de sus socios comerciales, ponderada por el peso del comercio con cada uno.
+        Mide la posición cambiaria <em>global</em> (el BCE publica el del euro frente a 41 socios).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Tipo de cambio real</h4>
+        <p>El nominal <strong>ajustado por los precios relativos</strong> de ambos países:
+        mide la <strong>competitividad</strong>. Si los precios internos suben más que los del
+        socio sin que el nominal lo compense, la moneda se aprecia en términos reales y el país
+        pierde competitividad.</p>
+      </div>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Tipo de cambio real</span>
+      TCR = TCN × (P* / P)      (P* = precios extranjeros; P = precios nacionales)
+    </div>
+    <p style="font-size:var(--fs-xs);color:var(--text-soft);">
+      Combinando ambas ideas se obtiene el tipo de cambio <strong>efectivo real</strong>, el
+      indicador de competitividad-país más usado. La relación entre precios y tipo de cambio se
+      desarrolla con la PPA en la Sección C.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — apreciación real sin mover el nominal</h3>
+      <p>
+        EUR/USD nominal estable en 1,156 durante un año. Inflación: eurozona 1,9%, EE.UU. 3,5%.<br>
+        TCR(euro) varía con P*/P: 1,035/1,019 = 1,0157 → el euro se <strong>deprecia un 1,6% en
+        términos reales</strong> (los precios americanos suben más): los productos europeos ganan
+        competitividad aunque la pantalla no se haya movido. El tipo real puede moverse sin que
+        lo haga el nominal — y viceversa.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. Formas de cotización: directa e indirecta, base y cotizada</h2>
+
+    <div class="card accent-navy">
+      <p>
+        En todo par XXX/YYY, la primera moneda es la <strong>divisa base</strong> (la que se
+        compra o vende, siempre 1 unidad) y la segunda la <strong>divisa cotizada</strong> (en
+        la que se expresa el precio). EUR/USD = 1,156 significa: <strong>1 euro = 1,156
+        dólares</strong>. Comprar el par es comprar la base pagando con la cotizada.
+      </p>
+    </div>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Cotización directa (incierta)</h4>
+        <p>Unidades de <strong>moneda nacional por 1 unidad de la extranjera</strong>. Para un
+        español: USD/EUR = 0,865 (cuántos euros vale un dólar). Era la forma tradicional de la
+        peseta ("el dólar está a X pesetas").</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Cotización indirecta (cierta)</h4>
+        <p>Unidades de <strong>moneda extranjera por 1 unidad de la nacional</strong>. Para un
+        europeo: EUR/USD = 1,156. Es la convención del euro en el mercado: el euro actúa de base
+        frente a casi todas las divisas.</p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>Regla práctica:</strong> directa e indirecta son recíprocas (1/1,156 = 0,865).
+      En el examen, identifica siempre quién es la base: una <em>subida</em> de EUR/USD es
+      <em>apreciación del euro</em> (la base) y depreciación del dólar. Confundir el sentido es
+      el error número uno del bloque.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — leyendo el par en ambos sentidos</h3>
+      <p>
+        EUR/USD pasa de 1,10 a 1,156:<br>
+        · El <strong>euro se aprecia</strong> un 1,156/1,10 − 1 = <strong>+5,1%</strong> frente al dólar.<br>
+        · En cotización directa para un europeo: USD/EUR pasa de 0,909 a 0,865 → el
+        <strong>dólar se deprecia un 4,8%</strong> frente al euro.<br><br>
+        Las dos variaciones no son idénticas en valor absoluto (son recíprocas, no simétricas):
+        otro matiz que el examen explota.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      El EUR/USD cotiza en torno a <strong>1,15–1,16</strong>, tras chocar varias veces con la
+      resistencia de 1,168<sup><a href="#fn2">2</a></sup>: el euro acumula una apreciación
+      notable frente al dólar desde 2025, apoyada en el diferencial de expectativas de política
+      monetaria entre la Fed (en ciclo de recortes) y un BCE estabilizado en el 2,00%. Buen
+      recordatorio de que el tipo de cambio es siempre una historia de <em>dos</em> monedas.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) En EUR/USD, el euro es la base: subida del par = apreciación del euro. (2) Nominal =
+        mercado; efectivo = cesta ponderada; real = ajustado por precios (competitividad).
+        (3) Directa = moneda nacional por unidad extranjera; indirecta = la inversa (la del euro).
+        (4) TCR = TCN × P*/P y su lectura: inflación propia mayor → apreciación real → pérdida
+        de competitividad.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Divisa</strong></td><td>Medio de pago en moneda extranjera (saldos bancarios; ≠ billetes)</td></tr>
+          <tr><td><strong>Tipo de cambio</strong></td><td>Precio relativo de una moneda en otra</td></tr>
+          <tr><td><strong>Nominal / efectivo / real</strong></td><td>Mercado / cesta ponderada / ajustado por precios (TCR = TCN·P*/P)</td></tr>
+          <tr><td><strong>Base / cotizada</strong></td><td>XXX/YYY: 1 unidad de XXX vale YYY unidades de la cotizada</td></tr>
+          <tr><td><strong>Directa / indirecta</strong></td><td>Nacional por extranjera / extranjera por nacional (recíprocas)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 6, Sección A; conceptos conforme a Krugman, Obstfeld &amp; Melitz, <em>International Economics</em> (Pearson). Tipos de cambio efectivos del euro: <a href="https://www.ecb.europa.eu/stats/balance_of_payments_and_external/effective_exchange_rates/html/index.en.html" target="_blank">BCE — Effective exchange rates</a>.</li>
+      <li id="fn2">Cruce EUR/USD, semana del 8-12 de junio de 2026: prensa financiera (El Español–Invertia, Estrategias de Inversión).</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="index.html" class="nav-btn">← Índice Bloque 6</a>
+    <a href="seccion-b.html" class="nav-btn">B: El mercado FOREX →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 6 · Sección A · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
