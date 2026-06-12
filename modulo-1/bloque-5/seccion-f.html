@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B5 · Sección F — Valoración de empresas · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B5 · F</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 5</a><span class="sep">›</span>
+    <span>Sección F</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 5 · Sección F · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Valoración de empresas</h1>
+    <p class="hero-sub">
+      Valor contable · Gordon-Shapiro: la tasa k y la tasa g (razonable, sostenible, histórica) ·
+      Descuento de flujos de caja · Múltiplos comparables.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. El método del valor contable</h2>
+    <div class="formula">
+      <span class="formula-label">Valor contable por acción</span>
+      VC = Patrimonio neto (fondos propios) / nº de acciones
+    </div>
+    <p>
+      Valora la empresa por <strong>lo que tiene según balance</strong>: capital + reservas +
+      resultados no distribuidos. Variantes: valor contable <strong>ajustado</strong> (activos y
+      pasivos a valor de mercado) y valor de <strong>liquidación</strong> (lo realizable si se
+      cierra hoy, neto de costes). <strong>Ventajas:</strong> objetivo, simple, disponible; suelo
+      de referencia para empresas en dificultades o muy intensivas en activos.
+      <strong>Inconvenientes y limitaciones:</strong> es <strong>estático</strong> (foto del
+      pasado: ignora la capacidad de generar beneficios futuros), usa <strong>coste
+      histórico</strong> (activos infra o sobrevalorados) y <strong>omite intangibles</strong> no
+      contabilizados (marca, clientela, tecnología, capital humano) — por eso casi todas las
+      cotizadas valen en bolsa más que su valor contable<sup><a href="#fn1">1</a></sup>.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1</h3>
+      <p>
+        Sociedad con patrimonio neto de 500 M€ y 100 M de acciones: VC = <strong>5&nbsp;€/acción</strong>.
+        Cotiza a 8&nbsp;€ → P/VC = 1,6×: el mercado paga 3&nbsp;€ por acción de intangibles y
+        expectativas que el balance no recoge. Si cotizara a 4&nbsp;€ (P/VC = 0,8×), la pregunta
+        del analista sería si el balance está inflado (activos dudosos) o si hay una oportunidad.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. El modelo de Gordon-Shapiro</h2>
+    <div class="card accent-navy">
+      <p>
+        Valora la acción como el <strong>valor actual de una corriente perpetua de dividendos que
+        crece a tasa constante g</strong>, descontada a la rentabilidad exigida k — la renta
+        perpetua creciente del Bloque 2-F aplicada a la empresa<sup><a href="#fn1">1</a></sup>:
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Gordon-Shapiro</span>
+      P₀ = D₁ / (k − g)      con D₁ = D₀ · (1+g) y k &gt; g
+    </div>
+
+    <p>
+      <strong>Ventajas:</strong> simple, intuitivo, conecta valor con dividendo, crecimiento y
+      riesgo; ideal para negocios maduros y estables (utilities, concesiones, banca consolidada).
+      <strong>Inconvenientes y limitaciones:</strong> exige <strong>k &gt; g</strong> y un
+      crecimiento constante y perpetuo (irreal en empresas cíclicas o en expansión); es
+      <strong>extremadamente sensible</strong> al diferencial (k − g) — un punto de error mueve
+      la valoración decenas de puntos; no sirve para empresas que no reparten dividendo.
+    </p>
+
+    <h3>La tasa k (descuento)</h3>
+    <p>
+      Es la <strong>rentabilidad exigida por el accionista</strong>: el coste de oportunidad de
+      invertir en esa acción dado su riesgo. Se estima típicamente como <strong>tipo sin riesgo +
+      prima de riesgo</strong> — formalmente con el CAPM: k = R<sub>f</sub> + β·(R<sub>m</sub> −
+      R<sub>f</sub>) (desarrollado en el Módulo 3). A más riesgo percibido, mayor k y menor valor.
+    </p>
+
+    <h3>La tasa g (crecimiento) y sus tres estimaciones</h3>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Crecimiento razonable</h4>
+        <p>Juicio del analista sobre lo sostenible a perpetuidad: como referencia, no superior al
+        crecimiento nominal a largo plazo de la economía (PIB real + inflación, ~3-4%) — ninguna
+        empresa crece para siempre más que su economía.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Crecimiento sostenible (ROE y payout)</h4>
+        <p>El que la empresa autofinancia reteniendo beneficios:<br>
+        <strong>g = ROE × (1 − payout)</strong><br>
+        donde payout = dividendos/beneficio. Retener más (payout bajo) y rentabilizarlo bien
+        (ROE alto) sostiene más crecimiento.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Crecimiento histórico</h4>
+        <p>Tasa media (geométrica) de crecimiento de los dividendos pasados:
+        g = (D<sub>n</sub>/D₀)^(1/n) − 1. Objetivo y simple, pero extrapola el pasado.</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — Gordon-Shapiro completo</h3>
+      <p>
+        Eléctrica: D₀ = 0,60&nbsp;€; ROE = 10%, payout = 70% → g sostenible = 0,10 × 0,30 =
+        <strong>3%</strong>. Rentabilidad exigida k = 8%.<br><br>
+        D₁ = 0,60 × 1,03 = 0,618&nbsp;€<br>
+        P₀ = 0,618 / (0,08 − 0,03) = 0,618/0,05 = <strong>12,36&nbsp;€</strong><br><br>
+        <strong>Sensibilidad</strong> (la limitación en acción): con g = 4%, P₀ = 0,624/0,04 =
+        15,60&nbsp;€ (+26%); con k = 9%, P₀ = 0,618/0,06 = 10,30&nbsp;€ (−17%). Un punto en las
+        hipótesis mueve la valoración una cuarta parte.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. El descuento de flujos de caja (DCF)</h2>
+    <div class="card accent-navy">
+      <p>
+        El método de referencia: el valor de la empresa es el <strong>valor actual de los flujos
+        de caja libres (FCF) que generará</strong>, proyectados explícitamente unos años (5-10) y
+        cerrados con un <strong>valor terminal</strong> (habitualmente una perpetuidad creciente
+        tipo Gordon), descontados a la tasa que refleja su riesgo (para la empresa completa, el
+        coste medio ponderado de capital, WACC; al valorar directamente el accionista, k)<sup><a href="#fn1">1</a></sup>.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">DCF</span>
+      V = Σ FCFₜ/(1+WACC)ᵗ + VT/(1+WACC)ⁿ      con VT = FCFₙ₊₁/(WACC − g)
+    </div>
+
+    <p>
+      <strong>Ventajas:</strong> teóricamente el más sólido — valora la caja, no apuntes
+      contables; obliga a explicitar el plan de negocio; aplicable a empresas sin dividendo.
+      <strong>Inconvenientes:</strong> intensivo en hipótesis (ventas, márgenes, inversiones,
+      WACC, g terminal); el valor terminal suele concentrar más de la mitad del resultado;
+      falsa sensación de precisión — "basura entra, basura sale".
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 3 — mini-DCF a 3 años</h3>
+      <p>
+        FCF proyectados: 100, 110 y 120 M€; WACC = 8%; crecimiento terminal g = 2%.<br><br>
+        VT (en año 3) = 120×1,02 / (0,08−0,02) = 122,4/0,06 = 2.040 M€<br>
+        V = 100/1,08 + 110/1,08² + (120+2.040)/1,08³<br>
+        V = 92,6 + 94,3 + 1.714,7 = <strong>1.901,6 M€</strong><br><br>
+        El valor terminal aporta 1.619 M€: el <strong>85%</strong> del total — la demostración
+        numérica de la principal debilidad del método.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>4. El método de los múltiplos comparables</h2>
+    <div class="card accent-navy">
+      <p>
+        Valora aplicando a la empresa los <strong>ratios a los que cotizan compañías
+        comparables</strong> (sector, tamaño, crecimiento, riesgo): PER, P/VC, P/CF, EV/EBITDA,
+        EV/ventas… El valor es "lo que el mercado paga hoy por negocios similares". Es la
+        valoración <strong>relativa</strong>, complementaria de la intrínseca (DCF).
+      </p>
+    </div>
+
+    <p>
+      <strong>Ventajas:</strong> rápido, basado en precios reales de mercado, fácil de comunicar;
+      estándar en OPVs y banca de inversión. <strong>Inconvenientes:</strong> encontrar
+      comparables verdaderamente homogéneos es difícil; hereda los errores del mercado (si el
+      sector está en burbuja, la valoración la replica); requiere ajustar por crecimiento, deuda
+      y contabilidad; distintos múltiplos pueden dar valores dispares.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 4 — valoración por comparables</h3>
+      <p>
+        Empresa no cotizada con beneficio de 40 M€ y EBITDA de 90 M€ (deuda neta 100 M€).
+        Sus comparables cotizan a PER 13× y EV/EBITDA 8×:<br><br>
+        Vía PER: capitalización = 13 × 40 = <strong>520 M€</strong><br>
+        Vía EV/EBITDA: EV = 8 × 90 = 720; capitalización = 720 − 100 = <strong>620 M€</strong><br><br>
+        Rango de valoración: 520–620 M€. La horquilla entre múltiplos es normal y se presenta
+        como tal — triangulándola, idealmente, con un DCF.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      La práctica profesional combina métodos: los analistas que cubren el IBEX (hoy en ~18.250
+      puntos<sup><a href="#fn2">2</a></sup>) publican precios objetivo construidos con DCF
+      contrastado por múltiplos, y Gordon-Shapiro sobrevive como herramienta exprés para
+      utilities y banca de dividendo estable. Con el bono a 10 años en ~3,5%, las k exigidas
+      rondan el 8-10% según beta — y cada décima del (k−g) sigue moviendo valoraciones enteras.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Gordon: P₀ = D₁/(k−g) — cuidado con usar D₀ sin crecer (el distractor clásico) y con
+        que g &lt; k. (2) g sostenible = ROE × (1 − payout): cálculo directo muy recurrente.
+        (3) Identificar ventajas/limitaciones de cada método (contable = estático; DCF = sensible
+        a hipótesis y valor terminal; comparables = depende del mercado). (4) En comparables con
+        EV/EBITDA, restar la deuda neta para llegar al valor del accionista.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Método</th><th>Fórmula clave</th><th>Limitación principal</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Valor contable</strong></td><td>FFPP / nº acciones</td><td>Estático, coste histórico, sin intangibles</td></tr>
+          <tr><td><strong>Gordon-Shapiro</strong></td><td>P₀ = D₁/(k−g)</td><td>Sensibilidad extrema a (k−g); exige g&lt;k y estabilidad</td></tr>
+          <tr><td><strong>g sostenible</strong></td><td>ROE × (1−payout)</td><td>—</td></tr>
+          <tr><td><strong>DCF</strong></td><td>Σ FCF descontados + VT</td><td>Hipótesis; el VT domina el resultado</td></tr>
+          <tr><td><strong>Comparables</strong></td><td>Múltiplo sector × magnitud</td><td>Comparables imperfectos; hereda burbujas</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 5, Sección F; M. J. Gordon y E. Shapiro, "Capital Equipment Analysis: The Required Rate of Profit" (<em>Management Science</em>, 1956); P. Fernández, <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=274973" target="_blank"><em>Company Valuation Methods</em> (IESE Working Paper)</a>.</li>
+      <li id="fn2">Sesión del 10 de junio de 2026: <a href="https://www.estrategiasdeinversion.com/cotizaciones/indices/ibex-35" target="_blank">Estrategias de Inversión — IBEX 35</a>; tipos a 10 años: <a href="https://www.tesoro.es/deuda-publica/subastas/resultados-subastas-anteriores" target="_blank">Tesoro Público</a>.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-e.html" class="nav-btn">← E: Análisis fundamental</a>
+    <a href="seccion-g.html" class="nav-btn">G: Análisis técnico →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 5 · Sección F · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

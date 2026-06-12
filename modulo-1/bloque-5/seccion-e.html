@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B5 · Sección E — Introducción al análisis fundamental · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B5 · E</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 5</a><span class="sep">›</span>
+    <span>Sección E</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 5 · Sección E · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Introducción al análisis fundamental</h1>
+    <p class="hero-sub">
+      Papel, finalidad y limitaciones · Familias de métodos de valoración ·
+      PER · Rentabilidad por dividendo · Earning yield y gap · P/CF · P/VC · ROA y ROE.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Papel del análisis fundamental</h2>
+    <div class="card accent-navy">
+      <p>
+        El <strong>análisis fundamental</strong> estima el <strong>valor intrínseco</strong> de
+        una empresa a partir de su realidad económica (cuentas, negocio, sector, macro) y lo
+        compara con el precio de mercado: si valor &gt; precio, la acción está
+        <strong>infravalorada</strong> (comprar); si valor &lt; precio, sobrevalorada
+        (vender)<sup><a href="#fn1">1</a></sup>. <strong>Finalidad en la gestión de
+        carteras:</strong> seleccionar valores (stock picking) y fundamentar recomendaciones con
+        un horizonte de <strong>medio y largo plazo</strong>.
+      </p>
+      <p style="margin-top:.6rem;">
+        <strong>Limitaciones:</strong> depende de hipótesis y proyecciones inciertas; la
+        información contable llega con retraso y admite criterios; el precio puede tardar años en
+        converger al valor ("el mercado puede permanecer irracional más tiempo del que tú puedes
+        permanecer solvente"); y en mercados muy eficientes la ventaja informativa es escasa.
+        <strong>En el asesoramiento</strong>, su aplicabilidad es servir de base racional y
+        documentada de las recomendaciones — no de oráculo de precios a corto.
+      </p>
+    </div>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Análisis fundamental</h4>
+        <p>Pregunta <strong>qué comprar</strong> (y a qué precio tiene sentido): valor intrínseco,
+        horizonte medio-largo, datos económicos y contables.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Análisis técnico-cuantitativo</h4>
+        <p>Pregunta <strong>cuándo comprar o vender</strong>: estudia precio y volumen pasados
+        para detectar tendencias y momentos (timing), horizonte corto. Son <strong>complementarios</strong>:
+        el fundamental selecciona, el técnico temporiza (Sección G).</p>
+      </div>
+    </div>
+
+    <h3>Las tres familias de métodos de valoración</h3>
+    <div class="concept-grid">
+      <div class="concept-box"><h4>Valor patrimonial</h4><p>Lo que la empresa <strong>tiene</strong>: valor contable y sus ajustes. Estático — mira el balance (Sección F).</p></div>
+      <div class="concept-box"><h4>Ratios bursátiles (múltiplos)</h4><p>Lo que el mercado <strong>paga</strong> por beneficios, dividendos o recursos: PER, P/CF, P/VC, yield… Comparativo y rápido — esta sección.</p></div>
+      <div class="concept-box"><h4>Descuento de flujos</h4><p>Lo que la empresa <strong>generará</strong>: valor actual de dividendos (Gordon-Shapiro) o flujos de caja (DCF). Dinámico y teóricamente correcto (Sección F).</p></div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Los ratios bursátiles, uno a uno</h2>
+
+    <h3>PER (Price Earnings Ratio)</h3>
+    <div class="formula">
+      <span class="formula-label">PER</span>
+      PER = Precio / BPA = Capitalización / Beneficio neto
+    </div>
+    <p>
+      <strong>Lectura:</strong> cuántas veces el beneficio anual se paga por la acción — o cuántos
+      años de beneficio constante tardarían en "recuperar" el precio. PER alto: expectativas de
+      crecimiento (o sobrevaloración); PER bajo: valor barato (o negocio en declive).
+      <strong>Ventajas:</strong> sencillo, universal, comparativo. <strong>Inconvenientes:</strong>
+      inútil con pérdidas (BPA ≤ 0), sensible a beneficios extraordinarios y criterios contables,
+      no comparable entre sectores con crecimientos distintos, y depende de si el beneficio es
+      histórico o estimado.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Precio teórico vía PER</span>
+      P = PER (del sector o normalizado) × BPA
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — PER y precio teórico</h3>
+      <p>
+        Empresa con BPA = 1,50&nbsp;€ cotizando a 18&nbsp;€: PER = 18/1,5 = <strong>12×</strong>.<br>
+        Si su sector cotiza de media a PER 14×, el precio teórico comparativo sería
+        P = 14 × 1,50 = <strong>21&nbsp;€</strong> → potencial del +16,7%, <em>si</em> el
+        descuento no está justificado por menor calidad o crecimiento.
+      </p>
+    </div>
+
+    <h3>Rentabilidad por dividendo (dividend yield)</h3>
+    <div class="formula">
+      <span class="formula-label">Rentabilidad por dividendo</span>
+      Yield = DPA / Precio
+    </div>
+    <p>
+      <strong>Significado:</strong> el "cupón" de la acción — renta directa anual en porcentaje
+      del precio. <strong>Ventajas:</strong> tangible (caja cobrada), útil para perfiles
+      rentistas y para comparar con la renta fija. <strong>Inconvenientes:</strong> el dividendo
+      no está garantizado (puede recortarse — un yield altísimo suele anticipar recorte: "value
+      trap"), ignora la retribución vía recompras y penaliza a las empresas en crecimiento que no
+      reparten.
+    </p>
+    <div class="formula">
+      <span class="formula-label">Precio teórico vía yield</span>
+      P = DPA / Yield exigida
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — precio por yield</h3>
+      <p>
+        Eléctrica con DPA estable de 0,60&nbsp;€; el inversor exige un 5%:<br>
+        P = 0,60 / 0,05 = <strong>12&nbsp;€</strong>. Si cotiza a 10&nbsp;€ (yield del 6%),
+        ofrece más renta de la exigida → atractiva para el rentista. Nótese que es el caso
+        particular de Gordon-Shapiro con g = 0 (Sección F).
+      </p>
+    </div>
+
+    <h3>Earning yield y earning yield gap</h3>
+    <div class="formula">
+      <span class="formula-label">Earning yield (inversa del PER)</span>
+      EY = BPA / Precio = 1 / PER
+    </div>
+    <div class="formula">
+      <span class="formula-label">Earning yield gap</span>
+      Gap = EY − TIR del bono a 10 años
+    </div>
+    <p>
+      <strong>Significado:</strong> el EY expresa el beneficio como "rentabilidad" de la acción,
+      comparable con un bono; el <strong>gap</strong> mide la prima de la bolsa frente a la renta
+      fija (modelo de la Fed). Gap amplio → bolsa relativamente barata frente a bonos; gap nulo o
+      negativo → cara. <strong>Ventajas:</strong> conecta los dos grandes mercados con un solo
+      número. <strong>Inconvenientes:</strong> compara una magnitud real y variable (beneficios)
+      con una nominal y fija (cupón), ignora el crecimiento y el riesgo diferencial.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 3 — gap con datos actuales</h3>
+      <p>
+        Mercado con PER 12×: EY = 1/12 = <strong>8,3%</strong>. Con la obligación española a 10
+        años en torno al 3,5%<sup><a href="#fn2">2</a></sup>:<br>
+        Gap = 8,3 − 3,5 = <strong>+4,8 puntos</strong> — la bolsa "rinde" en beneficios casi 5
+        puntos más que el bono, el argumento relativo pro-renta variable (con todas las cautelas
+        del ratio).
+      </p>
+    </div>
+
+    <h3>Precio / cash flow (P/CF)</h3>
+    <div class="formula">
+      <span class="formula-label">P/CF</span>
+      P/CF = Precio / Cash flow por acción      (CF ≈ Beneficio neto + amortizaciones y provisiones)
+    </div>
+    <p>
+      <strong>Significado:</strong> como el PER pero sobre la caja generada, no el beneficio
+      contable. <strong>Ventajas:</strong> menos manipulable (las amortizaciones son el principal
+      apunte discrecional), comparable entre empresas con políticas contables distintas, y útil en
+      sectores intensivos en capital. <strong>Inconvenientes:</strong> ignora que las
+      amortizaciones anticipan inversiones reales de reposición; no sustituye al flujo de caja
+      libre.
+    </p>
+
+    <h3>Precio / valor contable (P/VC)</h3>
+    <div class="formula">
+      <span class="formula-label">P/VC</span>
+      P/VC = Precio / Valor contable por acción = Capitalización / Fondos propios
+    </div>
+    <p>
+      <strong>Significado:</strong> cuántas veces el patrimonio neto se paga en bolsa. P/VC &gt; 1:
+      el mercado reconoce intangibles y rentabilidad futura por encima de lo contabilizado;
+      P/VC &lt; 1: cotiza por debajo de sus recursos propios (típico de banca en crisis o
+      activos dudosos). <strong>Ventajas:</strong> estable (el patrimonio fluctúa poco), aplicable
+      con pérdidas, estándar en banca. <strong>Inconvenientes:</strong> el valor contable está a
+      coste histórico y omite intangibles (marcas, tecnología).
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Relación con PER y ROE</span>
+      P/VC = PER × ROE
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 4 — la identidad P/VC = PER × ROE</h3>
+      <p>
+        Banco: fondos propios por acción 10&nbsp;€, beneficio por acción 1,2&nbsp;€ (ROE = 12%),
+        cotiza a 9,6&nbsp;€.<br>
+        PER = 9,6/1,2 = 8× · P/VC = 9,6/10 = <strong>0,96×</strong><br>
+        Comprobación: PER × ROE = 8 × 0,12 = 0,96 ✓<br><br>
+        La identidad explica por qué un mismo P/VC puede ser caro o barato: 0,96× con ROE del 12%
+        es razonable; con ROE del 4% sería carísimo. El P/VC "justo" crece con el ROE.
+      </p>
+    </div>
+
+    <h3>ROA y ROE</h3>
+    <div class="formula">
+      <span class="formula-label">Rentabilidad económica y financiera</span>
+      ROA = Beneficio / Activo total      ·      ROE = Beneficio neto / Fondos propios
+    </div>
+    <p>
+      <strong>ROA</strong> (return on assets) mide la rentabilidad del <em>negocio</em> con
+      independencia de cómo se financie; <strong>ROE</strong> (return on equity), la del
+      <em>accionista</em>. La diferencia entre ambos es el efecto del
+      <strong>apalancamiento</strong>: si la empresa gana con los activos más de lo que le cuesta
+      la deuda, el ROE supera al ROA. <strong>Ventajas:</strong> comparan eficiencia entre
+      empresas y en el tiempo; el ROE alimenta el crecimiento sostenible (Sección F).
+      <strong>Inconvenientes:</strong> contables (no de mercado), un ROE alto puede ser solo
+      apalancamiento (riesgo), y son sensibles a extraordinarios.
+    </p>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      Con el IBEX 35 en máximos (~18.250 puntos) tras subir más de un 5% en el año<sup><a href="#fn3">3</a></sup>,
+      el debate de los analistas es precisamente de ratios: la bolsa española sigue cotizando a
+      PER de un dígito alto / once bajo, con descuento frente a Europa y EE.UU., apoyada en los
+      ROE de doble dígito de la banca — el ejemplo vivo de que P/VC y ROE se leen juntos.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) P = PER × BPA y P = DPA/yield: los dos despejes estrella. (2) EY = 1/PER; gap = EY −
+        bono 10a. (3) P/VC = PER × ROE (cae como identidad a verificar o despejar). (4) PER no
+        sirve con pérdidas; P/CF es menos manipulable; P/VC &lt; 1 = cotiza bajo recursos propios.
+        (5) ROE vs. ROA = efecto apalancamiento. (6) Fundamental = qué comprar (valor); técnico =
+        cuándo (timing).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Ratio</th><th>Fórmula</th><th>Punto fuerte / débil</th></tr></thead>
+        <tbody>
+          <tr><td><strong>PER</strong></td><td>P/BPA</td><td>Universal / inútil con pérdidas, contable</td></tr>
+          <tr><td><strong>Yield</strong></td><td>DPA/P</td><td>Renta tangible / dividendo no garantizado</td></tr>
+          <tr><td><strong>Earning yield (gap)</strong></td><td>BPA/P (− bono 10a)</td><td>Compara bolsa-bonos / mezcla real y nominal</td></tr>
+          <tr><td><strong>P/CF</strong></td><td>P/(Bº+amortizaciones) p.a.</td><td>Menos manipulable / ignora capex</td></tr>
+          <tr><td><strong>P/VC</strong></td><td>P/VC p.a. = PER×ROE</td><td>Estable, banca / coste histórico</td></tr>
+          <tr><td><strong>ROA · ROE</strong></td><td>Bº/Activo · Bº/FFPP</td><td>Eficiencia / el apalancamiento infla el ROE</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 5, Sección E; marco conceptual de Graham &amp; Dodd, <em>Security Analysis</em>, y P. Fernández, <em>Valoración de empresas</em> (IESE/Gestión 2000).</li>
+      <li id="fn2"><a href="https://www.tesoro.es/deuda-publica/subastas/resultados-subastas-anteriores" target="_blank">Tesoro Público — Resultados de subastas</a>: obligación a 10 años, tipos marginales ~3,5% (2026).</li>
+      <li id="fn3">Sesión del 10 de junio de 2026: <a href="https://www.estrategiasdeinversion.com/cotizaciones/indices/ibex-35" target="_blank">Estrategias de Inversión — IBEX 35</a>.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-d.html" class="nav-btn">← D: Índices bursátiles</a>
+    <a href="seccion-f.html" class="nav-btn">F: Valoración de empresas →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 5 · Sección E · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

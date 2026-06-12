@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B5 · Sección G — Introducción al análisis técnico · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B5 · G</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 5</a><span class="sep">›</span>
+    <span>Sección G</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 5 · Sección G · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Introducción al análisis técnico</h1>
+    <p class="hero-sub">
+      Grafismo vs. técnico-cuantitativo · Principios y limitaciones · Soportes, resistencias y
+      tendencias · Figuras de vuelta y continuación · Medias móviles, MACD, RSI y estocástico.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============ PARTE 1: FUNDAMENTOS Y GRAFISMO ============ -->
+  <div class="sec">
+    <h2>1. Definición, principios y limitaciones</h2>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Análisis técnico puro: grafismo (chartismo)</h4>
+        <p>Estudia <strong>directamente el gráfico</strong> de precios (y volumen): tendencias,
+        soportes, resistencias y figuras. Interpretación visual, sin fórmulas.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Análisis técnico-cuantitativo</h4>
+        <p>Aplica <strong>fórmulas matemáticas sobre las series</strong> de precios: medias
+        móviles, MACD, RSI, estocástico… Genera señales objetivas y automatizables. Ambos
+        enfoques se complementan.</p>
+      </div>
+    </div>
+
+    <div class="card accent-navy">
+      <p>
+        <strong>Principios</strong> (Dow)<sup><a href="#fn1">1</a></sup>: (1) el precio lo
+        <strong>descuenta todo</strong> — toda la información disponible ya está en la cotización;
+        (2) los precios se mueven en <strong>tendencias</strong>, que persisten hasta que hay
+        señales de cambio; (3) la <strong>historia se repite</strong> — la psicología de masas
+        genera patrones recurrentes. <strong>Objeto:</strong> identificar la tendencia y anticipar
+        sus cambios para decidir el <em>momento</em> de comprar o vender (timing).
+        <strong>Limitaciones:</strong> subjetividad en el trazado, señales falsas (especialmente
+        en mercados laterales), profecías autocumplidas, no dice nada del valor del activo, y
+        choca con la hipótesis de eficiencia débil del mercado.
+      </p>
+    </div>
+
+    <h3>Soportes, resistencias, acumulación y distribución</h3>
+    <div class="concept-grid">
+      <div class="concept-box"><h4>Soporte</h4><p>Nivel de precio donde la <strong>demanda</strong> ha frenado históricamente las caídas: zona de compra recurrente.</p></div>
+      <div class="concept-box"><h4>Resistencia</h4><p>Nivel donde la <strong>oferta</strong> frena las subidas: zona de venta recurrente.</p></div>
+      <div class="concept-box"><h4>Acumulación</h4><p>Fase lateral en la que las "manos fuertes" <strong>compran discretamente</strong> (suele preceder a subidas; volumen creciente en rebotes).</p></div>
+      <div class="concept-box"><h4>Distribución</h4><p>Fase lateral en la que las manos fuertes <strong>venden al público</strong> (suele preceder a caídas).</p></div>
+    </div>
+
+    <div class="callout info">
+      <strong>Soporte hecho resistencia (y viceversa):</strong> cuando un soporte se perfora, el
+      nivel <strong>cambia de papel</strong> y pasa a actuar como resistencia en los rebotes
+      posteriores (los atrapados venden "en tablas" al volver el precio); una resistencia
+      superada se convierte en soporte. Es la idea base del <em>pullback</em>.
+    </div>
+
+    <h3>Líneas de tendencia</h3>
+    <p>
+      Una <strong>línea de tendencia alcista</strong> se traza uniendo dos o más
+      <strong>mínimos crecientes</strong> (actúa de soporte dinámico); una <strong>bajista</strong>,
+      uniendo <strong>máximos decrecientes</strong> (resistencia dinámica); una
+      <strong>lateral</strong> une máximos y mínimos aproximadamente horizontales. Cuantos más
+      toques y más duración, más válida — y más significativa su ruptura.
+    </p>
+
+    <h3>El volumen: indicador secundario y de confirmación</h3>
+    <p>
+      El volumen <strong>no genera señales por sí solo: confirma o desmiente</strong> las del
+      precio. Regla general: el volumen debe <strong>acompañar a la tendencia</strong> (crecer
+      con los impulsos alcistas en tendencia alcista; crecer en las caídas si es bajista) y
+      validar las rupturas (una ruptura de resistencia sin volumen es sospechosa).
+      Una <strong>divergencia precio-volumen</strong> — el precio marca nuevos máximos pero con
+      volumen decreciente — avisa de que la tendencia se queda <strong>sin combustible</strong>:
+      señal temprana de agotamiento y posible vuelta.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============ PARTE 2: FIGURAS ============ -->
+  <div class="sec">
+    <h2>2. Las figuras chartistas</h2>
+    <div class="card accent-navy">
+      <p>
+        Las <strong>figuras</strong> son patrones gráficos recurrentes que la psicología colectiva
+        dibuja en los precios. Se clasifican en <strong>figuras de vuelta</strong> (anticipan
+        cambio de tendencia: hombro-cabeza-hombro, dobles máximos/mínimos) y <strong>de
+        continuación</strong> (pausas tras las que la tendencia previa prosigue: banderas,
+        gallardetes, y habitualmente rectángulos y triángulos). Cada figura lleva asociado un
+        <strong>objetivo de precio</strong> medible. Un <strong>pullback</strong> es el retorno
+        del precio al nivel roto (neckline, base del rectángulo, línea del triángulo…) antes de
+        continuar en la nueva dirección: <strong>puede formarse tras la ruptura de cualquier
+        figura</strong> y ofrece una segunda oportunidad de entrada con mejor precio.
+      </p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Figura</th><th>Formación y rasgos</th><th>Tipo</th><th>Objetivo de precio</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Rectángulo (zona de congestión)</strong></td>
+            <td>El precio oscila entre un soporte y una resistencia <strong>horizontales y paralelos</strong>, con varios toques en cada banda. Se diferencia de la <strong>bandera</strong> en que esta es más breve, <em>inclinada contra la tendencia</em> y nace tras un movimiento vertical (el mástil). La "línea de tendencia básica" es la banda en la dirección de la ruptura; la figura es alcista, bajista o lateral según la tendencia previa y el lado por el que rompe.</td>
+            <td>Continuación (normalmente); puede ser vuelta</td>
+            <td>Altura del rectángulo proyectada desde la ruptura</td>
+          </tr>
+          <tr>
+            <td><strong>Triángulo</strong></td>
+            <td>Máximos y mínimos <strong>convergentes</strong> hacia un vértice; la <strong>base</strong> es la distancia vertical entre los extremos iniciales. Variedades: <strong>simétrico</strong> (dos líneas convergentes — rompe usualmente con la tendencia), <strong>ascendente</strong> (resistencia plana + mínimos crecientes: sesgo alcista) y <strong>descendente</strong> (soporte plano + máximos decrecientes: sesgo bajista). El <strong>gallardete</strong> es su versión exprés tras un mástil vertical (días, no semanas). Suele resolverse antes de ¾ de su desarrollo.</td>
+            <td>Continuación (normalmente)</td>
+            <td>Altura de la <strong>base</strong> proyectada desde el punto de ruptura</td>
+          </tr>
+          <tr>
+            <td><strong>Canal</strong></td>
+            <td>Dos líneas de tendencia <strong>paralelas</strong>: la básica es la línea de tendencia principal (la que une mínimos en canal alcista, máximos en bajista); la otra es su paralela. Alcista (mínimos y máximos crecientes), bajista (decrecientes) o lateral (= rectángulo). Operativa interna: comprar en la base, vender en el techo.</td>
+            <td>Estructura de tendencia; su ruptura, señal de cambio o aceleración</td>
+            <td>Anchura del canal proyectada desde la ruptura</td>
+          </tr>
+          <tr>
+            <td><strong>Hombro-cabeza-hombro (HCH)</strong></td>
+            <td>Tres máximos: <strong>hombro izquierdo</strong>, <strong>cabeza</strong> (el más alto) y <strong>hombro derecho</strong> (similar al izquierdo), sobre la <strong>línea clavicular (neckline)</strong> que une los dos mínimos intermedios. El volumen decrece de hombro a hombro. Se confirma al romper el neckline. Su versión <strong>invertida</strong> gira tendencias bajistas a alcistas.</td>
+            <td><strong>Vuelta</strong> (la figura de vuelta por excelencia)</td>
+            <td>Distancia vertical cabeza-neckline proyectada desde la ruptura del neckline</td>
+          </tr>
+          <tr>
+            <td><strong>Doble máximo / doble mínimo</strong></td>
+            <td>Dos máximos (o mínimos) al <strong>mismo nivel</strong> separados por un valle (o pico) intermedio — la "M" y la "W". Se confirma al perforar el nivel intermedio. El segundo máximo suele formarse con menos volumen.</td>
+            <td><strong>Vuelta</strong></td>
+            <td>Altura entre los extremos y el nivel intermedio, proyectada desde la ruptura</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — objetivo de un HCH</h3>
+      <p>
+        Valor en tendencia alcista: hombro izquierdo en 22&nbsp;€, cabeza en 24&nbsp;€, hombro
+        derecho en 22,2&nbsp;€, neckline en 20&nbsp;€.<br><br>
+        Altura = 24 − 20 = 4&nbsp;€. Al romper el neckline (20&nbsp;€):
+        objetivo = 20 − 4 = <strong>16&nbsp;€</strong>.<br>
+        Si tras la ruptura el precio rebota hasta ~20&nbsp;€ y vuelve a caer, ese es el
+        <strong>pullback</strong>: el antiguo soporte (neckline) actuando ya de resistencia —
+        segunda señal de venta.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — objetivo de un triángulo</h3>
+      <p>
+        Triángulo ascendente: resistencia plana en 50&nbsp;€, primer mínimo de la figura en
+        44&nbsp;€ (base = 6&nbsp;€). Ruptura alcista de los 50&nbsp;€ con aumento de volumen:
+        objetivo = 50 + 6 = <strong>56&nbsp;€</strong>. Sin volumen en la ruptura, el chartista
+        desconfía: posible ruptura falsa.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============ PARTE 3: INDICADORES Y OSCILADORES ============ -->
+  <div class="sec">
+    <h2>3. Análisis técnico-cuantitativo: indicadores y osciladores</h2>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Indicadores (seguidores de tendencia)</h4>
+        <p>Se mueven <strong>con el precio</strong> y sin límites: medias móviles, MACD.
+        Funcionalidad: <strong>identificar y seguir la tendencia</strong>. Funcionan bien en
+        mercados con tendencia; dan señales falsas en laterales.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Osciladores</h4>
+        <p>Fluctúan en una <strong>banda acotada</strong> (0-100): RSI, estocástico.
+        Funcionalidad: medir la <strong>fuerza del movimiento</strong> y señalar
+        <strong>sobrecompra/sobreventa</strong>. Brillan en mercados laterales; en tendencias
+        fuertes se "saturan".</p>
+      </div>
+    </div>
+
+    <h3>Medias móviles</h3>
+    <p>
+      Una <strong>media móvil</strong> es el promedio del precio de las últimas n sesiones,
+      recalculado cada día: <strong>suaviza el ruido y revela la tendencia</strong>. Conviene
+      emplearla cuando el mercado <strong>tiene tendencia definida</strong> (es un indicador
+      seguidor: llega tarde por construcción y "serrucha" en laterales). Tipos:
+    </p>
+    <div class="concept-grid">
+      <div class="concept-box"><h4>Simple (SMA)</h4><p>Media aritmética de los n cierres: todos pesan igual. La más suave y retardada.</p></div>
+      <div class="concept-box"><h4>Ponderada (WMA)</h4><p>Pesos linealmente crecientes hacia los datos recientes: se ciñe más al precio que la simple.</p></div>
+      <div class="concept-box"><h4>Exponencial (EMA)</h4><p>Pondera exponencialmente lo reciente (e incorpora toda la historia): la que <strong>más se ciñe al precio</strong> y antes reacciona.</p></div>
+    </div>
+    <p>
+      <strong>Señales:</strong> precio cruzando la media <strong>al alza → compra</strong>;
+      <strong>a la baja → venta</strong>. Con dos medias (corta y larga): la corta cruzando sobre
+      la larga al alza es compra (el "cruce dorado", p. ej. 50 sobre 200 sesiones); a la baja,
+      venta ("cruce de la muerte").
+    </p>
+
+    <h3>MACD (Moving Average Convergence-Divergence)</h3>
+    <div class="formula">
+      <span class="formula-label">MACD y línea de señal</span>
+      MACD = EMA(12) − EMA(26)      ·      Señal = EMA(9) del MACD
+    </div>
+    <p>
+      El MACD mide la <strong>distancia entre dos medias exponenciales</strong> (12 y 26
+      sesiones): si crece, el corto plazo acelera sobre el largo (impulso alcista). La
+      <strong>línea de señal</strong> es una media (9) del propio MACD que lo suaviza.
+      <strong>Señales:</strong> MACD cruzando <strong>sobre</strong> su señal → compra;
+      <strong>bajo</strong> ella → venta (reforzadas si ocurren lejos del nivel cero, o al cruzar
+      el propio cero). <strong>Cuándo usarlo:</strong> en mercados <strong>con tendencia</strong>
+      — es un indicador seguidor pese a oscilar. <strong>Divergencias:</strong> precio en nuevos
+      máximos con MACD en máximos decrecientes (divergencia bajista) o viceversa: anticipan giros.
+      <strong>Grafismos:</strong> sí — sobre el MACD pueden trazarse líneas de tendencia y
+      soportes/resistencias cuya ruptura adelanta a la del precio.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 3 — leyendo un MACD</h3>
+      <p>
+        EMA(12) = 101,8 y EMA(26) = 100,6 → MACD = <strong>+1,2</strong>. Línea de señal = 0,9.<br>
+        MACD (1,2) &gt; señal (0,9) y por encima de cero: impulso alcista vigente. Si en sesiones
+        siguientes el MACD cae a 0,8 y cruza bajo la señal, se genera <strong>señal de
+        venta</strong> — aunque el precio aún marque máximos: si esos máximos del precio llegan
+        con MACD decreciente, hay además <strong>divergencia bajista</strong>.
+      </p>
+    </div>
+
+    <h3>RSI (Relative Strength Index)</h3>
+    <div class="formula">
+      <span class="formula-label">RSI (período estándar: 14)</span>
+      RSI = 100 − 100/(1 + RS)      con RS = media de subidas / media de bajadas
+    </div>
+    <p>
+      Oscilador 0-100 que mide la <strong>velocidad relativa de subidas frente a bajadas</strong>.
+      <strong>Cuándo emplearlo:</strong> especialmente en mercados <strong>laterales</strong> o
+      para afinar entradas dentro de una tendencia. <strong>Señales:</strong> sobrecompra por
+      encima de <strong>70</strong> (vender al girarse a la baja) y sobreventa bajo
+      <strong>30</strong> (comprar al girarse al alza). <strong>Divergencias:</strong> precio
+      marcando nuevos máximos con RSI en máximos decrecientes (bajista) o nuevos mínimos del
+      precio con RSI creciente (alcista) — de las señales más fiables del oscilador.
+      <strong>Grafismos:</strong> sí — admite líneas de tendencia y rupturas propias.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 4 — cálculo de un RSI</h3>
+      <p>
+        En las últimas 14 sesiones, media de subidas = 1,5% y media de bajadas = 0,5%:<br>
+        RS = 1,5/0,5 = 3 → RSI = 100 − 100/(1+3) = 100 − 25 = <strong>75</strong>:
+        zona de <strong>sobrecompra</strong> (&gt;70). No es venta automática: es aviso de
+        tensión; la señal llega cuando el RSI gira y abandona la zona.
+      </p>
+    </div>
+
+    <h3>Estocástico</h3>
+    <div class="formula">
+      <span class="formula-label">Estocástico (período típico: 14)</span>
+      %K = 100 · (Cierre − Mínimo₁₄) / (Máximo₁₄ − Mínimo₁₄)      ·      %D = media móvil (3) de %K
+    </div>
+    <p>
+      Mide <strong>dónde cierra el precio dentro del rango</strong> máximo-mínimo del período:
+      cerca del techo (%K alto) o del suelo (%K bajo) — la lógica: en tendencia alcista los
+      cierres tienden al máximo. El <strong>fast stochastic</strong> usa %K y %D directos
+      (rápido, ruidoso); el <strong>slow stochastic</strong> suaviza: toma como %K el %D rápido
+      y le aplica otra media de 3 (menos señales falsas; el estándar). <strong>Cuándo
+      emplearlo:</strong> mercados <strong>laterales</strong> o rangos. <strong>Señales:</strong>
+      cruce de %K sobre %D <strong>en zona de sobreventa (&lt;20) → compra</strong>; cruce a la
+      baja <strong>en sobrecompra (&gt;80) → venta</strong>.
+    </p>
+
+    <div class="callout info">
+      <strong>Saturación:</strong> en una tendencia fuerte, RSI y estocástico pueden
+      <strong>permanecer en sobrecompra (o sobreventa) durante semanas</strong> mientras el precio
+      sigue subiendo (o cayendo). Interpretación correcta: la saturación prolongada
+      <em>confirma la fuerza</em> de la tendencia, no la niega — operar contra ella solo por el
+      nivel del oscilador es el error clásico del principiante. En saturación, esperar al giro y
+      al cruce, o ceder el mando a los indicadores de tendencia.
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      El IBEX 35 (~18.250 puntos) lleva meses dibujando un caso de libro: tendencia alcista con
+      16 máximos históricos en el año, resistencia psicológica en los 18.500 (máximo intradía
+      18.573,8 que ha rechazado al índice varias veces) y soporte en la zona 18.200<sup><a href="#fn2">2</a></sup>
+      — con osciladores frecuentemente saturados en sobrecompra mientras la tendencia sigue:
+      la ilustración perfecta del callout anterior.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) HCH y dobles máximos/mínimos = vuelta; banderas, gallardetes y (normalmente)
+        triángulos y rectángulos = continuación. (2) Objetivo HCH = altura cabeza-neckline
+        proyectada; triángulo = base proyectada; rectángulo/canal = su altura/anchura.
+        (3) Soporte roto pasa a resistencia; pullback = retorno al nivel roto, posible en todas
+        las figuras. (4) EMA se ciñe más al precio que WMA y esta más que SMA. (5) MACD =
+        EMA12 − EMA26; cruce sobre la señal = compra. (6) RSI: 70/30; estocástico: 80/20 y cruce
+        %K/%D; slow = suavizado. (7) Osciladores para laterales; medias y MACD para tendencias.
+        (8) Divergencia = precio y oscilador (o volumen) en desacuerdo: aviso de giro.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Herramienta</th><th>Clave</th><th>Señal típica</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Soporte / resistencia</strong></td><td>Suelo de demanda / techo de oferta; cambian de papel al romperse</td><td>Ruptura con volumen</td></tr>
+          <tr><td><strong>Figuras de vuelta</strong></td><td>HCH (neckline) · doble máximo/mínimo</td><td>Objetivo = altura proyectada</td></tr>
+          <tr><td><strong>Figuras de continuación</strong></td><td>Rectángulo · triángulo (base) · bandera/gallardete · canal</td><td>Ruptura en la dirección previa</td></tr>
+          <tr><td><strong>Medias móviles</strong></td><td>SMA &lt; WMA &lt; EMA en ceñirse al precio</td><td>Cruces precio-media y media-media</td></tr>
+          <tr><td><strong>MACD</strong></td><td>EMA12 − EMA26 y señal EMA9</td><td>Cruce con la señal; divergencias</td></tr>
+          <tr><td><strong>RSI</strong></td><td>0-100; fuerza relativa (14)</td><td>&gt;70 sobrecompra · &lt;30 sobreventa</td></tr>
+          <tr><td><strong>Estocástico</strong></td><td>Posición del cierre en el rango; fast/slow</td><td>Cruce %K/%D en &gt;80 / &lt;20</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 5, Sección G; doctrina clásica en J. J. Murphy, <em>Technical Analysis of the Financial Markets</em> (NYIF) — principios de Dow, figuras e indicadores; RSI: J. W. Wilder, <em>New Concepts in Technical Trading Systems</em> (1978).</li>
+      <li id="fn2">Sesión y niveles del IBEX 35, 10 de junio de 2026: <a href="https://www.estrategiasdeinversion.com/cotizaciones/indices/ibex-35" target="_blank">Estrategias de Inversión</a> y El Español–Invertia.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-f.html" class="nav-btn">← F: Valoración de empresas</a>
+    <a href="../index.html" class="nav-btn">Índice Módulo 1 →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 5 · Sección G · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
