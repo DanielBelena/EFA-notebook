@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B7 · Sección D — Mercado de futuros · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B7 · D</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 7</a><span class="sep">›</span>
+    <span>Sección D</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 7 · Sección D · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>El mercado de futuros</h1>
+    <p class="hero-sub">
+      Futuro vs. forward · Compra y venta · Contratos españoles · Precio teórico (con y sin
+      dividendos) · Especulación y cobertura · Cierre vs. vencimiento · Mark-to-market ·
+      Ratio de cobertura.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Futuro vs. forward, compra vs. venta</h2>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Futuro</h4>
+        <p>Compromiso de compraventa futura <strong>estandarizado y negociado en mercado
+        organizado</strong>: cámara de compensación, garantías, liquidación diaria de pérdidas y
+        ganancias, y posición cancelable en cualquier momento.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Forward</h4>
+        <p>El mismo compromiso pero <strong>OTC y a medida</strong>: sin cámara (riesgo de
+        contrapartida), sin liquidación diaria (todo se liquida al final) y difícil de deshacer
+        antes del vencimiento.</p>
+      </div>
+    </div>
+
+    <div class="card accent-navy">
+      <p>
+        <strong>Comprar un futuro</strong> (posición larga) obliga a <em>comprar</em> el
+        subyacente al precio pactado: gana si el precio <strong>sube</strong>.
+        <strong>Vender un futuro</strong> (posición corta) obliga a <em>vender</em>: gana si el
+        precio <strong>baja</strong>. Las obligaciones son <strong>simétricas</strong> para ambas
+        partes (a diferencia de las opciones) y el resultado es lineal: un punto a favor del
+        comprador es un punto en contra del vendedor (juego de suma cero).
+      </p>
+    </div>
+
+    <h3>Contratos de futuros en España (MEFF)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Subyacente</th><th>Contrato</th><th>Tamaño</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Índices</strong></td><td>Futuro IBEX 35 · Mini · Micro</td><td>10&nbsp;€ · 1&nbsp;€ · 0,1&nbsp;€ por punto</td></tr>
+          <tr><td><strong>Acciones</strong></td><td>Futuros sobre acciones españolas (y futuros sobre dividendos)</td><td>100 acciones por contrato</td></tr>
+          <tr><td><strong>Tipos de interés</strong></td><td>Futuro sobre el Bono español a 10 años</td><td>Nominal 100.000&nbsp;€</td></tr>
+          <tr><td><strong>Electricidad</strong></td><td>MEFF Power (futuros y swaps eléctricos)</td><td>MWh por períodos</td></tr>
+          <tr><td><strong>Divisas</strong></td><td>xRolling FX (futuros perpetuos sobre pares de divisas)</td><td>Según par</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. El precio teórico del futuro</h2>
+    <div class="card accent-navy">
+      <p>
+        El futuro no "predice": su precio teórico sale del <strong>arbitraje
+        coste-de-mantenimiento (cost of carry)</strong>: comprar el contado hoy financiándolo
+        debe equivaler a comprar el futuro. El precio del futuro es el contado más el coste de
+        financiarlo hasta el vencimiento, <strong>menos los rendimientos que el contado paga por
+        el camino</strong> (dividendos)<sup><a href="#fn1">1</a></sup>.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Sin dividendos</span>
+      F = S · (1 + r · t/360)
+    </div>
+    <div class="formula">
+      <span class="formula-label">Con rentabilidad por dividendo d (en %)</span>
+      F = S · [1 + (r − d) · t/360]
+    </div>
+    <div class="formula">
+      <span class="formula-label">Con dividendos en valor monetario D</span>
+      F = S · (1 + r · t/360) − D
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — futuro del IBEX a 90 días</h3>
+      <p>
+        Contado S = 18.250; tipo de financiación r = 2,2%; rentabilidad por dividendo de la
+        cesta en el período d = 3,6% anual.<br><br>
+        Sin dividendos: F = 18.250 × (1 + 0,022 × 90/360) = 18.250 × 1,0055 = <strong>18.350,4</strong><br>
+        Con dividendos: F = 18.250 × [1 + (0,022 − 0,036) × 90/360] = 18.250 × 0,9965 =
+        <strong>18.186,1</strong><br><br>
+        En versión monetaria: si la cesta paga D = 165 puntos de dividendos en los 90 días,
+        F = 18.350,4 − 165 ≈ 18.185,4 — coherente. ✓
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>¿Futuro por debajo del contado?</strong> Sí, teóricamente, cuando los
+      <strong>dividendos esperados superan al coste de financiación</strong> (d &gt; r), como en
+      el ejemplo: el comprador del futuro "se pierde" los dividendos y el precio lo descuenta.
+      Es la situación normal del IBEX en temporada de dividendos con tipos moderados — no es una
+      anomalía ni una predicción bajista.
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. Operativa: resultado, cierre, vencimiento y mark-to-market</h2>
+
+    <div class="formula">
+      <span class="formula-label">Resultado de una posición en futuros</span>
+      Resultado = (P_venta − P_compra) × multiplicador × nº contratos      (signo invertido si se vendió primero)
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — especulación con Mini IBEX</h3>
+      <p>
+        Compro 5 Mini IBEX (1&nbsp;€/punto) a 18.250 y cierro a 18.420:<br>
+        Resultado = (18.420 − 18.250) × 1 × 5 = <strong>+850&nbsp;€</strong>.
+        Con garantías de ~1.825&nbsp;€/contrato (9.125&nbsp;€), la rentabilidad sobre efectivo es
+        +9,3% por un movimiento del índice del +0,93%: apalancamiento ×10.
+      </p>
+    </div>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Cerrar la posición</h4>
+        <p>Realizar <strong>antes del vencimiento la operación contraria</strong> (vender lo
+        comprado o recomprar lo vendido) sobre el mismo contrato y vencimiento: la posición se
+        cancela en cámara y se consolida el resultado. Es lo habitual (la inmensa mayoría de los
+        futuros nunca llega a vencimiento).</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Liquidación a vencimiento</h4>
+        <p>Mantener hasta el final: el contrato se liquida <strong>por diferencias</strong> en
+        efectivo contra el precio de liquidación (IBEX, acciones MEFF) o <strong>por
+        entrega</strong> física del subyacente (futuro del bono: entrega de deuda del Estado).</p>
+      </div>
+    </div>
+
+    <div class="card accent-navy">
+      <p>
+        El <strong>mark-to-market diario</strong>: cada día, la cámara <strong>liquida en
+        efectivo las pérdidas y ganancias</strong> de todas las posiciones abiertas contra el
+        precio de liquidación diaria — abona a los ganadores con cargo a los perdedores, y exige
+        reponer garantías a quien las consume. Consecuencia: el riesgo de contrapartida se reduce
+        a <em>un día</em> de movimiento, y el resultado del futuro se cobra/paga día a día, no al
+        final (la diferencia operativa esencial con el forward).
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 3 — tres días de mark-to-market</h3>
+      <p>
+        Compro 1 futuro IBEX a 18.250. Precios de liquidación: día 1: 18.300; día 2: 18.180;
+        día 3 (cierro a): 18.350.<br>
+        Día 1: +50 × 10 = <strong>+500&nbsp;€</strong> abonados ·
+        Día 2: −120 × 10 = <strong>−1.200&nbsp;€</strong> cargados (reposición de garantías) ·
+        Día 3: +170 × 10 = <strong>+1.700&nbsp;€</strong>.<br>
+        Total: +1.000&nbsp;€ = (18.350 − 18.250) × 10 ✓ — el mismo resultado, pero cobrado y
+        pagado a plazos diarios.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>4. El ratio de cobertura</h2>
+    <div class="card accent-navy">
+      <p>
+        El <strong>ratio de cobertura</strong> es el <strong>número de contratos</strong>
+        necesario para neutralizar una posición de contado: el cociente entre el valor a cubrir
+        y el nominal de un contrato, ajustado por la sensibilidad relativa de ambos (beta en
+        renta variable; duración en renta fija).
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Cobertura con futuro del IBEX</span>
+      Nº contratos = (Valor cartera × β) / (F × 10)
+    </div>
+    <div class="formula">
+      <span class="formula-label">Cobertura de acciones / de bonos</span>
+      Acciones: nº títulos / 100      ·      Bonos: (Nominal cartera / 100.000) × (D* cartera / D* futuro)
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 4 — cubrir una cartera con futuros del IBEX</h3>
+      <p>
+        Cartera de 2.000.000&nbsp;€ con β = 1,2; futuro IBEX a 18.250.<br>
+        Nº = (2.000.000 × 1,2) / (18.250 × 10) = 2.400.000 / 182.500 = 13,15 →
+        <strong>vender 13 contratos</strong>.<br><br>
+        Si el IBEX cae un 5% (−912,5 puntos), la cartera pierde ≈ 5% × 1,2 × 2 M =
+        −120.000&nbsp;€; los futuros ganan 912,5 × 10 × 13 = <strong>+118.625&nbsp;€</strong>:
+        cobertura del ~99% (el redondeo de contratos deja siempre un residuo).
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 5 — acciones y bono a 10 años</h3>
+      <p>
+        · Tengo 5.000 acciones de un banco y temo resultados: vendo 5.000/100 =
+        <strong>50 futuros</strong> sobre la acción.<br>
+        · Cartera de deuda de 10 M€ nominales con D* = 6,5; futuro del bono (nominal 100.000&nbsp;€)
+        con D* del entregable = 8,1:<br>
+        Nº = (10.000.000/100.000) × (6,5/8,1) = 100 × 0,8025 → <strong>vender 80 contratos</strong>.
+        El ajuste por duración evita sobre-cubrir: la cartera es menos sensible que el futuro.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      Con el IBEX cerca de máximos (~18.250) y titulares geopolíticos diarios, la venta de
+      futuros como seguro táctico de carteras es la operación estrella del trimestre en MEFF.
+      Nótese el matiz del precio teórico: en plena temporada de dividendos española
+      (mayo-julio), el futuro cotiza con normalidad <em>bajo</em> el contado — d &gt; r con los
+      tipos al 2% — sin que ello sea señal bajista.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Futuro vs. forward: cámara, garantías y liquidación diaria. (2) F = S(1+r·t) − efecto
+        dividendos; futuro &lt; contado si d &gt; r. (3) Resultado = Δpuntos × multiplicador ×
+        contratos. (4) Mark-to-market: liquidación diaria de PyG contra el precio de liquidación.
+        (5) Ratio de cobertura del IBEX con beta — el ejercicio numérico clásico (¡se VENDEN
+        futuros para cubrir una cartera larga!). (6) Cerrar = operación contraria antes del
+        vencimiento; a vencimiento = diferencias o entrega.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Fórmula / regla</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Compra / venta</strong></td><td>Larga gana si sube; corta gana si baja; obligaciones simétricas</td></tr>
+          <tr><td><strong>Precio teórico</strong></td><td>F = S(1+r·t/360) · con dividendos: −D o (r−d)</td></tr>
+          <tr><td><strong>Futuro &lt; contado</strong></td><td>Cuando d &gt; r (dividendos superan financiación)</td></tr>
+          <tr><td><strong>Resultado</strong></td><td>(Pᵥ − P꜀) × multiplicador × contratos</td></tr>
+          <tr><td><strong>Mark-to-market</strong></td><td>PyG liquidadas en efectivo cada día por la cámara</td></tr>
+          <tr><td><strong>Ratio cobertura IBEX</strong></td><td>(Cartera × β)/(F × 10), vendiendo futuros</td></tr>
+          <tr><td><strong>Bonos</strong></td><td>(Nominal/100.000) × (D* cartera/D* futuro)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 7, Sección D; cost of carry conforme a J. Hull, <em>Options, Futures, and Other Derivatives</em>; especificaciones de contratos: <a href="https://www.meff.es" target="_blank">MEFF</a>.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-c.html" class="nav-btn">← C: Organizado y OTC</a>
+    <a href="seccion-e.html" class="nav-btn">E: Mercado de opciones →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 7 · Sección D · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

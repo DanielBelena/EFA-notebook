@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B7 · Sección H — Productos complejos · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B7 · H</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 7</a><span class="sep">›</span>
+    <span>Sección H</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 7 · Sección H · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Productos complejos</h1>
+    <p class="hero-sub">
+      Qué es "complejo" según MiFID y la CNMV · Convertibles, CoCos y deuda subordinada ·
+      Fondos garantizados de renta fija y variable · Certificados y ETC.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. El concepto de producto complejo (MiFID / CNMV)</h2>
+    <div class="card accent-navy">
+      <p>
+        MiFID II clasifica los instrumentos en <strong>no complejos</strong> (acciones cotizadas,
+        bonos simples, fondos UCITS ordinarios, instrumentos del mercado monetario) y
+        <strong>complejos</strong>: aquellos cuya estructura dificulta al minorista
+        <strong>entender su riesgo y su rentabilidad</strong><sup><a href="#fn1">1</a></sup>.
+        Rasgos típicos del producto complejo: incorporan <strong>derivados</strong> (explícitos o
+        implícitos), posibilidad de <strong>perder más de lo invertido</strong> o pérdidas
+        difíciles de estimar, <strong>liquidez reducida</strong> o sin precio público, plazos de
+        cancelación con penalización y fórmulas de remuneración no lineales.
+      </p>
+      <p style="margin-top:.6rem;">
+        <strong>Consecuencia práctica:</strong> para comercializar un complejo sin asesoramiento,
+        la entidad debe realizar el <strong>test de conveniencia</strong> y advertir si no es
+        conveniente; la CNMV añade advertencias reforzadas (manuscritas/expresas) y desde 2015 un
+        <strong>indicador de riesgo normalizado</strong> (el "semáforo" del 1 al 6) en la
+        información precontractual. Derivados, estructurados, CoCos o deuda subordinada son
+        complejos; un depósito a plazo simple o una Letra, no.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Convertibles, CoCos y deuda subordinada</h2>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Bonos convertibles</h4>
+        <p>Bono + opción de conversión en acciones (Bloque 4-C). Complejo porque su valor mezcla
+        renta fija y renta variable: cupón menor a cambio del derecho. Variante crítica: los
+        <strong>obligatoriamente convertibles</strong>, donde la conversión no es opcional —
+        el inversor acaba en acciones sí o sí (caso Banco Popular/Santander: origen de
+        sanciones por mala comercialización).</p>
+      </div>
+      <div class="concept-box">
+        <h4>CoCos (AT1, convertibles contingentes)</h4>
+        <p>Deuda bancaria <strong>perpetua</strong> computable como capital AT1: si la solvencia
+        del banco (ratio CET1) cae bajo un <strong>trigger</strong>, se <strong>convierten en
+        acciones o sufren quita automática</strong>; los cupones son discrecionales y
+        cancelables. Cupón alto a cambio de absorber pérdidas antes que nadie en la deuda —
+        los CoCos de Credit Suisse (2023) se amortizaron a cero. Dirigidos a institucionales.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Deuda subordinada</h4>
+        <p>Bonos que <strong>cobran detrás de toda la deuda ordinaria</strong> en caso de
+        resolución o liquidación (y antes que AT1 y acciones). Mayor cupón por peor prelación;
+        computa como capital Tier 2 en banca. Complejo por el riesgo de absorción de pérdidas
+        bajo la normativa de resolución (bail-in).</p>
+      </div>
+      <div class="concept-box">
+        <h4>El orden de prelación (de cobro)</h4>
+        <p>Depósitos cubiertos → deuda senior → <strong>subordinada (T2)</strong> →
+        <strong>CoCos (AT1)</strong> → acciones. Cuanto más abajo, más cupón y más cerca de
+        absorber pérdidas: el mapa mental que ordena toda esta familia.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. Fondos garantizados: renta fija vs. renta variable</h2>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Garantizado de renta fija</h4>
+        <p>Garantiza a vencimiento el <strong>capital y un rendimiento fijo</strong> predeterminado
+        (p. ej., el 100% más un 1,8% TAE). Se construye esencialmente con renta fija a vencimiento
+        coincidente. Riesgo principal: liquidez (reembolsar fuera de las "ventanas" sin comisión
+        rompe la garantía) y coste de oportunidad.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Garantizado de renta variable</h4>
+        <p>Garantiza <strong>solo el capital</strong> (total o parcial) y ofrece un rendimiento
+        <strong>variable ligado a un subyacente</strong> (un % de la revalorización del IBEX,
+        cesta…), que puede ser cero. Se construye con cupón cero + opciones (la mecánica completa,
+        en la Sección J). La garantía la presta un tercero (el banco) solo <em>a vencimiento</em>.</p>
+      </div>
+    </div>
+    <p style="font-size:var(--fs-xs);color:var(--text-soft);">
+      Comunes a ambos: garantía válida únicamente a la fecha exacta de vencimiento, comisiones de
+      reembolso fuera de ventanas, y rentabilidad esperada modesta — el precio de la certidumbre.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>4. Certificados y ETC</h2>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Certificados</h4>
+        <p>Valores emitidos por una entidad que <strong>replican una estrategia o subyacente</strong>
+        (índice, cesta, con o sin apalancamiento, bonus, turbo…). Jurídicamente son
+        <strong>deuda del emisor</strong>: además del riesgo del subyacente se asume
+        <strong>riesgo de crédito del emisor</strong> (lección Lehman 2008). Cotizan en mercado
+        pero con liquidez dependiente del propio emisor como creador.</p>
+      </div>
+      <div class="concept-box">
+        <h4>ETC (Exchange Traded Commodities)</h4>
+        <p>Títulos de deuda cotizados que replican <strong>materias primas</strong> (oro, petróleo)
+        o cestas, con respaldo físico (oro asignado) o sintético (derivados/futuros). Riesgos:
+        emisor/contrapartida (mitigado si hay colateral físico), y en los sintéticos el
+        <strong>coste de rolar futuros (contango)</strong>, que erosiona la réplica a largo plazo.
+        No confundir con ETFs (fondos): el ETC es deuda, no fondo.</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo aplicado — el mismo "oro", tres riesgos</h3>
+      <p>
+        Tres clientes quieren exposición al oro: (a) ETC con respaldo físico — riesgo de precio
+        del oro, riesgo emisor mitigado por el colateral; (b) certificado sintético de un banco —
+        riesgo de precio + riesgo de crédito pleno del banco emisor; (c) ETC sintético sobre
+        futuros — riesgo de precio + coste de rolo si la curva del futuro está en contango.
+        Mismo subyacente, tres perfiles de riesgo distintos: la due diligence del envoltorio
+        importa tanto como la del subyacente.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      La tensión geopolítica ha disparado la demanda de ETCs de oro y de certificados sobre
+      petróleo (Brent rozando los 90&nbsp;$), reactivando las advertencias de la CNMV sobre
+      productos apalancados para minoristas. Mientras, los garantizados viven una segunda
+      juventud: con tipos al 2% vuelven a poder construirse garantías al 100% con participación
+      atractiva — la aritmética que la Sección J desarrolla.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Complejo MiFID = derivados implícitos, posible pérdida superior, baja liquidez,
+        difícil de entender → test de conveniencia. (2) CoCos: perpetuos, cupón discrecional,
+        conversión/quita al saltar el trigger de capital — los más arriesgados de la deuda.
+        (3) Prelación: senior → subordinada → AT1 → acciones. (4) Garantizado RF asegura capital
+        + rendimiento; RV solo capital (y solo a vencimiento). (5) Certificados y ETC = deuda
+        del emisor: riesgo de crédito añadido.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Producto</th><th>Rasgo clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Complejo (MiFID)</strong></td><td>Derivados, pérdidas ampliadas, iliquidez → conveniencia + advertencias CNMV</td></tr>
+          <tr><td><strong>Convertible</strong></td><td>Bono + conversión en acciones (ojo a los obligatorios)</td></tr>
+          <tr><td><strong>CoCo (AT1)</strong></td><td>Perpetuo, cupón discrecional, conversión/quita por trigger de capital</td></tr>
+          <tr><td><strong>Subordinada (T2)</strong></td><td>Cobra tras la senior; sujeta a bail-in</td></tr>
+          <tr><td><strong>Garantizado RF / RV</strong></td><td>Capital + cupón fijo / solo capital + participación variable; garantía a vencimiento</td></tr>
+          <tr><td><strong>Certificados / ETC</strong></td><td>Deuda del emisor que replica subyacentes; riesgo de crédito + (en sintéticos) coste de rolo</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 7, Sección H; MiFID II (Directiva 2014/65/UE, art. 25) y <a href="https://www.cnmv.es/portal/inversor/Productos-Complejos.aspx" target="_blank">CNMV — Productos complejos y no complejos</a>; indicador de riesgo: Orden ECC/2316/2015.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-g.html" class="nav-btn">← G: Aplicaciones prácticas</a>
+    <a href="seccion-i.html" class="nav-btn">I: Productos estructurados →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 7 · Sección H · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

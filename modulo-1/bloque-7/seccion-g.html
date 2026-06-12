@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B7 · Sección G — Cobertura y especulación con opciones · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B7 · G</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 7</a><span class="sep">›</span>
+    <span>Sección G</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 7 · Sección G · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Aplicaciones prácticas: cobertura y especulación con opciones</h1>
+    <p class="hero-sub">
+      El cálculo del resultado a vencimiento de cada posición · Puntos muertos (break-even) ·
+      Casos completos de especulación y de cobertura.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. La mecánica del resultado a vencimiento</h2>
+    <div class="formula">
+      <span class="formula-label">Resultado del comprador (por unidad de subyacente)</span>
+      Call: máx(S − K, 0) − Prima      ·      Put: máx(K − S, 0) − Prima
+    </div>
+    <div class="formula">
+      <span class="formula-label">Resultado del vendedor (espejo exacto)</span>
+      Call: Prima − máx(S − K, 0)      ·      Put: Prima − máx(K − S, 0)
+    </div>
+    <div class="formula">
+      <span class="formula-label">Puntos muertos (break-even)</span>
+      Call: S* = K + Prima      ·      Put: S* = K − Prima
+    </div>
+    <p style="font-size:var(--fs-xs);color:var(--text-soft);">
+      En contratos sobre acciones, multiplicar por 100 títulos por contrato; en opciones sobre
+      el IBEX, por el multiplicador (1&nbsp;€ por punto en el contrato estándar de opciones Mini).
+      Comprador y vendedor suman siempre cero antes de costes.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — especulación: compra de call</h3>
+      <p>
+        Acción a 20&nbsp;€. Compro 1 call K = 21, prima 0,80&nbsp;€ (contrato de 100 títulos:
+        pago 80&nbsp;€). Break-even: 21,80&nbsp;€.<br><br>
+        · S = 25: resultado = (25−21−0,80) × 100 = <strong>+320&nbsp;€</strong> (+400%)<br>
+        · S = 21,50: (21,5−21−0,80) × 100 = <strong>−30&nbsp;€</strong> (ITM pero bajo el break-even:
+        ejerzo para recuperar parte de la prima)<br>
+        · S = 19: no ejerzo → <strong>−80&nbsp;€</strong> (toda la prima, mi pérdida máxima)<br><br>
+        El vendedor de esa call obtiene exactamente lo contrario en cada escenario.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — cobertura: la put protectora</h3>
+      <p>
+        Tengo 1.000 acciones compradas a 18&nbsp;€ que hoy cotizan a 20&nbsp;€. Compro 10 puts
+        K = 19, prima 0,60&nbsp;€ (coste: 600&nbsp;€).<br><br>
+        · <strong>Si cae a 15&nbsp;€</strong>: la cartera pierde 5.000&nbsp;€ desde hoy, pero las
+        puts valen (19−15) × 1.000 = 4.000&nbsp;€. Resultado conjunto desde hoy: −5.000 + 4.000 −
+        600 = <strong>−1.600&nbsp;€</strong>: la pérdida queda acotada (equivale a vender a
+        19 − 0,60 = 18,40&nbsp;€, pase lo que pase por debajo).<br>
+        · <strong>Si sube a 24&nbsp;€</strong>: las puts expiran sin valor (−600&nbsp;€) y la
+        cartera gana 4.000&nbsp;€: neto <strong>+3.400&nbsp;€</strong> — conservo el potencial
+        alcista menos el coste del seguro.<br><br>
+        Esa asimetría (suelo garantizado + techo abierto) es lo que el futuro vendido no da:
+        el futuro congela el precio en ambas direcciones; la put solo por abajo, a cambio de la prima.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 3 — venta de put (alcista que cobra por esperar)</h3>
+      <p>
+        Quiero comprar una acción que cotiza a 20&nbsp;€, pero solo a 18&nbsp;€. Vendo 1 put
+        K = 18 a 6 meses, prima 0,70&nbsp;€ (cobro 70&nbsp;€) y deposito garantías.<br><br>
+        · S final = 22: la put expira sin valor → me quedo los <strong>+70&nbsp;€</strong>
+        (no compré, pero cobré por la espera).<br>
+        · S final = 16: me ejercen → compro a 18 (coste efectivo 18 − 0,70 = 17,30&nbsp;€) algo
+        que vale 16: pérdida latente de 130&nbsp;€, aunque menor que si hubiera comprado a 20.<br>
+        Break-even: 17,30&nbsp;€. Riesgo real: que la acción se desplome — la obligación de
+        comprar a 18 no desaparece.
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>Método de examen en 4 pasos:</strong> (1) identifica posición y si a S final la
+      opción se ejerce (¿hay VI?); (2) calcula el VI; (3) réstale (comprador) o súmale (vendedor)
+      la prima; (4) multiplica por contrato y número. Dibuja mentalmente el perfil: las cuatro
+      "hockey sticks" básicas resuelven cualquier variante.
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      Las puts protectoras sobre el IBEX (~18.250) son la operación de moda entre gestores que
+      quieren conservar el rally del +5,5% anual sin venderlo, pese a Irán. El coste del seguro
+      ha subido con la volatilidad implícita (Sección F): proteger 3 meses cuesta hoy en torno a
+      un 2-3% del nominal — el precio de dormir tranquilo en un año de máximos históricos y
+      titulares bélicos.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Resultado a vencimiento de cada posición con números — la pregunta más repetida del
+        bloque. (2) Break-even: K + prima (call), K − prima (put) — para comprador y vendedor es
+        el mismo punto. (3) Put protectora: pérdida máxima = (precio actual − K) + prima.
+        (4) No olvidar el multiplicador (×100 en acciones). (5) Comprador y vendedor: resultados
+        espejo (suma cero).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Posición</th><th>Resultado a vencimiento</th><th>Break-even</th></tr></thead>
+        <tbody>
+          <tr><td><strong>+Call</strong></td><td>máx(S−K,0) − prima</td><td>K + prima</td></tr>
+          <tr><td><strong>−Call</strong></td><td>prima − máx(S−K,0)</td><td>K + prima</td></tr>
+          <tr><td><strong>+Put</strong></td><td>máx(K−S,0) − prima</td><td>K − prima</td></tr>
+          <tr><td><strong>−Put</strong></td><td>prima − máx(K−S,0)</td><td>K − prima</td></tr>
+          <tr><td><strong>Put protectora</strong></td><td>Cartera + put: suelo en K − prima, techo abierto</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 7, Sección G; perfiles de resultado conforme a J. Hull, <em>Options, Futures, and Other Derivatives</em>.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-f.html" class="nav-btn">← F: El valor de la prima</a>
+    <a href="seccion-h.html" class="nav-btn">H: Productos complejos →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 7 · Sección G · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

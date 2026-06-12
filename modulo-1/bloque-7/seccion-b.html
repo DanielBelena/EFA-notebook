@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B7 · Sección B — Concepto de instrumento derivado · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .tri-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:680px){ .tri-grid{ grid-template-columns:1fr; } }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B7 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 7</a><span class="sep">›</span>
+    <span>Sección B</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 7 · Sección B · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Concepto de instrumento derivado</h1>
+    <p class="hero-sub">
+      Definición genérica y aproximaciones prácticas: venta a crédito, futuros y opciones,
+      cobertura de tipos · Las tres finalidades: cobertura, especulación y arbitraje.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Qué es un producto derivado</h2>
+    <div class="card accent-navy">
+      <p>
+        <strong>Genéricamente</strong>, un derivado es un contrato cuyo <strong>valor "deriva"
+        del precio de otro activo</strong> (el <strong>subyacente</strong>: una acción, un índice,
+        un tipo de interés, una divisa, una materia prima) y cuya <strong>liquidación se produce
+        en el futuro</strong>. Sus rasgos esenciales: no se compra el activo sino un
+        <em>acuerdo sobre su precio futuro</em>; la inversión inicial es nula o muy pequeña
+        respecto a la exposición (de ahí el <strong>apalancamiento</strong>); y permite tomar
+        posiciones tanto <strong>alcistas como bajistas</strong> con la misma facilidad<sup><a href="#fn1">1</a></sup>.
+      </p>
+    </div>
+
+    <h3>Tres aproximaciones prácticas</h3>
+    <div class="tri-grid">
+      <div class="concept-box">
+        <h4>La venta a crédito (el "proto-derivado")</h4>
+        <p>Vender hoy acciones prestadas para recomprarlas más baratas (Bloque 5-C) ya contiene
+        la lógica derivada: posición bajista, garantías, apalancamiento y liquidación futura.
+        El futuro vendido hace exactamente eso, pero estandarizado, sin pedir prestados los
+        títulos y con cámara de compensación.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Futuros y opciones</h4>
+        <p>El <strong>futuro</strong> obliga a ambas partes a comprar/vender el subyacente en
+        fecha y precio fijados (Sección D). La <strong>opción</strong> da a su comprador el
+        <em>derecho</em> — no la obligación — a cambio de una prima (Sección E). Son los dos
+        ladrillos con los que se construye todo lo demás.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Cobertura del riesgo de tipo de interés</h4>
+        <p>Derivados sobre tipos: <strong>FRA</strong> (asegura hoy el tipo de un depósito/préstamo
+        futuro), <strong>swap de tipos (IRS)</strong> (intercambia flujos fijos por variables —
+        convierte una deuda a Euribor en deuda a tipo fijo) y <strong>caps/floors</strong>
+        (opciones que ponen techo o suelo al tipo variable).</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo aplicado — el swap que "arregla" una hipoteca empresarial</h3>
+      <p>
+        Una empresa debe 10 M€ a Euribor + 1% y teme subidas de tipos. Contrata un IRS a 5 años:
+        paga fijo 2,6% y recibe Euribor. Resultado neto: paga (Euribor + 1%) − Euribor + 2,6% =
+        <strong>3,6% fijo</strong>, pase lo que pase con el Euribor (hoy en ~2,8%). Ha
+        transformado un riesgo variable en un coste cierto — sin tocar el préstamo original:
+        eso es un derivado de cobertura de tipos en acción.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Las tres finalidades: cobertura, especulación y arbitraje</h2>
+    <div class="tri-grid">
+      <div class="concept-box">
+        <h4>🛡️ Cobertura (hedging)</h4>
+        <p>Quien <strong>ya tiene un riesgo</strong> (cartera, cobro en divisa, deuda variable)
+        toma en el derivado la <strong>posición contraria</strong> para neutralizarlo: las
+        pérdidas de uno se compensan con las ganancias del otro. Renuncia a beneficio potencial
+        a cambio de certidumbre.</p>
+      </div>
+      <div class="concept-box">
+        <h4>🎲 Especulación</h4>
+        <p>Quien <strong>no tiene riesgo previo lo asume voluntariamente</strong> apostando por
+        una dirección del mercado, atraído por el apalancamiento. Aporta la liquidez que hace
+        posible que los coberturistas encuentren contrapartida: es funcional al mercado, aunque
+        arriesgada para quien la practica.</p>
+      </div>
+      <div class="concept-box">
+        <h4>⚖️ Arbitraje</h4>
+        <p>Explotar <strong>desajustes de precio entre mercados</strong> (contado vs. futuro,
+        teórico vs. cotizado) comprando barato y vendiendo caro <strong>simultáneamente, sin
+        riesgo</strong>. Su propia actuación corrige el desajuste: el arbitrajista es el policía
+        que mantiene los precios alineados con la fórmula teórica (Sección D).</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo aplicado — tres agentes, un mismo futuro</h3>
+      <p>
+        Futuro del IBEX a septiembre cotizando a 18.300:<br>
+        · El <strong>gestor</strong> de un fondo con 5 M€ en bolsa española <em>vende</em>
+        futuros: si el mercado cae por la crisis de Irán, el futuro le compensa (cobertura).<br>
+        · El <strong>especulador</strong> que espera resolución del conflicto <em>compra</em>
+        futuros con 10 veces menos capital que comprando la cesta (apalancamiento).<br>
+        · El <strong>arbitrajista</strong> detecta que el futuro cotiza 40 puntos sobre su valor
+        teórico: vende futuro, compra contado y embolsa la diferencia sin riesgo.<br><br>
+        Mismo contrato, tres finalidades — el derivado es neutro; el uso lo define el usuario.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      Semana de manual para entender las tres finalidades: con el IBEX oscilando con violencia en
+      torno a los 18.200-18.500 por la tensión en Oriente Medio<sup><a href="#fn2">2</a></sup>,
+      los volúmenes en futuros y opciones de MEFF se disparan — coberturas de carteras antes de
+      cada titular, especulación intradía sobre el petróleo y el índice, y arbitraje manteniendo
+      futuro y contado pegados pese al caos.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Derivado = valor que depende de un subyacente + liquidación futura + apalancamiento.
+        (2) Cobertura = posición contraria a un riesgo preexistente; especulación = asumir riesgo
+        sin posición previa; arbitraje = beneficio sin riesgo por desajustes (y los corrige).
+        (3) Identificar la finalidad en un caso descrito es pregunta segura. (4) FRA/IRS/cap =
+        derivados de cobertura del riesgo de tipo de interés.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Derivado</strong></td><td>Contrato cuyo valor deriva de un subyacente, con liquidación futura y apalancamiento</td></tr>
+          <tr><td><strong>Vías prácticas</strong></td><td>Venta a crédito (lógica bajista) · futuros y opciones · FRA/IRS/caps (tipos)</td></tr>
+          <tr><td><strong>Cobertura</strong></td><td>Neutralizar un riesgo previo con la posición contraria</td></tr>
+          <tr><td><strong>Especulación</strong></td><td>Asumir riesgo direccional buscando el apalancamiento; da liquidez</td></tr>
+          <tr><td><strong>Arbitraje</strong></td><td>Beneficio simultáneo sin riesgo; alinea precios con el valor teórico</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 7, Sección B; J. Hull, <em>Options, Futures, and Other Derivatives</em>; <a href="https://www.cnmv.es/portal/inversor/Derivados.aspx" target="_blank">CNMV — Guía de productos derivados</a>.</li>
+      <li id="fn2">Mercado del 8-12 de junio de 2026: prensa financiera (Estrategias de Inversión, El Español–Invertia).</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-a.html" class="nav-btn">← A: Riesgo financiero</a>
+    <a href="seccion-c.html" class="nav-btn">C: Mercado organizado y OTC →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 7 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

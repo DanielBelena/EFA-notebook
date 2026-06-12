@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B7 · Sección J — Descripción de las principales estructuras · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B7 · J</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 7</a><span class="sep">›</span>
+    <span>Sección J</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 7 · Sección J · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Descripción de las principales estructuras</h1>
+    <p class="hero-sub">
+      La descomposición del fondo garantizado de renta variable: cupón cero + opción + comisiones ·
+      El cálculo de la participación · Depósito estructurado vs. fondo garantizado ·
+      El reverse convertible.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. La descomposición del garantizado de renta variable</h2>
+    <div class="card accent-navy">
+      <p>
+        Todo garantizado de RV se monta con tres piezas: (1) un <strong>bono cupón cero</strong>
+        cuyo precio hoy crece hasta el 100% a vencimiento — él solo garantiza el capital;
+        (2) las <strong>comisiones</strong> de gestión y garantía, que se detraen; y (3) con el
+        <strong>resto disponible</strong>, las <strong>opciones compradas</strong> (típicamente
+        calls asiáticas sobre el índice de referencia) que generan la rentabilidad
+        variable<sup><a href="#fn1">1</a></sup>. La proporción del disponible respecto a la prima
+        de la opción determina la <strong>participación</strong> ofrecida.
+      </p>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Las cuatro cuentas del estructurador (sobre 100 de capital)</span>
+      ① Cupón cero = 100/(1+i)ⁿ      ② Disponible = 100 − CC − Comisiones      ③ Participación = Disponible / Prima(%)      ④ Pago final = 100 + Participación × Revalorización
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — construir un garantizado a 3 años</h3>
+      <p>
+        Capital: 100. Tipo a 3 años: i = 2,4%. Comisiones totales: 1,5. Prima de la call asiática
+        ATM sobre el IBEX a 3 años: 8% del nominal.<br><br>
+        ① <strong>Cupón cero</strong> = 100/(1,024)³ = 100/1,07374 = <strong>93,13</strong>
+        (invertidos hoy, valdrán 100 al vencimiento: capital garantizado).<br>
+        ② <strong>Disponible para opciones</strong> = 100 − 93,13 − 1,5 = <strong>5,37</strong>.<br>
+        ③ <strong>Participación</strong> = 5,37 / 8 = <strong>67,1%</strong> de la revalorización
+        (media asiática) del IBEX.<br><br>
+        Si a vencimiento la media del IBEX sube un 20%: el partícipe cobra
+        100 + 0,671 × 20 = <strong>113,42</strong>. Si el índice cae: cobra 100 — la opción expiró
+        sin valor, pero el cupón cero hizo su trabajo.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — ¿y si el cliente quiere el 100% de participación?</h3>
+      <p>
+        Con los mismos datos, garantizar el 100% de la subida exige comprar opción por 8
+        (+1,5 de comisiones): solo quedan 100 − 8 − 1,5 = 90,5 para el cupón cero.<br><br>
+        <strong>Capital garantizado</strong> = 90,5 × (1,024)³ = 90,5 × 1,07374 =
+        <strong>97,17%</strong>.<br><br>
+        El producto pasa a ser de <em>garantía parcial</em>: "el 97% del capital + el 100% de la
+        subida media del índice". La regla general: <strong>más participación ⇄ menos capital
+        garantizado</strong> (y viceversa) — el triángulo imposible del estructurado: con tipos
+        y volatilidad dados, no se puede tener todo.
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>De qué depende la "generosidad" del producto:</strong> tipos de interés altos →
+      cupón cero barato → más disponible → más participación. Volatilidad alta → opciones caras →
+      menos participación. Por eso los garantizados desaparecieron con tipos cero (2015-2022:
+      el cupón cero costaba ~100 y no quedaba nada para opciones) y han resucitado con los tipos
+      al 2%.
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Depósito estructurado vs. fondo garantizado</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th>Depósito estructurado</th><th>Fondo garantizado</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Naturaleza jurídica</strong></td><td>Depósito bancario (pasivo del banco)</td><td>Fondo de inversión (patrimonio del partícipe) + garantía de un tercero</td></tr>
+          <tr><td><strong>Protección</strong></td><td><strong>FGD hasta 100.000&nbsp;€</strong> por titular y entidad</td><td>Sin FGD: cartera + compromiso del garante <em>a vencimiento</em></td></tr>
+          <tr><td><strong>Fiscalidad</strong></td><td>RCM con retención al cobro; sin diferimiento</td><td>Régimen de fondos: <strong>traspaso sin tributar</strong>; tributa solo al reembolso</td></tr>
+          <tr><td><strong>Liquidez</strong></td><td>Cancelación anticipada con penalización (o imposible)</td><td>Reembolso diario a valor liquidativo (perdiendo la garantía) y <strong>ventanas sin comisión</strong></td></tr>
+          <tr><td><strong>Valoración</strong></td><td>No cotiza: el cliente no ve el valor de mercado</td><td>Valor liquidativo diario publicado</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. El reverse convertible</h2>
+    <div class="card accent-navy">
+      <p>
+        El <strong>reverse convertible</strong> (bono "convertible al revés") es la estructura
+        opuesta al garantizado: el inversor cobra un <strong>cupón muy superior al de mercado</strong>,
+        pero <strong>no tiene el capital garantizado</strong>. Se compone de: (1) un instrumento
+        de renta fija (depósito o bono) que paga el interés de mercado, más (2) la
+        <strong>venta de una put</strong> sobre el subyacente (acción o índice), cuya prima
+        cobrada engorda el cupón. Es la conversión la que es "del revés": la decide la evolución
+        del subyacente <em>en contra</em> del inversor<sup><a href="#fn1">1</a></sup>.
+      </p>
+      <p style="margin-top:.6rem;">
+        <strong>Desenlace a vencimiento:</strong> si el subyacente acaba <strong>por encima</strong>
+        del strike (o de la barrera, en las versiones con put down-and-in), el inversor recupera
+        el 100% más el supercupón. Si acaba <strong>por debajo</strong>, le ejercen la put: recibe
+        las <strong>acciones depreciadas</strong> (o su valor en efectivo) en lugar del capital —
+        compró acciones caras sin querer.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 3 — anatomía de un reverse convertible</h3>
+      <p>
+        Nota a 1 año sobre una acción que cotiza a 20&nbsp;€: cupón ofrecido 9%. Por dentro:
+        depósito al 2,5% + venta de put strike 20 con prima del 6,5%.<br><br>
+        · Acción acaba en 23&nbsp;€: cobra 100 + 9 = <strong>109</strong> (la put expira sin valor).<br>
+        · Acción acaba en 14&nbsp;€ (−30%): le entregan acciones valoradas a 20 que valen 14 →
+        recibe 70 + 9 de cupón = <strong>79</strong>: pérdida del 21% pese al "9% garantizado"
+        del folleto (solo el cupón lo está, no el capital).<br><br>
+        Break-even del capital: caída del subyacente igual al cupón (−9%). El cliente que lo
+        compra está, sépalo o no, <strong>vendiendo volatilidad</strong> — la posición −put de la
+        Sección G con disfraz de renta fija. Producto complejo de manual y foco recurrente de la CNMV.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      La combinación actual — tipos al 2% y volatilidad implícita disparada por Oriente Medio —
+      es el caldo de cultivo de los reverse convertibles: las primas de las puts vendidas pagan
+      cupones de un dígito alto que lucen espectaculares frente al depósito. El asesor debe
+      recordar la otra cara: esa prima está alta <em>porque</em> el mercado paga más por la
+      protección que el cliente está vendiendo.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) La cadena del garantizado: CC = 100/(1+i)ⁿ → disponible = 100 − CC − comisiones →
+        participación = disponible/prima — el ejercicio numérico estrella de estructurados.
+        (2) Más participación ⇄ menos capital garantizado (ejemplo 2). (3) Tipos altos y
+        volatilidad baja = estructurados generosos. (4) Depósito → FGD y sin traspaso; fondo →
+        garante y traspaso fiscal. (5) Reverse convertible = renta fija + <em>venta de put</em>:
+        cupón asegurado, capital no.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Fórmula / regla</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Cupón cero</strong></td><td>100/(1+i)ⁿ — la pieza que garantiza el capital</td></tr>
+          <tr><td><strong>Disponible</strong></td><td>100 − cupón cero − comisiones</td></tr>
+          <tr><td><strong>Participación</strong></td><td>Disponible / prima de la opción (en %)</td></tr>
+          <tr><td><strong>Garantía parcial</strong></td><td>Capital garantizado = (100 − prima − comisiones) × (1+i)ⁿ</td></tr>
+          <tr><td><strong>Depósito vs. fondo</strong></td><td>FGD y RCM vs. garante, traspasos y ventanas</td></tr>
+          <tr><td><strong>Reverse convertible</strong></td><td>Renta fija + venta de put: supercupón cierto, capital en riesgo</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 7, Sección J; descomposición estándar de estructurados (J. Hull; P. Lamothe, <em>Opciones financieras y productos estructurados</em>, McGraw-Hill); <a href="https://www.cnmv.es/portal/inversor/Productos-Estructurados.aspx" target="_blank">CNMV — Productos estructurados</a>.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-i.html" class="nav-btn">← I: Productos estructurados</a>
+    <a href="../index.html" class="nav-btn">Índice Módulo 1 →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 7 · Sección J · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

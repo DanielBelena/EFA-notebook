@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B7 · Sección F — El valor de la prima · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .tri-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:680px){ .tri-grid{ grid-template-columns:1fr; } }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B7 · F</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 7</a><span class="sep">›</span>
+    <span>Sección F</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 7 · Sección F · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>El valor de la prima</h1>
+    <p class="hero-sub">
+      Valor intrínseco + valor temporal · In, at y out of the money · Las seis variables que
+      mueven la prima · Las cuatro posiciones por direccionalidad y volatilidad.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Valor intrínseco y valor temporal</h2>
+    <div class="formula">
+      <span class="formula-label">Descomposición de la prima</span>
+      Prima = Valor intrínseco (VI) + Valor temporal (VT)
+    </div>
+    <div class="formula">
+      <span class="formula-label">Valor intrínseco</span>
+      Call: VI = máx(S − K, 0)      ·      Put: VI = máx(K − S, 0)
+    </div>
+
+    <p>
+      El <strong>VI</strong> es lo que la opción valdría <strong>si se ejerciera ahora mismo</strong>
+      (nunca negativo). El <strong>VT</strong> es el resto de la prima: lo que el mercado paga por
+      la <em>posibilidad</em> de que la opción mejore antes del vencimiento. El VT decrece con el
+      paso del tiempo (<em>time decay</em>, acelerándose al final) y es <strong>cero al
+      vencimiento</strong>: la prima muere valiendo solo su VI. Los despejes triviales que pide el
+      examen: VI = Prima − VT y VT = Prima − VI.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — descomponer una prima</h3>
+      <p>
+        Acción a S = 22&nbsp;€; call strike K = 20 cotiza con prima 2,90&nbsp;€:<br>
+        VI = máx(22 − 20, 0) = <strong>2&nbsp;€</strong> → VT = 2,90 − 2 = <strong>0,90&nbsp;€</strong>.<br>
+        La misma put strike 20: VI = máx(20 − 22, 0) = <strong>0</strong> → su prima
+        (p. ej. 0,55&nbsp;€) es <strong>100% valor temporal</strong>.
+      </p>
+    </div>
+
+    <h3>In, at y out of the money</h3>
+    <div class="tri-grid">
+      <div class="concept-box">
+        <h4>In the money (ITM)</h4>
+        <p>Con VI &gt; 0: call con S &gt; K; put con S &lt; K. Prima cara (paga VI + VT), se mueve
+        casi uno a uno con el subyacente. Comprarla es la apuesta más conservadora; venderla, la
+        más peligrosa.</p>
+      </div>
+      <div class="concept-box">
+        <h4>At the money (ATM)</h4>
+        <p>S ≈ K: VI ≈ 0 y <strong>máximo valor temporal</strong> — es donde la incertidumbre
+        sobre el desenlace es total. Las primas ATM son las más sensibles a la volatilidad.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Out of the money (OTM)</h4>
+        <p>Sin VI: call con S &lt; K; put con S &gt; K. Prima barata, todo VT: máximo
+        apalancamiento y máxima probabilidad de expirar sin valor. Comprarla es "lotería";
+        venderla, ingreso recurrente con riesgo de cola.</p>
+      </div>
+    </div>
+    <p style="font-size:var(--fs-xs);color:var(--text-soft);">
+      Cuanto más ITM, mayor la prima (más VI); cuanto más OTM, menor. El VT es máximo ATM y
+      decrece hacia ambos extremos.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Las variables que determinan la prima</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Si sube…</th><th>Prima de la CALL</th><th>Prima de la PUT</th><th>Por qué</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Subyacente (S)</strong></td><td>▲ sube</td><td>▼ baja</td><td>Más VI para la call, menos para la put</td></tr>
+          <tr><td><strong>Strike (K)</strong></td><td>▼ baja</td><td>▲ sube</td><td>Comprar más caro vale menos; vender más caro vale más</td></tr>
+          <tr><td><strong>Tiempo a vencimiento</strong></td><td>▲ sube</td><td>▲ sube</td><td>Más tiempo = más posibilidades = más VT (ambas)</td></tr>
+          <tr><td><strong>Tipo de interés</strong></td><td>▲ sube</td><td>▼ baja</td><td>Financia el strike: aplaza el pago (call) / el cobro (put)</td></tr>
+          <tr><td><strong>Dividendos esperados</strong></td><td>▼ baja</td><td>▲ sube</td><td>El dividendo baja S en la fecha ex-dividendo</td></tr>
+          <tr><td><strong>Volatilidad (σ)</strong></td><td>▲▲ sube</td><td>▲▲ sube</td><td><strong>La reina</strong>: más dispersión posible beneficia a ambas (pérdida limitada, ganancia abierta)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout info">
+      <strong>Por qué manda la volatilidad:</strong> es la única variable <em>no observable</em>
+      (se negocia como expectativa) y la única que sube el precio de calls <em>y</em> puts a la
+      vez. En la práctica, "operar opciones" es en gran medida operar volatilidad: comprar
+      opciones es comprar volatilidad; venderlas, venderla.
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>3. Las cuatro posiciones: dirección + volatilidad</h2>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Compra de call</h4>
+        <p><strong>Dirección:</strong> claramente alcista. <strong>Volatilidad:</strong> compradora
+        — se beneficia si la volatilidad sube. El tiempo juega en contra (paga VT cada día).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Venta de call</h4>
+        <p><strong>Dirección:</strong> bajista o lateral (que no suba de K). <strong>Volatilidad:</strong>
+        vendedora — gana si la volatilidad cae y con el paso del tiempo (cobra el VT que se
+        evapora).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Compra de put</h4>
+        <p><strong>Dirección:</strong> claramente bajista. <strong>Volatilidad:</strong> compradora.
+        El clásico seguro de cartera: paga prima (y time decay) a cambio de protección.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Venta de put</h4>
+        <p><strong>Dirección:</strong> alcista o lateral (que no caiga de K). <strong>Volatilidad:</strong>
+        vendedora. Cobra prima por comprometerse a comprar barato; el tiempo es su aliado.</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 2 — la volatilidad en la prima</h3>
+      <p>
+        Call ATM (S = K = 18.250 del IBEX) a 3 meses con volatilidad implícita del 15%: prima
+        ≈ 540 puntos. La crisis geopolítica dispara la implícita al 22%: la misma call pasa a
+        valer ≈ 790 puntos — <strong>+46% sin que el índice se haya movido</strong>. Quien la
+        tenía comprada gana por pura volatilidad; el vendedor pierde lo mismo. La dirección no
+        lo es todo.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      El ejemplo anterior es la foto de estas semanas: la volatilidad implícita de las opciones
+      sobre índices ha repuntado con fuerza por Oriente Medio mientras los índices apenas ceden —
+      las primas se encarecen "solas". Los vendedores sistemáticos de opciones (estrategias de
+      ingreso) sufren; los compradores de protección que llegaron pronto, celebran.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Prima = VI + VT y los tres despejes; VI de call = máx(S−K,0), de put = máx(K−S,0); el
+        VI nunca es negativo y el VT muere a vencimiento. (2) Clasificar ITM/ATM/OTM dado S y K
+        — para call y para put (se invierten). (3) La tabla de sensibilidades: especialmente que
+        la <em>volatilidad sube ambas primas</em> y que el <em>tiempo</em> también (más VT).
+        (4) Posiciones: comprador de opciones = comprador de volatilidad y víctima del time
+        decay; vendedor = lo contrario.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Prima</strong></td><td>VI + VT; el VT se evapora con el tiempo y muere a vencimiento</td></tr>
+          <tr><td><strong>VI</strong></td><td>Call: máx(S−K,0) · Put: máx(K−S,0)</td></tr>
+          <tr><td><strong>Moneyness</strong></td><td>ITM (con VI) · ATM (máximo VT) · OTM (todo VT, barata)</td></tr>
+          <tr><td><strong>Variables</strong></td><td>S, K, t, r, dividendos y — sobre todo — σ (sube ambas primas)</td></tr>
+          <tr><td><strong>Posiciones</strong></td><td>Comprar opciones = comprar σ, pagar tiempo; vender = vender σ, cobrar tiempo</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 7, Sección F; descomposición y sensibilidades conforme a J. Hull, <em>Options, Futures, and Other Derivatives</em> (Pearson).</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-e.html" class="nav-btn">← E: Mercado de opciones</a>
+    <a href="seccion-g.html" class="nav-btn">G: Cobertura y especulación con opciones →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 7 · Sección F · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

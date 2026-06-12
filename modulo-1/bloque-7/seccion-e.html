@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B7 · Sección E — Mercado de opciones · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B7 · E</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 7</a><span class="sep">›</span>
+    <span>Sección E</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 7 · Sección E · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>El mercado de opciones</h1>
+    <p class="hero-sub">
+      Uso y aplicación · La volatilidad · Las cuatro posiciones básicas · Cierre vs. ejercicio ·
+      Prima, strike, garantías · Europea vs. americana · Estrategias por direccionalidad.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Qué es una opción y para qué se usa</h2>
+    <div class="card accent-navy">
+      <p>
+        Una <strong>opción</strong> es un contrato que otorga a su comprador el
+        <strong>derecho — no la obligación</strong> — de comprar (<strong>call</strong>) o vender
+        (<strong>put</strong>) el subyacente a un precio fijado (<strong>strike o precio de
+        ejercicio</strong>) hasta o en una fecha de vencimiento, a cambio de pagar una
+        <strong>prima</strong>. El vendedor cobra la prima y asume la <strong>obligación</strong>
+        de atender el ejercicio si el comprador lo decide<sup><a href="#fn1">1</a></sup>.
+      </p>
+      <p style="margin-top:.6rem;">
+        <strong>Usos:</strong> cobertura asimétrica (la put protectora: un "seguro" con franquicia
+        que conserva el potencial alcista), especulación apalancada con <strong>pérdida limitada
+        a la prima</strong> (para el comprador), generación de ingresos (venta de opciones contra
+        cartera) y construcción de productos estructurados (Secciones I-J).
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>La volatilidad</strong> es la materia prima de las opciones: a más volatilidad
+      esperada del subyacente, más probable que la opción acabe valiendo mucho — y
+      <strong>más cara la prima</strong>. Las opciones son, de hecho, el único instrumento con el
+      que se puede "comprar" o "vender" volatilidad en sí misma; la volatilidad
+      <em>implícita</em> que cotizan las primas (resumida en índices como el VIX o el VIBEX)
+      es el termómetro del miedo del mercado.
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Las cuatro posiciones básicas</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Posición</th><th>Derecho / obligación</th><th>Expectativa</th><th>Beneficio / pérdida máxima</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Compra de call</strong></td><td>Derecho a comprar a K</td><td>Fuertemente alcista</td><td>Ilimitado / la prima</td></tr>
+          <tr><td><strong>Venta de call</strong></td><td>Obligación de vender a K</td><td>Bajista o lateral</td><td>La prima / ilimitada</td></tr>
+          <tr><td><strong>Compra de put</strong></td><td>Derecho a vender a K</td><td>Fuertemente bajista</td><td>Casi ilimitado (hasta S=0) / la prima</td></tr>
+          <tr><td><strong>Venta de put</strong></td><td>Obligación de comprar a K</td><td>Alcista o lateral</td><td>La prima / casi ilimitada</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card accent-navy">
+      <p>
+        <strong>Asimetría esencial:</strong> el comprador arriesga solo la prima y puede ganar
+        mucho; el vendedor gana como máximo la prima y arriesga mucho. Por eso la cámara exige
+        <strong>aporte de garantías únicamente a los vendedores</strong> (el comprador ya pagó
+        todo lo que puede perder). Esa asimetría de riesgos es también la frontera de idoneidad:
+        comprar opciones limita la pérdida; venderlas en descubierto es de los productos más
+        arriesgados del mercado.
+      </p>
+    </div>
+
+    <h3>Cierre de posición vs. ejercicio</h3>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Cierre (lo habitual)</h4>
+        <p>Realizar la <strong>operación contraria en mercado</strong> (vender la opción comprada
+        o recomprar la vendida) antes del vencimiento: se cobra/paga la prima de mercado y se
+        consolida el resultado, capturando además el valor temporal restante.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Ejercicio</h4>
+        <p><strong>Usar el derecho</strong>: comprar (call) o vender (put) el subyacente a K — o
+        cobrar la diferencia si liquida por diferencias (IBEX). Solo tiene sentido si la opción
+        está in the money; al ejercer se pierde el valor temporal que aún tuviera la prima.</p>
+      </div>
+    </div>
+
+    <h3>Europea vs. americana y estrategias por direccionalidad</h3>
+    <p>
+      La opción <strong>europea</strong> solo puede ejercerse <strong>al vencimiento</strong>
+      (las opciones sobre el IBEX 35); la <strong>americana</strong>, <strong>en cualquier
+      momento</strong> hasta el vencimiento (las opciones sobre acciones de MEFF) — a igualdad de
+      todo, la americana vale al menos lo que la europea. Por
+      <strong>direccionalidad</strong>, el mapa básico: expectativa <strong>alcista</strong> →
+      comprar call (agresiva) o vender put (moderada, cobra prima); <strong>bajista</strong> →
+      comprar put (agresiva) o vender call (moderada); <strong>lateral</strong> → vender opciones
+      (cobrar primas que el tiempo erosiona). La dimensión de volatilidad completa este mapa en
+      la Sección F.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — la asimetría en cifras</h3>
+      <p>
+        Acción a 20&nbsp;€. Call strike 21 a 3 meses, prima 0,80&nbsp;€.<br>
+        · <strong>Comprador</strong>: si la acción acaba en 25, ejerce: gana 25 − 21 − 0,80 =
+        <strong>+3,20&nbsp;€</strong> (+400% sobre la prima). Si acaba en 19, no ejerce: pierde
+        <strong>0,80&nbsp;€</strong> y nada más.<br>
+        · <strong>Vendedor</strong>: espejo exacto — máximo +0,80&nbsp;€, pérdida creciente sin
+        techo si la acción se dispara. Por eso deposita garantías y el comprador no.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      La crisis de Oriente Medio ha disparado la volatilidad implícita: las primas de las
+      opciones sobre el IBEX (~18.250) e índices globales se han encarecido notablemente en dos
+      semanas — proteger cartera con puts cuesta hoy bastante más que en mayo. Lección de
+      asesoramiento: el seguro se contrata <em>antes</em> del incendio; cuando el miedo cotiza,
+      la prima lo refleja.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Las cuatro posiciones con su expectativa y su perfil máximo de PyG — memorizar la
+        tabla. (2) Solo los <em>vendedores</em> aportan garantías. (3) Europea = solo a
+        vencimiento (IBEX); americana = cualquier momento (acciones). (4) Cierre = operación
+        contraria; ejercicio = usar el derecho (y perder el valor temporal). (5) El comprador de
+        opciones tiene pérdida limitada a la prima; el vendedor, ganancia limitada a la prima.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Opción</strong></td><td>Derecho (comprador) vs. obligación (vendedor) a cambio de la prima</td></tr>
+          <tr><td><strong>Elementos</strong></td><td>Prima · strike (K) · vencimiento · call/put · europea/americana</td></tr>
+          <tr><td><strong>4 posiciones</strong></td><td>±Call, ±Put con riesgos asimétricos</td></tr>
+          <tr><td><strong>Garantías</strong></td><td>Solo los vendedores</td></tr>
+          <tr><td><strong>Volatilidad</strong></td><td>A más volatilidad, mayor prima; la implícita mide el miedo</td></tr>
+          <tr><td><strong>Direccionalidad</strong></td><td>Alcista: +call/−put · Bajista: +put/−call · Lateral: vender primas</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 7, Sección E; J. Hull, <em>Options, Futures, and Other Derivatives</em>; especificaciones de opciones MEFF: <a href="https://www.meff.es" target="_blank">meff.es</a>.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-d.html" class="nav-btn">← D: Mercado de futuros</a>
+    <a href="seccion-f.html" class="nav-btn">F: El valor de la prima →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 7 · Sección E · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

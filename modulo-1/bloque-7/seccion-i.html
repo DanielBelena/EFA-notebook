@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B7 · Sección I — Productos estructurados · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .tri-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:680px){ .tri-grid{ grid-template-columns:1fr; } }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B7 · I</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 7</a><span class="sep">›</span>
+    <span>Sección I</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 7 · Sección I · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Productos estructurados</h1>
+    <p class="hero-sub">
+      Las opciones exóticas como piezas de construcción · Qué es y cómo se compone un
+      estructurado · Clasificación: depósitos referenciados, fondos garantizados y bonos indiciados.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Las opciones exóticas</h2>
+    <p class="sec-intro">
+      Las opciones estándar (vanilla) de las secciones E-G se quedan cortas para diseñar pagos a
+      medida: los estructurados se construyen con <strong>opciones exóticas</strong>, variantes
+      con condiciones especiales que abaratan la prima o moldean el perfil de pago.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Exótica</th><th>Cómo funciona</th><th>Para qué se usa</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Barrera</strong></td><td>Se activa (<em>knock-in</em>) o desactiva (<em>knock-out</em>) si el subyacente toca un nivel barrera, por arriba (up) o por abajo (down)</td><td>Abaratar primas; el "si toca el 70%…" de los reverse convertibles</td></tr>
+          <tr><td><strong>Lookback</strong></td><td>Liquida contra el <strong>mejor precio</strong> alcanzado por el subyacente durante la vida (máximo para call, mínimo para put)</td><td>"Compra al mínimo / vende al máximo" — muy cara</td></tr>
+          <tr><td><strong>Ladder (escalera)</strong></td><td><strong>Consolida niveles</strong>: cada peldaño alcanzado queda garantizado aunque el subyacente luego retroceda</td><td>Asegurar revalorizaciones parciales por el camino</td></tr>
+          <tr><td><strong>Cliquet (ratchet)</strong></td><td>Serie de opciones que se <strong>reinician periódicamente</strong> al precio vigente, consolidando la revalorización de cada período</td><td>Sumar rentabilidades anuales consolidadas</td></tr>
+          <tr><td><strong>Asiática</strong></td><td>Liquida contra la <strong>media</strong> de precios del subyacente en varias fechas, no contra el precio final</td><td>Reducir el riesgo de un mal dato puntual; abarata la prima (menos volatilidad de la media): la más usada en garantizados</td></tr>
+          <tr><td><strong>Compuesta</strong></td><td>Opción sobre otra opción, en 4 variedades: <strong>call sobre call, call sobre put, put sobre put y put sobre call</strong></td><td>Cobertura de coberturas contingentes (p. ej. OPAs, licitaciones)</td></tr>
+          <tr><td><strong>Rainbow</strong></td><td>Sobre varios subyacentes: paga según el <strong>mejor (best-of)</strong> o el <strong>peor (worst-of)</strong> de la cesta</td><td>Best-of encarece; <strong>worst-of abarata</strong> y es la base de muchos estructurados de cupón alto (y de sus disgustos)</td></tr>
+          <tr><td><strong>Quanto</strong></td><td>Subyacente en divisa extranjera con pago en divisa local a <strong>tipo de cambio fijado</strong></td><td>Exposición al Nikkei o S&P sin riesgo de divisa</td></tr>
+          <tr><td><strong>Digital o binaria</strong></td><td>Paga un <strong>importe fijo</strong> si se cumple la condición (S &gt; K), y nada en caso contrario: todo o nada</td><td>Cupones condicionados ("si el índice está por encima del inicial, cobra el 5%")</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. Qué es un estructurado y cómo se compone</h2>
+    <div class="card accent-navy">
+      <p>
+        Un <strong>producto estructurado</strong> es la <strong>combinación en un solo
+        instrumento de un componente de renta fija y uno o varios derivados</strong> (normalmente
+        opciones, a menudo exóticas) sobre un subyacente de referencia, diseñada para ofrecer un
+        perfil rentabilidad-riesgo a medida que ningún activo simple proporciona<sup><a href="#fn1">1</a></sup>.
+        <strong>Para qué sirve:</strong> dar acceso a mercados con protección total o parcial del
+        capital, generar cupones condicionados superiores a los del mercado monetario, o expresar
+        visiones concretas (lateralidad, rangos).
+      </p>
+      <p style="margin-top:.6rem;">
+        <strong>Composición canónica:</strong> con el capital del cliente se compra
+        (1) un <strong>bono cupón cero</strong> que crecerá hasta el capital garantizado a
+        vencimiento, y con el sobrante, descontadas (2) las <strong>comisiones</strong>, se
+        compran (3) las <strong>opciones</strong> que generan la rentabilidad variable. El
+        desglose numérico completo se hace en la Sección J.
+      </p>
+    </div>
+
+    <h3>Clasificación por envoltorio</h3>
+    <div class="tri-grid">
+      <div class="concept-box">
+        <h4>Depósito estructurado (referenciado)</h4>
+        <p>Envoltorio: <strong>depósito bancario</strong>. Capital cubierto por el
+        <strong>FGD hasta 100.000&nbsp;€</strong>; rendimiento ligado al subyacente. Fiscalidad de
+        rendimiento del capital mobiliario al cobro. Liquidez: penalizaciones por cancelación.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Fondo garantizado</h4>
+        <p>Envoltorio: <strong>fondo de inversión</strong> con garantía de un tercero a
+        vencimiento. Sin FGD (el riesgo es de la cartera + garante), pero con la
+        <strong>fiscalidad ventajosa del fondo</strong> (traspasos sin peaje) y ventanas de
+        liquidez. El más común en España.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Bono indiciado (nota estructurada)</h4>
+        <p>Envoltorio: <strong>bono emitido por una entidad</strong> cuyo cupón y/o principal se
+        indician al subyacente. Riesgo añadido: <strong>crédito del emisor</strong> (sin FGD ni
+        fondo). Máxima flexibilidad de diseño; el formato típico del reverse convertible.</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo aplicado — un mismo diseño, tres envoltorios</h3>
+      <p>
+        "Capital protegido a 3 años + 50% de la subida del IBEX": puede venderse como depósito
+        (riesgo banco, cubierto por FGD), como fondo garantizado (riesgo cartera + garante,
+        traspasable fiscalmente) o como nota (riesgo crédito pleno del emisor). El pago prometido
+        es idéntico; <strong>el riesgo de contrapartida y la fiscalidad cambian por completo</strong>
+        — la pregunta que el asesor debe responder antes que ninguna otra.
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      Los estructurados viven un buen momento comercial: con el cupón cero "barato" (tipos al 2%)
+      y la volatilidad implícita alta por la geopolítica, las opciones que se venden dentro de
+      las estructuras (digitales, worst-of) pagan cupones llamativos — y las advertencias de la
+      CNMV sobre la comprensión de barreras y worst-of por el minorista vuelven a estar de
+      actualidad.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Emparejar exótica ↔ definición: asiática = media de precios; lookback = mejor precio;
+        cliquet = consolidación periódica; barrera = activación/desactivación; digital = todo o
+        nada; rainbow = best/worst-of; quanto = sin riesgo divisa; compuesta = opción sobre
+        opción (4 variedades). (2) Estructurado = cupón cero + opciones (+ comisiones).
+        (3) Depósito → FGD; fondo → garante + fiscalidad de traspaso; bono → riesgo emisor.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Exóticas</strong></td><td>Barrera · lookback · ladder · cliquet · asiática · compuesta (4) · rainbow · quanto · digital</td></tr>
+          <tr><td><strong>Estructurado</strong></td><td>Renta fija (cupón cero) + opciones: perfil a medida</td></tr>
+          <tr><td><strong>Depósito referenciado</strong></td><td>FGD 100.000&nbsp;€; RCM al cobro</td></tr>
+          <tr><td><strong>Fondo garantizado</strong></td><td>Garante a vencimiento; traspaso fiscal; ventanas</td></tr>
+          <tr><td><strong>Bono indiciado</strong></td><td>Riesgo de crédito del emisor; máxima flexibilidad</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 7, Sección I; exóticas conforme a J. Hull, <em>Options, Futures, and Other Derivatives</em> (cap. de opciones exóticas); <a href="https://www.cnmv.es/portal/inversor/Productos-Estructurados.aspx" target="_blank">CNMV — Productos estructurados</a>.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-h.html" class="nav-btn">← H: Productos complejos</a>
+    <a href="seccion-j.html" class="nav-btn">J: Las principales estructuras →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 7 · Sección I · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

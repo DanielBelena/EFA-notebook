@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1 · B7 · Sección C — Mercado organizado y OTC · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+    @media (max-width:560px){ .concept-grid{ grid-template-columns:1fr; } }
+    .concept-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+    .concept-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin-bottom:.35rem; color:var(--navy); }
+    .concept-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.65; margin:0; }
+    .context-box { background:var(--amber-light); border:1.5px solid var(--amber); border-radius:14px; padding:1rem 1.2rem; margin:1.2rem 0; font-size:var(--fs-sm); }
+    .footnotes { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.8; }
+    .footnotes li { margin-bottom:.3rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M1 · B7 · C</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 1</a><span class="sep">›</span>
+    <a href="index.html">Bloque 7</a><span class="sep">›</span>
+    <span>Sección C</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 1 · Bloque 7 · Sección C · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Mercado organizado y no organizado (OTC)</h1>
+    <p class="hero-sub">
+      Las dos arquitecturas del mercado de derivados · Cámara de compensación, garantías y
+      riesgo de contrapartida · Apalancamiento, multiplicador, nominal y efectivo · El MEFF.
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. Organizado vs. OTC</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th>Mercado organizado</th><th>Mercado OTC (over-the-counter)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Contratos</strong></td><td><strong>Estandarizados</strong> (nominal, vencimientos, subyacentes fijados por el mercado)</td><td><strong>A medida</strong>: cada término se negocia bilateralmente</td></tr>
+          <tr><td><strong>Contrapartida</strong></td><td>La <strong>cámara de compensación</strong> se interpone: es compradora del vendedor y vendedora del comprador</td><td>La otra parte del contrato: riesgo bilateral</td></tr>
+          <tr><td><strong>Riesgo de contrapartida</strong></td><td><strong>Prácticamente eliminado</strong> (garantías + liquidación diaria)</td><td><strong>Presente</strong>: si la contraparte quiebra, el contrato peligra (mitigable con colateral/CSA)</td></tr>
+          <tr><td><strong>Liquidez</strong></td><td>Alta: posiciones cancelables en cualquier momento con la operación contraria</td><td>Menor: deshacer exige renegociar con la contraparte</td></tr>
+          <tr><td><strong>Transparencia</strong></td><td>Precios públicos en tiempo real</td><td>Precios privados (con reporting regulatorio post-EMIR)</td></tr>
+          <tr><td><strong>Ejemplos</strong></td><td>Futuros y opciones de MEFF, Eurex, CME</td><td>Forwards de divisas, swaps (IRS), opciones exóticas, estructurados</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout info">
+      <strong>El riesgo de crédito/contrapartida</strong> es la posibilidad de que quien debe
+      pagar al vencimiento no lo haga. Es <em>el</em> argumento del mercado organizado: la cámara
+      lo absorbe y lo gestiona con garantías. Tras la crisis de 2008, la regulación (EMIR en la
+      UE) obliga a compensar en cámara incluso muchos derivados OTC estandarizados.
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. La mecánica del mercado organizado</h2>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Cámara de compensación</h4>
+        <p>En España, <strong>BME Clearing</strong>. Se interpone en cada operación, registra
+        posiciones, exige y custodia garantías, y liquida diariamente pérdidas y ganancias
+        (mark-to-market, Sección D). Si un miembro incumple, ejecuta sus garantías: el resto del
+        mercado no lo nota.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Garantías (márgenes)</h4>
+        <p>Depósito exigido para abrir y mantener posiciones con riesgo (compradores y vendedores
+        de futuros; <em>solo vendedores</em> de opciones): un porcentaje del nominal calculado
+        según la volatilidad del subyacente. Se ajustan a diario con la posición.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Multiplicador del contrato</h4>
+        <p>Convierte los puntos de cotización en euros. Futuro IBEX 35: <strong>10&nbsp;€ por
+        punto</strong> (Mini IBEX: 1&nbsp;€; Micro: 0,1&nbsp;€). Futuro sobre acciones:
+        normalmente <strong>100 títulos</strong> por contrato. Futuro del bono a 10 años:
+        nominal de <strong>100.000&nbsp;€</strong>.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Nominal vs. efectivo</h4>
+        <p><strong>Nominal (exposición)</strong> = cotización × multiplicador: el valor económico
+        que se controla. <strong>Efectivo desembolsado</strong> = solo la garantía (futuros) o la
+        prima (opciones compradas): una fracción del nominal.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Apalancamiento</h4>
+        <p>Nominal / efectivo: cuántas veces se amplifica la exposición sobre lo desembolsado.
+        Multiplica simétricamente ganancias y pérdidas.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Inversa del apalancamiento</h4>
+        <p>Efectivo / nominal (el % de garantía): la variación del subyacente que
+        <strong>consume toda la garantía</strong>. Con garantía del 10%, una caída del 10% del
+        subyacente borra el 100% de lo aportado.</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico 1 — nominal, efectivo y apalancamiento</h3>
+      <p>
+        Compro 1 futuro IBEX a 18.250. Nominal = 18.250 × 10 = <strong>182.500&nbsp;€</strong>.
+        Garantía exigida ≈ 10%: efectivo = <strong>18.250&nbsp;€</strong>.<br>
+        Apalancamiento = 182.500/18.250 = <strong>10 veces</strong>; su inversa = 10%.<br><br>
+        Si el índice sube un 3% (+547,5 puntos): gano 5.475&nbsp;€ = <strong>+30% sobre la
+        garantía</strong>. Si cae un 10%: pierdo 18.250&nbsp;€ — el 100% de lo aportado (y la
+        cámara pedirá reposición si sigue cayendo: las pérdidas pueden superar el depósito inicial).
+      </p>
+    </div>
+
+    <h3>El MEFF</h3>
+    <div class="card accent-navy">
+      <p>
+        El <strong>MEFF</strong> es el mercado oficial español de futuros y opciones (grupo BME,
+        supervisado por la CNMV), con BME Clearing como cámara<sup><a href="#fn1">1</a></sup>.
+        Históricamente operó en dos ramas: <strong>MEFF Renta Variable</strong> — futuros y
+        opciones sobre el IBEX 35 (estándar, Mini, Micro), sobre acciones españolas y sobre
+        dividendos — y <strong>MEFF Renta Fija</strong> — futuros sobre deuda pública, hoy
+        concentrados en el <strong>futuro sobre el Bono español a 10 años</strong> (nominal
+        100.000&nbsp;€, entrega de deuda del Estado). En la práctica actual la renta variable
+        concentra el grueso de la actividad (la referencia europea en tipos es el Bund de Eurex),
+        y MEFF opera además el segmento de derivados sobre <strong>electricidad</strong>
+        (MEFF Power) y divisas (xRolling FX).
+      </p>
+    </div>
+
+    <div class="context-box">
+      <strong>📊 Contexto actual (junio 2026)</strong><br>
+      Con el IBEX en ~18.250 y volatilidad geopolítica, las garantías exigidas por BME Clearing
+      en el futuro del IBEX rondan el 8-11% del nominal según el escenario de riesgo — la cámara
+      las recalibra cuando la volatilidad sube, exactamente para que el ejemplo 1 nunca se quede
+      corto. Buen recordatorio para clientes: en derivados, el "precio de entrada" (la garantía)
+      no es el riesgo máximo.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        (1) Organizado = estandarizado + cámara + garantías + liquidación diaria; OTC = a medida +
+        riesgo de contrapartida. (2) La cámara es contrapartida de ambos lados. (3) Multiplicadores:
+        IBEX 10&nbsp;€/punto (Mini 1&nbsp;€), acciones 100 títulos, bono 100.000&nbsp;€ nominal.
+        (4) Apalancamiento = nominal/efectivo; su inversa = % que arrasa la garantía.
+        (5) En futuros, ambas partes depositan garantías; en opciones, solo el vendedor.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Organizado vs. OTC</strong></td><td>Estandarización y cámara vs. a medida y riesgo bilateral</td></tr>
+          <tr><td><strong>Cámara (BME Clearing)</strong></td><td>Se interpone, exige garantías, liquida a diario: elimina el riesgo de contrapartida</td></tr>
+          <tr><td><strong>Multiplicador</strong></td><td>Puntos → euros (IBEX: 10&nbsp;€/punto)</td></tr>
+          <tr><td><strong>Nominal / efectivo</strong></td><td>Exposición controlada / garantía o prima desembolsada</td></tr>
+          <tr><td><strong>Apalancamiento</strong></td><td>Nominal/efectivo; inversa = % de movimiento que agota la garantía</td></tr>
+          <tr><td><strong>MEFF</strong></td><td>RV: IBEX y acciones · RF: bono 10 años · + electricidad y FX</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fuentes</h2>
+    <ol class="footnotes">
+      <li id="fn1">Guía de Certificación EFA, EFPA España V1/26 — Módulo 1, Bloque 7, Sección C; <a href="https://www.meff.es" target="_blank">MEFF — Mercado de derivados de BME</a> (especificaciones de contratos) y <a href="https://www.bmeclearing.es" target="_blank">BME Clearing</a> (cámara y garantías).</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="seccion-b.html" class="nav-btn">← B: Concepto de derivado</a>
+    <a href="seccion-d.html" class="nav-btn">D: Mercado de futuros →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 1 · Bloque 7 · Sección C · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
