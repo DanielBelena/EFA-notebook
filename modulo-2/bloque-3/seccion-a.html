@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M2 · B3 · Sección A — Definición y características generales · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .diferencia-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .diferencia-grid { grid-template-columns: 1fr; } }
+    .diferencia-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .diferencia-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin-bottom: .35rem;
+    }
+    .diferencia-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .legal-box {
+      background: var(--card);
+      border-left: 4px solid var(--amber);
+      border-radius: 0 14px 14px 0;
+      padding: 1.1rem 1.3rem;
+      margin: 1.2rem 0;
+    }
+    .legal-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--amber);
+      margin-bottom: .5rem;
+    }
+    .legal-box p, .legal-box li {
+      font-size: var(--fs-sm);
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+    .legal-box ul { padding-left: 1.2rem; margin: .4rem 0 0; }
+    .contexto-actual { background: var(--card); border-left: 4px solid var(--green); border-radius: 0 14px 14px 0; padding: 1.1rem 1.3rem; margin: 1.2rem 0; }
+    .contexto-actual .ctx-title { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--green); margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
+    .contexto-actual p { font-size: var(--fs-sm); color: var(--text); line-height: 1.7; margin: 0 0 .4rem; }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+    .footnotes { border-top: 1px solid var(--border); margin-top: 2.5rem; padding-top: 1.2rem; }
+    .footnotes h4 { font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 800; color: var(--text-soft); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .8rem; }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li { font-size: .78rem; color: var(--text-soft); line-height: 1.6; margin-bottom: .35rem; }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M2 · B3 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 2</a><span class="sep">›</span>
+    <a href="index.html">Bloque 3</a><span class="sep">›</span>
+    <span>Sección A</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 2 · Bloque 3 · Sección A · Nivel I · Conocimiento y Análisis</div>
+    <h1>Definición y características generales</h1>
+    <p class="hero-sub">
+      Concepto de gestión alternativa · FIL vs. IIC de IIC de inversión libre ·
+      Régimen legal especial en España (LIIC, RLIIC) · Diferencias con fondos UCITS.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- 1. GESTIÓN ALTERNATIVA -->
+  <div class="sec">
+    <h2>1. El concepto de gestión alternativa</h2>
+    <p>
+      La <strong>gestión alternativa</strong> engloba todas las estrategias de inversión que no siguen los parámetros
+      tradicionales de la gestión long-only de renta fija o renta variable. Se caracteriza por buscar la
+      <strong>rentabilidad absoluta</strong> —retorno positivo con independencia de la dirección del mercado—
+      en lugar de batir a un índice de referencia.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
+
+    <p>Las características que definen a la gestión alternativa frente a la gestión tradicional son:</p>
+
+    <div class="diferencia-grid">
+      <div class="diferencia-box">
+        <h4>Universo de inversión ampliado</h4>
+        <p>Sin restricciones de clase de activo, zona geográfica o dirección de las posiciones. Pueden invertir en cualquier activo negociable (acciones, bonos, divisas, materias primas, derivados, activos privados).</p>
+      </div>
+      <div class="diferencia-box">
+        <h4>Venta en corto (<em>short selling</em>)</h4>
+        <p>Pueden tomar posiciones bajistas: venden activos que no poseen (tomados en préstamo) para recomprarlos más baratos. Permite generar rentabilidad en mercados a la baja.</p>
+      </div>
+      <div class="diferencia-box">
+        <h4>Apalancamiento</h4>
+        <p>Pueden invertir más del 100% del patrimonio mediante préstamos o derivados. El apalancamiento amplifica tanto las ganancias como las pérdidas.</p>
+      </div>
+      <div class="diferencia-box">
+        <h4>Objetivo de rentabilidad absoluta</h4>
+        <p>No se miden contra un benchmark de mercado sino contra un objetivo de rentabilidad propio (ej. Euribor + 3%), buscando retornos positivos en cualquier entorno de mercado.</p>
+      </div>
+      <div class="diferencia-box">
+        <h4>Uso intensivo de derivados</h4>
+        <p>Futuros, opciones, swaps y derivados OTC son herramientas centrales de la gestión, tanto para cobertura como para especulación y construcción de estrategias complejas.</p>
+      </div>
+      <div class="diferencia-box">
+        <h4>Restricciones de liquidez</h4>
+        <p>Períodos de preaviso para reembolsos (lockup inicial de 1–2 años, luego preaviso trimestral o semestral). Posibilidad de <em>gates</em> (límite al % de patrimonio reembolsable por período).</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 2. FIL VS. IIC DE IIC -->
+  <div class="sec">
+    <h2>2. FIL e IIC de IIC de inversión libre: diferencias</h2>
+    <p>
+      La normativa española distingue dos figuras dentro de la inversión alternativa regulada:<sup class="fn"><a href="#fn2">2</a></sup>
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Característica</th>
+            <th>FIL (Fondo de Inversión Libre)</th>
+            <th>IIC de IIC de inversión libre</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Definición</strong></td>
+            <td>IIC que invierte directamente en activos con estrategia alternativa</td>
+            <td>IIC que invierte en otros FIL o hedge funds (fondo de hedge funds)</td>
+          </tr>
+          <tr>
+            <td><strong>Inversión mínima</strong></td>
+            <td><strong>100.000 €</strong> por partícipe</td>
+            <td><strong>10.000 €</strong> por partícipe</td>
+          </tr>
+          <tr>
+            <td><strong>N.º máximo de partícipes</strong></td>
+            <td>Sin límite legal (antes 100; derogado)</td>
+            <td>Sin límite</td>
+          </tr>
+          <tr>
+            <td><strong>Apalancamiento</strong></td>
+            <td>Sin límite regulatorio específico</td>
+            <td>Limitado por los fondos subyacentes</td>
+          </tr>
+          <tr>
+            <td><strong>Diversificación</strong></td>
+            <td>Sin los límites UCITS (5% por emisor)</td>
+            <td>Diversificación a través de múltiples FIL</td>
+          </tr>
+          <tr>
+            <td><strong>Liquidez</strong></td>
+            <td>Reembolsos con preaviso; posibilidad de <em>gates</em></td>
+            <td>Reembolsos trimestrales como mínimo</td>
+          </tr>
+          <tr>
+            <td><strong>Inversor objetivo</strong></td>
+            <td>Inversor cualificado / profesional</td>
+            <td>Accesible a más inversores (mínimo reducido)</td>
+          </tr>
+          <tr>
+            <td><strong>Comisiones</strong></td>
+            <td>Sin límites legales (gestión + <em>carried interest</em>)</td>
+            <td>Doble capa de comisiones (propias + fondos subyacentes)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        La diferencia clave de inversión mínima: <strong>100.000 €</strong> para el FIL directo vs.
+        <strong>10.000 €</strong> para la IIC de IIC de inversión libre. La segunda fue diseñada para
+        democratizar el acceso a los hedge funds a través de la diversificación en fondos intermedios.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 3. RÉGIMEN LEGAL ESPAÑA -->
+  <div class="sec">
+    <h2>3. Disposiciones legales especiales en España</h2>
+    <p>
+      Los FIL y las IIC de IIC de inversión libre están regulados en España por un régimen especial dentro
+      de la LIIC y el RLIIC, que les exime de las restricciones generales aplicables a los fondos UCITS.<sup class="fn"><a href="#fn2">2</a></sup>
+    </p>
+
+    <div class="legal-box">
+      <h4>📋 Régimen especial LIIC / RLIIC para FIL</h4>
+      <ul>
+        <li><strong>Constitución:</strong> autorización previa de la CNMV; inscripción en el registro especial de IIC de inversión libre.</li>
+        <li><strong>Inversión mínima:</strong> 100.000 € por partícipe. La gestora debe verificar este requisito en cada suscripción.</li>
+        <li><strong>Política de inversión libre:</strong> pueden invertir en cualquier tipo de activo, instrumento financiero, divisa, materia prima o instrumento derivado, sin los límites de concentración de los fondos UCITS.</li>
+        <li><strong>Apalancamiento:</strong> sin límite regulatorio específico, aunque la gestora debe informar del nivel de apalancamiento en el folleto y gestionarlo con políticas de riesgo adecuadas.</li>
+        <li><strong>Ventas en corto:</strong> permitidas sin restricción, a diferencia de los fondos UCITS.</li>
+        <li><strong>Valoración:</strong> al menos mensual (frente a diaria en UCITS). El folleto puede establecer menor frecuencia.</li>
+        <li><strong>Liquidez y reembolsos:</strong> el folleto debe establecer el perímetro de liquidez; preaviso mínimo de los partícipes generalmente de 1 mes. Posibilidad de <em>lockup</em> (período inicial sin derecho de reembolso, máximo 1 año prorrogable) y de <em>gates</em>.</li>
+        <li><strong>Información:</strong> folleto simplificado obligatorio; informe anual auditado. Menor frecuencia de reporting que los fondos UCITS.</li>
+        <li><strong>Comisiones:</strong> sin límites legales en comisiones de gestión ni en <em>carried interest</em>.</li>
+        <li><strong>Prime brokerage:</strong> pueden contratar servicios de <em>prime broker</em> (banco de inversión que presta valores para ventas en corto, concede financiación apalancada y proporciona servicios de liquidación y custodia).</li>
+      </ul>
+    </div>
+
+    <h3>Marco europeo: AIFMD</h3>
+    <p>
+      A nivel europeo, los FIL son fondos de inversión alternativos (FIA) regulados por la
+      <strong>Directiva AIFMD (2011/61/UE)</strong>, que impone obligaciones a las Gestoras de Fondos de Inversión
+      Alternativos (GFIA): capital mínimo, reporting periódico a supervisores, límites de apalancamiento a efectos
+      de información, gestión de liquidez y control del riesgo.<sup class="fn"><a href="#fn3">3</a></sup>
+    </p>
+    <p>
+      El pasaporte AIFMD permite a una GFIA autorizada en un Estado miembro comercializar sus FIA a inversores
+      profesionales en toda la UE mediante simple notificación, sin necesidad de autorización en cada país.
+    </p>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>La industria global de hedge funds gestiona en torno a <strong>4,5–5 billones USD</strong> (datos HFR, 2025),
+      con una concentración creciente en los grandes fondos multi-estrategia (Citadel, Millennium, Balyasny, Point72).
+      En España, el número de FIL registrados en la CNMV supera los 80, con patrimonio agregado reducido respecto
+      a los grandes mercados europeos (Luxemburgo, Irlanda). La tendencia es comercializar fondos UCITS líquidos
+      con estrategias alternativas (<em>liquid alts</em>) para sortear los requisitos de la inversión mínima.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 4. DIFERENCIAS CON UCITS -->
+  <div class="sec">
+    <h2>4. Comparativa FIL vs. fondo UCITS</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Parámetro</th><th>Fondo UCITS</th><th>FIL (Hedge Fund)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Universo de activos</strong></td><td>Valores cotizados; derivados solo para cobertura o gestión eficiente</td><td>Sin restricciones: todo tipo de activo, incluyendo derivados complejos y OTC</td></tr>
+          <tr><td><strong>Ventas en corto</strong></td><td>No permitidas directamente</td><td>Permitidas (mecanismo central de muchas estrategias)</td></tr>
+          <tr><td><strong>Apalancamiento</strong></td><td>Limitado; exposición en derivados controlada por normas de la CNMV</td><td>Sin límite; habitual 2x–10x en algunos fondos</td></tr>
+          <tr><td><strong>Diversificación</strong></td><td>Máx. 5% en un emisor (regla general)</td><td>Sin límites de concentración</td></tr>
+          <tr><td><strong>Inversión mínima</strong></td><td>Sin mínimo legal</td><td>100.000 € (FIL) / 10.000 € (IIC de IIC)</td></tr>
+          <tr><td><strong>Liquidez</strong></td><td>Reembolso en máx. 3 días hábiles</td><td>Preaviso + posible lockup y gates</td></tr>
+          <tr><td><strong>Valoración NAV</strong></td><td>Al menos diaria</td><td>Al menos mensual</td></tr>
+          <tr><td><strong>Comisión de gestión</strong></td><td>Máx. 2,25% (RLIIC)</td><td>Sin límite; típicamente "2 y 20"</td></tr>
+          <tr><td><strong>Objetivo de rentabilidad</strong></td><td>Relativa (batir un benchmark)</td><td>Absoluta (positiva en cualquier mercado)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 5. EJEMPLOS NUMÉRICOS -->
+  <div class="sec">
+    <h2>5. Ejemplos numéricos</h2>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 1 — Efecto del apalancamiento en un FIL</h3>
+      <p>Un FIL tiene un patrimonio de <strong>100 M€</strong> y utiliza un apalancamiento de <strong>3x</strong>:</p>
+      <ul>
+        <li>Exposición total a mercados: 100 M€ × 3 = <strong>300 M€</strong></li>
+        <li>Financiación apalancada (deuda): 300 − 100 = <strong>200 M€</strong></li>
+      </ul>
+      <p><strong>Escenario positivo:</strong> la cartera sube un 5% → ganancia sobre la exposición: 300 × 5% = 15 M€. Rentabilidad sobre el patrimonio: 15 / 100 = <strong>+15%</strong>.</p>
+      <p><strong>Escenario negativo:</strong> la cartera cae un 5% → pérdida: 300 × 5% = 15 M€. Rentabilidad sobre el patrimonio: −15 / 100 = <strong>−15%</strong>.</p>
+      <p>El apalancamiento triplica tanto las ganancias como las pérdidas. Si la caída fuera del 33%, el fondo pierde todo su patrimonio (100 M€) y quiebra.</p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 2 — Estructura de comisiones "2 y 20" con hurdle rate</h3>
+      <p>Un FIL con <strong>200 M€</strong> de patrimonio, comisión de gestión del 2% anual y <em>carried interest</em> del 20% sobre rentabilidad superior al <em>hurdle rate</em> del 8%:</p>
+      <p>El fondo obtiene una rentabilidad bruta del <strong>18%</strong> en el año:</p>
+      <ul>
+        <li>Comisión de gestión: 200 M€ × 2% = <strong>4 M€</strong></li>
+        <li>Rentabilidad bruta generada: 200 M€ × 18% = 36 M€</li>
+        <li>Rentabilidad por encima del hurdle (8%): 36 − 200 × 8% = 36 − 16 = <strong>20 M€</strong></li>
+        <li><em>Carried interest</em>: 20 M€ × 20% = <strong>4 M€</strong></li>
+        <li><strong>Total comisiones gestora: 8 M€</strong></li>
+        <li>Rentabilidad neta del partícipe: (36 − 8) / 200 = <strong>14% neto</strong></li>
+      </ul>
+      <p>Si el fondo solo obtuviera un 6% (por debajo del hurdle), no habría <em>carried interest</em>; solo la comisión de gestión del 2%, quedando una rentabilidad neta del <strong>4%</strong> para el partícipe.</p>
+    </div>
+  </div>
+
+  <!-- NOTAS AL PIE -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">Lhabitant, F.-S. (2006). <em>Handbook on Hedge Funds</em>. Wiley Finance. Caps. 1–2 (concepto de gestión alternativa, características estructurales de los hedge funds).
+        ISBN 978-0-470-02663-2.</li>
+      <li id="fn2">Ley 35/2003 (LIIC), arts. 43–48 (régimen especial de FIL e IIC de IIC de inversión libre: autorización, inversión mínima, política de inversión, apalancamiento, liquidez). RD 1082/2012 (RLIIC), arts. 73–80 (desarrollo reglamentario).
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-20331" target="_blank" rel="noopener">boe.es — LIIC</a></li>
+      <li id="fn3">Directiva 2011/61/UE del Parlamento Europeo y del Consejo, de 8 de junio de 2011 (AIFMD): arts. 6–8 (autorización de GFIA), art. 15 (gestión del riesgo), art. 25 (apalancamiento), art. 31 (pasaporte AIFMD para inversores profesionales).
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32011L0061" target="_blank" rel="noopener">eur-lex.europa.eu — AIFMD</a></li>
+    </ol>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="../bloque-2/seccion-c.html" class="nav-btn">← B2·C: IIC cerradas</a>
+    <a href="seccion-b.html" class="nav-btn">B: Estrategias y estilos →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 2 · Bloque 3 · Sección A · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

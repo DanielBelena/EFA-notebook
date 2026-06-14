@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M2 · B3 · Sección B — Estrategias y estilos de inversión · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .estrategia-card {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-left: 5px solid var(--navy);
+      border-radius: 0 14px 14px 0;
+      padding: 1.1rem 1.3rem;
+      margin: 1rem 0;
+    }
+    .estrategia-card.valor-relativo { border-left-color: #2a5ab0; }
+    .estrategia-card.event-driven   { border-left-color: #1a7a4e; }
+    .estrategia-card.oportunista    { border-left-color: #c47c0a; }
+    .estrategia-card.cta            { border-left-color: #7c3aed; }
+    .estrategia-card.fof            { border-left-color: #0f766e; }
+    .estrategia-card.esg            { border-left-color: #15803d; }
+    .estrategia-card h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin-bottom: .5rem;
+    }
+    .estrategia-card.event-driven h4 { color: #1a7a4e; }
+    .estrategia-card.oportunista h4  { color: #c47c0a; }
+    .estrategia-card.cta h4          { color: #7c3aed; }
+    .estrategia-card.fof h4          { color: #0f766e; }
+    .estrategia-card.esg h4          { color: #15803d; }
+    .estrategia-card p, .estrategia-card li {
+      font-size: var(--fs-sm);
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+    .estrategia-card ul { padding-left: 1.2rem; margin: .4rem 0 0; }
+    .tag-estrategia {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: .7rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-right: 4px;
+      margin-bottom: 4px;
+      vertical-align: middle;
+    }
+    .tag-riesgo-bajo    { background: var(--green-light); color: var(--green); border: 1px solid var(--green); }
+    .tag-riesgo-medio   { background: var(--amber-light); color: var(--amber); border: 1px solid var(--amber); }
+    .tag-riesgo-alto    { background: var(--danger-light); color: var(--danger); border: 1px solid var(--danger); }
+    .tag-mercado-neutro { background: var(--navy-light); color: var(--navy); border: 1px solid var(--navy); }
+    .contexto-actual { background: var(--card); border-left: 4px solid var(--green); border-radius: 0 14px 14px 0; padding: 1.1rem 1.3rem; margin: 1.2rem 0; }
+    .contexto-actual .ctx-title { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--green); margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
+    .contexto-actual p { font-size: var(--fs-sm); color: var(--text); line-height: 1.7; margin: 0 0 .4rem; }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+    .footnotes { border-top: 1px solid var(--border); margin-top: 2.5rem; padding-top: 1.2rem; }
+    .footnotes h4 { font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 800; color: var(--text-soft); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .8rem; }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li { font-size: .78rem; color: var(--text-soft); line-height: 1.6; margin-bottom: .35rem; }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M2 · B3 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 2</a><span class="sep">›</span>
+    <a href="index.html">Bloque 3</a><span class="sep">›</span>
+    <span>Sección B</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 2 · Bloque 3 · Sección B · Nivel I · Conocimiento y Análisis</div>
+    <h1>Estrategias y estilos de inversión</h1>
+    <p class="hero-sub">
+      Valor relativo · Event driven · Estrategias oportunistas · CTA ·
+      Fondos de fondos · Hedge funds con criterios ESG.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- PANORAMA GENERAL -->
+  <div class="sec">
+    <h2>1. Panorama de estrategias de inversión libre</h2>
+    <p>
+      Las estrategias de los fondos de inversión libre se clasifican habitualmente en cinco grandes familias según
+      su fuente de rentabilidad y su relación con la dirección del mercado.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Familia</th><th>Estrategias</th><th>Dependencia de mercado</th><th>Perfil de riesgo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Valor relativo</strong></td><td>Arbitraje convertibles, arbitraje RF, Equity Market Neutral</td><td>Muy baja (market neutral)</td><td>Bajo–Medio</td></tr>
+          <tr><td><strong>Event driven</strong></td><td>Arbitraje de fusiones, Distressed Securities</td><td>Baja–Media</td><td>Medio</td></tr>
+          <tr><td><strong>Oportunistas</strong></td><td>Global Macro, Long-Short, Short Selling, Emergentes</td><td>Media–Alta</td><td>Medio–Alto</td></tr>
+          <tr><td><strong>CTA</strong></td><td>Gestión discrecional, gestión sistemática (trend following)</td><td>Variable (pueden ser contracíclicas)</td><td>Medio–Alto</td></tr>
+          <tr><td><strong>Fondos de fondos</strong></td><td>Carteras de múltiples hedge funds</td><td>Depende de la combinación</td><td>Medio (por diversificación)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 2. VALOR RELATIVO -->
+  <div class="sec">
+    <h2>2. Estrategias de valor relativo</h2>
+    <p>
+      Las estrategias de <strong>valor relativo</strong> buscan explotar <em>mispricing</em> entre instrumentos
+      relacionados, tomando simultáneamente posiciones largas en el activo "barato" y cortas en el "caro".
+      El resultado es prácticamente neutro a la dirección general del mercado.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
+
+    <div class="estrategia-card valor-relativo">
+      <h4>Arbitraje de convertibles <span class="tag-estrategia tag-mercado-neutro">Market Neutral</span><span class="tag-estrategia tag-riesgo-bajo">Riesgo bajo-medio</span></h4>
+      <p><strong>Filosofía:</strong> un bono convertible incorpora un bono normal más una opción de conversión en acciones. El arbitrajista compra el convertible (que considera infravalorado como conjunto) y vende en corto las acciones subyacentes en la proporción del <em>delta</em> de la opción implícita.</p>
+      <p><strong>Fuente de rentabilidad:</strong> el <em>carry</em> del bono (cupón) menos el coste del corto en acciones, más las ganancias derivadas de la volatilidad implícita del convertible si se mueve a su favor.</p>
+      <ul>
+        <li>Riesgo principal: <em>gamma riesgo</em> (movimientos bruscos del subyacente que rompen la cobertura delta), riesgo de crédito del emisor del convertible y riesgo de liquidez.</li>
+        <li>Funciona mejor en entornos de alta volatilidad implícita en el mercado de convertibles.</li>
+      </ul>
+    </div>
+
+    <div class="estrategia-card valor-relativo">
+      <h4>Arbitraje de renta fija <span class="tag-estrategia tag-mercado-neutro">Market Neutral</span><span class="tag-estrategia tag-riesgo-bajo">Riesgo bajo</span></h4>
+      <p><strong>Filosofía:</strong> explota ineficiencias en la curva de tipos, entre bonos de distintos vencimientos o entre bonos similares con distintos precios. El gestor toma posiciones largas en el bono "barato" y cortas en el bono "caro".</p>
+      <p><strong>Estrategias típicas:</strong></p>
+      <ul>
+        <li><em>Curve trades:</em> apuesta sobre la pendiente o la forma de la curva de tipos (ej. largo en bono a 10 años y corto en bono a 2 años si se espera empinamiento).</li>
+        <li><em>Basis trading:</em> arbitraje entre el bono físico y el futuro sobre el mismo bono.</li>
+        <li><em>Asset swap spreads:</em> diferencial entre el rendimiento del bono y el tipo swap al mismo plazo.</li>
+      </ul>
+      <p>Riesgo principal: las posiciones son muy apalancadas (los <em>spreads</em> son pequeños) y episodios de iliquidez pueden ampliar el <em>spread</em> antes de que converja (riesgo LTCM-1998).</p>
+    </div>
+
+    <div class="estrategia-card valor-relativo">
+      <h4>Equity Market Neutral (EMN) <span class="tag-estrategia tag-mercado-neutro">Market Neutral</span><span class="tag-estrategia tag-riesgo-bajo">Riesgo bajo-medio</span></h4>
+      <p><strong>Filosofía:</strong> cartera con exposición neta cero al mercado: el importe invertido en posiciones largas (acciones infravaloradas) es igual al importe en posiciones cortas (acciones sobrevaloradas). La rentabilidad proviene únicamente de la selección de valores, no de la dirección del mercado.</p>
+      <ul>
+        <li><em>Beta neta ≈ 0:</em> si el mercado sube o baja un 10%, la cartera no se ve afectada en teoría.</li>
+        <li>Se puede refinar el neutral por sector, capitalización, factor o divisa.</li>
+        <li>Fuentes de alfa: análisis fundamental, análisis cuantitativo (factores de valor, calidad, momentum), o combinaciones.</li>
+        <li>Riesgo principal: <em>factor crowding</em> (muchos fondos con posiciones similares que se deshacen simultáneamente).</li>
+      </ul>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Las estrategias de valor relativo son <em>market neutral</em>: su rentabilidad es independiente de la
+        dirección del mercado. El <em>alfa</em> proviene del diferencial de precios entre activos relacionados.
+        Son las estrategias con menor <em>beta</em> de mercado de todas las categorías de hedge funds.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 3. EVENT DRIVEN -->
+  <div class="sec">
+    <h2>3. Estrategias de eventos societarios (Event Driven)</h2>
+    <p>
+      Las estrategias <strong>event driven</strong> explotan la reacción del precio de los activos a eventos
+      corporativos concretos: fusiones, adquisiciones, reestructuraciones, quiebras o cambios en la estructura
+      de capital. La fuente de rentabilidad no es la dirección del mercado sino el desenlace del evento.<sup class="fn"><a href="#fn2">2</a></sup>
+    </p>
+
+    <div class="estrategia-card event-driven">
+      <h4>Arbitraje de fusiones (Merger Arbitrage / Risk Arbitrage) <span class="tag-estrategia tag-riesgo-bajo">Riesgo bajo-medio</span></h4>
+      <p><strong>Filosofía:</strong> cuando se anuncia una fusión o adquisición, el precio de la empresa objetivo sube hasta cerca del precio de oferta, pero generalmente con un pequeño descuento (<em>spread</em> de fusión) que refleja el riesgo de que la operación no se complete.</p>
+      <p><strong>Operativa:</strong></p>
+      <ul>
+        <li><strong>Oferta en efectivo:</strong> compra de las acciones de la empresa objetivo al precio actual de mercado y espera a recibir el precio de oferta cuando se complete. El beneficio es el spread: precio de oferta − precio actual.</li>
+        <li><strong>Oferta en acciones:</strong> compra acciones de la empresa objetivo y vende en corto acciones de la empresa adquirente en la proporción del ratio de canje anunciado.</li>
+      </ul>
+      <p>Riesgo principal: que la operación fracase (ruptura del acuerdo) → el precio de la objetivo cae abruptamente al nivel previo al anuncio. Riesgo de pérdida asimétrico: ganancia pequeña y frecuente vs. pérdida grande y ocasional.</p>
+    </div>
+
+    <div class="estrategia-card event-driven">
+      <h4>Distressed Securities <span class="tag-estrategia tag-riesgo-alto">Riesgo alto</span></h4>
+      <p><strong>Filosofía:</strong> inversión en deuda o acciones de empresas en dificultades financieras (en quiebra o próximas a ella) cuyo precio ha caído muy por debajo del valor intrínseco estimado del negocio. El gestor apuesta por la reestructuración y recuperación del valor.</p>
+      <p><strong>Estrategias típicas:</strong></p>
+      <ul>
+        <li><em>Distressed debt:</em> compra de bonos o préstamos de la empresa en default a precios de 20–50 centavos por dólar, esperando recuperar más en la reestructuración judicial o extrajudicial.</li>
+        <li><em>Loan-to-own:</em> compra de deuda con la intención de convertirse en accionista de la empresa reestructurada.</li>
+        <li><em>Post-reorganization equity:</em> inversión en las acciones de la empresa tras salir de la quiebra.</li>
+      </ul>
+      <p>Riesgo principal: la reestructuración puede no completarse o los recuperos pueden ser inferiores a los proyectados. Alta iliquidez de los activos en cartera. Horizonte de inversión largo e incierto.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 4. OPORTUNISTAS -->
+  <div class="sec">
+    <h2>4. Estrategias oportunistas</h2>
+    <p>
+      Las estrategias oportunistas tienen mayor exposición a la dirección del mercado que las anteriores.
+      El gestor toma posiciones direccionales basándose en su visión macro o en el análisis de acciones individuales.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
+
+    <div class="estrategia-card oportunista">
+      <h4>Global Macro <span class="tag-estrategia tag-riesgo-alto">Riesgo alto</span></h4>
+      <p><strong>Filosofía:</strong> el gestor toma posiciones basándose en su visión de las tendencias macroeconómicas globales: política monetaria, tipos de cambio, ciclos económicos, flujos de capital entre países. Invierte en todos los mercados (divisas, tipos, renta variable, materias primas) con apalancamiento significativo.</p>
+      <ul>
+        <li>Ejemplo clásico: Soros apostando contra la libra esterlina en 1992 (forzó la salida del SME).</li>
+        <li>Horizonte variable: desde días hasta meses; alta rotación de cartera.</li>
+        <li>Fuente de alfa: anticipación de movimientos macroeconómicos y de política monetaria antes de que el mercado los descuente.</li>
+        <li>Riesgo: los mercados pueden permanecer irracionales más tiempo del que el gestor puede mantenerse solvente (<em>Keynes</em>). Alta dependencia de la capacidad analítica del gestor.</li>
+      </ul>
+    </div>
+
+    <div class="estrategia-card oportunista">
+      <h4>Long-Short Equity <span class="tag-estrategia tag-riesgo-medio">Riesgo medio</span></h4>
+      <p><strong>Filosofía:</strong> el gestor mantiene una cartera de posiciones largas (acciones que espera suban) y cortas (acciones que espera bajen). A diferencia del EMN, la exposición neta al mercado suele ser positiva (net long), típicamente entre el 20% y el 60%.</p>
+      <ul>
+        <li><em>Net exposure:</em> % longs − % shorts. Un fondo con 100% long y 40% short tiene un net exposure del +60%.</li>
+        <li>El gestor genera alfa tanto por las posiciones largas (selección de buenos negocios) como por las cortas (evitar o apostar contra malos negocios).</li>
+        <li>Ventaja vs. solo long: las posiciones cortas amortiguan las caídas de mercado y permiten generar retorno en entornos bajistas.</li>
+        <li>Riesgo: en rallies de mercado, el corto puede generar pérdidas que superen al largo. <em>Short squeeze</em>: si un valor muy corteado sube con fuerza, los gestores se ven forzados a cerrar a pérdidas.</li>
+      </ul>
+    </div>
+
+    <div class="estrategia-card oportunista">
+      <h4>Ventas al descubierto (<em>Short Selling</em>) <span class="tag-estrategia tag-riesgo-alto">Riesgo alto</span></h4>
+      <p><strong>Filosofía:</strong> el fondo toma exclusivamente posiciones cortas (bajistas). El gestor identifica empresas con fundamentales deteriorados, fraude contable, modelos de negocio obsoletos o valoraciones excesivas y apuesta por la caída de su cotización.</p>
+      <ul>
+        <li>Pérdidas potencialmente ilimitadas (si el valor sube mucho, la pérdida en el corto no tiene techo).</li>
+        <li>Flujos de caja negativos en mercados alcistas: estos fondos pierden dinero cuando el mercado sube.</li>
+        <li>Función en la cartera: cobertura de un portfolio long-only o diversificación en momentos de crisis.</li>
+        <li>Muy poco frecuentes como fondos independientes; generalmente es una estrategia táctica dentro de un long-short.</li>
+      </ul>
+    </div>
+
+    <div class="estrategia-card oportunista">
+      <h4>Mercados emergentes (<em>Emerging Markets</em>) <span class="tag-estrategia tag-riesgo-alto">Riesgo alto</span></h4>
+      <p><strong>Filosofía:</strong> inversión en activos de mercados emergentes (renta variable, renta fija soberana, divisas) buscando el diferencial de crecimiento y valoración respecto a los mercados desarrollados.</p>
+      <ul>
+        <li>Mayor rentabilidad potencial a largo plazo (crecimiento económico superior).</li>
+        <li>Mayor riesgo: divisa, político, regulatorio, liquidez reducida y menor transparencia contable.</li>
+        <li>Muchos FIL de emergentes son long-only o con posibilidad de cobertura de divisa pero sin shorts en el mercado local (restricciones regulatorias en algunos países).</li>
+        <li>Correlación alta con el ciclo de risk-on / risk-off global: en momentos de aversión al riesgo, los emergentes se correlacionan fuertemente con la renta variable de mercados desarrollados.</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 5. CTA -->
+  <div class="sec">
+    <h2>5. Estrategias CTA (<em>Commodity Trading Advisors</em>)</h2>
+    <p>
+      Los <strong>CTA</strong> son gestores especializados en estrategias sistemáticas o discrecionales sobre futuros
+      (sobre todo de materias primas, pero también de índices, bonos y divisas). Son los únicos fondos que
+      históricamente han generado rentabilidades positivas en los grandes crashes de mercado, actuando como
+      diversificadores naturales.<sup class="fn"><a href="#fn3">3</a></sup>
+    </p>
+
+    <div class="estrategia-card cta">
+      <h4>Gestión sistemática (<em>Trend Following / Managed Futures</em>) <span class="tag-estrategia tag-riesgo-medio">Riesgo medio</span></h4>
+      <p><strong>Filosofía:</strong> los modelos matemáticos identifican tendencias de precio en múltiples mercados y activos y siguen esas tendencias con posiciones largas o cortas. No hay visión macroeconómica subjetiva: las señales las genera el modelo.</p>
+      <ul>
+        <li>Operan en mercados muy líquidos: futuros sobre índices, bonos, divisas, materias primas.</li>
+        <li>Altamente diversificados: carteras de 50–200 contratos de futuros en mercados globales.</li>
+        <li>Característica clave: rentabilidad positiva en crisis prolongadas (pueden ponerse cortos de renta variable, largos de bonos y largos de volatilidad). En 2022, muchos CTA obtuvieron rentabilidades del +20% a +40% cuando el resto del mercado caía.</li>
+        <li>Debilidad: entornos de mercado sin tendencia (<em>choppy markets</em>) generan señales falsas y pérdidas frecuentes.</li>
+      </ul>
+    </div>
+
+    <div class="estrategia-card cta">
+      <h4>Gestión discrecional <span class="tag-estrategia tag-riesgo-medio">Riesgo medio-alto</span></h4>
+      <p><strong>Filosofía:</strong> el gestor toma decisiones basándose en su análisis propio de los mercados de futuros, combinando análisis técnico, macro y flujos. A diferencia de los sistemáticos, el factor humano puede sobrescribir o filtrar las señales del modelo.</p>
+      <ul>
+        <li>Mayor flexibilidad para adaptarse a cambios de régimen que los modelos sistemáticos no anticipan.</li>
+        <li>Mayor dependencia de las habilidades individuales del gestor (riesgo persona clave).</li>
+        <li>Generalmente menor diversificación que los sistemáticos.</li>
+      </ul>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>Los CTA sistemáticos han vivido un período de rentabilidades mixtas en 2024–2025 tras el excelente 2022: los mercados de bonos y divisas han mostrado menor tendencialidad, reduciendo las señales de sus modelos. En 2026, el contexto de bajadas de tipos del BCE (de 4% a 2% entre 2024 y 2026) ha favorecido las posiciones largas en bonos de los grandes modelos de trend following.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 6. FONDOS DE FONDOS -->
+  <div class="sec">
+    <h2>6. Fondos de fondos de inversión libre</h2>
+    <p>
+      Las <strong>IIC de IIC de inversión libre</strong> construyen carteras de múltiples hedge funds individuales,
+      ofreciendo diversificación de estrategias, gestores y estilos en un único vehículo.<sup class="fn"><a href="#fn4">4</a></sup>
+    </p>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Ventajas vs. fondo individual</h4>
+        <p><strong>Diversificación:</strong> eliminan el riesgo de un único gestor o estrategia. Acceso a fondos con inversión mínima alta (100.000 €) con solo 10.000 €. Due diligence profesional sobre los fondos subyacentes.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Desventajas vs. fondo individual</h4>
+        <p><strong>Doble capa de comisiones:</strong> las propias del FdF + las de cada fondo subyacente. En entornos de rentabilidades moderadas, las comisiones totales (ej. 1% + 10% sobre FdF, más 2% + 20% de los subyacentes) pueden comerse gran parte del alfa. Menor liquidez por la estructura en capas.</p>
+      </div>
+    </div>
+
+    <h3>Filosofía de gestión</h3>
+    <ul>
+      <li><strong>Asignación estratégica:</strong> el gestor del FdF decide qué porcentaje asignar a cada estrategia (valor relativo, event driven, macro, CTA) según sus expectativas de mercado y correlaciones.</li>
+      <li><strong><em>Manager selection</em>:</strong> el valor diferencial del FdF reside en identificar los mejores gestores dentro de cada estrategia, con un proceso de due diligence operacional y de inversión exhaustivo.</li>
+      <li><strong>Construcción de cartera:</strong> buscar la combinación de fondos con baja correlación entre sí, de forma que la volatilidad del conjunto sea inferior a la de cualquier fondo individual.</li>
+      <li><strong>Liquidez:</strong> el FdF debe gestionar el desfase entre sus propias ventanas de liquidez (trimestrales, por ejemplo) y las de los fondos subyacentes (que pueden ser menos líquidos).</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- 7. HEDGE FUNDS ESG -->
+  <div class="sec">
+    <h2>7. Fondos de inversión libre con enfoque ESG</h2>
+    <p>
+      La integración de criterios ESG en los hedge funds ha crecido significativamente desde 2020, impulsada
+      por la presión regulatoria (SFDR, AIFMD revisada) y la demanda de inversores institucionales como
+      fondos de pensiones y <em>endowments</em> universitarios.<sup class="fn"><a href="#fn5">5</a></sup>
+    </p>
+
+    <div class="estrategia-card esg">
+      <h4>Características de los hedge funds con enfoque ESG</h4>
+      <ul>
+        <li><strong>Integración de factores ESG en el análisis:</strong> el análisis ESG se incorpora al proceso de inversión como señal adicional de riesgo y oportunidad, tanto en posiciones largas como cortas. Una empresa con mala gobernanza o alto riesgo de transición climática puede ser candidata a posición corta.</li>
+        <li><strong>Engagement activo:</strong> a diferencia de los fondos de impacto pasivos, algunos hedge funds usan sus posiciones largas para ejercer presión sobre la dirección de las empresas y mejorar sus prácticas ESG.</li>
+        <li><strong>Exclusiones:</strong> eliminación de sectores o empresas con actividades controvertidas (armas, tabaco, carbón) del universo de posiciones largas (aunque no necesariamente de las cortas).</li>
+        <li><strong>Clasificación SFDR:</strong> la mayoría de los hedge funds con características ESG se clasifican como <strong>artículo 8</strong> (promueven características ESG). Muy pocos como artículo 9 dado el uso de ventas en corto y derivados, que complica demostrar el impacto positivo.</li>
+        <li><strong>Reto del short selling:</strong> la venta en corto de empresas ESG-positivas o la posición larga en empresas ESG-negativas (si el análisis fundamental lo justifica) genera tensiones con los objetivos de sostenibilidad.</li>
+        <li><strong>Reporting:</strong> los FIL bajo SFDR deben publicar las Principales Incidencias Adversas (PIA) sobre factores de sostenibilidad en su informe periódico.</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 8. EJEMPLOS NUMÉRICOS -->
+  <div class="sec">
+    <h2>8. Ejemplos numéricos</h2>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 1 — Arbitraje de fusiones: cálculo del spread y la TIR</h3>
+      <p>Se anuncia la adquisición de la empresa A por parte de la empresa B a <strong>45 € por acción</strong>. Las acciones de A cotizaban a 35 € antes del anuncio y ahora cotizan a <strong>43,20 €</strong>. Se espera que la operación se complete en <strong>6 meses</strong>.</p>
+      <ul>
+        <li>Spread de fusión: 45,00 − 43,20 = <strong>1,80 €</strong> (4,17% sobre el precio actual)</li>
+        <li>TIR anualizada si la operación se completa en 6 meses: (1 + 4,17%)<sup>2</sup> − 1 = <strong>8,51% anual</strong></li>
+        <li>Si la operación fracasa y la acción vuelve a 35 €: pérdida = (43,20 − 35,00) / 43,20 = <strong>−19,0%</strong></li>
+      </ul>
+      <p>El gestor debe evaluar la probabilidad de éxito de la operación. Si le asigna un 90% de probabilidad de éxito: rentabilidad esperada = 0,90 × 4,17% + 0,10 × (−19,0%) = 3,75% − 1,90% = <strong>+1,85% en 6 meses</strong> (3,73% anualizado). Con alta probabilidad de éxito, la relación riesgo-rentabilidad puede ser atractiva.</p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 2 — Long-Short Equity: construcción de cartera y exposición neta</h3>
+      <p>Un fondo long-short con patrimonio de <strong>50 M€</strong> construye la siguiente cartera:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Posición</th><th>Dirección</th><th>Importe</th><th>% del NAV</th></tr></thead>
+          <tbody>
+            <tr><td>Cartera de acciones seleccionadas</td><td>Largo</td><td>70 M€</td><td>140%</td></tr>
+            <tr><td>Cartera de acciones sobrevaloradas</td><td>Corto</td><td>40 M€</td><td>80%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>Exposición bruta (<em>gross exposure</em>): 140% + 80% = <strong>220%</strong></li>
+        <li>Exposición neta (<em>net exposure</em>): 140% − 80% = <strong>+60%</strong> (net long)</li>
+      </ul>
+      <p>Si el mercado sube un 10%:</p>
+      <ul>
+        <li>Ganancia en largos (suponiendo beta 1): 70 M€ × 10% = +7 M€</li>
+        <li>Pérdida en cortos: 40 M€ × 10% = −4 M€</li>
+        <li>Resultado neto de mercado: +3 M€ (+6% sobre NAV) → rentabilidad atribuible al beta de mercado</li>
+        <li>Sobre este resultado se añade el alfa de selección de valores (largo y corto)</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>9. Tabla resumen — Estrategias y perfil</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Estrategia</th><th>Fuente de alfa</th><th>Beta de mercado</th><th>Mejor entorno</th><th>Peor entorno</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Arbitraje convertibles</strong></td><td>Mispricing volatilidad implícita</td><td>Muy baja</td><td>Alta volatilidad; mercado lateral</td><td>Crisis de liquidez</td></tr>
+          <tr><td><strong>Arbitraje RF</strong></td><td>Spreads entre activos similares</td><td>Muy baja</td><td>Mercados tranquilos con spreads amplios</td><td>Flight-to-quality (2008)</td></tr>
+          <tr><td><strong>Equity Market Neutral</strong></td><td>Selección de valores</td><td>~0</td><td>Cualquier mercado; mayor dispersión</td><td>Factor crowding</td></tr>
+          <tr><td><strong>Merger Arbitrage</strong></td><td>Spread de fusión</td><td>Baja-media</td><td>Ciclo de M&amp;A activo</td><td>Operaciones rotas en masa</td></tr>
+          <tr><td><strong>Distressed</strong></td><td>Recuperación en reestructuración</td><td>Media</td><td>Final de ciclo económico</td><td>Ciclo expansivo sin defaults</td></tr>
+          <tr><td><strong>Global Macro</strong></td><td>Visión macroeconómica</td><td>Variable</td><td>Grandes divergencias de política monetaria</td><td>Mercados sin tendencia</td></tr>
+          <tr><td><strong>Long-Short Equity</strong></td><td>Selección + direccionalidad parcial</td><td>Media (net long)</td><td>Mercados alcistas; alta dispersión sectorial</td><td>Mercados bajistas abruptos</td></tr>
+          <tr><td><strong>CTA sistemático</strong></td><td>Tendencias en futuros</td><td>Variable (puede ser negativa)</td><td>Mercados en tendencia clara (arriba o abajo)</td><td>Mercados laterales volátiles</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NOTAS AL PIE -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">Lhabitant, F.-S. (2006). <em>Handbook on Hedge Funds</em>. Wiley Finance. Caps. 5–12 (taxonomía de estrategias: valor relativo, event driven, oportunistas). ISBN 978-0-470-02663-2.</li>
+      <li id="fn2">Merger arbitrage y distressed securities: Mitchell, M. &amp; Pulvino, T. (2001). «Characteristics of Risk and Return in Risk Arbitrage». <em>Journal of Finance</em>, 56(6), 2135–2175. <a href="https://doi.org/10.1111/0022-1082.00401" target="_blank" rel="noopener">doi.org/10.1111/0022-1082.00401</a></li>
+      <li id="fn3">Fung, W. &amp; Hsieh, D. A. (2001). «The Risk in Hedge Fund Strategies: Theory and Evidence from Trend Followers». <em>Review of Financial Studies</em>, 14(2), 313–341. <a href="https://doi.org/10.1093/rfs/14.2.313" target="_blank" rel="noopener">doi.org/10.1093/rfs/14.2.313</a></li>
+      <li id="fn4">LIIC, arts. 43–48 (IIC de IIC de inversión libre: inversión mínima de 10.000 €, liquidez trimestral, régimen de comisiones).
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-20331" target="_blank" rel="noopener">boe.es — LIIC</a></li>
+      <li id="fn5">Reglamento (UE) 2019/2088 (SFDR), art. 8 (fondos que promueven características ESG) y art. 4 (Principales Incidencias Adversas — PIA).
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32019R2088" target="_blank" rel="noopener">eur-lex.europa.eu — SFDR</a></li>
+    </ol>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-a.html" class="nav-btn">← A: Definición y características</a>
+    <a href="../bloque-4/seccion-a.html" class="nav-btn">B4·A: Estilos de gestión →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 2 · Bloque 3 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
