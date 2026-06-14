@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M2·B1·C — Valoración: NAV o valor liquidativo | EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css" />
+</head>
+<body>
+
+<!-- ── Toolbar ── -->
+<nav class="toolbar">
+  <a class="toolbar-brand" href="#">EFA Prep</a>
+  <button class="fs-btn" id="fs-btn-normal">A</button>
+  <button class="fs-btn" id="fs-btn-large">A+</button>
+  <button class="fs-btn" id="fs-btn-xlarge">A++</button>
+  <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+</nav>
+
+<!-- ── Breadcrumb ── -->
+<div class="breadcrumb">
+  <a href="#">Inicio</a><span>›</span>
+  <a href="#">Módulo 2</a><span>›</span>
+  <a href="#">Bloque 1</a><span>›</span>
+  Sección C
+</div>
+
+<!-- ── Hero ── -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-pill">Nivel I · Conocimiento</div>
+    <h1>Sección C — Valoración: NAV o valor liquidativo</h1>
+    <p class="hero-sub">Módulo 2 · Bloque 1 · Visión general de los fondos de inversión mobiliaria</p>
+  </div>
+</div>
+
+<!-- ── Content ── -->
+<div class="container">
+
+  <!-- 1. El valor liquidativo -->
+  <h2>1. El valor liquidativo (NAV)</h2>
+
+  <p>El <strong>valor liquidativo</strong> —o <em>Net Asset Value</em> (NAV)— es el precio al que un partícipe puede suscribir o reembolsar participaciones de un fondo de inversión. Es, en esencia, la <strong>cotización del fondo</strong>: representa cuánto vale, en un momento dado, cada unidad de participación.<sup><a href="#fn1">1</a></sup></p>
+
+  <p>A diferencia de las acciones, cuyo precio lo fija el mercado en tiempo real, el NAV se calcula de forma administrativa una vez al día (o con menor frecuencia en fondos no diarios), una vez cerrados los mercados en que invierte el fondo.</p>
+
+  <h3>1.1 Fórmula del valor liquidativo</h3>
+
+  <p>El NAV se calcula dividiendo el <strong>patrimonio neto del fondo</strong> entre el <strong>número de participaciones en circulación</strong>:</p>
+
+  <div class="card accent-green" style="text-align:center;">
+    <h4>📐 Fórmula</h4>
+    <p style="font-size:1.15rem; font-weight:700; letter-spacing:.02em;">
+      NAV = (Activo total – Pasivo exigible) / N.º de participaciones en circulación
+    </p>
+    <p style="margin-top:.5rem; font-size:.9rem;">
+      = Patrimonio neto / N.º participaciones
+    </p>
+  </div>
+
+  <h3>1.2 Composición del activo y el pasivo del fondo</h3>
+
+  <p><strong>Activo total:</strong></p>
+  <ul>
+    <li>Cartera de valores (renta fija, renta variable, derivados, etc.) valorada a <strong>precio de mercado</strong> (<em>mark-to-market</em>).</li>
+    <li>Tesorería y depósitos bancarios.</li>
+    <li>Dividendos e intereses devengados y no cobrados.</li>
+    <li>Otros derechos de cobro.</li>
+  </ul>
+
+  <p><strong>Pasivo exigible:</strong></p>
+  <ul>
+    <li>Comisiones de gestión y depósito devengadas y no liquidadas.</li>
+    <li>Reembolsos pendientes de pago a partícipes.</li>
+    <li>Otras deudas a corto plazo del fondo.</li>
+  </ul>
+
+  <div class="exam-alert">
+    <strong>🎯 Frecuente en examen:</strong> El NAV se calcula con el patrimonio <em>neto</em> (activo menos pasivo exigible), no sobre el activo bruto. Las comisiones de gestión y depósito devengadas reducen el NAV diariamente, por lo que ya están implícitamente descontadas en la rentabilidad que observa el partícipe. No hay que deducirlas adicionalmente al calcular rentabilidades.
+  </div>
+
+  <h3>1.3 Periodicidad del cálculo</h3>
+  <p>La normativa española (RLIIC) establece que los fondos deben calcular el NAV <strong>al menos una vez al día</strong> en que los mercados en que invierte estén abiertos. El NAV aplicable a una suscripción o reembolso es el del <strong>día hábil siguiente a la solicitud</strong> (salvo que el folleto prevea otra cosa —algunos fondos aplican el NAV del mismo día si la solicitud llega antes de un corte horario determinado—).<sup><a href="#fn2">2</a></sup></p>
+
+  <!-- 2. Rentabilidad del fondo -->
+  <h2>2. Rentabilidad de un fondo de inversión</h2>
+
+  <h3>2.1 Rentabilidad en un período simple (acumulada)</h3>
+
+  <p>La <strong>rentabilidad acumulada</strong> en un período mide la variación porcentual del NAV entre dos fechas, incorporando también cualquier dividendo o distribución efectuada en el período:<sup><a href="#fn3">3</a></sup></p>
+
+  <div class="card accent-green" style="text-align:center;">
+    <h4>📐 Rentabilidad acumulada</h4>
+    <p style="font-size:1.1rem; font-weight:700;">
+      R<sub>ac</sub> = (NAV<sub>final</sub> + Distribuciones – NAV<sub>inicial</sub>) / NAV<sub>inicial</sub>
+    </p>
+    <p style="margin-top:.5rem; font-size:.9rem;">
+      En fondos de acumulación (sin reparto de dividendos): R<sub>ac</sub> = (NAV<sub>final</sub> – NAV<sub>inicial</sub>) / NAV<sub>inicial</sub>
+    </p>
+  </div>
+
+  <p>Esta rentabilidad es la que se comunica directamente al partícipe para períodos naturales (mes, año, desde lanzamiento). Es la más intuitiva pero no permite comparar fondos con horizontes temporales distintos.</p>
+
+  <h3>2.2 Rentabilidad anualizada (TAE del fondo)</h3>
+
+  <p>Para comparar fondos con históricos de distinta duración —o para expresar una rentabilidad acumulada en términos anuales equivalentes— se utiliza la <strong>rentabilidad anualizada</strong>, que aplica el principio de interés compuesto:<sup><a href="#fn3">3</a></sup></p>
+
+  <div class="card accent-green" style="text-align:center;">
+    <h4>📐 Rentabilidad anualizada</h4>
+    <p style="font-size:1.1rem; font-weight:700;">
+      R<sub>anual</sub> = (1 + R<sub>ac</sub>)<sup>1/n</sup> – 1
+    </p>
+    <p style="margin-top:.5rem; font-size:.9rem;">
+      donde <strong>n</strong> = número de años del período (puede ser fraccionario)
+    </p>
+  </div>
+
+  <p>Si el período es en días: n = días / 365.</p>
+
+  <div class="exam-alert">
+    <strong>🎯 Frecuente en examen:</strong> La rentabilidad anualizada utiliza siempre la raíz n-ésima (equivalente a elevar a 1/n), nunca una simple división entre años. Dividir una rentabilidad acumulada del 30% entre 3 años daría un 10% incorrecto; la rentabilidad anualizada correcta es (1,30)<sup>1/3</sup> – 1 = <strong>9,14%</strong>. La diferencia es el efecto del interés compuesto.
+  </div>
+
+  <h3>2.3 Rentabilidad ponderada por tiempo (TWR) vs. ponderada por dinero (MWR)</h3>
+
+  <p>Cuando hay flujos intermedios (suscripciones parciales o reembolsos durante el período), la rentabilidad simple puede distorsionarse por el momento en que se producen esos flujos. En ese caso:</p>
+
+  <ul>
+    <li><strong>TWR (Time-Weighted Return):</strong> elimina el efecto de los flujos del partícipe y mide la rentabilidad "pura" del gestor. Es la métrica estándar para evaluar y comparar gestoras (normas GIPS).</li>
+    <li><strong>MWR (Money-Weighted Return):</strong> equivale a la TIR de los flujos reales del inversor; refleja la rentabilidad <em>que el partícipe concreto ha obtenido</em> en función de cuándo entró y salió.</li>
+  </ul>
+
+  <!-- 3. Ejemplos numéricos -->
+  <h2>3. Ejemplos numéricos</h2>
+
+  <div class="card accent-green">
+    <h4>📌 Ejemplo numérico 1 — Cálculo del NAV</h4>
+    <p>Un fondo de renta fija presenta, al cierre del 10 de junio de 2026, los siguientes datos:</p>
+    <ul>
+      <li>Cartera de bonos (valor de mercado): <strong>48.200.000 €</strong></li>
+      <li>Tesorería: <strong>1.500.000 €</strong></li>
+      <li>Intereses devengados no cobrados: <strong>320.000 €</strong></li>
+      <li><em>Activo total: 50.020.000 €</em></li>
+      <li>Comisiones devengadas pendientes de pago: <strong>42.000 €</strong></li>
+      <li>Reembolsos pendientes: <strong>180.000 €</strong></li>
+      <li><em>Pasivo exigible: 222.000 €</em></li>
+      <li><strong>Patrimonio neto: 49.798.000 €</strong></li>
+      <li>N.º de participaciones en circulación: <strong>430.000</strong></li>
+    </ul>
+    <p><strong>NAV = 49.798.000 / 430.000 = 115,81 € / participación</strong></p>
+    <p>Un partícipe que suscriba 1.000 participaciones al NAV de ese día pagará: 1.000 × 115,81 = <strong>115.810 €</strong>.</p>
+  </div>
+
+  <div class="card accent-green">
+    <h4>📌 Ejemplo numérico 2 — Rentabilidad acumulada y anualizada</h4>
+    <p>Un partícipe suscribió participaciones el 15 de marzo de 2021 a un NAV de <strong>87,40 €</strong>. El 10 de junio de 2026 el NAV es <strong>115,81 €</strong>. El fondo es de acumulación (no reparte dividendos).</p>
+    <p><strong>Paso 1 — Rentabilidad acumulada:</strong></p>
+    <ul>
+      <li>R<sub>ac</sub> = (115,81 – 87,40) / 87,40 = 28,41 / 87,40 = <strong>32,50%</strong></li>
+    </ul>
+    <p><strong>Paso 2 — Período en años:</strong></p>
+    <ul>
+      <li>De 15/03/2021 a 10/06/2026 = aprox. <strong>5,24 años</strong></li>
+    </ul>
+    <p><strong>Paso 3 — Rentabilidad anualizada:</strong></p>
+    <ul>
+      <li>R<sub>anual</sub> = (1 + 0,3250)<sup>1/5,24</sup> – 1 = (1,3250)<sup>0,1908</sup> – 1</li>
+      <li>ln(1,3250) = 0,2817 → × 0,1908 = 0,05375 → e<sup>0,05375</sup> – 1 = <strong>5,52% anual</strong></li>
+    </ul>
+    <p>Un 32,50% acumulado en 5,24 años equivale a solo un <strong>5,52% anual</strong> por efecto del interés compuesto. Si hubiera dividido incorrectamente: 32,50% / 5,24 = 6,20% (error por ignorar la capitalización compuesta).</p>
+  </div>
+
+  <!-- 4. Tabla resumen -->
+  <h2>4. Tabla resumen</h2>
+
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>Concepto</th>
+        <th>Fórmula</th>
+        <th>Uso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>NAV</strong></td>
+        <td>(Activo – Pasivo) / N.º participaciones</td>
+        <td>Precio de suscripción y reembolso</td>
+      </tr>
+      <tr>
+        <td><strong>Rentabilidad acumulada</strong></td>
+        <td>(NAV<sub>f</sub> – NAV<sub>i</sub>) / NAV<sub>i</sub></td>
+        <td>Rendimiento total en el período</td>
+      </tr>
+      <tr>
+        <td><strong>Rentabilidad anualizada</strong></td>
+        <td>(1 + R<sub>ac</sub>)<sup>1/n</sup> – 1</td>
+        <td>Comparativa entre fondos con horizontes distintos</td>
+      </tr>
+      <tr>
+        <td><strong>TWR</strong></td>
+        <td>Producto encadenado de subperíodos</td>
+        <td>Evaluación del gestor (GIPS)</td>
+      </tr>
+      <tr>
+        <td><strong>MWR / TIR</strong></td>
+        <td>TIR de los flujos reales del partícipe</td>
+        <td>Rentabilidad del inversor concreto</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Footnotes -->
+  <ol class="footnotes">
+    <li id="fn1">Ley 35/2003 (LIIC), art. 6 (valor liquidativo como precio de referencia para suscripciones y reembolsos). BOE núm. 265. Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-20331" target="_blank" rel="noopener">boe.es — LIIC</a></li>
+    <li id="fn2">Real Decreto 1082/2012 (RLIIC), art. 79 (periodicidad de cálculo del valor liquidativo y plazos de reembolso). Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-9716" target="_blank" rel="noopener">boe.es — RLIIC</a></li>
+    <li id="fn3">CFA Institute, <em>Global Investment Performance Standards (GIPS) 2020</em>, sección 2 (definición de TWR y MWR). Disponible en: <a href="https://www.cfainstitute.org/ethics-standards/gips-standards" target="_blank" rel="noopener">cfainstitute.org — GIPS</a>. Para la fórmula de rentabilidad anualizada, véase también: Inverco, <em>Estadísticas de IIC</em>, metodología de rentabilidades. Disponible en: <a href="https://www.inverco.es" target="_blank" rel="noopener">inverco.es</a></li>
+  </ol>
+
+  <!-- Sección nav -->
+  <div class="sec-nav">
+    <a class="nav-btn" href="seccion-b.html">← B — Elementos intervinientes</a>
+    <a class="nav-btn next" href="seccion-d.html">Siguiente: D — Comisiones →</a>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  EFA Prep · Módulo 2 · Bloque 1 · Sección C · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
