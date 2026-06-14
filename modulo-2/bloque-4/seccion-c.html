@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M2 · B4 · Sección C — Gestión por valor · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concepto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin: 1rem 0; }
+    @media (max-width: 560px) { .concepto-grid { grid-template-columns: 1fr; } }
+    .concepto-box { background: var(--card); border: 1.5px solid var(--border); border-radius: 14px; padding: 1rem 1.1rem; }
+    .concepto-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .35rem; }
+    .concepto-box p { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.65; margin: 0; }
+    .cita-box {
+      background: var(--bg-alt);
+      border-left: 4px solid var(--navy);
+      border-radius: 0 14px 14px 0;
+      padding: 1rem 1.3rem;
+      margin: 1.2rem 0;
+      font-style: italic;
+      font-size: var(--fs-sm);
+      color: var(--text-soft);
+    }
+    .cita-box .cita-autor {
+      font-family: var(--font-ui);
+      font-style: normal;
+      font-weight: 700;
+      font-size: var(--fs-xs);
+      color: var(--navy);
+      margin-top: .5rem;
+      display: block;
+    }
+    .contexto-actual { background: var(--card); border-left: 4px solid var(--green); border-radius: 0 14px 14px 0; padding: 1.1rem 1.3rem; margin: 1.2rem 0; }
+    .contexto-actual .ctx-title { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--green); margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
+    .contexto-actual p { font-size: var(--fs-sm); color: var(--text); line-height: 1.7; margin: 0 0 .4rem; }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+    .footnotes { border-top: 1px solid var(--border); margin-top: 2.5rem; padding-top: 1.2rem; }
+    .footnotes h4 { font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 800; color: var(--text-soft); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .8rem; }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li { font-size: .78rem; color: var(--text-soft); line-height: 1.6; margin-bottom: .35rem; }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M2 · B4 · C</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 2</a><span class="sep">›</span>
+    <a href="index.html">Bloque 4</a><span class="sep">›</span>
+    <span>Sección C</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 2 · Bloque 4 · Sección C · Nivel I · Conocimiento y Análisis</div>
+    <h1>Gestión por valor (<em>Value Investing</em>)</h1>
+    <p class="hero-sub">
+      Graham y Dodd · Margen de seguridad · Mr. Market · Valor intrínseco vs. precio ·
+      Value vs. Growth · Evolución: Buffett y el valor de calidad · Evidencia empírica.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- 1. ORIGEN Y FILOSOFÍA -->
+  <div class="sec">
+    <h2>1. Origen y filosofía de la inversión en valor</h2>
+    <p>
+      La <strong>inversión en valor</strong> (<em>value investing</em>) es una filosofía de gestión activa
+      que busca adquirir activos financieros a un precio significativamente inferior a su
+      <strong>valor intrínseco</strong> estimado, con la convicción de que el mercado corregirá esa
+      infravaloración a lo largo del tiempo.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
+    <p>
+      Sus fundadores intelectuales son <strong>Benjamin Graham</strong> y <strong>David Dodd</strong>,
+      que sentaron las bases de la disciplina en su obra seminal <em>Security Analysis</em> (1934)
+      y que Graham popularizó posteriormente en <em>The Intelligent Investor</em> (1949).
+    </p>
+
+    <div class="cita-box">
+      "El precio es lo que pagas. El valor es lo que obtienes."
+      <span class="cita-autor">— Warren Buffett, carta a accionistas de Berkshire Hathaway</span>
+    </div>
+
+    <h3>Los dos conceptos fundamentales de Graham</h3>
+    <div class="concepto-grid">
+      <div class="concepto-box">
+        <h4>Valor intrínseco</h4>
+        <p>El valor real de un negocio, calculado objetivamente a partir de sus activos, beneficios,
+        dividendos y perspectivas de crecimiento. Es independiente del precio que el mercado asigna
+        en cada momento. El trabajo del inversor en valor es estimarlo con precisión.</p>
+      </div>
+      <div class="concepto-box">
+        <h4>Margen de seguridad (<em>Margin of Safety</em>)</h4>
+        <p>La diferencia entre el valor intrínseco estimado y el precio de mercado al que se compra.
+        Cuanto mayor el margen de seguridad, menor el riesgo de pérdida permanente de capital
+        incluso si el análisis tiene errores. Graham recomendaba no comprar sin al menos un 33%
+        de descuento sobre el valor intrínseco.</p>
+      </div>
+    </div>
+
+    <h3>La metáfora de Mr. Market</h3>
+    <p>
+      Graham propone imaginar que se tiene un socio llamado <strong>Mr. Market</strong> que cada día
+      ofrece comprar o vender su participación en el negocio a un precio diferente. Algunos días Mr. Market
+      es eufórico y pide precios desorbitados; otros días es pesimista y ofrece vender muy barato.
+      El inversor racional no debe dejarse llevar por las emociones de Mr. Market: debe aprovechar
+      sus excesos de pesimismo para comprar barato y sus excesos de euforia para vender caro.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
+    <p>
+      Esta metáfora anticipa lo que décadas después la economía conductual documentaría empíricamente:
+      los mercados no son permanentemente eficientes y el comportamiento irracional de los inversores
+      crea oportunidades para quienes mantienen la disciplina.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- 2. PROCESO DE INVERSIÓN -->
+  <div class="sec">
+    <h2>2. Proceso de inversión en valor</h2>
+
+    <h3>Paso 1 — Estimación del valor intrínseco</h3>
+    <p>El gestor en valor utiliza principalmente tres métodos de valoración:</p>
+    <ul>
+      <li><strong>Valor patrimonial o de liquidación:</strong> ¿cuánto valdría la empresa si se vendieran todos sus activos y se liquidaran todas sus deudas? Graham prefería comprar empresas que cotizasen por debajo de su valor contable (P/VC &lt; 1).</li>
+      <li><strong>Valor por múltiplos comparables:</strong> comparación del PER, EV/EBITDA o P/VC de la empresa con sus comparables del sector para detectar infravaloración relativa.</li>
+      <li><strong>Descuento de flujos de caja (DCF):</strong> el valor intrínseco es el valor presente de todos los flujos de caja futuros del negocio, descontados a una tasa que refleja el coste de capital y el riesgo.</li>
+    </ul>
+
+    <h3>Paso 2 — Determinar el margen de seguridad</h3>
+    <p>
+      Una vez estimado el valor intrínseco, el inversor solo compra si el precio de mercado es
+      suficientemente inferior: el <strong>margen de seguridad</strong>. La amplitud del margen
+      requerido depende de la incertidumbre del análisis: a mayor incertidumbre, mayor margen exigido.
+    </p>
+
+    <h3>Paso 3 — Construcción de la cartera</h3>
+    <ul>
+      <li>Los gestores en valor tienden a construir carteras <strong>concentradas</strong> (10–30 posiciones)
+      porque la alta convicción en cada idea no justifica diluirlas en demasiados valores.</li>
+      <li>Horizonte de inversión <strong>largo</strong>: la infravaloración puede tardar años en corregirse.
+      El inversor en valor necesita paciencia y tolerancia a la rentabilidad inferior al mercado en períodos
+      donde el mercado premia el crecimiento sobre el valor (<em>value traps</em>).</li>
+      <li>Alta rotación es el enemigo: el inversor en valor rota la cartera poco, lo que es fiscalmente
+      eficiente y reduce los costes de transacción.</li>
+    </ul>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El <strong>margen de seguridad</strong> es el concepto más importante del <em>value investing</em>:
+        comprar por debajo del valor intrínseco para protegerse del riesgo de error en el análisis y de
+        los movimientos adversos del mercado. Graham recomendaba un mínimo del 33% de descuento.
+        No es lo mismo que el margen de seguridad en análisis de bonos (cupón vs. gastos).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 3. VALUE VS GROWTH -->
+  <div class="sec">
+    <h2>3. Value vs. Growth: la distinción clave</h2>
+    <p>
+      La dicotomía <strong>valor / crecimiento</strong> es la más utilizada en la clasificación de estilos
+      de gestión de renta variable.<sup class="fn"><a href="#fn2">2</a></sup>
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Característica</th><th>Estilo Valor (<em>Value</em>)</th><th>Estilo Crecimiento (<em>Growth</em>)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>PER</strong></td><td>Bajo (&lt; media del mercado)</td><td>Alto (&gt; media del mercado)</td></tr>
+          <tr><td><strong>P/VC</strong></td><td>Próximo a 1 o por debajo</td><td>Elevado (&gt;3–5x o más)</td></tr>
+          <tr><td><strong>Crecimiento de BPA esperado</strong></td><td>Moderado o bajo</td><td>Alto (20%+ anual)</td></tr>
+          <tr><td><strong>Dividendo</strong></td><td>Alto (empresas maduras)</td><td>Bajo o nulo (reinvierten los beneficios)</td></tr>
+          <tr><td><strong>Sectores típicos</strong></td><td>Banca, utilities, energía, industria</td><td>Tecnología, salud, consumo discrecional</td></tr>
+          <tr><td><strong>Principal riesgo</strong></td><td><em>Value trap</em>: la empresa es barata con razón y sigue deteriorándose</td><td>Decepción en el crecimiento esperado: caída violenta del PER</td></tr>
+          <tr><td><strong>Mejor entorno</strong></td><td>Tipos de interés al alza; economías en recuperación</td><td>Tipos de interés bajos; entorno deflacionario</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>La evolución de Graham a Buffett: valor + calidad</h3>
+    <p>
+      La filosofía original de Graham buscaba empresas muy baratas (a veces denominadas <em>cigar butts</em>:
+      colillas con una última calada de valor antes de apagarse), sin importar demasiado la calidad
+      del negocio. <strong>Warren Buffett</strong>, influenciado por Charlie Munger y Philip Fisher, evolucionó
+      hacia una versión más sofisticada: comprar <strong>negocios de alta calidad a precios razonables</strong>
+      en lugar de negocios mediocres a precios muy bajos.<sup class="fn"><a href="#fn3">3</a></sup>
+    </p>
+    <p>
+      Esta evolución incorpora criterios de calidad del negocio como: ventajas competitivas duraderas
+      (<em>moat</em>), poder de fijación de precios, alta rentabilidad sobre el capital empleado (ROCE),
+      equipos directivos honestos y capaces, y capacidad de reinversión del capital a altas tasas de retorno.
+    </p>
+
+    <div class="concepto-grid">
+      <div class="concepto-box">
+        <h4>Graham: <em>Quantitative Value</em></h4>
+        <p>Filtros cuantitativos estrictos: P/VC &lt; 1, PER &lt; 15, deuda contenida. La calidad del negocio es secundaria si el precio es suficientemente bajo.</p>
+      </div>
+      <div class="concepto-box">
+        <h4>Buffett: <em>Quality at a Reasonable Price (QARP)</em></h4>
+        <p>Negocios excelentes con ventajas competitivas duraderas (moat), comprados a precios razonables (no necesariamente muy baratos). El tiempo es aliado si el negocio es bueno.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 4. DIFERENCIAS CON GESTIÓN ACTIVA GENERAL -->
+  <div class="sec">
+    <h2>4. Diferencias entre gestión por valor, activa general y pasiva</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Parámetro</th><th>Gestión activa general</th><th>Gestión por valor</th><th>Gestión pasiva</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Objetivo</strong></td><td>Superar al benchmark</td><td>Rentabilidad absoluta a largo plazo; preservar capital</td><td>Replicar el benchmark</td></tr>
+          <tr><td><strong>Horizonte</strong></td><td>Corto-medio plazo (rotación alta)</td><td>Largo plazo (3–10 años por posición)</td><td>Indefinido (mientras se mantenga el fondo)</td></tr>
+          <tr><td><strong>Concentración</strong></td><td>Variable; diversificada</td><td>Alta (10–30 valores de alta convicción)</td><td>Muy alta (todo el índice)</td></tr>
+          <tr><td><strong>OGC típico</strong></td><td>0,80%–1,50%</td><td>0,50%–1,20%</td><td>0,05%–0,30%</td></tr>
+          <tr><td><strong>Rotación de cartera</strong></td><td>Alta (50%–200% anual)</td><td>Baja (10%–30% anual)</td><td>Muy baja (&lt;5%)</td></tr>
+          <tr><td><strong>Relación con el mercado</strong></td><td>Se mide vs. benchmark constantemente</td><td>Independiente del mercado a c/p; el precio es una oportunidad</td><td>El mercado ES la cartera</td></tr>
+          <tr><td><strong>Riesgo principal</strong></td><td>Alfa negativo (peor que el índice)</td><td>Value trap; períodos prolongados de underperformance</td><td>Replicar todas las caídas del índice</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 5. EVIDENCIA EMPÍRICA -->
+  <div class="sec">
+    <h2>5. Evidencia empírica del <em>value investing</em></h2>
+    <p>
+      La prima de valor (empresas baratas superando a las caras a largo plazo) es uno de los factores más
+      documentados en la literatura académica desde el trabajo de Fama y French (1992).<sup class="fn"><a href="#fn2">2</a></sup>
+      Sin embargo, su comportamiento ha sido muy irregular en el período reciente:
+    </p>
+    <ul>
+      <li><strong>1927–2007:</strong> el factor valor generó una prima media de ~4% anual en EE.UU. y mercados desarrollados.</li>
+      <li><strong>2007–2021:</strong> el factor valor sufrió su peor período histórico, subrendimiento frente al factor crecimiento durante más de una década, impulsado por tipos de interés bajos y el dominio tecnológico.</li>
+      <li><strong>2022–2024:</strong> fuerte recuperación del valor con la subida de tipos. Las empresas de alto crecimiento con flujos de caja lejanos se desplomaron al subir la tasa de descuento.</li>
+    </ul>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>Con el BCE bajando tipos desde el 4% (2023) hasta el 2,00/2,15/2,40% actual (junio 2026), el entorno
+      es mixto para el <em>value investing</em>. Tipos todavía por encima de cero favorecen relativamente al
+      valor frente al crecimiento (los flujos de caja lejanos de las empresas de alto crecimiento siguen
+      descontándose con tasas más altas que en 2021). Sin embargo, el IBEX-35 en máximos históricos (~18.250)
+      sugiere que la oportunidad de valor puro en España es más limitada que en 2022.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 6. EJEMPLOS NUMÉRICOS -->
+  <div class="sec">
+    <h2>6. Ejemplos numéricos</h2>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 1 — Cálculo del margen de seguridad</h3>
+      <p>Un gestor de valor analiza una empresa industrial española y estima su valor intrínseco en
+      <strong>42 €/acción</strong> mediante DCF. La acción cotiza actualmente a <strong>28 €</strong>.</p>
+      <ul>
+        <li>Descuento sobre el valor intrínseco: (42 − 28) / 42 = <strong>33,3%</strong></li>
+        <li>Margen de seguridad: <strong>33,3%</strong></li>
+      </ul>
+      <p>Graham recomendaba un mínimo del 33%. En este caso se cumple justo el umbral. Si el análisis tiene
+      un error del 20% (el valor intrínseco real es 42 × 0,80 = 33,60 €), el precio de compra de 28 €
+      sigue ofreciendo un <strong>17% de descuento</strong> incluso con el error. El margen de seguridad
+      protege al inversor de sus propios errores analíticos.</p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 2 — Value trap vs. valor genuino</h3>
+      <p>Dos empresas del sector distribución cotizaban a PER 8x en 2022, aparentemente baratas:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Métrica</th><th>Empresa A (valor genuino)</th><th>Empresa B (value trap)</th></tr></thead>
+          <tbody>
+            <tr><td>PER 2022</td><td>8x</td><td>8x</td></tr>
+            <tr><td>Deuda neta / EBITDA</td><td>1,2x</td><td>4,8x</td></tr>
+            <tr><td>ROCE</td><td>18%</td><td>6%</td></tr>
+            <tr><td>Crecimiento BPA 2022–2025</td><td>+35% acumulado</td><td>−40% acumulado (deterioro)</td></tr>
+            <tr><td>Rentabilidad 2022–2025</td><td><strong>+85%</strong></td><td><strong>−55%</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Empresa A era valor genuino: barata por razones temporales (pandemia), con balance sólido y alta
+      rentabilidad sobre capital. Empresa B era una <em>value trap</em>: barata porque los beneficios
+      continuaron deteriorándose y el apalancamiento amenazaba la solvencia. El PER bajo en sí mismo
+      no es suficiente; hay que analizar la calidad del negocio y la sostenibilidad de los beneficios.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN FINAL DEL BLOQUE -->
+  <div class="sec">
+    <h2>7. Resumen comparativo — Los tres estilos de gestión</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Criterio</th><th>Activa</th><th>Pasiva</th><th>Por valor</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Objetivo de rentabilidad</strong></td><td>Superar al índice (alfa)</td><td>Igualar al índice (beta)</td><td>Rentabilidad absoluta a largo plazo</td></tr>
+          <tr><td><strong>Benchmark</strong></td><td>Central (el gestor lo bate o no)</td><td>Central (el gestor lo replica)</td><td>Secundario (referencia pero no ancla)</td></tr>
+          <tr><td><strong>Coste (OGC)</strong></td><td>0,80%–1,50%</td><td>0,05%–0,30%</td><td>0,50%–1,20%</td></tr>
+          <tr><td><strong>Horizonte inversor</strong></td><td>Corto-medio</td><td>Indefinido</td><td>Largo (3–10 años)</td></tr>
+          <tr><td><strong>Concentración</strong></td><td>Moderada</td><td>Muy alta (todo el índice)</td><td>Alta (alta convicción)</td></tr>
+          <tr><td><strong>Rotación cartera</strong></td><td>Alta</td><td>Muy baja</td><td>Baja</td></tr>
+          <tr><td><strong>Base teórica</strong></td><td>Mercados parcialmente ineficientes</td><td>Hipótesis de mercados eficientes (HME)</td><td>Ineficiencias conductuales; Mr. Market</td></tr>
+          <tr><td><strong>Evidencia empírica</strong></td><td>80–90% no baten al índice a LP</td><td>Obtiene la rentabilidad del mercado menos costes</td><td>Prima de valor documentada; con períodos prolongados de subrendimiento</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NOTAS AL PIE -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">Graham, B. (1949). <em>The Intelligent Investor</em>. Harper &amp; Brothers (rev. ed. 2006, HarperCollins). Caps. 8 («The Investor and Market Fluctuations» — Mr. Market) y 20 («Margin of Safety»). ISBN 978-0-06-055566-5.</li>
+      <li id="fn2">Fama, E. F. &amp; French, K. R. (1992). «The Cross-Section of Expected Stock Returns». <em>Journal of Finance</em>, 47(2), 427–465.
+        <a href="https://doi.org/10.2307/2329112" target="_blank" rel="noopener">doi.org/10.2307/2329112</a></li>
+      <li id="fn3">Buffett, W. E. Cartas anuales a los accionistas de Berkshire Hathaway, 1977–2024. Especialmente la de 1989 («The Pitfalls of Investing in Mediocre Businesses»).
+        <a href="https://www.berkshirehathaway.com/letters/letters.html" target="_blank" rel="noopener">berkshirehathaway.com — Letters</a></li>
+    </ol>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-b.html" class="nav-btn">← B: Gestión pasiva</a>
+    <a href="../bloque-5/seccion-a.html" class="nav-btn">B5·A: Ranking de fondos →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 2 · Bloque 4 · Sección C · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

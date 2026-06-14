@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M2 · B4 · Sección A — Gestión activa · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concepto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .concepto-grid { grid-template-columns: 1fr; } }
+    .concepto-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .concepto-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin-bottom: .35rem;
+    }
+    .concepto-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .contexto-actual { background: var(--card); border-left: 4px solid var(--green); border-radius: 0 14px 14px 0; padding: 1.1rem 1.3rem; margin: 1.2rem 0; }
+    .contexto-actual .ctx-title { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--green); margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
+    .contexto-actual p { font-size: var(--fs-sm); color: var(--text); line-height: 1.7; margin: 0 0 .4rem; }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+    .footnotes { border-top: 1px solid var(--border); margin-top: 2.5rem; padding-top: 1.2rem; }
+    .footnotes h4 { font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 800; color: var(--text-soft); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .8rem; }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li { font-size: .78rem; color: var(--text-soft); line-height: 1.6; margin-bottom: .35rem; }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M2 · B4 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 2</a><span class="sep">›</span>
+    <a href="index.html">Bloque 4</a><span class="sep">›</span>
+    <span>Sección A</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 2 · Bloque 4 · Sección A · Nivel I · Conocimiento y Análisis</div>
+    <h1>Gestión activa</h1>
+    <p class="hero-sub">
+      Definición y objetivo · Alfa vs. beta · Herramientas del gestor activo ·
+      Costes · Evidencia empírica sobre el valor añadido · Cuándo tiene más sentido.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- PANORAMA DE LOS ESTILOS -->
+  <div class="sec">
+    <h2>0. Los tres estilos de gestión: visión general</h2>
+    <p>
+      La forma en que un gestor construye y mantiene una cartera define su <strong>estilo de gestión</strong>.
+      Los tres estilos reconocidos por la guía EFPA —activo, pasivo y por valor— difieren en su objetivo,
+      proceso de inversión, costes y evidencia empírica de resultados.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Parámetro</th><th>Gestión activa</th><th>Gestión pasiva</th><th>Gestión por valor</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Objetivo</strong></td><td>Superar al índice (alfa)</td><td>Replicar al índice (beta)</td><td>Comprar activos infravalorados con margen de seguridad</td></tr>
+          <tr><td><strong>Benchmark</strong></td><td>Sí; el gestor lo intenta batir</td><td>Sí; el gestor lo replica</td><td>Secundario; el precio objetivo es absoluto</td></tr>
+          <tr><td><strong>Rotación de cartera</strong></td><td>Alta</td><td>Muy baja</td><td>Baja (horizonte largo)</td></tr>
+          <tr><td><strong>OGC típico</strong></td><td>0,80%–1,50% anual</td><td>0,05%–0,30% anual</td><td>0,50%–1,20% anual</td></tr>
+          <tr><td><strong>Base intelectual</strong></td><td>Ineficiencias de mercado explotables</td><td>Hipótesis de mercados eficientes</td><td>Mr. Market de Graham; ineficiencias conductuales</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 1. DEFINICIÓN -->
+  <div class="sec">
+    <h2>1. Definición y objetivo de la gestión activa</h2>
+    <p>
+      La <strong>gestión activa</strong> es el estilo de inversión en el que el gestor toma decisiones discrecionales
+      de selección de activos (<em>stock picking</em>), asignación sectorial o geográfica y/o <em>market timing</em>
+      con el objetivo de <strong>obtener una rentabilidad superior al índice de referencia</strong> (benchmark),
+      es decir, generar <em>alfa</em> positivo.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
+    <p>
+      La gestión activa parte del supuesto de que los mercados no son completamente eficientes y que el análisis
+      cuidadoso permite identificar activos infravalorados o sobrevalorados antes de que el mercado los corrija.
+    </p>
+
+    <h3>Alfa y beta: la distinción fundamental</h3>
+    <div class="concepto-grid">
+      <div class="concepto-box">
+        <h4>Beta (β) — retorno de mercado</h4>
+        <p>Rentabilidad que cualquier inversor obtiene por el simple hecho de estar expuesto al mercado.
+        No requiere habilidad gestora; se obtiene comprando el índice. Es el coste de oportunidad de la gestión activa.</p>
+      </div>
+      <div class="concepto-box">
+        <h4>Alfa (α) — retorno diferencial</h4>
+        <p>Rentabilidad adicional sobre el benchmark atribuible exclusivamente a las decisiones del gestor.
+        Un alfa positivo significa que el gestor ha añadido valor; uno negativo, que ha destruido valor
+        neto de lo que habría obtenido replicando el índice.</p>
+      </div>
+    </div>
+    <p>
+      La rentabilidad total de un fondo activo se descompone como:
+      <strong>R<sub>fondo</sub> = α + β × R<sub>mercado</sub> + ε</strong>,
+      donde ε es el error residual no explicado por el mercado ni por el alfa del gestor.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- 2. HERRAMIENTAS -->
+  <div class="sec">
+    <h2>2. Herramientas del gestor activo</h2>
+
+    <h3>Selección de valores (<em>stock picking</em>)</h3>
+    <p>
+      El gestor analiza empresas individualmente —análisis fundamental, valoración, calidad del negocio,
+      posición competitiva— y construye una cartera concentrada en sus mejores ideas, con pesos distintos
+      al del índice. Las posiciones que más se alejan del peso en el benchmark se denominan
+      <strong>apuestas activas</strong> (<em>active bets</em>).
+    </p>
+
+    <h3>Asignación sectorial y geográfica</h3>
+    <p>
+      El gestor sobrepondera sectores o regiones que considera atractivos y subpondera los que considera
+      caros o en deterioro. Esta decisión es independiente de la selección de valores dentro de cada sector.
+    </p>
+
+    <h3><em>Market timing</em></h3>
+    <p>
+      Modificar el nivel de exposición al mercado (renta variable vs. liquidez) según la visión del gestor
+      sobre la dirección del mercado a corto o medio plazo. Históricamente es la fuente de alfa más difícil
+      de demostrar de forma consistente.
+    </p>
+
+    <h3>El <em>tracking error</em> como medida de actividad</h3>
+    <p>
+      El <strong><em>tracking error</em></strong> mide la desviación típica anualizada de la diferencia entre
+      la rentabilidad del fondo y la del benchmark. Un fondo verdaderamente activo tiene un <em>tracking error</em>
+      elevado (4%–10%+); un fondo que "hace como que gestiona activamente" pero se pega mucho al índice
+      (<em>closet indexing</em>) tiene un <em>tracking error</em> bajo (1%–2%) pero cobra comisiones activas.
+    </p>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El <em>Active Share</em> y el <em>tracking error</em> son las dos métricas que cuantifican el nivel
+        de actividad real de un gestor. Un fondo con comisión de gestión del 1,50% y <em>tracking error</em>
+        del 1% es sospechoso de <em>closet indexing</em>: el inversor paga precio activo por resultado pasivo.
+        El regulador europeo (ESMA) ha publicado guías para identificar estos casos.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 3. COSTES -->
+  <div class="sec">
+    <h2>3. Costes de la gestión activa</h2>
+    <p>
+      Los costes son el principal argumento en contra de la gestión activa: para que el fondo genere alfa
+      neto positivo para el inversor, el gestor debe superar al mercado por un margen igual o superior
+      a la diferencia de costes respecto a la gestión pasiva.<sup class="fn"><a href="#fn2">2</a></sup>
+    </p>
+    <ul>
+      <li><strong>Comisión de gestión:</strong> 0,80%–1,50% anual sobre patrimonio (vs. 0,05%–0,20% en ETF indexados).</li>
+      <li><strong>Costes de transacción:</strong> la alta rotación de cartera genera comisiones de corretaje, spreads bid-ask e impacto de mercado, que no aparecen en el OGC pero sí reducen la rentabilidad.</li>
+      <li><strong>Coste de oportunidad del cash:</strong> los fondos activos suelen mantener algo de liquidez para atender reembolsos y oportunidades; este "drag" reduce la exposición efectiva al mercado.</li>
+      <li><strong>Coste fiscal (en carteras no envueltas en IIC):</strong> la alta rotación genera más ganancias de capital realizadas, con tributación inmediata en el caso de carteras directas (no aplica dentro de la IIC al tipo del 1%).</li>
+    </ul>
+
+    <p>
+      La regla aritmética de Sharpe establece que, en conjunto, los gestores activos —como clase— deben obtener
+      la misma rentabilidad bruta que el mercado (son el mercado). Después de costes, la rentabilidad neta media
+      de los gestores activos es necesariamente <em>inferior</em> al índice en una cantidad igual a los costes
+      de gestión.<sup class="fn"><a href="#fn3">3</a></sup>
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- 4. EVIDENCIA EMPÍRICA -->
+  <div class="sec">
+    <h2>4. Evidencia empírica: ¿añaden valor los gestores activos?</h2>
+    <p>
+      La evidencia académica es mayoritariamente desfavorable a la gestión activa en horizontes largos,
+      aunque con matices importantes.<sup class="fn"><a href="#fn4">4</a></sup>
+    </p>
+    <ul>
+      <li>El informe SPIVA de S&amp;P Global muestra que, en horizontes de 10–15 años, entre el <strong>80% y el 90%</strong>
+      de los fondos activos de renta variable no superan a su índice de referencia neto de comisiones.</li>
+      <li>La persistencia del alfa es muy limitada: los gestores que baten al índice un año no lo repiten
+      de forma estadísticamente significativa en años siguientes (fenómeno de reversión a la media).</li>
+      <li>Existen excepciones documentadas en mercados menos eficientes: pequeñas capitalizaciones,
+      mercados emergentes, renta fija corporativa de alto rendimiento o activos privados, donde la
+      información no está tan ampliamente disponible.</li>
+    </ul>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>En Europa, el informe SPIVA Europe 2025 (S&amp;P Global) muestra que el <strong>82%</strong> de los fondos
+      activos de renta variable europea no superó al S&amp;P Europe 350 en los últimos 10 años, neto de comisiones.
+      Sin embargo, en renta fija de alta rentabilidad (high yield) europeo, el porcentaje de fondos activos
+      que superaron al índice en el mismo período fue del <strong>52%</strong>, sugiriendo mayor alfa potencial
+      en segmentos menos líquidos.</p>
+    </div>
+
+    <h3>¿Cuándo tiene sentido la gestión activa?</h3>
+    <ul>
+      <li><strong>Mercados menos eficientes:</strong> pequeñas capitalizaciones, emergentes, crédito corporativo complejo, activos privados.</li>
+      <li><strong>Gestores con ventaja de información o proceso:</strong> equipos con acceso privilegiado a management, modelos propietarios superiores o proceso de inversión muy diferenciado.</li>
+      <li><strong>Necesidades específicas:</strong> concentración en factores concretos (calidad, baja volatilidad), restricciones ESG personalizadas o estrategias de cobertura que un índice no puede ofrecer.</li>
+      <li><strong>Momentos de alta dispersión:</strong> en mercados muy volátiles o con alta dispersión entre valores, el stock picking tiene más espacio para añadir valor.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- 5. EJEMPLOS -->
+  <div class="sec">
+    <h2>5. Ejemplos numéricos</h2>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 1 — Cálculo del alfa de un fondo activo</h3>
+      <p>Un fondo de renta variable europea obtiene durante 2025 una rentabilidad del <strong>+12,4%</strong>.
+      Su índice de referencia (Eurostoxx 50) obtuvo un <strong>+10,8%</strong>. La comisión de gestión es del
+      <strong>1,20% anual</strong> y los costes de transacción se estiman en <strong>0,30%</strong>.</p>
+      <ul>
+        <li>Rentabilidad bruta del fondo (antes de costes): 12,4% + 1,20% + 0,30% ≈ <strong>13,9%</strong></li>
+        <li>Alfa bruto: 13,9% − 10,8% = <strong>+3,1%</strong> (el gestor batió al mercado bruto de costes)</li>
+        <li>Rentabilidad neta del fondo: <strong>+12,4%</strong></li>
+        <li>Rentabilidad neta vs. índice: 12,4% − 10,8% = <strong>+1,6% de alfa neto</strong></li>
+      </ul>
+      <p>El gestor ha generado valor: +1,6% de alfa neto. Pero este resultado debe mantenerse de forma
+      consistente durante varios años para que sea atribuible a habilidad y no a suerte.</p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 2 — El coste de la gestión activa en el largo plazo</h3>
+      <p>Dos inversores colocan <strong>10.000 €</strong> durante <strong>20 años</strong> en carteras con
+      rentabilidad bruta idéntica del <strong>7% anual</strong>. El inversor A elige un fondo activo
+      (OGC 1,50%); el inversor B elige un ETF indexado (OGC 0,15%).</p>
+      <ul>
+        <li>Inversor A (rentabilidad neta: 7% − 1,50% = 5,50%):
+          10.000 × (1,055)<sup>20</sup> = <strong>29.178 €</strong></li>
+        <li>Inversor B (rentabilidad neta: 7% − 0,15% = 6,85%):
+          10.000 × (1,0685)<sup>20</sup> = <strong>37.068 €</strong></li>
+        <li>Diferencia a favor de la gestión pasiva: <strong>7.890 €</strong> (un 27% más de patrimonio final)</li>
+      </ul>
+      <p>La diferencia del <strong>1,35% anual de comisión</strong> se convierte en casi 8.000 € de diferencia
+      en 20 años, sin que el gestor activo haya añadido ni un euro de alfa bruto. Este es el argumento central
+      a favor de la gestión pasiva en mercados eficientes.</p>
+    </div>
+  </div>
+
+  <!-- NOTAS AL PIE -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">CFA Institute. <em>CFA Program Curriculum, Level 1</em>, 2024 ed. Reading «Introduction to Portfolio Management»: definición de gestión activa, alfa y beta.
+        <a href="https://www.cfainstitute.org/programs/cfa/curriculum" target="_blank" rel="noopener">cfainstitute.org</a></li>
+      <li id="fn2">Bogle, J. C. (2007). <em>The Little Book of Common Sense Investing</em>. Wiley. Cap. 3 (costes de la gestión activa: comisiones, rotación y sus efectos compuestos en el largo plazo). ISBN 978-0-470-10210-2.</li>
+      <li id="fn3">Sharpe, W. F. (1991). «The Arithmetic of Active Management». <em>Financial Analysts Journal</em>, 47(1), 7–9.
+        <a href="https://doi.org/10.2469/faj.v47.n1.7" target="_blank" rel="noopener">doi.org/10.2469/faj.v47.n1.7</a></li>
+      <li id="fn4">S&amp;P Global. <em>SPIVA Europe Scorecard — Year-End 2024</em>. Disponible en:
+        <a href="https://www.spglobal.com/spdji/en/research-insights/spiva/" target="_blank" rel="noopener">spglobal.com — SPIVA</a></li>
+    </ol>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="../bloque-3/seccion-b.html" class="nav-btn">← B3·B: Estrategias hedge</a>
+    <a href="seccion-b.html" class="nav-btn">B: Gestión pasiva →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 2 · Bloque 4 · Sección A · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

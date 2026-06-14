@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M2 · B4 · Sección B — Gestión pasiva · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .concepto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin: 1rem 0; }
+    @media (max-width: 560px) { .concepto-grid { grid-template-columns: 1fr; } }
+    .concepto-box { background: var(--card); border: 1.5px solid var(--border); border-radius: 14px; padding: 1rem 1.1rem; }
+    .concepto-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .35rem; }
+    .concepto-box p { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.65; margin: 0; }
+    .contexto-actual { background: var(--card); border-left: 4px solid var(--green); border-radius: 0 14px 14px 0; padding: 1.1rem 1.3rem; margin: 1.2rem 0; }
+    .contexto-actual .ctx-title { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--green); margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
+    .contexto-actual p { font-size: var(--fs-sm); color: var(--text); line-height: 1.7; margin: 0 0 .4rem; }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+    .footnotes { border-top: 1px solid var(--border); margin-top: 2.5rem; padding-top: 1.2rem; }
+    .footnotes h4 { font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 800; color: var(--text-soft); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .8rem; }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li { font-size: .78rem; color: var(--text-soft); line-height: 1.6; margin-bottom: .35rem; }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M2 · B4 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 2</a><span class="sep">›</span>
+    <a href="index.html">Bloque 4</a><span class="sep">›</span>
+    <span>Sección B</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 2 · Bloque 4 · Sección B · Nivel I · Conocimiento y Análisis</div>
+    <h1>Gestión pasiva</h1>
+    <p class="hero-sub">
+      Definición y fundamentos · Hipótesis de mercados eficientes · Métodos de réplica ·
+      Smart beta y gestión factor · Costes · Ventajas e inconvenientes.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- 1. DEFINICIÓN -->
+  <div class="sec">
+    <h2>1. Definición y fundamentos</h2>
+    <p>
+      La <strong>gestión pasiva</strong> es el estilo de inversión que renuncia a intentar batir al mercado
+      y se limita a <strong>replicar el comportamiento de un índice de referencia</strong>, obteniendo la
+      rentabilidad del mercado (beta) al menor coste posible. El gestor no toma decisiones discrecionales
+      de selección de valores: la cartera la dicta el índice.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
+
+    <h3>Base intelectual: la Hipótesis de Mercados Eficientes (HME)</h3>
+    <p>
+      La gestión pasiva descansa sobre la <strong>HME</strong> de Fama (1970), que establece que los precios
+      de los activos reflejan en todo momento toda la información disponible. Si los mercados son eficientes,
+      ningún análisis puede generar sistemáticamente alfa: el mejor resultado posible a largo plazo
+      es obtener la rentabilidad del mercado al mínimo coste.<sup class="fn"><a href="#fn2">2</a></sup>
+    </p>
+
+    <div class="concepto-grid">
+      <div class="concepto-box">
+        <h4>Eficiencia débil</h4>
+        <p>Los precios reflejan toda la información histórica de precios y volúmenes. El análisis técnico no genera alfa de forma consistente.</p>
+      </div>
+      <div class="concepto-box">
+        <h4>Eficiencia semifuerte</h4>
+        <p>Los precios reflejan toda la información pública disponible (resultados, noticias, análisis). El análisis fundamental tampoco genera alfa consistente.</p>
+      </div>
+      <div class="concepto-box">
+        <h4>Eficiencia fuerte</h4>
+        <p>Los precios reflejan incluso la información privada (insider). En este caso extremo, ni los insiders pueden batir al mercado sistemáticamente.</p>
+      </div>
+      <div class="concepto-box">
+        <h4>Implicación práctica</h4>
+        <p>La evidencia empírica apoya la eficiencia débil y semifuerte en mercados desarrollados. En mercados menos líquidos la eficiencia es menor, lo que justifica intentar gestión activa.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 2. VEHÍCULOS -->
+  <div class="sec">
+    <h2>2. Vehículos de gestión pasiva</h2>
+
+    <h3>Fondos indexados</h3>
+    <p>
+      Fondos de inversión ordinarios (UCITS) que replican un índice. Sus participaciones se suscriben
+      y reembolsan al NAV diario, igual que cualquier fondo. Ventaja frente al ETF: disfrutan del
+      <strong>régimen de traspaso sin tributación</strong> en España.
+    </p>
+
+    <h3>ETF (<em>Exchange Traded Funds</em>)</h3>
+    <p>
+      Fondos indexados que cotizan en bolsa en tiempo real. Combinan la diversificación del fondo con
+      la liquidez intradía. En España no gozan del régimen de traspaso sin tributación (ver Bloque 2·A).
+      Son el vehículo de gestión pasiva más utilizado a nivel mundial por su eficiencia de costes.
+    </p>
+
+    <h3>Métodos de réplica del índice</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Método</th><th>Descripción</th><th>Ventaja</th><th>Inconveniente</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Réplica física completa</strong></td>
+            <td>Compra todos los valores del índice en las mismas proporciones</td>
+            <td>Error de seguimiento mínimo; sin riesgo de contraparte</td>
+            <td>Alto coste operativo en índices con muchos componentes o ilíquidos</td>
+          </tr>
+          <tr>
+            <td><strong>Réplica física muestral</strong></td>
+            <td>Compra una muestra representativa del índice</td>
+            <td>Menores costes de transacción en índices amplios</td>
+            <td>Introduce algo de <em>tracking error</em> por no replicar exactamente</td>
+          </tr>
+          <tr>
+            <td><strong>Réplica sintética (swap)</strong></td>
+            <td>Contrato swap con banco que paga la rentabilidad del índice</td>
+            <td>Réplica perfecta del índice; útil en activos inaccesibles</td>
+            <td>Riesgo de contraparte; menos transparente para el inversor</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>El <em>tracking error</em> en gestión pasiva</h3>
+    <p>
+      Aunque el objetivo es replicar el índice, siempre existe una pequeña desviación denominada
+      <strong><em>tracking error</em></strong>, causada por costes de transacción en la recomposición
+      del índice (<em>rebalancing</em>), tratamiento de dividendos, diferencias de valoración y
+      la fricción de gestionar las entradas y salidas de partícipes.
+      Un buen fondo pasivo tiene un <em>tracking error</em> inferior al <strong>0,10%–0,20%</strong> anual.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- 3. SMART BETA -->
+  <div class="sec">
+    <h2>3. <em>Smart beta</em> y gestión por factores</h2>
+    <p>
+      El <strong><em>smart beta</em></strong> (o gestión por factores) es un enfoque intermedio entre la gestión
+      pasiva pura y la gestión activa: replica índices construidos con criterios distintos a la capitalización
+      de mercado, con el objetivo de capturar <em>primas de riesgo</em> (factores) de forma sistemática y
+      a menor coste que la gestión activa.<sup class="fn"><a href="#fn3">3</a></sup>
+    </p>
+
+    <h3>Principales factores documentados</h3>
+    <div class="concepto-grid">
+      <div class="concepto-box">
+        <h4>Valor (<em>Value</em>)</h4>
+        <p>Acciones con bajo PER, bajo P/VC o alto dividendo tienden a superar a las de alto PER a largo plazo. Prima histórica: ~3–4% anual vs. índice general (Fama-French).</p>
+      </div>
+      <div class="concepto-box">
+        <h4>Tamaño (<em>Size</em>)</h4>
+        <p>Las pequeñas capitalizaciones tienden a superar a las grandes capitalizaciones a largo plazo. Justificación: mayor riesgo de liquidez y menor cobertura de analistas.</p>
+      </div>
+      <div class="concepto-box">
+        <h4>Momentum</h4>
+        <p>Los valores que más han subido en los últimos 6–12 meses tienden a seguir subiendo en el corto plazo. Prima documentada por Jegadeesh y Titman (1993).</p>
+      </div>
+      <div class="concepto-box">
+        <h4>Calidad (<em>Quality</em>)</h4>
+        <p>Empresas con alta rentabilidad sobre fondos propios (ROE), bajo apalancamiento y crecimiento estable de beneficios tienden a superar al mercado.</p>
+      </div>
+      <div class="concepto-box">
+        <h4>Baja volatilidad</h4>
+        <p>Las acciones con menor volatilidad histórica generan rentabilidades ajustadas al riesgo superiores a las de alta volatilidad. Anomalía documentada por Ang et al. (2006).</p>
+      </div>
+      <div class="concepto-box">
+        <h4>ESG / Sostenibilidad</h4>
+        <p>Índices construidos excluyendo empresas con mala puntuación ESG o priorizando las de mejor rating sostenible. Creciente relevancia regulatoria (SFDR, Taxonomía).</p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El <em>smart beta</em> no es gestión pasiva pura ni gestión activa: es una estrategia sistemática
+        basada en reglas (sin discrecionalidad del gestor) que intenta capturar primas de riesgo documentadas
+        académicamente. Su coste (OGC 0,20%–0,50%) es superior al indexado puro pero inferior a la gestión activa.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 4. COSTES Y VENTAJAS -->
+  <div class="sec">
+    <h2>4. Costes, ventajas e inconvenientes</h2>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Ventajas de la gestión pasiva</h4>
+        <p>
+          <strong>Costes muy bajos</strong> (OGC 0,05%–0,20% en ETF). <strong>Transparencia total</strong>: el inversor sabe exactamente qué compra.
+          <strong>Diversificación automática</strong>. <strong>Fiscalmente eficiente</strong>: baja rotación → menores costes de transacción.
+          <strong>Disciplina</strong>: evita errores conductuales del gestor activo (exceso de confianza, anclaje, herding).
+        </p>
+      </div>
+      <div class="vs-box right">
+        <h4>Inconvenientes de la gestión pasiva</h4>
+        <p>
+          <strong>No puede superar al mercado</strong> por definición: el mejor resultado es el índice menos costes.
+          <strong>Invierte en todo el índice</strong>, incluyendo empresas de mala calidad.
+          <strong>No se adapta</strong> a entornos de mercado específicos ni protege en caídas.
+          <strong>Concentración en grandes capitalizaciones</strong>: los índices ponderados por capitalización sobrepesan las más grandes.
+        </p>
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>Los activos bajo gestión en fondos pasivos (ETF + fondos indexados) superan ya los <strong>15 billones USD</strong>
+      a nivel global, representando más del 50% de todos los activos en fondos de renta variable en EE.UU. En Europa
+      el porcentaje es menor (~30%) pero crece de forma sostenida. Vanguard, BlackRock (iShares) y State Street
+      (SPDR) concentran más del 80% del mercado de ETF globales.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 5. EJEMPLOS -->
+  <div class="sec">
+    <h2>5. Ejemplos numéricos</h2>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 1 — <em>Tracking error</em> y diferencia de rentabilidad</h3>
+      <p>Un ETF replica el IBEX-35. Durante 2025, el IBEX-35 obtuvo una rentabilidad del <strong>+14,20%</strong>
+      (con dividendos netos). El ETF obtuvo un <strong>+13,95%</strong>.</p>
+      <ul>
+        <li>OGC del ETF: 0,15% anual</li>
+        <li>Diferencia de rentabilidad (índice − ETF): 14,20% − 13,95% = <strong>0,25%</strong></li>
+        <li>Tracking error anualizado: la diferencia es razonablemente baja; los 0,10% adicionales
+        sobre el OGC son atribuibles a los costes de recomposición del índice y dividendos.</li>
+      </ul>
+      <p>Un buen ETF sobre el IBEX-35 debería tener una diferencia respecto al índice no muy superior a su OGC.
+      Si la diferencia fuera del 1,50% con un OGC del 0,15%, indicaría problemas de réplica.</p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 2 — Smart beta: factor valor vs. índice general</h3>
+      <p>Un inversor compara tres opciones para invertir en renta variable europea durante 10 años,
+      con rentabilidad bruta idéntica del mercado del <strong>7% anual</strong> antes de costes:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Opción</th><th>OGC</th><th>Rentabilidad neta</th><th>Valor final de 10.000 €</th></tr></thead>
+          <tbody>
+            <tr><td>Fondo activo</td><td>1,30%</td><td>5,70%</td><td><strong>17.424 €</strong></td></tr>
+            <tr><td>ETF smart beta (factor valor +1% prima)</td><td>0,35%</td><td>7,65%</td><td><strong>20.856 €</strong></td></tr>
+            <tr><td>ETF indexado puro</td><td>0,10%</td><td>6,90%</td><td><strong>19.587 €</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Si la prima del factor valor se materializa (+1% bruto), el smart beta supera tanto al indexado puro como al fondo activo. Si la prima no se materializa (la rentabilidad bruta es idéntica al mercado), el indexado puro gana por menor coste. El debate entre smart beta e indexado puro gira en torno a si las primas de factor son persistentes o se arbitrarán.</p>
+    </div>
+  </div>
+
+  <!-- NOTAS AL PIE -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">Bogle, J. C. (2007). <em>The Little Book of Common Sense Investing</em>. Wiley. Caps. 1–5 (fundamentos de la gestión pasiva, ventajas de los costes bajos, crítica a la gestión activa).</li>
+      <li id="fn2">Fama, E. F. (1970). «Efficient Capital Markets: A Review of Theory and Empirical Evidence». <em>Journal of Finance</em>, 25(2), 383–417.
+        <a href="https://doi.org/10.2307/2325486" target="_blank" rel="noopener">doi.org/10.2307/2325486</a></li>
+      <li id="fn3">Fama, E. F. &amp; French, K. R. (1992). «The Cross-Section of Expected Stock Returns». <em>Journal of Finance</em>, 47(2), 427–465 (factores valor y tamaño).
+        <a href="https://doi.org/10.2307/2329112" target="_blank" rel="noopener">doi.org/10.2307/2329112</a>.
+        Carhart, M. M. (1997). «On Persistence in Mutual Fund Performance». <em>Journal of Finance</em>, 52(1), 57–82 (factor momentum).
+        <a href="https://doi.org/10.2307/2329556" target="_blank" rel="noopener">doi.org/10.2307/2329556</a></li>
+    </ol>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-a.html" class="nav-btn">← A: Gestión activa</a>
+    <a href="seccion-c.html" class="nav-btn">C: Gestión por valor →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 2 · Bloque 4 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
