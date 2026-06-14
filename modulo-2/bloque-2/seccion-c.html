@@ -1,311 +1,286 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es" data-theme="light" data-fontsize="normal">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>M2·B2·C — IIC cerradas | EFA Prep</title>
-  <link rel="stylesheet" href="../../assets/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M2 · B2 · Sección C — IIC cerradas · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .contexto-actual { background: var(--card); border-left: 4px solid var(--green); border-radius: 0 14px 14px 0; padding: 1.1rem 1.3rem; margin: 1.2rem 0; }
+    .contexto-actual .ctx-title { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--green); margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
+    .contexto-actual p { font-size: var(--fs-sm); color: var(--text); line-height: 1.7; margin: 0 0 .4rem; }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+    .footnotes { border-top: 1px solid var(--border); margin-top: 2.5rem; padding-top: 1.2rem; }
+    .footnotes h4 { font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 800; color: var(--text-soft); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .8rem; }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li { font-size: .78rem; color: var(--text-soft); line-height: 1.6; margin-bottom: .35rem; }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
 
-<!-- ── Toolbar ── -->
-<nav class="toolbar">
-  <a class="toolbar-brand" href="#">EFA Prep</a>
-  <button class="fs-btn" id="fs-btn-normal">A</button>
-  <button class="fs-btn" id="fs-btn-large">A+</button>
-  <button class="fs-btn" id="fs-btn-xlarge">A++</button>
-  <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
-</nav>
+<div class="top-stripe"></div>
 
-<!-- ── Breadcrumb ── -->
-<div class="breadcrumb">
-  <a href="#">Inicio</a><span>›</span>
-  <a href="../index.html">Módulo 2</a><span>›</span>
-  <a href="#">Bloque 2</a><span>›</span>
-  Sección C
-</div>
-
-<!-- ── Hero ── -->
-<div class="hero">
-  <div class="container">
-    <div class="hero-pill">Nivel I · Conocimiento y Análisis</div>
-    <h1>Sección C — Instituciones de inversión colectiva cerradas</h1>
-    <p class="hero-sub">Módulo 2 · Bloque 2 · Fondos de inversión mobiliaria y sus objetivos de inversión</p>
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M2 · B2 · C</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
   </div>
 </div>
 
-<!-- ── Content ── -->
-<div class="container">
+<div class="wrap">
 
-  <!-- 1. Concepto y características -->
-  <h2>1. Concepto, características y regulación</h2>
-
-  <p>Una <strong>institución de inversión colectiva cerrada</strong> es aquella en la que los inversores <strong>no tienen derecho de reembolso a demanda</strong> durante el período de vida del vehículo. A diferencia de los fondos abiertos (UCITS), el capital se compromete por un plazo determinado —normalmente 7–12 años— y solo se recupera cuando los activos subyacentes se desinvierten (venden).<sup><a href="#fn1">1</a></sup></p>
-
-  <h3>1.1 Características comunes a las IIC cerradas</h3>
-  <ul>
-    <li><strong>Período de inversión:</strong> los primeros 3–5 años se dedican a captar capital (<em>fundraising</em>) e invertirlo (<em>investment period</em>).</li>
-    <li><strong>Período de desinversión:</strong> los años siguientes se gestionan las participadas y se van vendiendo para distribuir el capital más las plusvalías a los inversores.</li>
-    <li><strong>Llamadas de capital (<em>capital calls</em>):</strong> el inversor no entrega todo el dinero al suscribir; se le van haciendo llamadas conforme el gestor identifica oportunidades de inversión. El capital comprometido no entregado se denomina <em>dry powder</em>.</li>
-    <li><strong>Distribuciones:</strong> los retornos se distribuyen progresivamente conforme se desinvierten posiciones, no anualmente como un dividendo.</li>
-    <li><strong>Iliquidez:</strong> no hay mercado secundario activo; si el inversor necesita liquidez antes del vencimiento, debe buscar comprador en el mercado secundario privado de participaciones (con posible descuento significativo).</li>
-    <li><strong>Estructura de comisiones "2 y 20":</strong> la convención habitual en capital riesgo es cobrar un <em>management fee</em> del 2% sobre el capital comprometido y un <em>carried interest</em> (participación en beneficios) del 20% sobre las plusvalías por encima de una rentabilidad mínima (<em>hurdle rate</em>, típicamente 8%).</li>
-  </ul>
-
-  <h3>1.2 Marco regulatorio</h3>
-  <p>Las IIC cerradas en España y Europa se regulan por varias normas según su tipología:<sup><a href="#fn2">2</a></sup></p>
-  <ul>
-    <li><strong>Ley 22/2014</strong> (España): regula las entidades de capital-riesgo (ECR), las entidades de inversión colectiva de tipo cerrado (EICC) y sus gestoras.</li>
-    <li><strong>Directiva AIFMD (2011/61/UE):</strong> marco europeo para los gestores de fondos alternativos de inversión, incluidos los fondos cerrados de capital riesgo.</li>
-    <li><strong>Reglamento FILPE (UE) 2015/760</strong> y su revisión <strong>2023/606</strong> (ELTIF 2.0): regula los fondos europeos de inversión a largo plazo.</li>
-    <li><strong>Reglamento FESE (UE) 346/2013:</strong> regula los fondos de emprendimiento social europeo.</li>
-  </ul>
-
-  <div class="exam-alert">
-    <strong>🎯 Frecuente en examen:</strong> La característica definitoria de las IIC cerradas es la <strong>ausencia del derecho de reembolso a demanda</strong>. El inversor no puede salir cuando quiera: el capital está "comprometido" durante la vida del fondo. Esta iliquidez se compensa teóricamente con una prima de rentabilidad adicional (prima de iliquidez).
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 2</a><span class="sep">›</span>
+    <a href="index.html">Bloque 2</a><span class="sep">›</span>
+    <span>Sección C</span>
   </div>
 
-  <!-- 2. Entidades de capital-riesgo -->
-  <h2>2. Entidades de capital-riesgo (ECR)</h2>
-
-  <p>El capital-riesgo (<em>private equity</em> y <em>venture capital</em>) agrupa los vehículos de inversión en empresas no cotizadas en distintas fases de su ciclo de vida. En España, la Ley 22/2014 distingue entre:<sup><a href="#fn3">3</a></sup></p>
-
-  <h3>2.1 Tipología de vehículos</h3>
-  <ul>
-    <li><strong>Fondos de capital-riesgo (FCR):</strong> patrimonio sin personalidad jurídica gestionado por una Sociedad Gestora de Entidades de Inversión de Tipo Cerrado (SGEIC).</li>
-    <li><strong>Sociedades de capital-riesgo (SCR):</strong> sociedad anónima con el mismo objeto inversor; puede autogestionarse o delegar en SGEIC.</li>
-    <li><strong>Fondos/Sociedades de capital-riesgo europeos (FCRE/SCRE):</strong> usan el pasaporte europeo bajo Reglamento UE 345/2013.</li>
-  </ul>
-
-  <h3>2.2 Estrategias por fase empresarial</h3>
-  <table class="summary-table">
-    <thead>
-      <tr>
-        <th>Estrategia</th>
-        <th>Fase empresa</th>
-        <th>Ticket típico</th>
-        <th>Riesgo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Venture capital (VC)</strong></td>
-        <td>Seed, early stage (startups)</td>
-        <td>100.000 € – 5 M€</td>
-        <td>Muy alto (muchas quiebras)</td>
-      </tr>
-      <tr>
-        <td><strong>Growth equity</strong></td>
-        <td>Expansión (empresa rentable)</td>
-        <td>5–50 M€</td>
-        <td>Alto</td>
-      </tr>
-      <tr>
-        <td><strong>Buyout (LBO)</strong></td>
-        <td>Madurez (adquisición apalancada)</td>
-        <td>&gt;50 M€</td>
-        <td>Medio-alto</td>
-      </tr>
-      <tr>
-        <td><strong>Deuda privada</strong></td>
-        <td>Cualquier fase (préstamo)</td>
-        <td>Variable</td>
-        <td>Medio</td>
-      </tr>
-      <tr>
-        <td><strong>Infraestructuras</strong></td>
-        <td>Proyectos (energía, transporte)</td>
-        <td>&gt;100 M€</td>
-        <td>Bajo-medio</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h3>2.3 Política de inversión de las ECR</h3>
-  <p>La Ley 22/2014 exige que las ECR inviertan al menos el <strong>60% de su activo computable</strong> en:</p>
-  <ul>
-    <li>Acciones u otros valores o instrumentos de empresas no cotizadas.</li>
-    <li>Préstamos a las participadas para financiar su actividad.</li>
-    <li>Acciones de otras ECR.</li>
-  </ul>
-  <p>El 40% restante puede invertirse libremente en activos financieros líquidos (deuda pública, depósitos) mientras se materializan las inversiones.</p>
-
-  <!-- 3. FILPE / ELTIF -->
-  <h2>3. Fondos de inversión a largo plazo europeos (FILPE / ELTIF)</h2>
-
-  <p>El <strong>FILPE</strong> (<em>Fondo de Inversión a Largo Plazo Europeo</em>) es el equivalente al <em>European Long-Term Investment Fund</em> (ELTIF), creado por el Reglamento (UE) 2015/760 y reformado significativamente por el <strong>Reglamento (UE) 2023/606 (ELTIF 2.0)</strong>, aplicable desde el 10 de enero de 2024.<sup><a href="#fn4">4</a></sup></p>
-
-  <h3>3.1 Objetivo</h3>
-  <p>Canalizar el ahorro privado —incluido el minorista— hacia inversiones a largo plazo en la economía real europea: infraestructuras, empresas no cotizadas, bienes inmuebles, activos de transición energética, etc. Es el vehículo que la UE ha diseñado para acercar el capital privado a la inversión productiva.</p>
-
-  <h3>3.2 Características clave (ELTIF 2.0)</h3>
-  <ul>
-    <li><strong>Activos elegibles:</strong> activos reales (infraestructuras, inmuebles), capital de empresas no cotizadas o cotizadas con cap. &lt;1.500 M€, deuda de empresas cualificadas, otros ELTIF o fondos de capital-riesgo europeos.</li>
-    <li><strong>Mínimo en activos elegibles:</strong> al menos el <strong>55%</strong> del capital (bajado desde el 70% de ELTIF 1.0).</li>
-    <li><strong>Acceso minorista mejorado:</strong> ELTIF 2.0 elimina el mínimo de inversión de 10.000 € y la comprobación del 10% del patrimonio; basta con el test de idoneidad MiFID.</li>
-    <li><strong>Liquidez parcial:</strong> ELTIF 2.0 permite incorporar "ventanas de liquidez" periódicas y estructuras semi-abiertas, aunque la iliquidez sigue siendo la norma.</li>
-    <li><strong>Pasaporte europeo:</strong> un ELTIF autorizado en un Estado miembro puede comercializarse en toda la UE.</li>
-    <li><strong>Sin apalancamiento de cartera</strong> (el préstamo a nivel del fondo está limitado al 50% del NAV para fondos minoristas).</li>
-  </ul>
-
-  <div class="context-box">
-    <strong>📊 Contexto actual (junio 2026):</strong> Desde la entrada en vigor de ELTIF 2.0 (enero 2024), el mercado europeo de ELTIF ha crecido significativamente: de ~60 fondos en 2023 a más de 150 en 2026, con un patrimonio agregado superior a 30.000 M€. España es uno de los mercados de distribución más activos, con varias gestoras españolas e internacionales lanzando ELTIF dirigidos al segmento de banca privada y alto patrimonio.
+  <div class="hero">
+    <div class="pill">Módulo 2 · Bloque 2 · Sección C · Nivel I · Conocimiento y Análisis</div>
+    <h1>Instituciones de inversión colectiva cerradas</h1>
+    <p class="hero-sub">
+      Concepto y características · Capital calls y curva J · ECR (capital-riesgo) ·
+      FILPE / ELTIF 2.0 · FESE / EuSEF · Métricas de rentabilidad (MOIC, TIR, TVPI).
+    </p>
   </div>
+
+  <hr>
+
+  <!-- 1. CONCEPTO -->
+  <div class="sec">
+    <h2>1. Concepto, características y regulación</h2>
+    <p>
+      Una <strong>IIC cerrada</strong> es aquella en la que los inversores <strong>no tienen derecho de reembolso a demanda</strong>
+      durante la vida del vehículo. El capital se compromete por un plazo determinado —normalmente 7–12 años— y solo
+      se recupera cuando los activos subyacentes se desinvierten.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
+
+    <h3>Características comunes</h3>
+    <ul>
+      <li><strong>Llamadas de capital (<em>capital calls</em>):</strong> el inversor no entrega todo el dinero al suscribir; se le van haciendo llamadas conforme el gestor invierte. El capital comprometido no entregado se denomina <em>dry powder</em>.</li>
+      <li><strong>Distribuciones:</strong> los retornos se distribuyen conforme se desinvierten posiciones, no periódicamente como un dividendo.</li>
+      <li><strong>Iliquidez:</strong> no hay mercado secundario activo. Si el inversor necesita liquidez antes del vencimiento, debe buscar comprador en el mercado secundario privado con posible descuento significativo.</li>
+      <li><strong>Estructura "2 y 20":</strong> convención habitual en capital riesgo: <em>management fee</em> del 2% sobre capital comprometido y <em>carried interest</em> del 20% sobre plusvalías por encima del <em>hurdle rate</em> (típicamente 8%).</li>
+    </ul>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        La característica definitoria de las IIC cerradas es la <strong>ausencia del derecho de reembolso a demanda</strong>.
+        El capital está "comprometido" durante la vida del fondo. Esta iliquidez se compensa teóricamente con
+        una prima de rentabilidad adicional (prima de iliquidez).
+      </div>
+    </div>
+
+    <h3>Marco regulatorio</h3>
+    <ul>
+      <li><strong>Ley 22/2014</strong> (España): regula las entidades de capital-riesgo (ECR) y sus gestoras (SGEIC).</li>
+      <li><strong>AIFMD (2011/61/UE):</strong> marco europeo para gestores de fondos alternativos.</li>
+      <li><strong>Rgl. FILPE — ELTIF 2.0 (2023/606/UE):</strong> fondos europeos de inversión a largo plazo.</li>
+      <li><strong>Rgl. FESE (346/2013/UE):</strong> fondos de emprendimiento social europeo.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- 2. ECR -->
+  <div class="sec">
+    <h2>2. Entidades de capital-riesgo (ECR)</h2>
+    <p>El capital-riesgo agrupa vehículos de inversión en empresas no cotizadas en distintas fases de su ciclo de vida. La Ley 22/2014 distingue entre FCR (fondos) y SCR (sociedades).<sup class="fn"><a href="#fn2">2</a></sup></p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Estrategia</th><th>Fase empresa</th><th>Ticket típico</th><th>Riesgo</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Venture capital (VC)</strong></td><td>Seed, early stage (startups)</td><td>100.000 € – 5 M€</td><td>Muy alto</td></tr>
+          <tr><td><strong>Growth equity</strong></td><td>Expansión (empresa rentable)</td><td>5–50 M€</td><td>Alto</td></tr>
+          <tr><td><strong>Buyout (LBO)</strong></td><td>Madurez (adquisición apalancada)</td><td>&gt;50 M€</td><td>Medio-alto</td></tr>
+          <tr><td><strong>Deuda privada</strong></td><td>Cualquier fase (préstamo)</td><td>Variable</td><td>Medio</td></tr>
+          <tr><td><strong>Infraestructuras</strong></td><td>Proyectos (energía, transporte)</td><td>&gt;100 M€</td><td>Bajo-medio</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Política de inversión</h3>
+    <p>La Ley 22/2014 exige que las ECR inviertan al menos el <strong>60% de su activo computable</strong> en acciones, instrumentos o préstamos de empresas no cotizadas (o en otras ECR). El 40% restante puede invertirse libremente en activos líquidos mientras se materializan las inversiones.</p>
+  </div>
+
+  <hr>
+
+  <!-- 3. FILPE -->
+  <div class="sec">
+    <h2>3. Fondos de inversión a largo plazo europeos (FILPE / ELTIF 2.0)</h2>
+    <p>El <strong>FILPE</strong> fue creado por el Reglamento (UE) 2015/760 y reformado por el <strong>Reglamento (UE) 2023/606 (ELTIF 2.0)</strong>, aplicable desde el 10 de enero de 2024.<sup class="fn"><a href="#fn3">3</a></sup></p>
+
+    <h3>Objetivo</h3>
+    <p>Canalizar el ahorro privado —incluido el minorista— hacia inversiones a largo plazo en la economía real europea: infraestructuras, empresas no cotizadas, bienes inmuebles, activos de transición energética.</p>
+
+    <h3>Características clave (ELTIF 2.0)</h3>
+    <ul>
+      <li><strong>Activos elegibles:</strong> activos reales (infraestructuras, inmuebles), capital de empresas no cotizadas o cotizadas con cap. &lt;1.500 M€, deuda de empresas cualificadas.</li>
+      <li><strong>Mínimo en activos elegibles: 55%</strong> del capital (bajado desde el 70% de ELTIF 1.0).</li>
+      <li><strong>Acceso minorista mejorado:</strong> ELTIF 2.0 elimina el mínimo de inversión de 10.000 €; basta el test de idoneidad MiFID.</li>
+      <li><strong>Liquidez parcial:</strong> permite "ventanas de liquidez" periódicas y estructuras semi-abiertas.</li>
+      <li><strong>Pasaporte europeo:</strong> comercializable en toda la UE con simple notificación.</li>
+      <li><strong>Apalancamiento:</strong> máximo 50% del NAV para fondos minoristas.</li>
+    </ul>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>Desde la entrada en vigor de ELTIF 2.0 (enero 2024), el mercado europeo de ELTIF ha crecido de ~60 fondos en 2023 a más de 150 en 2026, con un patrimonio agregado superior a 30.000 M€. España es uno de los mercados de distribución más activos.</p>
+    </div>
+  </div>
+
+  <hr>
 
   <!-- 4. FESE -->
-  <h2>4. Fondos de emprendimiento social europeo (FESE / EuSEF)</h2>
+  <div class="sec">
+    <h2>4. Fondos de emprendimiento social europeo (FESE / EuSEF)</h2>
+    <p>Los <strong>FESE</strong> son vehículos cerrados especializados en empresas de impacto social, regulados por el Reglamento (UE) 346/2013.<sup class="fn"><a href="#fn4">4</a></sup></p>
+    <ul>
+      <li><strong>Mínimo en activos elegibles: 70%</strong> del capital en empresas no cotizadas con objetivo primordial de impacto social positivo medible.</li>
+      <li><strong>Inversores:</strong> cualificados con inversión mínima de <strong>100.000 €</strong>.</li>
+      <li><strong>Pasaporte europeo:</strong> comercialización en toda la UE con simple notificación.</li>
+      <li><strong>Denominación protegida:</strong> solo pueden usar "EuSEF" los vehículos que cumplan el Reglamento.</li>
+      <li><strong>Reporte de impacto:</strong> informe anual con métricas sociales verificables.</li>
+      <li><strong>Apalancamiento:</strong> máximo 30% del NAV.</li>
+    </ul>
 
-  <p>Los <strong>FESE</strong> (<em>Fondos de Emprendimiento Social Europeo</em>, en inglés <em>EuSEF</em>) son vehículos de inversión colectiva cerrada especializados en empresas de impacto social, creados por el Reglamento (UE) 346/2013.<sup><a href="#fn5">5</a></sup></p>
-
-  <h3>4.1 Características</h3>
-  <ul>
-    <li><strong>Activos elegibles:</strong> al menos el <strong>70%</strong> del capital debe invertirse en <em>empresas de cartera admisibles</em>: empresas no cotizadas cuyo objetivo primordial sea generar impacto social positivo medible (salud, educación, inclusión financiera, medioambiente).</li>
-    <li><strong>Inversores:</strong> dirigido a inversores cualificados con una inversión mínima de <strong>100.000 €</strong>.</li>
-    <li><strong>Pasaporte europeo:</strong> los gestores autorizados como gestores de FESE pueden comercializarlos en toda la UE con simple notificación.</li>
-    <li><strong>Denominación protegida:</strong> solo pueden usar la denominación "EuSEF" los vehículos que cumplan los requisitos del Reglamento; evita el <em>greenwashing social</em>.</li>
-    <li><strong>Reporte de impacto:</strong> deben publicar un informe anual de impacto con métricas sociales verificables.</li>
-  </ul>
-
-  <h3>4.2 Diferencias respecto a ECR y FILPE</h3>
-  <table class="summary-table">
-    <thead>
-      <tr>
-        <th>Parámetro</th>
-        <th>ECR (capital-riesgo)</th>
-        <th>FILPE (ELTIF)</th>
-        <th>FESE (EuSEF)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Regulación</strong></td>
-        <td>Ley 22/2014 + AIFMD</td>
-        <td>Rgl. UE 2015/760 (rev. 2023/606)</td>
-        <td>Rgl. UE 346/2013</td>
-      </tr>
-      <tr>
-        <td><strong>Objetivo principal</strong></td>
-        <td>Rentabilidad financiera</td>
-        <td>Inversión productiva LP en la UE</td>
-        <td>Impacto social + rentabilidad</td>
-      </tr>
-      <tr>
-        <td><strong>Activos elegibles</strong></td>
-        <td>Empresas no cotizadas</td>
-        <td>Activos reales + empresas no cotizadas</td>
-        <td>Empresas de impacto social</td>
-      </tr>
-      <tr>
-        <td><strong>Inversores</strong></td>
-        <td>Profesionales / cualificados</td>
-        <td>Todos (minorista desde ELTIF 2.0)</td>
-        <td>Cualificados (mín. 100.000 €)</td>
-      </tr>
-      <tr>
-        <td><strong>Pasaporte UE</strong></td>
-        <td>Sí (FCRE bajo Rgl. 345/2013)</td>
-        <td>Sí</td>
-        <td>Sí</td>
-      </tr>
-      <tr>
-        <td><strong>Apalancamiento</strong></td>
-        <td>Sin límite legal específico</td>
-        <td>Máx. 50% NAV (minorista)</td>
-        <td>Máx. 30% NAV</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- 5. Rentabilidad y riesgo en IIC cerradas -->
-  <h2>5. Rentabilidad y riesgo en IIC cerradas</h2>
-
-  <h3>5.1 Métricas de rentabilidad específicas</h3>
-  <p>Las IIC cerradas utilizan métricas propias que difieren de las usadas en fondos abiertos, adaptadas a la estructura de flujos de caja irregulares:<sup><a href="#fn6">6</a></sup></p>
-
-  <ul>
-    <li><strong>TIR / IRR (<em>Internal Rate of Return</em>):</strong> tasa de descuento que iguala el valor presente de las distribuciones recibidas con el capital invertido. Es la medida principal de rentabilidad en capital riesgo.</li>
-    <li><strong>MOIC / Multiple on Invested Capital:</strong> cociente entre el valor total distribuido + valor residual y el capital total invertido. MOIC = 2,0x significa que se ha duplicado el capital.</li>
-    <li><strong>DPI (Distributions to Paid-In):</strong> capital ya distribuido / capital desembolsado. Mide la liquidez efectivamente generada.</li>
-    <li><strong>RVPI (Residual Value to Paid-In):</strong> valor neto de los activos aún en cartera / capital desembolsado. Mide el valor no realizado aún.</li>
-    <li><strong>TVPI (Total Value to Paid-In):</strong> DPI + RVPI. Visión completa del valor total generado.</li>
-  </ul>
-
-  <div class="exam-alert">
-    <strong>🎯 Frecuente en examen:</strong> La TIR en capital riesgo <em>no es comparable directamente</em> con la rentabilidad anualizada de un fondo UCITS, porque en los fondos cerrados el capital no está totalmente invertido desde el inicio (hay llamadas de capital progresivas). Cuando se compara TIR de private equity con rentabilidad de fondos cotizados, hay que tener en cuenta el efecto del <em>capital no llamado</em> que el inversor mantiene en liquidez mientras espera las llamadas.
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Parámetro</th><th>ECR</th><th>FILPE (ELTIF)</th><th>FESE (EuSEF)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Regulación</strong></td><td>Ley 22/2014 + AIFMD</td><td>Rgl. 2015/760 (rev. 2023/606)</td><td>Rgl. 346/2013</td></tr>
+          <tr><td><strong>Objetivo</strong></td><td>Rentabilidad financiera</td><td>Inversión productiva LP en la UE</td><td>Impacto social + rentabilidad</td></tr>
+          <tr><td><strong>Mínimo activos elegibles</strong></td><td>60%</td><td>55%</td><td>70%</td></tr>
+          <tr><td><strong>Inversores</strong></td><td>Profesionales / cualificados</td><td>Todos (minorista desde ELTIF 2.0)</td><td>Cualificados (mín. 100.000 €)</td></tr>
+          <tr><td><strong>Apalancamiento máx.</strong></td><td>Sin límite específico</td><td>50% NAV (minorista)</td><td>30% NAV</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
-  <h3>5.2 La curva J</h3>
-  <p>El perfil de rentabilidad típico de una IIC cerrada de capital riesgo sigue la denominada <strong>curva en J</strong>: en los primeros años, la rentabilidad acumulada es negativa (las comisiones de gestión y los gastos de constitución se deducen sobre activos aún no valorados; las inversiones en fase inicial suelen estar en pérdidas latentes). A partir del año 4–6, conforme maduran las inversiones y se producen desinversiones exitosas, la rentabilidad se vuelve positiva y escala.<sup><a href="#fn6">6</a></sup></p>
+  <hr>
 
-  <h3>5.3 Riesgos específicos</h3>
-  <ul>
-    <li><strong>Riesgo de iliquidez:</strong> imposibilidad de recuperar el capital antes del vencimiento sin incurrir en descuentos.</li>
-    <li><strong>Riesgo de valoración:</strong> los activos no cotizados se valoran periódicamente con métodos subjetivos (múltiplos de comparables, DCF); el NAV no refleja precios de mercado en tiempo real.</li>
-    <li><strong>Riesgo de concentración:</strong> una cartera de 10–20 empresas es mucho menos diversificada que un fondo UCITS con 50–200 valores.</li>
-    <li><strong>Riesgo de <em>vintage</em>:</strong> el momento del ciclo económico en que se invierte condiciona fuertemente la rentabilidad final; los fondos levantados en pico de ciclo tienden a rendir peor.</li>
-    <li><strong>Riesgo de contraparte gestora:</strong> el rendimiento depende en gran medida de las capacidades del equipo gestor, sin posibilidad de cambiar de gestora durante la vida del fondo.</li>
-  </ul>
+  <!-- 5. RENTABILIDAD Y RIESGO -->
+  <div class="sec">
+    <h2>5. Rentabilidad y riesgo en IIC cerradas</h2>
 
-  <!-- 6. Ejemplos numéricos -->
-  <h2>6. Ejemplos numéricos</h2>
+    <h3>Métricas específicas</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Métrica</th><th>Definición</th><th>Qué mide</th></tr></thead>
+        <tbody>
+          <tr><td><strong>TIR / IRR</strong></td><td>Tasa que iguala el VAN de los flujos a cero</td><td>Rentabilidad anualizada equivalente</td></tr>
+          <tr><td><strong>MOIC</strong></td><td>Total distribuido + valor residual / capital invertido</td><td>Múltiplo total sobre el capital</td></tr>
+          <tr><td><strong>DPI</strong></td><td>Capital ya distribuido / capital desembolsado</td><td>Liquidez efectivamente generada</td></tr>
+          <tr><td><strong>RVPI</strong></td><td>Valor neto activos en cartera / capital desembolsado</td><td>Valor no realizado aún</td></tr>
+          <tr><td><strong>TVPI</strong></td><td>DPI + RVPI</td><td>Valor total generado (realizado + no realizado)</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-  <div class="card accent-green">
-    <h4>📌 Ejemplo numérico 1 — Cálculo de MOIC y TIR en un fondo de capital-riesgo</h4>
-    <p>Un inversor comprometió <strong>100.000 €</strong> en un FCR en 2019. Las llamadas de capital y distribuciones fueron las siguientes:</p>
-    <table class="summary-table" style="margin:.5rem 0; font-size:.85rem;">
-      <thead>
-        <tr><th>Año</th><th>Llamada de capital (salida)</th><th>Distribución (entrada)</th><th>Flujo neto</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>2019</td><td>–30.000 €</td><td>0</td><td>–30.000 €</td></tr>
-        <tr><td>2020</td><td>–40.000 €</td><td>0</td><td>–40.000 €</td></tr>
-        <tr><td>2021</td><td>–30.000 €</td><td>0</td><td>–30.000 €</td></tr>
-        <tr><td>2023</td><td>0</td><td>+60.000 €</td><td>+60.000 €</td></tr>
-        <tr><td>2025</td><td>0</td><td>+80.000 €</td><td>+80.000 €</td></tr>
-        <tr><td>2026</td><td>0</td><td>+45.000 €</td><td>+45.000 €</td></tr>
-      </tbody>
-    </table>
-    <p><strong>MOIC:</strong> Total distribuido: 60.000 + 80.000 + 45.000 = 185.000 € / Capital invertido: 100.000 € = <strong>1,85x</strong></p>
-    <p><strong>TIR aproximada:</strong> aplicando la función TIR a los flujos anteriores → <strong>~14,2% anual</strong> (el capital no se invirtió todo en 2019, lo que eleva la TIR respecto a una inversión de igual período con capital inicial total).</p>
-    <p>Un MOIC de 1,85x en ~7 años es rentabilidad positiva pero inferior al objetivo típico de un buyout (2,0–3,0x). La TIR del 14,2% supera el hurdle rate habitual del 8%.</p>
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        La TIR en capital riesgo <em>no es comparable directamente</em> con la rentabilidad anualizada de un fondo UCITS,
+        porque el capital no está totalmente invertido desde el inicio (hay llamadas progresivas). El capital no llamado
+        que el inversor mantiene en liquidez no genera rentabilidad de private equity, lo que eleva artificialmente la TIR
+        respecto a lo que realmente "trabaja" el dinero.
+      </div>
+    </div>
+
+    <h3>La curva J</h3>
+    <p>El perfil de rentabilidad típico de una ECR sigue la <strong>curva en J</strong>: en los primeros años la rentabilidad acumulada es negativa (comisiones y gastos sobre activos aún no revalorizados); a partir del año 4–6, conforme maduran las inversiones y se producen desinversiones exitosas, la rentabilidad escala hasta valores positivos.<sup class="fn"><a href="#fn5">5</a></sup></p>
+
+    <h3>Riesgos específicos</h3>
+    <ul>
+      <li><strong>Iliquidez:</strong> imposibilidad de recuperar el capital antes del vencimiento sin descuentos.</li>
+      <li><strong>Valoración subjetiva:</strong> los activos no cotizados se valoran con métodos (DCF, múltiplos) que no reflejan precios de mercado en tiempo real.</li>
+      <li><strong>Concentración:</strong> una cartera de 10–20 empresas es mucho menos diversificada que un fondo UCITS.</li>
+      <li><strong>Riesgo de vintage:</strong> el momento del ciclo en que se invierte condiciona fuertemente la rentabilidad final.</li>
+      <li><strong>Riesgo del equipo gestor:</strong> el rendimiento depende en gran medida del equipo, sin posibilidad de cambio durante la vida del fondo.</li>
+    </ul>
   </div>
 
-  <div class="card accent-green">
-    <h4>📌 Ejemplo numérico 2 — La curva J: evolución del valor en un FILPE</h4>
-    <p>Un FILPE lanzado en 2024 con un capital comprometido total de <strong>50 M€</strong> muestra la siguiente evolución del TVPI estimado:</p>
-    <table class="summary-table" style="margin:.5rem 0; font-size:.85rem;">
-      <thead>
-        <tr><th>Año</th><th>Capital llamado</th><th>Valor cartera</th><th>Distribuciones</th><th>TVPI</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>2024</td><td>15 M€</td><td>13,5 M€</td><td>0</td><td>0,90x</td></tr>
-        <tr><td>2025</td><td>35 M€</td><td>32 M€</td><td>0</td><td>0,91x</td></tr>
-        <tr><td>2026</td><td>50 M€</td><td>48 M€</td><td>0</td><td>0,96x</td></tr>
-        <tr><td>2028</td><td>50 M€</td><td>62 M€</td><td>8 M€</td><td>1,40x</td></tr>
-        <tr><td>2030</td><td>50 M€</td><td>45 M€</td><td>50 M€</td><td>1,90x</td></tr>
-        <tr><td>2032</td><td>50 M€</td><td>0</td><td>95 M€</td><td>1,90x</td></tr>
-      </tbody>
-    </table>
-    <p>Los primeros años (2024–2026) muestran TVPI &lt;1,0x (la curva J: el fondo "está en pérdidas" porque las comisiones y los costes iniciales superan las revalorizaciones). A partir de 2028, las desinversiones exitosas llevan el TVPI por encima de 1,0x hasta un resultado final de 1,90x: se ha casi duplicado el capital en 8 años.</p>
+  <hr>
+
+  <!-- 6. EJEMPLOS -->
+  <div class="sec">
+    <h2>6. Ejemplos numéricos</h2>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 1 — MOIC y TIR en un FCR</h3>
+      <p>Un inversor comprometió <strong>100.000 €</strong> en un FCR en 2019. Flujos:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Año</th><th>Llamada (salida)</th><th>Distribución (entrada)</th><th>Flujo neto</th></tr></thead>
+          <tbody>
+            <tr><td>2019</td><td>–30.000 €</td><td>0</td><td>–30.000 €</td></tr>
+            <tr><td>2020</td><td>–40.000 €</td><td>0</td><td>–40.000 €</td></tr>
+            <tr><td>2021</td><td>–30.000 €</td><td>0</td><td>–30.000 €</td></tr>
+            <tr><td>2023</td><td>0</td><td>+60.000 €</td><td>+60.000 €</td></tr>
+            <tr><td>2025</td><td>0</td><td>+80.000 €</td><td>+80.000 €</td></tr>
+            <tr><td>2026</td><td>0</td><td>+45.000 €</td><td>+45.000 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li><strong>MOIC:</strong> (60.000 + 80.000 + 45.000) / 100.000 = 185.000 / 100.000 = <strong>1,85x</strong></li>
+        <li><strong>TIR aproximada: ~14,2% anual</strong> (aplicando función TIR a los flujos)</li>
+      </ul>
+      <p>MOIC de 1,85x en ~7 años: positivo pero inferior al objetivo típico buyout (2,0–3,0x). La TIR del 14,2% supera el hurdle rate habitual del 8%.</p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 2 — La curva J en un FILPE</h3>
+      <p>Un FILPE lanzado en 2024 con capital comprometido de <strong>50 M€</strong>:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Año</th><th>Capital llamado</th><th>Valor cartera</th><th>Distribuciones</th><th>TVPI</th></tr></thead>
+          <tbody>
+            <tr><td>2024</td><td>15 M€</td><td>13,5 M€</td><td>0</td><td><strong>0,90x</strong> ← curva J</td></tr>
+            <tr><td>2026</td><td>50 M€</td><td>48 M€</td><td>0</td><td><strong>0,96x</strong> ← aún negativo</td></tr>
+            <tr><td>2028</td><td>50 M€</td><td>62 M€</td><td>8 M€</td><td><strong>1,40x</strong> ← inflexión</td></tr>
+            <tr><td>2032</td><td>50 M€</td><td>0</td><td>95 M€</td><td><strong>1,90x</strong> ← resultado final</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Los primeros años muestran TVPI &lt;1,0x (fase descendente de la J). A partir de 2028 las desinversiones exitosas llevan el TVPI al alza hasta un resultado final de 1,90x: casi se duplica el capital en 8 años.</p>
+    </div>
   </div>
 
-  <!-- Footnotes -->
-  <ol class="footnotes">
-    <li id="fn1">Ley 22/2014, de 12 de noviembre, por la que se regulan las entidades de capital-riesgo, otras entidades de inversión colectiva de tipo cerrado y las sociedades gestoras de entidades de inversión colectiva de tipo cerrado (SGEIC). BOE núm. 275. Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2014-11714" target="_blank" rel="noopener">boe.es — Ley 22/2014</a></li>
-    <li id="fn2">Directiva 2011/61/UE (AIFMD), arts. 4–6 (gestores de fondos de inversión alternativos: autorización y requisitos). DOUE L 174. Disponible en: <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32011L0061" target="_blank" rel="noopener">eur-lex.europa.eu — AIFMD</a></li>
-    <li id="fn3">Ley 22/2014, arts. 9–22 (entidades de capital-riesgo: concepto, tipología de vehículos, política de inversión obligatoria — mínimo 60% en activos elegibles).</li>
-    <li id="fn4">Reglamento (UE) 2015/760 del Parlamento Europeo y del Consejo, de 29 de abril de 2015, sobre los fondos de inversión a largo plazo europeos (ELTIF), modificado por el Reglamento (UE) 2023/606 de 15 de marzo de 2023 (ELTIF 2.0). DOUE L 80. Disponible en: <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32023R0606" target="_blank" rel="noopener">eur-lex.europa.eu — ELTIF 2.0</a></li>
-    <li id="fn5">Reglamento (UE) 346/2013 del Parlamento Europeo y del Consejo, de 17 de abril de 2013, sobre los fondos de emprendimiento social europeos (EuSEF). DOUE L 115. Disponible en: <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32013R0346" target="_blank" rel="noopener">eur-lex.europa.eu — EuSEF</a></li>
-    <li id="fn6">Invest Europe (EVCA), <em>Handbook on Private Equity Valuation and Reporting Standards</em>, 2023 ed. (métricas TVPI, MOIC, DPI, RVPI, TIR y curva J). Disponible en: <a href="https://www.investeurope.eu/research/invest-europe-handbook/" target="_blank" rel="noopener">investeurope.eu</a></li>
-  </ol>
+  <!-- NOTAS AL PIE -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">Ley 22/2014, de 12 de noviembre, por la que se regulan las entidades de capital-riesgo y las SGEIC. BOE núm. 275.
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2014-11714" target="_blank" rel="noopener">boe.es — Ley 22/2014</a></li>
+      <li id="fn2">Ley 22/2014, arts. 9–22 (tipología de vehículos de capital-riesgo y política de inversión — mínimo 60% en activos elegibles).</li>
+      <li id="fn3">Reglamento (UE) 2015/760, modificado por el Reglamento (UE) 2023/606 de 15 de marzo de 2023 (ELTIF 2.0). DOUE L 80.
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32023R0606" target="_blank" rel="noopener">eur-lex.europa.eu — ELTIF 2.0</a></li>
+      <li id="fn4">Reglamento (UE) 346/2013 del Parlamento Europeo y del Consejo, de 17 de abril de 2013, sobre los fondos de emprendimiento social europeos (EuSEF). DOUE L 115.
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32013R0346" target="_blank" rel="noopener">eur-lex.europa.eu — EuSEF</a></li>
+      <li id="fn5">Invest Europe, <em>Handbook on Private Equity Valuation and Reporting Standards</em>, 2023 (métricas TVPI, MOIC, DPI, RVPI, TIR y curva J).
+        <a href="https://www.investeurope.eu/research/invest-europe-handbook/" target="_blank" rel="noopener">investeurope.eu</a></li>
+    </ol>
+  </div>
 
-  <!-- Sección nav -->
+  <!-- NAVEGACIÓN -->
   <div class="sec-nav">
-    <a class="nav-btn" href="seccion-b.html">← B — SICAV</a>
-    <a class="nav-btn next" href="../bloque-3/seccion-a.html">Siguiente bloque: B3·A — Hedge Funds →</a>
+    <a href="seccion-b.html" class="nav-btn">← B: SICAV</a>
+    <a href="../bloque-3/seccion-a.html" class="nav-btn">B3·A: Hedge Funds →</a>
   </div>
 
-</div><!-- /container -->
+</div>
 
 <footer>
   EFA Prep · Módulo 2 · Bloque 2 · Sección C · Basado en la Guía de Certificación EFPA España V1/26

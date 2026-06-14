@@ -1,389 +1,345 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es" data-theme="light" data-fontsize="normal">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>M2·B2·A — Tipos de fondos de inversión | EFA Prep</title>
-  <link rel="stylesheet" href="../../assets/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M2 · B2 · Sección A — Tipos de fondos de inversión · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .contexto-actual { background: var(--card); border-left: 4px solid var(--green); border-radius: 0 14px 14px 0; padding: 1.1rem 1.3rem; margin: 1.2rem 0; }
+    .contexto-actual .ctx-title { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--green); margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
+    .contexto-actual p { font-size: var(--fs-sm); color: var(--text); line-height: 1.7; margin: 0 0 .4rem; }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+    .footnotes { border-top: 1px solid var(--border); margin-top: 2.5rem; padding-top: 1.2rem; }
+    .footnotes h4 { font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 800; color: var(--text-soft); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .8rem; }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li { font-size: .78rem; color: var(--text-soft); line-height: 1.6; margin-bottom: .35rem; }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
 
-<!-- ── Toolbar ── -->
-<nav class="toolbar">
-  <a class="toolbar-brand" href="#">EFA Prep</a>
-  <button class="fs-btn" id="fs-btn-normal">A</button>
-  <button class="fs-btn" id="fs-btn-large">A+</button>
-  <button class="fs-btn" id="fs-btn-xlarge">A++</button>
-  <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
-</nav>
+<div class="top-stripe"></div>
 
-<!-- ── Breadcrumb ── -->
-<div class="breadcrumb">
-  <a href="#">Inicio</a><span>›</span>
-  <a href="../index.html">Módulo 2</a><span>›</span>
-  <a href="#">Bloque 2</a><span>›</span>
-  Sección A
-</div>
-
-<!-- ── Hero ── -->
-<div class="hero">
-  <div class="container">
-    <div class="hero-pill">Nivel I · Conocimiento y Análisis</div>
-    <h1>Sección A — Tipos de fondos de inversión</h1>
-    <p class="hero-sub">Módulo 2 · Bloque 2 · Fondos de inversión mobiliaria y sus objetivos de inversión</p>
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M2 · B2 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
   </div>
 </div>
 
-<!-- ── Content ── -->
-<div class="container">
+<div class="wrap">
 
-  <!-- 0. Cómo funciona un fondo -->
-  <h2>0. Cómo funciona un fondo de inversión</h2>
-
-  <p>Un fondo de inversión es un <strong>patrimonio sin personalidad jurídica</strong> constituido por las aportaciones de una pluralidad de inversores (partícipes). La Sociedad Gestora (SGIIC) toma las decisiones de inversión, y la entidad depositaria custodia los activos. El funcionamiento básico sigue este circuito:<sup><a href="#fn1">1</a></sup></p>
-
-  <ul>
-    <li><strong>Entrada (suscripción):</strong> el partícipe entrega dinero a cambio de participaciones al NAV del día.</li>
-    <li><strong>Gestión:</strong> la SGIIC invierte el patrimonio agregado en los activos definidos en el folleto, dentro de los límites legales.</li>
-    <li><strong>Valoración:</strong> diariamente se calcula el NAV = patrimonio neto / n.º participaciones. Las plusvalías y minusvalías de la cartera se reflejan en el NAV, que sube o baja.</li>
-    <li><strong>Rendimientos:</strong> en fondos de <em>acumulación</em>, los dividendos e intereses cobrados se reinvierten en la cartera, aumentando el NAV. En fondos de <em>reparto</em>, se distribuyen periódicamente como dividendo.</li>
-    <li><strong>Salida (reembolso):</strong> el partícipe entrega sus participaciones y recibe el importe al NAV vigente, en un plazo máximo de 3 días hábiles.</li>
-    <li><strong>Traspaso:</strong> el partícipe puede mover su inversión a otro fondo sin tributar en ese momento (diferimiento fiscal exclusivo de IIC en España).</li>
-  </ul>
-
-  <p><strong>Objetivos de inversión:</strong> cada fondo define en su folleto una política de inversión concreta (tipo de activos, zona geográfica, divisa, nivel de riesgo, horizonte temporal) y puede orientarse a preservación de capital, generación de rentas, crecimiento patrimonial o combinaciones de estos objetivos.</p>
-
-  <!-- 1. Clasificación por distribución de beneficios -->
-  <h2>1. Clasificación por distribución de beneficios</h2>
-
-  <h3>1.1 Fondos de acumulación</h3>
-  <p>Los rendimientos generados por la cartera (dividendos de acciones, cupones de bonos, intereses de depósitos) <strong>se reinvierten automáticamente</strong> en la propia cartera del fondo. El partícipe no recibe ningún pago periódico; el beneficio se materializa únicamente en el incremento del NAV. La tributación se difiere hasta el reembolso o traspaso.<sup><a href="#fn1">1</a></sup></p>
-  <p><em>Ventaja:</em> eficiencia fiscal máxima por el efecto compuesto sin fricción tributaria anual. <em>Adecuado para:</em> inversores en fase de acumulación de patrimonio con horizonte largo.</p>
-
-  <h3>1.2 Fondos de reparto</h3>
-  <p>El fondo distribuye periódicamente (trimestral, semestral o anualmente) un <strong>dividendo</strong> a los partícipes con cargo a los rendimientos obtenidos o al propio patrimonio. Tras el reparto, el NAV cae en la cuantía distribuida por participación.</p>
-  <p><em>Implicación fiscal:</em> cada dividendo tributa en el IRPF del partícipe como rendimiento del capital mobiliario (19–28% en 2026), sin posibilidad de diferimiento. <em>Adecuado para:</em> inversores que necesitan rentas periódicas (ej. jubilados).</p>
-
-  <div class="exam-alert">
-    <strong>🎯 Frecuente en examen:</strong> Tras el pago de un dividendo de reparto, el NAV cae exactamente en el importe repartido por participación. Si el NAV era 120 € y se reparte 3 €/participación, el NAV ex-dividendo es 117 €. El partícipe no "gana" ni "pierde" por el reparto en sí: el valor total de su posición (NAV × participaciones + dividendo cobrado) es idéntico antes y después. La diferencia es fiscal.
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 2</a><span class="sep">›</span>
+    <a href="index.html">Bloque 2</a><span class="sep">›</span>
+    <span>Sección A</span>
   </div>
 
-  <!-- 2. Fondos del mercado monetario -->
-  <h2>2. Fondos del mercado monetario (FMM)</h2>
-
-  <p>Los FMM invierten en activos de <strong>muy corto plazo y alta liquidez</strong>, con el objetivo de preservar el capital y proporcionar una rentabilidad próxima a los tipos del mercado monetario. Están regulados específicamente por el Reglamento (UE) 2017/1131.<sup><a href="#fn2">2</a></sup></p>
-
-  <h3>Activos elegibles</h3>
-  <ul>
-    <li>Letras del Tesoro y otros valores de deuda pública a corto plazo.</li>
-    <li>Pagarés de empresa y certificados de depósito con vencimiento residual máximo de <strong>397 días</strong>.</li>
-    <li>Repos sobre valores públicos.</li>
-    <li>Depósitos bancarios a corto plazo.</li>
-    <li>Instrumentos del mercado monetario con rating crediticio elevado.</li>
-  </ul>
-
-  <h3>Tipología regulatoria (Rgl. UE 2017/1131)</h3>
-  <ul>
-    <li><strong>FMM de VLV constante de deuda pública (CNAV):</strong> mantienen un NAV constante (p. ej. 1 €/participación); solo invierten en deuda pública.</li>
-    <li><strong>FMM de VLV de baja volatilidad (LVNAV):</strong> NAV nominalmente constante pero con posibilidad de variación hasta ±20 pb; admiten activos privados.</li>
-    <li><strong>FMM de VLV variable (VNAV):</strong> NAV fluctúa diariamente; mayor flexibilidad de activos.</li>
-  </ul>
-
-  <p><strong>Vencimiento medio ponderado (WAM):</strong> máximo 6 meses para CNAV y LVNAV, 6 meses para VNAV. <strong>Vida media ponderada (WAL):</strong> máximo 12 meses.</p>
-
-  <div class="context-box">
-    <strong>📊 Contexto actual (junio 2026):</strong> Con el BCE en el 2,00/2,15/2,40% y el Euribor 12M en ~2,81%, los FMM ofrecen rentabilidades netas anualizadas de entre el 1,8% y el 2,5%, muy superiores a las de 2020–2022 (cercanas a cero o negativas). En 2025–2026 han captado flujos récord de inversores minoristas que buscan liquidez y rentabilidad sin riesgo de duración.
+  <div class="hero">
+    <div class="pill">Módulo 2 · Bloque 2 · Sección A · Nivel I · Conocimiento y Análisis</div>
+    <h1>Tipos de fondos de inversión</h1>
+    <p class="hero-sub">
+      Funcionamiento general de un fondo · Acumulación vs. reparto · Fondos monetarios, FI UCITS,
+      fondos de fondos, principal-subordinado, ETF, no cotizados, libre, temáticos e impacto.
+    </p>
   </div>
 
-  <!-- 3. Fondos de inversión (FI) -->
-  <h2>3. Fondos de Inversión (FI) — categorías por activo</h2>
+  <hr>
 
-  <p>Los <strong>Fondos de Inversión</strong> en sentido estricto son IIC abiertas que invierten en valores cotizados (renta fija, renta variable o mixtos) conforme a los límites UCITS. La clasificación más operativa es la de la CNMV, que los agrupa por vocación inversora:<sup><a href="#fn3">3</a></sup></p>
+  <!-- 0. FUNCIONAMIENTO -->
+  <div class="sec">
+    <h2>0. Cómo funciona un fondo de inversión</h2>
+    <p>Un fondo de inversión es un <strong>patrimonio sin personalidad jurídica</strong> gestionado por una SGIIC. El circuito básico es:<sup class="fn"><a href="#fn1">1</a></sup></p>
+    <ul>
+      <li><strong>Suscripción:</strong> el partícipe entrega dinero a cambio de participaciones al NAV del día.</li>
+      <li><strong>Gestión:</strong> la SGIIC invierte el patrimonio en los activos del folleto, dentro de los límites legales.</li>
+      <li><strong>Valoración:</strong> diariamente NAV = patrimonio neto / n.º participaciones. Las plusvalías y minusvalías se reflejan en el NAV.</li>
+      <li><strong>Rendimientos:</strong> en fondos de acumulación se reinvierten; en fondos de reparto se distribuyen.</li>
+      <li><strong>Reembolso:</strong> el partícipe entrega participaciones y recibe el importe al NAV vigente (máx. 3 días hábiles).</li>
+      <li><strong>Traspaso:</strong> cambio a otro fondo sin tributación inmediata (diferimiento fiscal exclusivo de IIC en España).</li>
+    </ul>
+  </div>
 
-  <table class="summary-table">
-    <thead>
-      <tr>
-        <th>Vocación inversora</th>
-        <th>Activos principales</th>
-        <th>Riesgo relativo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Renta fija corto plazo</strong></td>
-        <td>Bonos y pagarés; duración &lt;2 años; sin RV</td>
-        <td>Bajo</td>
-      </tr>
-      <tr>
-        <td><strong>Renta fija largo plazo</strong></td>
-        <td>Bonos con duración ≥2 años; sin RV</td>
-        <td>Medio-bajo</td>
-      </tr>
-      <tr>
-        <td><strong>Renta fija internacional</strong></td>
-        <td>RF con exposición divisa &gt;30%</td>
-        <td>Medio</td>
-      </tr>
-      <tr>
-        <td><strong>Renta variable española</strong></td>
-        <td>≥75% en RV española</td>
-        <td>Alto</td>
-      </tr>
-      <tr>
-        <td><strong>Renta variable internacional</strong></td>
-        <td>≥75% en RV; exposición divisa posible</td>
-        <td>Alto</td>
-      </tr>
-      <tr>
-        <td><strong>Mixtos RF</strong></td>
-        <td>&lt;30% en RV; resto en RF</td>
-        <td>Medio-bajo</td>
-      </tr>
-      <tr>
-        <td><strong>Mixtos RV</strong></td>
-        <td>30–75% en RV; resto en RF</td>
-        <td>Medio-alto</td>
-      </tr>
-      <tr>
-        <td><strong>Retorno absoluto</strong></td>
-        <td>Objetivo de rentabilidad positiva independiente del mercado</td>
-        <td>Variable</td>
-      </tr>
-    </tbody>
-  </table>
+  <hr>
 
-  <!-- 4. Fondos de fondos -->
-  <h2>4. Fondos de fondos (FdF)</h2>
+  <!-- 1. ACUMULACIÓN VS. REPARTO -->
+  <div class="sec">
+    <h2>1. Clasificación por distribución de beneficios</h2>
 
-  <p>Un fondo de fondos invierte su patrimonio <strong>principalmente en participaciones de otros fondos de inversión</strong>, en lugar de en valores directamente. El RLIIC establece que los FdF pueden invertir hasta el 100% de su patrimonio en IIC.<sup><a href="#fn1">1</a></sup></p>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Fondos de acumulación</h4>
+        <p>Los rendimientos (dividendos, cupones, intereses) se reinvierten automáticamente en la cartera. El beneficio se materializa únicamente en el incremento del NAV. Tributación diferida hasta el reembolso. Máxima eficiencia fiscal por el efecto compuesto.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Fondos de reparto</h4>
+        <p>El fondo distribuye periódicamente un dividendo a los partícipes. Tras el reparto, el NAV cae en la cuantía distribuida. Cada dividendo tributa en IRPF como rendimiento del capital mobiliario (19–28%). Adecuado para inversores que necesitan rentas periódicas.</p>
+      </div>
+    </div>
 
-  <h3>Características</h3>
-  <ul>
-    <li><strong>Diversificación de segundo nivel:</strong> el partícipe accede a una cartera de fondos gestionados por distintas gestoras, con distintas estrategias.</li>
-    <li><strong>Doble capa de comisiones:</strong> el FdF cobra sus propias comisiones de gestión y depósito, y los fondos subyacentes también cobran las suyas. El OGC total puede ser elevado.</li>
-    <li><strong>Acceso a estrategias restringidas:</strong> un FdF puede dar acceso a fondos de inversión libre (hedge funds) o a fondos no disponibles para el inversor minorista directamente.</li>
-  </ul>
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Tras el pago de un dividendo de reparto, el NAV cae exactamente en el importe repartido por participación.
+        Si el NAV era 120 € y se reparte 3 €/participación, el NAV ex-dividendo es 117 €. El partícipe no "gana"
+        ni "pierde" por el reparto en sí: el valor total de su posición es idéntico antes y después. La diferencia es fiscal.
+      </div>
+    </div>
+  </div>
 
-  <h3>Tipologías</h3>
-  <ul>
-    <li><strong>FdF de fondos UCITS:</strong> solo invierte en fondos armonizados; máxima regulación y liquidez.</li>
-    <li><strong>FdF de hedge funds (Fund of Hedge Funds):</strong> acceso a fondos alternativos con mayor riesgo y menor liquidez; dirigido a inversores cualificados.</li>
-    <li><strong>FdF multi-estrategia:</strong> combina fondos con distintas vocaciones para construir una asignación de activos global.</li>
-  </ul>
+  <hr>
 
-  <!-- 5. Fondos principales y subordinados -->
-  <h2>5. Fondos principales y subordinados</h2>
+  <!-- 2. FONDOS MONETARIOS -->
+  <div class="sec">
+    <h2>2. Fondos del mercado monetario (FMM)</h2>
+    <p>Invierten en activos de <strong>muy corto plazo y alta liquidez</strong>, con el objetivo de preservar el capital. Regulados específicamente por el Reglamento (UE) 2017/1131.<sup class="fn"><a href="#fn2">2</a></sup></p>
 
-  <p>La estructura <strong>principal-subordinado</strong> (master-feeder) permite que un fondo subordinado (<em>feeder</em>) canalice la totalidad o una parte muy significativa de su patrimonio hacia un único fondo principal (<em>master</em>), que es quien gestiona realmente la cartera.<sup><a href="#fn4">4</a></sup></p>
+    <h3>Activos elegibles</h3>
+    <ul>
+      <li>Letras del Tesoro y deuda pública a corto plazo.</li>
+      <li>Pagarés de empresa y certificados de depósito con vencimiento residual máximo de <strong>397 días</strong>.</li>
+      <li>Repos sobre valores públicos y depósitos bancarios a corto plazo.</li>
+    </ul>
 
-  <h3>Características del fondo subordinado</h3>
-  <ul>
-    <li>Debe invertir <strong>al menos el 85%</strong> de su patrimonio en el fondo principal.</li>
-    <li>Puede tener una política de activos libre para el 15% restante (liquidez, derivados de cobertura).</li>
-    <li>Tiene su propio folleto y DFI, pero hace referencia al del fondo principal.</li>
-    <li>La CNMV debe autorizar la estructura subordinado-principal.</li>
-  </ul>
+    <h3>Tipología regulatoria</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Tipo</th><th>NAV</th><th>Activos</th></tr></thead>
+        <tbody>
+          <tr><td><strong>CNAV (deuda pública)</strong></td><td>Constante (ej. 1 €/participación)</td><td>Solo deuda pública</td></tr>
+          <tr><td><strong>LVNAV (baja volatilidad)</strong></td><td>Nominalmente constante (variación máx. ±20pb)</td><td>Deuda pública + privada</td></tr>
+          <tr><td><strong>VNAV (variable)</strong></td><td>Fluctúa diariamente</td><td>Mayor flexibilidad</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-  <h3>Utilidad práctica</h3>
-  <p>Permite crear varias clases o "puertas de entrada" (con distintas comisiones, divisas o requisitos de inversión mínima) que alimentan un único vehículo de gestión central. Muy utilizado por gestoras internacionales para adaptar un fondo luxemburgués (master) al mercado español (feeder).</p>
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>Con el BCE en 2,00/2,15/2,40% y el Euribor 12M en ~2,81%, los FMM ofrecen rentabilidades netas anualizadas de entre el 1,8% y el 2,5%. Han captado flujos récord en 2025–2026 de inversores que buscan liquidez y rentabilidad sin riesgo de duración.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 3. FI UCITS -->
+  <div class="sec">
+    <h2>3. Fondos de Inversión (FI) — categorías por vocación inversora</h2>
+    <p>Los FI UCITS clasificados por la CNMV según vocación inversora:<sup class="fn"><a href="#fn3">3</a></sup></p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Vocación inversora</th><th>Activos principales</th><th>Riesgo relativo</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Renta fija corto plazo</strong></td><td>Bonos y pagarés; duración &lt;2 años; sin RV</td><td>Bajo</td></tr>
+          <tr><td><strong>Renta fija largo plazo</strong></td><td>Bonos con duración ≥2 años; sin RV</td><td>Medio-bajo</td></tr>
+          <tr><td><strong>Renta fija internacional</strong></td><td>RF con exposición divisa &gt;30%</td><td>Medio</td></tr>
+          <tr><td><strong>Renta variable española</strong></td><td>≥75% en RV española</td><td>Alto</td></tr>
+          <tr><td><strong>Renta variable internacional</strong></td><td>≥75% en RV; posible exposición divisa</td><td>Alto</td></tr>
+          <tr><td><strong>Mixtos RF</strong></td><td>&lt;30% en RV; resto en RF</td><td>Medio-bajo</td></tr>
+          <tr><td><strong>Mixtos RV</strong></td><td>30–75% en RV; resto en RF</td><td>Medio-alto</td></tr>
+          <tr><td><strong>Retorno absoluto</strong></td><td>Objetivo de rentabilidad positiva independiente del mercado</td><td>Variable</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 4. FONDOS DE FONDOS -->
+  <div class="sec">
+    <h2>4. Fondos de fondos (FdF)</h2>
+    <p>Un FdF invierte su patrimonio <strong>principalmente en participaciones de otros fondos</strong>, en lugar de en valores directamente. Pueden invertir hasta el 100% en IIC.<sup class="fn"><a href="#fn1">1</a></sup></p>
+    <ul>
+      <li><strong>Diversificación de segundo nivel:</strong> acceso a carteras de fondos con distintas estrategias y gestoras.</li>
+      <li><strong>Doble capa de comisiones:</strong> el FdF cobra sus comisiones y los fondos subyacentes también. El OGC total puede ser elevado.</li>
+      <li><strong>Tipologías:</strong> FdF de fondos UCITS (máxima regulación), FdF de hedge funds (acceso a alternativos) y FdF multi-estrategia.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- 5. PRINCIPAL-SUBORDINADO -->
+  <div class="sec">
+    <h2>5. Fondos principales y subordinados (master-feeder)</h2>
+    <p>El fondo subordinado (<em>feeder</em>) canaliza la totalidad o gran parte de su patrimonio hacia un único fondo principal (<em>master</em>), que es quien gestiona realmente la cartera.<sup class="fn"><a href="#fn4">4</a></sup></p>
+    <ul>
+      <li>El fondo subordinado debe invertir <strong>al menos el 85%</strong> de su patrimonio en el fondo principal.</li>
+      <li>El 15% restante puede ser liquidez o derivados de cobertura.</li>
+      <li>Permite crear varias "puertas de entrada" (distintas comisiones, divisas o mínimos) que alimentan un único vehículo de gestión central.</li>
+      <li>Muy utilizado por gestoras internacionales para adaptar un fondo luxemburgués (master) al mercado español (feeder).</li>
+    </ul>
+  </div>
+
+  <hr>
 
   <!-- 6. ETF -->
-  <h2>6. Fondos cotizados (ETF)</h2>
+  <div class="sec">
+    <h2>6. Fondos cotizados (ETF)</h2>
+    <p>Un <strong>ETF</strong> (<em>Exchange Traded Fund</em>) es una IIC cuyas participaciones se negocian en bolsa en tiempo real, combinando la diversificación de un fondo con la liquidez intradía de un valor bursátil.<sup class="fn"><a href="#fn5">5</a></sup></p>
 
-  <p>Un <strong>ETF</strong> (<em>Exchange Traded Fund</em>) es una IIC cuyas participaciones se negocian en bolsa en tiempo real, igual que las acciones, combinando la diversificación de un fondo con la liquidez intradía de un valor bursátil.<sup><a href="#fn5">5</a></sup></p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Característica</th><th>ETF</th><th>Fondo ordinario UCITS</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Cotización</strong></td><td>Continua (intradía en bolsa)</td><td>Una vez al día (NAV de cierre)</td></tr>
+          <tr><td><strong>Gestión</strong></td><td>Mayoritariamente pasiva (réplica de índice)</td><td>Activa o pasiva</td></tr>
+          <tr><td><strong>OGC típico</strong></td><td>0,05%–0,30% anual</td><td>0,80%–1,50% anual</td></tr>
+          <tr><td><strong>Traspaso sin tributación</strong></td><td><strong>No</strong> (tributa como acción)</td><td><strong>Sí</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
 
-  <h3>Características</h3>
-  <ul>
-    <li><strong>Cotización continua:</strong> el precio se forma en el mercado durante toda la sesión bursátil (no solo al cierre como el NAV de un fondo ordinario). Existe un <em>market maker</em> que garantiza liquidez.</li>
-    <li><strong>Réplica de índice:</strong> la inmensa mayoría de los ETF replican un índice de referencia (IBEX-35, S&amp;P 500, Bloomberg Euro Aggregate…), con gestión pasiva y costes muy bajos.</li>
-    <li><strong>Comisiones reducidas:</strong> OGC típico de 0,05%–0,30% anual, frente a 0,80%–1,50% de un fondo activo equivalente.</li>
-    <li><strong>Fiscalidad diferente:</strong> en España, el traspaso de un ETF a otro fondo NO está exento de tributación (a diferencia de los fondos ordinarios). El ETF tributa como una acción en el momento de la venta.</li>
-    <li><strong>Creación/reembolso de participaciones:</strong> mecanismo institucional (participantes autorizados) que mantiene el precio del ETF próximo a su NAV, evitando descuentos o primas significativos.</li>
-  </ul>
+    <h3>Tipos de réplica</h3>
+    <ul>
+      <li><strong>Física completa:</strong> compra todos los valores del índice en las mismas proporciones.</li>
+      <li><strong>Física muestral:</strong> compra una muestra representativa (útil en índices con muchos componentes ilíquidos).</li>
+      <li><strong>Sintética (swap):</strong> contrato swap con una contraparte que paga la rentabilidad del índice; introduce riesgo de contraparte.</li>
+    </ul>
 
-  <h3>Tipos de réplica</h3>
-  <ul>
-    <li><strong>Réplica física completa:</strong> el ETF compra todos los valores del índice en las mismas proporciones. Máxima fidelidad, mayor coste operativo.</li>
-    <li><strong>Réplica física muestral:</strong> compra una muestra representativa del índice (útil en índices con cientos de componentes ilíquidos).</li>
-    <li><strong>Réplica sintética (swap):</strong> el ETF firma un contrato swap con una contraparte bancaria que se compromete a pagar la rentabilidad del índice; introduce riesgo de contraparte.</li>
-  </ul>
-
-  <div class="exam-alert">
-    <strong>🎯 Frecuente en examen:</strong> La diferencia fiscal entre ETF y fondos de inversión ordinarios es una pregunta recurrente. Los ETF <strong>no disfrutan del régimen de traspaso sin tributación</strong>; cuando se venden tributan inmediatamente como ganancia/pérdida patrimonial en IRPF. Esta es la principal desventaja de los ETF frente a los fondos ordinarios para el inversor español a largo plazo.
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Los ETF <strong>no disfrutan del régimen de traspaso sin tributación</strong> en España: cuando se venden,
+        tributan inmediatamente como ganancia/pérdida patrimonial en IRPF. Esta es la principal desventaja del ETF
+        frente al fondo ordinario para el inversor español a largo plazo.
+      </div>
+    </div>
   </div>
 
-  <!-- 7. Fondos en valores no cotizados -->
-  <h2>7. Fondos en valores no cotizados</h2>
+  <hr>
 
-  <p>Estos fondos invierten en valores de <strong>empresas que no cotizan</strong> en mercados secundarios organizados. En España, la LIIC permite a las IIC de carácter financiero invertir hasta ciertos límites en valores no admitidos a negociación.<sup><a href="#fn1">1</a></sup></p>
-
-  <h3>Características</h3>
-  <ul>
-    <li><strong>Iliquidez:</strong> los activos subyacentes no tienen mercado secundario; la valoración es periódica y se basa en métodos de valoración de empresas (múltiplos, DCF), no en precios de mercado.</li>
-    <li><strong>Plazo largo:</strong> horizonte temporal de inversión típico de 5–10 años.</li>
-    <li><strong>Prima de iliquidez:</strong> en teoría, la rentabilidad esperada es superior a la de activos cotizados equivalentes para compensar la falta de liquidez y la mayor dificultad de valoración.</li>
-    <li><strong>Restricciones regulatorias:</strong> las IIC UCITS tienen límites estrictos a la inversión en no cotizados; los vehículos especializados (capital riesgo, FILPE) están sujetos a su propia regulación (ver Sección C).</li>
-    <li><strong>Perfil de inversor:</strong> mayoritariamente inversor institucional o minorista con patrimonio elevado y horizonte largo.</li>
-  </ul>
-
-  <!-- 8. Fondos de inversión libre -->
-  <h2>8. Fondos de inversión libre (FIL)</h2>
-
-  <p>Los <strong>fondos de inversión libre</strong> (equivalente español de los <em>hedge funds</em>) son IIC que no están sujetas a los límites de inversión de los fondos UCITS ordinarios, lo que les permite emplear estrategias más complejas y apalancadas. Se tratan en detalle en el Bloque 3; aquí se recogen sus características esenciales como tipo de fondo:<sup><a href="#fn6">6</a></sup></p>
-
-  <ul>
-    <li>Inversión mínima: <strong>100.000 €</strong> por partícipe.</li>
-    <li>N.º máximo de partícipes: <strong>100</strong> (en la regulación española original; la AIFMD amplía el ámbito).</li>
-    <li>Sin restricciones de diversificación ni de instrumentos: pueden vender en corto, usar apalancamiento elevado, invertir en derivados OTC, commodities, etc.</li>
-    <li>Liquidez reducida: reembolsos con preaviso (trimestral, semestral o anual) y posibilidad de <em>gates</em> (limitación de reembolsos en momentos de estrés).</li>
-    <li>Información al partícipe: menos frecuente y detallada que en fondos UCITS.</li>
-  </ul>
-
-  <!-- 9. Fondos temáticos y de impacto -->
-  <h2>9. Fondos temáticos y fondos de impacto</h2>
-
-  <h3>9.1 Fondos temáticos</h3>
-  <p>Invierten en empresas vinculadas a una <strong>temática estructural de largo plazo</strong>, con independencia de la geografía o el sector convencional. La temática es el eje organizador de la cartera, no el índice geográfico o sectorial tradicional.<sup><a href="#fn7">7</a></sup></p>
-
-  <p>Temáticas más comunes en 2026:</p>
-  <ul>
-    <li><strong>Tecnología e inteligencia artificial:</strong> semiconductores, cloud, ciberseguridad, IA generativa.</li>
-    <li><strong>Salud y biotecnología:</strong> genómica, envejecimiento poblacional, oncología, medtech.</li>
-    <li><strong>Energías renovables y transición energética:</strong> solar, eólica, hidrógeno verde, redes inteligentes.</li>
-    <li><strong>Cambio climático y economía circular:</strong> gestión del agua, reciclaje, eficiencia energética.</li>
-    <li><strong>Infraestructuras:</strong> transporte, telecomunicaciones, energía.</li>
-    <li><strong>Consumo emergente:</strong> clase media de mercados emergentes, e-commerce asiático.</li>
-  </ul>
-
-  <p><strong>Riesgo de concentración:</strong> al restringir el universo a una temática, el fondo puede estar muy concentrado en pocos valores o sectores. En correcciones del sector, las caídas pueden ser muy superiores al mercado general.</p>
-
-  <h3>9.2 Fondos de impacto</h3>
-  <p>Los fondos de impacto (<em>impact investing</em>) persiguen, además de la rentabilidad financiera, la generación de un <strong>impacto social o medioambiental positivo y medible</strong>. Se diferencian de los fondos ESG generales en que el impacto es intencional y verificable mediante métricas específicas (p. ej., toneladas de CO₂ evitadas, número de personas con acceso a agua potable).<sup><a href="#fn7">7</a></sup></p>
-
-  <p>Bajo el marco SFDR, los fondos de impacto suelen clasificarse como <strong>artículo 9</strong> (máxima ambición sostenible), debiendo demostrar que la inversión sostenible es el objetivo principal —no simplemente una característica—. La Directiva Ómnibus I (2026/470) ha iniciado la simplificación de estos requisitos, pero sin alterar la ambición del artículo 9.</p>
-
-  <!-- 10. Ejemplos numéricos -->
-  <h2>10. Ejemplos numéricos</h2>
-
-  <div class="card accent-green">
-    <h4>📌 Ejemplo numérico 1 — Fondo de acumulación vs. reparto: efecto fiscal</h4>
-    <p>Dos partícipes invierten <strong>10.000 €</strong> en enero de 2024 en fondos idénticos en cartera pero distintos en política de reparto. Al cierre de 2025, la rentabilidad bruta anual de ambas carteras es el <strong>5%</strong>.</p>
-    <p><strong>Fondo de acumulación:</strong></p>
+  <!-- 7. NO COTIZADOS -->
+  <div class="sec">
+    <h2>7. Fondos en valores no cotizados</h2>
+    <p>Invierten en valores de <strong>empresas que no cotizan</strong> en mercados organizados. Las IIC UCITS tienen límites estrictos; los vehículos especializados (capital riesgo, FILPE) tienen su propia regulación.<sup class="fn"><a href="#fn1">1</a></sup></p>
     <ul>
-      <li>Año 1: 10.000 × 1,05 = 10.500 € (sin tributación)</li>
-      <li>Año 2: 10.500 × 1,05 = <strong>11.025 €</strong> al cierre</li>
-      <li>Si reembolsa al final: ganancia 1.025 €; impuesto (19%): 194,75 €; neto: <strong>10.830,25 €</strong></li>
+      <li><strong>Iliquidez:</strong> no hay mercado secundario; valoración periódica por métodos de empresa (DCF, múltiplos).</li>
+      <li><strong>Prima de iliquidez:</strong> rentabilidad esperada superior para compensar la falta de liquidez.</li>
+      <li><strong>Horizonte largo:</strong> típicamente 5–10 años.</li>
+      <li><strong>Perfil:</strong> inversores institucionales o patrimonios elevados con horizonte largo.</li>
     </ul>
-    <p><strong>Fondo de reparto (dividendo anual = 5% del NAV):</strong></p>
-    <ul>
-      <li>Año 1: dividendo 500 €; impuesto (19%): 95 €; dividendo neto: 405 €. NAV vuelve a 10.000 €.</li>
-      <li>Año 2: dividendo 500 €; impuesto (19%): 95 €; dividendo neto: 405 €.</li>
-      <li>Total neto recibido: 10.000 + 405 + 405 = <strong>10.810 €</strong></li>
-    </ul>
-    <p>Diferencia a favor del fondo de acumulación: <strong>20,25 €</strong> por el efecto del diferimiento fiscal (el capital sobre el que se genera el 5% en el año 2 es mayor porque no se ha tributado en el año 1).</p>
   </div>
 
-  <div class="card accent-green">
-    <h4>📌 Ejemplo numérico 2 — ETF vs. fondo ordinario: coste del traspaso</h4>
-    <p>Un inversor tiene 50.000 € en un ETF de renta variable con plusvalías latentes de <strong>12.000 €</strong> y quiere cambiar a un fondo de renta fija.</p>
-    <p><strong>Si vende el ETF:</strong></p>
+  <hr>
+
+  <!-- 8. FONDOS DE INVERSIÓN LIBRE -->
+  <div class="sec">
+    <h2>8. Fondos de inversión libre (FIL)</h2>
+    <p>Los <strong>fondos de inversión libre</strong> (equivalente español de los hedge funds) no están sujetos a los límites UCITS ordinarios, lo que les permite estrategias más complejas. Se tratan en detalle en el Bloque 3.<sup class="fn"><a href="#fn6">6</a></sup></p>
     <ul>
-      <li>Ganancia patrimonial: 12.000 €</li>
-      <li>Tipo IRPF ahorro (tramo 21%): 12.000 × 21% = <strong>2.520 €</strong> de impuesto inmediato</li>
-      <li>Capital que pasa al nuevo fondo: 50.000 – 2.520 = <strong>47.480 €</strong></li>
+      <li>Inversión mínima: <strong>100.000 €</strong> por partícipe.</li>
+      <li>Sin restricciones de diversificación: pueden vender en corto, usar apalancamiento elevado, invertir en derivados OTC, etc.</li>
+      <li>Liquidez reducida: reembolsos con preaviso trimestral, semestral o anual; posibilidad de <em>gates</em>.</li>
     </ul>
-    <p><strong>Si tuviera un fondo ordinario en lugar del ETF:</strong></p>
-    <ul>
-      <li>Traspaso directo: los <strong>50.000 €</strong> íntegros pasan al fondo de destino sin tributación.</li>
-      <li>Los 2.520 € "ahorrados" siguen generando rentabilidad hasta el reembolso final.</li>
-    </ul>
-    <p>La diferencia es estructural: el ETF no tiene acceso al régimen de traspaso español. Para horizontes largos, el coste acumulado puede ser muy significativo.</p>
   </div>
 
-  <!-- Tabla resumen -->
-  <h2>11. Tabla resumen — Tipología de fondos</h2>
+  <hr>
 
-  <table class="summary-table">
-    <thead>
-      <tr>
-        <th>Tipo de fondo</th>
-        <th>Activos principales</th>
-        <th>Liquidez</th>
-        <th>Regulación clave</th>
-        <th>Inversión mínima</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Mercado monetario</strong></td>
-        <td>Deuda CP, depósitos, repos</td>
-        <td>Muy alta (diaria)</td>
-        <td>Rgl. UE 2017/1131</td>
-        <td>Sin mínimo legal</td>
-      </tr>
-      <tr>
-        <td><strong>FI (UCITS)</strong></td>
-        <td>RF / RV / mixtos según vocación</td>
-        <td>Alta (diaria)</td>
-        <td>LIIC + UCITS V</td>
-        <td>Sin mínimo legal</td>
-      </tr>
-      <tr>
-        <td><strong>Fondo de fondos</strong></td>
-        <td>Participaciones en otros fondos</td>
-        <td>Alta (diaria)</td>
-        <td>LIIC + RLIIC</td>
-        <td>Sin mínimo legal</td>
-      </tr>
-      <tr>
-        <td><strong>ETF</strong></td>
-        <td>Réplica de índice (RV, RF, materias primas)</td>
-        <td>Muy alta (intradía)</td>
-        <td>UCITS + MiFID II</td>
-        <td>Sin mínimo legal</td>
-      </tr>
-      <tr>
-        <td><strong>Valores no cotizados</strong></td>
-        <td>Capital privado, deuda privada</td>
-        <td>Baja (restricciones)</td>
-        <td>LIIC (límites especiales)</td>
-        <td>Variable</td>
-      </tr>
-      <tr>
-        <td><strong>Inversión libre (FIL)</strong></td>
-        <td>Sin restricciones; apalancamiento</td>
-        <td>Baja (preaviso)</td>
-        <td>AIFMD + LIIC</td>
-        <td>100.000 €</td>
-      </tr>
-      <tr>
-        <td><strong>Temáticos / Impacto</strong></td>
-        <td>RV temática o activos de impacto</td>
-        <td>Alta (si UCITS)</td>
-        <td>UCITS + SFDR art. 8/9</td>
-        <td>Sin mínimo legal</td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- 9. TEMÁTICOS E IMPACTO -->
+  <div class="sec">
+    <h2>9. Fondos temáticos y fondos de impacto</h2>
 
-  <!-- Footnotes -->
-  <ol class="footnotes">
-    <li id="fn1">Ley 35/2003 (LIIC), arts. 1–3 (definición y tipología de IIC), arts. 29–38 (fondos de fondos y fondos subordinados). BOE núm. 265. Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-20331" target="_blank" rel="noopener">boe.es — LIIC</a></li>
-    <li id="fn2">Reglamento (UE) 2017/1131 del Parlamento Europeo y del Consejo, de 14 de junio de 2017, sobre fondos del mercado monetario, arts. 2–4 (definiciones y tipología) y arts. 24–28 (requisitos de activos elegibles). DOUE L 169. Disponible en: <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32017R1131" target="_blank" rel="noopener">eur-lex.europa.eu — Rgl. FMM</a></li>
-    <li id="fn3">CNMV, Circular 3/2011, de 9 de junio, sobre folletos informativos de las IIC (clasificación por vocación inversora). Disponible en: <a href="https://www.cnmv.es/portal/legislacion/Circulares/CircularDetalle.aspx?nid=72" target="_blank" rel="noopener">cnmv.es — Circular 3/2011</a></li>
-    <li id="fn4">Directiva 2009/65/CE (UCITS IV), arts. 58–67 (estructura principal-subordinado). Transpuesta en RLIIC, arts. 52–60. Disponible en: <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32009L0065" target="_blank" rel="noopener">eur-lex.europa.eu — UCITS IV</a></li>
-    <li id="fn5">CNMV, Guía sobre ETF en España. Disponible en: <a href="https://www.cnmv.es/portal/Publicaciones/GuiaETF.aspx" target="_blank" rel="noopener">cnmv.es — Guía ETF</a>. Fiscalidad: Ley 35/2006 (LIRPF), art. 94 (exclusión de ETF del régimen de traspaso). BOE núm. 285. Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764" target="_blank" rel="noopener">boe.es — LIRPF</a></li>
-    <li id="fn6">LIIC, arts. 43–48 (fondos de inversión libre: régimen especial, mínimo de inversión, liquidez). RD 1082/2012, arts. 73–80. Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-9716" target="_blank" rel="noopener">boe.es — RLIIC</a></li>
-    <li id="fn7">GSIA (Global Sustainable Investment Alliance), <em>Global Sustainable Investment Review 2024</em>: definición y métricas de fondos de impacto. Disponible en: <a href="https://www.gsi-alliance.org" target="_blank" rel="noopener">gsi-alliance.org</a>. SFDR art. 9: Reglamento (UE) 2019/2088, art. 9. Disponible en: <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32019R2088" target="_blank" rel="noopener">eur-lex.europa.eu — SFDR</a></li>
-  </ol>
+    <h3>Fondos temáticos</h3>
+    <p>Invierten en empresas vinculadas a una <strong>temática estructural de largo plazo</strong>, con independencia de la geografía o el sector convencional.<sup class="fn"><a href="#fn7">7</a></sup> Temáticas más comunes en 2026:</p>
+    <ul>
+      <li><strong>Tecnología e IA:</strong> semiconductores, cloud, ciberseguridad, IA generativa.</li>
+      <li><strong>Salud y biotecnología:</strong> genómica, envejecimiento, oncología, medtech.</li>
+      <li><strong>Energías renovables:</strong> solar, eólica, hidrógeno verde, redes inteligentes.</li>
+      <li><strong>Cambio climático:</strong> gestión del agua, reciclaje, eficiencia energética.</li>
+      <li><strong>Infraestructuras:</strong> transporte, telecomunicaciones, energía.</li>
+    </ul>
+    <p><strong>Riesgo de concentración:</strong> al restringir el universo a una temática, el fondo puede estar muy concentrado en pocos valores o sectores.</p>
 
-  <!-- Sección nav -->
+    <h3>Fondos de impacto</h3>
+    <p>Persiguen, además de la rentabilidad financiera, la generación de un <strong>impacto social o medioambiental positivo y medible</strong>. El impacto es intencional y verificable (ej. toneladas de CO₂ evitadas). Bajo SFDR se clasifican habitualmente como <strong>artículo 9</strong>.</p>
+  </div>
+
+  <hr>
+
+  <!-- 10. EJEMPLOS -->
+  <div class="sec">
+    <h2>10. Ejemplos numéricos</h2>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 1 — Fondo de acumulación vs. reparto: efecto fiscal</h3>
+      <p>Dos partícipes invierten <strong>10.000 €</strong> en enero de 2024. Rentabilidad bruta anual: <strong>5%</strong>.</p>
+      <p><strong>Acumulación:</strong></p>
+      <ul>
+        <li>Año 1: 10.000 × 1,05 = 10.500 € (sin tributación). Año 2: 10.500 × 1,05 = <strong>11.025 €</strong></li>
+        <li>Si reembolsa al final: ganancia 1.025 €; impuesto 19% = 194,75 €; neto: <strong>10.830,25 €</strong></li>
+      </ul>
+      <p><strong>Reparto (dividendo = 5% del NAV cada año):</strong></p>
+      <ul>
+        <li>Año 1: dividendo bruto 500 €; impuesto 19% = 95 €; dividendo neto 405 €. NAV vuelve a 10.000 €.</li>
+        <li>Año 2: ídem. Total neto recibido: 10.000 + 405 + 405 = <strong>10.810 €</strong></li>
+      </ul>
+      <p>Diferencia a favor de la acumulación: <strong>20,25 €</strong> por el efecto del diferimiento fiscal.</p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 2 — ETF vs. fondo ordinario: coste del cambio</h3>
+      <p>Un inversor tiene 50.000 € en un ETF con plusvalías latentes de <strong>12.000 €</strong> y quiere cambiar a renta fija.</p>
+      <p><strong>ETF (venta obligatoria):</strong> ganancia patrimonial 12.000 €; impuesto 21% = <strong>2.520 €</strong>; capital que pasa al nuevo fondo: <strong>47.480 €</strong>.</p>
+      <p><strong>Fondo ordinario (traspaso):</strong> tributación 0 €; los <strong>50.000 €</strong> íntegros pasan al fondo de destino. Los 2.520 € "ahorrados" siguen generando rentabilidad.</p>
+      <p>La diferencia es estructural: el ETF no tiene acceso al régimen de traspaso español.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>11. Tabla resumen — Tipología de fondos</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Tipo</th><th>Activos principales</th><th>Liquidez</th><th>Regulación clave</th><th>Inv. mínima</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Mercado monetario</strong></td><td>Deuda CP, depósitos, repos</td><td>Muy alta (diaria)</td><td>Rgl. UE 2017/1131</td><td>Sin mínimo legal</td></tr>
+          <tr><td><strong>FI (UCITS)</strong></td><td>RF / RV / mixtos</td><td>Alta (diaria)</td><td>LIIC + UCITS V</td><td>Sin mínimo legal</td></tr>
+          <tr><td><strong>Fondo de fondos</strong></td><td>Participaciones en otros fondos</td><td>Alta (diaria)</td><td>LIIC + RLIIC</td><td>Sin mínimo legal</td></tr>
+          <tr><td><strong>ETF</strong></td><td>Réplica de índice</td><td>Muy alta (intradía)</td><td>UCITS + MiFID II</td><td>Sin mínimo legal</td></tr>
+          <tr><td><strong>No cotizados</strong></td><td>Capital privado, deuda privada</td><td>Baja</td><td>LIIC (límites especiales)</td><td>Variable</td></tr>
+          <tr><td><strong>Inversión libre (FIL)</strong></td><td>Sin restricciones; apalancamiento</td><td>Baja (preaviso)</td><td>AIFMD + LIIC</td><td>100.000 €</td></tr>
+          <tr><td><strong>Temáticos / Impacto</strong></td><td>RV temática o activos de impacto</td><td>Alta (si UCITS)</td><td>UCITS + SFDR art. 8/9</td><td>Sin mínimo legal</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NOTAS AL PIE -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">Ley 35/2003 (LIIC), arts. 1–3 (tipología de IIC), arts. 29–38 (fondos de fondos y fondos subordinados).
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-20331" target="_blank" rel="noopener">boe.es — LIIC</a></li>
+      <li id="fn2">Reglamento (UE) 2017/1131, arts. 2–4 (tipología FMM) y arts. 24–28 (activos elegibles).
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32017R1131" target="_blank" rel="noopener">eur-lex.europa.eu — Rgl. FMM</a></li>
+      <li id="fn3">CNMV, Circular 3/2011, de 9 de junio, sobre folletos informativos de las IIC (clasificación por vocación inversora).
+        <a href="https://www.cnmv.es/portal/legislacion/Circulares/CircularDetalle.aspx?nid=72" target="_blank" rel="noopener">cnmv.es — Circular 3/2011</a></li>
+      <li id="fn4">Directiva 2009/65/CE (UCITS IV), arts. 58–67 (estructura principal-subordinado); transpuesta en RLIIC, arts. 52–60.
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32009L0065" target="_blank" rel="noopener">eur-lex.europa.eu — UCITS IV</a></li>
+      <li id="fn5">Ley 35/2006 (LIRPF), art. 94 (exclusión de ETF del régimen de traspaso).
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764" target="_blank" rel="noopener">boe.es — LIRPF</a></li>
+      <li id="fn6">LIIC, arts. 43–48 (fondos de inversión libre: régimen especial, mínimo de inversión, liquidez).</li>
+      <li id="fn7">SFDR art. 9: Reglamento (UE) 2019/2088, art. 9.
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32019R2088" target="_blank" rel="noopener">eur-lex.europa.eu — SFDR</a></li>
+    </ol>
+  </div>
+
+  <!-- NAVEGACIÓN -->
   <div class="sec-nav">
-    <a class="nav-btn" href="../bloque-1/seccion-e.html">← B1·E — Información a partícipes</a>
-    <a class="nav-btn next" href="seccion-b.html">Siguiente: B — SICAV →</a>
+    <a href="../bloque-1/seccion-e.html" class="nav-btn">← B1·E: Información partícipes</a>
+    <a href="seccion-b.html" class="nav-btn">B: SICAV →</a>
   </div>
 
-</div><!-- /container -->
+</div>
 
 <footer>
   EFA Prep · Módulo 2 · Bloque 2 · Sección A · Basado en la Guía de Certificación EFPA España V1/26

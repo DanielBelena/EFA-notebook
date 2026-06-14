@@ -1,213 +1,221 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es" data-theme="light" data-fontsize="normal">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>M2·B2·B — Sociedades de inversión de capital variable (SICAV) | EFA Prep</title>
-  <link rel="stylesheet" href="../../assets/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M2 · B2 · Sección B — SICAV · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .contexto-actual { background: var(--card); border-left: 4px solid var(--green); border-radius: 0 14px 14px 0; padding: 1.1rem 1.3rem; margin: 1.2rem 0; }
+    .contexto-actual .ctx-title { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--green); margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
+    .contexto-actual p { font-size: var(--fs-sm); color: var(--text); line-height: 1.7; margin: 0 0 .4rem; }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+    .footnotes { border-top: 1px solid var(--border); margin-top: 2.5rem; padding-top: 1.2rem; }
+    .footnotes h4 { font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 800; color: var(--text-soft); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .8rem; }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li { font-size: .78rem; color: var(--text-soft); line-height: 1.6; margin-bottom: .35rem; }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
 
-<!-- ── Toolbar ── -->
-<nav class="toolbar">
-  <a class="toolbar-brand" href="#">EFA Prep</a>
-  <button class="fs-btn" id="fs-btn-normal">A</button>
-  <button class="fs-btn" id="fs-btn-large">A+</button>
-  <button class="fs-btn" id="fs-btn-xlarge">A++</button>
-  <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
-</nav>
+<div class="top-stripe"></div>
 
-<!-- ── Breadcrumb ── -->
-<div class="breadcrumb">
-  <a href="#">Inicio</a><span>›</span>
-  <a href="../index.html">Módulo 2</a><span>›</span>
-  <a href="#">Bloque 2</a><span>›</span>
-  Sección B
-</div>
-
-<!-- ── Hero ── -->
-<div class="hero">
-  <div class="container">
-    <div class="hero-pill">Nivel I · Conocimiento y Análisis</div>
-    <h1>Sección B — Sociedades de inversión de capital variable (SICAV)</h1>
-    <p class="hero-sub">Módulo 2 · Bloque 2 · Fondos de inversión mobiliaria y sus objetivos de inversión</p>
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M2 · B2 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
   </div>
 </div>
 
-<!-- ── Content ── -->
-<div class="container">
+<div class="wrap">
 
-  <!-- 1. Concepto y características -->
-  <h2>1. Concepto y características básicas</h2>
-
-  <p>Una <strong>SICAV</strong> (Sociedad de Inversión de Capital Variable) es una <strong>sociedad anónima</strong> cuyo objeto social exclusivo es la inversión colectiva de su capital en activos financieros. A diferencia del fondo de inversión, la SICAV sí tiene personalidad jurídica propia y sus inversores son <strong>socios</strong>, no partícipes.<sup><a href="#fn1">1</a></sup></p>
-
-  <h3>Características esenciales</h3>
-
-  <table class="summary-table">
-    <thead>
-      <tr>
-        <th>Parámetro</th>
-        <th>SICAV (España)</th>
-        <th>Fondo de inversión</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Naturaleza jurídica</strong></td>
-        <td>Sociedad anónima (SA) — persona jurídica</td>
-        <td>Patrimonio sin personalidad jurídica</td>
-      </tr>
-      <tr>
-        <td><strong>Capital mínimo</strong></td>
-        <td>2.400.000 € (mínimo legal LIIC)</td>
-        <td>3.000.000 € (patrimonio mínimo)</td>
-      </tr>
-      <tr>
-        <td><strong>N.º mínimo de socios</strong></td>
-        <td>100 accionistas</td>
-        <td>100 partícipes</td>
-      </tr>
-      <tr>
-        <td><strong>Instrumento del inversor</strong></td>
-        <td>Acciones (valores mobiliarios)</td>
-        <td>Participaciones</td>
-      </tr>
-      <tr>
-        <td><strong>Gobierno</strong></td>
-        <td>Junta General + Consejo de Administración</td>
-        <td>SGIIC (sin órganos de gobierno propios)</td>
-      </tr>
-      <tr>
-        <td><strong>Tributación IS</strong></td>
-        <td>1% (igual que los fondos)</td>
-        <td>1%</td>
-      </tr>
-      <tr>
-        <td><strong>Supervisora</strong></td>
-        <td>CNMV</td>
-        <td>CNMV</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h3>El capital variable</h3>
-  <p>La característica que da nombre a la SICAV es la <strong>variabilidad del capital social</strong>: puede aumentar o disminuir sin necesidad de modificar los estatutos ni celebrar Junta Extraordinaria, dentro de los límites del capital máximo y mínimo previstos en el folleto. Esta flexibilidad es la que permite que los socios entren y salgan de forma ágil, asimilándose en este aspecto a un fondo abierto.<sup><a href="#fn1">1</a></sup></p>
-
-  <div class="exam-alert">
-    <strong>🎯 Frecuente en examen:</strong> El capital mínimo de la SICAV es <strong>2.400.000 €</strong>, inferior al patrimonio mínimo del fondo de inversión (3.000.000 €). Ambas figuras requieren un mínimo de <strong>100 inversores</strong>. La SICAV tributa al <strong>1% en IS</strong>, igual que el fondo; la ventaja fiscal es idéntica.
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 2</a><span class="sep">›</span>
+    <a href="index.html">Bloque 2</a><span class="sep">›</span>
+    <span>Sección B</span>
   </div>
 
-  <!-- 2. Operativa -->
-  <h2>2. Operativa de las SICAV</h2>
-
-  <h3>2.1 Constitución y autorización</h3>
-  <p>La constitución de una SICAV requiere autorización previa de la <strong>CNMV</strong>, que comprueba el cumplimiento de los requisitos de capital, número de socios, adecuación del folleto y de las personas que van a gestionarla. Una vez autorizada, se inscribe en el Registro Mercantil y en los Registros de la CNMV.<sup><a href="#fn1">1</a></sup></p>
-
-  <h3>2.2 Gestión</h3>
-  <p>La SICAV puede ser gestionada de dos formas:</p>
-  <ul>
-    <li><strong>Autogestión (gestión interna):</strong> el propio Consejo de Administración toma las decisiones de inversión. Requiere que la SICAV obtenga autorización como SGIIC o que tenga consejeros con suficiente capacitación acreditada.</li>
-    <li><strong>Gestión delegada:</strong> el Consejo delega la gestión de la cartera en una SGIIC externa, manteniendo la supervisión estratégica. Es la opción más habitual en España.</li>
-  </ul>
-
-  <h3>2.3 Suscripción y reembolso de acciones</h3>
-  <p>Las acciones de la SICAV pueden adquirirse y venderse de dos formas:<sup><a href="#fn2">2</a></sup></p>
-  <ul>
-    <li><strong>Directamente con la sociedad:</strong> la SICAV emite nuevas acciones (suscripción) o las amortiza (reembolso) al valor liquidativo calculado periódicamente, de forma similar a un fondo ordinario.</li>
-    <li><strong>En mercado secundario:</strong> las acciones de la SICAV pueden negociarse en el MAB (Mercado Alternativo Bursátil, actual <em>BME Growth</em>), donde el precio puede diferir del valor liquidativo si hay un descuento o prima de mercado.</li>
-  </ul>
-
-  <h3>2.4 Distribución de resultados</h3>
-  <p>La Junta General puede acordar el reparto de dividendos con cargo a los resultados o a las reservas, o bien capitalizar los resultados (política de acumulación). La decisión es un derecho político del accionista a través de la Junta, a diferencia del fondo donde la política de reparto la fija el folleto.</p>
-
-  <h3>2.5 Régimen de traspasos</h3>
-  <p>El traspaso desde una SICAV hacia un fondo de inversión <strong>no disfruta del régimen de diferimiento fiscal</strong> previsto en el art. 94 LIRPF. El traspaso libre de tributación solo opera entre fondos de inversión (no entre SICAV y fondos, ni entre SICAV).<sup><a href="#fn3">3</a></sup></p>
-
-  <div class="exam-alert">
-    <strong>🎯 Frecuente en examen:</strong> El traspaso entre fondos de inversión ordinarios es libre de tributación. El traspaso desde una SICAV hacia un fondo (o viceversa) <strong>no</strong> está exento: genera una venta a efectos del IRPF y tributa por la plusvalía en ese momento. Esta asimetría es una diferencia clave entre ambas figuras.
+  <div class="hero">
+    <div class="pill">Módulo 2 · Bloque 2 · Sección B · Nivel I · Conocimiento y Análisis</div>
+    <h1>Sociedades de inversión de capital variable (SICAV)</h1>
+    <p class="hero-sub">
+      Concepto y características · Capital variable · Operativa (suscripción, reembolso, gestión) ·
+      Régimen de traspasos · Política de inversión · Contexto regulatorio español.
+    </p>
   </div>
 
-  <!-- 3. Política de inversión -->
-  <h2>3. Política de inversión</h2>
+  <hr>
 
-  <p>La SICAV no tiene una política de inversión predeterminada por la normativa más allá de los límites generales UCITS. La política concreta se define en los <strong>estatutos y el folleto</strong>, y puede ser tan flexible o restrictiva como los socios fundadores decidan, dentro de los límites legales.<sup><a href="#fn1">1</a></sup></p>
+  <!-- 1. CONCEPTO -->
+  <div class="sec">
+    <h2>1. Concepto y características básicas</h2>
+    <p>
+      Una <strong>SICAV</strong> es una <strong>sociedad anónima</strong> cuyo objeto social exclusivo es la inversión
+      colectiva de su capital en activos financieros. A diferencia del fondo de inversión, la SICAV tiene personalidad
+      jurídica propia y sus inversores son <strong>socios</strong>, no partícipes.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
 
-  <h3>Libertad de diseño</h3>
-  <ul>
-    <li>Puede invertir en renta fija, renta variable, mixtos, instrumentos del mercado monetario, derivados, otros fondos, etc.</li>
-    <li>Puede tener vocación geográfica (España, Europa, emergentes) o temática (tecnología, salud).</li>
-    <li>Puede operar con o sin benchmark de referencia.</li>
-    <li>Puede ser conservadora (perfil de baja volatilidad) o agresiva (alta exposición a renta variable).</li>
-  </ul>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Parámetro</th><th>SICAV (España)</th><th>Fondo de inversión</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Naturaleza jurídica</strong></td><td>Sociedad anónima — persona jurídica</td><td>Patrimonio sin personalidad jurídica</td></tr>
+          <tr><td><strong>Capital mínimo</strong></td><td><strong>2.400.000 €</strong></td><td>3.000.000 € (patrimonio mínimo)</td></tr>
+          <tr><td><strong>N.º mínimo de inversores</strong></td><td>100 accionistas</td><td>100 partícipes</td></tr>
+          <tr><td><strong>Instrumento del inversor</strong></td><td>Acciones (valores mobiliarios)</td><td>Participaciones</td></tr>
+          <tr><td><strong>Gobierno</strong></td><td>Junta General + Consejo de Administración</td><td>SGIIC (sin órganos de gobierno propios)</td></tr>
+          <tr><td><strong>Tributación IS</strong></td><td>1%</td><td>1%</td></tr>
+          <tr><td><strong>Supervisora</strong></td><td>CNMV</td><td>CNMV</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-  <h3>Límites UCITS aplicables</h3>
-  <p>Al ser una IIC armonizada, la SICAV UCITS está sujeta a los mismos límites de diversificación que un fondo ordinario:</p>
-  <ul>
-    <li>Máximo 5% del patrimonio en valores de un mismo emisor (ampliable al 10% en casos específicos).</li>
-    <li>Máximo 10% en depósitos en una misma entidad de crédito.</li>
-    <li>Máximo 20% en IIC de un mismo grupo.</li>
-    <li>Uso de derivados solo para cobertura o para gestión eficiente de la cartera (salvo autorización especial).</li>
-  </ul>
+    <h3>El capital variable</h3>
+    <p>
+      La característica que da nombre a la SICAV es la <strong>variabilidad del capital social</strong>: puede aumentar
+      o disminuir sin necesidad de modificar estatutos ni celebrar Junta Extraordinaria, dentro de los límites previstos
+      en el folleto. Esto permite que los socios entren y salgan de forma ágil, asimilándose a un fondo abierto.
+    </p>
 
-  <h3>SICAV y perfil de cliente</h3>
-  <p>En la práctica española, las SICAV han sido históricamente el vehículo de inversión colectiva de <strong>grandes patrimonios familiares</strong> (family offices), que creaban su propia SICAV para beneficiarse del tipo reducido del 1% en IS y diferir la tributación personal hasta el momento de la venta de las acciones. La reforma fiscal de 2022 (Ley 11/2021) limitó considerablemente este uso al exigir que el mínimo de 100 socios sea verificable con criterios más estrictos, lo que impulsó el traslado de muchas SICAV españolas a Luxemburgo.</p>
-
-  <div class="context-box">
-    <strong>📊 Contexto actual (junio 2026):</strong> El número de SICAV registradas en España ha caído significativamente desde el máximo histórico de ~3.000 en 2017 hasta menos de 800 en 2026, tras la reforma de la Ley 11/2021 que endureció el requisito de los 100 accionistas "genuinos". Sin embargo, el modelo SICAV luxemburgués (SICAV UCITS con estructura de compartimentos) sigue siendo ampliamente utilizado por gestoras internacionales para comercializar fondos en España.
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El capital mínimo de la SICAV es <strong>2.400.000 €</strong>, inferior al patrimonio mínimo del fondo de inversión
+        (3.000.000 €). Ambas figuras requieren un mínimo de <strong>100 inversores</strong> y tributan al
+        <strong>1% en IS</strong>. La ventaja fiscal es idéntica.
+      </div>
+    </div>
   </div>
 
-  <!-- 4. Ejemplos numéricos -->
-  <h2>4. Ejemplos numéricos</h2>
+  <hr>
 
-  <div class="card accent-green">
-    <h4>📌 Ejemplo numérico 1 — Capital variable: ampliación por nuevos socios</h4>
-    <p>Una SICAV tiene actualmente:</p>
+  <!-- 2. OPERATIVA -->
+  <div class="sec">
+    <h2>2. Operativa de las SICAV</h2>
+
+    <h3>Constitución y autorización</h3>
+    <p>Requiere autorización previa de la <strong>CNMV</strong> (capital, número de socios, folleto, idoneidad de administradores). Tras la autorización, se inscribe en el Registro Mercantil y en los Registros de la CNMV.<sup class="fn"><a href="#fn2">2</a></sup></p>
+
+    <h3>Gestión</h3>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Autogestión (gestión interna)</h4>
+        <p>El Consejo de Administración toma las decisiones de inversión. Requiere que la SICAV obtenga autorización como SGIIC o que sus consejeros acrediten suficiente capacitación.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Gestión delegada</h4>
+        <p>El Consejo delega la gestión en una SGIIC externa, manteniendo la supervisión estratégica. Es la opción más habitual en España.</p>
+      </div>
+    </div>
+
+    <h3>Suscripción y reembolso de acciones</h3>
     <ul>
-      <li>Capital social: <strong>5.000.000 €</strong> dividido en <strong>50.000 acciones</strong> a un valor liquidativo de 100 €/acción.</li>
-      <li>Un nuevo inversor quiere suscribir acciones por importe de <strong>500.000 €</strong>.</li>
+      <li><strong>Directamente con la sociedad:</strong> la SICAV emite nuevas acciones (suscripción) o las amortiza (reembolso) al valor liquidativo calculado periódicamente.</li>
+      <li><strong>En mercado secundario (BME Growth):</strong> las acciones pueden negociarse en el mercado, donde el precio puede diferir del valor liquidativo si hay descuento o prima.</li>
     </ul>
-    <p>Al ser capital variable, la SICAV emite nuevas acciones sin convocar Junta Extraordinaria:</p>
-    <ul>
-      <li>Nuevas acciones emitidas: 500.000 / 100 = <strong>5.000 acciones</strong></li>
-      <li>Capital social tras la ampliación: 5.000.000 + 500.000 = <strong>5.500.000 €</strong></li>
-      <li>Total acciones en circulación: 50.000 + 5.000 = <strong>55.000 acciones</strong></li>
-      <li>Valor liquidativo por acción: 5.500.000 / 55.000 = <strong>100 € (invariable)</strong></li>
-    </ul>
-    <p>Los socios existentes no se ven diluidos porque las nuevas acciones se emiten exactamente al valor liquidativo vigente.</p>
+
+    <h3>Régimen de traspasos</h3>
+    <p>
+      El traspaso desde una SICAV hacia un fondo de inversión <strong>no disfruta del diferimiento fiscal</strong> previsto
+      en el art. 94 LIRPF. El régimen de traspaso libre de tributación solo opera entre fondos de inversión.
+      La venta de acciones de SICAV genera tributación inmediata por la plusvalía.<sup class="fn"><a href="#fn3">3</a></sup>
+    </p>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El traspaso entre fondos ordinarios es libre de tributación. El traspaso desde una SICAV hacia un fondo
+        (o viceversa) <strong>no</strong> está exento: genera una venta a efectos del IRPF y tributa por la plusvalía.
+        Esta asimetría es una diferencia clave entre ambas figuras.
+      </div>
+    </div>
   </div>
 
-  <div class="card accent-green">
-    <h4>📌 Ejemplo numérico 2 — Fiscalidad: SICAV vs. fondo en un traspaso</h4>
-    <p>Un inversor tiene acciones de una SICAV adquiridas por <strong>100.000 €</strong> que ahora valen <strong>140.000 €</strong> (plusvalía latente: 40.000 €). Quiere redirigir la inversión a un fondo de renta fija.</p>
-    <p><strong>Opción A — Venta de acciones SICAV + suscripción fondo:</strong></p>
+  <hr>
+
+  <!-- 3. POLÍTICA DE INVERSIÓN -->
+  <div class="sec">
+    <h2>3. Política de inversión</h2>
+    <p>La SICAV no tiene política de inversión predeterminada por la normativa más allá de los límites UCITS. La política se define en los <strong>estatutos y el folleto</strong>.<sup class="fn"><a href="#fn1">1</a></sup></p>
+
+    <h3>Libertad de diseño</h3>
     <ul>
-      <li>Ganancia patrimonial: 40.000 €</li>
-      <li>Tributación IRPF (tramo 21%): 40.000 × 21% = <strong>8.400 €</strong></li>
-      <li>Capital neto para invertir en el fondo: 140.000 – 8.400 = <strong>131.600 €</strong></li>
+      <li>Puede invertir en renta fija, renta variable, mixtos, mercado monetario, derivados, otros fondos, etc.</li>
+      <li>Puede tener vocación geográfica o temática.</li>
+      <li>Puede operar con o sin benchmark de referencia.</li>
     </ul>
-    <p><strong>Opción B — Si hubiera sido un fondo (traspaso directo):</strong></p>
+
+    <h3>Límites UCITS aplicables</h3>
     <ul>
-      <li>Tributación: <strong>0 €</strong></li>
-      <li>Capital que pasa al fondo de destino: <strong>140.000 €</strong></li>
+      <li>Máximo <strong>5%</strong> del patrimonio en valores de un mismo emisor (ampliable al 10% en casos específicos).</li>
+      <li>Máximo <strong>10%</strong> en depósitos en una misma entidad de crédito.</li>
+      <li>Máximo <strong>20%</strong> en IIC de un mismo grupo.</li>
     </ul>
-    <p>La SICAV no tiene acceso al régimen de traspaso: el inversor paga <strong>8.400 € más</strong> en impuestos en el momento del cambio.</p>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>El número de SICAV registradas en España ha caído desde el máximo de ~3.000 en 2017 hasta menos de 800 en 2026,
+      tras la reforma de la Ley 11/2021 que endureció el requisito de los 100 accionistas "genuinos". El modelo SICAV
+      luxemburgués (con estructura de compartimentos) sigue siendo ampliamente utilizado por gestoras internacionales
+      para comercializar fondos en España.</p>
+    </div>
   </div>
 
-  <!-- Footnotes -->
-  <ol class="footnotes">
-    <li id="fn1">Ley 35/2003 (LIIC), arts. 9–28 (SICAV: concepto, constitución, capital mínimo, número mínimo de accionistas, gobierno corporativo, política de inversión). BOE núm. 265. Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-20331" target="_blank" rel="noopener">boe.es — LIIC</a></li>
-    <li id="fn2">RD 1082/2012 (RLIIC), arts. 35–52 (operativa de suscripción y reembolso de acciones de SICAV, admisión a negociación en BME Growth). Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-9716" target="_blank" rel="noopener">boe.es — RLIIC</a></li>
-    <li id="fn3">Ley 35/2006 (LIRPF), art. 94 (régimen de diferimiento en traspasos de fondos; exclusión de SICAV). BOE núm. 285. Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764" target="_blank" rel="noopener">boe.es — LIRPF</a></li>
-  </ol>
+  <hr>
 
-  <!-- Sección nav -->
+  <!-- 4. EJEMPLOS -->
+  <div class="sec">
+    <h2>4. Ejemplos numéricos</h2>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 1 — Capital variable: ampliación por nuevos socios</h3>
+      <p>Una SICAV tiene <strong>50.000 acciones</strong> a valor liquidativo de <strong>100 €/acción</strong> (capital: 5.000.000 €). Un nuevo inversor quiere suscribir <strong>500.000 €</strong>:</p>
+      <ul>
+        <li>Nuevas acciones emitidas: 500.000 / 100 = <strong>5.000 acciones</strong></li>
+        <li>Capital social tras la ampliación: <strong>5.500.000 €</strong></li>
+        <li>Total acciones en circulación: <strong>55.000</strong></li>
+        <li>Valor liquidativo por acción: 5.500.000 / 55.000 = <strong>100 € (invariable)</strong></li>
+      </ul>
+      <p>Los socios existentes no se diluyen porque las nuevas acciones se emiten exactamente al valor liquidativo vigente. No se necesita Junta Extraordinaria.</p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 2 — Fiscalidad: SICAV vs. fondo en un cambio</h3>
+      <p>Un inversor tiene acciones de una SICAV adquiridas por <strong>100.000 €</strong> que ahora valen <strong>140.000 €</strong> (plusvalía latente: 40.000 €). Quiere redirigir la inversión a un fondo de renta fija.</p>
+      <p><strong>Opción A — Venta de SICAV + suscripción fondo:</strong> ganancia patrimonial 40.000 €; impuesto (21%) = <strong>8.400 €</strong>; capital neto para invertir: <strong>131.600 €</strong>.</p>
+      <p><strong>Opción B — Si hubiera sido un fondo (traspaso):</strong> tributación 0 €; capital que pasa al fondo de destino: <strong>140.000 €</strong>.</p>
+      <p>El inversor paga <strong>8.400 € más</strong> en impuestos por haber estado en una SICAV en lugar de un fondo ordinario.</p>
+    </div>
+  </div>
+
+  <!-- NOTAS AL PIE -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">Ley 35/2003 (LIIC), arts. 9–28 (SICAV: concepto, constitución, capital mínimo, número mínimo de accionistas, gobierno corporativo, política de inversión).
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-20331" target="_blank" rel="noopener">boe.es — LIIC</a></li>
+      <li id="fn2">RD 1082/2012 (RLIIC), arts. 35–52 (operativa de suscripción y reembolso de acciones de SICAV, admisión a negociación en BME Growth).
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-9716" target="_blank" rel="noopener">boe.es — RLIIC</a></li>
+      <li id="fn3">Ley 35/2006 (LIRPF), art. 94 (régimen de diferimiento en traspasos de fondos; exclusión de SICAV).
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764" target="_blank" rel="noopener">boe.es — LIRPF</a></li>
+    </ol>
+  </div>
+
+  <!-- NAVEGACIÓN -->
   <div class="sec-nav">
-    <a class="nav-btn" href="seccion-a.html">← A — Tipos de fondos</a>
-    <a class="nav-btn next" href="seccion-c.html">Siguiente: C — IIC cerradas →</a>
+    <a href="seccion-a.html" class="nav-btn">← A: Tipos de fondos</a>
+    <a href="seccion-c.html" class="nav-btn">C: IIC cerradas →</a>
   </div>
 
-</div><!-- /container -->
+</div>
 
 <footer>
   EFA Prep · Módulo 2 · Bloque 2 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
