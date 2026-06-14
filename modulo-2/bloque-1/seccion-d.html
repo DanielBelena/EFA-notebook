@@ -1,239 +1,232 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es" data-theme="light" data-fontsize="normal">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>M2·B1·D — Tipología de comisiones | EFA Prep</title>
-  <link rel="stylesheet" href="../../assets/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M2 · B1 · Sección D — Tipología de comisiones · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .formula-nav { background: var(--navy-light); border: 2px solid var(--navy); border-radius: 14px; padding: 1.1rem 1.4rem; margin: 1.2rem 0; text-align: center; }
+    .formula-nav .f-label { font-family: var(--font-ui); font-size: var(--fs-xs); color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .4rem; }
+    .formula-nav .f-main { font-family: 'Courier New', monospace; font-size: var(--fs-lg); color: var(--navy); font-weight: 700; }
+    .contexto-actual { background: var(--card); border-left: 4px solid var(--green); border-radius: 0 14px 14px 0; padding: 1.1rem 1.3rem; margin: 1.2rem 0; }
+    .contexto-actual .ctx-title { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--green); margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
+    .contexto-actual p { font-size: var(--fs-sm); color: var(--text); line-height: 1.7; margin: 0 0 .4rem; }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+    .aviso-box { background: var(--amber-light); border: 2px solid var(--amber); border-radius: 14px; padding: 1.1rem 1.3rem; margin: 1.2rem 0; }
+    .aviso-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--amber); margin-bottom: .5rem; }
+    .aviso-box p { font-size: var(--fs-sm); color: var(--text-soft); line-height: 1.7; margin: 0; }
+    .footnotes { border-top: 1px solid var(--border); margin-top: 2.5rem; padding-top: 1.2rem; }
+    .footnotes h4 { font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 800; color: var(--text-soft); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .8rem; }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li { font-size: .78rem; color: var(--text-soft); line-height: 1.6; margin-bottom: .35rem; }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
 
-<!-- ── Toolbar ── -->
-<nav class="toolbar">
-  <a class="toolbar-brand" href="#">EFA Prep</a>
-  <button class="fs-btn" id="fs-btn-normal">A</button>
-  <button class="fs-btn" id="fs-btn-large">A+</button>
-  <button class="fs-btn" id="fs-btn-xlarge">A++</button>
-  <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
-</nav>
+<div class="top-stripe"></div>
 
-<!-- ── Breadcrumb ── -->
-<div class="breadcrumb">
-  <a href="#">Inicio</a><span>›</span>
-  <a href="#">Módulo 2</a><span>›</span>
-  <a href="#">Bloque 1</a><span>›</span>
-  Sección D
-</div>
-
-<!-- ── Hero ── -->
-<div class="hero">
-  <div class="container">
-    <div class="hero-pill">Nivel I · Conocimiento</div>
-    <h1>Sección D — Tipología de comisiones</h1>
-    <p class="hero-sub">Módulo 2 · Bloque 1 · Visión general de los fondos de inversión mobiliaria</p>
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M2 · B1 · D</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
   </div>
 </div>
 
-<!-- ── Content ── -->
-<div class="container">
+<div class="wrap">
 
-  <p>Las comisiones de un fondo de inversión son la retribución económica de los distintos agentes que participan en su funcionamiento. La LIIC y el RLIIC establecen un sistema de <strong>límites máximos legales</strong> y exigen que todas las comisiones figuren explícitamente en el folleto del fondo, siendo nula cualquier comisión no prevista en él.<sup><a href="#fn1">1</a></sup></p>
-
-  <!-- 1. Comisiones sobre el patrimonio -->
-  <h2>1. Comisiones que gravan el patrimonio del fondo</h2>
-
-  <p>Estas comisiones se devengan diariamente con cargo al patrimonio del fondo y reducen el NAV de forma continua. El partícipe las soporta implícitamente (no las ve como un cargo explícito en su cuenta, pero sí en la rentabilidad neta del fondo).</p>
-
-  <h3>1.1 Comisión de gestión</h3>
-
-  <p>Es la retribución de la <strong>SGIIC</strong> por la gestión de las inversiones y la administración del fondo. Es la comisión más relevante en términos cuantitativos.</p>
-
-  <p><strong>Modalidades de cálculo (RLIIC, art. 5):</strong><sup><a href="#fn2">2</a></sup></p>
-
-  <ul>
-    <li><strong>Sobre el patrimonio:</strong> porcentaje anual aplicado sobre el patrimonio medio diario del fondo. Es la modalidad más común. <em>Límite máximo legal: 2,25% anual.</em></li>
-    <li><strong>Sobre resultados:</strong> porcentaje sobre la plusvalía generada por el fondo en el período (habitualmente sobre el exceso de rentabilidad respecto a un <em>benchmark</em> o respecto a un <em>high watermark</em>). <em>Límite máximo legal: 18% de los resultados.</em></li>
-    <li><strong>Mixta (patrimonio + resultados):</strong> combinación de ambas. En este caso los límites se reducen simultáneamente: <em>máximo 1,35% sobre patrimonio + 9% sobre resultados.</em></li>
-  </ul>
-
-  <div class="exam-alert">
-    <strong>🎯 Frecuente en examen:</strong> Memorizar los tres límites del RLIIC para la comisión de gestión: <strong>2,25%</strong> (sobre patrimonio), <strong>18%</strong> (sobre resultados) y <strong>1,35% + 9%</strong> (modalidad mixta). El examen suele preguntar cuál es el límite en cada modalidad, o identificar cuál se incumple dado un valor concreto.
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 2</a><span class="sep">›</span>
+    <a href="index.html">Bloque 1</a><span class="sep">›</span>
+    <span>Sección D</span>
   </div>
 
-  <h3>1.2 Comisión de depósito</h3>
-
-  <p>Es la retribución de la <strong>entidad depositaria</strong> por la custodia y vigilancia de los activos del fondo. Se devenga diariamente sobre el patrimonio y se paga periódicamente.</p>
-
-  <ul>
-    <li><strong>Modalidad:</strong> exclusivamente sobre el patrimonio (no existe modalidad sobre resultados para el depositario).</li>
-    <li><em>Límite máximo legal: 0,20% anual del patrimonio.</em><sup><a href="#fn2">2</a></sup></li>
-  </ul>
-
-  <p>En la práctica, los depositarios suelen cobrar entre 0,02% y 0,10% anual, dependiendo del volumen del fondo y de la tipología de activos custodiados (la custodia de valores extranjeros implica subcustodios y puede ser más cara).</p>
-
-  <!-- 2. Comisiones sobre las operaciones del partícipe -->
-  <h2>2. Comisiones que gravan las operaciones del partícipe</h2>
-
-  <p>Estas comisiones se aplican directamente sobre el importe suscrito o reembolsado por el partícipe en el momento de la operación. Son un cargo explícito y visible para el inversor.</p>
-
-  <h3>2.1 Comisión de suscripción</h3>
-
-  <p>Se aplica en el momento de la <strong>entrada</strong> del partícipe al fondo. Se calcula como un porcentaje sobre el importe suscrito o sobre el valor de las participaciones adquiridas.</p>
-
-  <ul>
-    <li><em>Límite máximo legal: 5% del importe suscrito.</em><sup><a href="#fn2">2</a></sup></li>
-    <li>En la práctica, muchos fondos tienen comisión de suscripción del 0% para no penalizar la entrada.</li>
-    <li>Puede ser regresiva: menor porcentaje para importes mayores (para incentivar grandes suscripciones).</li>
-    <li>El importe de esta comisión puede ir íntegramente al fondo (en beneficio de los partícipes existentes) o parcialmente a la gestora/comercializador.</li>
-  </ul>
-
-  <h3>2.2 Comisión de reembolso</h3>
-
-  <p>Se aplica en el momento de la <strong>salida</strong> del partícipe. Se calcula sobre el importe reembolsado.</p>
-
-  <ul>
-    <li><em>Límite máximo legal: 5% del importe reembolsado.</em><sup><a href="#fn2">2</a></sup></li>
-    <li>Puede ser decreciente con el tiempo: mayor si se reembolsa pronto (para desincentivar la salida anticipada y proteger la liquidez del fondo), menor o nula si se ha permanecido más tiempo.</li>
-    <li>Al igual que la de suscripción, puede revertir al fondo o a la gestora/comercializador según el folleto.</li>
-  </ul>
-
-  <div class="card accent-amber">
-    <h4>⚠️ Distinción importante: comisión de reembolso vs. descuento de dilución</h4>
-    <p>Algunos fondos no aplican comisión de reembolso sino un <strong>descuento de dilución</strong> (<em>swing pricing</em>), que ajusta el NAV a la baja cuando hay reembolsos significativos para proteger a los partícipes que permanecen de los costes de transacción derivados de la venta de activos. Aunque el efecto económico es similar, jurídicamente son mecanismos distintos y no computan dentro del límite del 5%.</p>
+  <div class="hero">
+    <div class="pill">Módulo 2 · Bloque 1 · Sección D · Nivel I · Conocimiento</div>
+    <h1>Tipología de comisiones</h1>
+    <p class="hero-sub">
+      Comisión de gestión (modalidades y límites) · Comisión de depósito · Comisiones de suscripción
+      y reembolso · Ratio de gastos totales (OGC/TER).
+    </p>
   </div>
 
-  <h3>2.3 Comisión de traspaso</h3>
+  <hr>
 
-  <p>Con carácter general, los traspasos entre fondos de inversión en España <strong>no devengan comisión de traspaso</strong> como tal. Sin embargo, el folleto del fondo de origen puede establecer una comisión de reembolso que se aplique también en caso de traspaso. La comisión de suscripción del fondo de destino sí puede aplicarse.<sup><a href="#fn1">1</a></sup></p>
+  <!-- 1. COMISIONES SOBRE EL PATRIMONIO -->
+  <div class="sec">
+    <h2>1. Comisiones que gravan el patrimonio del fondo</h2>
+    <p>
+      Estas comisiones se devengan diariamente con cargo al patrimonio y reducen el NAV de forma continua.
+      El partícipe las soporta implícitamente —no las ve como cargo explícito en su cuenta, pero sí en la
+      rentabilidad neta—. La LIIC exige que todas las comisiones figuren en el folleto; es nula cualquier
+      comisión no prevista en él.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
 
-  <!-- 3. El ratio de gastos totales (TER/OGC) -->
-  <h2>3. El ratio de gastos totales (TER / OGC)</h2>
+    <h3>Comisión de gestión</h3>
+    <p>Es la retribución de la <strong>SGIIC</strong> por la gestión de las inversiones. Existen tres modalidades con límites distintos (RLIIC, art. 5):<sup class="fn"><a href="#fn2">2</a></sup></p>
 
-  <p>El <strong>TER</strong> (<em>Total Expense Ratio</em>) o <strong>OGC</strong> (<em>Ongoing Charges</em>, en la terminología UCITS/DFI) es el indicador que agrega el coste total anual que soporta el partícipe con cargo al patrimonio del fondo. Incluye:<sup><a href="#fn3">3</a></sup></p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Modalidad</th><th>Base de cálculo</th><th>Límite máximo legal</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Sobre patrimonio</strong></td><td>% anual sobre patrimonio medio diario</td><td><strong>2,25% anual</strong></td></tr>
+          <tr><td><strong>Sobre resultados</strong></td><td>% sobre plusvalía generada en el período</td><td><strong>18% de los resultados</strong></td></tr>
+          <tr><td><strong>Mixta (patrimonio + resultados)</strong></td><td>Combinación de ambas</td><td><strong>1,35% anual + 9% resultados</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
 
-  <ul>
-    <li>Comisión de gestión.</li>
-    <li>Comisión de depósito.</li>
-    <li>Gastos de auditoría, legales y administrativos del fondo.</li>
-    <li>En fondos de fondos: también los gastos de los fondos subyacentes.</li>
-  </ul>
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Memorizar los tres límites del RLIIC: <strong>2,25%</strong> (patrimonio), <strong>18%</strong> (resultados),
+        <strong>1,35% + 9%</strong> (mixta). El examen suele preguntar cuál es el límite en cada modalidad,
+        o pedir identificar cuál se incumple dado un valor concreto.
+      </div>
+    </div>
 
-  <p>El OGC <strong>no incluye</strong> comisiones de suscripción y reembolso, costes de transacción de la cartera, ni comisiones de rentabilidad. Es el dato que figura en el DFI (Documento de Datos Fundamentales para el Inversor) bajo el epígrafe "Gastos corrientes".</p>
-
-  <div class="context-box">
-    <strong>📊 Contexto actual (junio 2026):</strong> Según datos de Morningstar Europe, el OGC medio de los fondos de inversión activos en España se sitúa en torno al <strong>1,1–1,4%</strong> anual (renta variable) y <strong>0,5–0,8%</strong> (renta fija). Los ETF indexados, por comparación, presentan OGC medios inferiores al 0,20%. El BCE en 2,00% hace que el coste relativo de los fondos monetarios (OGC ~0,10–0,15%) sea muy relevante para determinar la rentabilidad neta real.
+    <h3>Comisión de depósito</h3>
+    <p>
+      Retribución de la <strong>entidad depositaria</strong> por la custodia y vigilancia. Solo existe la
+      modalidad sobre patrimonio. <em>Límite máximo legal: <strong>0,20% anual</strong>.</em>
+      En la práctica, oscila entre 0,02% y 0,10% dependiendo del volumen y tipología de activos.<sup class="fn"><a href="#fn2">2</a></sup>
+    </p>
   </div>
 
-  <!-- 4. Ejemplos numéricos -->
-  <h2>4. Ejemplos numéricos</h2>
+  <hr>
 
-  <div class="card accent-green">
-    <h4>📌 Ejemplo numérico 1 — Devengo diario de la comisión de gestión</h4>
-    <p>Un fondo tiene un patrimonio de <strong>50.000.000 €</strong> y una comisión de gestión del <strong>1,50% anual</strong> sobre patrimonio.</p>
-    <ul>
-      <li>Comisión anual total: 50.000.000 × 1,50% = <strong>750.000 €</strong></li>
-      <li>Devengo diario (sobre 365 días): 750.000 / 365 = <strong>2.054,79 € al día</strong></li>
-    </ul>
-    <p>Esta cantidad se deduce diariamente del patrimonio bruto del fondo <em>antes</em> de calcular el NAV, de forma que el NAV ya refleja la comisión devengada. El partícipe no recibe ningún cargo adicional en su cuenta: la comisión está embebida en la rentabilidad neta.</p>
-    <p>Si el fondo, antes de comisiones, obtuvo una rentabilidad del <strong>6,00%</strong>, la rentabilidad neta del partícipe es aproximadamente: 6,00% – 1,50% = <strong>4,50%</strong> (simplificación; el efecto compuesto reduce ligeramente más).</p>
+  <!-- 2. COMISIONES SOBRE OPERACIONES -->
+  <div class="sec">
+    <h2>2. Comisiones que gravan las operaciones del partícipe</h2>
+    <p>Se aplican directamente sobre el importe suscrito o reembolsado. Son cargos explícitos y visibles para el inversor.</p>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Comisión de suscripción</h4>
+        <p>Se aplica en el momento de la <strong>entrada</strong>. % sobre importe suscrito. Límite máximo legal: <strong>5%</strong>. Puede ser regresiva para incentivar grandes suscripciones. Muchos fondos la tienen al 0%.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Comisión de reembolso</h4>
+        <p>Se aplica en el momento de la <strong>salida</strong>. % sobre importe reembolsado. Límite máximo legal: <strong>5%</strong>. Puede ser decreciente con el tiempo para desincentivar la salida anticipada.</p>
+      </div>
+    </div>
+
+    <div class="aviso-box">
+      <h4>⚠️ Comisión de reembolso vs. descuento de dilución</h4>
+      <p>Algunos fondos aplican <em>swing pricing</em> (descuento de dilución) que ajusta el NAV a la baja cuando hay reembolsos significativos, para proteger a los partícipes que permanecen. Aunque el efecto económico es similar a la comisión de reembolso, jurídicamente son mecanismos distintos y el swing pricing no computa dentro del límite del 5%.</p>
+    </div>
   </div>
 
-  <div class="card accent-green">
-    <h4>📌 Ejemplo numérico 2 — Comisión de reembolso decreciente</h4>
-    <p>Un fondo de renta variable establece en su folleto la siguiente escala de comisión de reembolso:</p>
-    <table class="summary-table" style="margin:.5rem 0;">
-      <thead>
-        <tr><th>Antigüedad del partícipe</th><th>Comisión de reembolso</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Menos de 1 año</td><td>3,00%</td></tr>
-        <tr><td>Entre 1 y 2 años</td><td>2,00%</td></tr>
-        <tr><td>Entre 2 y 3 años</td><td>1,00%</td></tr>
-        <tr><td>Más de 3 años</td><td>0,00%</td></tr>
-      </tbody>
-    </table>
-    <p>Un partícipe suscribió hace <strong>18 meses</strong> y quiere reembolsar <strong>20.000 €</strong> al NAV actual:</p>
-    <ul>
-      <li>Comisión aplicable (entre 1 y 2 años): 2,00%</li>
-      <li>Importe de la comisión: 20.000 × 2,00% = <strong>400 €</strong></li>
-      <li>Importe neto recibido: 20.000 – 400 = <strong>19.600 €</strong></li>
-    </ul>
-    <p>Si hubiera esperado 6 meses más (superando los 2 años de antigüedad), la comisión habría sido solo del 1,00% → <strong>200 €</strong>. La diferencia de 200 € ilustra el coste de la salida anticipada.</p>
+  <hr>
+
+  <!-- 3. TER / OGC -->
+  <div class="sec">
+    <h2>3. El ratio de gastos totales (TER / OGC)</h2>
+    <p>
+      El <strong>OGC</strong> (<em>Ongoing Charges</em>) es el indicador que agrega el coste total anual soportado
+      por el partícipe con cargo al patrimonio del fondo. Es el dato que figura en el DFI bajo el epígrafe
+      "Gastos corrientes".<sup class="fn"><a href="#fn3">3</a></sup>
+    </p>
+    <p><strong>Incluye:</strong> comisión de gestión + comisión de depósito + gastos de auditoría, legales y administrativos + gastos de fondos subyacentes (en fondos de fondos).</p>
+    <p><strong>No incluye:</strong> comisiones de suscripción/reembolso, costes de transacción de la cartera, comisiones de rentabilidad.</p>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>El OGC medio de los fondos activos en España: ~1,1–1,4% anual (renta variable) y ~0,5–0,8% (renta fija). Los ETF indexados presentan OGC medios inferiores al 0,20%. Con el BCE en 2,00%, el coste relativo de los fondos monetarios (OGC ~0,10–0,15%) es muy relevante para determinar la rentabilidad neta real.</p>
+    </div>
   </div>
 
-  <!-- 5. Tabla resumen -->
-  <h2>5. Tabla resumen — Comisiones de fondos y límites legales</h2>
+  <hr>
 
-  <table class="summary-table">
-    <thead>
-      <tr>
-        <th>Comisión</th>
-        <th>Beneficiario</th>
-        <th>Base de cálculo</th>
-        <th>Límite máximo legal (RLIIC)</th>
-        <th>Reflejo en NAV</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Gestión — sobre patrimonio</strong></td>
-        <td>SGIIC</td>
-        <td>Patrimonio diario</td>
-        <td>2,25% anual</td>
-        <td>Implícito (reduce NAV)</td>
-      </tr>
-      <tr>
-        <td><strong>Gestión — sobre resultados</strong></td>
-        <td>SGIIC</td>
-        <td>Resultados positivos</td>
-        <td>18%</td>
-        <td>Implícito</td>
-      </tr>
-      <tr>
-        <td><strong>Gestión — mixta</strong></td>
-        <td>SGIIC</td>
-        <td>Patrimonio + resultados</td>
-        <td>1,35% + 9%</td>
-        <td>Implícito</td>
-      </tr>
-      <tr>
-        <td><strong>Depósito</strong></td>
-        <td>Depositario</td>
-        <td>Patrimonio diario</td>
-        <td>0,20% anual</td>
-        <td>Implícito (reduce NAV)</td>
-      </tr>
-      <tr>
-        <td><strong>Suscripción</strong></td>
-        <td>Fondo/SGIIC/Comercializador</td>
-        <td>Importe suscrito</td>
-        <td>5%</td>
-        <td>Explícito (cargo al partícipe)</td>
-      </tr>
-      <tr>
-        <td><strong>Reembolso</strong></td>
-        <td>Fondo/SGIIC/Comercializador</td>
-        <td>Importe reembolsado</td>
-        <td>5%</td>
-        <td>Explícito (descuento al partícipe)</td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- 4. EJEMPLOS -->
+  <div class="sec">
+    <h2>4. Ejemplos numéricos</h2>
 
-  <!-- Footnotes -->
-  <ol class="footnotes">
-    <li id="fn1">Ley 35/2003 (LIIC), arts. 8–9 (comisiones: publicidad en folleto, prohibición de comisiones no previstas). BOE núm. 265. Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-20331" target="_blank" rel="noopener">boe.es — LIIC</a></li>
-    <li id="fn2">Real Decreto 1082/2012 (RLIIC), art. 5 (límites máximos de comisiones de gestión, depósito, suscripción y reembolso). Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-9716" target="_blank" rel="noopener">boe.es — RLIIC</a></li>
-    <li id="fn3">Reglamento delegado (UE) 583/2010 de la Comisión, de 1 julio 2010, art. 10 (gastos corrientes en el KID/DFI): definición de OGC. DOUE L 176/1. Disponible en: <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32010R0583" target="_blank" rel="noopener">eur-lex.europa.eu</a></li>
-  </ol>
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 1 — Devengo diario de la comisión de gestión</h3>
+      <p>Un fondo tiene un patrimonio de <strong>50.000.000 €</strong> y una comisión de gestión del <strong>1,50% anual</strong> sobre patrimonio.</p>
+      <ul>
+        <li>Comisión anual total: 50.000.000 × 1,50% = <strong>750.000 €</strong></li>
+        <li>Devengo diario (365 días): 750.000 / 365 = <strong>2.054,79 € al día</strong></li>
+      </ul>
+      <p>Esta cantidad se deduce diariamente del patrimonio bruto antes de calcular el NAV. Si el fondo obtuvo un 6,00% bruto antes de comisiones, la rentabilidad neta del partícipe es aproximadamente: 6,00% − 1,50% = <strong>4,50%</strong>.</p>
+    </div>
 
-  <!-- Sección nav -->
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 2 — Comisión de reembolso decreciente</h3>
+      <p>Un fondo establece la siguiente escala:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Antigüedad</th><th>Comisión de reembolso</th></tr></thead>
+          <tbody>
+            <tr><td>Menos de 1 año</td><td>3,00%</td></tr>
+            <tr><td>Entre 1 y 2 años</td><td>2,00%</td></tr>
+            <tr><td>Entre 2 y 3 años</td><td>1,00%</td></tr>
+            <tr><td>Más de 3 años</td><td>0,00%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Un partícipe con <strong>18 meses</strong> de antigüedad reembolsa <strong>20.000 €</strong>:</p>
+      <ul>
+        <li>Comisión aplicable (entre 1 y 2 años): 2,00% → <strong>400 €</strong></li>
+        <li>Importe neto recibido: 20.000 − 400 = <strong>19.600 €</strong></li>
+      </ul>
+      <p>Si hubiera esperado 6 meses más (pasando a &gt;2 años): comisión = 1,00% → 200 €. Ahorro por esperar: <strong>200 €</strong>.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 5. RESUMEN -->
+  <div class="sec">
+    <h2>5. Tabla resumen — Comisiones y límites legales</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Comisión</th><th>Beneficiario</th><th>Base</th><th>Límite máximo (RLIIC)</th><th>Reflejo en NAV</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Gestión — patrimonio</strong></td><td>SGIIC</td><td>Patrimonio diario</td><td>2,25% anual</td><td>Implícito</td></tr>
+          <tr><td><strong>Gestión — resultados</strong></td><td>SGIIC</td><td>Resultados positivos</td><td>18%</td><td>Implícito</td></tr>
+          <tr><td><strong>Gestión — mixta</strong></td><td>SGIIC</td><td>Patrimonio + resultados</td><td>1,35% + 9%</td><td>Implícito</td></tr>
+          <tr><td><strong>Depósito</strong></td><td>Depositario</td><td>Patrimonio diario</td><td>0,20% anual</td><td>Implícito</td></tr>
+          <tr><td><strong>Suscripción</strong></td><td>Fondo / SGIIC / Comercializador</td><td>Importe suscrito</td><td>5%</td><td>Explícito</td></tr>
+          <tr><td><strong>Reembolso</strong></td><td>Fondo / SGIIC / Comercializador</td><td>Importe reembolsado</td><td>5%</td><td>Explícito</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NOTAS AL PIE -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">Ley 35/2003 (LIIC), arts. 8–9 (publicidad de comisiones en folleto; prohibición de comisiones no previstas).
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-20331" target="_blank" rel="noopener">boe.es — LIIC</a></li>
+      <li id="fn2">RD 1082/2012 (RLIIC), art. 5 (límites máximos de comisiones de gestión, depósito, suscripción y reembolso).
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-9716" target="_blank" rel="noopener">boe.es — RLIIC</a></li>
+      <li id="fn3">Reglamento delegado (UE) 583/2010 de la Comisión, art. 10 (gastos corrientes / OGC en el DFI).
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32010R0583" target="_blank" rel="noopener">eur-lex.europa.eu — Rgl. KIID</a></li>
+    </ol>
+  </div>
+
+  <!-- NAVEGACIÓN -->
   <div class="sec-nav">
-    <a class="nav-btn" href="seccion-c.html">← C — Valoración NAV</a>
-    <a class="nav-btn next" href="seccion-e.html">Siguiente: E — Información a los partícipes →</a>
+    <a href="seccion-c.html" class="nav-btn">← C: Valoración NAV</a>
+    <a href="seccion-e.html" class="nav-btn">E: Información a los partícipes →</a>
   </div>
 
-</div><!-- /container -->
+</div>
 
 <footer>
   EFA Prep · Módulo 2 · Bloque 1 · Sección D · Basado en la Guía de Certificación EFPA España V1/26

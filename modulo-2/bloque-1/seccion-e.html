@@ -1,245 +1,246 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es" data-theme="light" data-fontsize="normal">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>M2·B1·E — Información a los partícipes | EFA Prep</title>
-  <link rel="stylesheet" href="../../assets/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M2 · B1 · Sección E — Información a los partícipes · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .doc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin: 1rem 0; }
+    @media (max-width: 560px) { .doc-grid { grid-template-columns: 1fr; } }
+    .doc-box { background: var(--card); border: 1.5px solid var(--border); border-left: 4px solid var(--navy); border-radius: 0 14px 14px 0; padding: 1rem 1.1rem; }
+    .doc-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .3rem; }
+    .doc-box p { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.6; margin: 0; }
+    .contexto-actual { background: var(--card); border-left: 4px solid var(--green); border-radius: 0 14px 14px 0; padding: 1.1rem 1.3rem; margin: 1.2rem 0; }
+    .contexto-actual .ctx-title { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--green); margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
+    .contexto-actual p { font-size: var(--fs-sm); color: var(--text); line-height: 1.7; margin: 0 0 .4rem; }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+    .footnotes { border-top: 1px solid var(--border); margin-top: 2.5rem; padding-top: 1.2rem; }
+    .footnotes h4 { font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 800; color: var(--text-soft); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .8rem; }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li { font-size: .78rem; color: var(--text-soft); line-height: 1.6; margin-bottom: .35rem; }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
 
-<!-- ── Toolbar ── -->
-<nav class="toolbar">
-  <a class="toolbar-brand" href="#">EFA Prep</a>
-  <button class="fs-btn" id="fs-btn-normal">A</button>
-  <button class="fs-btn" id="fs-btn-large">A+</button>
-  <button class="fs-btn" id="fs-btn-xlarge">A++</button>
-  <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
-</nav>
+<div class="top-stripe"></div>
 
-<!-- ── Breadcrumb ── -->
-<div class="breadcrumb">
-  <a href="#">Inicio</a><span>›</span>
-  <a href="#">Módulo 2</a><span>›</span>
-  <a href="#">Bloque 1</a><span>›</span>
-  Sección E
-</div>
-
-<!-- ── Hero ── -->
-<div class="hero">
-  <div class="container">
-    <div class="hero-pill">Nivel I · Conocimiento</div>
-    <h1>Sección E — Información a los partícipes</h1>
-    <p class="hero-sub">Módulo 2 · Bloque 1 · Visión general de los fondos de inversión mobiliaria</p>
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M2 · B1 · E</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
   </div>
 </div>
 
-<!-- ── Content ── -->
-<div class="container">
+<div class="wrap">
 
-  <p>La <strong>obligación de información</strong> a los partícipes es uno de los pilares de la protección del inversor en las IIC. La LIIC y el RLIIC establecen un régimen detallado de documentos precontractuales, periódicos y puntuales que la gestora debe elaborar y poner a disposición del partícipe de forma gratuita y en tiempo útil.<sup><a href="#fn1">1</a></sup></p>
-
-  <!-- 1. Documento de Datos Fundamentales (DFI / KID) -->
-  <h2>1. El Documento de Datos Fundamentales para el Inversor (DFI)</h2>
-
-  <p>El <strong>DFI</strong> —denominado <em>KIID</em> en la terminología UCITS (<em>Key Investor Information Document</em>) y <em>KID</em> en el ámbito PRIIPs— es el documento precontractual obligatorio que debe entregarse al potencial partícipe <strong>antes</strong> de la suscripción. Su objetivo es permitir al inversor una comparación homogénea entre fondos.<sup><a href="#fn2">2</a></sup></p>
-
-  <h3>1.1 Contenido obligatorio del DFI (UCITS)</h3>
-  <ul>
-    <li><strong>Identificación del fondo:</strong> nombre, gestora, domicilio, ISIN.</li>
-    <li><strong>Objetivos y política de inversión:</strong> descripción concisa de en qué invierte el fondo, perfil de riesgo objetivo y benchmark si lo tiene.</li>
-    <li><strong>Perfil de riesgo y remuneración:</strong> indicador sintético de riesgo (escala 1–7 en UCITS; escala 1–SRI en PRIIPs) con explicación de su significado.</li>
-    <li><strong>Gastos:</strong> gastos corrientes (OGC), comisión de rentabilidad si existe, comisiones de entrada y salida.</li>
-    <li><strong>Rentabilidades históricas:</strong> gráfico de barras con rentabilidades anuales de los últimos 10 años (o desde el lanzamiento) con advertencia de que las rentabilidades pasadas no garantizan las futuras.</li>
-    <li><strong>Información práctica:</strong> depositario, NAV diario, dónde obtener más información.</li>
-  </ul>
-
-  <p>El DFI debe tener como máximo <strong>dos páginas A4</strong> y estar redactado en lenguaje claro y no técnico.<sup><a href="#fn2">2</a></sup></p>
-
-  <div class="exam-alert">
-    <strong>🎯 Frecuente en examen:</strong> El DFI debe entregarse <em>antes</em> de la suscripción, no después. Es un documento precontractual, no un contrato en sí mismo. El partícipe puede renunciar a recibirlo en papel si acepta recibirlo en soporte electrónico, pero nunca se puede omitir su entrega. Si no se entrega, la suscripción puede ser anulable.
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 2</a><span class="sep">›</span>
+    <a href="index.html">Bloque 1</a><span class="sep">›</span>
+    <span>Sección E</span>
   </div>
 
-  <!-- 2. El folleto -->
-  <h2>2. El folleto (completo y simplificado)</h2>
-
-  <p>El <strong>folleto</strong> es el documento legal que regula el funcionamiento del fondo. A diferencia del DFI, que está pensado para el inversor, el folleto es el documento contractual completo que la CNMV debe aprobar antes de que el fondo pueda comercializarse.<sup><a href="#fn3">3</a></sup></p>
-
-  <h3>2.1 Folleto completo</h3>
-  <p>Contiene toda la información jurídica, operativa y financiera del fondo:</p>
-  <ul>
-    <li>Política de inversión detallada: clases de activos, límites, uso de derivados.</li>
-    <li>Perfil del inversor al que va dirigido.</li>
-    <li>Procedimiento de suscripción y reembolso, frecuencia de cálculo del NAV.</li>
-    <li>Régimen de comisiones completo (incluida la escala de comisiones de reembolso si es decreciente).</li>
-    <li>Información sobre la SGIIC y el depositario.</li>
-    <li>Régimen fiscal aplicable.</li>
-    <li>Situaciones especiales: suspensión de reembolsos, liquidación del fondo.</li>
-  </ul>
-
-  <h3>2.2 Modificaciones del folleto</h3>
-  <p>Cualquier modificación sustancial (cambio de política de inversión, comisiones, gestora, depositario) debe ser <strong>aprobada por la CNMV</strong> y comunicada a los partícipes con antelación mínima de <strong>1 mes</strong>, durante el cual el partícipe tiene derecho a reembolsar sin comisión de reembolso (<em>derecho de separación</em>).<sup><a href="#fn1">1</a></sup></p>
-
-  <!-- 3. Informes periódicos -->
-  <h2>3. Informes periódicos</h2>
-
-  <p>El RLIIC establece la obligación de elaborar y enviar a los partícipes (o poner a su disposición) los siguientes informes:<sup><a href="#fn4">4</a></sup></p>
-
-  <h3>3.1 Informe anual</h3>
-  <ul>
-    <li>Debe publicarse dentro de los <strong>4 meses siguientes</strong> al cierre del ejercicio.</li>
-    <li>Incluye: balance del fondo, cuenta de resultados, composición de la cartera al cierre, número de participaciones en circulación, NAV histórico del año, rentabilidad anual, evolución del patrimonio, informe de auditoría.</li>
-    <li>Es el documento más completo y detallado sobre la situación del fondo.</li>
-  </ul>
-
-  <h3>3.2 Informe semestral</h3>
-  <ul>
-    <li>Debe publicarse en los <strong>2 meses siguientes</strong> al cierre del semestre.</li>
-    <li>Contiene información simplificada respecto al informe anual: composición de la cartera, NAV al cierre del semestre, rentabilidad acumulada en el semestre.</li>
-  </ul>
-
-  <h3>3.3 Informe trimestral (para partícipes con más de 300.000 €)</h3>
-  <ul>
-    <li>Los fondos deben enviar información trimestral a los partícipes cuyo patrimonio en el fondo supere los <strong>300.000 €</strong>.</li>
-    <li>Incluye posición del partícipe (número de participaciones, valor liquidativo, rentabilidad acumulada en el año).</li>
-  </ul>
-
-  <div class="exam-alert">
-    <strong>🎯 Frecuente en examen:</strong> Los plazos de publicación son: informe anual → <strong>4 meses</strong>; informe semestral → <strong>2 meses</strong>. El informe trimestral es solo para partícipes con más de 300.000 €. Estos datos aparecen en preguntas de selección múltiple con opciones de plazos alternativos (1 mes, 3 meses, 6 meses…).
+  <div class="hero">
+    <div class="pill">Módulo 2 · Bloque 1 · Sección E · Nivel I · Conocimiento</div>
+    <h1>Información a los partícipes</h1>
+    <p class="hero-sub">
+      DFI / KIID (precontractual) · Folleto completo · Informes periódicos (anual, semestral, trimestral) ·
+      Comunicaciones puntuales · Derecho de separación.
+    </p>
   </div>
 
-  <!-- 4. Comunicaciones puntuales obligatorias -->
-  <h2>4. Comunicaciones puntuales obligatorias</h2>
+  <hr>
 
-  <p>Además de los informes periódicos, la SGIIC tiene obligación de informar al partícipe en situaciones específicas:<sup><a href="#fn1">1</a></sup></p>
+  <!-- 1. DFI -->
+  <div class="sec">
+    <h2>1. El Documento de Datos Fundamentales (DFI / KIID)</h2>
+    <p>
+      El <strong>DFI</strong> —<em>KIID</em> en terminología UCITS (<em>Key Investor Information Document</em>)— es el documento
+      precontractual obligatorio que debe entregarse al potencial partícipe <strong>antes</strong> de la suscripción.
+      Su objetivo es permitir una comparación homogénea entre fondos.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
 
-  <ul>
-    <li><strong>Modificación del folleto:</strong> comunicación previa mínima de 1 mes con derecho de separación sin coste.</li>
-    <li><strong>Cambio de gestora o depositario:</strong> mismas condiciones que la modificación del folleto.</li>
-    <li><strong>Suspensión de reembolsos:</strong> comunicación inmediata a los partícipes afectados y a la CNMV.</li>
-    <li><strong>Fusión o escisión de fondos:</strong> el partícipe del fondo absorbido tiene derecho de separación sin coste en el plazo previsto.</li>
-    <li><strong>Confirmación de operaciones:</strong> tras cada suscripción o reembolso, la gestora o el comercializador debe enviar al partícipe una confirmación con el número de participaciones, el NAV aplicado, el importe total y las comisiones cobradas.</li>
-  </ul>
+    <h3>Contenido obligatorio del DFI</h3>
+    <div class="doc-grid">
+      <div class="doc-box">
+        <h4>Identificación</h4>
+        <p>Nombre del fondo, gestora, domicilio, código ISIN.</p>
+      </div>
+      <div class="doc-box">
+        <h4>Objetivos y política de inversión</h4>
+        <p>Descripción concisa de en qué invierte, perfil de riesgo objetivo y benchmark si lo tiene.</p>
+      </div>
+      <div class="doc-box">
+        <h4>Perfil de riesgo y remuneración</h4>
+        <p>Indicador sintético de riesgo (escala 1–7 en UCITS; 1–SRI en PRIIPs) con explicación de su significado.</p>
+      </div>
+      <div class="doc-box">
+        <h4>Gastos</h4>
+        <p>Gastos corrientes (OGC), comisión de rentabilidad si existe, comisiones de entrada y salida.</p>
+      </div>
+      <div class="doc-box">
+        <h4>Rentabilidades históricas</h4>
+        <p>Gráfico de barras con rentabilidades anuales de los últimos 10 años (o desde el lanzamiento). Con advertencia de que el pasado no garantiza el futuro.</p>
+      </div>
+      <div class="doc-box">
+        <h4>Información práctica</h4>
+        <p>Depositario, frecuencia de cálculo del NAV, dónde obtener más información.</p>
+      </div>
+    </div>
 
-  <!-- 5. Acceso público a través de la CNMV -->
-  <h2>5. Acceso público a la información a través de la CNMV</h2>
+    <p>El DFI debe tener como máximo <strong>dos páginas A4</strong> y estar redactado en lenguaje claro y no técnico.</p>
 
-  <p>La CNMV mantiene un repositorio público donde cualquier inversor puede consultar:<sup><a href="#fn5">5</a></sup></p>
-
-  <ul>
-    <li>Registro de IIC autorizadas y comercializadas en España.</li>
-    <li>Folletos y DFI vigentes de todos los fondos.</li>
-    <li>Informes anuales y semestrales.</li>
-    <li>NAV diario histórico de los fondos registrados.</li>
-    <li>Composición trimestral de carteras (con un desfase de publicación).</li>
-  </ul>
-
-  <div class="context-box">
-    <strong>📊 Contexto actual (junio 2026):</strong> La CNMV está en proceso de actualizar el marco del DFI a raíz de la revisión del Reglamento PRIIPs (pendiente de aprobación definitiva en 2026), que sustituirá progresivamente el KIID UCITS por un KID PRIIPs unificado para todos los productos de inversión empaquetados. La nueva normativa introduce el escenario de rentabilidad esperada obligatorio y modifica el indicador de riesgo (SRI), lo que afectará al contenido del documento que recibirá el partícipe antes de suscribir cualquier fondo.
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El DFI debe entregarse <em>antes</em> de la suscripción, no después. Es un documento precontractual, no un contrato.
+        El partícipe puede aceptar recibirlo en soporte electrónico, pero nunca puede omitirse su entrega. Si no se entrega,
+        la suscripción puede ser anulable.
+      </div>
+    </div>
   </div>
 
-  <!-- 6. Ejemplos numéricos -->
-  <h2>6. Ejemplos numéricos</h2>
+  <hr>
 
-  <div class="card accent-green">
-    <h4>📌 Ejemplo numérico 1 — Derecho de separación ante modificación del folleto</h4>
-    <p>Un fondo de renta fija a corto plazo decide modificar su política de inversión para poder invertir hasta un 30% en renta variable (cambio sustancial). La gestora comunica la modificación el <strong>1 de julio de 2026</strong>.</p>
+  <!-- 2. FOLLETO -->
+  <div class="sec">
+    <h2>2. El folleto completo</h2>
+    <p>
+      El <strong>folleto</strong> es el documento legal que regula el funcionamiento del fondo. La CNMV debe aprobarlo
+      antes de que el fondo pueda comercializarse.<sup class="fn"><a href="#fn2">2</a></sup>
+      Contiene: política de inversión detallada, perfil del inversor objetivo, procedimiento de suscripción/reembolso,
+      régimen de comisiones completo, información sobre SGIIC y depositario, régimen fiscal y situaciones especiales
+      (suspensión de reembolsos, liquidación del fondo).
+    </p>
+
+    <h3>Modificaciones del folleto y derecho de separación</h3>
+    <p>
+      Cualquier modificación sustancial (cambio de política de inversión, comisiones, gestora o depositario) debe ser
+      aprobada por la CNMV y comunicada a los partícipes con antelación mínima de <strong>1 mes</strong>. Durante ese mes,
+      el partícipe tiene derecho a reembolsar <strong>sin comisión de reembolso</strong> (<em>derecho de separación</em>), irrenunciable.<sup class="fn"><a href="#fn3">3</a></sup>
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- 3. INFORMES PERIÓDICOS -->
+  <div class="sec">
+    <h2>3. Informes periódicos</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Informe</th><th>Plazo de publicación</th><th>Contenido esencial</th><th>Destinatario</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Anual</strong></td>
+            <td><strong>4 meses</strong> tras el cierre del ejercicio</td>
+            <td>Balance, P&amp;G, cartera al cierre, NAV histórico, rentabilidad, informe de auditoría</td>
+            <td>Todos los partícipes</td>
+          </tr>
+          <tr>
+            <td><strong>Semestral</strong></td>
+            <td><strong>2 meses</strong> tras el cierre del semestre</td>
+            <td>Composición de cartera, NAV al cierre, rentabilidad semestral</td>
+            <td>Todos los partícipes</td>
+          </tr>
+          <tr>
+            <td><strong>Trimestral</strong></td>
+            <td>Trimestral</td>
+            <td>Posición del partícipe (participaciones, valor, rentabilidad acumulada)</td>
+            <td>Solo partícipes con &gt;300.000 €</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Plazos a memorizar: informe anual → <strong>4 meses</strong>; informe semestral → <strong>2 meses</strong>.
+        El informe trimestral solo para partícipes con más de <strong>300.000 €</strong>. Estos datos aparecen
+        en preguntas con opciones de 1 mes, 3 meses, 6 meses como distractores.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 4. COMUNICACIONES PUNTUALES -->
+  <div class="sec">
+    <h2>4. Comunicaciones puntuales obligatorias</h2>
     <ul>
-      <li>La modificación entra en vigor: <strong>1 de agosto de 2026</strong> (1 mes después).</li>
-      <li>Durante ese mes, los partícipes pueden reembolsar sin comisión de reembolso.</li>
+      <li><strong>Modificación del folleto:</strong> comunicación previa mínima de 1 mes con derecho de separación sin coste.</li>
+      <li><strong>Cambio de gestora o depositario:</strong> mismas condiciones que la modificación del folleto.</li>
+      <li><strong>Suspensión de reembolsos:</strong> comunicación inmediata a los partícipes afectados y a la CNMV.</li>
+      <li><strong>Fusión o escisión de fondos:</strong> el partícipe del fondo absorbido tiene derecho de separación sin coste.</li>
+      <li><strong>Confirmación de operaciones:</strong> tras cada suscripción o reembolso, confirmación con: participaciones, NAV aplicado, importe total y comisiones cobradas.</li>
     </ul>
-    <p>Un partícipe tiene <strong>15.000 participaciones</strong> a un NAV de <strong>102,30 €</strong>. Si decide ejercer el derecho de separación, recibirá:</p>
-    <ul>
-      <li>15.000 × 102,30 = <strong>1.534.500 €</strong> (sin comisión de reembolso, aunque el folleto prevea un 1,00% para antigüedades &lt;2 años)</li>
-    </ul>
-    <p>El derecho de separación es irrenunciable: la gestora no puede exigir la comisión de reembolso en estos casos.</p>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>La CNMV está en proceso de actualizar el marco del DFI a raíz de la revisión del Reglamento PRIIPs (pendiente de aprobación definitiva en 2026), que sustituirá progresivamente el KIID UCITS por un KID PRIIPs unificado para todos los productos de inversión empaquetados, con nuevo escenario de rentabilidad esperada e indicador de riesgo (SRI) modificado.</p>
+    </div>
   </div>
 
-  <div class="card accent-green">
-    <h4>📌 Ejemplo numérico 2 — Confirmación de operación y verificación</h4>
-    <p>Un partícipe solicita la suscripción de <strong>10.000 €</strong> en un fondo el <strong>lunes 9 de junio de 2026</strong> antes del corte horario de las 15:00h. Según el folleto, se aplica el NAV del <strong>mismo día</strong>. El NAV del 9 de junio es <strong>134,52 €/participación</strong>. Comisión de suscripción: 0,50%.</p>
-    <ul>
-      <li>Importe neto invertido (descontada comisión): 10.000 / 1,005 = <strong>9.950,25 €</strong></li>
-      <li>Participaciones adquiridas: 9.950,25 / 134,52 = <strong>73,96 participaciones</strong></li>
-      <li>Comisión de suscripción cobrada: 10.000 × 0,50% = <strong>50,00 €</strong></li>
-    </ul>
-    <p>La confirmación que debe recibir el partícipe incluye: fecha de la operación (9/6/2026), NAV aplicado (134,52 €), participaciones adquiridas (73,96), importe total pagado (10.000 €) y comisión de suscripción (50,00 €). Sin esta confirmación, el partícipe no puede verificar que la operación se ejecutó correctamente.</p>
+  <hr>
+
+  <!-- 5. EJEMPLOS -->
+  <div class="sec">
+    <h2>5. Ejemplos numéricos</h2>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 1 — Derecho de separación ante modificación del folleto</h3>
+      <p>Un fondo de renta fija decide ampliar su política de inversión al 30% en renta variable (cambio sustancial). La gestora comunica la modificación el <strong>1 de julio de 2026</strong>; entra en vigor el <strong>1 de agosto de 2026</strong>.</p>
+      <p>Un partícipe con <strong>15.000 participaciones</strong> a NAV de <strong>102,30 €</strong> ejerce el derecho de separación:</p>
+      <ul>
+        <li>15.000 × 102,30 = <strong>1.534.500 €</strong> (sin comisión de reembolso, aunque el folleto prevea un 1% para &lt;2 años de antigüedad)</li>
+      </ul>
+      <p>El derecho de separación es irrenunciable: la gestora no puede exigir la comisión de reembolso en estos casos.</p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 2 — Confirmación de operación y verificación</h3>
+      <p>Un partícipe suscribe <strong>10.000 €</strong> el lunes 9 de junio de 2026 (antes del corte de las 15:00h). El folleto aplica el NAV del mismo día: <strong>134,52 €/participación</strong>. Comisión de suscripción: 0,50%.</p>
+      <ul>
+        <li>Importe neto invertido (descontada comisión): 10.000 / 1,005 = <strong>9.950,25 €</strong></li>
+        <li>Participaciones adquiridas: 9.950,25 / 134,52 = <strong>73,96 participaciones</strong></li>
+        <li>Comisión de suscripción cobrada: 10.000 × 0,50% = <strong>50,00 €</strong></li>
+      </ul>
+      <p>La confirmación que debe recibir el partícipe incluye todos estos datos. Sin ella, no puede verificar que la operación se ejecutó correctamente.</p>
+    </div>
   </div>
 
-  <!-- 7. Tabla resumen -->
-  <h2>7. Tabla resumen — Documentos de información al partícipe</h2>
+  <!-- NOTAS AL PIE -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">Reglamento (UE) n.º 583/2010 de la Comisión, de 1 julio 2010, arts. 1–24 (contenido y formato del KIID).
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32010R0583" target="_blank" rel="noopener">eur-lex.europa.eu — Rgl. KIID</a></li>
+      <li id="fn2">RD 1082/2012 (RLIIC), arts. 17–22 (folleto: contenido mínimo y régimen de aprobación por la CNMV).
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-9716" target="_blank" rel="noopener">boe.es — RLIIC</a></li>
+      <li id="fn3">Ley 35/2003 (LIIC), arts. 17–21 (derechos de información, modificación del folleto, derecho de separación irrenunciable).
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-20331" target="_blank" rel="noopener">boe.es — LIIC</a>
+        RLIIC, arts. 23–32 (informes anual, semestral y trimestral: contenido, plazos y distribución).</li>
+    </ol>
+  </div>
 
-  <table class="summary-table">
-    <thead>
-      <tr>
-        <th>Documento</th>
-        <th>Momento</th>
-        <th>Plazo / Frecuencia</th>
-        <th>Contenido esencial</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>DFI / KIID</strong></td>
-        <td>Precontractual (antes de suscribir)</td>
-        <td>Obligatorio antes de cada suscripción</td>
-        <td>Objetivos, riesgo, gastos, rentabilidades históricas</td>
-      </tr>
-      <tr>
-        <td><strong>Folleto completo</strong></td>
-        <td>A disposición permanente</td>
-        <td>Actualizado ante cambios sustanciales</td>
-        <td>Marco legal completo del fondo</td>
-      </tr>
-      <tr>
-        <td><strong>Informe anual</strong></td>
-        <td>Posterior (cierre ejercicio)</td>
-        <td>4 meses tras el cierre</td>
-        <td>Balance, P&amp;G, cartera, auditoría</td>
-      </tr>
-      <tr>
-        <td><strong>Informe semestral</strong></td>
-        <td>Posterior (cierre semestre)</td>
-        <td>2 meses tras el cierre</td>
-        <td>Cartera, NAV, rentabilidad semestral</td>
-      </tr>
-      <tr>
-        <td><strong>Informe trimestral</strong></td>
-        <td>Posterior (partícipes &gt;300.000 €)</td>
-        <td>Trimestral</td>
-        <td>Posición del partícipe</td>
-      </tr>
-      <tr>
-        <td><strong>Confirmación de operación</strong></td>
-        <td>Tras cada suscripción/reembolso</td>
-        <td>Inmediata a la operación</td>
-        <td>Participaciones, NAV, importe, comisiones</td>
-      </tr>
-      <tr>
-        <td><strong>Aviso modificación folleto</strong></td>
-        <td>Antes de la modificación</td>
-        <td>Mínimo 1 mes de antelación</td>
-        <td>Cambio previsto + derecho de separación</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- Footnotes -->
-  <ol class="footnotes">
-    <li id="fn1">Ley 35/2003 (LIIC), arts. 17–21 (derechos de información de los partícipes, modificación del folleto, derecho de separación). BOE núm. 265. Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-20331" target="_blank" rel="noopener">boe.es — LIIC</a></li>
-    <li id="fn2">Reglamento (UE) n.º 583/2010 de la Comisión, de 1 julio 2010, arts. 1–24 (contenido y formato del KIID). DOUE L 176. Disponible en: <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32010R0583" target="_blank" rel="noopener">eur-lex.europa.eu — Rgl. KIID</a></li>
-    <li id="fn3">Real Decreto 1082/2012 (RLIIC), arts. 17–22 (folleto: contenido mínimo y régimen de aprobación por la CNMV). Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-9716" target="_blank" rel="noopener">boe.es — RLIIC</a></li>
-    <li id="fn4">RLIIC, arts. 23–32 (informes anual, semestral y trimestral: contenido, plazos y distribución). Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-9716" target="_blank" rel="noopener">boe.es — RLIIC</a></li>
-    <li id="fn5">CNMV, Registros oficiales de IIC. Disponible en: <a href="https://www.cnmv.es/portal/Consultas/IIC/IICregistradas.aspx" target="_blank" rel="noopener">cnmv.es — Registro IIC</a></li>
-  </ol>
-
-  <!-- Sección nav -->
+  <!-- NAVEGACIÓN -->
   <div class="sec-nav">
-    <a class="nav-btn" href="seccion-d.html">← D — Comisiones</a>
-    <a class="nav-btn next" href="../bloque-2/seccion-a.html">Siguiente bloque: B2·A — Tipos de fondos →</a>
+    <a href="seccion-d.html" class="nav-btn">← D: Comisiones</a>
+    <a href="../bloque-2/seccion-a.html" class="nav-btn">B2·A: Tipos de fondos →</a>
   </div>
 
-</div><!-- /container -->
+</div>
 
 <footer>
   EFA Prep · Módulo 2 · Bloque 1 · Sección E · Basado en la Guía de Certificación EFPA España V1/26

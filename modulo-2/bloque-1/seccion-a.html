@@ -1,211 +1,363 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es" data-theme="light" data-fontsize="normal">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>M2·B1·A — Marco legislativo y definición de las IIC | EFA Prep</title>
-  <link rel="stylesheet" href="../../assets/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M2 · B1 · Sección A — Marco legislativo y definición de las IIC · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .norm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .norm-grid { grid-template-columns: 1fr; } }
+    .norm-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .norm-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      margin-bottom: .35rem;
+      color: var(--navy);
+    }
+    .norm-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .ventaja-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .ventaja-grid { grid-template-columns: 1fr; } }
+    .ventaja-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-left: 4px solid var(--navy);
+      border-radius: 0 14px 14px 0;
+      padding: 1rem 1.1rem;
+    }
+    .ventaja-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin-bottom: .3rem;
+    }
+    .ventaja-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .contexto-actual {
+      background: var(--card);
+      border-left: 4px solid var(--green);
+      border-radius: 0 14px 14px 0;
+      padding: 1.1rem 1.3rem;
+      margin: 1.2rem 0;
+    }
+    .contexto-actual .ctx-title {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--green);
+      margin-bottom: .5rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .contexto-actual p {
+      font-size: var(--fs-sm);
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0 0 .4rem;
+    }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+    .footnotes {
+      border-top: 1px solid var(--border);
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
+    }
+    .footnotes h4 {
+      font-family: var(--font-ui);
+      font-size: var(--fs-xs);
+      font-weight: 800;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .8rem;
+    }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li {
+      font-size: .78rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+      margin-bottom: .35rem;
+    }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
 
-<!-- ── Toolbar ── -->
-<nav class="toolbar">
-  <a class="toolbar-brand" href="#">EFA Prep</a>
-  <button class="fs-btn" id="fs-btn-normal">A</button>
-  <button class="fs-btn" id="fs-btn-large">A+</button>
-  <button class="fs-btn" id="fs-btn-xlarge">A++</button>
-  <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
-</nav>
+<div class="top-stripe"></div>
 
-<!-- ── Breadcrumb ── -->
-<div class="breadcrumb">
-  <a href="#">Inicio</a><span>›</span>
-  <a href="#">Módulo 2</a><span>›</span>
-  <a href="#">Bloque 1</a><span>›</span>
-  Sección A
-</div>
-
-<!-- ── Hero ── -->
-<div class="hero">
-  <div class="container">
-    <div class="hero-pill">Nivel I · Conocimiento</div>
-    <h1>Sección A — Marco legislativo y definición de las IIC</h1>
-    <p class="hero-sub">Módulo 2 · Bloque 1 · Visión general de los fondos de inversión mobiliaria</p>
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M2 · B1 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
   </div>
 </div>
 
-<!-- ── Content ── -->
-<div class="container">
+<div class="wrap">
 
-  <!-- 1. ¿Qué es una IIC? -->
-  <h2>1. ¿Qué es una Institución de Inversión Colectiva?</h2>
-
-  <p>Una <strong>Institución de Inversión Colectiva (IIC)</strong> es un vehículo de ahorro e inversión mediante el cual una pluralidad de inversores —denominados <em>partícipes</em> (en los fondos) o <em>socios</em> (en las sociedades)— ponen en común sus recursos para que sean gestionados profesionalmente, con el objetivo de obtener una rentabilidad colectiva superior a la que cada uno obtendría individualmente.<sup><a href="#fn1">1</a></sup></p>
-
-  <p>La clave del concepto reside en la <strong>gestión colectiva</strong>: las aportaciones individuales se agregan en un patrimonio común que luego se invierte en activos financieros diversificados según la política de inversión definida en el folleto de la IIC.</p>
-
-  <h3>Requisitos esenciales (LIIC, art. 1)</h3>
-  <ul>
-    <li>Captar fondos del público —financiación colectiva—.</li>
-    <li>Gestionar e invertir dichos fondos de forma conjunta.</li>
-    <li>El rendimiento del inversor depende del resultado colectivo (no de un tipo pactado individualmente).</li>
-  </ul>
-
-  <div class="exam-alert">
-    <strong>🎯 Frecuente en examen:</strong> La distinción entre IIC <em>abiertas</em> (el partícipe puede entrar/salir continuamente — fondos de inversión, SICAV) e IIC <em>cerradas</em> (capital fijo — capital riesgo, FILPE) aparece en casi todos los simulacros. El derecho de reembolso continuo es la clave diferenciadora de las abiertas.
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 2</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 1</a>
+    <span class="sep">›</span>
+    <span>Sección A</span>
   </div>
 
-  <!-- 2. Marco legislativo -->
-  <h2>2. Marco legislativo</h2>
-
-  <h3>2.1 Ley 35/2003, de Instituciones de Inversión Colectiva (LIIC)</h3>
-  <p>Es la norma <strong>troncal del sector</strong> en España. Regula la constitución, el régimen jurídico, la supervisión y la disolución de las IIC domiciliadas en territorio nacional. Ha sido objeto de varias modificaciones para incorporar las directivas europeas.<sup><a href="#fn2">2</a></sup></p>
-
-  <p>Los pilares de la LIIC son:</p>
-  <ul>
-    <li>Definición y tipología de IIC (fondos y sociedades).</li>
-    <li>Obligaciones de las Sociedades Gestoras de Instituciones de Inversión Colectiva (SGIIC) y de las entidades depositarias.</li>
-    <li>Régimen de supervisión de la CNMV.</li>
-    <li>Normas de conducta y protección al inversor.</li>
-    <li>Principios de diversificación y límites de inversión.</li>
-  </ul>
-
-  <h3>2.2 Real Decreto 1082/2012 — Reglamento de la LIIC (RLIIC)</h3>
-  <p>Desarrolla reglamentariamente la LIIC, precisando los <strong>límites de inversión, requisitos de solvencia</strong> de gestoras y depositarias, contenido de folletos e informes periódicos, y régimen de IIC extranjeras comercializadas en España.<sup><a href="#fn3">3</a></sup></p>
-
-  <h3>2.3 Directiva UCITS V (2014/91/UE) y su transposición</h3>
-  <p><strong>UCITS</strong> (<em>Undertakings for Collective Investment in Transferable Securities</em>) es el pasaporte europeo para fondos de inversión armonizados. España transpuso la Directiva UCITS IV mediante el RD 1082/2012. La versión V (2014) reforzó los requisitos sobre depositarios, política de remuneración de gestoras y sanciones, siendo incorporada al ordenamiento español mediante el Real Decreto-ley 22/2018.<sup><a href="#fn4">4</a></sup></p>
-
-  <p>Los fondos UCITS pueden comercializarse libremente en cualquier Estado miembro de la UE mediante simple notificación a los supervisores (pasaporte único).</p>
-
-  <h3>2.4 Directiva AIFMD (2011/61/UE) — Gestores de fondos alternativos</h3>
-  <p>Regula los fondos <strong>NO armonizados</strong>: fondos de inversión libre (<em>hedge funds</em>), capital riesgo, fondos inmobiliarios y otros fondos alternativos. La AIFMD —transpuesta en España mediante la reforma de la LIIC— exige autorización como Gestora de Fondos de Inversión Alternativa (GFIA) para gestionar este tipo de IIC.<sup><a href="#fn5">5</a></sup></p>
-
-  <h3>2.5 Reglamento europeo sobre fondos del mercado monetario (Reglamento UE 2017/1131)</h3>
-  <p>Establece normas uniformes para los fondos del mercado monetario (FMM) en toda la UE: valoración, gestión de liquidez, límites de crédito y requisitos de transparencia, aplicables directamente sin necesidad de transposición.<sup><a href="#fn6">6</a></sup></p>
-
-  <h3>2.6 Otras normas relevantes</h3>
-  <ul>
-    <li><strong>Circular CNMV 2/2020</strong>: normas de conducta, gestión de conflictos de interés y mejores prácticas de ejecución para IIC.</li>
-    <li><strong>Reglamento SFDR (2019/2088/UE)</strong>: divulgación de información sobre sostenibilidad en el sector de servicios financieros, aplica a gestoras y asesores.</li>
-    <li><strong>Reglamento de Taxonomía (2020/852/UE)</strong>: marco de clasificación de actividades económicas sostenibles que afecta a la información que deben publicar los fondos clasificados como artículo 8 o 9 SFDR.</li>
-  </ul>
-
-  <div class="context-box">
-    <strong>📊 Contexto actual (junio 2026):</strong> La Directiva Ómnibus I (UE) 2026/470, en vigor desde el 18 de marzo de 2026, simplifica el CSRD y los ESRS (reducción ~70% de indicadores), pero no modifica directamente la LIIC. Sin embargo, los fondos artículo 8 y 9 SFDR están a la espera de la revisión del propio reglamento SFDR, cuya propuesta de la Comisión se espera en 2026, lo que genera incertidumbre regulatoria en la industria de fondos sostenibles.
+  <div class="hero">
+    <div class="pill">Módulo 2 · Bloque 1 · Sección A · Nivel I · Conocimiento</div>
+    <h1>Marco legislativo y definición de las IIC</h1>
+    <p class="hero-sub">
+      Concepto de Institución de Inversión Colectiva · Marco normativo (LIIC, RLIIC, UCITS V, AIFMD, SFDR) ·
+      Ventajas estructurales: diversificación, gestión profesional, liquidez y seguridad jurídica.
+    </p>
   </div>
 
-  <!-- 3. Ventajas de las IIC -->
-  <h2>3. Ventajas de las Instituciones de Inversión Colectiva</h2>
+  <hr>
 
-  <p>El legislador establece las IIC como vehículos que ofrecen al pequeño inversor acceso a cuatro ventajas estructurales que difícilmente obtendría en solitario:<sup><a href="#fn1">1</a></sup></p>
+  <!-- 1. QUÉ ES UNA IIC -->
+  <div class="sec">
+    <h2>1. ¿Qué es una Institución de Inversión Colectiva?</h2>
+    <p>
+      Una <strong>Institución de Inversión Colectiva (IIC)</strong> es un vehículo de ahorro e inversión mediante el cual
+      una pluralidad de inversores —denominados <em>partícipes</em> en los fondos o <em>socios</em> en las sociedades—
+      ponen en común sus recursos para que sean gestionados profesionalmente, con el objetivo de obtener una rentabilidad
+      colectiva superior a la que cada uno obtendría individualmente.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
+    <p>
+      La clave del concepto reside en la <strong>gestión colectiva</strong>: las aportaciones individuales se agregan en
+      un patrimonio común que se invierte en activos financieros diversificados según la política de inversión del folleto.
+    </p>
 
-  <h3>3.1 Diversificación</h3>
-  <p>La LIIC impone límites de concentración estrictos: con carácter general, ningún fondo UCITS puede invertir más del <strong>5% de su patrimonio en valores de un mismo emisor</strong> (ampliable al 10% si el conjunto de posiciones &gt;5% no supera el 40%). Esto obliga a una cartera mínimamente diversificada que el pequeño inversor no podría replicar por sí solo con su patrimonio limitado.<sup><a href="#fn2">2</a></sup></p>
-
-  <h3>3.2 Gestión profesional</h3>
-  <p>La gestión la ejerce una <strong>SGIIC autorizada y supervisada por la CNMV</strong>, con analistas, herramientas de riesgo y acceso a mercados mayoristas. La comisión de gestión retribuye este servicio.</p>
-
-  <h3>3.3 Liquidez</h3>
-  <p>Los fondos abiertos (UCITS) garantizan el <strong>reembolso de participaciones en un plazo máximo de 3 días hábiles</strong> desde la solicitud, calculando el valor liquidativo al menos una vez al día. El inversor puede convertir su inversión en dinero con celeridad.<sup><a href="#fn2">2</a></sup></p>
-
-  <h3>3.4 Seguridad jurídica y protección</h3>
-  <p>El patrimonio del fondo está <strong>segregado del balance de la gestora y del depositario</strong>: si cualquiera de ellos quiebra, el patrimonio del fondo no forma parte de la masa concursal. La CNMV supervisa la correcta valoración, la custodia de activos y el cumplimiento del folleto.</p>
-
-  <h3>3.5 Acceso a mercados y economías de escala</h3>
-  <p>La masa crítica del fondo permite negociar en mercados mayoristas (deuda pública en subasta, divisas en el mercado interbancario) y obtener menores costes de transacción por operación que un inversor individual.</p>
-
-  <h3>3.6 Tratamiento fiscal favorable (en España)</h3>
-  <p>Las IIC tributan al <strong>1% en el Impuesto sobre Sociedades</strong> (frente al 25% general), lo que permite el diferimiento fiscal mientras el inversor no reembolsa. El inversor persona física tributa las ganancias patrimoniales en el IRPF solo en el momento del reembolso o traspaso (el traspaso entre fondos no genera tributación inmediata).<sup><a href="#fn7">7</a></sup></p>
-
-  <div class="exam-alert">
-    <strong>🎯 Frecuente en examen:</strong> Las cuatro ventajas clásicas que enumera la guía EFPA son: <strong>diversificación, gestión profesional, liquidez y seguridad jurídica</strong>. La rentabilidad no se garantiza; es la consecuencia esperada de las anteriores, no una ventaja en sí misma estructural. Cuidado con respuestas que incluyan "rentabilidad garantizada" como ventaja de las IIC.
-  </div>
-
-  <!-- 4. Ejemplos numéricos -->
-  <h2>4. Ejemplos numéricos</h2>
-
-  <div class="card accent-green">
-    <h4>📌 Ejemplo numérico 1 — Diversificación: el efecto de los límites UCITS</h4>
-    <p>Un inversor particular dispone de <strong>5.000 €</strong>. Si los invierte todos en acciones de Telefónica, tiene concentración del 100% en un solo emisor.</p>
-    <p>Un fondo UCITS estándar con <strong>100 M€ de patrimonio</strong> tiene prohibido invertir más del 5% en un solo emisor, lo que implica un mínimo de 20 emisores distintos. A igualdad de cartera, la pérdida total de un emisor reduciría el fondo un 5%, frente al 100% del inversor individual concentrado.</p>
-    <p><strong>Conclusión:</strong> el inversor con 5.000 € accede, vía fondo, a una cartera imposible de construir de forma eficiente en solitario.</p>
-  </div>
-
-  <div class="card accent-green">
-    <h4>📌 Ejemplo numérico 2 — Ventaja fiscal del traspaso entre fondos</h4>
-    <p>Supongamos que un inversor compró participaciones de un fondo de renta variable en 2020 por <strong>10.000 €</strong>. En junio de 2026 valen <strong>16.000 €</strong> (plusvalía latente: 6.000 €).</p>
-    <p>Si quiere cambiar a un fondo de renta fija:</p>
+    <h3>Requisitos esenciales (LIIC, art. 1)</h3>
     <ul>
-      <li><strong>Traspaso (IIC → IIC):</strong> No tributa en IRPF en el momento del traspaso. Los 16.000 € se trasladan íntegros al nuevo fondo, manteniendo el precio de adquisición original (10.000 €). Tributación diferida.</li>
-      <li><strong>Reembolso + nueva suscripción:</strong> Tributación inmediata sobre 6.000 € de ganancia al tipo de ahorro (19–28%, según tramo). Coste fiscal inmediato de hasta <strong>1.680 €</strong>.</li>
+      <li>Captar fondos del público — financiación colectiva.</li>
+      <li>Gestionar e invertir dichos fondos de forma conjunta.</li>
+      <li>El rendimiento del inversor depende del resultado colectivo, no de un tipo pactado individualmente.</li>
     </ul>
-    <p>El mecanismo de traspaso es una ventaja exclusiva de las IIC en España, inexistente en acciones o depósitos.</p>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        La distinción entre IIC <em>abiertas</em> (el partícipe puede entrar/salir continuamente — fondos de inversión, SICAV)
+        e IIC <em>cerradas</em> (capital fijo — capital riesgo, FILPE) aparece en casi todos los simulacros.
+        El derecho de reembolso continuo es la clave diferenciadora de las abiertas.
+      </div>
+    </div>
   </div>
 
-  <!-- 5. Tabla resumen -->
-  <h2>5. Tabla resumen — Marco normativo IIC</h2>
+  <hr>
 
-  <table class="summary-table">
-    <thead>
-      <tr>
-        <th>Norma</th>
-        <th>Ámbito</th>
-        <th>Puntos clave</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Ley 35/2003 (LIIC)</strong></td>
-        <td>Nacional</td>
-        <td>Ley básica: tipología, gestoras, depositarios, CNMV</td>
-      </tr>
-      <tr>
-        <td><strong>RD 1082/2012 (RLIIC)</strong></td>
-        <td>Nacional</td>
-        <td>Desarrollo reglamentario: límites, folletos, solvencia</td>
-      </tr>
-      <tr>
-        <td><strong>UCITS V (2014/91/UE)</strong></td>
-        <td>UE — fondos armonizados</td>
-        <td>Pasaporte europeo, depositarios, remuneración, sanciones</td>
-      </tr>
-      <tr>
-        <td><strong>AIFMD (2011/61/UE)</strong></td>
-        <td>UE — fondos alternativos</td>
-        <td>Hedge funds, capital riesgo, inmobiliarios; GFIA</td>
-      </tr>
-      <tr>
-        <td><strong>Rgl. FMM (2017/1131/UE)</strong></td>
-        <td>UE — mercado monetario</td>
-        <td>Valoración, liquidez, crédito para MMF</td>
-      </tr>
-      <tr>
-        <td><strong>SFDR (2019/2088/UE)</strong></td>
-        <td>UE — sostenibilidad</td>
-        <td>Divulgación ESG: art. 6, 8 y 9; PAIS</td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- 2. MARCO LEGISLATIVO -->
+  <div class="sec">
+    <h2>2. Marco legislativo</h2>
 
-  <!-- Footnotes -->
-  <ol class="footnotes">
-    <li id="fn1">Ley 35/2003, de 4 de noviembre, de Instituciones de Inversión Colectiva, art. 1. BOE núm. 265, 5 nov. 2003. Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-20331" target="_blank" rel="noopener">boe.es — LIIC</a></li>
-    <li id="fn2">Real Decreto 1082/2012, de 13 de julio, por el que se aprueba el Reglamento de desarrollo de la Ley 35/2003 (RLIIC), arts. 23–38 (límites de inversión) y art. 79 (plazo de reembolso). BOE núm. 168. Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-9716" target="_blank" rel="noopener">boe.es — RLIIC</a></li>
-    <li id="fn3">RLIIC, arts. 1–22 (requisitos de solvencia y autorización de SGIIC y depositarios).</li>
-    <li id="fn4">Directiva 2014/91/UE del Parlamento Europeo y del Consejo, de 23 de julio de 2014 (UCITS V). DOUE L 257/186. Disponible en: <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32014L0091" target="_blank" rel="noopener">eur-lex.europa.eu — UCITS V</a></li>
-    <li id="fn5">Directiva 2011/61/UE del Parlamento Europeo y del Consejo, de 8 de junio de 2011 (AIFMD). DOUE L 174/1. Disponible en: <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32011L0061" target="_blank" rel="noopener">eur-lex.europa.eu — AIFMD</a></li>
-    <li id="fn6">Reglamento (UE) 2017/1131 del Parlamento Europeo y del Consejo, de 14 de junio de 2017, sobre fondos del mercado monetario. DOUE L 169/8. Disponible en: <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32017R1131" target="_blank" rel="noopener">eur-lex.europa.eu — FMM</a></li>
-    <li id="fn7">Ley 27/2014, de 27 de noviembre, del Impuesto sobre Sociedades, art. 29.4 (tipo del 1% para IIC). BOE núm. 288. Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2014-12328" target="_blank" rel="noopener">boe.es — LIS</a>. Traspaso sin tributación: art. 94 Ley 35/2006 (LIRPF).</li>
-  </ol>
+    <h3>Norma troncal española: Ley 35/2003 (LIIC)</h3>
+    <p>
+      Es la <strong>norma básica del sector</strong> en España. Regula la constitución, el régimen jurídico, la supervisión
+      y la disolución de las IIC domiciliadas en territorio nacional.<sup class="fn"><a href="#fn2">2</a></sup>
+      Sus pilares son: definición y tipología de IIC, obligaciones de las SGIIC y depositarias, régimen de supervisión
+      de la CNMV, normas de conducta y principios de diversificación.
+    </p>
 
-  <!-- Sección nav -->
+    <h3>Desarrollo reglamentario: RD 1082/2012 (RLIIC)</h3>
+    <p>
+      Precisa los <strong>límites de inversión, requisitos de solvencia</strong> de gestoras y depositarias,
+      contenido de folletos e informes periódicos, y régimen de IIC extranjeras comercializadas en España.<sup class="fn"><a href="#fn3">3</a></sup>
+    </p>
+
+    <div class="norm-grid">
+      <div class="norm-box">
+        <h4>UCITS V (2014/91/UE)</h4>
+        <p>Pasaporte europeo para fondos armonizados. Refuerza requisitos sobre depositarios,
+        remuneración de gestoras y sanciones. Comercialización libre en toda la UE.</p>
+      </div>
+      <div class="norm-box">
+        <h4>AIFMD (2011/61/UE)</h4>
+        <p>Regula fondos NO armonizados: hedge funds, capital riesgo, inmobiliarios.
+        Exige autorización como Gestora de Fondos Alternativos (GFIA).</p>
+      </div>
+      <div class="norm-box">
+        <h4>Rgl. FMM (2017/1131/UE)</h4>
+        <p>Normas uniformes para fondos del mercado monetario: valoración, liquidez,
+        crédito. Aplicable directamente sin transposición.</p>
+      </div>
+      <div class="norm-box">
+        <h4>SFDR (2019/2088/UE)</h4>
+        <p>Divulgación de sostenibilidad en servicios financieros. Clasifica fondos
+        en artículo 6, 8 y 9 según ambición ESG.</p>
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>La Directiva Ómnibus I (UE) 2026/470, en vigor desde el 18 de marzo de 2026, simplifica el CSRD
+      y los ESRS (~70% menos de indicadores), pero no modifica directamente la LIIC. Los fondos artículo 8
+      y 9 SFDR están a la espera de la revisión del propio Reglamento SFDR, cuya propuesta de la Comisión
+      se espera en 2026, generando incertidumbre regulatoria en la industria de fondos sostenibles.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 3. VENTAJAS -->
+  <div class="sec">
+    <h2>3. Ventajas estructurales de las IIC</h2>
+    <p>
+      El legislador establece las IIC como vehículos que ofrecen al pequeño inversor cuatro ventajas estructurales
+      que difícilmente obtendría en solitario.<sup class="fn"><a href="#fn2">2</a></sup>
+    </p>
+
+    <div class="ventaja-grid">
+      <div class="ventaja-box">
+        <h4>Diversificación</h4>
+        <p>La LIIC impone que ningún fondo UCITS invierta más del 5% en un mismo emisor. El pequeño inversor
+        accede a carteras imposibles de replicar individualmente.</p>
+      </div>
+      <div class="ventaja-box">
+        <h4>Gestión profesional</h4>
+        <p>La SGIIC autorizada y supervisada por la CNMV gestiona con analistas, herramientas de riesgo
+        y acceso a mercados mayoristas.</p>
+      </div>
+      <div class="ventaja-box">
+        <h4>Liquidez</h4>
+        <p>Los fondos abiertos (UCITS) garantizan el reembolso en un máximo de 3 días hábiles,
+        calculando el NAV al menos una vez al día.</p>
+      </div>
+      <div class="ventaja-box">
+        <h4>Seguridad jurídica</h4>
+        <p>El patrimonio del fondo está segregado del balance de la gestora y del depositario:
+        en caso de quiebra, no forma parte de la masa concursal.</p>
+      </div>
+    </div>
+
+    <h3>Ventaja fiscal adicional (España)</h3>
+    <p>
+      Las IIC tributan al <strong>1% en el Impuesto sobre Sociedades</strong> (frente al 25% general).
+      El partícipe persona física tributa las ganancias patrimoniales en IRPF solo en el momento del reembolso.
+      El <strong>traspaso entre fondos no genera tributación inmediata</strong>.<sup class="fn"><a href="#fn4">4</a></sup>
+    </p>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Las cuatro ventajas clásicas de la guía EFPA son: <strong>diversificación, gestión profesional, liquidez
+        y seguridad jurídica</strong>. La rentabilidad no es una ventaja estructural garantizada: es la consecuencia
+        esperada de las anteriores. Cuidado con respuestas que incluyan "rentabilidad garantizada".
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 4. EJEMPLOS NUMÉRICOS -->
+  <div class="sec">
+    <h2>4. Ejemplos numéricos</h2>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 1 — Diversificación: el efecto de los límites UCITS</h3>
+      <p>
+        Un inversor particular dispone de <strong>5.000 €</strong>. Si invierte todo en acciones de Telefónica,
+        tiene una concentración del 100% en un solo emisor.
+      </p>
+      <p>
+        Un fondo UCITS con <strong>100 M€</strong> de patrimonio tiene prohibido invertir más del 5% en un emisor
+        → mínimo 20 emisores distintos. La pérdida total de un emisor reduciría el fondo un 5%,
+        frente al 100% del inversor concentrado.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 2 — Ventaja fiscal del traspaso entre fondos</h3>
+      <p>
+        Un inversor compró participaciones en 2020 por <strong>10.000 €</strong>. En junio de 2026 valen
+        <strong>16.000 €</strong> (plusvalía latente: 6.000 €). Quiere cambiar a un fondo de renta fija.
+      </p>
+      <ul>
+        <li><strong>Traspaso (IIC → IIC):</strong> no tributa. Los 16.000 € se trasladan íntegros al nuevo fondo
+        manteniendo el precio de adquisición original. Tributación diferida.</li>
+        <li><strong>Reembolso + nueva suscripción:</strong> tributación inmediata sobre 6.000 € al tipo del ahorro.
+        Coste fiscal inmediato de hasta <strong>1.680 €</strong> (tramo 28%).</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 5. RESUMEN -->
+  <div class="sec">
+    <h2>5. Tabla resumen — Marco normativo IIC</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Norma</th><th>Ámbito</th><th>Puntos clave</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Ley 35/2003 (LIIC)</strong></td><td>Nacional</td><td>Ley básica: tipología, gestoras, depositarios, CNMV</td></tr>
+          <tr><td><strong>RD 1082/2012 (RLIIC)</strong></td><td>Nacional</td><td>Límites de inversión, folletos, solvencia, comisiones máximas</td></tr>
+          <tr><td><strong>UCITS V (2014/91/UE)</strong></td><td>UE — armonizados</td><td>Pasaporte europeo, depositarios, remuneración, sanciones</td></tr>
+          <tr><td><strong>AIFMD (2011/61/UE)</strong></td><td>UE — alternativos</td><td>Hedge funds, capital riesgo, inmobiliarios; GFIA</td></tr>
+          <tr><td><strong>Rgl. FMM (2017/1131/UE)</strong></td><td>UE — monetarios</td><td>Valoración, liquidez, crédito para FMM</td></tr>
+          <tr><td><strong>SFDR (2019/2088/UE)</strong></td><td>UE — sostenibilidad</td><td>Divulgación ESG: artículos 6, 8 y 9</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NOTAS AL PIE -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">Ley 35/2003, de 4 de noviembre, de Instituciones de Inversión Colectiva, art. 1. BOE núm. 265, 5 nov. 2003.
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-20331" target="_blank" rel="noopener">boe.es — LIIC</a></li>
+      <li id="fn2">LIIC, arts. 1–3 (concepto y tipología de IIC) y art. 6 (derechos del partícipe, plazos de reembolso, límites de diversificación).</li>
+      <li id="fn3">Real Decreto 1082/2012, de 13 de julio, Reglamento de desarrollo de la Ley 35/2003 (RLIIC).
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-9716" target="_blank" rel="noopener">boe.es — RLIIC</a></li>
+      <li id="fn4">Ley 27/2014, del Impuesto sobre Sociedades, art. 29.4 (tipo del 1% para IIC).
+        Ley 35/2006 (LIRPF), art. 94 (traspaso sin tributación entre fondos).
+        <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764" target="_blank" rel="noopener">boe.es — LIRPF</a></li>
+    </ol>
+  </div>
+
+  <!-- NAVEGACIÓN -->
   <div class="sec-nav">
-    <a class="nav-btn" href="../bloque-1/seccion-a.html">↑ Inicio Bloque 1</a>
-    <a class="nav-btn next" href="seccion-b.html">Siguiente: B — Elementos intervinientes →</a>
+    <a href="../index.html" class="nav-btn">← Índice Módulo 2</a>
+    <a href="seccion-b.html" class="nav-btn">B: Elementos intervinientes →</a>
   </div>
 
-</div><!-- /container -->
+</div>
 
 <footer>
   EFA Prep · Módulo 2 · Bloque 1 · Sección A · Basado en la Guía de Certificación EFPA España V1/26
