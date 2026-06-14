@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M2 · B5 · Sección B — Rating de fondos · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .estrella-row { display: flex; gap: .8rem; margin: 1rem 0; flex-wrap: wrap; }
+    .estrella-box {
+      flex: 1; min-width: 140px;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: .85rem 1rem;
+      text-align: center;
+    }
+    .estrella-box .stars { font-size: 1.2rem; display: block; margin-bottom: .3rem; }
+    .estrella-box .pct {
+      font-family: var(--font-ui); font-weight: 800;
+      font-size: var(--fs-sm); color: var(--navy);
+      display: block; margin-bottom: .2rem;
+    }
+    .estrella-box p { font-size: var(--fs-xs); color: var(--text-soft); margin: 0; line-height: 1.5; }
+    .proceso-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-left: 5px solid var(--navy);
+      border-radius: 0 14px 14px 0;
+      padding: 1rem 1.2rem;
+      margin: .8rem 0;
+    }
+    .proceso-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .35rem; }
+    .proceso-box p, .proceso-box li { font-size: var(--fs-sm); color: var(--text-soft); line-height: 1.65; }
+    .proceso-box ul { padding-left: 1.2rem; margin: .3rem 0 0; }
+    .footnotes { border-top: 1px solid var(--border); margin-top: 2.5rem; padding-top: 1.2rem; }
+    .footnotes h4 { font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 800; color: var(--text-soft); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .8rem; }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li { font-size: .78rem; color: var(--text-soft); line-height: 1.6; margin-bottom: .35rem; }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M2 · B5 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 2</a><span class="sep">›</span>
+    <a href="index.html">Bloque 5</a><span class="sep">›</span>
+    <span>Sección B</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 2 · Bloque 5 · Sección B · Nivel I · Conocimiento y Análisis</div>
+    <h1>Rating de fondos</h1>
+    <p class="hero-sub">
+      Concepto y diferencias con el ranking · Rating cuantitativo (Morningstar) ·
+      Rating cualitativo (Analyst Rating) · Procedimiento · Utilidad y limitaciones.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- 1. CONCEPTO Y DIFERENCIA CON RANKING -->
+  <div class="sec">
+    <h2>1. Concepto y diferencia con el ranking</h2>
+    <p>
+      Un <strong>rating de fondos</strong> es una evaluación que asigna a cada fondo una puntuación
+      o categoría —habitualmente representada con estrellas, letras o notas— basada en criterios
+      más complejos que la simple rentabilidad. Mientras el ranking ordena por rentabilidad bruta,
+      el rating intenta medir la <strong>calidad del fondo en relación con el riesgo asumido</strong>
+      y, en los ratings cualitativos, también la solidez del proceso de inversión.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Característica</th><th>Ranking</th><th>Rating</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Criterio principal</strong></td><td>Rentabilidad absoluta en el período</td><td>Rentabilidad ajustada al riesgo y/o calidad del proceso</td></tr>
+          <tr><td><strong>Riesgo incorporado</strong></td><td>No</td><td>Sí (cuantitativo); Sí (cualitativo)</td></tr>
+          <tr><td><strong>Resultado</strong></td><td>Posición ordinal (1º, 2º, 3º…)</td><td>Nota/categoría (★★★★★, Gold, A…)</td></tr>
+          <tr><td><strong>Quién lo elabora</strong></td><td>Cualquier proveedor de datos</td><td>Firmas especializadas (Morningstar, Lipper, VDOS…)</td></tr>
+          <tr><td><strong>Horizonte temporal</strong></td><td>Fijo (1 año, 3 años…)</td><td>Cuantitativo: 3–10 años; cualitativo: prospectivo</td></tr>
+          <tr><td><strong>Utilidad principal</strong></td><td>Comparación rápida de rentabilidades pasadas</td><td>Selección de fondos con mayor probabilidad de persistencia</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 2. RATING CUANTITATIVO MORNINGSTAR -->
+  <div class="sec">
+    <h2>2. Rating cuantitativo: el sistema de estrellas Morningstar</h2>
+    <p>
+      El <strong>Morningstar Rating™</strong> (rating de estrellas) es el sistema cuantitativo más
+      utilizado en la industria. Mide la rentabilidad ajustada al riesgo de un fondo frente a los
+      fondos de su misma categoría durante tres períodos: 3, 5 y 10 años.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
+
+    <h3>Procedimiento de cálculo</h3>
+
+    <div class="proceso-box">
+      <h4>Paso 1 — Cálculo de la rentabilidad ajustada al riesgo (RAR)</h4>
+      <p>Morningstar calcula para cada fondo una <em>Morningstar Risk-Adjusted Return</em> (MRAR),
+      que penaliza la rentabilidad en función de la frecuencia y magnitud de las pérdidas
+      mensuales (no usa la desviación típica estándar sino una medida de utilidad esperada
+      que sobre-pondera las caídas).</p>
+    </div>
+
+    <div class="proceso-box">
+      <h4>Paso 2 — Comparación dentro de la categoría</h4>
+      <p>La MRAR de cada fondo se compara con la de todos los fondos de la misma categoría
+      Morningstar. Solo se comparan fondos homogéneos.</p>
+    </div>
+
+    <div class="proceso-box">
+      <h4>Paso 3 — Asignación de estrellas según percentil</h4>
+      <p>Los fondos se ordenan por su MRAR y se asignan estrellas según el percentil que ocupan:</p>
+    </div>
+
+    <div class="estrella-row">
+      <div class="estrella-box">
+        <span class="stars">★★★★★</span>
+        <span class="pct">Top 10%</span>
+        <p>5 estrellas</p>
+      </div>
+      <div class="estrella-box">
+        <span class="stars">★★★★</span>
+        <span class="pct">22,5% siguiente</span>
+        <p>4 estrellas</p>
+      </div>
+      <div class="estrella-box">
+        <span class="stars">★★★</span>
+        <span class="pct">35% central</span>
+        <p>3 estrellas</p>
+      </div>
+      <div class="estrella-box">
+        <span class="stars">★★</span>
+        <span class="pct">22,5% siguiente</span>
+        <p>2 estrellas</p>
+      </div>
+      <div class="estrella-box">
+        <span class="stars">★</span>
+        <span class="pct">Bottom 10%</span>
+        <p>1 estrella</p>
+      </div>
+    </div>
+
+    <div class="proceso-box">
+      <h4>Paso 4 — Rating global ponderado</h4>
+      <p>Si el fondo tiene historial suficiente, el rating global es la media ponderada del
+      rating a 3 años (20%), 5 años (30%) y 10 años (50%). A mayor historial, mayor peso
+      al largo plazo.</p>
+    </div>
+
+    <h3>Mínimo histórico requerido</h3>
+    <p>Un fondo necesita al menos <strong>36 meses de historial</strong> para recibir rating de 3 años,
+    60 meses para el de 5 años y 120 meses para el de 10 años. Fondos con menos de 3 años no
+    reciben rating cuantitativo.</p>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El rating Morningstar de 5 estrellas corresponde al <strong>top 10%</strong> de la categoría;
+        el de 4 estrellas al siguiente <strong>22,5%</strong>; el de 3 estrellas al <strong>35%</strong>
+        central. Estos porcentajes son fijos por diseño: siempre el 10% de los fondos tendrá 5 estrellas
+        y el 10% tendrá 1 estrella, independientemente del nivel absoluto de rentabilidades.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 3. RATING CUALITATIVO -->
+  <div class="sec">
+    <h2>3. Rating cualitativo: Morningstar Analyst Rating™</h2>
+    <p>
+      El <strong>Morningstar Analyst Rating</strong> es una evaluación cualitativa y prospectiva
+      elaborada por analistas de fondos humanos (o por modelos cuantitativos en el caso del
+      <em>Medalist Rating</em> algorítmico), que evalúa la capacidad futura del fondo para
+      superar a sus comparables ajustado por riesgo.<sup class="fn"><a href="#fn2">2</a></sup>
+    </p>
+
+    <h3>Las cinco "P" del proceso de evaluación cualitativa</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Pilar ("P")</th><th>Qué evalúa</th><th>Preguntas clave</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>People (Personas)</strong></td>
+            <td>El equipo gestor</td>
+            <td>¿Tiene el gestor suficiente experiencia? ¿Hay estabilidad del equipo? ¿Está alineado con los partícipes (invierte en el propio fondo)?</td>
+          </tr>
+          <tr>
+            <td><strong>Process (Proceso)</strong></td>
+            <td>El proceso de inversión</td>
+            <td>¿Es el proceso claro, repetible y disciplinado? ¿Se aplica de forma consistente? ¿Diferencia al fondo de sus comparables?</td>
+          </tr>
+          <tr>
+            <td><strong>Parent (Gestora)</strong></td>
+            <td>La cultura de la gestora</td>
+            <td>¿Actúa la gestora en el interés del partícipe? ¿Tiene buenas prácticas de gobierno? ¿Controla el crecimiento del patrimonio?</td>
+          </tr>
+          <tr>
+            <td><strong>Performance (Rentabilidad)</strong></td>
+            <td>Histórico de resultados</td>
+            <td>¿Es la rentabilidad histórica consistente con el proceso declarado? ¿Es atribuible al gestor actual?</td>
+          </tr>
+          <tr>
+            <td><strong>Price (Precio/Comisiones)</strong></td>
+            <td>Nivel de comisiones</td>
+            <td>¿Son las comisiones competitivas dentro de la categoría? Una comisión alta reduce las probabilidades de alfa neto.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Escala de calificaciones del Analyst Rating</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Calificación</th><th>Medalla</th><th>Significado</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Gold</strong></td><td>🥇</td><td>Alta convicción en que el fondo superará a sus comparables en un ciclo de mercado completo. Las cinco P son sólidas.</td></tr>
+          <tr><td><strong>Silver</strong></td><td>🥈</td><td>Convicción significativa, pero con algún aspecto de las cinco P con margen de mejora.</td></tr>
+          <tr><td><strong>Bronze</strong></td><td>🥉</td><td>Convicción moderada; más ventajas que inconvenientes pero incertidumbres relevantes.</td></tr>
+          <tr><td><strong>Neutral</strong></td><td>—</td><td>El fondo no destaca positiva ni negativamente. Probabilidad de superar a los comparables similar a la media.</td></tr>
+          <tr><td><strong>Negative</strong></td><td>✗</td><td>El análisis cualitativo indica barreras significativas para superar a los comparables.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 4. OTROS RATINGS -->
+  <div class="sec">
+    <h2>4. Otros sistemas de rating en España y Europa</h2>
+    <ul>
+      <li><strong>VDOS:</strong> clasificador español especializado en fondos y planes de pensiones del mercado ibérico. Ofrece rankings, ratings cuantitativos y datos de mercado en tiempo real. Muy utilizado por distribuidores españoles.</li>
+      <li><strong>Lipper Leaders (LSEG):</strong> sistema de cinco criterios (Total Return, Consistent Return, Preservation, Expense, Tax Efficiency), cada uno puntuado del 1 al 5. Muy utilizado en el mercado institucional europeo.</li>
+      <li><strong>Citywire:</strong> rating de gestores individuales (no de fondos) basado en la rentabilidad ajustada al riesgo del gestor en todos los fondos que haya gestionado. Clasifica: AAA, AA, A.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- 5. UTILIDAD Y LIMITACIONES -->
+  <div class="sec">
+    <h2>5. Utilidad y limitaciones del rating</h2>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Utilidad del rating</h4>
+        <p>Criba inicial eficiente del universo de fondos. Incorpora riesgo (cuantitativo) y calidad del proceso (cualitativo). Comparación homogénea por categorías. El cualitativo es prospectivo, no solo retrospectivo. Herramienta de comunicación con el cliente.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Limitaciones del rating</h4>
+        <p>El cuantitativo es retrospectivo: 5 estrellas pasadas no garantizan 5 estrellas futuras. El cambio de gestor invalida el histórico. El rating puede cambiar con frecuencia. Solo cubre fondos con suficiente historial. No sustituye al análisis propio del asesor.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 6. EJEMPLOS NUMÉRICOS -->
+  <div class="sec">
+    <h2>6. Ejemplos numéricos</h2>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 1 — Asignación de estrellas Morningstar</h3>
+      <p>En la categoría "Renta Variable España" hay <strong>80 fondos</strong> con al menos 3 años
+      de historial. Se calcula la MRAR de cada uno y se ordenan:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Estrella</th><th>% de fondos</th><th>N.º fondos (sobre 80)</th><th>Rango MRAR</th></tr></thead>
+          <tbody>
+            <tr><td>★★★★★</td><td>Top 10%</td><td><strong>8 fondos</strong> (posiciones 1–8)</td><td>Los mejores RAR</td></tr>
+            <tr><td>★★★★</td><td>Siguiente 22,5%</td><td><strong>18 fondos</strong> (posiciones 9–26)</td><td>—</td></tr>
+            <tr><td>★★★</td><td>35% central</td><td><strong>28 fondos</strong> (posiciones 27–54)</td><td>—</td></tr>
+            <tr><td>★★</td><td>Siguiente 22,5%</td><td><strong>18 fondos</strong> (posiciones 55–72)</td><td>—</td></tr>
+            <tr><td>★</td><td>Bottom 10%</td><td><strong>8 fondos</strong> (posiciones 73–80)</td><td>Los peores RAR</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Al año siguiente, 3 de los 8 fondos de 5 estrellas conservan esa calificación, 3 bajan a
+      4 estrellas y 2 bajan a 3 estrellas. Esto ilustra la limitada persistencia del rating
+      cuantitativo a corto plazo.</p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 2 — Rating cuantitativo vs. cualitativo: un caso práctico</h3>
+      <p>El <em>Fondo Alpha Europa</em> tiene <strong>★★★★★</strong> (5 estrellas) cuantitativo
+      pero calificación <strong>Neutral</strong> en el Analyst Rating.</p>
+      <p>El analista justifica el Neutral porque:</p>
+      <ul>
+        <li>El gestor estrella que generó el histórico se marchó hace 8 meses.</li>
+        <li>El nuevo equipo gestor lleva poco tiempo y su proceso de inversión no está suficientemente probado.</li>
+        <li>La comisión de gestión (1,45%) es de las más altas de la categoría.</li>
+      </ul>
+      <p>Conclusión: un asesor que solo mirara las 5 estrellas podría recomendar el fondo con
+      confianza incorrecta. El rating cualitativo alerta de que el historial de 5 estrellas
+      no es relevante para el equipo actual. <strong>Las estrellas miran al pasado; el Analyst
+      Rating mira al futuro.</strong></p>
+    </div>
+  </div>
+
+  <!-- NOTAS AL PIE -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">Morningstar. <em>Morningstar Rating™ for Funds Methodology</em>, 2019.
+        Disponible en: <a href="https://www.morningstar.com/research/methodology" target="_blank" rel="noopener">morningstar.com — Methodology</a></li>
+      <li id="fn2">Morningstar. <em>Morningstar Analyst Rating™ Methodology</em>, 2023 (Five Pillars: People, Process, Parent, Performance, Price).
+        Disponible en: <a href="https://www.morningstar.com/research/methodology" target="_blank" rel="noopener">morningstar.com — Analyst Rating</a></li>
+    </ol>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-a.html" class="nav-btn">← A: Ranking</a>
+    <a href="seccion-c.html" class="nav-btn">C: Medidas de rentabilidad ajustada al riesgo →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 2 · Bloque 5 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

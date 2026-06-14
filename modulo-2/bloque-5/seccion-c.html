@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M2 · B5 · Sección C — Medidas de rentabilidad ajustada al riesgo · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .formula-block {
+      background: var(--navy-light);
+      border: 2px solid var(--navy);
+      border-radius: 14px;
+      padding: 1.1rem 1.4rem;
+      margin: 1rem 0;
+    }
+    .formula-block .f-label {
+      font-family: var(--font-ui);
+      font-size: var(--fs-xs);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: .4rem;
+      display: block;
+    }
+    .formula-block .f-main {
+      font-family: 'Courier New', monospace;
+      font-size: var(--fs-lg);
+      color: var(--navy);
+      font-weight: 700;
+      display: block;
+    }
+    .formula-block .f-vars {
+      font-family: var(--font-ui);
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      margin-top: .5rem;
+      line-height: 1.65;
+    }
+    .ratio-card {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-left: 5px solid var(--navy);
+      border-radius: 0 14px 14px 0;
+      padding: 1.1rem 1.3rem;
+      margin: 1.2rem 0;
+    }
+    .ratio-card h3 { margin-top: 0; }
+    .ratio-card p, .ratio-card li { font-size: var(--fs-sm); color: var(--text-soft); line-height: 1.7; }
+    .ratio-card ul { padding-left: 1.2rem; margin: .4rem 0 0; }
+    .footnotes { border-top: 1px solid var(--border); margin-top: 2.5rem; padding-top: 1.2rem; }
+    .footnotes h4 { font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 800; color: var(--text-soft); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .8rem; }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li { font-size: .78rem; color: var(--text-soft); line-height: 1.6; margin-bottom: .35rem; }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M2 · B5 · C</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 2</a><span class="sep">›</span>
+    <a href="index.html">Bloque 5</a><span class="sep">›</span>
+    <span>Sección C</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 2 · Bloque 5 · Sección C · Nivel I · Conocimiento y Análisis</div>
+    <h1>Medidas de rentabilidad ajustada al riesgo</h1>
+    <p class="hero-sub">
+      Ratio de Sharpe · Ratio de Treynor · Ratio de Información ·
+      Alfa de Jensen · Cuándo usar cada medida · Comparativa.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- INTRO -->
+  <div class="sec">
+    <h2>0. Por qué ajustar la rentabilidad al riesgo</h2>
+    <p>
+      Dos fondos pueden tener la misma rentabilidad y sin embargo ser radicalmente distintos en calidad
+      si uno la obtuvo asumiendo mucho más riesgo. Las <strong>medidas de rentabilidad ajustada al riesgo</strong>
+      permiten comparar fondos en igualdad de condiciones: cuánta rentabilidad se obtiene por cada unidad
+      de riesgo asumida.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
+    <p>
+      Existen dos conceptos de riesgo relevantes que dan lugar a métricas distintas:
+    </p>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Riesgo total (σ)</h4>
+        <p>Desviación típica de los rendimientos del fondo. Mide la volatilidad global: tanto el riesgo sistemático (beta de mercado) como el riesgo específico del gestor. Adecuado para carteras no diversificadas o cuando el fondo es la única inversión del partícipe.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Riesgo sistemático (β)</h4>
+        <p>Sensibilidad de la rentabilidad del fondo a los movimientos del mercado. Mide solo el riesgo no diversificable. Adecuado cuando el fondo es uno más dentro de una cartera diversificada, ya que el riesgo específico queda eliminado por la diversificación.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 1. RATIO DE SHARPE -->
+  <div class="sec">
+    <h2>1. Ratio de Sharpe</h2>
+
+    <div class="ratio-card">
+      <h3>Ratio de Sharpe — rentabilidad excedente por unidad de riesgo total</h3>
+
+      <div class="formula-block">
+        <span class="f-label">Ratio de Sharpe</span>
+        <span class="f-main">S = (R<sub>p</sub> − R<sub>f</sub>) / σ<sub>p</sub></span>
+        <div class="f-vars">
+          R<sub>p</sub> = rentabilidad del fondo en el período ·
+          R<sub>f</sub> = rentabilidad del activo libre de riesgo ·
+          σ<sub>p</sub> = desviación típica de los rendimientos del fondo
+        </div>
+      </div>
+
+      <p><strong>Interpretación:</strong> mide la prima de rentabilidad obtenida sobre el activo libre de riesgo
+      por cada unidad de <em>riesgo total</em> (volatilidad). A mayor ratio, mejor resultado ajustado al riesgo.</p>
+      <ul>
+        <li><strong>Cuándo usarlo:</strong> cuando el fondo representa <em>toda</em> (o la mayor parte) de la cartera del inversor, o para comparar fondos de distinta naturaleza.</li>
+        <li><strong>Activo libre de riesgo:</strong> en Europa se usa habitualmente la Letra del Tesoro alemán a 3 meses o el tipo €STR.</li>
+        <li><strong>Limitación:</strong> penaliza la volatilidad al alza igual que la bajista. Un fondo con mucha volatilidad positiva puede tener un Sharpe bajo injustamente.</li>
+        <li><strong>Limitación:</strong> no es significativo si el numerador es negativo (rentabilidad por debajo del libre de riesgo): comparar dos Sharpes negativos es engañoso.</li>
+      </ul>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El ratio de Sharpe usa el <strong>riesgo total (σ)</strong>. El ratio de Treynor usa el
+        <strong>riesgo sistemático (β)</strong>. Esta diferencia determina cuándo es apropiado cada uno.
+        Si el fondo es la única inversión del partícipe → Sharpe. Si el fondo es parte de una cartera
+        diversificada → Treynor.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 2. RATIO DE TREYNOR -->
+  <div class="sec">
+    <h2>2. Ratio de Treynor</h2>
+
+    <div class="ratio-card">
+      <h3>Ratio de Treynor — rentabilidad excedente por unidad de riesgo sistemático</h3>
+
+      <div class="formula-block">
+        <span class="f-label">Ratio de Treynor</span>
+        <span class="f-main">T = (R<sub>p</sub> − R<sub>f</sub>) / β<sub>p</sub></span>
+        <div class="f-vars">
+          R<sub>p</sub> = rentabilidad del fondo ·
+          R<sub>f</sub> = rentabilidad del activo libre de riesgo ·
+          β<sub>p</sub> = beta del fondo respecto al mercado
+        </div>
+      </div>
+
+      <p><strong>Interpretación:</strong> mide la prima de rentabilidad por cada unidad de riesgo de mercado
+      (beta) asumida. A mayor ratio, mejor resultado por unidad de riesgo sistemático.</p>
+      <ul>
+        <li><strong>Cuándo usarlo:</strong> cuando el fondo es <em>una parte</em> de una cartera ya diversificada.
+        Al estar la cartera diversificada, el riesgo específico del fondo queda eliminado; solo importa
+        la contribución al riesgo sistemático total.</li>
+        <li><strong>Diferencia clave con Sharpe:</strong> dos fondos con el mismo Sharpe pero distinta beta
+        tendrán distinto Treynor. El que tiene menor beta y misma rentabilidad excedente tendrá mayor Treynor.</li>
+        <li><strong>Limitación:</strong> depende de la estimación de la beta, que varía según el índice de mercado
+        elegido como referencia y el período utilizado.</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 3. RATIO DE INFORMACIÓN -->
+  <div class="sec">
+    <h2>3. Ratio de Información</h2>
+
+    <div class="ratio-card">
+      <h3>Ratio de Información — consistencia del alfa respecto al benchmark</h3>
+
+      <div class="formula-block">
+        <span class="f-label">Ratio de Información (RI)</span>
+        <span class="f-main">RI = (R<sub>p</sub> − R<sub>b</sub>) / TE</span>
+        <div class="f-vars">
+          R<sub>p</sub> = rentabilidad del fondo ·
+          R<sub>b</sub> = rentabilidad del benchmark ·
+          TE = <em>tracking error</em> (desviación típica de la diferencia de rentabilidades R<sub>p</sub> − R<sub>b</sub>)
+        </div>
+      </div>
+
+      <p><strong>Interpretación:</strong> mide el exceso de rentabilidad sobre el benchmark por cada unidad de
+      <em>riesgo activo</em> (tracking error). Es la medida más directa de la habilidad del gestor activo:
+      cuánto alfa genera por unidad de apuesta activa.</p>
+      <ul>
+        <li><strong>Cuándo usarlo:</strong> para evaluar gestores activos frente a su benchmark específico.
+        No tiene sentido para fondos pasivos (su RI debería ser cercano a cero).</li>
+        <li><strong>Valores de referencia:</strong> un RI &gt; 0,5 se considera bueno; &gt; 1,0 se considera
+        excelente; &lt; 0 significa que el gestor destruye valor activo (el benchmark habría dado mejor resultado).</li>
+        <li><strong>Ventaja sobre el Sharpe activo:</strong> el RI usa el tracking error como denominador,
+        que es el riesgo <em>activo</em> del gestor (cuánto se aparta del índice), no el riesgo total.
+        Esto lo hace más puro para evaluar la habilidad gestora.</li>
+        <li><strong>Limitación:</strong> el numerador (R<sub>p</sub> − R<sub>b</sub>) puede ser positivo por suerte;
+        el RI no distingue habilidad de aleatoriedad sin suficiente histórico.</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 4. ALFA DE JENSEN -->
+  <div class="sec">
+    <h2>4. Alfa de Jensen</h2>
+
+    <div class="ratio-card">
+      <h3>Alfa de Jensen — rentabilidad anormal según el CAPM</h3>
+
+      <div class="formula-block">
+        <span class="f-label">Alfa de Jensen (α)</span>
+        <span class="f-main">α = R<sub>p</sub> − [R<sub>f</sub> + β<sub>p</sub> × (R<sub>m</sub> − R<sub>f</sub>)]</span>
+        <div class="f-vars">
+          R<sub>p</sub> = rentabilidad del fondo ·
+          R<sub>f</sub> = activo libre de riesgo ·
+          β<sub>p</sub> = beta del fondo ·
+          R<sub>m</sub> = rentabilidad del mercado ·
+          [R<sub>f</sub> + β<sub>p</sub> × (R<sub>m</sub> − R<sub>f</sub>)] = rentabilidad esperada según el CAPM
+        </div>
+      </div>
+
+      <p><strong>Interpretación:</strong> el alfa de Jensen es la rentabilidad que el fondo obtiene
+      por encima (o por debajo) de la que el CAPM predice que debería obtener dado su nivel de riesgo
+      sistemático (beta). Es la medida de <em>valor añadido puro</em> del gestor según el modelo CAPM.</p>
+      <ul>
+        <li><strong>α &gt; 0:</strong> el fondo ha obtenido más rentabilidad de la esperada por su beta → el gestor ha añadido valor.</li>
+        <li><strong>α = 0:</strong> el fondo ha obtenido exactamente lo que predice el CAPM → gestión neutra.</li>
+        <li><strong>α &lt; 0:</strong> el fondo ha obtenido menos rentabilidad de la esperada por su beta → el gestor ha destruido valor.</li>
+        <li><strong>Cuándo usarlo:</strong> para evaluar la habilidad de gestión activa en el marco del CAPM, comparando fondos con distinta beta.</li>
+        <li><strong>Limitación:</strong> depende de la validez del CAPM como modelo de valoración de activos, que es cuestionada. Si el mercado elegido no representa bien el universo de inversión del fondo, el beta y el alfa pueden estar mal estimados.</li>
+        <li><strong>Diferencia con el alfa de la Sección A (Bloque 4):</strong> el alfa de Jensen es una cantidad absoluta (en puntos porcentuales) que surge de la regresión de los retornos del fondo sobre los del mercado. El alfa "genérico" es simplemente la diferencia de rentabilidad con el índice, sin ajustar por beta.</li>
+      </ul>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El alfa de Jensen puede ser <strong>positivo aunque el fondo bata al mercado por beta</strong>
+        (si obtuvo más rentabilidad de la que le correspondía por su nivel de riesgo), y puede ser
+        <strong>negativo aunque el fondo bata al mercado</strong> si su beta alta justificaba un rendimiento
+        aún mayor. Ejemplo: fondo con β = 1,5 en un mercado que sube un 10% debe obtener al menos
+        R<sub>f</sub> + 1,5 × (10% − R<sub>f</sub>) para tener α ≥ 0.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 5. COMPARATIVA -->
+  <div class="sec">
+    <h2>5. Comparativa de las cuatro medidas</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Medida</th>
+            <th>Fórmula simplificada</th>
+            <th>Riesgo usado</th>
+            <th>Resultado</th>
+            <th>Mejor para</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Ratio de Sharpe</strong></td>
+            <td>(R<sub>p</sub> − R<sub>f</sub>) / σ<sub>p</sub></td>
+            <td>Riesgo total (σ)</td>
+            <td>Ratio adimensional</td>
+            <td>Fondo como única o principal inversión</td>
+          </tr>
+          <tr>
+            <td><strong>Ratio de Treynor</strong></td>
+            <td>(R<sub>p</sub> − R<sub>f</sub>) / β<sub>p</sub></td>
+            <td>Riesgo sistemático (β)</td>
+            <td>Ratio adimensional</td>
+            <td>Fondo como parte de una cartera diversificada</td>
+          </tr>
+          <tr>
+            <td><strong>Ratio de Información</strong></td>
+            <td>(R<sub>p</sub> − R<sub>b</sub>) / TE</td>
+            <td>Riesgo activo (TE)</td>
+            <td>Ratio adimensional</td>
+            <td>Evaluar consistencia del alfa del gestor activo</td>
+          </tr>
+          <tr>
+            <td><strong>Alfa de Jensen</strong></td>
+            <td>R<sub>p</sub> − [R<sub>f</sub> + β(R<sub>m</sub> − R<sub>f</sub>)]</td>
+            <td>Riesgo sistemático (β, via CAPM)</td>
+            <td>% anual absoluto</td>
+            <td>Medir valor añadido puro ajustado por beta (CAPM)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 6. EJEMPLOS NUMÉRICOS -->
+  <div class="sec">
+    <h2>6. Ejemplos numéricos</h2>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 1 — Cálculo y comparación de los cuatro ratios</h3>
+      <p>Datos anuales de tres fondos de renta variable europea:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Dato</th><th>Fondo A</th><th>Fondo B</th><th>Fondo C (benchmark)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Rentabilidad (R<sub>p</sub>)</td><td>14,0%</td><td>11,5%</td><td>10,0%</td></tr>
+            <tr><td>Desviación típica (σ)</td><td>18,0%</td><td>10,0%</td><td>12,0%</td></tr>
+            <tr><td>Beta (β)</td><td>1,40</td><td>0,75</td><td>1,00</td></tr>
+            <tr><td>Activo libre de riesgo (R<sub>f</sub>)</td><td colspan="3">2,50% (Letra 12M jun-2026)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Ratio de Sharpe:</strong></p>
+      <ul>
+        <li>Fondo A: (14,0 − 2,5) / 18,0 = 11,5 / 18,0 = <strong>0,639</strong></li>
+        <li>Fondo B: (11,5 − 2,5) / 10,0 = 9,0 / 10,0 = <strong>0,900</strong> ← mejor</li>
+      </ul>
+
+      <p><strong>Ratio de Treynor:</strong></p>
+      <ul>
+        <li>Fondo A: (14,0 − 2,5) / 1,40 = 11,5 / 1,40 = <strong>8,21</strong></li>
+        <li>Fondo B: (11,5 − 2,5) / 0,75 = 9,0 / 0,75 = <strong>12,00</strong> ← mejor</li>
+      </ul>
+
+      <p><strong>Ratio de Información</strong> (tracking error: A = 8%, B = 4%):</p>
+      <ul>
+        <li>Fondo A: (14,0 − 10,0) / 8,0 = 4,0 / 8,0 = <strong>0,50</strong></li>
+        <li>Fondo B: (11,5 − 10,0) / 4,0 = 1,5 / 4,0 = <strong>0,375</strong> ← Fondo A es mejor aquí</li>
+      </ul>
+
+      <p><strong>Alfa de Jensen</strong> (R<sub>m</sub> = 10,0%):
+      <br>R<sub>esperada</sub> = R<sub>f</sub> + β × (R<sub>m</sub> − R<sub>f</sub>):</p>
+      <ul>
+        <li>Fondo A: esperada = 2,5 + 1,40 × (10,0 − 2,5) = 2,5 + 10,5 = 13,0% → α = 14,0 − 13,0 = <strong>+1,0%</strong></li>
+        <li>Fondo B: esperada = 2,5 + 0,75 × (10,0 − 2,5) = 2,5 + 5,625 = 8,125% → α = 11,5 − 8,125 = <strong>+3,375%</strong> ← mejor</li>
+      </ul>
+
+      <p><strong>Conclusión:</strong> el Fondo B es superior en tres de las cuatro métricas.
+      Solo el Ratio de Información favorece ligeramente al Fondo A, que es más activo respecto a su benchmark.
+      Para un partícipe que elige entre estos dos fondos como única inversión, el Fondo B es claramente preferible.</p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 2 — Alfa de Jensen positivo con rentabilidad inferior al benchmark</h3>
+      <p>Un fondo defensivo con <strong>β = 0,50</strong> obtiene en 2025 una rentabilidad del <strong>+6,0%</strong>.
+      El mercado sube un <strong>+12,0%</strong>. R<sub>f</sub> = 2,5%.</p>
+      <ul>
+        <li>Rentabilidad esperada por CAPM: 2,5 + 0,50 × (12,0 − 2,5) = 2,5 + 4,75 = <strong>7,25%</strong></li>
+        <li>Alfa de Jensen: 6,0 − 7,25 = <strong>−1,25%</strong></li>
+      </ul>
+      <p>El fondo obtuvo un 6%, que supera la inflación y el libre de riesgo, pero según el CAPM
+      su beta de 0,50 justificaba obtener un 7,25%. El gestor ha <strong>destruido alfa</strong> (−1,25%),
+      aunque el fondo en términos absolutos haya dado una rentabilidad razonable.</p>
+      <p>Esto ilustra la diferencia entre rentabilidad absoluta y rentabilidad ajustada al riesgo:
+      un fondo puede parecer aceptable en términos absolutos y sin embargo haber fallado a la hora
+      de añadir valor frente a lo que su nivel de riesgo debería haber generado.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN FINAL MÓDULO 2 -->
+  <div class="sec">
+    <h2>7. Resumen del Módulo 2 — Mapa de contenidos</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Bloque</th><th>Contenido</th><th>Secciones</th></tr></thead>
+        <tbody>
+          <tr><td><strong>B1</strong></td><td>Visión general de los fondos: marco legal, elementos, NAV, comisiones, información</td><td>A · B · C · D · E</td></tr>
+          <tr><td><strong>B2</strong></td><td>Tipología: fondos por categorías, SICAV, IIC cerradas (ECR, FILPE, FESE)</td><td>A · B · C</td></tr>
+          <tr><td><strong>B3</strong></td><td>Fondos de inversión libre: definición, FIL vs. IIC de IIC, estrategias, ESG</td><td>A · B</td></tr>
+          <tr><td><strong>B4</strong></td><td>Estilos de gestión: activa (alfa/beta, tracking error), pasiva (HME, ETF, smart beta), valor (Graham, margen de seguridad)</td><td>A · B · C</td></tr>
+          <tr><td><strong>B5</strong></td><td>Análisis y selección: ranking (rentabilidad), rating (estrellas, 5P), medidas ajustadas al riesgo (Sharpe, Treynor, RI, Jensen)</td><td>A · B · C</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NOTAS AL PIE -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">Sharpe, W. F. (1966). «Mutual Fund Performance». <em>Journal of Business</em>, 39(1), 119–138.
+        <a href="https://doi.org/10.1086/294846" target="_blank" rel="noopener">doi.org/10.1086/294846</a></li>
+      <li id="fn2">Treynor, J. L. (1965). «How to Rate Management of Investment Funds». <em>Harvard Business Review</em>, 43(1), 63–75.</li>
+      <li id="fn3">Jensen, M. C. (1968). «The Performance of Mutual Funds in the Period 1945–1964». <em>Journal of Finance</em>, 23(2), 389–416.
+        <a href="https://doi.org/10.2307/2325404" target="_blank" rel="noopener">doi.org/10.2307/2325404</a></li>
+      <li id="fn4">Grinold, R. C. &amp; Kahn, R. N. (2000). <em>Active Portfolio Management</em>, 2ª ed. McGraw-Hill. Cap. 6 (Ratio de Información: definición, valores de referencia y relación con el proceso de inversión activo). ISBN 978-0-07-024882-6.</li>
+    </ol>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-b.html" class="nav-btn">← B: Rating</a>
+    <a href="../../index.html" class="nav-btn">↑ Inicio Módulo 2</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 2 · Bloque 5 · Sección C · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M2 · B5 · Sección A — Ranking de fondos · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .paso-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin: 1rem 0; }
+    @media (max-width: 560px) { .paso-grid { grid-template-columns: 1fr; } }
+    .paso-box { background: var(--card); border: 1.5px solid var(--border); border-radius: 14px; padding: 1rem 1.1rem; }
+    .paso-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .35rem; }
+    .paso-box p { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.65; margin: 0; }
+    .paso-num { font-family: var(--font-ui); font-weight: 900; font-size: var(--fs-xl); color: var(--navy); opacity: .2; float: left; margin-right: .5rem; line-height: 1; }
+    .contexto-actual { background: var(--card); border-left: 4px solid var(--green); border-radius: 0 14px 14px 0; padding: 1.1rem 1.3rem; margin: 1.2rem 0; }
+    .contexto-actual .ctx-title { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--green); margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
+    .contexto-actual p { font-size: var(--fs-sm); color: var(--text); line-height: 1.7; margin: 0 0 .4rem; }
+    .contexto-actual p:last-child { margin-bottom: 0; }
+    .footnotes { border-top: 1px solid var(--border); margin-top: 2.5rem; padding-top: 1.2rem; }
+    .footnotes h4 { font-family: var(--font-ui); font-size: var(--fs-xs); font-weight: 800; color: var(--text-soft); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .8rem; }
+    .footnotes ol { padding-left: 1.3rem; margin: 0; }
+    .footnotes li { font-size: .78rem; color: var(--text-soft); line-height: 1.6; margin-bottom: .35rem; }
+    .footnotes a { color: var(--navy); word-break: break-all; }
+    sup.fn { font-family: var(--font-ui); font-size: .68rem; color: var(--navy); font-weight: 700; margin-left: 1px; }
+    sup.fn a { color: var(--navy); text-decoration: none; }
+    sup.fn a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M2 · B5 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a><span class="sep">›</span>
+    <a href="../index.html">Módulo 2</a><span class="sep">›</span>
+    <a href="index.html">Bloque 5</a><span class="sep">›</span>
+    <span>Sección A</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 2 · Bloque 5 · Sección A · Nivel I · Conocimiento y Análisis</div>
+    <h1>Ranking de fondos</h1>
+    <p class="hero-sub">
+      Concepto y utilidad · Procedimiento de elaboración · Períodos de referencia ·
+      Categorías homogéneas · Limitaciones del ranking puro.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- 1. CONCEPTO -->
+  <div class="sec">
+    <h2>1. Concepto y utilidad del ranking</h2>
+    <p>
+      Un <strong>ranking de fondos</strong> es la ordenación de los fondos de una misma categoría
+      por su rentabilidad en un período determinado. Es la herramienta más sencilla y directa
+      para comparar fondos entre sí: el fondo con mayor rentabilidad ocupa el primer puesto.<sup class="fn"><a href="#fn1">1</a></sup>
+    </p>
+    <p>
+      Su <strong>utilidad principal</strong> es dar una visión rápida de qué fondos han generado mayor
+      retorno en un horizonte concreto. Es la métrica que consultan primero los inversores no
+      especializados y la que publican habitualmente los medios financieros.
+    </p>
+
+    <h3>Limitaciones estructurales del ranking</h3>
+    <ul>
+      <li><strong>No mide el riesgo asumido:</strong> un fondo puede liderar el ranking por haber tomado
+      mucho más riesgo que sus comparables. Posición 1 en rentabilidad no significa mejor fondo.</li>
+      <li><strong>Escasa persistencia:</strong> los fondos en el top del ranking de un año rara vez
+      repiten en los siguientes. La evidencia empírica muestra fuerte reversión a la media.</li>
+      <li><strong>Depende del período elegido:</strong> el ranking a 1 año puede diferir radicalmente
+      del ranking a 3 años o 5 años para los mismos fondos.</li>
+      <li><strong><em>Survivorship bias</em>:</strong> los rankings solo incluyen fondos que sobreviven;
+      los fondos que cerraron o se fusionaron por malos resultados no aparecen, sesgando al alza
+      la rentabilidad media del grupo.</li>
+    </ul>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El ranking ordena por rentabilidad <em>sin ajustar por riesgo</em>. Por eso su uso aislado
+        es insuficiente para seleccionar fondos. Un fondo con rentabilidad ligeramente inferior
+        pero mucho menor volatilidad puede ser objetivamente mejor para el inversor.
+        El ranking debe complementarse siempre con medidas ajustadas al riesgo (ratios de Sharpe,
+        Treynor, Información, alfa de Jensen — ver Sección C).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 2. PROCEDIMIENTO -->
+  <div class="sec">
+    <h2>2. Procedimiento de elaboración de un ranking</h2>
+
+    <div class="paso-grid">
+      <div class="paso-box">
+        <h4><span class="paso-num">1</span>Definir la categoría</h4>
+        <p>Agrupar únicamente fondos con política de inversión comparable: misma clase de activo,
+        zona geográfica y divisa base. Comparar un fondo de RV europea con uno de RF americana
+        carece de sentido. Se utilizan las categorías CNMV (por vocación inversora) o las de
+        clasificadores independientes como Morningstar o Inverco.</p>
+      </div>
+      <div class="paso-box">
+        <h4><span class="paso-num">2</span>Fijar el período</h4>
+        <p>Los períodos más habituales son: 1 mes, 3 meses, 6 meses, 1 año, 3 años y 5 años.
+        Para mayor rigor se usan rentabilidades anualizadas en horizontes superiores a 1 año,
+        calculadas mediante interés compuesto.</p>
+      </div>
+      <div class="paso-box">
+        <h4><span class="paso-num">3</span>Seleccionar la métrica</h4>
+        <p>En un ranking puro se usa la rentabilidad total del período (variación de NAV más
+        distribuciones). Debe ser neta de comisiones (lo que realmente obtiene el partícipe).
+        Para períodos largos se usa la rentabilidad anualizada.</p>
+      </div>
+      <div class="paso-box">
+        <h4><span class="paso-num">4</span>Ordenar y publicar</h4>
+        <p>Los fondos se ordenan de mayor a menor rentabilidad. Se suele expresar la posición como
+        un percentil (ej. decil 1 = top 10% de la categoría) para facilitar la comparación entre
+        categorías con distinto número de fondos.</p>
+      </div>
+    </div>
+
+    <h3>Clasificadores de referencia en España y Europa</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Clasificador</th><th>Herramienta</th><th>Acceso</th></tr></thead>
+        <tbody>
+          <tr><td><strong>CNMV</strong></td><td>Registro oficial IIC: NAV histórico, categorías, comisiones</td><td><a href="https://www.cnmv.es" target="_blank">cnmv.es</a></td></tr>
+          <tr><td><strong>Inverco</strong></td><td>Rankings de rentabilidad y patrimonio por categoría</td><td><a href="https://www.inverco.es" target="_blank">inverco.es</a></td></tr>
+          <tr><td><strong>Morningstar</strong></td><td>Rankings, categorías globales, estrellas, análisis cualitativos</td><td><a href="https://www.morningstar.es" target="_blank">morningstar.es</a></td></tr>
+          <tr><td><strong>Lipper (LSEG)</strong></td><td>Rankings y clasificación de fondos institucionales</td><td><a href="https://www.lseg.com/lipper" target="_blank">lseg.com/lipper</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 3. EJEMPLOS NUMÉRICOS -->
+  <div class="sec">
+    <h2>3. Ejemplos numéricos</h2>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 1 — Elaboración de un ranking: categoría RV Europa</h3>
+      <p>Cinco fondos de RV Europa presentan las siguientes rentabilidades en 2025:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Fondo</th><th>Rentabilidad 2025</th><th>Posición ranking</th><th>Percentil</th></tr></thead>
+          <tbody>
+            <tr><td>Fondo Iberia Equities</td><td><strong>+18,4%</strong></td><td>1º</td><td>Top 20%</td></tr>
+            <tr><td>Fondo Euro Blue Chip</td><td>+14,7%</td><td>2º</td><td>Top 40%</td></tr>
+            <tr><td>Fondo Europa Dividendo</td><td>+11,2%</td><td>3º</td><td>Top 60%</td></tr>
+            <tr><td>Fondo Pan-European</td><td>+8,9%</td><td>4º</td><td>Top 80%</td></tr>
+            <tr><td>Fondo Europa Value</td><td>+5,3%</td><td>5º</td><td>Bottom 20%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>El Fondo Iberia Equities lidera el ranking. Sin embargo, si su volatilidad anual fue del
+      <strong>28%</strong> frente al <strong>12%</strong> del Fondo Europa Dividendo, la rentabilidad
+      por unidad de riesgo podría favorecer al tercer clasificado. El ranking puro no capta esto.</p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo 2 — El sesgo de supervivencia en los rankings</h3>
+      <p>En enero de 2020 existían <strong>120 fondos</strong> en la categoría RV España.
+      En diciembre de 2025, solo quedan <strong>89 fondos</strong>: 31 se fusionaron o liquidaron,
+      mayoritariamente por malos resultados.</p>
+      <ul>
+        <li>Rentabilidad media de los 89 fondos supervivientes (2020–2025): <strong>+52,4% acumulado</strong></li>
+        <li>Rentabilidad media si se incluyeran los 31 fondos liquidados (estimación hasta su cierre): <strong>+38,1% acumulado</strong></li>
+        <li>Sesgo de supervivencia: <strong>+14,3 puntos porcentuales</strong> de sobreestimación</li>
+      </ul>
+      <p>Los rankings históricos sobreestiman sistemáticamente la rentabilidad media del universo
+      activo porque excluyen los fondos que fracasaron. Al evaluar la habilidad media de los
+      gestores activos, hay que tener en cuenta este sesgo.</p>
+    </div>
+  </div>
+
+  <!-- NOTAS AL PIE -->
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">Morningstar. <em>Morningstar Methodology for Fund Rankings</em>, 2024.
+        Disponible en: <a href="https://www.morningstar.com/research/methodology" target="_blank" rel="noopener">morningstar.com — Methodology</a>.</li>
+      <li id="fn2">Elton, E. J., Gruber, M. J. &amp; Blake, C. R. (1996). «Survivorship Bias and Mutual Fund Performance».
+        <em>Review of Financial Studies</em>, 9(4), 1097–1120.
+        <a href="https://doi.org/10.1093/rfs/9.4.1097" target="_blank" rel="noopener">doi.org/10.1093/rfs/9.4.1097</a></li>
+    </ol>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="../bloque-4/seccion-c.html" class="nav-btn">← B4·C: Gestión por valor</a>
+    <a href="seccion-b.html" class="nav-btn">B: Rating de fondos →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 2 · Bloque 5 · Sección A · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
