@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B3 · Sección A — Teoría de Carteras: Markowitz · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    /* Grids de concepto */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .concept-grid { grid-template-columns: 1fr; } }
+
+    .concept-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+    }
+    .concept-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin-bottom: .3rem;
+    }
+    .concept-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Hipótesis Markowitz */
+    .hypo-list {
+      counter-reset: hypo;
+      list-style: none;
+      padding: 0;
+      margin: .8rem 0;
+    }
+    .hypo-list li {
+      counter-increment: hypo;
+      display: flex;
+      gap: .8rem;
+      padding: .65rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: var(--fs-sm);
+      line-height: 1.65;
+    }
+    .hypo-list li:last-child { border-bottom: none; }
+    .hypo-list li::before {
+      content: counter(hypo);
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: .75rem;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 50%;
+      width: 1.4rem;
+      height: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+
+    /* Diagrama SVG placeholder styles */
+    .frontier-diagram {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+    .frontier-diagram svg text {
+      font-family: var(--font-ui), sans-serif;
+    }
+
+    /* Tabla de casos correlación */
+    .corr-cases td, .corr-cases th {
+      padding: .5rem .9rem;
+      font-size: var(--fs-sm);
+      text-align: center;
+    }
+    .corr-cases th { background: var(--navy); color: #fff; }
+    .corr-cases tr:nth-child(even) td { background: var(--navy-light); }
+    .corr-cases .hl { font-weight: 800; color: var(--green); }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B3 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 3</a>
+    <span class="sep">›</span>
+    <span>Sección A</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 3 · Sección A · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Aspectos fundamentales de la Teoría de Carteras</h1>
+    <p class="hero-sub">
+      Modelos de la teoría de carteras · Cartera factible, eficiente y frontera eficiente ·
+      Hipótesis de Markowitz · Frontera parabólica · Carteras extremas ·
+      Cartera de mínima varianza · Frontera con activo sin riesgo.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. MODELOS DE LA TEORÍA DE CARTERAS
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. ¿Qué modelos forman parte de la teoría de carteras?</h2>
+    <p class="sec-intro">
+      La teoría moderna de carteras agrupa los modelos matemáticos que permiten construir
+      combinaciones óptimas de activos maximizando la rentabilidad esperada para un nivel
+      dado de riesgo (o minimizando el riesgo para una rentabilidad objetivo).
+      Los tres modelos principales son:
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Modelo media-varianza — Markowitz (1952)</h4>
+        <p>
+          El modelo fundacional. Define la <strong>frontera eficiente</strong> como el
+          conjunto de carteras que maximizan E(R) para cada nivel de σ. Requiere estimar
+          las rentabilidades esperadas, las varianzas y las covarianzas de todos los pares
+          de activos. Es computacionalmente exigente pero conceptualmente completo.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Modelo de mercado — Sharpe (1963)</h4>
+        <p>
+          Simplifica Markowitz relacionando cada activo con un único factor: el índice de
+          mercado. Introduce los conceptos de beta (β), alfa (α), riesgo sistemático y
+          riesgo específico. Reduce drásticamente el número de estimaciones necesarias.
+          (Ver Sección C de este bloque.)
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>CAPM — Sharpe/Lintner/Mossin (1964–66)</h4>
+        <p>
+          El modelo de equilibrio que extiende Markowitz a todo el mercado. Determina
+          la relación lineal entre el riesgo sistemático (β) y la rentabilidad esperada.
+          Proporciona la <strong>Capital Market Line (CML)</strong> y la
+          <strong>Security Market Line (SML)</strong>. (Ver Sección D.)
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Otros: APT, Graham-Dodd</h4>
+        <p>
+          El <strong>APT</strong> (Ross, 1976) generaliza el CAPM a múltiples factores
+          de riesgo. El enfoque de <strong>Graham y Dodd</strong> es el marco del análisis
+          de valor fundamental (margen de seguridad, Mr. Market) — desarrollado en la
+          Sección E de este bloque.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. CARTERA FACTIBLE, EFICIENTE Y FRONTERA EFICIENTE
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Cartera factible, cartera eficiente y frontera eficiente</h2>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Conjunto factible (<em>feasible set</em>)</h4>
+        <p>
+          El conjunto de <em>todas</em> las carteras que pueden construirse con los activos
+          disponibles, con cualquier combinación de pesos posible (incluidas ventas en corto
+          si se permiten). En un espacio rentabilidad-riesgo (E(R) vs σ), forma una región
+          con forma de «bala» o «paraguas».
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Cartera eficiente</h4>
+        <p>
+          Una cartera es <strong>eficiente</strong> si no existe ninguna otra cartera factible
+          que, para el mismo nivel de riesgo (σ), ofrezca mayor rentabilidad esperada;
+          o que, para la misma E(R), ofrezca menor riesgo. Una cartera eficiente no puede
+          ser «mejorada» en ninguna dimensión sin empeorar la otra.
+        </p>
+      </div>
+    </div>
+
+    <div class="card accent-navy">
+      <p>
+        La <strong>frontera eficiente</strong> es el lugar geométrico de todas las carteras
+        eficientes en el espacio (σ, E(R)). Corresponde a la <em>envolvente superior izquierda</em>
+        del conjunto factible: para cada nivel de σ, la cartera con máxima E(R); o para
+        cada E(R), la cartera con mínima σ. Es la curva que todo racional inversor querrá
+        elegir — la elección dentro de ella depende de su aversión al riesgo.
+      </p>
+    </div>
+
+    <!-- Diagrama SVG de la frontera eficiente -->
+    <div class="frontier-diagram">
+      <svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de la frontera eficiente de Markowitz">
+        <!-- Ejes -->
+        <line x1="50" y1="280" x2="490" y2="280" stroke="#1e3a5f" stroke-width="1.5"/>
+        <line x1="50" y1="280" x2="50"  y2="20"  stroke="#1e3a5f" stroke-width="1.5"/>
+        <!-- Etiquetas ejes -->
+        <text x="500" y="284" font-size="12" fill="#1e3a5f" font-weight="700">σ</text>
+        <text x="54"  y="14"  font-size="12" fill="#1e3a5f" font-weight="700">E(R)</text>
+
+        <!-- Región factible (relleno sombreado) -->
+        <!-- Parábola exterior (límite derecho del conjunto factible) — aproximación con path -->
+        <path d="M 160,240 Q 340,260 430,90" stroke="#9ca3af" stroke-width="1" fill="none" stroke-dasharray="4,3"/>
+        <!-- Región sombreada: rellenar con polígono aproximado -->
+        <path d="M 160,240 Q 200,230 230,200 Q 260,170 260,130 Q 260,90 220,60 Q 340,260 430,90 Q 380,180 320,220 Q 260,250 160,240 Z"
+              fill="#e2e8f0" fill-opacity="0.6" stroke="none"/>
+
+        <!-- Frontera eficiente (parte SUPERIOR de la parábola) — trazo grueso -->
+        <path d="M 160,240 Q 200,230 230,200 Q 255,168 262,130 Q 264,90 220,60"
+              stroke="#1e3a5f" stroke-width="3" fill="none"/>
+
+        <!-- Parte INEFICIENTE de la parábola (inferior) — trazo fino discontinuo -->
+        <path d="M 160,240 Q 200,252 240,258 Q 280,263 320,260 Q 380,255 420,240"
+              stroke="#9ca3af" stroke-width="1.5" fill="none" stroke-dasharray="5,3"/>
+
+        <!-- Cartera de mínima varianza (GMV) -->
+        <circle cx="160" cy="240" r="6" fill="#16a34a"/>
+        <text x="100" y="244" font-size="11" fill="#16a34a" font-weight="800">GMV</text>
+        <text x="64"  y="256" font-size="9"  fill="#6b7280">(mín. σ)</text>
+
+        <!-- Cartera de máxima rentabilidad -->
+        <circle cx="220" cy="60" r="6" fill="#d97706"/>
+        <text x="226" y="56" font-size="11" fill="#d97706" font-weight="800">R_max</text>
+        <text x="226" y="68" font-size="9"  fill="#6b7280">(máx. E(R))</text>
+
+        <!-- Flecha y texto "Frontera eficiente" -->
+        <text x="110" y="130" font-size="11" fill="#1e3a5f" font-weight="800" transform="rotate(-62,110,130)">Frontera eficiente</text>
+
+        <!-- Etiqueta región ineficiente -->
+        <text x="300" y="255" font-size="10" fill="#9ca3af">Carteras ineficientes</text>
+
+        <!-- Etiqueta conjunto factible -->
+        <text x="330" y="160" font-size="10" fill="#9ca3af">Conjunto</text>
+        <text x="330" y="172" font-size="10" fill="#9ca3af">factible</text>
+
+        <!-- Flechas acotación -->
+        <line x1="160" y1="240" x2="160" y2="60"  stroke="#16a34a" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="50"  y1="240" x2="160" y2="240" stroke="#16a34a" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="53"  y="238" font-size="9" fill="#16a34a">σ*</text>
+        <text x="145" y="275" font-size="9" fill="#16a34a">E(R)*</text>
+      </svg>
+      <p style="font-size:var(--fs-xs);color:var(--text-soft);margin:.4rem 0 0;text-align:center;">
+        La curva gruesa es la frontera eficiente. La línea discontinua inferior recoge carteras ineficientes
+        (misma σ, menor E(R)). La región sombreada es el conjunto factible.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Saber identificar qué parte de la parábola es eficiente (la rama superior, desde
+        la cartera de mínima varianza hacia arriba) y cuál es ineficiente (la rama inferior).
+        Una cartera ubicada en la rama inferior tiene el mismo σ que otra de la rama superior,
+        pero con menor E(R): ningún inversor racional la elegiría.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. HIPÓTESIS DEL MODELO MEDIA-VARIANZA
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Hipótesis del modelo media-varianza (Markowitz)</h2>
+    <p>
+      El modelo de Markowitz descansa en un conjunto de supuestos simplificadores que
+      permiten derivar matemáticamente la frontera eficiente:
+    </p>
+
+    <ul class="hypo-list">
+      <li>
+        <div>
+          <strong>Los inversores son racionales y maximizan su utilidad esperada.</strong>
+          Eligen entre carteras basándose únicamente en la rentabilidad esperada E(R) y
+          la varianza σ² (o desviación típica σ) del rendimiento — el enfoque media-varianza.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Los inversores son aversos al riesgo.</strong>
+          Para un mismo E(R), prefieren la cartera con menor σ. Para una misma σ,
+          prefieren la cartera con mayor E(R). No hay inversores amantes del riesgo.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Horizonte temporal único.</strong>
+          Todos los inversores tienen el mismo horizonte de inversión de un período.
+          No se considera la reinversión ni la toma de decisiones secuencial.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Los activos son divisibles e infinitamente negociables.</strong>
+          Se puede invertir cualquier fracción del capital en cualquier activo. No hay
+          restricciones mínimas de inversión ni lotes mínimos de negociación.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Mercados perfectos:</strong> sin costes de transacción, sin impuestos,
+          sin restricciones a las ventas en corto y con activos perfectamente líquidos.
+          Los precios se toman como dados (no hay poder de mercado).
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Las rentabilidades siguen una distribución normal.</strong>
+          El uso de solo la media y la varianza para describir completamente una
+          distribución de rentabilidades es válido bajo la hipótesis de normalidad
+          (o con funciones de utilidad cuadráticas).
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Las expectativas son homogéneas.</strong>
+          Todos los inversores tienen las mismas estimaciones de E(R), σ y correlaciones
+          para todos los activos. No hay discrepancias informativas entre inversores.
+        </div>
+      </li>
+    </ul>
+
+    <div class="callout info">
+      <strong>Crítica real:</strong> ninguna de estas hipótesis se cumple estrictamente.
+      Los costes de transacción existen, los inversores tienen horizontes distintos,
+      las rentabilidades tienen colas gordas (<em>fat tails</em>) y los inversores tienen
+      expectativas heterogéneas. A pesar de ello, el modelo de Markowitz sigue siendo
+      el marco de referencia estándar de la gestión de carteras.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. FRONTERA EFICIENTE: FORMA Y DELIMITACIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Forma parabólica y delimitación de la frontera eficiente</h2>
+
+    <h3>¿Por qué la frontera tiene forma parabólica?</h3>
+    <p>
+      La forma de parábola (o semielipse en el espacio σ–E(R)) es consecuencia directa
+      de la fórmula de la varianza de la cartera: σ²<sub>c</sub> es una función
+      <em>cuadrática</em> de los pesos wᵢ. Al variar los pesos entre 0 y 1 (o permitir
+      ventas en corto), el par (σ<sub>c</sub>, E(R<sub>c</sub>)) traza una curva parabólica
+      en el plano. La parábola es curvada hacia la izquierda: cuanto más se diversifica,
+      más se «dobla» la curva alejándose del segmento recto que representaría ρ = +1.
+    </p>
+
+    <div class="card accent-navy">
+      <p>
+        <strong>Intuición geométrica:</strong> si ρ = +1, las combinaciones de dos activos
+        forman un segmento recto en el espacio (σ, E(R)) — no hay beneficio de
+        diversificación. Si ρ &lt; +1, la curva se dobla hacia la izquierda, creando
+        la «joroba» característica. Cuanto más negativa es la correlación, más pronunciada
+        es la curvatura y más a la izquierda llega la frontera.
+      </p>
+    </div>
+
+    <h3>Delimitación: los dos extremos de la frontera</h3>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>🔼 Cartera de máxima rentabilidad esperada</h4>
+        <p>
+          El extremo superior de la frontera eficiente. Es la cartera que maximiza E(R)
+          sin restricción de riesgo. En la práctica, si no se permiten ventas en corto,
+          corresponde a invertir el <strong>100% en el activo con mayor E(R)</strong> —
+          ya que añadir cualquier otro activo con menor E(R) reduciría la rentabilidad
+          esperada de la cartera.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>🔽 Cartera de mínima varianza global (GMV)</h4>
+        <p>
+          El extremo inferior de la frontera eficiente. Es la cartera que minimiza σ²
+          sin restricción de rentabilidad. Representa el punto de la parábola más a la
+          izquierda. Ningún inversor racional elegiría una cartera con mayor σ y menor
+          E(R) que la GMV (esas carteras están en la rama ineficiente).
+        </p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>La frontera eficiente es el arco entre la GMV y la cartera de máxima E(R).</strong>
+      Todo lo que esté por debajo de la GMV (misma σ, menor E(R)) es ineficiente.
+      Todo lo que esté a la derecha de la frontera es factible pero no óptimo.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. CARTERA DE MÁXIMA RENTABILIDAD
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. Cartera de máxima rentabilidad esperada: composición</h2>
+    <p>
+      La cartera de máxima E(R) en el modelo de Markowitz sin ventas en corto
+      (w<sub>i</sub> ≥ 0) tiene una solución trivial pero importante:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Composición de la cartera de máxima rentabilidad (sin ventas en corto)</span>
+      w<sub>i*</sub> = 1   para el activo con mayor E(R<sub>i</sub>)
+      w<sub>j</sub> = 0   para todos los demás activos j ≠ i*
+    </div>
+
+    <div class="callout info">
+      Invertir el 100% en un único activo es generalmente <strong>una cartera eficiente en el extremo</strong>
+      del modelo (máxima E(R) y también máxima σ si ese activo es el más volátil), pero es la
+      menos diversificada posible. Ninguna combinación con otros activos de menor E(R) puede
+      superar su rentabilidad esperada — aunque sí puede reducir su riesgo.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo — Cartera de máxima E(R)</h3>
+      <p>
+        Tres activos disponibles: A (E(R)=15%, σ=25%), B (E(R)=10%, σ=15%), C (E(R)=5%, σ=5%).<br><br>
+        La cartera de máxima rentabilidad esperada es:<br>
+        w<sub>A</sub> = 100%, w<sub>B</sub> = 0%, w<sub>C</sub> = 0%<br>
+        E(R<sub>c</sub>) = <strong>15%</strong>, σ<sub>c</sub> = <strong>25%</strong><br><br>
+        Es el punto más alto de la frontera eficiente. A partir de aquí, diversificar
+        añadiendo B o C solo puede mantener o reducir la rentabilidad esperada — aunque
+        también reducirá el riesgo si ρ &lt; +1.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       6. CARTERA DE MÍNIMA VARIANZA PARA DOS ACTIVOS
+       ============================================================ -->
+  <div class="sec">
+    <h2>6. Cartera de mínima volatilidad: dos activos con distintas correlaciones</h2>
+    <p>
+      La cartera de mínima varianza (GMV) para dos activos se obtiene minimizando σ²<sub>c</sub>
+      respecto al peso w₁ (con w₂ = 1 − w₁). Derivando e igualando a cero:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Peso óptimo del activo 1 en la cartera GMV (fórmula general)</span>
+      w₁* = (σ₂² − σ₁₂) / (σ₁² + σ₂² − 2σ₁₂)
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Expresando la covarianza como ρ·σ₁·σ₂</span>
+      w₁* = (σ₂² − ρ·σ₁·σ₂) / (σ₁² + σ₂² − 2·ρ·σ₁·σ₂)
+    </div>
+
+    <p>Y w₂* = 1 − w₁*.</p>
+
+    <h3>Casos especiales según el coeficiente de correlación</h3>
+
+    <div class="table-wrap">
+      <table class="corr-cases">
+        <thead>
+          <tr>
+            <th>Correlación ρ</th>
+            <th>Fórmula simplificada w₁*</th>
+            <th>σ<sub>c,min</sub></th>
+            <th>Interpretación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ρ = +1</strong></td>
+            <td>
+              w₁* = (σ₂² − σ₁·σ₂) / (σ₁² + σ₂² − 2σ₁σ₂)<br>
+              = σ₂(σ₂−σ₁) / (σ₁−σ₂)² = σ₂/(σ₁+σ₂) si σ₁≠σ₂<br>
+              <em>O bien: ponderar inversamente a σ</em>
+            </td>
+            <td class="hl">w₁·σ₁ + w₂·σ₂<br>(no se reduce)</td>
+            <td>Sin diversificación; la σ mínima es la media ponderada exacta. La GMV concentra en el activo menos volátil.</td>
+          </tr>
+          <tr>
+            <td><strong>ρ = 0</strong></td>
+            <td>
+              w₁* = σ₂² / (σ₁² + σ₂²)
+            </td>
+            <td class="hl">√(w₁²σ₁² + w₂²σ₂²)</td>
+            <td>La GMV pondera más el activo menos volátil. Hay reducción de riesgo respecto a cualquier activo individual.</td>
+          </tr>
+          <tr>
+            <td><strong>ρ = −1</strong></td>
+            <td>
+              w₁* = σ₂ / (σ₁ + σ₂)
+            </td>
+            <td class="hl"><strong>0%</strong><br>(riesgo nulo)</td>
+            <td>Es posible construir una cartera de riesgo cero. El peso óptimo es proporcional a la σ del otro activo.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — GMV para los tres casos</h3>
+      <p>
+        Activo 1: σ₁ = 20%. Activo 2: σ₂ = 10%.<br>
+        Calculamos w₁* y σ<sub>c,min</sub> para ρ = +1, 0, −1:
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>ρ</th><th>w₁*</th><th>w₂*</th><th>σ<sub>c,min</sub></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>+1</td>
+              <td>0% (todo en activo 2, el menos volátil)</td>
+              <td>100%</td>
+              <td>0%×20% + 1×10% = <strong>10%</strong></td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>w₁* = 10² / (20²+10²) = 100/500 = <strong>20%</strong></td>
+              <td>80%</td>
+              <td>√(0,04×400 + 0,64×100) = √(16+64) = √80 = <strong>8,94%</strong></td>
+            </tr>
+            <tr>
+              <td>−1</td>
+              <td>w₁* = 10 / (20+10) = <strong>33,3%</strong></td>
+              <td>66,7%</td>
+              <td>|0,333×20 − 0,667×10| = |6,67−6,67| = <strong>0%</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.6rem;">
+        Con ρ=+1 la mínima σ es el activo menos volátil solo (10%). Con ρ=0 se reduce a 8,94%
+        combinando 20%/80%. Con ρ=−1 llega a 0% con la proporción 33%/67%.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El cálculo de la GMV con ρ = 0 y ρ = −1 es uno de los ejercicios más habituales.
+        Fórmulas clave a memorizar: w₁*(ρ=0) = σ₂²/(σ₁²+σ₂²) y
+        w₁*(ρ=−1) = σ₂/(σ₁+σ₂). Para ρ=+1, la «GMV» es simplemente invertir todo
+        en el activo de menor volatilidad.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       7. FRONTERA EFICIENTE CON ACTIVO SIN RIESGO — CML
+       ============================================================ -->
+  <div class="sec">
+    <h2>7. Frontera eficiente lineal con activo sin riesgo: la CML</h2>
+    <p>
+      Cuando se añade un <strong>activo sin riesgo</strong> (tipo libre de riesgo R<sub>f</sub>,
+      con σ<sub>f</sub> = 0) al universo de inversión, la frontera eficiente <strong>deja de ser
+      parabólica y se convierte en una recta</strong>: la <strong>Capital Market Line (CML)</strong>.
+    </p>
+
+    <p>
+      La CML es la recta que parte del activo sin riesgo (punto (0, R<sub>f</sub>) en el
+      plano (σ, E(R))) y es tangente a la frontera eficiente de activos arriesgados.
+      El punto de tangencia es la <strong>cartera de mercado M</strong>.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Capital Market Line (CML)</span>
+      E(R<sub>c</sub>) = R<sub>f</sub> + [(E(R<sub>M</sub>) − R<sub>f</sub>) / σ<sub>M</sub>] · σ<sub>c</sub>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>R<sub>f</sub></h4>
+        <p>Rentabilidad del activo sin riesgo (ordenada en el origen de la CML). Habitualmente
+        representada por la Letra del Tesoro a corto plazo.</p>
+      </div>
+      <div class="concept-box">
+        <h4>(E(R<sub>M</sub>) − R<sub>f</sub>) / σ<sub>M</sub></h4>
+        <p>Pendiente de la CML: el «precio del riesgo» o Ratio de Sharpe de la cartera
+        de mercado. Indica la rentabilidad adicional por unidad de σ.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Cartera de mercado M</h4>
+        <p>El punto de tangencia entre la CML y la frontera eficiente sin activo sin riesgo.
+        Es la única cartera de activos arriesgados que el inversor racional debe mantener
+        (en combinación con el activo sin riesgo).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Combinaciones posibles en la CML</h4>
+        <p>
+          Entre R<sub>f</sub> y M: inversión parcial en M y parcial en activo sin riesgo
+          (<em>lending</em>). A la derecha de M: posición larga en M financiada con préstamo
+          al tipo R<sub>f</sub> (<em>borrowing</em> — apalancamiento).
+        </p>
+      </div>
+    </div>
+
+    <!-- Diagrama CML -->
+    <div class="frontier-diagram">
+      <svg viewBox="0 0 520 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Capital Market Line y frontera eficiente">
+        <!-- Ejes -->
+        <line x1="50" y1="270" x2="490" y2="270" stroke="#1e3a5f" stroke-width="1.5"/>
+        <line x1="50" y1="270" x2="50"  y2="20"  stroke="#1e3a5f" stroke-width="1.5"/>
+        <text x="495" y="274" font-size="12" fill="#1e3a5f" font-weight="700">σ</text>
+        <text x="54"  y="14"  font-size="12" fill="#1e3a5f" font-weight="700">E(R)</text>
+
+        <!-- Frontera eficiente de activos arriesgados (parábola) -->
+        <path d="M 160,230 Q 200,220 230,192 Q 256,162 260,125 Q 264,85 222,58"
+              stroke="#1e3a5f" stroke-width="2.5" fill="none"/>
+        <!-- Rama ineficiente -->
+        <path d="M 160,230 Q 200,245 250,252 Q 310,258 380,248"
+              stroke="#9ca3af" stroke-width="1.5" fill="none" stroke-dasharray="5,3"/>
+
+        <!-- Activo sin riesgo Rf en eje vertical -->
+        <circle cx="50" cy="220" r="5" fill="#d97706"/>
+        <text x="55"  y="224" font-size="11" fill="#d97706" font-weight="800">R_f</text>
+
+        <!-- Cartera de mercado M (punto de tangencia) -->
+        <circle cx="220" cy="145" r="6" fill="#16a34a"/>
+        <text x="225" y="140" font-size="11" fill="#16a34a" font-weight="800">M</text>
+
+        <!-- CML (recta de Rf a M y más allá) -->
+        <line x1="50" y1="220" x2="440" y2="40" stroke="#16a34a" stroke-width="2.5"/>
+        <text x="360" y="72" font-size="11" fill="#16a34a" font-weight="800">CML</text>
+
+        <!-- Zona lending (entre Rf y M) -->
+        <text x="90" y="200" font-size="9" fill="#6b7280">Lending</text>
+        <text x="90" y="212" font-size="9" fill="#6b7280">(mix Rf + M)</text>
+
+        <!-- Zona borrowing (a la derecha de M) -->
+        <text x="260" y="128" font-size="9" fill="#6b7280">Borrowing</text>
+        <text x="260" y="140" font-size="9" fill="#6b7280">(apalanc.)</text>
+
+        <!-- GMV -->
+        <circle cx="160" cy="230" r="5" fill="#1e3a5f"/>
+        <text x="100" y="230" font-size="10" fill="#1e3a5f" font-weight="700">GMV</text>
+
+        <!-- Pendiente = Sharpe M -->
+        <line x1="220" y1="145" x2="220" y2="220" stroke="#16a34a" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="50"  y1="220" x2="220" y2="220" stroke="#16a34a" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="130" y="216" font-size="9" fill="#16a34a">σ_M</text>
+        <text x="224" y="185" font-size="9" fill="#16a34a" transform="rotate(-90,224,185)">E(R_M)−R_f</text>
+      </svg>
+      <p style="font-size:var(--fs-xs);color:var(--text-soft);margin:.4rem 0 0;text-align:center;">
+        La CML domina a la frontera eficiente de activos arriesgados para todos los niveles de riesgo.
+        M es la única cartera de activos arriesgados eficiente cuando existe el activo sin riesgo.
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>Teorema de separación de Tobin (1958):</strong> todos los inversores racionales,
+      independientemente de su aversión al riesgo, mantienen la misma cartera de activos
+      arriesgados (la cartera M). Solo difieren en cuánto capital asignan a M y cuánto al
+      activo sin riesgo. La decisión de qué cartera de activos arriesgados mantener
+      (M) está separada de la decisión de cuánto riesgo asumir.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — CML</h3>
+      <p>
+        R<sub>f</sub> = 2%. Cartera de mercado M: E(R<sub>M</sub>) = 10%, σ<sub>M</sub> = 18%.<br><br>
+        CML: E(R<sub>c</sub>) = 2% + [(10%−2%)/18%] · σ<sub>c</sub> = 2% + <strong>0,444 · σ<sub>c</sub></strong><br><br>
+        <strong>Inversor conservador</strong> (quiere σ = 9% → mitad del riesgo de M):<br>
+        Invierte 50% en M y 50% en activo sin riesgo.<br>
+        E(R<sub>c</sub>) = 0,5×10% + 0,5×2% = <strong>6%</strong><br>
+        σ<sub>c</sub> = 0,5×18% = <strong>9%</strong> ✓ (desde la CML: 2% + 0,444×9% = 6% ✓)<br><br>
+        <strong>Inversor agresivo</strong> (quiere σ = 27% → 150% del riesgo de M):<br>
+        Invierte 150% en M (toma prestado 50% al tipo R<sub>f</sub>).<br>
+        E(R<sub>c</sub>) = 1,5×10% − 0,5×2% = 15% − 1% = <strong>14%</strong><br>
+        σ<sub>c</sub> = 1,5×18% = <strong>27%</strong>
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Calcular la E(R) de una cartera sobre la CML dado σ<sub>c</sub>, o calcular el
+        peso en M dado el nivel de riesgo deseado. La fórmula es lineal: E(R<sub>c</sub>) = R<sub>f</sub>
+        + Sharpe<sub>M</sub> · σ<sub>c</sub>. También puede pedirse el Ratio de Sharpe de la cartera M.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Concepto</th><th>Definición / Fórmula clave</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Cartera factible</strong></td>
+            <td>Cualquier combinación de activos disponibles con Σwᵢ = 1</td>
+          </tr>
+          <tr>
+            <td><strong>Cartera eficiente</strong></td>
+            <td>Máxima E(R) para su σ, o mínima σ para su E(R)</td>
+          </tr>
+          <tr>
+            <td><strong>Frontera eficiente</strong></td>
+            <td>Arco parabólico superior desde GMV hasta la cartera de máxima E(R)</td>
+          </tr>
+          <tr>
+            <td><strong>GMV — peso (ρ=0)</strong></td>
+            <td>w₁* = σ₂² / (σ₁² + σ₂²)</td>
+          </tr>
+          <tr>
+            <td><strong>GMV — peso (ρ=−1)</strong></td>
+            <td>w₁* = σ₂ / (σ₁ + σ₂) → σ<sub>c</sub> = 0</td>
+          </tr>
+          <tr>
+            <td><strong>Máxima E(R) (sin cortos)</strong></td>
+            <td>100% en el activo con mayor E(R)</td>
+          </tr>
+          <tr>
+            <td><strong>CML</strong></td>
+            <td>E(R<sub>c</sub>) = R<sub>f</sub> + [(E(R<sub>M</sub>)−R<sub>f</sub>)/σ<sub>M</sub>] · σ<sub>c</sub></td>
+          </tr>
+          <tr>
+            <td><strong>Teorema de Tobin</strong></td>
+            <td>Todo inversor racional combina solo R<sub>f</sub> y M; difieren en las proporciones</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="../bloque-2/seccion-c.html" class="nav-btn">← B2·C: Anomalías de mercado</a>
+    <a href="seccion-b.html" class="nav-btn">B: Selección de la cartera óptima →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Markowitz, H. M. (1952). «Portfolio Selection».
+        <em>The Journal of Finance</em>, 7(1), 77–91.
+        <a href="https://doi.org/10.2307/2975974" target="_blank" rel="noopener">doi.org/10.2307/2975974</a>.
+        Modelo media-varianza, frontera eficiente y cartera de mínima varianza.
+      </li>
+      <li id="fn2">
+        Markowitz, H. M. (1959). <em>Portfolio Selection: Efficient Diversification of Investments</em>.
+        John Wiley &amp; Sons. Exposición completa del modelo, hipótesis y derivación matemática.
+      </li>
+      <li id="fn3">
+        Tobin, J. (1958). «Liquidity Preference as Behavior Towards Risk».
+        <em>The Review of Economic Studies</em>, 25(2), 65–86.
+        <a href="https://doi.org/10.2307/2296205" target="_blank" rel="noopener">doi.org/10.2307/2296205</a>.
+        Teorema de separación y Capital Market Line.
+      </li>
+      <li id="fn4">
+        Bodie, Z., Kane, A. &amp; Marcus, A. J. (2014). <em>Investments</em> (10.ª ed.), caps. 6–7.
+        McGraw-Hill Education. Derivación de la GMV y la CML, pp. 200–230.
+      </li>
+      <li id="fn5">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 3 · Sección A,
+        pp. 49–51. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 3 · Sección A · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
