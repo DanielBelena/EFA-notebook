@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B4 · Sección A — Definición de la asignación de activos · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .obj-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 620px) { .obj-grid { grid-template-columns: 1fr; } }
+
+    .obj-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+      text-align: center;
+    }
+    .obj-box .ob-icon { font-size: 1.8rem; display: block; margin-bottom: .35rem; }
+    .obj-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin-bottom: .3rem;
+    }
+    .obj-box p { font-size: var(--fs-xs); color: var(--text-soft); margin: 0; line-height: 1.6; }
+
+    .rest-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .rest-grid { grid-template-columns: 1fr; } }
+
+    .rest-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+    }
+    .rest-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin-bottom: .3rem;
+    }
+    .rest-box p { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.65; margin: 0; }
+
+    .perfil-stack {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      margin: 1rem 0;
+    }
+    .perfil-row {
+      display: grid;
+      grid-template-columns: 120px 1fr 80px;
+      align-items: center;
+      gap: .6rem;
+      padding: .5rem .8rem;
+      border-radius: 10px;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      font-size: var(--fs-sm);
+    }
+    .perfil-row .pname { font-family: var(--font-ui); font-weight: 800; color: var(--navy); }
+    .perfil-row .pbar-wrap { background: var(--navy-light); border-radius: 6px; height: 12px; overflow: hidden; }
+    .perfil-row .pbar { height: 100%; border-radius: 6px; }
+    .perfil-row .ppct { font-family: var(--font-ui); font-weight: 700; text-align: right; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B4 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 4</a>
+    <span class="sep">›</span>
+    <span>Sección A</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 4 · Sección A · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Definición del proceso de asignación de activos</h1>
+    <p class="hero-sub">
+      Objetivos de inversión · Horizonte temporal · Restricciones del inversor ·
+      Restricciones legales · Entorno económico · Perfil de riesgo · Tipos de gestión.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. OBJETIVOS DE INVERSIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Posibles objetivos de inversión</h2>
+    <p class="sec-intro">
+      El primer paso en cualquier proceso de asignación de activos es definir con precisión
+      el <strong>objetivo de inversión</strong>. No todas las carteras persiguen lo mismo:
+      los objetivos condicionan la composición, el horizonte y el riesgo aceptable.
+    </p>
+
+    <div class="obj-grid">
+      <div class="obj-box">
+        <span class="ob-icon">🏠</span>
+        <h4>Preservación del capital</h4>
+        <p>Objetivo: no perder el valor nominal invertido. Prioridad máxima a la seguridad.
+        Típico en inversores con horizonte corto o necesidad de liquidez inmediata.
+        Instrumentos: mercado monetario, deuda pública a corto plazo.</p>
+      </div>
+      <div class="obj-box">
+        <span class="ob-icon">💸</span>
+        <h4>Generación de rentas</h4>
+        <p>Objetivo: obtener flujos de caja periódicos (cupones, dividendos, rentas).
+        Típico en fondos de pensiones en fase de distribución, rentistas o jubilados.
+        Instrumentos: bonos con cupón, acciones de alto dividendo, REITs.</p>
+      </div>
+      <div class="obj-box">
+        <span class="ob-icon">📈</span>
+        <h4>Crecimiento del capital</h4>
+        <p>Objetivo: aumentar el valor real de la inversión a largo plazo. Acepta mayor
+        volatilidad a cambio de mayor rentabilidad esperada. Típico en inversores jóvenes
+        con horizonte largo. Instrumentos: renta variable, fondos de crecimiento.</p>
+      </div>
+      <div class="obj-box">
+        <span class="ob-icon">⚖️</span>
+        <h4>Equilibrio rentabilidad-riesgo</h4>
+        <p>Objetivo mixto: combinar crecimiento moderado con generación de rentas y
+        control del riesgo. El más habitual en carteras balanced (60/40 acciones/bonos).
+        Perfil moderado.</p>
+      </div>
+      <div class="obj-box">
+        <span class="ob-icon">🎯</span>
+        <h4>Objetivo específico</h4>
+        <p>Acumulación para un fin concreto: jubilación, educación de los hijos, compra
+        de vivienda. Define un importe objetivo y un plazo, lo que permite una gestión
+        orientada al horizonte (ciclo de vida).</p>
+      </div>
+      <div class="obj-box">
+        <span class="ob-icon">🛡️</span>
+        <h4>Protección frente a la inflación</h4>
+        <p>Objetivo: mantener el poder adquisitivo real de la cartera. Requiere rentabilidad
+        nominal > inflación. Instrumentos: renta variable, bonos ligados a la inflación
+        (TIPS, bonos indexados), materias primas, inmobiliario.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. HORIZONTE TEMPORAL
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Horizonte temporal de inversión y de revisión de cartera</h2>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Horizonte de inversión</h4>
+        <p>
+          El <strong>período total</strong> durante el cual el inversor mantiene la cartera
+          antes de necesitar disponer del capital. Puede ser corto (&lt;3 años), medio
+          (3–10 años) o largo (&gt;10 años). Determina la cantidad de riesgo que el inversor
+          puede asumir: horizontes más largos permiten absorber mayor volatilidad, porque
+          las pérdidas a corto plazo pueden recuperarse con el tiempo.
+        </p>
+      </div>
+      <div class="vs-box right">
+        <h4>Horizonte de revisión de cartera</h4>
+        <p>
+          La <strong>frecuencia con la que se revisa y reajusta</strong> la composición de la
+          cartera para adecuarla a los cambios en el entorno, en los objetivos o en los pesos
+          resultantes de la evolución del mercado. Puede ser anual, semestral, trimestral o
+          por bandas de desviación (ej: rebalancear cuando un activo se desvíe más del 5%
+          de su peso objetivo).
+        </p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>La relación entre horizonte y riesgo:</strong> cuanto más largo el horizonte
+      de inversión, mayor la proporción de activos de mayor riesgo y mayor E(R) que puede
+      asumir el inversor (renta variable). A medida que se acorta el horizonte (se aproxima
+      la fecha de disposición del capital), la cartera debe ir siendo más conservadora
+      (reducción del riesgo → mayor renta fija y liquidez). Este es el fundamento de los
+      fondos de ciclo de vida (<em>target date funds</em>).
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo — Impacto del horizonte en la asignación</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Horizonte</th><th>Renta variable</th><th>Renta fija</th><th>Mercado monetario</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>&lt; 1 año</td><td>0–5%</td><td>20–30%</td><td>65–80%</td></tr>
+            <tr><td>1–3 años</td><td>10–20%</td><td>50–60%</td><td>20–30%</td></tr>
+            <tr><td>3–7 años</td><td>30–50%</td><td>40–55%</td><td>5–15%</td></tr>
+            <tr><td>7–15 años</td><td>55–70%</td><td>25–40%</td><td>0–5%</td></tr>
+            <tr><td>&gt; 15 años</td><td>70–90%</td><td>10–25%</td><td>0–5%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.5rem;font-size:var(--fs-xs);color:var(--text-soft);">
+        Orientativo para un inversor moderado. Los porcentajes varían según perfil de riesgo.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. RESTRICCIONES DEL INVERSOR
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Restricciones impuestas por el inversor</h2>
+
+    <div class="rest-grid">
+      <div class="rest-box">
+        <h4>💧 Necesidades de liquidez</h4>
+        <p>El inversor puede necesitar disponer de parte del capital en plazos cortos.
+        Estas necesidades obligan a mantener un porcentaje en activos líquidos (fondos
+        monetarios, depósitos) que no puede invertirse a largo plazo.</p>
+      </div>
+      <div class="rest-box">
+        <h4>🚫 Restricciones éticas y de valores</h4>
+        <p>Algunos inversores excluyen sectores (tabaco, armas, juego, energías fósiles)
+        o exigen cumplimiento de criterios ESG. Las exclusiones reducen el universo
+        de inversión y pueden afectar a la diversificación.</p>
+      </div>
+      <div class="rest-box">
+        <h4>💰 Restricciones fiscales</h4>
+        <p>La fiscalidad de cada activo afecta la rentabilidad neta. El inversor puede
+        preferir activos con tratamiento fiscal favorable (ej: fondos de inversión con
+        traspaso sin tributación en España) sobre otros igualmente rentables antes de
+        impuestos.</p>
+      </div>
+      <div class="rest-box">
+        <h4>📉 Tolerancia máxima de pérdidas</h4>
+        <p>El inversor puede imponer un nivel máximo de pérdida tolerable en un período
+        dado (ej: «no acepto perder más del 10% en un año»). Esto limita la exposición
+        a activos volátiles y puede traducirse en umbrales de VaR o de máxima caída.</p>
+      </div>
+      <div class="rest-box">
+        <h4>🌍 Restricciones geográficas</h4>
+        <p>Algunos inversores prefieren activos nacionales (sesgo doméstico,
+        <em>home bias</em>) o excluyen determinadas regiones (países con inestabilidad
+        política, riesgo divisa no cubierto). Esto reduce la diversificación geográfica.</p>
+      </div>
+      <div class="rest-box">
+        <h4>📏 Concentración máxima en un activo</h4>
+        <p>Para controlar el riesgo específico, el inversor puede imponer un peso
+        máximo por activo (ej: «ningún valor debe superar el 5% de la cartera»)
+        o por emisor. Habitual en inversores institucionales y mandatos regulados.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. RESTRICCIONES LEGALES
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Restricciones legales del mercado</h2>
+    <p>
+      Además de las restricciones del propio inversor, el marco regulatorio impone límites
+      que condicionan la construcción de carteras, especialmente para inversores
+      institucionales:
+    </p>
+
+    <div class="rest-grid">
+      <div class="rest-box">
+        <h4>Límites de inversión para IIC (LIIC/RLIIC)</h4>
+        <p>Los fondos de inversión españoles están sujetos a límites de concentración:
+        máximo 5–10% en un mismo emisor, máximo 35% en emisores del grupo. Límites de
+        inversión en activos ilíquidos, derivados o en mercados no regulados.</p>
+      </div>
+      <div class="rest-box">
+        <h4>Regulación de fondos de pensiones</h4>
+        <p>La regulación española (RD 304/2004) impone límites a los planes de pensiones:
+        restricciones en activos no negociados, máximos en renta variable sin rating,
+        obligación de cubrir el riesgo de tipo de cambio para no euro por encima
+        de ciertos umbrales.</p>
+      </div>
+      <div class="rest-box">
+        <h4>Regulación de entidades aseguradoras (Solvencia II)</h4>
+        <p>Las aseguradoras están sujetas a requerimientos de capital proporcionales al
+        riesgo de mercado de su cartera (SCR de mercado). Esto desincentiva la inversión
+        en activos de alta volatilidad y favorece la renta fija de calidad.</p>
+      </div>
+      <div class="rest-box">
+        <h4>Normativa MiFID II / IDD</h4>
+        <p>Obliga a los asesores a adecuar las recomendaciones al perfil del cliente
+        (idoneidad). Una cartera propuesta debe ser coherente con la tolerancia al riesgo,
+        la experiencia y los objetivos documentados del cliente. Inadecuación → sanción.</p>
+      </div>
+      <div class="rest-box">
+        <h4>Restricciones a ventas en corto</h4>
+        <p>El Reglamento (UE) 236/2012 y las circulares de la CNMV limitan las posiciones
+        cortas en acciones y deuda soberana. En períodos de estrés, los reguladores pueden
+        prohibir temporalmente las ventas en corto (como en 2020 y 2022 en varios países).</p>
+      </div>
+      <div class="rest-box">
+        <h4>Normativa ESG (SFDR, Taxonomía UE)</h4>
+        <p>El Reglamento SFDR (2019/2088) obliga a clasificar y documentar los productos
+        financieros según sus características de sostenibilidad (art. 6, 8 o 9). Los
+        productos art. 9 deben invertir solo en actividades alineadas con objetivos
+        medioambientales, lo que restringe el universo de inversión.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. ENTORNO ECONÓMICO-FINANCIERO
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. La importancia del entorno económico-financiero</h2>
+    <p>
+      La política de inversión no se establece en el vacío: el entorno macroeconómico
+      y financiero condiciona las expectativas de rentabilidad y riesgo de cada clase
+      de activo, y por tanto la asignación óptima en cada momento.
+    </p>
+
+    <div class="rest-grid">
+      <div class="rest-box">
+        <h4>Ciclo económico</h4>
+        <p>En expansión favorece la renta variable (beneficios crecientes) y activos
+        cíclicos. En recesión favorece la renta fija de calidad y activos defensivos.
+        La fase del ciclo condiciona la asignación táctica.</p>
+      </div>
+      <div class="rest-box">
+        <h4>Tipos de interés</h4>
+        <p>Tipos bajos favorecen la renta variable (menor tasa de descuento) y activos
+        de larga duración. Tipos altos favorecen la renta fija a corto y los mercados
+        monetarios. La política del BCE es la variable más seguida en Europa.</p>
+      </div>
+      <div class="rest-box">
+        <h4>Inflación</h4>
+        <p>Inflación alta erosiona los bonos nominales a largo plazo. Favorece activos
+        reales (inmobiliario, materias primas) y bonos ligados a la inflación.
+        La inflación baja y estable favorece todos los activos financieros.</p>
+      </div>
+      <div class="rest-box">
+        <h4>Condiciones de crédito y spreads</h4>
+        <p>Spreads de crédito amplios (periodos de estrés) pueden hacer atractiva la
+        deuda corporativa de alta rentabilidad. Spreads estrechos reducen el atractivo
+        relativo frente a los bonos del Estado.</p>
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        Con el BCE en tipos del 2,00% (junio 2026) y la inflación proyectada en el 1,9%
+        para 2026, el entorno actual es de tipos <strong>neutrales-bajos</strong> que
+        hacen relativamente atractiva la renta variable (IBEX en máximos históricos) frente
+        a la renta fija (bono español 10a al ~3,5%). La Letra a 12M al 2,635% ofrece una
+        alternativa razonable como activo sin riesgo. En este entorno, las carteras de
+        perfil moderado tienden a sobreponderar ligeramente renta variable respecto a sus
+        pesos estratégicos de largo plazo.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       6. PERFIL DE RIESGO
+       ============================================================ -->
+  <div class="sec">
+    <h2>6. El perfil de riesgo del inversor</h2>
+    <p>
+      El <strong>perfil de riesgo</strong> es la síntesis de todas las características del
+      inversor relevantes para determinar qué nivel de riesgo puede y quiere asumir.
+      Combina dos dimensiones:
+    </p>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Capacidad de asumir riesgo (objetiva)</h4>
+        <p>
+          Determinada por factores financieros objetivos: horizonte temporal, nivel de ingresos
+          estables, patrimonio total, necesidades de liquidez, deudas pendientes. Un inversor
+          con ingresos altos, sin deudas y con horizonte largo tiene alta <em>capacidad</em>
+          de riesgo independientemente de sus preferencias.
+        </p>
+      </div>
+      <div class="vs-box right">
+        <h4>Tolerancia al riesgo (subjetiva)</h4>
+        <p>
+          Determinada por factores psicológicos: reacción emocional ante las pérdidas,
+          experiencia inversora previa, conocimiento financiero. Un inversor puede tener
+          capacidad financiera de asumir riesgo pero baja tolerancia psicológica a las
+          pérdidas (vendería en el peor momento).
+        </p>
+      </div>
+    </div>
+
+    <p>Los perfiles habituales en la práctica del asesoramiento financiero son:</p>
+
+    <div class="perfil-stack">
+      <div class="perfil-row">
+        <span class="pname">Conservador</span>
+        <div class="pbar-wrap"><div class="pbar" style="width:20%;background:var(--navy);"></div></div>
+        <span class="ppct" style="color:var(--navy);">~20% RV</span>
+      </div>
+      <div class="perfil-row">
+        <span class="pname">Moderado-conserv.</span>
+        <div class="pbar-wrap"><div class="pbar" style="width:35%;background:var(--navy);"></div></div>
+        <span class="ppct" style="color:var(--navy);">~35% RV</span>
+      </div>
+      <div class="perfil-row">
+        <span class="pname">Moderado</span>
+        <div class="pbar-wrap"><div class="pbar" style="width:50%;background:var(--amber);"></div></div>
+        <span class="ppct" style="color:var(--amber);">~50% RV</span>
+      </div>
+      <div class="perfil-row">
+        <span class="pname">Moderado-agresivo</span>
+        <div class="pbar-wrap"><div class="pbar" style="width:65%;background:var(--amber);"></div></div>
+        <span class="ppct" style="color:var(--amber);">~65% RV</span>
+      </div>
+      <div class="perfil-row">
+        <span class="pname">Agresivo</span>
+        <div class="pbar-wrap"><div class="pbar" style="width:80%;background:var(--green);"></div></div>
+        <span class="ppct" style="color:var(--green);">~80% RV</span>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        MiFID II obliga a evaluar el perfil de riesgo del cliente antes de cualquier
+        recomendación (test de idoneidad). El perfil combina capacidad financiera
+        y tolerancia psicológica. Una recomendación inadecuada al perfil es una
+        infracción normativa sancionable.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       7. TIPOS DE GESTIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>7. Tipos de gestión de una cartera</h2>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Gestión activa</h4>
+        <p>
+          El gestor toma decisiones de selección de activos (security selection) y/o
+          de momento de mercado (market timing) intentando superar la rentabilidad
+          del benchmark. Requiere análisis continuo, mayor rotación de cartera y
+          conlleva costes más altos. Se basa en la hipótesis de que el mercado tiene
+          ineficiencias explotables.
+        </p>
+      </div>
+      <div class="vs-box right">
+        <h4>Gestión pasiva</h4>
+        <p>
+          El gestor replica el índice de referencia (benchmark) con mínimas desviaciones.
+          No intenta batir al mercado; solo obtener la rentabilidad del índice menos
+          los costes de gestión. Se basa en la HME. Comisiones mucho menores.
+          La evidencia empírica (SPIVA) favorece la gestión pasiva en horizontes largos.
+        </p>
+      </div>
+    </div>
+
+    <div class="table-wrap" style="margin-top:1rem;">
+      <table>
+        <thead>
+          <tr><th>Característica</th><th>Gestión activa</th><th>Gestión pasiva</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Objetivo</td><td>Superar al benchmark (alfa positivo)</td><td>Replicar el benchmark</td></tr>
+          <tr><td>Comisiones típicas</td><td>1,0–2,5% anual</td><td>0,05–0,30% anual</td></tr>
+          <tr><td>Rotación de cartera</td><td>Alta (mayor coste fiscal)</td><td>Baja (mínimas operaciones)</td></tr>
+          <tr><td>Hipótesis subyacente</td><td>Mercados ineficientes (parcialmente)</td><td>HME: nadie bate al mercado</td></tr>
+          <tr><td>Tracking error</td><td>Alto (&gt;2–3%)</td><td>Muy bajo (&lt;0,5%)</td></tr>
+          <tr><td>Evidencia (10 años)</td><td>~15% supera al índice neto de costes</td><td>Obtiene la rentabilidad del índice</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout info">
+      <strong>Gestión semipasiva (smart beta):</strong> entre la gestión activa y pasiva
+      existen estrategias que replican índices alternativos ponderados por factores
+      (valor, calidad, baja volatilidad, momentum) en lugar de por capitalización.
+      Ofrecen más diversificación que la gestión activa pura con menos coste.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Elemento</th><th>Clave para la política de inversión</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Objetivo</strong></td><td>Preservación / rentas / crecimiento / objetivo específico / anti-inflación</td></tr>
+          <tr><td><strong>Horizonte inversión</strong></td><td>Determina tolerancia al riesgo: más largo → más renta variable</td></tr>
+          <tr><td><strong>Horizonte revisión</strong></td><td>Frecuencia de rebalanceo: anual, semestral o por bandas</td></tr>
+          <tr><td><strong>Restricciones inversor</strong></td><td>Liquidez, ética, fiscal, pérdida máxima, geográfica, concentración</td></tr>
+          <tr><td><strong>Restricciones legales</strong></td><td>IIC (LIIC), pensiones, Solvencia II, MiFID II, SFDR/Taxonomía</td></tr>
+          <tr><td><strong>Entorno</strong></td><td>Ciclo, tipos, inflación y spreads → condicionan asignación táctica</td></tr>
+          <tr><td><strong>Perfil de riesgo</strong></td><td>Capacidad financiera + tolerancia psicológica</td></tr>
+          <tr><td><strong>Tipos de gestión</strong></td><td>Activa (alfa, mayor coste) vs. pasiva (replicar índice, menor coste)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="../bloque-3/seccion-e.html" class="nav-btn">← B3·E: Graham y Dodd</a>
+    <a href="seccion-b.html" class="nav-btn">B: Matriz de Asset Allocation →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        CFA Institute (2020). <em>CFA Program Curriculum Level I</em>, vol. 4
+        «Portfolio Management», pp. 3–45. CFA Institute. Proceso de asignación de activos
+        y política de inversión.
+      </li>
+      <li id="fn2">
+        Directiva 2014/65/UE (MiFID II) y Reglamento 2017/565/UE.
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32014L0065" target="_blank" rel="noopener">eur-lex.europa.eu</a>.
+        Requisitos de idoneidad y perfilado del cliente.
+      </li>
+      <li id="fn3">
+        Reglamento (UE) 2019/2088 del Parlamento Europeo (SFDR).
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32019R2088" target="_blank" rel="noopener">eur-lex.europa.eu</a>.
+        Restricciones regulatorias ESG para productos financieros.
+      </li>
+      <li id="fn4">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 4 · Sección A,
+        pp. 59–61. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 4 · Sección A · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

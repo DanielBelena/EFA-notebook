@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B4 · Sección B — Matriz de Asset Allocation · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .asset-class-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 640px) { .asset-class-grid { grid-template-columns: 1fr; } }
+
+    .ac-box {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .ac-box.mm  { border-color: var(--navy); }
+    .ac-box.rf  { border-color: var(--amber); }
+    .ac-box.rv  { border-color: var(--green); }
+
+    .ac-box .ac-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: .7rem;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-bottom: .5rem;
+      color: #fff;
+    }
+    .ac-box.mm .ac-badge { background: var(--navy); }
+    .ac-box.rf .ac-badge { background: var(--amber); }
+    .ac-box.rv .ac-badge { background: var(--green); }
+
+    .ac-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .3rem; }
+    .ac-box p  { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.65; margin: 0 0 .4rem; }
+    .ac-box .rr { font-family: var(--font-ui); font-size: .7rem; font-weight: 700; padding: 2px 8px; border-radius: 8px; display: inline-block; }
+    .ac-box.mm .rr { background: var(--navy-light); color: var(--navy); }
+    .ac-box.rf .rr { background: var(--amber-light); color: var(--amber); }
+    .ac-box.rv .rr { background: var(--green-light); color: var(--green); }
+
+    .geo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .geo-grid { grid-template-columns: 1fr; } }
+    .geo-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+    }
+    .geo-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .3rem; }
+    .geo-box p  { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.65; margin: 0; }
+
+    .matrix-viz {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B4 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 4</a>
+    <span class="sep">›</span>
+    <span>Sección B</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 4 · Sección B · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Distribución de activos: Matriz de Asset Allocation</h1>
+    <p class="hero-sub">
+      Clases de activos principales · Distribución sectorial · Distribución geográfica ·
+      Rentabilidad-riesgo de cada dimensión.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. CLASES DE ACTIVOS PRINCIPALES
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Las tres grandes clases de activos y su relación rentabilidad-riesgo</h2>
+    <p class="sec-intro">
+      La decisión más importante de la asignación de activos es la distribución entre las
+      tres grandes clases de activos financieros. Estudios académicos (BHB, 1986) demostraron
+      que más del 90% de la variabilidad de los resultados de una cartera se explica por
+      esta distribución estratégica entre clases, y no por la selección de valores individuales.
+    </p>
+
+    <div class="asset-class-grid">
+      <div class="ac-box mm">
+        <span class="ac-badge">MERCADO MONETARIO</span>
+        <h4>Activos del mercado monetario</h4>
+        <p>
+          Instrumentos de deuda a muy corto plazo (hasta 18 meses): Letras del Tesoro,
+          pagarés de empresa, repos, depósitos bancarios, fondos monetarios UCITS.
+          Máxima liquidez y mínimo riesgo de precio; bajo riesgo de crédito si son de
+          alta calidad.
+        </p>
+        <span class="rr">Rentabilidad muy baja · Riesgo muy bajo</span>
+        <p style="margin-top:.4rem;font-size:var(--fs-xs);color:var(--text-soft);">
+          Función: reserva de liquidez, activo refugio en momentos de incertidumbre,
+          «colchón» para necesidades a corto plazo. Rentabilidad referenciada al tipo
+          oficial del BCE (actualmente ~2%).
+        </p>
+      </div>
+      <div class="ac-box rf">
+        <span class="ac-badge">RENTA FIJA</span>
+        <h4>Bonos y obligaciones</h4>
+        <p>
+          Deuda de plazo medio y largo (bonos del Estado, deuda corporativa grado de inversión
+          y high yield, bonos emergentes). El precio varía inversamente con los tipos de
+          interés (riesgo de duración) y con el riesgo de crédito del emisor.
+        </p>
+        <span class="rr">Rentabilidad media-baja · Riesgo medio-bajo</span>
+        <p style="margin-top:.4rem;font-size:var(--fs-xs);color:var(--text-soft);">
+          Función: estabilidad de la cartera, generación de cupones y diversificación
+          respecto a la renta variable (correlación habitualmente negativa). A mayor
+          duración y menor calidad crediticia, mayor rentabilidad y mayor riesgo.
+        </p>
+      </div>
+      <div class="ac-box rv">
+        <span class="ac-badge">RENTA VARIABLE</span>
+        <h4>Acciones</h4>
+        <p>
+          Participación en el capital de empresas cotizadas. La rentabilidad incluye
+          dividendos y variación de precio. No hay fecha de vencimiento ni garantía de
+          capital. La volatilidad es significativamente mayor que la de la renta fija.
+        </p>
+        <span class="rr">Rentabilidad alta (largo plazo) · Riesgo alto</span>
+        <p style="margin-top:.4rem;font-size:var(--fs-xs);color:var(--text-soft);">
+          Función: motor principal del crecimiento de la cartera a largo plazo. La
+          prima de riesgo histórica de la renta variable sobre la renta fija (equity
+          risk premium) en mercados desarrollados ha sido aproximadamente 4–6% anual.
+        </p>
+      </div>
+    </div>
+
+    <!-- Diagrama comparativo rentabilidad-riesgo -->
+    <div class="matrix-viz">
+      <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg" aria-label="Rentabilidad-riesgo por clase de activo">
+        <line x1="40" y1="180" x2="500" y2="180" stroke="#1e3a5f" stroke-width="1.5"/>
+        <line x1="40" y1="180" x2="40"  y2="20"  stroke="#1e3a5f" stroke-width="1.5"/>
+        <text x="504" y="184" font-size="11" fill="#1e3a5f" font-weight="700">Riesgo (σ)</text>
+        <text x="44"  y="15"  font-size="11" fill="#1e3a5f" font-weight="700">E(R)</text>
+
+        <!-- MM -->
+        <circle cx="90" cy="165" r="18" fill="#1e3a5f" fill-opacity="0.15" stroke="#1e3a5f" stroke-width="1.5"/>
+        <text x="90" y="162" font-size="9" fill="#1e3a5f" font-weight="800" text-anchor="middle">MM</text>
+        <text x="90" y="173" font-size="8" fill="#1e3a5f" text-anchor="middle">~2%</text>
+
+        <!-- RF -->
+        <circle cx="220" cy="130" r="26" fill="#d97706" fill-opacity="0.15" stroke="#d97706" stroke-width="1.5"/>
+        <text x="220" y="127" font-size="9" fill="#d97706" font-weight="800" text-anchor="middle">Renta fija</text>
+        <text x="220" y="139" font-size="8" fill="#d97706" text-anchor="middle">~3,5–5%</text>
+
+        <!-- High yield -->
+        <circle cx="330" cy="95" r="22" fill="#d97706" fill-opacity="0.1" stroke="#d97706" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="330" y="92" font-size="8" fill="#d97706" font-weight="700" text-anchor="middle">High yield</text>
+        <text x="330" y="104" font-size="8" fill="#d97706" text-anchor="middle">~6–8%</text>
+
+        <!-- RV -->
+        <circle cx="420" cy="55" r="32" fill="#16a34a" fill-opacity="0.15" stroke="#16a34a" stroke-width="1.5"/>
+        <text x="420" y="52" font-size="9" fill="#16a34a" font-weight="800" text-anchor="middle">Renta variable</text>
+        <text x="420" y="64" font-size="8" fill="#16a34a" text-anchor="middle">~7–10%</text>
+
+        <!-- Flecha de tendencia -->
+        <line x1="90" y1="165" x2="420" y2="55" stroke="#6b7280" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="240" y="100" font-size="9" fill="#6b7280" transform="rotate(-22,240,100)">Mayor riesgo → Mayor E(R)</text>
+      </svg>
+      <p style="font-size:var(--fs-xs);color:var(--text-soft);margin:.4rem 0 0;text-align:center;">
+        Relación rentabilidad-riesgo aproximada por clase de activo. Los valores son orientativos (largo plazo histórico).
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        BHB (Brinson, Hood, Beebower, 1986): la asignación estratégica por clase de activo
+        explica más del 90% de la variabilidad de la rentabilidad de la cartera a largo plazo.
+        La selección de valores y el market timing explican menos del 10%.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. DISTRIBUCIÓN SECTORIAL
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Distribución sectorial</h2>
+    <p>
+      Dentro de la renta variable, la <strong>distribución sectorial</strong> determina
+      qué sectores económicos reciben mayor o menor peso en la cartera. Cada sector tiene
+      características de rentabilidad, riesgo y correlación con el ciclo económico distintas.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Sector (GICS)</th><th>Tipo</th><th>Comportamiento en ciclo</th><th>Riesgo relativo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Tecnología / TI</td><td>Cíclico / crecimiento</td><td>Supera en expansión; sufre en recesión y subidas de tipos</td><td>Alto (β &gt; 1,2)</td></tr>
+          <tr><td>Financiero</td><td>Cíclico</td><td>Beneficiado por tipos altos y expansión del crédito</td><td>Alto (β ≈ 1,2–1,5)</td></tr>
+          <tr><td>Consumo discrecional</td><td>Cíclico</td><td>Sube en expansión (mayor gasto del consumidor)</td><td>Alto (β &gt; 1)</td></tr>
+          <tr><td>Industrial / Defensa</td><td>Cíclico</td><td>Ligado al ciclo de inversión y a la política fiscal</td><td>Medio-alto</td></tr>
+          <tr><td>Salud / Farma</td><td>Defensivo</td><td>Estable en recesión; demanda inelástica</td><td>Bajo-medio (β ≈ 0,7–0,9)</td></tr>
+          <tr><td>Consumo básico</td><td>Defensivo</td><td>Resistente en recesión; dividendos estables</td><td>Bajo (β ≈ 0,5–0,7)</td></tr>
+          <tr><td>Utilities (energía)</td><td>Defensivo</td><td>Alta rentabilidad por dividendo; sensible a tipos</td><td>Bajo (β ≈ 0,4–0,6)</td></tr>
+          <tr><td>Materias primas</td><td>Cíclico / inflación</td><td>Protege frente a la inflación; muy volátil</td><td>Alto</td></tr>
+          <tr><td>Inmobiliario (REITs)</td><td>Mixto</td><td>Sensible a tipos; genera rentas; protege de inflación a LP</td><td>Medio-alto</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Relación rentabilidad-riesgo de la distribución sectorial</h3>
+    <p>
+      Sobreponderar sectores cíclicos (tecnología, financiero) en momentos de expansión
+      puede ampliar la rentabilidad, pero también la volatilidad. Sobreponderar defensivos
+      (utilities, salud) en recesión reduce las caídas a cambio de perder parte de la
+      subida en la recuperación. La rotación sectorial es una herramienta de la
+      asignación táctica (ver Sección D).
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo — Distribución sectorial por perfil</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Sector</th><th>Cartera conservadora</th><th>Cartera moderada</th><th>Cartera agresiva</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Tecnología</td><td>10%</td><td>18%</td><td>28%</td></tr>
+            <tr><td>Salud / Farma</td><td>20%</td><td>15%</td><td>10%</td></tr>
+            <tr><td>Consumo básico</td><td>20%</td><td>12%</td><td>8%</td></tr>
+            <tr><td>Financiero</td><td>15%</td><td>18%</td><td>22%</td></tr>
+            <tr><td>Utilities</td><td>20%</td><td>12%</td><td>5%</td></tr>
+            <tr><td>Resto sectores</td><td>15%</td><td>25%</td><td>27%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. DISTRIBUCIÓN GEOGRÁFICA
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Distribución geográfica y su relación rentabilidad-riesgo</h2>
+    <p>
+      La <strong>distribución geográfica</strong> determina qué mercados nacionales o regionales
+      tienen mayor o menor representación en la cartera. La diversificación geográfica reduce
+      el riesgo específico de cada país (ciclo económico, política fiscal, riesgo político).
+    </p>
+
+    <div class="geo-grid">
+      <div class="geo-box">
+        <h4>🇪🇺 Mercados desarrollados Europa</h4>
+        <p>
+          Eurostoxx 50, DAX, CAC 40, IBEX, FTSE 100. Mercados líquidos, bien regulados,
+          con sectores financiero, industrial y consumo básico prominentes. Exposición a
+          la política del BCE y al ciclo europeo. E(R) moderada, σ moderada.
+          Riesgo divisa nulo para el inversor europeo en EUR.
+        </p>
+      </div>
+      <div class="geo-box">
+        <h4>🇺🇸 Mercados EE.UU.</h4>
+        <p>
+          S&amp;P 500, Nasdaq, Dow Jones. El mercado de mayor capitalización del mundo.
+          Fuerte peso de la tecnología (Apple, Microsoft, Nvidia, Amazon). Históricamente
+          el de mayor rentabilidad a largo plazo. Introduce riesgo EUR/USD para el inversor
+          europeo (puede cubrirse pero con coste).
+        </p>
+      </div>
+      <div class="geo-box">
+        <h4>🌏 Mercados emergentes</h4>
+        <p>
+          China, India, Brasil, México, Corea del Sur (índices MSCI EM). Mayor potencial
+          de crecimiento económico pero con mayor riesgo político, regulatorio y de liquidez.
+          Correlaciones más bajas con mercados desarrollados → mayor beneficio de
+          diversificación. σ significativamente mayor. Riesgo divisa importante.
+        </p>
+      </div>
+      <div class="geo-box">
+        <h4>🌏 Asia desarrollada</h4>
+        <p>
+          Japón (Nikkei, Topix), Australia, Singapur, Hong Kong. Mercados maduros con
+          dinámica propia. Japón destaca por su política monetaria históricamente
+          expansiva y su sector exportador. Riesgo divisa (JPY/EUR).
+        </p>
+      </div>
+    </div>
+
+    <h3>Relación rentabilidad-riesgo de la distribución geográfica</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Mercado</th><th>E(R) histórica aprox.</th><th>σ histórica aprox.</th><th>Riesgo adicional</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Mercados desarrollados globales (MSCI World)</td><td>7–9% anual</td><td>15–17%</td><td>Riesgo divisa (fuera EUR)</td></tr>
+          <tr><td>Europa (Eurostoxx 50)</td><td>6–8% anual</td><td>16–18%</td><td>Mínimo para inversor europeo</td></tr>
+          <tr><td>EE.UU. (S&amp;P 500)</td><td>9–11% anual</td><td>15–16%</td><td>Riesgo EUR/USD</td></tr>
+          <tr><td>Emergentes (MSCI EM)</td><td>8–12% anual</td><td>22–26%</td><td>Político, regulatorio, divisa</td></tr>
+          <tr><td>Mercados frontera</td><td>10–15% anual</td><td>28–35%</td><td>Muy alto: liquidez, político, divisa</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout info">
+      <strong>Sesgo doméstico (<em>home bias</em>):</strong> los inversores tienden a sobreponderar
+      activos de su propio país respecto a su peso en el mercado global. Para un inversor
+      español, asignar el 70% de la renta variable al IBEX sería un sesgo doméstico extremo
+      (el IBEX representa menos del 1% de la capitalización mundial). La diversificación
+      geográfica reduce el riesgo idiosincrásico de cada mercado.
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        El IBEX-35 acumula en torno a un +18% en el primer semestre de 2026, con máximos
+        históricos en torno a 18.573 puntos (febrero 2026). Los mercados emergentes asiáticos
+        (especialmente India) han mostrado fortaleza, mientras que China sigue con
+        incertidumbre regulatoria. El S&amp;P 500 en EE.UU. acumula ganancias moderadas,
+        afectado por la fortaleza del EUR/USD (~1,156). En este contexto, la sobreposición
+        a Europa (especialmente defensa e industriales) ha aportado alfa geográfica
+        significativa en 2026.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Dimensión</th><th>Opciones</th><th>Palanca de rentabilidad/riesgo</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Clase de activo</strong></td>
+            <td>MM / Renta fija / Renta variable</td>
+            <td>La más impactante: explica &gt;90% de la variabilidad de resultados</td>
+          </tr>
+          <tr>
+            <td><strong>Distribución sectorial</strong></td>
+            <td>Cíclicos vs. defensivos</td>
+            <td>Condiciona el comportamiento según la fase del ciclo económico</td>
+          </tr>
+          <tr>
+            <td><strong>Distribución geográfica</strong></td>
+            <td>Desarrollados / Emergentes / Regiones</td>
+            <td>Diversifica riesgo país; introduce riesgo divisa fuera de EUR</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-a.html" class="nav-btn">← A: Definición</a>
+    <a href="seccion-c.html" class="nav-btn">C: Carteras modelo y benchmarks →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Brinson, G. P., Hood, L. R. &amp; Beebower, G. L. (1986). «Determinants of Portfolio Performance».
+        <em>Financial Analysts Journal</em>, 42(4), 39–44.
+        <a href="https://doi.org/10.2469/faj.v42.n4.39" target="_blank" rel="noopener">doi.org/10.2469/faj.v42.n4.39</a>.
+        La asignación de activos explica más del 90% de la variabilidad de resultados.
+      </li>
+      <li id="fn2">
+        MSCI Inc. (2025). <em>MSCI Global Investable Market Indexes Methodology</em>.
+        <a href="https://www.msci.com/indexes" target="_blank" rel="noopener">msci.com/indexes</a>.
+        Clasificación geográfica y sectorial (GICS) de mercados globales.
+      </li>
+      <li id="fn3">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 4 · Sección B,
+        pp. 61–63. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 4 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

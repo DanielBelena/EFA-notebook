@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B4 · Sección E — Consideraciones ESG en carteras · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .esg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 640px) { .esg-grid { grid-template-columns: 1fr; } }
+
+    .esg-box {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+    }
+    .esg-box.env { border-color: var(--green); }
+    .esg-box.soc { border-color: var(--amber); }
+    .esg-box.gov { border-color: var(--navy); }
+
+    .esg-box .esg-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: .72rem;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-bottom: .4rem;
+      color: #fff;
+    }
+    .env .esg-badge { background: var(--green); }
+    .soc .esg-badge { background: var(--amber); }
+    .gov .esg-badge { background: var(--navy); }
+
+    .esg-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .3rem; }
+    .esg-box p  { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.65; margin: 0; }
+
+    .strategy-list {
+      list-style: none;
+      padding: 0;
+      margin: .8rem 0;
+    }
+    .strategy-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      padding: .65rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: var(--fs-sm);
+      line-height: 1.65;
+    }
+    .strategy-list li:last-child { border-bottom: none; }
+    .strategy-list .si { font-size: 1.1rem; flex-shrink: 0; margin-top: .05rem; }
+
+    .req-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .req-grid { grid-template-columns: 1fr; } }
+    .req-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+    }
+    .req-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .3rem; }
+    .req-box p  { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.65; margin: 0; }
+
+    .impl-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .impl-grid { grid-template-columns: 1fr; } }
+    .impl-box {
+      background: var(--card);
+      border-left: 4px solid var(--green);
+      border-radius: 0 10px 10px 0;
+      padding: .8rem 1rem;
+    }
+    .impl-box.neg { border-left-color: var(--amber); }
+    .impl-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .3rem; }
+    .impl-box p  { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.65; margin: 0; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B4 · E</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 4</a>
+    <span class="sep">›</span>
+    <span>Sección E</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 4 · Sección E · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Consideraciones ESG en la construcción de carteras</h1>
+    <p class="hero-sub">
+      Integración ESG en SAA y selección · Requisitos regulatorios (SFDR, Taxonomía) ·
+      Implicaciones en rentabilidad, riesgo y universo de inversión.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. LOS TRES PILARES ESG
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Los factores ESG: recordatorio</h2>
+    <p class="sec-intro">
+      Los factores <strong>ESG</strong> (Environmental, Social, Governance) son criterios
+      no financieros que reflejan el impacto de la empresa o activo en el medioambiente,
+      la sociedad y la calidad de su gobierno corporativo. Su integración en la construcción
+      de carteras supone añadir una tercera dimensión de análisis junto a la rentabilidad
+      y el riesgo tradicional.
+    </p>
+
+    <div class="esg-grid">
+      <div class="esg-box env">
+        <span class="esg-badge">ENVIRONMENTAL · E</span>
+        <h4>Medioambiente</h4>
+        <p>Emisiones de CO₂ y huella de carbono · Uso del agua y energía ·
+        Gestión de residuos · Biodiversidad · Transición energética ·
+        Exposición a riesgo climático físico y de transición.</p>
+      </div>
+      <div class="esg-box soc">
+        <span class="esg-badge">SOCIAL · S</span>
+        <h4>Social</h4>
+        <p>Derechos laborales y condiciones de trabajo · Diversidad e inclusión ·
+        Seguridad de producto · Relaciones con comunidades locales ·
+        Privacidad de datos · Cadena de suministro responsable.</p>
+      </div>
+      <div class="esg-box gov">
+        <span class="esg-badge">GOVERNANCE · G</span>
+        <h4>Gobernanza</h4>
+        <p>Composición e independencia del consejo · Remuneración ejecutiva ·
+        Derechos de los accionistas · Transparencia y auditoría ·
+        Lucha contra la corrupción · Política de dividendos.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. CÓMO SE INCLUYEN LOS FACTORES ESG EN LA CONSTRUCCIÓN DE CARTERAS
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Cómo integrar los factores ESG en la construcción de carteras</h2>
+
+    <h3>2a. En la asignación estratégica de activos (SAA)</h3>
+    <p>
+      A nivel de SAA, los factores ESG pueden modificar los pesos entre clases de activo
+      y geografías en función de la exposición a riesgos ESG sistémicos:
+    </p>
+
+    <ul class="strategy-list">
+      <li>
+        <span class="si">🌡️</span>
+        <div><strong>Infraponderación de activos con alto riesgo climático:</strong> reducir la exposición a sectores con alta huella de carbono (carbón, petróleo, gas) en relación con su peso en el índice de referencia, anticipando riesgos regulatorios y de transición.</div>
+      </li>
+      <li>
+        <span class="si">🏗️</span>
+        <div><strong>Sobreposición en «activos de transición»:</strong> sobreponderar energías renovables, tecnologías de eficiencia energética, infraestructuras verdes y bonos verdes (<em>green bonds</em>) dentro de la asignación a renta fija.</div>
+      </li>
+      <li>
+        <span class="si">🌍</span>
+        <div><strong>Consideración geográfica ESG:</strong> ajustar la exposición geográfica según el marco regulatorio ESG de cada país (la UE tiene el marco más exigente del mundo con el SFDR y la Taxonomía). Algunos mercados emergentes presentan mayor riesgo de gobernanza.</div>
+      </li>
+    </ul>
+
+    <h3>2b. En la selección de activos (security selection)</h3>
+    <p>
+      A nivel de selección de valores, los factores ESG se integran de distintas maneras:
+    </p>
+
+    <ul class="strategy-list">
+      <li>
+        <span class="si">❌</span>
+        <div><strong>Exclusiones (negative screening):</strong> eliminar del universo de inversión empresas de sectores controvertidos: armas de destrucción masiva, tabaco, juego, pornografía, carbón térmico. Es el enfoque más antiguo y simple de integración ESG.</div>
+      </li>
+      <li>
+        <span class="si">✅</span>
+        <div><strong>Selección positiva (best-in-class):</strong> dentro de cada sector, invertir solo en las empresas con mejores puntuaciones ESG. No excluye sectores completos sino que selecciona los «líderes ESG» dentro de cada uno.</div>
+      </li>
+      <li>
+        <span class="si">🔗</span>
+        <div><strong>Integración ESG:</strong> incorporar datos ESG (puntuaciones de MSCI ESG, Sustainalytics, etc.) como variables adicionales en el análisis fundamental o cuantitativo, junto a los ratios financieros tradicionales. No necesariamente excluye nada, pero ajusta la valoración.</div>
+      </li>
+      <li>
+        <span class="si">🎯</span>
+        <div><strong>Inversión temática:</strong> concentrar parte de la cartera en temáticas ESG específicas: agua, energía limpia, movilidad eléctrica, salud, capital humano. Mayor concentración y riesgo específico, pero exposición explícita a megatendencias sostenibles.</div>
+      </li>
+      <li>
+        <span class="si">🗳️</span>
+        <div><strong>Engagement y voto:</strong> sin excluir ni seleccionar, el inversor usa su condición de accionista para presionar a las empresas a mejorar sus prácticas ESG mediante el ejercicio del voto en juntas y el diálogo con la dirección.</div>
+      </li>
+      <li>
+        <span class="si">🌱</span>
+        <div><strong>Inversión de impacto:</strong> buscar deliberadamente inversiones que generen un impacto social o ambiental positivo y medible, además de rentabilidad financiera. Típico en fondos de private equity de impacto, bonos sociales o de sostenibilidad.</div>
+      </li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. REQUISITOS PARA INCLUIR ESG
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Requisitos para incluir consideraciones ESG en la cartera</h2>
+
+    <h3>Requisitos regulatorios europeos</h3>
+
+    <div class="req-grid">
+      <div class="req-box">
+        <h4>SFDR — Reglamento de Divulgación (2019/2088)</h4>
+        <p>
+          Obliga a los gestores de activos a clasificar sus productos en tres categorías:<br>
+          — <strong>Artículo 6:</strong> no promueve características ESG (solo divulgación básica).<br>
+          — <strong>Artículo 8:</strong> promueve características medioambientales o sociales.<br>
+          — <strong>Artículo 9:</strong> tiene como objetivo inversión sostenible explícita.<br>
+          Requiere publicar el «Principio de No Causar Daño Significativo» (DNSH) y
+          el porcentaje alineado con la Taxonomía UE.
+        </p>
+      </div>
+      <div class="req-box">
+        <h4>Taxonomía UE (Reglamento 2020/852)</h4>
+        <p>
+          Define qué actividades económicas son medioambientalmente sostenibles en la UE,
+          en función de seis objetivos medioambientales y el criterio DNSH.
+          Los productos art. 8 y art. 9 deben reportar el % de sus inversiones que está
+          alineado con la Taxonomía. A partir de 2026, la Directiva Ómnibus I
+          (UE) 2026/470 ha simplificado algunos requisitos de reporting.
+        </p>
+      </div>
+      <div class="req-box">
+        <h4>MiFID II — Preferencias de sostenibilidad</h4>
+        <p>
+          Desde agosto 2022, los asesores financieros deben preguntar a los clientes por
+          sus <strong>preferencias de sostenibilidad</strong> e integrarlas en el test de
+          idoneidad. Una recomendación que ignora las preferencias ESG declaradas del cliente
+          es inadecuada bajo MiFID II.
+        </p>
+      </div>
+      <div class="req-box">
+        <h4>PAI — Principales Impactos Adversos</h4>
+        <p>
+          Los gestores de más de 500 empleados y ciertos gestores voluntarios deben publicar
+          anualmente los «Principales Impactos Adversos» (<em>Principal Adverse Impacts</em>)
+          de sus inversiones en factores ESG: emisiones de CO₂, ratio de género en consejo,
+          exposición a armas controvertidas, etc. (14 indicadores obligatorios + opcionales).
+        </p>
+      </div>
+    </div>
+
+    <h3>Requisitos de datos e infraestructura</h3>
+    <div class="req-grid">
+      <div class="req-box">
+        <h4>Datos ESG de calidad</h4>
+        <p>Necesidad de datos ESG fiables, comparables y actualizados de los activos de la cartera.
+        Proveedores: MSCI ESG Research, Sustainalytics (Morningstar), ISS, Bloomberg ESG.
+        Los datos varían significativamente entre proveedores, lo que supone un reto metodológico.</p>
+      </div>
+      <div class="req-box">
+        <h4>Sistemas de reporting y monitorización</h4>
+        <p>Infraestructura para calcular y reportar métricas ESG de la cartera: huella de carbono,
+        exposición a sectores controvertidos, % alineado Taxonomía, PAI. Requiere inversión en
+        sistemas de datos y personal especializado.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. IMPLICACIONES DE INTEGRAR ESG
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Implicaciones de integrar factores ESG en la construcción de carteras</h2>
+
+    <div class="impl-grid">
+      <div class="impl-box">
+        <h4>🌍 Reducción del universo de inversión</h4>
+        <p>Las exclusiones y los filtros positivos reducen el número de activos elegibles.
+        Esto puede aumentar el tracking error respecto al benchmark convencional y
+        reducir las posibilidades de diversificación, especialmente en mercados pequeños.</p>
+      </div>
+      <div class="impl-box">
+        <h4>📊 Cambios en la composición sectorial y geográfica</h4>
+        <p>Los filtros ESG tienden a infraponderar materias primas, energía fósil y tabaco,
+        y sobreponderar tecnología, salud y utilities renovables. Esto introduce sesgos
+        sistemáticos respecto al índice convencional que pueden ser favorables o desfavorables
+        según el ciclo.</p>
+      </div>
+      <div class="impl-box">
+        <h4>📈 Impacto en la rentabilidad esperada</h4>
+        <p>La evidencia sobre si la integración ESG mejora o reduce la rentabilidad es mixta.
+        A corto plazo, las exclusiones del sector energético dañaron la rentabilidad relativa
+        en 2021–2022 (boom del petróleo post-COVID). A largo plazo, los estudios apuntan a
+        que las empresas con mejor gobernanza (G) tienden a tener menor riesgo y mejor
+        rentabilidad ajustada.</p>
+      </div>
+      <div class="impl-box neg">
+        <h4>⚠️ Riesgo de «greenwashing»</h4>
+        <p>La proliferación de productos etiquetados como ESG sin criterios claros ni
+        verificación independiente crea riesgo de greenwashing. El SFDR y la revisión
+        del Reglamento de Benchmark (BMR) buscan reducirlo, pero sigue siendo un riesgo
+        reputacional y regulatorio para los gestores.</p>
+      </div>
+      <div class="impl-box">
+        <h4>💰 Implicaciones en costes</h4>
+        <p>Los fondos ESG activos tienden a tener comisiones algo más elevadas por los
+        costes de análisis especializado y reporting regulatorio. Los ETF ESG indexados
+        han reducido este sobrecoste significativamente (comisiones desde 0,05–0,20%).</p>
+      </div>
+      <div class="impl-box neg">
+        <h4>⚠️ Complejidad del proceso de inversión</h4>
+        <p>Integrar ESG añade complejidad al proceso: definición de criterios, selección de
+        proveedor de datos, construcción del universo ESG, reporting periódico a clientes y
+        reguladores. Requiere formación especializada del equipo gestor.</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo — Impacto ESG en una cartera de renta variable europea</h3>
+      <p>
+        Cartera de referencia: MSCI Europe (380 valores, todos sectores).<br>
+        Cartera art. 8 con exclusiones (armas, tabaco, carbón) + best-in-class:
+        Universo reducido a ~250 valores.<br><br>
+        Composición resultante vs. MSCI Europe:<br>
+        — Energía fósil: 2% vs 6% en MSCI Europe (−4pp)<br>
+        — Materiales/minería: 3% vs 7% (−4pp)<br>
+        — Tecnología: 22% vs 15% (+7pp)<br>
+        — Salud: 18% vs 14% (+4pp)<br><br>
+        Tracking error estimado vs. benchmark convencional: ~2,5–3,5% anual.<br>
+        En 2022 (año del boom energético), esta cartera habría tenido rentabilidad inferior
+        al MSCI Europe. En 2023–2026 (caída del petróleo, subida de tecnología), habría
+        superado al índice.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Las preguntas ESG en el EFA pueden ser: clasificación SFDR (art. 6/8/9),
+        diferencia entre exclusión negativa, best-in-class e integración ESG,
+        obligación de incluir preferencias de sostenibilidad en el test de idoneidad
+        (MiFID II), y las implicaciones en universo de inversión y tracking error.
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        La <strong>Directiva Ómnibus I</strong> (UE) 2026/470, en vigor desde el 18 de marzo
+        de 2026, ha simplificado los requisitos de reporting de sostenibilidad para empresas
+        medianas (CSRD), reduciendo la carga informativa que servía de base a los gestores
+        para calcular métricas ESG. En paralelo, el mercado de bonos verdes europeo supera
+        ya los <strong>600.000 millones de euros</strong> en emisiones acumuladas, consolidando
+        la renta fija sostenible como clase de activo mainstream. Los ETF ESG representan
+        aproximadamente el 25% de los flujos de entrada netos en fondos europeos en 2025–2026.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Exclusiones (neg. screening)</strong></td><td>Eliminar sectores/empresas controvertidas del universo</td></tr>
+          <tr><td><strong>Best-in-class</strong></td><td>Seleccionar los líderes ESG dentro de cada sector</td></tr>
+          <tr><td><strong>Integración ESG</strong></td><td>ESG como variable adicional en el análisis financiero</td></tr>
+          <tr><td><strong>Inversión de impacto</strong></td><td>Buscar impacto positivo medible + rentabilidad</td></tr>
+          <tr><td><strong>SFDR art. 6</strong></td><td>Sin características ESG especiales</td></tr>
+          <tr><td><strong>SFDR art. 8</strong></td><td>Promueve características E o S</td></tr>
+          <tr><td><strong>SFDR art. 9</strong></td><td>Objetivo de inversión sostenible explícito</td></tr>
+          <tr><td><strong>MiFID II ESG</strong></td><td>Obligatorio preguntar preferencias de sostenibilidad en test de idoneidad</td></tr>
+          <tr><td><strong>Implicación principal</strong></td><td>Reduce universo → mayor tracking error → posibles sesgos sectoriales</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-d.html" class="nav-btn">← D: Tipos de asignación</a>
+    <a href="../bloque-5/seccion-a.html" class="nav-btn">Bloque 5 · A: Medidas de rentabilidad →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Reglamento (UE) 2019/2088 del Parlamento Europeo — SFDR.
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32019R2088" target="_blank" rel="noopener">eur-lex.europa.eu</a>.
+        Clasificación art. 6, 8 y 9. Obligaciones de divulgación.
+      </li>
+      <li id="fn2">
+        Reglamento (UE) 2020/852 del Parlamento Europeo — Taxonomía Verde.
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32020R0852" target="_blank" rel="noopener">eur-lex.europa.eu</a>.
+        Criterios de actividades medioambientalmente sostenibles.
+      </li>
+      <li id="fn3">
+        Directiva (UE) 2026/470 (Ómnibus I), en vigor 18/03/2026.
+        <a href="https://eur-lex.europa.eu" target="_blank" rel="noopener">eur-lex.europa.eu</a>.
+        Simplificación del reporting CSRD para empresas medianas.
+      </li>
+      <li id="fn4">
+        CFA Institute (2021). <em>ESG Integration in Europe, the Middle East, and Africa</em>.
+        <a href="https://www.cfainstitute.org" target="_blank" rel="noopener">cfainstitute.org</a>.
+        Prácticas de integración ESG en gestión de carteras.
+      </li>
+      <li id="fn5">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 4 · Sección E,
+        pp. 67–68. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 4 · Sección E · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

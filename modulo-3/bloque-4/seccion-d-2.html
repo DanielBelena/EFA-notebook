@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B4 · Sección D — Asignación estratégica y táctica · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .subsec-title {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: var(--fs-base);
+      color: var(--navy);
+      background: var(--navy-light);
+      border-radius: 10px;
+      padding: .6rem 1.2rem;
+      margin: 2rem 0 1rem;
+      border-left: 4px solid var(--navy);
+    }
+
+    .strat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .strat-grid { grid-template-columns: 1fr; } }
+    .strat-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+    }
+    .strat-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .3rem; }
+    .strat-box p  { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.65; margin: 0; }
+
+    .trigger-list {
+      list-style: none;
+      padding: 0;
+      margin: .8rem 0;
+    }
+    .trigger-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      padding: .6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: var(--fs-sm);
+      line-height: 1.65;
+    }
+    .trigger-list li:last-child { border-bottom: none; }
+    .trigger-list .ti { font-size: 1.1rem; flex-shrink: 0; margin-top: .05rem; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B4 · D</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 4</a>
+    <span class="sep">›</span>
+    <span>Sección D</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 4 · Sección D · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Tipos de asignación de activos</h1>
+    <p class="hero-sub">
+      Asignación estratégica: pesos a largo plazo, rebalanceo y buy &amp; hold ·
+      Asignación táctica: circunstancias coyunturales, security selection y market timing.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ================================================================
+       SUBSECCIÓN 1 — ASIGNACIÓN ESTRATÉGICA
+       ================================================================ -->
+  <div class="subsec-title">Subsección 1 · Asignación estratégica de activos (SAA)</div>
+
+  <div class="sec">
+    <h2>1. La asignación estratégica de activos (SAA)</h2>
+    <p class="sec-intro">
+      La <strong>asignación estratégica de activos</strong> (<em>Strategic Asset Allocation</em>,
+      SAA) define los <strong>pesos a largo plazo</strong> de cada clase de activo en la cartera
+      modelo, coherentes con el perfil de riesgo del inversor y su horizonte temporal.
+      Es la decisión de asignación más importante y explica la mayor parte de la
+      rentabilidad y el riesgo de la cartera a largo plazo.
+    </p>
+
+    <div class="card accent-navy">
+      <p>
+        La SAA fija los «pesos neutros» de cada clase de activo que el inversor mantendría
+        indefinidamente en condiciones normales de mercado. No intenta capitalizar
+        oportunidades coyunturales: es una decisión estructural basada en el perfil de riesgo,
+        los objetivos y el horizonte temporal del inversor. Puede revisarse cuando
+        cambian sustancialmente las circunstancias del inversor o las expectativas
+        de largo plazo del mercado.
+      </p>
+    </div>
+
+    <h3>Estrategia 1: Rebalanceo periódico</h3>
+    <p>
+      Los precios de mercado alteran continuamente los pesos reales de la cartera respecto
+      a los pesos estratégicos. La estrategia de <strong>rebalanceo periódico</strong> consiste
+      en restaurar los pesos estratégicos con una frecuencia predefinida (anual, semestral,
+      trimestral) o cuando los pesos se desvíen más de un umbral (bandas):
+    </p>
+
+    <div class="strat-grid">
+      <div class="strat-box">
+        <h4>Rebalanceo por calendario</h4>
+        <p>Se rebalancea en fechas fijas predeterminadas (ej: primer lunes de enero y julio)
+        independientemente de la desviación actual. Simple de ejecutar pero puede no ser
+        óptimo si los pesos apenas se han movido o si los mercados están muy volátiles.</p>
+      </div>
+      <div class="strat-box">
+        <h4>Rebalanceo por bandas (threshold)</h4>
+        <p>Se rebalancea cuando la asignación real de algún activo se desvía más de X% del
+        peso estratégico (ej: ±5%). Más eficiente que el por calendario en términos de
+        coste de transacción, pero requiere monitorización continua.</p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>Impacto del rebalanceo:</strong> vender lo que ha subido y comprar lo que
+      ha bajado es contraintuitivo pero tiene lógica financiera sólida. El rebalanceo
+      implementa sistemáticamente la estrategia de «comprar barato, vender caro» y evita
+      que la cartera derive hacia posiciones más arriesgadas tras periodos alcistas
+      (la renta variable sube → su peso crece → el riesgo de la cartera aumenta sin
+      que el inversor lo haya decidido).
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Rebalanceo</h3>
+      <p>
+        Cartera inicial: 60% RV (60.000€) / 40% RF (40.000€). Total: 100.000€.<br>
+        Tras 1 año, RV sube 20% y RF sube 3%:<br>
+        RV: 60.000×1,20 = 72.000€. RF: 40.000×1,03 = 41.200€. Total: 113.200€.<br><br>
+        Nuevo peso real RV = 72.000/113.200 = <strong>63,6%</strong> (objetivo: 60%)<br>
+        Nuevo peso real RF = 41.200/113.200 = <strong>36,4%</strong> (objetivo: 40%)<br><br>
+        Para rebalancear: vender RV por valor de 113.200×(63,6%−60%) = <strong>4.075€</strong>
+        y comprar RF por el mismo importe → restaura 60/40.
+      </p>
+    </div>
+
+    <h3>Estrategia 2: Gestión estática (comprar y mantener)</h3>
+    <p>
+      La estrategia de <strong>comprar y mantener</strong> (<em>buy and hold</em>) consiste
+      en definir la cartera inicial con los pesos estratégicos y <strong>no rebalancear</strong>
+      salvo que haya cambios sustanciales en los objetivos del inversor. Los pesos evolucionan
+      libremente según los movimientos del mercado.
+    </p>
+
+    <div class="strat-grid">
+      <div class="strat-box">
+        <h4>✅ Ventajas del buy and hold</h4>
+        <p>
+          Mínimos costes de transacción y fiscales (sin ventas → sin realización de
+          plusvalías). Extremadamente simple de gestionar. No requiere monitorización activa.
+          Adecuada para inversores con horizontes muy largos y alta tolerancia al riesgo.
+        </p>
+      </div>
+      <div class="strat-box">
+        <h4>⚠️ Inconvenientes del buy and hold</h4>
+        <p>
+          La cartera derivará hacia una mayor exposición al activo que más haya subido
+          (generalmente renta variable), aumentando el riesgo sin que el inversor lo haya
+          decidido. En horizontes largos, el perfil real puede alejarse significativamente
+          del perfil teórico del inversor.
+        </p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Diferencia entre rebalanceo (restaurar pesos estratégicos) y buy &amp; hold
+        (dejar evolucionar los pesos libremente). El rebalanceo implica «vender ganadores
+        y comprar perdedores»: estrategia contrarian implícita. El buy &amp; hold es
+        momentum implícito.
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       SUBSECCIÓN 2 — ASIGNACIÓN TÁCTICA
+       ================================================================ -->
+  <div class="subsec-title">Subsección 2 · Asignación táctica de activos (TAA)</div>
+
+  <div class="sec">
+    <h2>2. La asignación táctica de activos (TAA)</h2>
+    <p>
+      La <strong>asignación táctica</strong> (<em>Tactical Asset Allocation</em>, TAA) son
+      las desviaciones temporales y deliberadas respecto a los pesos estratégicos, motivadas
+      por la visión del gestor sobre el entorno coyuntural a corto-medio plazo. A diferencia
+      de la SAA, la TAA busca <em>añadir valor</em> aprovechando ineficiencias o circunstancias
+      de mercado temporales.
+    </p>
+
+    <h3>Circunstancias que desencadenan cambios tácticos</h3>
+
+    <ul class="trigger-list">
+      <li>
+        <span class="ti">📉</span>
+        <div><strong>Cambio en el ciclo económico:</strong> anticipación de una recesión → reducir exposición a renta variable cíclica y aumentar deuda pública de alta calidad. Anticipación de expansión → sobreponderar renta variable y sectores cíclicos.</div>
+      </li>
+      <li>
+        <span class="ti">🏦</span>
+        <div><strong>Decisiones de política monetaria:</strong> anuncio de subidas de tipos → reducir duración de la renta fija (sensibilidad a tipos) y posiblemente sobreponderar bancos (beneficiados por tipos altos). Bajadas de tipos → alargar duración.</div>
+      </li>
+      <li>
+        <span class="ti">📊</span>
+        <div><strong>Valoraciones extremas:</strong> si la renta variable está muy cara (PER muy alto respecto a la media histórica) o muy barata, el gestor puede infra o sobreponderar tácticamente. Indicadores: CAPE de Shiller, Q de Tobin, ratio PER/yield bond.</div>
+      </li>
+      <li>
+        <span class="ti">🌍</span>
+        <div><strong>Eventos geopolíticos:</strong> conflictos, elecciones relevantes, cambios regulatorios que afectan a sectores o geografías específicas. Ej: aumento del gasto en defensa → sobreponderar sector defensa europeo.</div>
+      </li>
+      <li>
+        <span class="ti">💱</span>
+        <div><strong>Movimientos de divisas:</strong> apreciación del EUR frente al USD → reducir exposición a mercado americano o cubrir el riesgo divisa. Depreciación → mantener o aumentar exposición en USD.</div>
+      </li>
+      <li>
+        <span class="ti">📈</span>
+        <div><strong>Momentum de mercado:</strong> en algunos modelos tácticos, fuertes tendencias en precio o flujos de inversión institucional justifican sobreponderar temporalmente el activo en tendencia alcista.</div>
+      </li>
+    </ul>
+
+    <h3>Estrategia 1: Security selection (selección de valores)</h3>
+    <p>
+      La <strong>selección de valores</strong> (<em>security selection</em>) es la estrategia
+      táctica que consiste en elegir, dentro de una clase de activo o sector, los valores
+      específicos que se espera que superen al resto del grupo. No cambia la asignación
+      entre clases de activo, sino qué títulos concretos se compran dentro de cada clase.
+    </p>
+
+    <div class="strat-grid">
+      <div class="strat-box">
+        <h4>Herramientas de security selection</h4>
+        <p>
+          Análisis fundamental (valoración por DCF, múltiplos comparables), análisis técnico
+          (tendencias, soportes/resistencias), modelos cuantitativos de factores (valor,
+          calidad, momentum, baja volatilidad), información alternativa (patents, sentiment,
+          datos de satélite). Se busca identificar valores con alfa positivo según el CAPM.
+        </p>
+      </div>
+      <div class="strat-box">
+        <h4>Riesgo del security selection</h4>
+        <p>
+          El principal riesgo es el riesgo específico adicional que se asume respecto al
+          benchmark. Medido por el tracking error. Una alta concentración en valores
+          seleccionados activamente aumenta el riesgo de caídas si la selección es errónea.
+          La evidencia empírica sugiere que pocos gestores superan consistentemente al
+          benchmark por security selection.
+        </p>
+      </div>
+    </div>
+
+    <h3>Estrategia 2: Market timing</h3>
+    <p>
+      El <strong>market timing</strong> consiste en intentar anticipar los momentos más
+      favorables para <em>entrar o salir</em> de una clase de activo completa (ej: vender
+      toda la renta variable antes de una caída y recomprarla en el mínimo). Es la forma
+      más extrema de asignación táctica.
+    </p>
+
+    <div class="strat-grid">
+      <div class="strat-box">
+        <h4>Señales de market timing</h4>
+        <p>
+          Indicadores macroeconómicos adelantados (PMI, curva de tipos invertida),
+          indicadores técnicos de sobrecompra/sobreventa (RSI, Bollinger bands),
+          modelos de valoración relativa (prima de riesgo implícita de la renta variable
+          vs. bono), sentimiento del mercado (VIX, encuestas a inversores, put/call ratio).
+        </p>
+      </div>
+      <div class="strat-box">
+        <h4>Dificultad del market timing</h4>
+        <p>
+          La evidencia empírica es clara: el market timing sistemáticamente exitoso es
+          excepcionalísimo. Los días de mayores subidas del mercado suelen ocurrir
+          inmediatamente después de fuertes caídas. Un inversor que perdiera los 10 mejores
+          días del S&amp;P 500 en 20 años vería su rentabilidad reducirse a la mitad.
+          La HME dice que es imposible de forma consistente.
+        </p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — TAA vs. SAA</h3>
+      <p>
+        SAA del perfil moderado: 50% RV, 40% RF, 10% MM.<br>
+        El comité de inversión anticipa una bajada de tipos del BCE en los próximos 6 meses
+        y un inicio de ciclo expansivo.<br><br>
+        Decisión táctica:<br>
+        — Sobreponderar RV: 50% → <strong>58%</strong> (+8% sobre peso estratégico)<br>
+        — Reducir RF corto: 40% → <strong>32%</strong> (−8%)<br>
+        — Mantener MM: 10%<br><br>
+        Esta desviación está dentro de las bandas (±10% en cada clase), por lo que es
+        una decisión táctica normal. Si el análisis es correcto y la RV sube, la cartera
+        superará al benchmark. Si el análisis falla, el tracking error penalizará.
+      </p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Característica</th><th>SAA (estratégica)</th><th>TAA (táctica)</th></tr></thead>
+        <tbody>
+          <tr><td>Horizonte</td><td>Largo plazo (varios años)</td><td>Corto-medio plazo (meses)</td></tr>
+          <tr><td>Objetivo</td><td>Estructura de riesgo/rentabilidad del inversor</td><td>Añadir alfa aprovechando coyuntura</td></tr>
+          <tr><td>Desencadenante</td><td>Cambio en perfil del inversor</td><td>Visión sobre ciclo, tipos, valoraciones</td></tr>
+          <tr><td>Revisión</td><td>Anual o por cambio de perfil</td><td>Mensual o ante eventos relevantes</td></tr>
+          <tr><td>Herramientas</td><td>Optimización media-varianza, perfil</td><td>Security selection, market timing, rotación</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Distinguir SAA (pesos a largo plazo, no cambia con el mercado) de TAA (desviación
+        temporal motivada por visión de mercado). También puede pedirse clasificar una
+        decisión de gestión como security selection (cambio dentro de una clase) o market
+        timing (cambio entre clases de activo).
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        En junio 2026, el BCE mantiene tipos al 2,00% tras haberlos bajado desde el 4,00%
+        en 2024–2025. Esta trayectoria expansiva ha favorecido tanto la renta variable
+        (IBEX en máximos históricos) como la renta fija de largo plazo (bono 10a español
+        al ~3,5%, apreciación en precio). Un gestor que en 2024 sobreponderó tácticamente
+        renta variable europea y deuda a largo plazo habría generado alfa significativo
+        respecto a una asignación estratégica estática. El market timing en este ciclo ha
+        primado las entradas en caídas de 2022–2023.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Definición / clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>SAA</strong></td><td>Pesos estratégicos a largo plazo por clase de activo; base de la cartera modelo</td></tr>
+          <tr><td><strong>Rebalanceo periódico</strong></td><td>Restaurar pesos SAA regularmente; vender lo que subió, comprar lo que bajó</td></tr>
+          <tr><td><strong>Buy and hold</strong></td><td>No rebalancear; dejar evolucionar los pesos; mínimo coste, mayor riesgo a largo plazo</td></tr>
+          <tr><td><strong>TAA</strong></td><td>Desviaciones temporales de la SAA motivadas por circunstancias coyunturales</td></tr>
+          <tr><td><strong>Security selection</strong></td><td>Elegir qué valores concretos comprar dentro de una clase; cambia composición, no pesos</td></tr>
+          <tr><td><strong>Market timing</strong></td><td>Cambiar pesos entre clases de activo según anticipación del mercado; difícil y arriesgado</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-c.html" class="nav-btn">← C: Carteras modelo</a>
+    <a href="seccion-e.html" class="nav-btn">E: Consideraciones ESG →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Brinson, G. P., Hood, L. R. &amp; Beebower, G. L. (1986). «Determinants of Portfolio Performance».
+        <em>Financial Analysts Journal</em>, 42(4), 39–44.
+        <a href="https://doi.org/10.2469/faj.v42.n4.39" target="_blank" rel="noopener">doi.org/10.2469/faj.v42.n4.39</a>.
+        SAA explica &gt;90% de la variabilidad; TAA añade valor marginal.
+      </li>
+      <li id="fn2">
+        Sharpe, W. F. (1992). «Asset Allocation: Management Style and Performance Measurement».
+        <em>Journal of Portfolio Management</em>, 18(2), 7–19.
+        <a href="https://doi.org/10.3905/jpm.1992.409394" target="_blank" rel="noopener">doi.org/10.3905/jpm.1992.409394</a>.
+        Análisis de estilo y asignación estratégica.
+      </li>
+      <li id="fn3">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 4 · Sección D,
+        pp. 65–67. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 4 · Sección D · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

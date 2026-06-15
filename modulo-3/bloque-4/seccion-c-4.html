@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B4 · Sección C — Carteras modelo y benchmarks · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .bench-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .bench-grid { grid-template-columns: 1fr; } }
+
+    .bench-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+    }
+    .bench-box .bb-cat {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: .68rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-bottom: .4rem;
+      background: var(--navy-light);
+      color: var(--navy);
+    }
+    .bench-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .3rem; }
+    .bench-box p  { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.65; margin: 0; }
+
+    .char-list {
+      list-style: none;
+      padding: 0;
+      margin: .8rem 0;
+    }
+    .char-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      padding: .55rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: var(--fs-sm);
+      line-height: 1.65;
+    }
+    .char-list li:last-child { border-bottom: none; }
+    .char-list .ck { font-size: 1rem; flex-shrink: 0; margin-top: .05rem; }
+
+    .banda-viz {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B4 · C</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 4</a>
+    <span class="sep">›</span>
+    <span>Sección C</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 4 · Sección C · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Elaboración de carteras modelo y benchmarks</h1>
+    <p class="hero-sub">
+      Definición de benchmark · Índices principales · Características del benchmark ·
+      Criterios de carteras modelo · Bandas de exposición.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. QUÉ ES UN BENCHMARK
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. ¿Qué es un benchmark o índice de referencia?</h2>
+    <p class="sec-intro">
+      Un <strong>benchmark</strong> (o índice de referencia) es la cartera o índice contra
+      el que se mide el rendimiento de una cartera gestionada. Sirve como punto de comparación
+      neutral que representa la rentabilidad que habría obtenido el inversor sin tomar ninguna
+      decisión activa (simplemente invirtiendo en el índice).
+    </p>
+
+    <div class="card accent-navy">
+      <p>
+        La rentabilidad del gestor se evalúa siempre en relación con su benchmark:
+        si la cartera obtiene más que el índice (neto de costes), el gestor ha generado
+        <strong>alfa positivo</strong>. Si obtiene menos, ha destruido valor respecto a la
+        alternativa pasiva. El benchmark establece el nivel mínimo que cualquier inversor
+        podría obtener simplemente comprando un ETF sobre ese índice.
+      </p>
+    </div>
+
+    <p>El benchmark cumple varias funciones:</p>
+    <ul style="font-size:var(--fs-sm);line-height:1.8;padding-left:1.2rem;">
+      <li><strong>Medida de rendimiento:</strong> permite comparar la gestión activa con la alternativa pasiva.</li>
+      <li><strong>Definición del universo de inversión:</strong> los componentes del índice definen los activos elegibles para la cartera.</li>
+      <li><strong>Gestión del riesgo relativo:</strong> el tracking error respecto al benchmark mide cuánto se desvía la cartera.</li>
+      <li><strong>Comunicación con el cliente:</strong> permite explicar la exposición de la cartera en términos conocidos y comprensibles.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. BENCHMARKS MÁS CONOCIDOS
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Benchmarks más conocidos: nacional, sectorial y global</h2>
+
+    <h3>Índices de renta variable</h3>
+    <div class="bench-grid">
+      <div class="bench-box">
+        <span class="bb-cat">NACIONAL — ESPAÑA</span>
+        <h4>IBEX-35</h4>
+        <p>Las 35 empresas de mayor capitalización y liquidez de la Bolsa española. Ponderado
+        por capitalización ajustada por free float. Índice de precio (sin dividendos). La
+        versión con dividendos reinvertidos es el <strong>IBEX-35 Total Return</strong>.</p>
+      </div>
+      <div class="bench-box">
+        <span class="bb-cat">NACIONAL — EEUU</span>
+        <h4>S&amp;P 500</h4>
+        <p>Las 500 mayores empresas cotizadas en EE.UU., seleccionadas por un comité según
+        capitalización, liquidez y representatividad sectorial. El índice de referencia más
+        seguido del mundo. También existe en versión Total Return.</p>
+      </div>
+      <div class="bench-box">
+        <span class="bb-cat">NACIONAL — EUROPA</span>
+        <h4>Eurostoxx 50</h4>
+        <p>Las 50 mayores empresas de la eurozona. Ampliamente usado como benchmark para
+        carteras europeas y como subyacente de opciones y futuros europeos (OESX).
+        Publicado por STOXX Ltd.</p>
+      </div>
+      <div class="bench-box">
+        <span class="bb-cat">NACIONAL — EEUU</span>
+        <h4>Nasdaq Composite / Nasdaq 100</h4>
+        <p>Nasdaq Composite: todas las empresas en la bolsa Nasdaq (~3.300). Nasdaq 100
+        (NDX): las 100 mayores no financieras del Nasdaq. Fuerte sesgo tecnológico.
+        Subyacente del ETF QQQ.</p>
+      </div>
+      <div class="bench-box">
+        <span class="bb-cat">GLOBAL</span>
+        <h4>MSCI World</h4>
+        <p>Aproximadamente 1.500 empresas de grandes y medianas capitalizaciones en
+        23 países desarrollados. Cubre el 85% de la capitalización de mercado ajustada
+        por free float de cada país. Referencia estándar para carteras globales.</p>
+      </div>
+      <div class="bench-box">
+        <span class="bb-cat">GLOBAL EMERGENTES</span>
+        <h4>MSCI Emerging Markets</h4>
+        <p>Empresas de 27 países emergentes. Incluye China, India, Brasil, Corea del Sur,
+        Taiwan. Mayor peso de Asia emergente. Complemento del MSCI World en carteras
+        globales. El MSCI ACWI combina World + EM.</p>
+      </div>
+    </div>
+
+    <h3>Índices de renta fija</h3>
+    <div class="bench-grid">
+      <div class="bench-box">
+        <span class="bb-cat">RENTA FIJA — GLOBAL</span>
+        <h4>Bloomberg Global Aggregate</h4>
+        <p>El índice de renta fija de mayor amplitud: más de 28.000 emisiones de deuda
+        pública y corporativa grado de inversión en más de 70 países. Sustituyó al
+        Barclays Global Aggregate tras la adquisición en 2016.</p>
+      </div>
+      <div class="bench-box">
+        <span class="bb-cat">RENTA FIJA — EEUU</span>
+        <h4>Bloomberg US Aggregate</h4>
+        <p>El benchmark estándar de la renta fija grado de inversión en EE.UU.: deuda
+        pública, hipotecaria (MBS) y corporativa. Ampliamente usado por fondos de pensiones
+        y carteras institucionales americanas.</p>
+      </div>
+    </div>
+
+    <h3>Índices de mercado monetario</h3>
+    <div class="bench-grid">
+      <div class="bench-box">
+        <span class="bb-cat">MONETARIO — EURO</span>
+        <h4>€STR / EONIA / EURIBOR</h4>
+        <p>El €STR (Euro Short-Term Rate) publicado por el BCE es el tipo de referencia
+        overnight de la zona euro. Sustituye al EONIA desde 2022. Los fondos monetarios
+        europeos se comparan habitualmente con €STR + diferencial.</p>
+      </div>
+      <div class="bench-box">
+        <span class="bb-cat">MONETARIO — GLOBAL</span>
+        <h4>ICE BofA 0-3 Month T-Bill</h4>
+        <p>Índice de letras del Tesoro de EE.UU. con vencimiento inferior a 3 meses.
+        Referencia habitual del «activo sin riesgo» en los modelos de valoración
+        americanos (R<sub>f</sub> del CAPM).</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. CARACTERÍSTICAS DE UN BUEN BENCHMARK
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Características de un benchmark de calidad</h2>
+    <p>
+      CFA Institute («Investment Policy Statement» framework) y el sector establecen que
+      un benchmark apropiado debe cumplir las siguientes características:
+    </p>
+
+    <ul class="char-list">
+      <li>
+        <span class="ck">✅</span>
+        <div><strong>No ambiguo:</strong> los componentes del índice y sus pesos son conocidos con precisión antes del período de evaluación. No puede haber discrecionalidad en su composición.</div>
+      </li>
+      <li>
+        <span class="ck">✅</span>
+        <div><strong>Invertible:</strong> el gestor puede replicar el benchmark comprando sus componentes en el mercado secundario. Un índice con valores ilíquidos o restricciones de acceso no es un benchmark apropiado.</div>
+      </li>
+      <li>
+        <span class="ck">✅</span>
+        <div><strong>Medible:</strong> su rentabilidad puede calcularse periódicamente de forma objetiva y reproducible. Publicado por un proveedor independiente (MSCI, S&amp;P, Bloomberg, etc.).</div>
+      </li>
+      <li>
+        <span class="ck">✅</span>
+        <div><strong>Apropiado:</strong> refleja el estilo de gestión y el universo de inversión del fondo. Un fondo de renta variable europea no puede compararse con el S&amp;P 500 (sesgo geográfico diferente).</div>
+      </li>
+      <li>
+        <span class="ck">✅</span>
+        <div><strong>Acordado previamente:</strong> definido antes del período de evaluación, no elegido ex-post para hacer quedar bien al gestor (<em>benchmark shopping</em>).</div>
+      </li>
+      <li>
+        <span class="ck">✅</span>
+        <div><strong>Refleja el universo de inversión accesible:</strong> cubre el mismo conjunto de activos en los que el gestor puede invertir. No incluye activos a los que el gestor no tiene acceso.</div>
+      </li>
+      <li>
+        <span class="ck">✅</span>
+        <div><strong>Con datos históricos disponibles:</strong> se pueden obtener series históricas suficientemente largas para evaluar el track record del gestor de forma estadísticamente significativa.</div>
+      </li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. CRITERIOS PARA CONSTRUIR CARTERAS MODELO
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Criterios para la construcción de carteras modelo</h2>
+    <p>
+      Una <strong>cartera modelo</strong> (o cartera de referencia) es la cartera teórica
+      que define la asignación estratégica de un perfil de riesgo determinado. Sirve de
+      base para gestionar todas las carteras reales de los clientes con ese perfil.
+      Los criterios para su construcción son:
+    </p>
+
+    <div class="bench-grid">
+      <div class="bench-box">
+        <h4>Consistencia con el perfil de riesgo</h4>
+        <p>La cartera modelo debe reflejar fielmente el nivel de riesgo (volatilidad esperada,
+        máxima caída histórica) que corresponde a cada perfil de inversor. Una cartera
+        conservadora no puede superar ciertos umbrales de volatilidad.</p>
+      </div>
+      <div class="bench-box">
+        <h4>Diversificación entre clases, sectores y geografías</h4>
+        <p>La cartera modelo debe distribuir el riesgo en las tres dimensiones (clase de
+        activo, sector y geografía) minimizando el riesgo no sistemático. No puede estar
+        concentrada en un único mercado o emisor.</p>
+      </div>
+      <div class="bench-box">
+        <h4>Coherencia con el horizonte temporal</h4>
+        <p>El peso de la renta variable debe ser creciente con el horizonte del perfil.
+        Carteras de corto plazo priorizan liquidez y renta fija; de largo plazo, renta variable.</p>
+      </div>
+      <div class="bench-box">
+        <h4>Eficiencia de costes</h4>
+        <p>Los instrumentos elegidos para implementar la cartera modelo (fondos indexados,
+        ETF, fondos activos) deben ser coherentes con los costes admisibles para ese perfil.
+        Comisiones altas destruyen la rentabilidad neta.</p>
+      </div>
+      <div class="bench-box">
+        <h4>Benchmark definido y apropiado</h4>
+        <p>Cada cartera modelo debe tener un benchmark de referencia compuesto por
+        benchmarks de cada clase de activo, ponderados según los pesos estratégicos.
+        Ej: 60% MSCI World + 40% Bloomberg Euro Aggregate.</p>
+      </div>
+      <div class="bench-box">
+        <h4>Revisión periódica</h4>
+        <p>La cartera modelo debe revisarse al menos anualmente para verificar que sus
+        pesos siguen siendo coherentes con las condiciones de mercado y los objetivos
+        del perfil. Si no, se rebalancea.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. BANDAS DE EXPOSICIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. Exposición por bandas respecto al benchmark</h2>
+    <p>
+      En la práctica, las carteras modelo no definen pesos exactos para cada clase de activo
+      sino <strong>bandas de exposición</strong>: un peso estratégico central (el peso objetivo)
+      y un margen de desviación permitida (la banda). El gestor puede moverse dentro de la
+      banda sin necesitar autorización especial; fuera de la banda, la desviación constituye
+      una posición táctica deliberada que requiere justificación.
+    </p>
+
+    <!-- Diagrama bandas -->
+    <div class="banda-viz">
+      <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg" aria-label="Bandas de exposición por clase de activo">
+        <!-- Eje -->
+        <line x1="30" y1="20" x2="30" y2="200" stroke="#1e3a5f" stroke-width="1.5"/>
+        <text x="10" y="14" font-size="11" fill="#1e3a5f" font-weight="700">%</text>
+
+        <!-- Etiquetas de clases -->
+        <text x="80"  y="215" font-size="10" fill="#1e3a5f" font-weight="700" text-anchor="middle">Monetario</text>
+        <text x="230" y="215" font-size="10" fill="#1e3a5f" font-weight="700" text-anchor="middle">Renta Fija</text>
+        <text x="400" y="215" font-size="10" fill="#1e3a5f" font-weight="700" text-anchor="middle">Renta Variable</text>
+
+        <!-- Escala Y -->
+        <text x="22" y="24"  font-size="9" fill="#6b7280" text-anchor="end">80%</text>
+        <text x="22" y="74"  font-size="9" fill="#6b7280" text-anchor="end">60%</text>
+        <text x="22" y="124" font-size="9" fill="#6b7280" text-anchor="end">40%</text>
+        <text x="22" y="174" font-size="9" fill="#6b7280" text-anchor="end">20%</text>
+        <line x1="28" y1="24"  x2="32" y2="24"  stroke="#6b7280" stroke-width="1"/>
+        <line x1="28" y1="74"  x2="32" y2="74"  stroke="#6b7280" stroke-width="1"/>
+        <line x1="28" y1="124" x2="32" y2="124" stroke="#6b7280" stroke-width="1"/>
+        <line x1="28" y1="174" x2="32" y2="174" stroke="#6b7280" stroke-width="1"/>
+
+        <!-- MONETARIO: peso objetivo 10% (y=174), banda 5-15% (y=149 a y=199) -->
+        <rect x="55" y="149" width="50" height="50" fill="#1e3a5f" fill-opacity="0.12" rx="4"/>
+        <line x1="55" y1="174" x2="105" y2="174" stroke="#1e3a5f" stroke-width="2.5"/>
+        <text x="80" y="144" font-size="9" fill="#1e3a5f" text-anchor="middle" font-weight="700">10% ±5%</text>
+        <text x="80" y="154" font-size="8" fill="#6b7280" text-anchor="middle">banda: 5–15%</text>
+
+        <!-- RENTA FIJA: peso objetivo 40% (y=124), banda 30-50% (y=74 a y=174) -->
+        <rect x="205" y="74" width="50" height="100" fill="#d97706" fill-opacity="0.12" rx="4"/>
+        <line x1="205" y1="124" x2="255" y2="124" stroke="#d97706" stroke-width="2.5"/>
+        <text x="230" y="68" font-size="9" fill="#d97706" text-anchor="middle" font-weight="700">40% ±10%</text>
+        <text x="230" y="80" font-size="8" fill="#6b7280" text-anchor="middle">banda: 30–50%</text>
+
+        <!-- RENTA VARIABLE: peso objetivo 50% (y=99), banda 40-60% (y=49 a y=149) -->
+        <rect x="375" y="49" width="50" height="100" fill="#16a34a" fill-opacity="0.12" rx="4"/>
+        <line x1="375" y1="99" x2="425" y2="99" stroke="#16a34a" stroke-width="2.5"/>
+        <text x="400" y="43" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="700">50% ±10%</text>
+        <text x="400" y="55" font-size="8" fill="#6b7280" text-anchor="middle">banda: 40–60%</text>
+
+        <!-- Leyenda -->
+        <line x1="50" y1="10" x2="70" y2="10" stroke="#1e3a5f" stroke-width="2.5"/>
+        <text x="74" y="14" font-size="9" fill="#1e3a5f">— Peso objetivo</text>
+        <rect x="155" y="5" width="20" height="8" fill="#1e3a5f" fill-opacity="0.2" rx="2"/>
+        <text x="178" y="14" font-size="9" fill="#1e3a5f">Banda permitida</text>
+      </svg>
+      <p style="font-size:var(--fs-xs);color:var(--text-soft);margin:.4rem 0 0;text-align:center;">
+        Ejemplo de bandas para una cartera modelo moderada (perfil 50% RV / 40% RF / 10% MM).
+        El gestor puede desviarse dentro de las bandas sin alterar la asignación estratégica.
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>Bandas más estrechas = menor discrecionalidad táctica.</strong>
+      Carteras pasivas pueden tener bandas de ±2–3%, mientras que carteras con gestión
+      activa pueden admitir ±15–20% en cada clase. La amplitud de la banda refleja cuánta
+      libertad se le concede al gestor para expresar sus convicciones tácticas.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Cartera modelo con bandas</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Clase de activo</th><th>Peso estratégico</th><th>Banda mínima</th><th>Banda máxima</th><th>Peso actual</th><th>¿Dentro de banda?</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Mercado monetario</td><td>10%</td><td>5%</td><td>15%</td><td>8%</td><td>✅ Sí</td></tr>
+            <tr><td>Renta fija</td><td>40%</td><td>30%</td><td>50%</td><td>35%</td><td>✅ Sí</td></tr>
+            <tr><td>Renta variable</td><td>50%</td><td>40%</td><td>60%</td><td>57%</td><td>✅ Sí</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.5rem;">
+        La cartera actual tiene más renta variable de lo estratégico (57% vs 50%) pero
+        dentro de la banda (40–60%). Si el gestor quisiera subir a 65%, estaría
+        fuera de banda y necesitaría una decisión táctica explícita y documentada.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Las bandas de exposición son el mecanismo que conecta la asignación estratégica
+        (peso objetivo a largo plazo) con la asignación táctica (desviaciones temporales).
+        Puede pedirse identificar si una cartera está dentro o fuera de banda, o calcular
+        si es necesario rebalancear.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Benchmark</strong></td><td>Índice de referencia contra el que se mide la gestión; punto de partida pasivo</td></tr>
+          <tr><td><strong>Características</strong></td><td>No ambiguo · Invertible · Medible · Apropiado · Acordado previamente</td></tr>
+          <tr><td><strong>Índices principales RV</strong></td><td>IBEX-35, S&amp;P 500, Eurostoxx 50, MSCI World, MSCI EM</td></tr>
+          <tr><td><strong>Índices RF</strong></td><td>Bloomberg Global/US Aggregate</td></tr>
+          <tr><td><strong>Índices MM</strong></td><td>€STR (Europa), T-Bill (EE.UU.)</td></tr>
+          <tr><td><strong>Cartera modelo</strong></td><td>Define pesos estratégicos por clase de activo según perfil + benchmark compuesto</td></tr>
+          <tr><td><strong>Bandas de exposición</strong></td><td>Margen ± alrededor del peso objetivo; dentro = gestión normal; fuera = posición táctica</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-b.html" class="nav-btn">← B: Matriz de Asset Allocation</a>
+    <a href="seccion-d.html" class="nav-btn">D: Tipos de asignación →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Bailey, J. V., Richards, T. M. &amp; Tierney, D. E. (2007). «Evaluating Portfolio Performance».
+        En <em>Managing Investment Portfolios: A Dynamic Process</em>, 3.ª ed., cap. 12.
+        CFA Institute. Características de un benchmark apropiado.
+      </li>
+      <li id="fn2">
+        MSCI Inc. (2025). <em>MSCI Index Methodology</em>.
+        <a href="https://www.msci.com/indexes" target="_blank" rel="noopener">msci.com/indexes</a>.
+        Metodología de los índices MSCI World y MSCI EM.
+      </li>
+      <li id="fn3">
+        S&amp;P Dow Jones Indices (2025). <em>S&amp;P 500 Index Methodology</em>.
+        <a href="https://www.spglobal.com/spdji/en/documents/methodologies/methodology-sp-us-indices.pdf" target="_blank" rel="noopener">spglobal.com</a>.
+      </li>
+      <li id="fn4">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 4 · Sección C,
+        pp. 63–65. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 4 · Sección C · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
