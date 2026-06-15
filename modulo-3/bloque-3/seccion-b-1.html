@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B3 · Sección B — Selección de la cartera óptima · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .investor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 620px) { .investor-grid { grid-template-columns: 1fr; } }
+
+    .investor-box {
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      border: 2px solid transparent;
+      text-align: center;
+    }
+    .investor-box.conserv { background: var(--navy-light);  border-color: var(--navy);  }
+    .investor-box.moder   { background: var(--amber-light); border-color: var(--amber); }
+    .investor-box.agres   { background: var(--green-light); border-color: var(--green); }
+
+    .investor-box .inv-icon { font-size: 2rem; display: block; margin-bottom: .4rem; }
+    .investor-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: var(--fs-sm);
+      margin-bottom: .35rem;
+    }
+    .conserv h4 { color: var(--navy);  }
+    .moder   h4 { color: var(--amber); }
+    .agres   h4 { color: var(--green); }
+    .investor-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .frontier-diagram {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B3 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 3</a>
+    <span class="sep">›</span>
+    <span>Sección B</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 3 · Sección B · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Selección de la cartera óptima</h1>
+    <p class="hero-sub">
+      Tipos de inversores · Aversión al riesgo · Curvas de indiferencia ·
+      Cartera óptima como tangencia con la frontera eficiente.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. TIPOS DE INVERSORES
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Tipos de inversores según su aversión al riesgo</h2>
+    <p class="sec-intro">
+      El modelo de Markowitz asume que todos los inversores son aversos al riesgo, pero
+      el <em>grado</em> de aversión varía enormemente entre individuos. Esta variación
+      determina qué cartera de la frontera eficiente seleccionará cada inversor.
+    </p>
+
+    <div class="investor-grid">
+      <div class="investor-box conserv">
+        <span class="inv-icon">🛡️</span>
+        <h4>Muy averso al riesgo<br>(conservador)</h4>
+        <p>
+          Prefiere rentabilidades bajas pero seguras. Asigna un enorme coste psicológico
+          a la pérdida. Sus curvas de indiferencia son muy empinadas: necesita una
+          compensación muy elevada en E(R) para aceptar un aumento mínimo de σ.
+          Elige carteras con baja volatilidad, cercanas a la GMV.
+        </p>
+      </div>
+      <div class="investor-box moder">
+        <span class="inv-icon">⚖️</span>
+        <h4>Aversión moderada<br>(equilibrado)</h4>
+        <p>
+          Acepta cierta volatilidad a cambio de mayor rentabilidad esperada.
+          Sus curvas de indiferencia tienen pendiente intermedia. Elige carteras
+          en la parte central de la frontera eficiente, con un balance entre
+          rentabilidad y riesgo.
+        </p>
+      </div>
+      <div class="investor-box agres">
+        <span class="inv-icon">🚀</span>
+        <h4>Baja aversión al riesgo<br>(agresivo)</h4>
+        <p>
+          Está dispuesto a asumir alta volatilidad si conlleva mayor rentabilidad.
+          Sus curvas de indiferencia son casi planas: acepta grandes incrementos
+          de σ por pequeños aumentos de E(R). Elige carteras en la parte superior
+          de la frontera eficiente o incluso con apalancamiento.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>Caso teórico:</strong> un inversor <em>neutral al riesgo</em> es indiferente
+      entre dos activos con la misma E(R) independientemente de su σ. Un inversor
+      <em>amante del riesgo</em> prefiere más volatilidad (sus curvas de indiferencia
+      tienen pendiente negativa). Estos casos son teóricos: el modelo de Markowitz
+      los excluye.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. CURVAS DE INDIFERENCIA
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Curvas de indiferencia rentabilidad-riesgo</h2>
+    <p>
+      Una <strong>curva de indiferencia</strong> es el conjunto de todas las carteras
+      (σ, E(R)) que proporcionan al inversor el mismo nivel de utilidad esperada.
+      El inversor es indiferente entre cualquier punto sobre la misma curva.
+    </p>
+
+    <h3>¿Qué significan?</h3>
+    <p>
+      Cada curva de indiferencia representa un nivel de satisfacción constante.
+      Las curvas más altas (hacia la izquierda y arriba en el espacio σ-E(R)) representan
+      niveles de utilidad <strong>mayores</strong>: misma σ pero mayor E(R), o mismo E(R)
+      pero menor σ. El inversor siempre prefiere la curva de indiferencia más alta posible.
+    </p>
+
+    <h3>Forma para un inversor averso al riesgo</h3>
+    <p>
+      Para un inversor averso al riesgo, las curvas de indiferencia tienen las siguientes
+      propiedades:
+    </p>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Pendiente positiva</h4>
+        <p>
+          Para mantener la misma utilidad, al aumentar σ es necesario también
+          aumentar E(R). El inversor averso al riesgo exige ser <em>compensado</em>
+          con más rentabilidad por aceptar más riesgo.
+        </p>
+      </div>
+      <div class="vs-box right">
+        <h4>Curvatura convexa (cóncava hacia abajo)</h4>
+        <p>
+          La pendiente aumenta a medida que σ crece: el incremento de E(R) requerido
+          para compensar una unidad adicional de riesgo aumenta conforme el inversor
+          ya tiene mucho riesgo (<em>utilidad marginal decreciente</em>).
+        </p>
+      </div>
+    </div>
+
+    <!-- Diagrama curvas de indiferencia -->
+    <div class="frontier-diagram">
+      <svg viewBox="0 0 520 310" xmlns="http://www.w3.org/2000/svg" aria-label="Curvas de indiferencia y frontera eficiente">
+        <!-- Ejes -->
+        <line x1="50" y1="270" x2="490" y2="270" stroke="#1e3a5f" stroke-width="1.5"/>
+        <line x1="50" y1="270" x2="50"  y2="20"  stroke="#1e3a5f" stroke-width="1.5"/>
+        <text x="495" y="274" font-size="12" fill="#1e3a5f" font-weight="700">σ</text>
+        <text x="54"  y="14"  font-size="12" fill="#1e3a5f" font-weight="700">E(R)</text>
+
+        <!-- Frontera eficiente -->
+        <path d="M 150,240 Q 190,220 218,192 Q 244,162 250,122 Q 254,88 215,58"
+              stroke="#1e3a5f" stroke-width="2.5" fill="none"/>
+        <!-- GMV -->
+        <circle cx="150" cy="240" r="5" fill="#1e3a5f"/>
+        <text x="90" y="240" font-size="10" fill="#1e3a5f" font-weight="700">GMV</text>
+
+        <!-- Curvas de indiferencia — inversor conservador (muy empinadas) -->
+        <path d="M 80,230 Q 160,215 260,178 Q 330,155 420,128" stroke="#d97706" stroke-width="1.5" fill="none" stroke-dasharray="6,3"/>
+        <path d="M 80,200 Q 160,185 260,148 Q 330,125 420,98"  stroke="#d97706" stroke-width="1.5" fill="none" stroke-dasharray="6,3"/>
+        <path d="M 80,170 Q 160,155 260,118 Q 330,95  420,68"  stroke="#d97706" stroke-width="1.5" fill="none" stroke-dasharray="6,3"/>
+        <text x="425" y="125" font-size="9" fill="#d97706">U₁</text>
+        <text x="425" y="95"  font-size="9" fill="#d97706">U₂</text>
+        <text x="425" y="65"  font-size="9" fill="#d97706">U₃ (mayor)</text>
+        <text x="58"  y="150" font-size="9" fill="#d97706" font-weight="700">Inversor conservador</text>
+        <text x="58"  y="162" font-size="9" fill="#d97706">(curvas empinadas)</text>
+
+        <!-- Punto óptimo conservador: tangencia en zona baja -->
+        <circle cx="175" cy="226" r="5" fill="#d97706"/>
+        <text x="180" y="222" font-size="9" fill="#d97706" font-weight="700">C*</text>
+
+        <!-- Curvas de indiferencia — inversor agresivo (más planas) -->
+        <path d="M 80,260 Q 200,245 320,215 Q 390,198 470,180" stroke="#16a34a" stroke-width="1.5" fill="none"/>
+        <path d="M 80,240 Q 200,220 320,188 Q 390,170 470,150" stroke="#16a34a" stroke-width="1.5" fill="none"/>
+        <path d="M 80,215 Q 200,195 320,162 Q 390,144 470,122" stroke="#16a34a" stroke-width="1.5" fill="none"/>
+        <text x="474" y="178" font-size="9" fill="#16a34a">V₁</text>
+        <text x="474" y="148" font-size="9" fill="#16a34a">V₂</text>
+        <text x="474" y="120" font-size="9" fill="#16a34a">V₃</text>
+        <text x="310" y="270" font-size="9" fill="#16a34a" font-weight="700">Inversor agresivo (curvas planas)</text>
+
+        <!-- Punto óptimo agresivo: tangencia en zona alta -->
+        <circle cx="228" cy="145" r="5" fill="#16a34a"/>
+        <text x="234" y="140" font-size="9" fill="#16a34a" font-weight="700">A*</text>
+
+        <!-- Leyenda -->
+        <text x="55" y="30" font-size="10" fill="#1e3a5f" font-weight="800">— Frontera eficiente</text>
+        <line x1="55" y1="44" x2="80" y2="44" stroke="#d97706" stroke-width="1.5" stroke-dasharray="5,2"/>
+        <text x="85" y="48" font-size="10" fill="#d97706">Curvas conservador</text>
+        <line x1="55" y1="60" x2="80" y2="60" stroke="#16a34a" stroke-width="1.5"/>
+        <text x="85" y="64" font-size="10" fill="#16a34a">Curvas agresivo</text>
+      </svg>
+      <p style="font-size:var(--fs-xs);color:var(--text-soft);margin:.4rem 0 0;text-align:center;">
+        C* es la cartera óptima del inversor conservador (tangencia baja). A* es la del agresivo (tangencia alta).
+        Ambos están sobre la misma frontera eficiente pero en puntos distintos.
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>Propiedades de las curvas de indiferencia:</strong>
+      (1) No se cruzan: si dos curvas se cruzaran, implicaría que un mismo punto ofrece
+      dos niveles de utilidad distintos, lo que es imposible.
+      (2) Son paralelas en el sentido de que una curva superior implica siempre mayor utilidad.
+      (3) Hay infinitas curvas de indiferencia para cada inversor (una por cada nivel de utilidad).
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. CARTERA ÓPTIMA: TANGENCIA
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. La cartera óptima: tangencia entre curva de indiferencia y frontera eficiente</h2>
+
+    <p>
+      El problema de selección de cartera óptima consiste en encontrar la cartera de la
+      frontera eficiente que proporciona la <strong>máxima utilidad</strong> al inversor.
+      Geométricamente, esto equivale a encontrar la <strong>curva de indiferencia más alta
+      que toca (es tangente a) la frontera eficiente</strong>.
+    </p>
+
+    <div class="card accent-navy">
+      <p>
+        <strong>Por qué la tangencia:</strong> cualquier curva de indiferencia por encima
+        de la tangente no toca la frontera eficiente — son carteras inalcanzables con los
+        activos disponibles. Cualquier curva por debajo de la tangente sí toca la frontera,
+        pero ofrece menor utilidad. El único punto de contacto entre la utilidad máxima
+        alcanzable y el conjunto factible es el punto de tangencia.
+      </p>
+    </div>
+
+    <h3>Consecuencias del punto de tangencia</h3>
+    <ul style="font-size:var(--fs-sm);line-height:1.85;padding-left:1.2rem;">
+      <li>
+        En el punto óptimo, la <strong>pendiente de la curva de indiferencia</strong> (tasa
+        marginal de sustitución entre E(R) y σ) es igual a la <strong>pendiente de la
+        frontera eficiente</strong>. El inversor no puede mejorar moviéndose en ninguna
+        dirección.
+      </li>
+      <li>
+        Inversores con <strong>mayor aversión al riesgo</strong> alcanzan el punto de
+        tangencia más a la <strong>izquierda</strong> de la frontera (menor σ, menor E(R)).
+      </li>
+      <li>
+        Inversores con <strong>menor aversión al riesgo</strong> alcanzan el punto de
+        tangencia más a la <strong>derecha</strong> y arriba de la frontera (mayor σ, mayor E(R)).
+      </li>
+      <li>
+        Si existe el <strong>activo sin riesgo</strong> (CML), la cartera óptima de activos
+        arriesgados es <em>siempre la misma</em> para todos los inversores: la cartera M.
+        Solo varía cuánto se asigna a M y cuánto al activo sin riesgo (Teorema de Tobin).
+      </li>
+    </ul>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Cartera óptima según perfil</h3>
+      <p>
+        La frontera eficiente incluye las siguientes carteras (entre otras):
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Cartera</th><th>E(R)</th><th>σ</th><th>Perfil que la elegiría</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>GMV</td><td>5%</td><td>8%</td><td>Muy conservador</td></tr>
+            <tr><td>P₁</td><td>8%</td><td>12%</td><td>Conservador-moderado</td></tr>
+            <tr><td>P₂</td><td>11%</td><td>17%</td><td>Moderado</td></tr>
+            <tr><td>P₃</td><td>14%</td><td>23%</td><td>Agresivo</td></tr>
+            <tr><td>Máx. E(R)</td><td>18%</td><td>30%</td><td>Muy agresivo</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.6rem;">
+        Todas son eficientes (nadie elegiría una que no estuviera en la frontera). La
+        elección entre ellas depende únicamente de la forma de las curvas de indiferencia
+        del inversor, es decir, de su aversión al riesgo.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        La cartera óptima es la de la frontera eficiente tangente a la curva de indiferencia
+        más alta alcanzable. Preguntas habituales: ¿dónde elige su cartera un inversor muy
+        conservador? (→ cerca de la GMV) ¿y uno agresivo? (→ hacia el extremo de máxima E(R)).
+        Con activo sin riesgo: todos eligen la misma cartera M (Teorema de Tobin).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Concepto</th><th>Clave</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Aversión al riesgo alta</strong></td>
+            <td>Curvas de indiferencia empinadas → cartera óptima cerca de GMV</td>
+          </tr>
+          <tr>
+            <td><strong>Aversión al riesgo baja</strong></td>
+            <td>Curvas de indiferencia planas → cartera óptima en zona alta de la frontera</td>
+          </tr>
+          <tr>
+            <td><strong>Curva de indiferencia</strong></td>
+            <td>Todas las carteras (σ, E(R)) con igual utilidad para ese inversor</td>
+          </tr>
+          <tr>
+            <td><strong>Forma de la curva</strong></td>
+            <td>Pendiente positiva y convexa (averso al riesgo)</td>
+          </tr>
+          <tr>
+            <td><strong>Cartera óptima</strong></td>
+            <td>Tangencia entre la frontera eficiente y la curva de indiferencia más alta alcanzable</td>
+          </tr>
+          <tr>
+            <td><strong>Con activo sin riesgo</strong></td>
+            <td>Todos eligen M (Tobin); solo varía la proporción M / R<sub>f</sub></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-a.html" class="nav-btn">← A: Fundamentos de teoría de carteras</a>
+    <a href="seccion-c.html" class="nav-btn">C: Modelo de mercado de Sharpe →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Markowitz, H. M. (1952). «Portfolio Selection». <em>The Journal of Finance</em>, 7(1), 77–91.
+        <a href="https://doi.org/10.2307/2975974" target="_blank" rel="noopener">doi.org/10.2307/2975974</a>.
+        Curvas de indiferencia y selección de la cartera óptima.
+      </li>
+      <li id="fn2">
+        Tobin, J. (1958). «Liquidity Preference as Behavior Towards Risk».
+        <em>The Review of Economic Studies</em>, 25(2), 65–86.
+        <a href="https://doi.org/10.2307/2296205" target="_blank" rel="noopener">doi.org/10.2307/2296205</a>.
+        Teorema de separación.
+      </li>
+      <li id="fn3">
+        Bodie, Z., Kane, A. &amp; Marcus, A. J. (2014). <em>Investments</em> (10.ª ed.), cap. 6, pp. 194–200.
+        McGraw-Hill Education. Curvas de indiferencia y cartera óptima.
+      </li>
+      <li id="fn4">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 3 · Sección B, pp. 51–52.
+        <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 3 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

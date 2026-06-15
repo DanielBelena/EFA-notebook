@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B3 · Sección E — Graham y Dodd · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .criteria-list {
+      counter-reset: crit;
+      list-style: none;
+      padding: 0;
+      margin: .8rem 0;
+    }
+    .criteria-list li {
+      counter-increment: crit;
+      display: flex;
+      gap: .8rem;
+      padding: .7rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: var(--fs-sm);
+      line-height: 1.7;
+    }
+    .criteria-list li:last-child { border-bottom: none; }
+    .criteria-list li::before {
+      content: counter(crit);
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: .75rem;
+      background: var(--green);
+      color: #fff;
+      border-radius: 50%;
+      width: 1.4rem;
+      height: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+
+    .pros-cons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .pros-cons { grid-template-columns: 1fr; } }
+    .pros-box { border-left: 4px solid var(--green); padding: .8rem 1rem; background: var(--green-light); border-radius: 0 10px 10px 0; }
+    .cons-box { border-left: 4px solid var(--amber); padding: .8rem 1rem; background: var(--amber-light); border-radius: 0 10px 10px 0; }
+    .pros-box h4 { color: var(--green); font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); margin-bottom: .4rem; }
+    .cons-box h4 { color: var(--amber); font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); margin-bottom: .4rem; }
+    .pros-box ul, .cons-box ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.75;
+    }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .concept-grid { grid-template-columns: 1fr; } }
+    .concept-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+    }
+    .concept-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .3rem; }
+    .concept-box p  { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.65; margin: 0; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B3 · E</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 3</a>
+    <span class="sep">›</span>
+    <span>Sección E</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 3 · Sección E · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Otros modelos: Graham y Dodd</h1>
+    <p class="hero-sub">
+      Value investing clásico · Valor intrínseco · Margen de seguridad ·
+      Mr. Market · Criterios de selección · Ventajas e inconvenientes.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. CONTEXTO: GRAHAM Y DODD EN LA TEORÍA DE CARTERAS
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Graham y Dodd en el contexto de la teoría de carteras</h2>
+    <p class="sec-intro">
+      Mientras que el CAPM y el modelo de Markowitz son modelos cuantitativos de equilibrio,
+      el enfoque de <strong>Benjamin Graham y David Dodd</strong> representa la tradición del
+      <strong>análisis fundamental de valor</strong>: la idea de que el precio de mercado y
+      el valor intrínseco de una empresa pueden divergir significativamente, y que el inversor
+      paciente y disciplinado puede aprovechar esas divergencias.
+    </p>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Benjamin Graham (1894–1976)</h4>
+        <p>
+          Profesor de Columbia Business School, considerado el padre del análisis de
+          valores (<em>security analysis</em>). Autor de <em>Security Analysis</em> (1934,
+          con Dodd) y <em>The Intelligent Investor</em> (1949). Mentor de Warren Buffett.
+          Desarrolló los conceptos de valor intrínseco, margen de seguridad y Mr. Market.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>David Dodd (1895–1988)</h4>
+        <p>
+          Coautor de <em>Security Analysis</em> y también profesor en Columbia.
+          Contribuyó especialmente al análisis de estados financieros y a los criterios
+          de selección de valores basados en ratios financieros fundamentales.
+          Su obra influyó en toda la generación de inversores value de la segunda mitad
+          del siglo XX.
+        </p>
+      </div>
+    </div>
+
+    <div class="card accent-navy">
+      <p>
+        La premisa central de Graham y Dodd: los mercados son a veces irracionales a
+        corto plazo (el precio diverge del valor), pero a largo plazo el precio tiende
+        a converger hacia el valor intrínseco. El inversor racional compra cuando
+        P &lt;&lt; Valor intrínseco y espera pacientemente.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. CONCEPTOS CLAVE
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Conceptos fundamentales del modelo de Graham y Dodd</h2>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Valor intrínseco</h4>
+        <p>
+          El valor «real» de una empresa, calculado a partir de sus activos, beneficios,
+          dividendos y perspectivas de crecimiento, independientemente de lo que el mercado
+          esté dispuesto a pagar en un momento dado. Graham lo estimaba mediante el Valor
+          Neto de Activos (Net Asset Value) y ratios de beneficio normalizados.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Margen de seguridad (<em>margin of safety</em>)</h4>
+        <p>
+          La diferencia entre el valor intrínseco y el precio de compra. Graham exigía
+          comprar solo cuando el precio estuviera al menos un <strong>33%</strong> por
+          debajo del valor intrínseco. El margen de seguridad protege contra errores de
+          estimación y shocks imprevistos.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Mr. Market</h4>
+        <p>
+          Metáfora de Graham para describir al mercado: un socio con humor cambiante que
+          ofrece comprar o vender su participación cada día a un precio distinto. Cuando
+          Mr. Market está deprimido ofrece precios bajos (oportunidad de compra);
+          cuando está eufórico ofrece precios altos (oportunidad de venta). El inversor
+          inteligente no se deja llevar por el estado de ánimo de Mr. Market.
+        </p>
+      </div>
+      <div class="concept-box">
+        <h4>Inversión vs. especulación</h4>
+        <p>
+          Graham definía la <em>inversión</em> como la operación que, tras un análisis
+          riguroso, promete seguridad del principal y una rentabilidad adecuada. Todo lo
+          demás es especulación. El análisis fundamental es la herramienta del inversor;
+          la apuesta por la tendencia del precio es especulación.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. CRITERIOS DE INFRAVALORACIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Criterios para considerar una acción infravalorada según Graham y Dodd</h2>
+    <p>
+      Graham desarrolló a lo largo de su carrera distintos criterios cuantitativos
+      de selección. Los más conocidos son los <strong>«Criterios de Graham»</strong>,
+      un conjunto de filtros que una acción debe cumplir para considerarse infravalorada
+      y candidata a la compra. Su versión más elaborada incluía los siguientes:
+    </p>
+
+    <ul class="criteria-list">
+      <li>
+        <div>
+          <strong>Precio/Valor Contable (P/VC) bajo.</strong>
+          El precio de la acción debe ser inferior a 1,5 veces su valor contable por acción
+          (activos netos según balance). Idealmente P/VC &lt; 1,0: el mercado valora la
+          empresa por menos de lo que valen sus activos netos.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>PER (Precio/Beneficio) bajo.</strong>
+          El ratio Precio/BPA no debe superar 15x los beneficios de los últimos 12 meses,
+          o mejor 10x beneficios normalizados de varios años. Esto garantiza no pagar
+          en exceso por los beneficios actuales.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Producto P/VC × PER &lt; 22,5.</strong>
+          Graham combinaba ambos ratios: (P/VC) × PER &lt; 22,5. Esto admite empresas con
+          PER algo mayor si tienen P/VC bajo, o P/VC mayor si tienen PER bajo. Es el
+          criterio de valoración combinada más citado.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Solidez financiera: ratio corriente ≥ 2.</strong>
+          El activo corriente debe ser al menos el doble del pasivo corriente.
+          Garantiza que la empresa puede afrontar sus obligaciones de corto plazo
+          sin necesidad de financiación externa urgente.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Deuda a largo plazo ≤ capital circulante neto.</strong>
+          La deuda financiera a largo plazo no debe superar el activo corriente neto
+          (activo corriente − pasivo corriente). Empresa con balance sólido y baja carga
+          de deuda.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Beneficios positivos durante al menos 10 años consecutivos.</strong>
+          La empresa debe demostrar una trayectoria de rentabilidad sostenida. No se
+          admiten empresas con pérdidas recurrentes, aunque tengan perspectivas de
+          mejora futura.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Dividendos ininterrumpidos durante al menos 20 años.</strong>
+          La política de dividendos sostenida es señal de madurez empresarial y
+          generación de caja real. Una empresa que paga dividendos no puede falsear
+          indefinidamente sus resultados contables.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Crecimiento del BPA de al menos un 33% en los últimos 10 años.</strong>
+          Los beneficios por acción deben haber crecido en total al menos un tercio
+          en la última década (no en un año concreto, sino como tendencia acumulada).
+          Equivale a aproximadamente un 3% anual de crecimiento real.
+        </div>
+      </li>
+    </ul>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Aplicación de los criterios de Graham</h3>
+      <p>
+        Empresa XYZ: precio = 18€, VC/acción = 20€, BPA normalizado = 2€,
+        ratio corriente = 2,4, deuda LP = 80M€, capital circulante neto = 120M€,
+        10 años consecutivos de beneficios, dividendo pagado 22 años.<br><br>
+        — P/VC = 18/20 = <strong>0,90</strong> ✓ (&lt; 1,5)<br>
+        — PER = 18/2 = <strong>9x</strong> ✓ (&lt; 15)<br>
+        — P/VC × PER = 0,90 × 9 = <strong>8,1</strong> ✓ (&lt; 22,5)<br>
+        — Ratio corriente = 2,4 ✓ (≥ 2)<br>
+        — Deuda LP (80) &lt; CCN (120) ✓<br>
+        — 10 años de beneficios ✓<br>
+        — 22 años de dividendos ✓<br><br>
+        La empresa cumple todos los criterios. Margen de seguridad:<br>
+        Valor intrínseco estimado (VC) = 20€; precio = 18€;<br>
+        Margen = (20−18)/20 = <strong>10%</strong> (algo escaso para Graham; exigiría al menos 33%).
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Los criterios más preguntados son: P/VC &lt; 1,5, PER &lt; 15, producto &lt; 22,5,
+        ratio corriente ≥ 2 y margen de seguridad ≥ 33%. También puede pedirse calcular
+        el margen de seguridad como (VI − P) / VI o si una empresa «pasaría el filtro»
+        de Graham dados sus datos financieros.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. VENTAJAS E INCONVENIENTES
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Ventajas e inconvenientes del modelo de Graham y Dodd</h2>
+
+    <div class="pros-cons">
+      <div class="pros-box">
+        <h4>✅ Ventajas</h4>
+        <ul>
+          <li><strong>Base en datos objetivos:</strong> los criterios son cuantitativos y basados en información financiera publicada, no en proyecciones subjetivas.</li>
+          <li><strong>Protección ante pérdidas:</strong> el margen de seguridad garantiza un colchón ante errores de estimación o deterioro del negocio.</li>
+          <li><strong>Disciplina conductual:</strong> el enfoque obliga al inversor a ignorar el ruido de mercado (Mr. Market) y centrarse en el valor subyacente.</li>
+          <li><strong>Evidencia empírica favorable:</strong> las acciones «value» (bajo PER, bajo P/VC) han tendido a superar a las acciones «growth» a largo plazo en múltiples mercados (Fama &amp; French, 1992).</li>
+          <li><strong>Simplicidad operativa:</strong> los criterios son aplicables sin modelos complejos, lo que los hace accesibles a inversores individuales.</li>
+        </ul>
+      </div>
+      <div class="cons-box">
+        <h4>⚠️ Inconvenientes</h4>
+        <ul>
+          <li><strong>Ignora el crecimiento futuro:</strong> empresas de alto crecimiento con poco activo tangible (tecnología, plataformas digitales) siempre parecerán caras según los criterios de Graham. El modelo infravalora los activos intangibles.</li>
+          <li><strong>Trampas de valor (<em>value traps</em>):</strong> una acción puede ser barata según ratios y seguir cayendo si el negocio está estructuralmente deteriorado. Una empresa con PER bajo puede ser una empresa en declive.</li>
+          <li><strong>Horizonte temporal incierto:</strong> el mercado puede tardar años en reconocer el valor intrínseco. El inversor necesita liquidez y paciencia, lo que no todos los perfiles tienen.</li>
+          <li><strong>Dificultad de estimación del valor intrínseco:</strong> los datos contables pueden ser manipulados o no reflejar el valor económico real (especialmente en bancos, empresas con activos intangibles, etc.).</li>
+          <li><strong>Underperformance temporal significativa:</strong> los períodos en que el value investing pierde frente al mercado pueden durar varios años (2017–2020 fue uno de los peores períodos para el value en décadas), lo que requiere una disciplina psicológica excepcional.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>La evolución del value investing:</strong> Warren Buffett, discípulo de Graham,
+      fue adaptando el modelo incorporando la calidad del negocio (ventajas competitivas
+      o <em>economic moat</em>) y el crecimiento a largo plazo, superando la visión
+      puramente estadística de Graham. El «QARP» (Quality At a Reasonable Price) es la
+      versión moderna que combina criterios de valor con criterios de calidad.
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        En el entorno de tipos de interés de junio 2026 (BCE al 2,00%), el debate entre
+        <strong>value</strong> y <strong>growth</strong> sigue siendo relevante. Con el
+        IBEX en máximos históricos, muchos valores financieros e industriales del índice
+        cotizan con PER 10–14x y P/VC &lt; 1,5, dentro de los parámetros de Graham.
+        Por el contrario, los valores tecnológicos europeos (ASML, SAP) cotizan con PER
+        de 30–40x, fuera del rango Graham pero justificados por crecimientos de doble
+        dígito. El inversor value clásico seguiría sin tocar tecnología; el inversor QARP
+        podría admitirla si el crecimiento justifica el múltiplo.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Criterio</th><th>Umbral de Graham</th></tr></thead>
+        <tbody>
+          <tr><td><strong>P/Valor contable</strong></td><td>&lt; 1,5x (ideal &lt; 1,0x)</td></tr>
+          <tr><td><strong>PER</strong></td><td>&lt; 15x beneficios normalizados</td></tr>
+          <tr><td><strong>P/VC × PER</strong></td><td>&lt; 22,5</td></tr>
+          <tr><td><strong>Ratio corriente</strong></td><td>≥ 2,0</td></tr>
+          <tr><td><strong>Deuda LP</strong></td><td>≤ capital circulante neto</td></tr>
+          <tr><td><strong>Historial beneficios</strong></td><td>≥ 10 años consecutivos positivos</td></tr>
+          <tr><td><strong>Historial dividendos</strong></td><td>≥ 20 años ininterrumpidos</td></tr>
+          <tr><td><strong>Crecimiento BPA</strong></td><td>≥ 33% en 10 años</td></tr>
+          <tr><td><strong>Margen de seguridad</strong></td><td>Precio ≤ 67% del valor intrínseco (descuento ≥ 33%)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-d.html" class="nav-btn">← D: CAPM</a>
+    <a href="../bloque-4/seccion-a.html" class="nav-btn">Bloque 4 · A: Asset Allocation →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Graham, B. &amp; Dodd, D. (1934). <em>Security Analysis</em> (6.ª ed. 2008).
+        McGraw-Hill. Criterios originales de selección de valores infravalorados.
+        ISBN 978-0-07-159253-6.
+      </li>
+      <li id="fn2">
+        Graham, B. (1949). <em>The Intelligent Investor</em> (rev. ed. 2003).
+        HarperBusiness. Margen de seguridad, Mr. Market y filosofía del value investing.
+        ISBN 978-0-06-055566-5.
+      </li>
+      <li id="fn3">
+        Fama, E. F. &amp; French, K. R. (1992). «The Cross-Section of Expected Stock Returns».
+        <em>The Journal of Finance</em>, 47(2), 427–465.
+        <a href="https://doi.org/10.2307/2329112" target="_blank" rel="noopener">doi.org/10.2307/2329112</a>.
+        Evidencia empírica del efecto valor (P/VC bajo → mayor rentabilidad).
+      </li>
+      <li id="fn4">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 3 · Sección E,
+        pp. 58–59. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 3 · Sección E · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

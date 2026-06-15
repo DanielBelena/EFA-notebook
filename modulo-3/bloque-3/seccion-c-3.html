@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B3 · Sección C — Modelo de mercado de Sharpe · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .beta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 620px) { .beta-grid { grid-template-columns: 1fr; } }
+
+    .beta-box {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+      text-align: center;
+    }
+    .beta-box .bval {
+      font-family: var(--font-ui);
+      font-size: 1.5rem;
+      font-weight: 900;
+      display: block;
+      margin-bottom: .3rem;
+    }
+    .beta-box.agr .bval { color: var(--green); }
+    .beta-box.neu .bval { color: var(--navy);  }
+    .beta-box.def .bval { color: var(--amber); }
+    .beta-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      margin-bottom: .3rem;
+      color: var(--navy);
+    }
+    .beta-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    .risk-decomp {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: .6rem;
+      margin: 1rem 0;
+      align-items: center;
+    }
+    @media (max-width: 560px) { .risk-decomp { grid-template-columns: 1fr; } }
+    .risk-decomp .rbox {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: .8rem 1rem;
+      text-align: center;
+    }
+    .risk-decomp .rbox h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      margin-bottom: .25rem;
+    }
+    .rbox.sist h4 { color: var(--navy); }
+    .rbox.espe h4 { color: var(--amber); }
+    .rbox.tot  h4 { color: var(--green); }
+    .risk-decomp .rbox p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .risk-decomp .plus-sign {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--navy);
+    }
+
+    /* Tabla calc beta */
+    .calc-table td, .calc-table th {
+      text-align: center;
+      padding: .45rem .8rem;
+      font-size: var(--fs-sm);
+    }
+    .calc-table th { background: var(--navy); color: #fff; }
+    .calc-table tr:nth-child(even) td { background: var(--navy-light); }
+
+    .frontier-diagram {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+
+    /* Subsección separadores */
+    .subsec-title {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: var(--fs-base);
+      color: var(--navy);
+      background: var(--navy-light);
+      border-radius: 10px;
+      padding: .6rem 1.2rem;
+      margin: 2rem 0 1rem;
+      border-left: 4px solid var(--navy);
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B3 · C</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 3</a>
+    <span class="sep">›</span>
+    <span>Sección C</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 3 · Sección C · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Modelo de mercado de Sharpe</h1>
+    <p class="hero-sub">
+      Línea característica · Alfa y Beta · R² · Riesgo sistemático y no sistemático ·
+      Beta de cartera · Línea característica de cartera.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ================================================================
+       SUBSECCIÓN 1 — JUSTIFICACIÓN Y LÍNEA CARACTERÍSTICA
+       ================================================================ -->
+  <div class="subsec-title">Subsección 1 · Justificación del modelo y línea característica</div>
+
+  <!-- 1. PROBLEMA DE MARKOWITZ CON MUCHOS TÍTULOS -->
+  <div class="sec">
+    <h2>1. El problema de escala del modelo Markowitz</h2>
+    <p>
+      El modelo de Markowitz requiere estimar, para n activos:
+    </p>
+    <div class="formula">
+      <span class="formula-label">Estimaciones necesarias para construir la frontera eficiente con n activos</span>
+      n medias E(Rᵢ)  +  n varianzas σᵢ²  +  n(n−1)/2 covarianzas σᵢⱼ
+    </div>
+    <div class="table-wrap">
+      <table class="calc-table">
+        <thead><tr><th>n activos</th><th>Medias</th><th>Varianzas</th><th>Covarianzas</th><th>Total parámetros</th></tr></thead>
+        <tbody>
+          <tr><td>10</td><td>10</td><td>10</td><td>45</td><td><strong>65</strong></td></tr>
+          <tr><td>50</td><td>50</td><td>50</td><td>1.225</td><td><strong>1.325</strong></td></tr>
+          <tr><td>500</td><td>500</td><td>500</td><td>124.750</td><td><strong>125.750</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Con 500 activos son necesarios casi <strong>126.000 parámetros</strong>, cuya
+      estimación es estadísticamente poco fiable (requiere series históricas largas y
+      estables) y computacionalmente exigente. Sharpe (1963) propuso simplificar asumiendo
+      que <strong>la única fuente de covarianza entre activos es su relación común con
+      un único factor: el índice de mercado</strong>.
+    </p>
+    <div class="callout info">
+      Con el modelo de mercado de Sharpe, los parámetros necesarios se reducen a:
+      <strong>n alfas + n betas + n varianzas residuales + 1 varianza del mercado = 3n + 1</strong>.
+      Para 500 activos: 1.501 parámetros en lugar de 125.750.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 2. LÍNEA CARACTERÍSTICA -->
+  <div class="sec">
+    <h2>2. La línea característica de un título</h2>
+    <p>
+      La <strong>línea característica</strong> de un activo i es la recta de regresión
+      que relaciona la rentabilidad del activo con la rentabilidad del índice de mercado
+      en cada período. Es la representación gráfica del modelo de mercado.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Modelo de mercado de Sharpe (línea característica)</span>
+      Rᵢ = αᵢ + βᵢ · R<sub>M</sub> + εᵢ
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Parámetro</th><th>Significado</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Rᵢ</strong></td><td>Rentabilidad del activo i en el período t</td></tr>
+          <tr><td><strong>R<sub>M</sub></strong></td><td>Rentabilidad del índice de mercado en el período t</td></tr>
+          <tr><td><strong>αᵢ</strong></td><td>Ordenada en el origen: rentabilidad del activo cuando R<sub>M</sub> = 0</td></tr>
+          <tr><td><strong>βᵢ</strong></td><td>Pendiente: sensibilidad del activo a los movimientos del mercado</td></tr>
+          <tr><td><strong>εᵢ</strong></td><td>Término de error o residuo: rentabilidad del activo no explicada por el mercado</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Diagrama línea característica -->
+    <div class="frontier-diagram">
+      <svg viewBox="0 0 440 310" xmlns="http://www.w3.org/2000/svg" aria-label="Línea característica de un activo">
+        <!-- Ejes -->
+        <line x1="50" y1="155" x2="420" y2="155" stroke="#6b7280" stroke-width="1"/>
+        <line x1="220" y1="290" x2="220" y2="20"  stroke="#6b7280" stroke-width="1"/>
+        <!-- Etiquetas ejes -->
+        <text x="424" y="159" font-size="11" fill="#6b7280">R_M</text>
+        <text x="224" y="14"  font-size="11" fill="#6b7280">Rᵢ</text>
+
+        <!-- Puntos nube de regresión -->
+        <circle cx="100" cy="235" r="3" fill="#9ca3af"/>
+        <circle cx="120" cy="210" r="3" fill="#9ca3af"/>
+        <circle cx="140" cy="225" r="3" fill="#9ca3af"/>
+        <circle cx="160" cy="195" r="3" fill="#9ca3af"/>
+        <circle cx="180" cy="180" r="3" fill="#9ca3af"/>
+        <circle cx="200" cy="175" r="3" fill="#9ca3af"/>
+        <circle cx="240" cy="148" r="3" fill="#9ca3af"/>
+        <circle cx="260" cy="135" r="3" fill="#9ca3af"/>
+        <circle cx="280" cy="120" r="3" fill="#9ca3af"/>
+        <circle cx="300" cy="110" r="3" fill="#9ca3af"/>
+        <circle cx="320" cy="100" r="3" fill="#9ca3af"/>
+        <circle cx="340" cy="85"  r="3" fill="#9ca3af"/>
+        <circle cx="360" cy="95"  r="3" fill="#9ca3af"/>
+        <circle cx="380" cy="75"  r="3" fill="#9ca3af"/>
+
+        <!-- Línea característica (regresión) -->
+        <line x1="80" y1="252" x2="400" y2="65" stroke="#1e3a5f" stroke-width="2.5"/>
+
+        <!-- Alpha (ordenada en origen, en R_M = 0) -->
+        <circle cx="220" cy="158" r="5" fill="#d97706"/>
+        <text x="226" y="152" font-size="10" fill="#d97706" font-weight="800">α</text>
+        <line x1="220" y1="155" x2="220" y2="158" stroke="#d97706" stroke-width="1.5" stroke-dasharray="3,2"/>
+
+        <!-- Beta (pendiente) -->
+        <line x1="280" y1="120" x2="340" y2="120" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <line x1="340" y1="85"  x2="340" y2="120" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <text x="305" y="132" font-size="9"  fill="#16a34a">ΔR_M</text>
+        <text x="344" y="105" font-size="9"  fill="#16a34a">ΔRᵢ</text>
+        <text x="346" y="118" font-size="10" fill="#16a34a" font-weight="800">β = ΔRᵢ/ΔR_M</text>
+
+        <!-- Epsilon (residuo de un punto) -->
+        <circle cx="180" cy="170" r="3" fill="#ef4444"/>
+        <line x1="180" y1="170" x2="180" y2="184" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="2,2"/>
+        <text x="184" y="178" font-size="9" fill="#ef4444">ε (residuo)</text>
+
+        <text x="60" y="40" font-size="11" fill="#1e3a5f" font-weight="800">Rᵢ = α + β·R_M + ε</text>
+      </svg>
+      <p style="font-size:var(--fs-xs);color:var(--text-soft);margin:.4rem 0 0;text-align:center;">
+        La línea característica es la recta de regresión de las rentabilidades del activo sobre las del índice. α es la ordenada; β es la pendiente; ε son los residuos.
+      </p>
+    </div>
+
+    <h3>Importancia del coeficiente de determinación R²</h3>
+    <p>
+      El <strong>R²</strong> (coeficiente de determinación) mide qué proporción de la
+      varianza de la rentabilidad del activo es explicada por los movimientos del mercado:
+    </p>
+    <div class="formula">
+      <span class="formula-label">R² de la línea característica</span>
+      R² = Varianza explicada por el mercado / Varianza total = β²·σ²<sub>M</sub> / σ²ᵢ
+    </div>
+    <div class="concept-grid" style="margin-top:.8rem;">
+      <div class="concept-box">
+        <h4>R² alto (≈ 1)</h4>
+        <p>La mayor parte de la variabilidad del activo se explica por el mercado. El riesgo
+        específico es pequeño. Las acciones de los grandes índices suelen tener R² > 0,8.</p>
+      </div>
+      <div class="concept-box">
+        <h4>R² bajo (≈ 0)</h4>
+        <p>El mercado explica poco del comportamiento del activo. Hay mucho riesgo específico.
+        Activos muy particulares (pequeñas empresas, sectores nicho) suelen tener R² bajo.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 3. BETA -->
+  <div class="sec">
+    <h2>3. El coeficiente Beta (β): definición, cálculo y clasificación</h2>
+    <p>
+      La <strong>beta</strong> mide la sensibilidad del activo a los movimientos del mercado.
+      Es la pendiente de la línea característica y se calcula como:
+    </p>
+    <div class="formula">
+      <span class="formula-label">Fórmula de la beta</span>
+      βᵢ = Cov(Rᵢ, R<sub>M</sub>) / Var(R<sub>M</sub>) = σᵢ<sub>M</sub> / σ²<sub>M</sub>
+    </div>
+
+    <h3>Clasificación de activos según beta</h3>
+    <div class="beta-grid">
+      <div class="beta-box agr">
+        <span class="bval">β > 1</span>
+        <h4>Activo agresivo</h4>
+        <p>Amplifica los movimientos del mercado. Si el mercado sube 1%, el activo sube más del 1%.
+        Mayor riesgo sistemático que el mercado. Ej: valores tecnológicos, small caps.</p>
+      </div>
+      <div class="beta-box neu">
+        <span class="bval">β = 1</span>
+        <h4>Activo neutro</h4>
+        <p>Se mueve exactamente igual que el mercado. Mismo riesgo sistemático que el índice.
+        El propio índice de mercado tiene β = 1 por definición.</p>
+      </div>
+      <div class="beta-box def">
+        <span class="bval">0 < β < 1</span>
+        <h4>Activo defensivo</h4>
+        <p>Amortigua los movimientos del mercado. Si el mercado cae 1%, el activo cae menos del 1%.
+        Menor riesgo sistemático. Ej: utilities, alimentación, salud.</p>
+      </div>
+      <div class="beta-box" style="border-color:var(--amber);background:var(--amber-light);">
+        <span class="bval" style="color:var(--amber);">β = 0</span>
+        <h4>Sin riesgo sistemático</h4>
+        <p>El activo no tiene relación con el mercado. Su rentabilidad no cambia con el índice.
+        El activo libre de riesgo (Letras del Tesoro) tiene β = 0.</p>
+      </div>
+      <div class="beta-box" style="border-color:#dc2626;background:#fee2e2;">
+        <span class="bval" style="color:#dc2626;">β < 0</span>
+        <h4>Beta negativa</h4>
+        <p>El activo se mueve en sentido contrario al mercado. Raro en acciones.
+        Común en activos refugio (oro en ciertos períodos) o estrategias de cobertura.</p>
+      </div>
+      <div class="beta-box" style="border-color:#7c3aed;background:#ede9fe;">
+        <span class="bval" style="color:#7c3aed;">β > 2</span>
+        <h4>Muy agresivo</h4>
+        <p>Alta apalancamiento implícito respecto al mercado. Muy volátiles. Productos
+        apalancados (ETF 2x, 3x) y algunas opciones tienen betas muy elevadas.</p>
+      </div>
+    </div>
+
+    <h3>Factores que afectan al significado de la beta</h3>
+    <ul style="font-size:var(--fs-sm);line-height:1.85;padding-left:1.2rem;">
+      <li><strong>Período histórico utilizado:</strong> la beta calculada con datos de 1 año puede diferir significativamente de la calculada con 5 años. Las betas son inestables a corto plazo.</li>
+      <li><strong>Índice de mercado de referencia:</strong> la beta depende del índice usado (IBEX, S&amp;P 500, MSCI World). Un activo puede tener beta muy distinta respecto a distintos índices.</li>
+      <li><strong>Frecuencia de datos:</strong> datos diarios pueden dar betas distintas de datos semanales o mensuales, especialmente para activos ilíquidos.</li>
+      <li><strong>Apalancamiento financiero:</strong> empresas con mayor deuda tienen betas más altas (la beta del equity amplifica la beta del activo subyacente).</li>
+      <li><strong>Ciclo económico:</strong> la beta puede variar según la fase del ciclo. Sectores cíclicos tienen betas mayores en expansión que en recesión.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- 4. ALFA -->
+  <div class="sec">
+    <h2>4. El coeficiente Alpha (α): definición, cálculo e interpretación</h2>
+    <p>
+      El <strong>alfa</strong> de un activo es la ordenada en el origen de la línea característica:
+      la parte de la rentabilidad del activo que no está explicada por el mercado.
+    </p>
+    <div class="formula">
+      <span class="formula-label">Cálculo del alfa (ordenada en el origen de la regresión)</span>
+      αᵢ = R̄ᵢ − βᵢ · R̄<sub>M</sub>
+    </div>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>α > 0 → rentabilidad adicional</h4>
+        <p>El activo genera rentabilidad por encima de lo que justifica su exposición al mercado.
+        Indica que el gestor o el activo ha añadido valor respecto al benchmark.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>α < 0 → rentabilidad insuficiente</h4>
+        <p>El activo rinde por debajo de lo que justificaría su beta. Puede deberse a costes de
+        gestión, selección de valores deficiente o información asimétrica.</p>
+      </div>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Rentabilidad esperada del activo desde la línea característica</span>
+      E(Rᵢ) = αᵢ + βᵢ · E(R<sub>M</sub>)
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Línea característica, α y β</h3>
+      <p>
+        Datos de 5 años de la acción ABCD y del IBEX-35:<br>
+        R̄<sub>ABCD</sub> = 14%, R̄<sub>IBEX</sub> = 10%, Cov(R<sub>ABCD</sub>, R<sub>IBEX</sub>) = 0,027, σ²<sub>IBEX</sub> = 0,018.<br><br>
+        <strong>Beta:</strong> β = 0,027 / 0,018 = <strong>1,50</strong> (activo agresivo)<br>
+        <strong>Alfa:</strong> α = 14% − 1,50 × 10% = 14% − 15% = <strong>−1%</strong><br><br>
+        Línea característica: R<sub>ABCD</sub> = −1% + 1,50 · R<sub>IBEX</sub><br><br>
+        Interpretación: ABCD amplifica los movimientos del IBEX en un 50% (β=1,5),
+        pero genera un alfa negativo de −1%: destruye 1 punto porcentual de rentabilidad
+        respecto a lo que justificaría su riesgo sistemático.<br><br>
+        <strong>Rentabilidad esperada si E(R<sub>IBEX</sub>) = 8%:</strong><br>
+        E(R<sub>ABCD</sub>) = −1% + 1,50 × 8% = −1% + 12% = <strong>11%</strong>
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Calcular β = Cov(Rᵢ, R<sub>M</sub>) / σ²<sub>M</sub> y α = R̄ᵢ − β·R̄<sub>M</sub>.
+        Luego usar la línea característica para estimar la rentabilidad dado un E(R<sub>M</sub>).
+        También puede pedirse clasificar el activo (agresivo/defensivo) por su beta.
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       SUBSECCIÓN 2 — RIESGO SISTEMÁTICO Y NO SISTEMÁTICO
+       ================================================================ -->
+  <div class="subsec-title">Subsección 2 · Riesgo sistemático y no sistemático de una cartera</div>
+
+  <div class="sec">
+    <h2>5. Descomposición del riesgo: sistemático, no sistemático y total</h2>
+    <p>
+      Una de las contribuciones más importantes del modelo de Sharpe es la
+      <strong>descomposición de la varianza</strong> de un activo en dos componentes:
+    </p>
+
+    <div class="risk-decomp">
+      <div class="rbox sist">
+        <h4>Riesgo sistemático</h4>
+        <p>β²ᵢ · σ²<sub>M</sub><br>Parte de la varianza debida a movimientos del mercado.
+        No se puede eliminar con diversificación.</p>
+      </div>
+      <div class="plus-sign">+</div>
+      <div class="rbox espe">
+        <h4>Riesgo no sistemático</h4>
+        <p>σ²(εᵢ) = σ²ᵢ − β²ᵢ·σ²<sub>M</sub><br>Parte de la varianza debida a factores
+        propios del activo. Se elimina diversificando.</p>
+      </div>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Descomposición del riesgo total (varianza)</span>
+      σ²ᵢ = β²ᵢ · σ²<sub>M</sub>  +  σ²(εᵢ)
+    </div>
+    <div class="formula">
+      <span class="formula-label">Riesgo sistemático (en varianza)</span>
+      β²ᵢ · σ²<sub>M</sub>
+    </div>
+    <div class="formula">
+      <span class="formula-label">Riesgo no sistemático o específico (en varianza)</span>
+      σ²(εᵢ) = Var(εᵢ)
+    </div>
+
+    <p>La relación con el R² es directa:</p>
+    <div class="formula">
+      <span class="formula-label">R² como proporción del riesgo sistemático</span>
+      R²ᵢ = β²ᵢ·σ²<sub>M</sub> / σ²ᵢ = Riesgo sistemático / Riesgo total
+    </div>
+
+    <h3>Riesgo de una cartera diversificada: por qué importa solo el sistemático</h3>
+    <p>
+      En una cartera de n activos <em>bien diversificada</em>, los riesgos específicos
+      de cada activo se cancelan mutuamente (dado que los εᵢ son, por hipótesis,
+      independientes entre sí). El riesgo no sistemático de la cartera tiende a cero
+      conforme n crece. Lo que permanece es únicamente el <strong>riesgo sistemático</strong>:
+    </p>
+    <div class="formula">
+      <span class="formula-label">Varianza de una cartera diversificada</span>
+      σ²<sub>c</sub> → β²<sub>c</sub> · σ²<sub>M</sub>   cuando n → ∞
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Descomposición del riesgo</h3>
+      <p>
+        Activo con β = 1,20, σ<sub>M</sub> = 15%, σᵢ = 22%.<br><br>
+        σ²<sub>M</sub> = (15%)² = 225 %²<br>
+        σ²ᵢ = (22%)² = 484 %²<br><br>
+        Riesgo sistemático = β²·σ²<sub>M</sub> = (1,20)²×225 = 1,44×225 = <strong>324 %²</strong><br>
+        Riesgo no sistemático = 484 − 324 = <strong>160 %²</strong><br><br>
+        R² = 324/484 = <strong>66,9%</strong><br>
+        El 67% de la varianza del activo se explica por el mercado; el 33% es riesgo específico.<br><br>
+        En una cartera bien diversificada que incluya este activo, el riesgo no sistemático
+        (160 %²) quedará eliminado por diversificación. Solo persistirá el sistemático (324 %²).
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Descomponer σ²ᵢ en sistemático (β²·σ²<sub>M</sub>) y no sistemático (diferencia).
+        Calcular R² y saber interpretar que en una cartera diversificada solo importa el
+        riesgo sistemático.
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       SUBSECCIÓN 3 — BETA DE UNA CARTERA
+       ================================================================ -->
+  <div class="subsec-title">Subsección 3 · Beta de una cartera</div>
+
+  <div class="sec">
+    <h2>6. Beta y alpha de una cartera: cálculo, clasificación y línea característica</h2>
+
+    <h3>Beta de una cartera</h3>
+    <p>
+      La beta de una cartera es la <strong>media ponderada</strong> de las betas
+      de sus activos individuales:
+    </p>
+    <div class="formula">
+      <span class="formula-label">Beta de la cartera</span>
+      β<sub>c</sub> = w₁·β₁ + w₂·β₂ + … + wₙ·βₙ = Σ wᵢ·βᵢ
+    </div>
+
+    <h3>Clasificación de la cartera según su beta</h3>
+    <div class="beta-grid">
+      <div class="beta-box agr">
+        <span class="bval">β<sub>c</sub> > 1</span>
+        <h4>Cartera agresiva</h4>
+        <p>Amplifica los movimientos del mercado. En mercados alcistas supera al índice;
+        en bajistas cae más. Adecuada para inversores con baja aversión al riesgo.</p>
+      </div>
+      <div class="beta-box neu">
+        <span class="bval">β<sub>c</sub> = 1</span>
+        <h4>Cartera neutra</h4>
+        <p>Se mueve como el mercado. Similar a un fondo índice.
+        Adecuada para inversores que buscan la rentabilidad del mercado sin más.</p>
+      </div>
+      <div class="beta-box def">
+        <span class="bval">β<sub>c</sub> < 1</span>
+        <h4>Cartera defensiva</h4>
+        <p>Amortigua los movimientos del mercado. En caídas pierde menos; en subidas gana menos.
+        Adecuada para inversores conservadores.</p>
+      </div>
+    </div>
+
+    <h3>Alpha de una cartera</h3>
+    <p>
+      El alfa de la cartera es también la media ponderada de los alfas individuales:
+    </p>
+    <div class="formula">
+      <span class="formula-label">Alpha de la cartera</span>
+      α<sub>c</sub> = w₁·α₁ + w₂·α₂ + … + wₙ·αₙ = Σ wᵢ·αᵢ
+    </div>
+
+    <h3>Línea característica de la cartera y rentabilidad esperada</h3>
+    <p>
+      La cartera también tiene su propia línea característica, que relaciona su
+      rentabilidad con la del mercado:
+    </p>
+    <div class="formula">
+      <span class="formula-label">Línea característica de la cartera</span>
+      R<sub>c</sub> = α<sub>c</sub> + β<sub>c</sub> · R<sub>M</sub> + ε<sub>c</sub>
+    </div>
+    <div class="formula">
+      <span class="formula-label">Rentabilidad esperada de la cartera (desde la línea característica)</span>
+      E(R<sub>c</sub>) = α<sub>c</sub> + β<sub>c</sub> · E(R<sub>M</sub>)
+    </div>
+
+    <h3>Por qué importa la beta en una cartera diversificada</h3>
+    <p>
+      En una cartera bien diversificada, el riesgo no sistemático queda eliminado.
+      Lo único que determina el riesgo de la cartera es su beta, que mide la exposición
+      al riesgo sistemático o de mercado. La beta es, en consecuencia, <strong>la medida
+      de riesgo relevante para evaluar la rentabilidad esperada</strong> de una cartera
+      diversificada (como lo formaliza el CAPM en la Sección D).
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Beta y alpha de cartera</h3>
+      <p>
+        Cartera compuesta por tres acciones:
+      </p>
+      <div class="table-wrap">
+        <table class="calc-table">
+          <thead>
+            <tr><th>Activo</th><th>Peso (wᵢ)</th><th>αᵢ</th><th>βᵢ</th><th>wᵢ·αᵢ</th><th>wᵢ·βᵢ</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>A (tecnología)</td><td>40%</td><td>+1,5%</td><td>1,8</td><td>+0,60%</td><td>0,72</td></tr>
+            <tr><td>B (utilities)</td><td>35%</td><td>+0,2%</td><td>0,6</td><td>+0,07%</td><td>0,21</td></tr>
+            <tr><td>C (consumo)</td><td>25%</td><td>−0,5%</td><td>1,0</td><td>−0,13%</td><td>0,25</td></tr>
+            <tr style="background:var(--green-light);font-weight:700;">
+              <td colspan="4"><strong>Cartera</strong></td>
+              <td><strong>α<sub>c</sub> = +0,54%</strong></td>
+              <td><strong>β<sub>c</sub> = 1,18</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.6rem;">
+        La cartera es <strong>ligeramente agresiva</strong> (β=1,18) y genera un alfa
+        positivo de +0,54%. Si E(R<sub>M</sub>) = 9%:<br>
+        E(R<sub>c</sub>) = 0,54% + 1,18×9% = 0,54% + 10,62% = <strong>11,16%</strong>
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Calcular β<sub>c</sub> = Σwᵢ·βᵢ y α<sub>c</sub> = Σwᵢ·αᵢ a partir de una tabla
+        de activos con sus pesos. Luego estimar E(R<sub>c</sub>) = α<sub>c</sub> + β<sub>c</sub>·E(R<sub>M</sub>).
+        El examen puede también pedir los componentes del riesgo total de la cartera.
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        En el contexto del mercado europeo a junio 2026, los sectores de <strong>defensa</strong>
+        y <strong>tecnología</strong> presentan betas históricas elevadas (β > 1,4 respecto al
+        Eurostoxx 50), mientras que <strong>utilities</strong> y <strong>telecomunicaciones</strong>
+        mantienen betas defensivas (β ≈ 0,5–0,7). Con el IBEX en máximos históricos (~18.250),
+        una cartera con β > 1 habrá amplificado significativamente las ganancias del mercado
+        en 2026, pero estará expuesta a caídas amplificadas si el ciclo revierte.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Fórmula clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Modelo de Sharpe</strong></td><td>Rᵢ = αᵢ + βᵢ·R<sub>M</sub> + εᵢ</td></tr>
+          <tr><td><strong>Beta</strong></td><td>βᵢ = Cov(Rᵢ, R<sub>M</sub>) / σ²<sub>M</sub></td></tr>
+          <tr><td><strong>Alfa</strong></td><td>αᵢ = R̄ᵢ − βᵢ·R̄<sub>M</sub></td></tr>
+          <tr><td><strong>E(Rᵢ)</strong></td><td>αᵢ + βᵢ·E(R<sub>M</sub>)</td></tr>
+          <tr><td><strong>Riesgo total</strong></td><td>σ²ᵢ = β²ᵢ·σ²<sub>M</sub> + σ²(εᵢ)</td></tr>
+          <tr><td><strong>R²</strong></td><td>β²ᵢ·σ²<sub>M</sub> / σ²ᵢ</td></tr>
+          <tr><td><strong>Beta cartera</strong></td><td>β<sub>c</sub> = Σwᵢ·βᵢ</td></tr>
+          <tr><td><strong>Alpha cartera</strong></td><td>α<sub>c</sub> = Σwᵢ·αᵢ</td></tr>
+          <tr><td><strong>E(R<sub>c</sub>)</strong></td><td>α<sub>c</sub> + β<sub>c</sub>·E(R<sub>M</sub>)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-b.html" class="nav-btn">← B: Selección de cartera óptima</a>
+    <a href="seccion-d.html" class="nav-btn">D: CAPM →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Sharpe, W. F. (1963). «A Simplified Model for Portfolio Analysis».
+        <em>Management Science</em>, 9(2), 277–293.
+        <a href="https://doi.org/10.1287/mnsc.9.2.277" target="_blank" rel="noopener">doi.org/10.1287/mnsc.9.2.277</a>.
+        Modelo de mercado, línea característica, beta y alfa.
+      </li>
+      <li id="fn2">
+        Bodie, Z., Kane, A. &amp; Marcus, A. J. (2014). <em>Investments</em> (10.ª ed.), cap. 8
+        «Index Models», pp. 245–275. McGraw-Hill Education.
+      </li>
+      <li id="fn3">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 3 · Sección C,
+        pp. 52–55. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 3 · Sección C · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

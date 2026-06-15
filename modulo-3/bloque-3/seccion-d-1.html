@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B3 · Sección D — CAPM · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .hypo-list {
+      counter-reset: hypo;
+      list-style: none;
+      padding: 0;
+      margin: .8rem 0;
+    }
+    .hypo-list li {
+      counter-increment: hypo;
+      display: flex;
+      gap: .8rem;
+      padding: .65rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: var(--fs-sm);
+      line-height: 1.65;
+    }
+    .hypo-list li:last-child { border-bottom: none; }
+    .hypo-list li::before {
+      content: counter(hypo);
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: .75rem;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 50%;
+      width: 1.4rem;
+      height: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+
+    .frontier-diagram {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+
+    .subsec-title {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: var(--fs-base);
+      color: var(--navy);
+      background: var(--navy-light);
+      border-radius: 10px;
+      padding: .6rem 1.2rem;
+      margin: 2rem 0 1rem;
+      border-left: 4px solid var(--navy);
+    }
+
+    .val-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .val-grid { grid-template-columns: 1fr; } }
+    .val-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+    }
+    .val-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .3rem; }
+    .val-box p  { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.65; margin: 0; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B3 · D</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 3</a>
+    <span class="sep">›</span>
+    <span>Sección D</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 3 · Sección D · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Modelo de equilibrio de activos: CAPM</h1>
+    <p class="hero-sub">
+      Hipótesis del CAPM · Capital Market Line (CML) · Cartera de mercado ·
+      Teorema de separación · Security Market Line (SML) · Valoración de activos.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. HIPÓTESIS DEL CAPM
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Hipótesis del modelo CAPM</h2>
+    <p class="sec-intro">
+      El CAPM (Capital Asset Pricing Model), desarrollado simultáneamente por Sharpe (1964),
+      Lintner (1965) y Mossin (1966), extiende el modelo de Markowitz para determinar
+      cómo se forman los precios de los activos en equilibrio de mercado. Se basa en las
+      hipótesis de Markowitz más algunas adicionales:
+    </p>
+    <ul class="hypo-list">
+      <li><div><strong>Todos los inversores son racionales y maximizan utilidad media-varianza</strong> en un horizonte de un período. Heredada directamente de Markowitz.</div></li>
+      <li><div><strong>Expectativas homogéneas:</strong> todos los inversores tienen las mismas estimaciones de E(Rᵢ), σᵢ y correlaciones. En consecuencia, todos calculan la misma frontera eficiente y la misma cartera de mercado M.</div></li>
+      <li><div><strong>Existe un activo sin riesgo</strong> al que todos los inversores pueden prestar y pedir prestado de forma ilimitada al mismo tipo R<sub>f</sub> (sin restricción de apalancamiento).</div></li>
+      <li><div><strong>Mercados perfectos:</strong> sin costes de transacción, sin impuestos, sin restricciones a las ventas en corto. Los activos son perfectamente divisibles y líquidos.</div></li>
+      <li><div><strong>El mercado de capitales está en equilibrio:</strong> los precios se ajustan hasta que oferta = demanda para cada activo. No hay oportunidades de arbitraje.</div></li>
+      <li><div><strong>Todos los activos arriesgados son negociables</strong> y pueden incluirse en la cartera (incluido el capital humano, en teoría). No hay restricciones a la inversión.</div></li>
+    </ul>
+    <div class="callout info">
+      <strong>Limitaciones conocidas:</strong> ninguna de estas hipótesis se cumple en la
+      práctica. Sin embargo, el CAPM sigue siendo el modelo de referencia en valoración de
+      activos, coste de capital corporativo (WACC) y construcción de benchmarks, porque
+      sus predicciones aproximadas son suficientemente útiles.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ================================================================
+       SUBSECCIÓN 1 — CML
+       ================================================================ -->
+  <div class="subsec-title">Subsección 1 · Capital Market Line (CML)</div>
+
+  <div class="sec">
+    <h2>2. La CML: frontera eficiente del CAPM</h2>
+
+    <h3>¿Por qué la CML es la frontera eficiente en el CAPM?</h3>
+    <p>
+      En el CAPM, todos los inversores tienen las mismas expectativas (hipótesis de
+      expectativas homogéneas), por lo que todos calculan la misma cartera de mercado M
+      y la misma CML. Dado que existe el activo sin riesgo, la frontera eficiente
+      <em>deja de ser la parábola de Markowitz</em> y pasa a ser la <strong>recta CML</strong>:
+      toda cartera eficiente es una combinación lineal de R<sub>f</sub> y M.
+    </p>
+
+    <h3>La cartera de mercado M</h3>
+    <div class="card accent-navy">
+      <p>
+        La <strong>cartera de mercado</strong> M es la cartera de activos arriesgados que
+        resulta de la tangencia entre la CML y la frontera eficiente de Markowitz. En
+        equilibrio, M contiene <em>todos los activos arriesgados</em> del mercado ponderados
+        por su capitalización de mercado. Si un activo estuviera infraponderado respecto
+        a su capitalización, sería subcomprado → precio caería → E(R) subiría → inversores
+        lo comprarían hasta restaurar el equilibrio.
+      </p>
+    </div>
+
+    <h3>Teorema de separación de Tobin en el CAPM</h3>
+    <p>
+      Bajo las hipótesis del CAPM, <strong>todos los inversores mantienen la misma cartera
+      de activos arriesgados M</strong>, independientemente de su aversión al riesgo.
+      La aversión al riesgo solo determina la <em>proporción</em> invertida en M vs. R<sub>f</sub>:
+    </p>
+    <div class="val-grid">
+      <div class="val-box">
+        <h4>Inversor conservador</h4>
+        <p>Asigna una fracción pequeña a M y el resto a R<sub>f</sub>. E(R) bajo, σ bajo.
+        Puntos entre R<sub>f</sub> y M en la CML (<em>lending portfolio</em>).</p>
+      </div>
+      <div class="val-box">
+        <h4>Inversor agresivo</h4>
+        <p>Asigna más del 100% a M (pide prestado al tipo R<sub>f</sub>). E(R) alto, σ alto.
+        Puntos a la derecha de M en la CML (<em>borrowing portfolio</em>).</p>
+      </div>
+    </div>
+
+    <h3>Ecuación de la CML</h3>
+    <div class="formula">
+      <span class="formula-label">Capital Market Line (CML)</span>
+      E(R<sub>c</sub>) = R<sub>f</sub> + [(E(R<sub>M</sub>) − R<sub>f</sub>) / σ<sub>M</sub>] · σ<sub>c</sub>
+    </div>
+    <div class="callout info">
+      <strong>Pendiente de la CML:</strong> (E(R<sub>M</sub>) − R<sub>f</sub>) / σ<sub>M</sub>
+      es el <strong>precio de mercado del riesgo</strong> (o Ratio de Sharpe de la cartera M).
+      Indica cuánta rentabilidad adicional ofrece el mercado por cada unidad adicional de σ.
+    </div>
+
+    <h3>Composición de la cartera eficiente en la CML</h3>
+    <p>Dado el nivel de σ deseado o la E(R) deseada, los pesos en M y en R<sub>f</sub> son:</p>
+    <div class="formula">
+      <span class="formula-label">Peso en la cartera de mercado M dado σ deseada</span>
+      w<sub>M</sub> = σ<sub>c</sub> / σ<sub>M</sub>   →   w<sub>f</sub> = 1 − w<sub>M</sub>
+    </div>
+    <div class="formula">
+      <span class="formula-label">Peso en M dado E(R<sub>c</sub>) deseada</span>
+      w<sub>M</sub> = (E(R<sub>c</sub>) − R<sub>f</sub>) / (E(R<sub>M</sub>) − R<sub>f</sub>)
+    </div>
+
+    <!-- Diagrama CML -->
+    <div class="frontier-diagram">
+      <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" aria-label="CML del CAPM">
+        <line x1="50" y1="260" x2="470" y2="260" stroke="#1e3a5f" stroke-width="1.5"/>
+        <line x1="50" y1="260" x2="50"  y2="20"  stroke="#1e3a5f" stroke-width="1.5"/>
+        <text x="474" y="264" font-size="11" fill="#1e3a5f" font-weight="700">σ</text>
+        <text x="54"  y="14"  font-size="11" fill="#1e3a5f" font-weight="700">E(R)</text>
+
+        <!-- Frontera de Markowitz (parábola) -->
+        <path d="M 148,232 Q 186,212 212,183 Q 238,154 242,118 Q 246,82 208,54"
+              stroke="#9ca3af" stroke-width="1.5" fill="none" stroke-dasharray="5,3"/>
+        <text x="248" y="80" font-size="9" fill="#9ca3af">Frontera Markowitz</text>
+
+        <!-- Rf en eje Y -->
+        <circle cx="50" cy="210" r="5" fill="#d97706"/>
+        <text x="55" y="214" font-size="11" fill="#d97706" font-weight="800">R_f</text>
+        <line x1="50" y1="210" x2="148" y2="210" stroke="#d97706" stroke-width="1" stroke-dasharray="3,3"/>
+
+        <!-- Cartera M -->
+        <circle cx="210" cy="138" r="7" fill="#16a34a"/>
+        <text x="218" y="132" font-size="11" fill="#16a34a" font-weight="800">M</text>
+
+        <!-- CML -->
+        <line x1="50" y1="210" x2="420" y2="38" stroke="#16a34a" stroke-width="2.5"/>
+        <text x="380" y="55" font-size="11" fill="#16a34a" font-weight="800">CML</text>
+
+        <!-- Zona lending -->
+        <text x="88" y="188" font-size="9" fill="#6b7280">Lending</text>
+        <!-- Zona borrowing -->
+        <text x="248" y="118" font-size="9" fill="#6b7280">Borrowing</text>
+
+        <!-- Pendiente = precio del riesgo -->
+        <line x1="210" y1="138" x2="210" y2="210" stroke="#16a34a" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="50"  y1="210" x2="210" y2="210" stroke="#16a34a" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="110" y="207" font-size="9" fill="#16a34a">σ_M</text>
+        <text x="214" y="178" font-size="9" fill="#16a34a" transform="rotate(-90,214,178)">E(R_M)−R_f</text>
+
+        <!-- Pendiente label -->
+        <text x="58" y="40" font-size="10" fill="#16a34a" font-weight="800">Pendiente = [E(R_M)−R_f] / σ_M</text>
+        <text x="58" y="54" font-size="10" fill="#16a34a">= Ratio de Sharpe del mercado</text>
+      </svg>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — CML y composición de cartera eficiente</h3>
+      <p>
+        R<sub>f</sub> = 2%. E(R<sub>M</sub>) = 11%. σ<sub>M</sub> = 20%.<br>
+        Pendiente CML = (11%−2%)/20% = <strong>0,45</strong><br>
+        CML: E(R<sub>c</sub>) = 2% + 0,45·σ<sub>c</sub><br><br>
+        <strong>Caso 1 — E(R) objetivo = 8%:</strong><br>
+        w<sub>M</sub> = (8%−2%)/(11%−2%) = 6%/9% = <strong>66,7%</strong> en M, 33,3% en R<sub>f</sub><br>
+        σ<sub>c</sub> = 0,667×20% = <strong>13,3%</strong><br><br>
+        <strong>Caso 2 — σ objetivo = 30% (apalancamiento):</strong><br>
+        w<sub>M</sub> = 30%/20% = <strong>150%</strong> en M; w<sub>f</sub> = −50% (pide prestado)<br>
+        E(R<sub>c</sub>) = 2% + 0,45×30% = 2% + 13,5% = <strong>15,5%</strong>
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Calcular la composición (w<sub>M</sub>, w<sub>f</sub>) de una cartera eficiente
+        dado E(R) o σ objetivo. Recordar las dos fórmulas de despeje. También puede
+        pedirse el Ratio de Sharpe de la cartera M (= pendiente de la CML).
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       SUBSECCIÓN 2 — SML
+       ================================================================ -->
+  <div class="subsec-title">Subsección 2 · Security Market Line (SML)</div>
+
+  <div class="sec">
+    <h2>3. La SML: valoración de activos individuales</h2>
+
+    <h3>CML vs. SML: la diferencia fundamental</h3>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>CML — solo carteras eficientes</h4>
+        <p>Relaciona E(R) con la volatilidad total σ. Solo es válida para carteras
+        eficientes (que eliminan todo el riesgo no sistemático). Un activo individual
+        NO está en la CML (tiene riesgo no sistemático).</p>
+      </div>
+      <div class="vs-box right">
+        <h4>SML — todos los activos y carteras</h4>
+        <p>Relaciona E(R) con la beta (riesgo sistemático). Es válida para cualquier
+        activo o cartera, eficiente o no. La medida de riesgo relevante es β, no σ total,
+        porque el mercado no recompensa el riesgo diversificable.</p>
+      </div>
+    </div>
+
+    <h3>La ecuación de la SML (CAPM)</h3>
+    <div class="formula">
+      <span class="formula-label">Security Market Line — CAPM</span>
+      E(Rᵢ) = R<sub>f</sub> + βᵢ · (E(R<sub>M</sub>) − R<sub>f</sub>)
+    </div>
+    <div class="callout info">
+      <strong>(E(R<sub>M</sub>) − R<sub>f</sub>)</strong> es la <strong>prima de riesgo de mercado</strong>
+      (<em>equity risk premium</em>, ERP): la rentabilidad adicional que exige el mercado
+      por asumir riesgo sistemático. La SML establece que la rentabilidad requerida de
+      cualquier activo es R<sub>f</sub> más una prima proporcional a su beta.
+    </div>
+
+    <h3>Significado de los activos en la SML</h3>
+    <p>En equilibrio, todos los activos deben situarse sobre la SML. Un activo que no
+    está en la SML está <em>mal valorado</em>:</p>
+
+    <div class="val-grid">
+      <div class="val-box">
+        <h4>🟢 Activo infravalorado (por encima de la SML)</h4>
+        <p>
+          Su rentabilidad esperada real E(R) es <strong>mayor</strong> que la rentabilidad
+          teórica de la SML para su beta. El activo ofrece más de lo que el mercado
+          requeriría: está barato. Los inversores lo comprarán → precio sube → E(R) baja
+          hasta la SML.
+        </p>
+      </div>
+      <div class="val-box">
+        <h4>🔴 Activo sobrevalorado (por debajo de la SML)</h4>
+        <p>
+          Su rentabilidad esperada real E(R) es <strong>menor</strong> que la rentabilidad
+          teórica de la SML para su beta. El activo ofrece menos de lo que el mercado
+          requeriría: está caro. Los inversores lo venderán → precio baja → E(R) sube
+          hasta la SML.
+        </p>
+      </div>
+    </div>
+
+    <!-- Diagrama SML -->
+    <div class="frontier-diagram">
+      <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" aria-label="Security Market Line">
+        <line x1="50" y1="260" x2="470" y2="260" stroke="#1e3a5f" stroke-width="1.5"/>
+        <line x1="50" y1="260" x2="50"  y2="20"  stroke="#1e3a5f" stroke-width="1.5"/>
+        <text x="474" y="264" font-size="11" fill="#1e3a5f" font-weight="700">β</text>
+        <text x="54"  y="14"  font-size="11" fill="#1e3a5f" font-weight="700">E(R)</text>
+
+        <!-- β = 0 → Rf -->
+        <circle cx="50" cy="220" r="5" fill="#d97706"/>
+        <text x="56" y="224" font-size="10" fill="#d97706" font-weight="800">R_f (β=0)</text>
+
+        <!-- β = 1 → E(R_M) -->
+        <circle cx="240" cy="128" r="6" fill="#16a34a"/>
+        <text x="246" y="122" font-size="10" fill="#16a34a" font-weight="800">M (β=1)</text>
+        <line x1="240" y1="128" x2="240" y2="260" stroke="#16a34a" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="233" y="272" font-size="9" fill="#16a34a">1</text>
+
+        <!-- SML -->
+        <line x1="50" y1="220" x2="440" y2="32" stroke="#16a34a" stroke-width="2.5"/>
+        <text x="390" y="50" font-size="11" fill="#16a34a" font-weight="800">SML</text>
+
+        <!-- Activo infravalorado (encima de la SML) -->
+        <circle cx="180" cy="125" r="6" fill="#16a34a" fill-opacity="0.7"/>
+        <text x="186" y="120" font-size="9" fill="#16a34a" font-weight="800">X (infravalorado)</text>
+        <!-- Punto teórico en SML para misma beta -->
+        <circle cx="180" cy="160" r="4" fill="#9ca3af"/>
+        <line x1="180" y1="125" x2="180" y2="160" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <text x="184" y="145" font-size="8" fill="#16a34a">α > 0</text>
+
+        <!-- Activo sobrevalorado (debajo de la SML) -->
+        <circle cx="330" cy="168" r="6" fill="#ef4444" fill-opacity="0.7"/>
+        <text x="336" y="163" font-size="9" fill="#ef4444" font-weight="800">Y (sobrevalorado)</text>
+        <!-- Punto teórico en SML -->
+        <circle cx="330" cy="88" r="4" fill="#9ca3af"/>
+        <line x1="330" y1="88" x2="330" y2="168" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <text x="334" y="132" font-size="8" fill="#ef4444">α &lt; 0</text>
+
+        <!-- Prima de riesgo -->
+        <line x1="50" y1="220" x2="50" y2="128" stroke="#6b7280" stroke-width="1" stroke-dasharray="2,2"/>
+        <text x="54" y="178" font-size="8" fill="#6b7280" transform="rotate(-90,54,178)">E(R_M)−R_f</text>
+        <text x="56" y="130" font-size="8" fill="#6b7280">Prima de mercado</text>
+      </svg>
+      <p style="font-size:var(--fs-xs);color:var(--text-soft);margin:.4rem 0 0;text-align:center;">
+        X está por encima de la SML: su E(R) real supera a la teórica → infravalorado.
+        Y está por debajo: su E(R) real es inferior a la teórica → sobrevalorado.
+      </p>
+    </div>
+
+    <h3>Cálculo de la rentabilidad teórica y detección de infra/sobrevaloración</h3>
+    <p>
+      Para saber si un activo está bien valorado, comparamos su rentabilidad esperada
+      real con la que le correspondería según el CAPM:
+    </p>
+    <div class="formula">
+      <span class="formula-label">Rentabilidad teórica (CAPM) para el activo i</span>
+      E(Rᵢ)_CAPM = R<sub>f</sub> + βᵢ · (E(R<sub>M</sub>) − R<sub>f</sub>)
+    </div>
+    <div class="formula">
+      <span class="formula-label">Alfa de Jensen: diferencia entre rentabilidad real y teórica</span>
+      αᵢ = E(Rᵢ)_real − E(Rᵢ)_CAPM
+    </div>
+    <div class="val-grid">
+      <div class="val-box">
+        <h4>α > 0 → infravalorado</h4>
+        <p>La rentabilidad real supera a la teórica. El activo ofrece más de lo que
+        compensa su riesgo → comprar.</p>
+      </div>
+      <div class="val-box">
+        <h4>α < 0 → sobrevalorado</h4>
+        <p>La rentabilidad real es menor que la teórica. El activo no compensa su riesgo
+        → vender (o evitar).</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Valoración con la SML</h3>
+      <p>
+        R<sub>f</sub> = 2%, E(R<sub>M</sub>) = 11%, prima de mercado = 9%.<br><br>
+        <strong>Activo X:</strong> β = 0,80, E(R)_real estimada = 10%<br>
+        E(R)_CAPM = 2% + 0,80×9% = 2% + 7,2% = <strong>9,2%</strong><br>
+        α = 10% − 9,2% = <strong>+0,8%</strong> → <span style="color:var(--green);font-weight:700;">INFRAVALORADO</span> (comprar)<br><br>
+
+        <strong>Activo Y:</strong> β = 1,50, E(R)_real estimada = 13%<br>
+        E(R)_CAPM = 2% + 1,50×9% = 2% + 13,5% = <strong>15,5%</strong><br>
+        α = 13% − 15,5% = <strong>−2,5%</strong> → <span style="color:#dc2626;font-weight:700;">SOBREVALORADO</span> (vender)<br><br>
+
+        <strong>Activo Z:</strong> β = 1,20, E(R)_real = 12,8%<br>
+        E(R)_CAPM = 2% + 1,20×9% = 2% + 10,8% = <strong>12,8%</strong><br>
+        α = 0% → <span style="color:var(--navy);font-weight:700;">CORRECTAMENTE VALORADO</span> (sobre la SML)
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Calcular la E(R) teórica de un activo con la SML y determinar si está sobre,
+        infra o correctamente valorado. La fórmula es siempre:
+        E(R)<sub>CAPM</sub> = R<sub>f</sub> + β·(E(R<sub>M</sub>)−R<sub>f</sub>).
+        El alfa de Jensen = E(R)_real − E(R)_CAPM determina la valoración.
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        Con tipos sin riesgo (Letra 12M española) en torno al <strong>2,635%</strong> y una
+        prima de riesgo histórica del mercado español de aproximadamente <strong>5–6%</strong>
+        (media 20 años), la SML para el mercado español implica una E(R) para una acción con
+        β = 1 de aproximadamente 7,6–8,6% anual. En este contexto, los valores del sector
+        de defensa europeo (Indra, Leonardo) cotizan con rentabilidades esperadas implícitas
+        que muchos analistas sitúan por encima de la SML, lo que sugeriría que el mercado
+        aún no ha descontado completamente el aumento estructural del gasto en defensa
+        post-2024.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Fórmula / Clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>CML</strong></td><td>E(R<sub>c</sub>) = R<sub>f</sub> + [(E(R<sub>M</sub>)−R<sub>f</sub>)/σ<sub>M</sub>]·σ<sub>c</sub></td></tr>
+          <tr><td><strong>Pendiente CML</strong></td><td>(E(R<sub>M</sub>)−R<sub>f</sub>)/σ<sub>M</sub> = Ratio de Sharpe del mercado</td></tr>
+          <tr><td><strong>w<sub>M</sub> dado σ<sub>c</sub></strong></td><td>w<sub>M</sub> = σ<sub>c</sub>/σ<sub>M</sub></td></tr>
+          <tr><td><strong>w<sub>M</sub> dado E(R<sub>c</sub>)</strong></td><td>w<sub>M</sub> = (E(R<sub>c</sub>)−R<sub>f</sub>)/(E(R<sub>M</sub>)−R<sub>f</sub>)</td></tr>
+          <tr><td><strong>SML (CAPM)</strong></td><td>E(Rᵢ) = R<sub>f</sub> + βᵢ·(E(R<sub>M</sub>)−R<sub>f</sub>)</td></tr>
+          <tr><td><strong>Alfa de Jensen</strong></td><td>α = E(R)_real − E(R)_CAPM</td></tr>
+          <tr><td><strong>Infravalorado</strong></td><td>α > 0, por encima de la SML</td></tr>
+          <tr><td><strong>Sobrevalorado</strong></td><td>α < 0, por debajo de la SML</td></tr>
+          <tr><td><strong>CML vs SML</strong></td><td>CML: solo carteras eficientes (σ). SML: todos los activos (β).</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-c.html" class="nav-btn">← C: Modelo de Sharpe</a>
+    <a href="seccion-e.html" class="nav-btn">E: Graham y Dodd →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Sharpe, W. F. (1964). «Capital Asset Prices: A Theory of Market Equilibrium under Conditions of Risk».
+        <em>The Journal of Finance</em>, 19(3), 425–442.
+        <a href="https://doi.org/10.2307/2977928" target="_blank" rel="noopener">doi.org/10.2307/2977928</a>.
+        Artículo fundacional del CAPM, CML y SML.
+      </li>
+      <li id="fn2">
+        Lintner, J. (1965). «The Valuation of Risk Assets and the Selection of Risky Investments».
+        <em>The Review of Economics and Statistics</em>, 47(1), 13–37.
+        <a href="https://doi.org/10.2307/1924119" target="_blank" rel="noopener">doi.org/10.2307/1924119</a>.
+      </li>
+      <li id="fn3">
+        Jensen, M. C. (1968). «The Performance of Mutual Funds in the Period 1945–1964».
+        <em>The Journal of Finance</em>, 23(2), 389–416.
+        <a href="https://doi.org/10.2307/2325404" target="_blank" rel="noopener">doi.org/10.2307/2325404</a>.
+        Alfa de Jensen como medida de valoración.
+      </li>
+      <li id="fn4">
+        Bodie, Z., Kane, A. &amp; Marcus, A. J. (2014). <em>Investments</em> (10.ª ed.), cap. 9
+        «The Capital Asset Pricing Model», pp. 278–320. McGraw-Hill Education.
+      </li>
+      <li id="fn5">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 3 · Sección D,
+        pp. 55–58. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 3 · Sección D · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
