@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B1 · Sección A — Rendimiento de un activo · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .prob-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .prob-grid { grid-template-columns: 1fr; } }
+
+    .prob-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .prob-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin-bottom: .35rem;
+    }
+    .prob-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .escenario-table th { background: var(--navy); color: #fff; }
+    .escenario-table td, .escenario-table th {
+      text-align: center;
+      padding: .5rem .8rem;
+      font-size: var(--fs-sm);
+    }
+    .escenario-table tr:nth-child(even) td { background: var(--navy-light); }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B1 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 1</a>
+    <span class="sep">›</span>
+    <span>Sección A</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 1 · Sección A · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Rendimiento de un activo</h1>
+    <p class="hero-sub">
+      Rentabilidad histórica vs. esperada · Rentabilidad simple · Media histórica ·
+      Método de escenarios · Rentabilidad anualizada · Problemas de estimación.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. RENTABILIDAD HISTÓRICA VS. ESPERADA
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Rentabilidad histórica y rentabilidad esperada: ¿qué diferencia hay?</h2>
+    <p class="sec-intro">
+      Medir el rendimiento de un activo es el punto de partida de toda gestión de carteras.
+      Sin embargo, hay dos preguntas bien distintas: ¿cuánto ha ganado el activo en el pasado?
+      y ¿cuánto se espera que gane en el futuro? Las dos respuestas utilizan los mismos datos
+      de origen, pero tienen interpretaciones y problemas radicalmente diferentes.
+    </p>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Rentabilidad histórica</h4>
+        <p>
+          Se calcula a partir de precios y dividendos <strong>ya observados</strong>.
+          Es un hecho contrastable. Responde a: ¿cuánto habría ganado un inversor
+          que hubiera comprado este activo en el pasado?
+        </p>
+      </div>
+      <div class="vs-box right">
+        <h4>Rentabilidad esperada</h4>
+        <p>
+          Es una <strong>estimación hacia el futuro</strong>. No es observable; depende
+          de supuestos sobre el comportamiento del activo en distintos escenarios posibles.
+          Responde a: ¿cuánto se espera ganar en promedio en el futuro?
+        </p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>Relación clave:</strong> La rentabilidad esperada se puede estimar extrapolando
+      rentabilidades históricas (suponiendo que el pasado se repite) o mediante un modelo
+      de escenarios (ponderando distintos estados futuros de la economía). Ninguna técnica
+      garantiza acierto: la rentabilidad pasada no garantiza rentabilidad futura.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Distinguir claramente rentabilidad histórica (dato pasado, calculado con precios
+        reales) de rentabilidad esperada (estimación futura, calculada con probabilidades
+        o extrapolación). El examen puede pedir ambas con los mismos datos.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. RENTABILIDAD SIMPLE
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. La rentabilidad simple</h2>
+    <p>
+      La <strong>rentabilidad simple</strong> (o rentabilidad de período) mide el rendimiento
+      obtenido por un activo entre dos momentos del tiempo. Es la medida más básica y directa:
+      cuánto ha crecido la inversión entre t₀ y t₁, incluyendo tanto la variación de precio
+      como cualquier renta distribuida (dividendos o cupones).
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Rentabilidad simple de un período</span>
+      R = (P₁ − P₀ + D) / P₀
+    </div>
+
+    <div class="prob-grid">
+      <div class="prob-box">
+        <h4>P₀</h4>
+        <p>Precio de compra o precio inicial del activo al comienzo del período.</p>
+      </div>
+      <div class="prob-box">
+        <h4>P₁</h4>
+        <p>Precio de venta o precio al final del período.</p>
+      </div>
+      <div class="prob-box">
+        <h4>D</h4>
+        <p>Dividendo, cupón u otro flujo de caja percibido durante el período (puede ser cero).</p>
+      </div>
+      <div class="prob-box">
+        <h4>R</h4>
+        <p>Rentabilidad del período expresada en tanto por uno (multiplicar por 100 para obtener %).</p>
+      </div>
+    </div>
+
+    <p>
+      La rentabilidad simple se puede descomponer en dos partes:
+    </p>
+    <div class="formula">
+      <span class="formula-label">Descomposición de la rentabilidad simple</span>
+      R = (P₁ − P₀)/P₀  +  D/P₀ = Rentabilidad de precio + Rentabilidad por dividendo
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico</h3>
+      <p>
+        Una acción se compra a <strong>P₀ = 20 €</strong>. Al cabo de un año cotiza a
+        <strong>P₁ = 22 €</strong> y ha repartido un dividendo de <strong>D = 0,50 €</strong>.<br><br>
+        R = (22 − 20 + 0,50) / 20 = 2,50 / 20 = <strong>0,125 = 12,5%</strong><br><br>
+        Descomposición: precio = (22−20)/20 = 10%; dividendo = 0,50/20 = 2,5%.
+        Total: 12,5%.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El cálculo de la rentabilidad simple aparece con frecuencia. Cuidado con no
+        olvidar el dividendo en el numerador. También puede pedirse en sentido inverso:
+        dado R y P₀, calcular P₁.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. PROBLEMAS DE ESTIMACIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Problemas para estimar rentabilidades históricas y esperadas</h2>
+
+    <h3>Problemas en las rentabilidades históricas</h3>
+
+    <div class="prob-grid">
+      <div class="prob-box">
+        <h4>Tamaño de la muestra</h4>
+        <p>
+          Con pocas observaciones la media histórica es poco representativa y muy sensible
+          a valores extremos. Un único año de crisis o euforia distorsiona el resultado.
+          Se recomienda un mínimo de 30–60 observaciones para obtener estimaciones robustas.
+        </p>
+      </div>
+      <div class="prob-box">
+        <h4>Tratamiento de dividendos</h4>
+        <p>
+          Si se usan únicamente datos de precios y se ignoran los dividendos, la rentabilidad
+          queda subestimada. Es imprescindible utilizar la rentabilidad total (precio + dividendo)
+          o los índices de rentabilidad total (<em>total return</em>).
+        </p>
+      </div>
+      <div class="prob-box">
+        <h4>Período de análisis</h4>
+        <p>
+          El período escogido puede coincidir con un ciclo alcista o bajista, sesgando la media.
+          Usar períodos que comiencen y terminen en fases similares del ciclo minimiza este sesgo.
+        </p>
+      </div>
+      <div class="prob-box">
+        <h4>Cambios estructurales</h4>
+        <p>
+          Una empresa puede haber cambiado de sector, fusionado con otra o alterado su política
+          de dividendos. Datos de hace 20 años pueden no ser relevantes para estimar el
+          comportamiento futuro.
+        </p>
+      </div>
+    </div>
+
+    <h3>Problemas en las rentabilidades esperadas</h3>
+
+    <div class="prob-grid">
+      <div class="prob-box">
+        <h4>Número de escenarios</h4>
+        <p>
+          Definir solo dos o tres escenarios (optimista, base, pesimista) puede ser insuficiente.
+          La realidad puede generar resultados intermedios o extremos no contemplados.
+        </p>
+      </div>
+      <div class="prob-box">
+        <h4>Asignación de probabilidades</h4>
+        <p>
+          Las probabilidades de cada escenario son subjetivas. Un analista sesgado (demasiado
+          optimista o pesimista) distorsionará la rentabilidad esperada resultante. Las
+          probabilidades deben sumar 1 (o 100%).
+        </p>
+      </div>
+      <div class="prob-box">
+        <h4>Supuesto de repetición del pasado</h4>
+        <p>
+          Extrapolación histórica asume que las condiciones de mercado futuras serán similares
+          a las pasadas, lo cual no siempre se cumple (cambios de régimen monetario, crisis
+          estructurales, innovaciones disruptivas).
+        </p>
+      </div>
+      <div class="prob-box">
+        <h4>Rentabilidad ≠ única realización</h4>
+        <p>
+          La rentabilidad esperada es un promedio ponderado de resultados posibles, no un
+          resultado garantizado. El activo puede terminar muy lejos de su esperanza matemática
+          en cualquier período concreto.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. RENTABILIDAD MEDIA HISTÓRICA
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Rentabilidad media histórica</h2>
+    <p>
+      Cuando disponemos de una serie de rentabilidades observadas en T períodos sucesivos
+      (R₁, R₂, …, R<sub>T</sub>), la <strong>rentabilidad media aritmética histórica</strong>
+      es la estimación más sencilla de la rentabilidad típica del activo. Se calcula como la
+      media simple de todas las rentabilidades de la serie.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Media aritmética de rentabilidades históricas</span>
+      R̄ = (R₁ + R₂ + … + Rₜ) / T = (1/T) · Σ Rᵢ
+    </div>
+
+    <div class="callout info">
+      <strong>Nota:</strong> La media aritmética es la estimación apropiada de la rentabilidad
+      esperada en un único período futuro. No mide la rentabilidad acumulada real de una
+      inversión mantenida varios años (para eso se usa la media geométrica o TGR, que se
+      trata en el Bloque 5).
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Media histórica</h3>
+      <p>
+        Un activo ha generado las siguientes rentabilidades anuales en cinco años:
+        <strong>+12%, +8%, −5%, +15%, +3%</strong>.<br><br>
+        R̄ = (12 + 8 − 5 + 15 + 3) / 5 = 33 / 5 = <strong>6,6% anual</strong><br><br>
+        Este 6,6% es la mejor estimación de la rentabilidad esperada para un año futuro
+        si se usa el método de extrapolación histórica.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. RENTABILIDAD ESPERADA: EXTRAPOLACIÓN Y ESCENARIOS
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. Rentabilidad esperada: extrapolación histórica y método de escenarios</h2>
+
+    <h3>5a. Extrapolación de rentabilidades históricas</h3>
+    <p>
+      El método más simple: calcular la media aritmética de rentabilidades pasadas y
+      utilizarla como estimación de la rentabilidad futura esperada. Parte del supuesto de
+      estacionariedad: que las condiciones de mercado no cambian de forma estructural.
+    </p>
+    <div class="formula">
+      <span class="formula-label">Rentabilidad esperada por extrapolación</span>
+      E(R) = R̄ = (1/T) · Σ Rᵢ
+    </div>
+
+    <h3>5b. Método de escenarios</h3>
+    <p>
+      Consiste en definir <strong>n escenarios futuros posibles</strong>, asignar a cada uno
+      una <strong>probabilidad</strong> de ocurrencia pᵢ (con Σpᵢ = 1) y la rentabilidad
+      esperada en ese escenario Rᵢ. La rentabilidad esperada es la media ponderada:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Rentabilidad esperada por escenarios</span>
+      E(R) = p₁·R₁ + p₂·R₂ + … + pₙ·Rₙ = Σ pᵢ · Rᵢ
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Método de escenarios</h3>
+      <div class="table-wrap">
+        <table class="escenario-table">
+          <thead>
+            <tr>
+              <th>Escenario</th>
+              <th>Probabilidad (p)</th>
+              <th>Rentabilidad (R)</th>
+              <th>p × R</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Expansión fuerte</td><td>20%</td><td>+25%</td><td>+5,00%</td></tr>
+            <tr><td>Expansión moderada</td><td>35%</td><td>+12%</td><td>+4,20%</td></tr>
+            <tr><td>Estancamiento</td><td>30%</td><td>+2%</td><td>+0,60%</td></tr>
+            <tr><td>Recesión</td><td>15%</td><td>−15%</td><td>−2,25%</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>100%</strong></td><td>—</td><td><strong>+7,55%</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.6rem;">
+        La rentabilidad esperada del activo es <strong>E(R) = 7,55%</strong>. Nótese que
+        ningún escenario produce exactamente ese valor: es la media ponderada del conjunto.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El método de escenarios es el más habitual en los problemas del examen EFA.
+        Verificar siempre que las probabilidades sumen 100% antes de calcular. También
+        puede pedirse que se calcule la varianza usando los mismos escenarios (ver Sección C).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       6. RENTABILIDAD ANUALIZADA
+       ============================================================ -->
+  <div class="sec">
+    <h2>6. Rentabilidad anualizada</h2>
+    <p>
+      Cuando la rentabilidad simple se ha obtenido para un período que no es de un año
+      (mensual, trimestral, bienal…), es necesario <strong>anualizarla</strong> para poder
+      comparar activos con distintos horizontes temporales. La anualización correcta
+      utiliza la equivalencia geométrica, no la multiplicación directa.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Rentabilidad anualizada (desde rentabilidad de período)</span>
+      R<sub>anual</sub> = (1 + R<sub>período</sub>)<sup>k</sup> − 1
+    </div>
+
+    <div class="callout info">
+      <strong>k = número de períodos por año.</strong>
+      Si el período es mensual → k = 12. Si es trimestral → k = 4.
+      Si el período es de más de un año (p.ej. 3 años) → k = 1/3.
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Rentabilidad anualizada desde una rentabilidad acumulada en T años</span>
+      R<sub>anual</sub> = (1 + R<sub>acumulada</sub>)<sup>1/T</sup> − 1
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Anualización</h3>
+      <p>
+        <strong>Caso 1 — Período menor a un año:</strong><br>
+        Un fondo gana un <strong>3% en un trimestre</strong>.<br>
+        Rentabilidad anualizada = (1 + 0,03)⁴ − 1 = 1,1255 − 1 = <strong>12,55%</strong><br>
+        (No confundir con 3% × 4 = 12%, que infraestima el efecto del interés compuesto).<br><br>
+        <strong>Caso 2 — Período mayor a un año:</strong><br>
+        Una acción acumula una rentabilidad del <strong>+40% en 3 años</strong>.<br>
+        Rentabilidad anualizada = (1 + 0,40)^(1/3) − 1 = 1,1187 − 1 = <strong>11,87% anual</strong>
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Anualizar una rentabilidad mensual o trimestral, o calcular la rentabilidad
+        anualizada a partir de una ganancia acumulada en varios años. El error más
+        común es multiplicar directamente en vez de usar la fórmula geométrica.
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        El IBEX-35 Total Return (con dividendos reinvertidos) acumula aproximadamente un
+        <strong>+18% en el período ene–jun 2026</strong>, marcando máximos históricos de precio
+        en torno a 18.573 puntos (febrero 2026). Para comparar con activos de renta fija
+        (bono español a 10 años: ~3,5% anual), es imprescindible anualizar la rentabilidad
+        semestral del índice: (1 + 0,18)² − 1 ≈ 38,2% anualizado, lo que ilustra la
+        mayor rentabilidad pero también el mayor riesgo de la renta variable.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Concepto</th><th>Definición</th><th>Fórmula clave</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Rentabilidad simple</strong></td>
+            <td>Rendimiento de un activo en un período</td>
+            <td>R = (P₁ − P₀ + D) / P₀</td>
+          </tr>
+          <tr>
+            <td><strong>Media histórica</strong></td>
+            <td>Estimación de E(R) por extrapolación</td>
+            <td>R̄ = Σ Rᵢ / T</td>
+          </tr>
+          <tr>
+            <td><strong>E(R) por escenarios</strong></td>
+            <td>Media ponderada por probabilidades</td>
+            <td>E(R) = Σ pᵢ · Rᵢ</td>
+          </tr>
+          <tr>
+            <td><strong>Rentabilidad anualizada</strong></td>
+            <td>Equivalencia a tasa anual</td>
+            <td>R<sub>a</sub> = (1 + R<sub>p</sub>)^k − 1</td>
+          </tr>
+          <tr>
+            <td><strong>Desde acumulada</strong></td>
+            <td>Anualización de ganancia total</td>
+            <td>R<sub>a</sub> = (1 + R<sub>ac</sub>)^(1/T) − 1</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="../index.html" class="nav-btn">← Índice Módulo 3</a>
+    <a href="seccion-b.html" class="nav-btn">B: Rendimiento de una cartera →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Bodie, Z., Kane, A. &amp; Marcus, A. J. (2014). <em>Investments</em> (10.ª ed.), cap. 5
+        «Risk, Return, and the Historical Record». McGraw-Hill Education.
+        Fórmula de rentabilidad simple y anualización, pp. 130–145.
+      </li>
+      <li id="fn2">
+        Sharpe, W. F., Alexander, G. J. &amp; Bailey, J. V. (1999).
+        <em>Investments</em> (6.ª ed.), cap. 1 «Introduction». Prentice Hall.
+        Rentabilidad esperada y método de escenarios, pp. 8–22.
+      </li>
+      <li id="fn3">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 1 · Sección A,
+        pp. 41–43. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 1 · Sección A · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

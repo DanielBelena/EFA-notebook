@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B1 · Sección B — Rendimiento de una cartera · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .weight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .weight-grid { grid-template-columns: 1fr; } }
+
+    .weight-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      text-align: center;
+    }
+    .weight-box .big-val {
+      font-family: var(--font-ui);
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--navy);
+      display: block;
+      margin-bottom: .3rem;
+    }
+    .weight-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .scenario-expected td, .scenario-expected th {
+      text-align: center;
+      padding: .45rem .8rem;
+      font-size: var(--fs-sm);
+    }
+    .scenario-expected th { background: var(--navy); color: #fff; }
+    .scenario-expected tr:nth-child(even) td { background: var(--navy-light); }
+    .highlight-row td { background: var(--green-light) !important; font-weight: 700; color: var(--green); }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B1 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 1</a>
+    <span class="sep">›</span>
+    <span>Sección B</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 1 · Sección B · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Rendimiento de una cartera</h1>
+    <p class="hero-sub">
+      Ponderación de activos · Rentabilidad histórica de cartera ·
+      Rentabilidad esperada de cartera · Método de escenarios.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. PESO O PONDERACIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. El peso o ponderación de un activo en la cartera</h2>
+    <p class="sec-intro">
+      Una cartera es una combinación de activos. Para poder agregar sus rentabilidades
+      en una única cifra de rendimiento de la cartera, necesitamos conocer qué fracción
+      del capital total está invertida en cada uno. Esa fracción es el <strong>peso</strong>
+      o <strong>ponderación</strong>.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Peso del activo i en la cartera</span>
+      wᵢ = Valor de mercado de la posición en i / Valor total de la cartera
+    </div>
+
+    <div class="callout info">
+      <strong>Restricción fundamental:</strong> los pesos deben sumar exactamente 1 (o 100%).
+      Si algunos activos tienen posiciones cortas (<em>short</em>), sus pesos pueden ser
+      negativos, pero la suma del conjunto debe seguir siendo 1.
+      Σ wᵢ = 1
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Cálculo de pesos</h3>
+      <p>Una cartera está formada por tres activos:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Activo</th><th>Valor invertido (€)</th><th>Peso (wᵢ)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Acción A</td><td>35.000</td><td>35.000 / 100.000 = <strong>0,35 (35%)</strong></td></tr>
+            <tr><td>Bono B</td><td>45.000</td><td>45.000 / 100.000 = <strong>0,45 (45%)</strong></td></tr>
+            <tr><td>Fondo C</td><td>20.000</td><td>20.000 / 100.000 = <strong>0,20 (20%)</strong></td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>100.000</strong></td><td><strong>1,00 (100%) ✓</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3>Los pesos cambian con el mercado</h3>
+    <p>
+      Si el precio del activo A sube y el de B baja, los pesos cambian automáticamente
+      aunque el inversor no realice ninguna transacción. Para mantener los pesos objetivo
+      es necesario <strong>rebalancear</strong> la cartera periódicamente.
+    </p>
+
+    <div class="weight-grid">
+      <div class="weight-box">
+        <span class="big-val">+↑</span>
+        <p>Si sube el precio de un activo → su peso aumenta → la cartera se aleja del objetivo</p>
+      </div>
+      <div class="weight-box">
+        <span class="big-val">+↓</span>
+        <p>Si baja el precio de un activo → su peso disminuye → puede quedar infraponderado</p>
+      </div>
+      <div class="weight-box">
+        <span class="big-val">⚖️</span>
+        <p>Rebalancear = vender ganadores y comprar rezagados hasta restaurar los pesos objetivo</p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Calcular pesos a partir de valores invertidos y verificar que suman 1. También
+        puede pedirse el valor invertido en un activo dado el peso y el patrimonio total.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. RENTABILIDAD HISTÓRICA DE LA CARTERA
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Rentabilidad histórica de una cartera</h2>
+    <p>
+      La rentabilidad de una cartera en un período es la <strong>media ponderada</strong>
+      de las rentabilidades individuales de sus activos, usando como pesos la proporción
+      del capital invertido en cada uno al <em>inicio</em> del período.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Rentabilidad histórica de la cartera (n activos)</span>
+      R<sub>c</sub> = w₁·R₁ + w₂·R₂ + … + wₙ·Rₙ = Σ wᵢ · Rᵢ
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Rentabilidad histórica de cartera</h3>
+      <p>
+        Utilizando la cartera del ejemplo anterior (pesos: A=35%, B=45%, C=20%)
+        y las rentabilidades del último año:
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Activo</th><th>Peso (wᵢ)</th><th>Rentabilidad (Rᵢ)</th><th>wᵢ × Rᵢ</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>A</td><td>0,35</td><td>+15%</td><td>+5,25%</td></tr>
+            <tr><td>B</td><td>0,45</td><td>+4%</td><td>+1,80%</td></tr>
+            <tr><td>C</td><td>0,20</td><td>−2%</td><td>−0,40%</td></tr>
+            <tr style="background:var(--green-light);font-weight:700;">
+              <td colspan="3"><strong>Rentabilidad de la cartera</strong></td>
+              <td><strong>+6,65%</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.6rem;">
+        R<sub>c</sub> = 0,35×15% + 0,45×4% + 0,20×(−2%) = 5,25% + 1,80% − 0,40% = <strong>6,65%</strong>
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>Rentabilidad histórica media de la cartera:</strong> si disponemos de datos de
+      varios períodos, la rentabilidad media de la cartera en el tiempo se calcula como la
+      media aritmética de las rentabilidades de la cartera en cada período:
+      R̄<sub>c</sub> = (1/T) · Σ R<sub>c,t</sub>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. RENTABILIDAD ESPERADA DE LA CARTERA
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Rentabilidad esperada de una cartera</h2>
+    <p>
+      La rentabilidad esperada de una cartera es también la <strong>media ponderada</strong>
+      de las rentabilidades esperadas de sus activos. Esta propiedad es la más intuitiva
+      de la teoría de carteras: lo que esperamos de la cartera es el promedio de lo que
+      esperamos de cada componente, ponderado por su peso.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Rentabilidad esperada de la cartera</span>
+      E(R<sub>c</sub>) = w₁·E(R₁) + w₂·E(R₂) + … + wₙ·E(Rₙ) = Σ wᵢ · E(Rᵢ)
+    </div>
+
+    <div class="callout info">
+      <strong>Propiedad importante:</strong> la rentabilidad esperada de la cartera
+      es <em>siempre</em> la media ponderada de las rentabilidades esperadas individuales,
+      independientemente de cómo estén correlacionados los activos entre sí. La correlación
+      no afecta la rentabilidad esperada, pero sí afecta el riesgo (volatilidad) de la
+      cartera — eso se desarrolla en las Secciones C y D.
+    </div>
+
+    <h3>Rentabilidad esperada por escenarios (cartera)</h3>
+    <p>
+      Cuando se usa el método de escenarios, la rentabilidad esperada de la cartera en
+      cada escenario es la media ponderada de los activos <em>en ese escenario</em>.
+      Luego se pondera por las probabilidades de cada escenario:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">E(Rc) mediante escenarios</span>
+      E(R<sub>c</sub>) = Σ pⱼ · [Σ wᵢ · Rᵢⱼ]
+    </div>
+
+    <p>
+      donde pⱼ es la probabilidad del escenario j y Rᵢⱼ es la rentabilidad del activo
+      i en el escenario j.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Rentabilidad esperada de cartera por escenarios</h3>
+      <p>
+        Cartera: 60% en acción X, 40% en bono Y.
+        Se definen dos escenarios:
+      </p>
+      <div class="table-wrap">
+        <table class="scenario-expected">
+          <thead>
+            <tr>
+              <th>Escenario</th>
+              <th>Prob.</th>
+              <th>R(X)</th>
+              <th>R(Y)</th>
+              <th>R(cartera) = 0,6·R(X) + 0,4·R(Y)</th>
+              <th>p × R(cartera)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Expansión</td><td>60%</td><td>+20%</td><td>+3%</td>
+              <td>0,6×20% + 0,4×3% = 12% + 1,2% = 13,2%</td><td>0,60×13,2% = 7,92%</td>
+            </tr>
+            <tr>
+              <td>Recesión</td><td>40%</td><td>−8%</td><td>+5%</td>
+              <td>0,6×(−8%) + 0,4×5% = −4,8% + 2% = −2,8%</td><td>0,40×(−2,8%) = −1,12%</td>
+            </tr>
+            <tr class="highlight-row">
+              <td colspan="5"><strong>E(R<sub>c</sub>)</strong></td>
+              <td><strong>+6,80%</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.6rem;">
+        Comprobación alternativa (mismo resultado):<br>
+        E(R<sub>X</sub>) = 0,6×20% + 0,4×(−8%) = 12% − 3,2% = 8,8%<br>
+        E(R<sub>Y</sub>) = 0,6×3% + 0,4×5% = 1,8% + 2% = 3,8%<br>
+        E(R<sub>c</sub>) = 0,6×8,8% + 0,4×3,8% = 5,28% + 1,52% = <strong>6,80%</strong> ✓
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Calcular E(R<sub>c</sub>) de dos formas: (1) primero R de la cartera en cada escenario,
+        luego ponderar por probabilidades; (2) primero E(R) de cada activo, luego ponderar
+        por pesos. Ambas deben dar el mismo resultado — una forma de verificar la solución.
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        Una cartera típica de perfil moderado en España a junio 2026 podría tener un 50% en
+        renta variable europea (IBEX / Eurostoxx: ~+18% en lo que va de año) y un 50% en
+        renta fija (bono español 10a ~3,5% anual). La rentabilidad histórica ponderada
+        del semestre sería aproximadamente: 0,5×9% + 0,5×1,75% ≈ <strong>5,4% semestral</strong>,
+        ilustrando cómo la combinación de activos diluye los extremos de cada componente.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Concepto</th><th>Fórmula</th><th>Observación</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Peso del activo i</strong></td>
+            <td>wᵢ = Vᵢ / V<sub>total</sub></td>
+            <td>Σ wᵢ = 1</td>
+          </tr>
+          <tr>
+            <td><strong>R histórica de cartera</strong></td>
+            <td>R<sub>c</sub> = Σ wᵢ · Rᵢ</td>
+            <td>Pesos al inicio del período</td>
+          </tr>
+          <tr>
+            <td><strong>E(R) de cartera</strong></td>
+            <td>E(R<sub>c</sub>) = Σ wᵢ · E(Rᵢ)</td>
+            <td>No depende de la correlación entre activos</td>
+          </tr>
+          <tr>
+            <td><strong>E(R) por escenarios</strong></td>
+            <td>Σ pⱼ · [Σ wᵢ · Rᵢⱼ]</td>
+            <td>Resultado idéntico si se calcula E(R) primero</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-a.html" class="nav-btn">← A: Rendimiento de un activo</a>
+    <a href="seccion-c.html" class="nav-btn">C: Volatilidad de un activo →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Bodie, Z., Kane, A. &amp; Marcus, A. J. (2014). <em>Investments</em> (10.ª ed.), cap. 6
+        «Efficient Diversification», pp. 170–173. McGraw-Hill Education.
+        Rentabilidad esperada de una cartera como media ponderada.
+      </li>
+      <li id="fn2">
+        Markowitz, H. M. (1952). «Portfolio Selection». <em>The Journal of Finance</em>,
+        7(1), 77–91. <a href="https://doi.org/10.2307/2975974" target="_blank" rel="noopener">doi.org/10.2307/2975974</a>.
+        Fundación del cálculo de rentabilidad y riesgo de carteras.
+      </li>
+      <li id="fn3">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 1 · Sección B,
+        pp. 41–43. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 1 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B1 · Sección E — Diversificación · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .div-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .div-grid { grid-template-columns: 1fr; } }
+
+    .div-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .div-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin-bottom: .35rem;
+    }
+    .div-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .key-insight {
+      background: linear-gradient(135deg, var(--navy-light) 0%, var(--green-light) 100%);
+      border: 2px solid var(--navy);
+      border-radius: 16px;
+      padding: 1.2rem 1.4rem;
+      margin: 1rem 0;
+    }
+    .key-insight h4 {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      color: var(--navy);
+      font-size: var(--fs-base);
+      margin-bottom: .5rem;
+    }
+    .key-insight p {
+      font-size: var(--fs-sm);
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B1 · E</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 1</a>
+    <span class="sep">›</span>
+    <span>Sección E</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 1 · Sección E · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>El concepto de diversificación</h1>
+    <p class="hero-sub">
+      Objetivo de la construcción de carteras · Papel de la correlación ·
+      Número de títulos y límites de la diversificación · Diversificación con pocos títulos ·
+      Condición de riesgo nulo.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. OBJETIVO: REDUCIR RIESGO
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. ¿Por qué el objetivo de la cartera es reducir riesgo, no maximizar rentabilidad?</h2>
+    <p class="sec-intro">
+      Una pregunta natural es: ¿por qué no invertirlo todo en el activo con mayor
+      rentabilidad esperada? La respuesta está en la incertidumbre: nadie conoce con certeza
+      qué activo tendrá mayor rentabilidad en el futuro. La construcción de carteras parte
+      del reconocimiento de que el riesgo es inevitable, pero puede <strong>gestionarse</strong>.
+    </p>
+
+    <div class="key-insight">
+      <h4>El principio fundamental de Markowitz</h4>
+      <p>
+        Para un nivel dado de rentabilidad esperada, siempre es posible construir una cartera
+        con <strong>menos riesgo</strong> que cualquier activo individual incluido en ella,
+        siempre que los activos no estén perfectamente correlacionados (ρ &lt; +1).
+        Inversamente, para un nivel dado de riesgo, la cartera permite obtener
+        <strong>más rentabilidad esperada</strong> que la media simple de los activos.
+        Esta es la esencia de la diversificación.
+      </p>
+    </div>
+
+    <div class="div-grid">
+      <div class="div-box">
+        <h4>¿Por qué no maximizar solo rentabilidad?</h4>
+        <p>
+          Concentrar la inversión en un solo activo maximiza la exposición al riesgo específico
+          de ese activo. Si la empresa quiebra, el inversor pierde todo. La diversificación
+          no renuncia a rentabilidad: permite obtener la misma E(R) con menor riesgo.
+        </p>
+      </div>
+      <div class="div-box">
+        <h4>Trade-off rentabilidad–riesgo</h4>
+        <p>
+          El objetivo real de la gestión de carteras es encontrar la combinación óptima
+          entre rentabilidad y riesgo según las preferencias del inversor (su aversión al
+          riesgo). Ni más rentabilidad a cualquier coste, ni mínimo riesgo a cualquier precio.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. PAPEL DE LA CORRELACIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. El papel del coeficiente de correlación en la reducción de la volatilidad</h2>
+    <p>
+      Como vimos en la Sección D, la fórmula de la varianza de la cartera incluye un término
+      cruzado: <strong>2·w₁·w₂·ρ·σ₁·σ₂</strong>. Cuanto más bajo sea ρ, menor es ese
+      término y menor es la varianza total. Esto explica por qué la correlación es la
+      variable clave en la diversificación.
+    </p>
+
+    <div class="card accent-navy">
+      <p>
+        La reducción de riesgo por diversificación es <strong>máxima cuando ρ = −1</strong>
+        (incluso puede llegarse a riesgo cero) y <strong>nula cuando ρ = +1</strong>
+        (no hay beneficio de combinar activos). Para cualquier ρ entre −1 y +1, hay algún
+        beneficio de diversificación.
+      </p>
+    </div>
+
+    <h3>Interpretación práctica</h3>
+    <div class="div-grid">
+      <div class="div-box">
+        <h4>Activos del mismo sector</h4>
+        <p>
+          Dos bancos españoles suelen tener correlación muy alta (ρ > 0,7): reaccionan
+          igual ante tipos de interés, ciclo económico y regulación. Combinarlos ofrece
+          poca diversificación real.
+        </p>
+      </div>
+      <div class="div-box">
+        <h4>Activos de sectores distintos</h4>
+        <p>
+          Combinar renta variable con materias primas, bonos o activos inmobiliarios suele
+          reducir más la volatilidad porque sus correlaciones son más bajas o incluso
+          negativas durante tensiones de mercado.
+        </p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Pregunta conceptual: ¿cuándo es más beneficiosa la diversificación? → Cuando
+        la correlación entre activos es más baja. ¿En qué condición es inútil? → Cuando
+        ρ = +1. ¿Cuándo puede eliminarse todo el riesgo? → Solo cuando ρ = −1 (teórico).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. NÚMERO DE TÍTULOS Y LÍMITE DE DIVERSIFICACIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. ¿Por qué tener muchos títulos no garantiza eliminar el riesgo?</h2>
+    <p>
+      Un error frecuente es pensar que aumentar el número de títulos en cartera siempre
+      reduce el riesgo. La realidad es que la diversificación tiene un <strong>límite natural</strong>:
+      el <strong>riesgo sistemático</strong> o de mercado, que no puede eliminarse por muy
+      grande que sea la cartera.
+    </p>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Riesgo específico (diversificable)</h4>
+        <p>
+          Es el riesgo propio de cada empresa: resultados, fraudes, regulación sectorial,
+          gestión. Se puede reducir añadiendo activos no correlacionados. A partir de
+          ~20–30 títulos bien diversificados, este riesgo queda prácticamente eliminado.
+        </p>
+      </div>
+      <div class="vs-box right">
+        <h4>Riesgo sistemático (no diversificable)</h4>
+        <p>
+          Es el riesgo que afecta a todo el mercado: ciclo económico, tipos de interés,
+          inflación, crisis geopolíticas. Todos los activos lo comparten. <strong>No se puede
+          eliminar diversificando</strong>, solo compensarse con mayor rentabilidad esperada.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>Conclusión:</strong> añadir activos reduce el riesgo específico, pero a partir
+      de un número suficiente de títulos (~20–30), la reducción marginal es mínima.
+      El riesgo que queda (sistemático) no desaparece aunque la cartera tenga 500 títulos.
+      La clave no es el número de activos sino su <em>correlación</em>.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ilustración — Límite de la diversificación</h3>
+      <p>
+        Si todos los activos de una cartera tienen σᵢ = 30% y correlaciones promedio
+        ρ̄ = 0,20, la varianza de una cartera igualmente ponderada con n activos tiende a:
+      </p>
+      <p style="font-family:monospace;background:var(--navy-light);padding:.6rem 1rem;border-radius:8px;margin:.6rem 0;">
+        σ²<sub>c</sub>(n→∞) → ρ̄ · σ̄² = 0,20 × (30%)² = 0,20 × 900 = 180 %²<br>
+        σ<sub>c</sub>(n→∞) → √180 ≈ <strong>13,4%</strong> (no llega a 0%)
+      </p>
+      <p>
+        Con 1 título: σ = 30%. Con 30 títulos diversificados: σ ≈ 14%. Con 1.000 títulos: σ ≈ 13,4%.
+        El suelo es el riesgo sistemático: el nivel determinado por ρ̄ × σ̄².
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. DIVERSIFICACIÓN CON POCOS TÍTULOS
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Cómo diversificar una cartera con pocos títulos</h2>
+    <p>
+      La clave no está en tener <em>muchos</em> activos sino en tener activos con
+      <strong>baja correlación entre sí</strong>. Dos o tres activos correctamente
+      seleccionados pueden ofrecer más diversificación que veinte activos del mismo sector.
+    </p>
+
+    <div class="div-grid">
+      <div class="div-box">
+        <h4>Diversificación por clase de activo</h4>
+        <p>
+          Combinar renta variable, renta fija, materias primas y liquidez aporta más
+          reducción de riesgo que acumular 20 acciones del mismo índice.
+        </p>
+      </div>
+      <div class="div-box">
+        <h4>Diversificación geográfica</h4>
+        <p>
+          Activos de distintos mercados (Europa, EE.UU., emergentes) tienen correlaciones
+          menores que activos del mismo mercado, especialmente en períodos de calma.
+        </p>
+      </div>
+      <div class="div-box">
+        <h4>Diversificación temporal</h4>
+        <p>
+          Escalonar las entradas (promediación del coste: <em>dollar cost averaging</em>)
+          reduce el riesgo de precio de entrada, aunque no el riesgo de mercado.
+        </p>
+      </div>
+      <div class="div-box">
+        <h4>Diversificación por divisas</h4>
+        <p>
+          Incluir activos en monedas distintas introduce riesgo de tipo de cambio, pero
+          puede reducir la correlación con el mercado doméstico. Puede cubrirse parcialmente.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. CONDICIÓN DE RIESGO NULO
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. Condición para construir una cartera de riesgo nulo con dos activos</h2>
+    <p>
+      En la Sección D vimos que cuando ρ = −1, σ<sub>c</sub> = |w₁σ₁ − w₂σ₂|.
+      Para que este valor sea cero:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Condición de riesgo nulo (ρ = −1)</span>
+      w₁ · σ₁ = w₂ · σ₂ = (1 − w₁) · σ₂
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Peso del activo 1 que anula el riesgo</span>
+      w₁* = σ₂ / (σ₁ + σ₂)
+    </div>
+
+    <div class="callout info">
+      <strong>Dos condiciones necesarias:</strong>
+      (1) Los dos activos deben tener una correlación <em>exactamente</em> de −1 —
+      condición teórica que no existe en la práctica real.
+      (2) El peso de cada activo debe ser proporcional a la volatilidad del otro
+      (el activo más volátil recibe menos peso).
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Cartera de riesgo nulo</h3>
+      <p>
+        Activo A: σ₁ = 30%. Activo B: σ₂ = 20%. Correlación: ρ = −1.<br><br>
+        w<sub>A</sub>* = 20 / (30 + 20) = 20/50 = <strong>0,40 (40%)</strong><br>
+        w<sub>B</sub>* = 1 − 0,40 = <strong>0,60 (60%)</strong><br><br>
+        Comprobación:<br>
+        σ<sub>c</sub> = |0,40×30 − 0,60×20| = |12 − 12| = <strong>0%</strong> ✓<br><br>
+        La cartera 40/60 entre A y B tiene riesgo cero si ρ = −1.
+        En la práctica, los hedge funds intentan aproximarse a esta situación
+        usando coberturas (puts, futuros, swaps).
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Calcular el peso que anula el riesgo dado σ₁, σ₂ y ρ = −1.
+        También puede pedirse como pregunta conceptual: ¿bajo qué condiciones
+        se puede construir una cartera de riesgo nulo con activos arriesgados?
+        Respuesta: solo cuando ρ = −1 (correlación perfectamente negativa).
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        En el entorno de junio 2026, las correlaciones entre renta variable europea (IBEX,
+        Eurostoxx) y bono alemán a 10 años han vuelto a ser negativas (≈ −0,25 a −0,35),
+        recuperando el patrón clásico "flight to quality" que se perdió durante el período
+        2021–2023 de inflación alta. Esto restaura el beneficio de diversificación de la
+        cartera clásica 60/40 (acciones/bonos), que en 2022 ofreció protección mínima
+        porque acciones y bonos cayeron simultáneamente. El asesor financiero debe
+        recordar que las correlaciones no son estables y pueden cambiar en períodos de estrés.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Concepto</th><th>Idea clave</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Objetivo de la cartera</strong></td>
+            <td>Maximizar rentabilidad dado un nivel de riesgo (o minimizar riesgo dada una E(R))</td>
+          </tr>
+          <tr>
+            <td><strong>Correlación y diversificación</strong></td>
+            <td>Cuanto más baja la ρ, mayor beneficio de diversificación; nulo si ρ = +1</td>
+          </tr>
+          <tr>
+            <td><strong>Límite de la diversificación</strong></td>
+            <td>El riesgo sistemático no se elimina; depende de ρ̄ entre activos, no del número</td>
+          </tr>
+          <tr>
+            <td><strong>Diversificación efectiva</strong></td>
+            <td>Baja correlación entre activos > número de títulos</td>
+          </tr>
+          <tr>
+            <td><strong>Cartera de riesgo nulo</strong></td>
+            <td>Solo posible si ρ = −1; peso óptimo w₁* = σ₂ / (σ₁ + σ₂)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-d.html" class="nav-btn">← D: Riesgo de una cartera</a>
+    <a href="seccion-f.html" class="nav-btn">F: Hipótesis de normalidad →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Markowitz, H. M. (1952). «Portfolio Selection». <em>The Journal of Finance</em>,
+        7(1), 77–91. <a href="https://doi.org/10.2307/2975974" target="_blank" rel="noopener">doi.org/10.2307/2975974</a>.
+        Principio de diversificación y frontera eficiente.
+      </li>
+      <li id="fn2">
+        Elton, E. J. &amp; Gruber, M. J. (1977). «Risk Reduction and Portfolio Size: An Analytical Solution».
+        <em>The Journal of Business</em>, 50(4), 415–437.
+        <a href="https://doi.org/10.1086/295964" target="_blank" rel="noopener">doi.org/10.1086/295964</a>.
+        Límite de la diversificación con n activos.
+      </li>
+      <li id="fn3">
+        Bodie, Z., Kane, A. &amp; Marcus, A. J. (2014). <em>Investments</em> (10.ª ed.), cap. 6
+        «Efficient Diversification», pp. 196–210. McGraw-Hill Education.
+        Riesgo sistemático vs. específico y diversificación práctica.
+      </li>
+      <li id="fn4">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 1 · Sección E,
+        pp. 44–45. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 1 · Sección E · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

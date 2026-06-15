@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B1 · Sección D — Riesgo de una cartera · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .corr-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 600px) { .corr-grid { grid-template-columns: 1fr; } }
+
+    .corr-box {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      text-align: center;
+    }
+    .corr-box .rho-val {
+      font-family: var(--font-ui);
+      font-size: 2rem;
+      font-weight: 900;
+      display: block;
+      margin-bottom: .3rem;
+    }
+    .corr-box.pos .rho-val { color: var(--amber); }
+    .corr-box.zer .rho-val { color: var(--navy); }
+    .corr-box.neg .rho-val { color: var(--green); }
+    .corr-box h4 {
+      font-family: var(--font-ui);
+      font-size: var(--fs-sm);
+      font-weight: 800;
+      margin-bottom: .35rem;
+      color: var(--navy);
+    }
+    .corr-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    .matrix-table td, .matrix-table th {
+      text-align: center;
+      padding: .5rem .9rem;
+      font-size: var(--fs-sm);
+    }
+    .matrix-table th { background: var(--navy); color: #fff; }
+    .matrix-table .diag { background: var(--navy-light); font-weight: 800; color: var(--navy); }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B1 · D</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 1</a>
+    <span class="sep">›</span>
+    <span>Sección D</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 1 · Sección D · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Riesgo de una cartera de valores</h1>
+    <p class="hero-sub">
+      Covarianza y correlación · Volatilidad de una cartera de dos activos ·
+      Casos especiales (ρ = +1, 0, −1) · Un activo sin riesgo · Extensión a n activos.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. COVARIANZA Y CORRELACIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Covarianza y coeficiente de correlación</h2>
+    <p class="sec-intro">
+      A diferencia de la rentabilidad esperada, el riesgo de una cartera <strong>no</strong>
+      es simplemente la media ponderada de las volatilidades individuales. Depende también
+      de cómo se mueven los activos entre sí, medido por la <strong>covarianza</strong>
+      o su versión estandarizada, el <strong>coeficiente de correlación</strong>.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Covarianza entre activos i y j (histórica)</span>
+      Cov(Rᵢ, Rⱼ) = σᵢⱼ = [1/(T−1)] · Σ (Rᵢ,ₜ − R̄ᵢ)(Rⱼ,ₜ − R̄ⱼ)
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Covarianza por escenarios</span>
+      σᵢⱼ = Σ pₜ · (Rᵢ,ₜ − E(Rᵢ)) · (Rⱼ,ₜ − E(Rⱼ))
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Coeficiente de correlación (de Pearson)</span>
+      ρᵢⱼ = Cov(Rᵢ, Rⱼ) / (σᵢ · σⱼ) = σᵢⱼ / (σᵢ · σⱼ)
+    </div>
+
+    <div class="callout info">
+      El coeficiente de correlación ρ siempre está acotado entre −1 y +1.
+      Permite comparar el grado de dependencia entre activos independientemente de sus
+      escalas. La covarianza puede reescribirse como: σᵢⱼ = ρᵢⱼ · σᵢ · σⱼ.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. VOLATILIDAD DE UNA CARTERA — DOS ACTIVOS CON RIESGO
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Volatilidad de una cartera de dos activos con riesgo</h2>
+    <p>
+      Siendo w₁ y w₂ = 1 − w₁ los pesos de los activos 1 y 2, la varianza de la cartera es:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Varianza de la cartera (dos activos)</span>
+      σ²<sub>c</sub> = w₁² · σ₁² + w₂² · σ₂² + 2 · w₁ · w₂ · σ₁₂
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Expandiendo la covarianza</span>
+      σ²<sub>c</sub> = w₁² · σ₁² + w₂² · σ₂² + 2 · w₁ · w₂ · ρ₁₂ · σ₁ · σ₂
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Volatilidad de la cartera</span>
+      σ<sub>c</sub> = √( w₁² · σ₁² + w₂² · σ₂² + 2 · w₁ · w₂ · ρ₁₂ · σ₁ · σ₂ )
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Volatilidad de cartera (caso general)</h3>
+      <p>
+        Activo A: σ₁ = 20%, E(R₁) = 12%. Activo B: σ₂ = 10%, E(R₂) = 6%.<br>
+        Correlación: ρ₁₂ = 0,4. Pesos: w₁ = 0,6; w₂ = 0,4.<br><br>
+        σ²<sub>c</sub> = (0,6)²×(20)² + (0,4)²×(10)² + 2×0,6×0,4×0,4×20×10<br>
+        = 0,36×400 + 0,16×100 + 2×0,6×0,4×0,4×200<br>
+        = 144 + 16 + 38,4 = <strong>198,4 %²</strong><br><br>
+        σ<sub>c</sub> = √198,4 ≈ <strong>14,09%</strong><br><br>
+        Comparar con la media ponderada de las σ individuales:
+        0,6×20% + 0,4×10% = <strong>16%</strong>.
+        La cartera tiene menor riesgo (14,09% &lt; 16%) gracias a la diversificación.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El examen incluye habitualmente un ejercicio completo de cálculo de σ<sub>c</sub>
+        con dos activos. Tener clara la fórmula y el orden de operaciones: primero los
+        tres sumandos de la varianza, luego la raíz cuadrada.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. CASOS ESPECIALES DE CORRELACIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Casos especiales: ρ = +1, ρ = 0 y ρ = −1</h2>
+
+    <div class="corr-grid">
+      <div class="corr-box pos">
+        <span class="rho-val">ρ = +1</span>
+        <h4>Correlación perfecta positiva</h4>
+        <p>
+          Los dos activos se mueven siempre en la misma dirección y en la misma proporción.
+          No hay beneficio de diversificación. La volatilidad de la cartera es exactamente
+          la media ponderada de las volatilidades individuales.
+        </p>
+      </div>
+      <div class="corr-box zer">
+        <span class="rho-val">ρ = 0</span>
+        <h4>Sin correlación</h4>
+        <p>
+          Los movimientos de ambos activos son independientes. La volatilidad de la cartera
+          es inferior a la media ponderada, pero no se puede anular completamente (salvo
+          con un número infinito de activos igualmente ponderados).
+        </p>
+      </div>
+      <div class="corr-box neg">
+        <span class="rho-val">ρ = −1</span>
+        <h4>Correlación perfecta negativa</h4>
+        <p>
+          Los activos se mueven siempre en sentidos contrarios. Es posible construir
+          una cartera de <strong>riesgo nulo</strong> eligiendo el peso adecuado.
+          Caso teórico: en la práctica, ningún par de activos tiene ρ = −1 exacto.
+        </p>
+      </div>
+    </div>
+
+    <h3>Fórmulas simplificadas para cada caso</h3>
+
+    <div class="formula">
+      <span class="formula-label">ρ = +1 → σ<sub>c</sub> = media ponderada (sin beneficio)</span>
+      σ<sub>c</sub> = w₁·σ₁ + w₂·σ₂
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">ρ = 0 → término cruzado se anula</span>
+      σ<sub>c</sub> = √( w₁²·σ₁² + w₂²·σ₂² )
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">ρ = −1 → cuadrado perfecto con signo negativo</span>
+      σ<sub>c</sub> = |w₁·σ₁ − w₂·σ₂|
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Tres casos con los mismos activos</h3>
+      <p>
+        σ₁ = 20%, σ₂ = 10%, w₁ = 0,6, w₂ = 0,4.
+        Media ponderada = 0,6×20 + 0,4×10 = 16%.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Correlación</th><th>Cálculo</th><th>σ<sub>c</sub></th><th>vs. media ponderada</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ρ = +1</td>
+              <td>0,6×20 + 0,4×10</td>
+              <td><strong>16,00%</strong></td>
+              <td>= media ponderada (sin diversificación)</td>
+            </tr>
+            <tr>
+              <td>ρ = 0</td>
+              <td>√(0,36×400 + 0,16×100)</td>
+              <td><strong>12,65%</strong></td>
+              <td>&lt; 16% (hay beneficio)</td>
+            </tr>
+            <tr>
+              <td>ρ = −1</td>
+              <td>|0,6×20 − 0,4×10| = |12−4|</td>
+              <td><strong>8,00%</strong></td>
+              <td>Mínimo posible con estos pesos</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.6rem;">
+        Con ρ = −1 y w₁ = σ₂/(σ₁+σ₂) = 10/30 = 1/3 y w₂ = 2/3:
+        σ<sub>c</sub> = |1/3×20 − 2/3×10| = |6,67 − 6,67| = <strong>0%</strong> (cartera de riesgo nulo).
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El examen puede pedir los tres casos con los mismos datos numéricos y comparar
+        los resultados. También puede pedir el peso que anula el riesgo cuando ρ = −1.
+        Fórmula del peso que anula el riesgo: w₁* = σ₂ / (σ₁ + σ₂).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. UN ACTIVO SIN RIESGO
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Cartera con un activo sin riesgo (σ<sub>f</sub> = 0)</h2>
+    <p>
+      Cuando uno de los dos activos es libre de riesgo (σ<sub>f</sub> = 0), la fórmula
+      general de la varianza se simplifica drásticamente, ya que todos los términos que
+      contienen σ<sub>f</sub> se anulan:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Varianza de cartera con activo sin riesgo (σ₂ = 0)</span>
+      σ²<sub>c</sub> = w₁²·σ₁² + 0 + 0 = w₁²·σ₁²
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Volatilidad de la cartera con activo sin riesgo</span>
+      σ<sub>c</sub> = w₁ · σ₁
+    </div>
+
+    <div class="callout info">
+      <strong>Consecuencia:</strong> la volatilidad de la cartera es exactamente proporcional
+      al peso invertido en el activo arriesgado. Invertir el 50% en el activo libre de riesgo
+      reduce la volatilidad exactamente a la mitad. Esta relación lineal es la base de la
+      <em>Capital Market Line</em> (CML) que se desarrolla en el Bloque 3.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Activo sin riesgo</h3>
+      <p>
+        Un inversor combina una acción (σ₁ = 25%) con letras del Tesoro (σ<sub>f</sub> = 0)
+        en proporción 70/30 (w₁ = 0,7; w<sub>f</sub> = 0,3).<br><br>
+        σ<sub>c</sub> = 0,7 × 25% = <strong>17,5%</strong><br><br>
+        Si quiere reducir la volatilidad al 10%, debe invertir: 10/25 = 40% en la acción
+        y 60% en letras.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. TRES O MÁS ACTIVOS
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. Extensión a tres o más activos</h2>
+    <p>
+      Para n activos, la varianza de la cartera incluye n términos de varianza individual
+      (ponderados por wᵢ²) y n(n−1)/2 términos de covarianza cruzada entre pares (ponderados
+      por 2·wᵢ·wⱼ). La fórmula general es:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Varianza de cartera — n activos (forma matricial compacta)</span>
+      σ²<sub>c</sub> = Σᵢ wᵢ² · σᵢ² + Σᵢ Σⱼ≠ᵢ wᵢ · wⱼ · σᵢⱼ
+    </div>
+
+    <p>
+      Para tres activos (A, B, C) la fórmula desarrollada es:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Varianza de cartera — tres activos</span>
+      σ²<sub>c</sub> = w²<sub>A</sub>σ²<sub>A</sub> + w²<sub>B</sub>σ²<sub>B</sub> + w²<sub>C</sub>σ²<sub>C</sub>
+                      + 2w<sub>A</sub>w<sub>B</sub>ρ<sub>AB</sub>σ<sub>A</sub>σ<sub>B</sub>
+                      + 2w<sub>A</sub>w<sub>C</sub>ρ<sub>AC</sub>σ<sub>A</sub>σ<sub>C</sub>
+                      + 2w<sub>B</sub>w<sub>C</sub>ρ<sub>BC</sub>σ<sub>B</sub>σ<sub>C</sub>
+    </div>
+
+    <div class="callout info">
+      <strong>Observación clave:</strong> a medida que aumenta el número de activos,
+      los términos de covarianza cruzada dominan cada vez más sobre los de varianza individual.
+      Con n grande, la varianza de la cartera tiende al promedio de las covarianzas.
+      Esto explica por qué la diversificación tiene límite: no puede eliminar el riesgo
+      sistemático (el que comparten todos los activos).
+    </div>
+
+    <div class="table-wrap">
+      <table class="matrix-table">
+        <caption style="font-size:var(--fs-xs);color:var(--text-soft);margin-bottom:.4rem;">
+          Número de términos en la varianza de una cartera de n activos
+        </caption>
+        <thead>
+          <tr><th>n activos</th><th>Términos de varianza (diagonal)</th><th>Términos de covarianza</th><th>Total términos</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2</td><td class="diag">2</td><td>1 (×2 = 2)</td><td>4</td></tr>
+          <tr><td>3</td><td class="diag">3</td><td>3 (×2 = 6)</td><td>9</td></tr>
+          <tr><td>10</td><td class="diag">10</td><td>45 (×2 = 90)</td><td>100</td></tr>
+          <tr><td>50</td><td class="diag">50</td><td>1.225 (×2 = 2.450)</td><td>2.500</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        La fórmula de tres activos puede pedirse explícita. Recordar que hay
+        <strong>3 términos de varianza + 3 términos de covarianza × 2</strong>.
+        El examen de práctica de EFPA incluye problemas con cartera de tres activos
+        y todas sus correlaciones cruzadas.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Caso</th><th>Fórmula σ<sub>c</sub></th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>General (2 activos)</strong></td>
+            <td>√( w₁²σ₁² + w₂²σ₂² + 2w₁w₂ρ₁₂σ₁σ₂ )</td>
+          </tr>
+          <tr>
+            <td><strong>ρ = +1</strong></td>
+            <td>w₁σ₁ + w₂σ₂ (media ponderada exacta)</td>
+          </tr>
+          <tr>
+            <td><strong>ρ = 0</strong></td>
+            <td>√( w₁²σ₁² + w₂²σ₂² )</td>
+          </tr>
+          <tr>
+            <td><strong>ρ = −1</strong></td>
+            <td>|w₁σ₁ − w₂σ₂| (puede ser 0)</td>
+          </tr>
+          <tr>
+            <td><strong>Un activo sin riesgo</strong></td>
+            <td>w₁ · σ₁ (proporcional al peso arriesgado)</td>
+          </tr>
+          <tr>
+            <td><strong>Peso de riesgo nulo (ρ=−1)</strong></td>
+            <td>w₁* = σ₂ / (σ₁ + σ₂)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-c.html" class="nav-btn">← C: Volatilidad de un activo</a>
+    <a href="seccion-e.html" class="nav-btn">E: El concepto de diversificación →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Markowitz, H. M. (1952). «Portfolio Selection». <em>The Journal of Finance</em>,
+        7(1), 77–91. <a href="https://doi.org/10.2307/2975974" target="_blank" rel="noopener">doi.org/10.2307/2975974</a>.
+        Fórmula de la varianza de la cartera con covarianzas.
+      </li>
+      <li id="fn2">
+        Bodie, Z., Kane, A. &amp; Marcus, A. J. (2014). <em>Investments</em> (10.ª ed.), cap. 6
+        «Efficient Diversification», pp. 175–195. McGraw-Hill Education.
+        Casos especiales de correlación y extensión a n activos.
+      </li>
+      <li id="fn3">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 1 · Sección D,
+        pp. 44–45. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 1 · Sección D · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

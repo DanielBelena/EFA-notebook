@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B1 · Sección F — Hipótesis de normalidad · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .normal-viz {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1.2rem 1.4rem;
+      margin: 1rem 0;
+      font-family: var(--font-ui);
+    }
+    .normal-bar {
+      display: flex;
+      align-items: center;
+      margin: .4rem 0;
+      font-size: var(--fs-xs);
+    }
+    .normal-bar .label {
+      width: 180px;
+      flex-shrink: 0;
+      color: var(--text-soft);
+    }
+    .normal-bar .bar {
+      height: 18px;
+      border-radius: 4px;
+      background: var(--navy);
+      opacity: 0.8;
+    }
+    .normal-bar .pct {
+      margin-left: .6rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .bar-68 { width: 68%; }
+    .bar-95 { width: 95%; }
+    .bar-99 { width: 99%; }
+    .bar-16 { width: 16%; background: var(--amber); }
+    .bar-2  { width: 2.5%; background: var(--amber); }
+
+    .interval-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .interval-grid { grid-template-columns: 1fr; } }
+
+    .interval-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .interval-box .prob-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: .3rem;
+    }
+    .interval-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin-bottom: .3rem;
+    }
+    .interval-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .longshort-table td, .longshort-table th {
+      text-align: center;
+      padding: .5rem .8rem;
+      font-size: var(--fs-sm);
+    }
+    .longshort-table th { background: var(--navy); color: #fff; }
+    .longshort-table tr:nth-child(even) td { background: var(--navy-light); }
+    .longshort-table .good-cell { color: var(--green); font-weight: 700; }
+    .longshort-table .bad-cell  { color: var(--amber); font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B1 · F</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 1</a>
+    <span class="sep">›</span>
+    <span>Sección F</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 1 · Sección F · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Supuestos de la hipótesis de normalidad</h1>
+    <p class="hero-sub">
+      La distribución normal · Intervalos de confianza al 68% y 95% ·
+      Colas del 16% y 2,5% · Probabilidad de pérdida a largo y corto plazo.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. LA LEY NORMAL
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. La Ley Normal (campana de Gauss): qué significa y sus parámetros</h2>
+    <p class="sec-intro">
+      La <strong>distribución normal</strong> (o distribución gaussiana) es la curva en
+      forma de campana que describe el comportamiento de muchas variables aleatorias en
+      la naturaleza y, por convenio, en las finanzas. La hipótesis de normalidad establece
+      que las rentabilidades de los activos financieros siguen esta distribución, lo que
+      permite usar únicamente la media y la desviación típica para describir completamente
+      el comportamiento del activo.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Función de densidad de la distribución normal N(μ, σ²)</span>
+      f(x) = [1 / (σ√(2π))] · exp[−(x − μ)² / (2σ²)]
+    </div>
+
+    <div class="interval-grid">
+      <div class="interval-box">
+        <span class="prob-badge">μ</span>
+        <h4>Media (esperanza matemática)</h4>
+        <p>
+          Determina el <strong>centro</strong> de la campana: el valor en torno al cual
+          se concentran las observaciones. En finanzas es la rentabilidad esperada E(R).
+          Una distribución normal con mayor μ está desplazada a la derecha.
+        </p>
+      </div>
+      <div class="interval-box">
+        <span class="prob-badge">σ</span>
+        <h4>Desviación típica (volatilidad)</h4>
+        <p>
+          Determina el <strong>ancho</strong> de la campana: cuanto mayor es σ, más
+          achatada y dispersa es la curva. En finanzas es la volatilidad del activo.
+          Una σ alta implica que las rentabilidades reales pueden alejarse mucho de la media.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>La distribución normal es simétrica respecto a μ.</strong>
+      La mitad de las observaciones cae por encima de la media y la otra mitad por debajo.
+      La probabilidad de ganar x% es igual a la probabilidad de perder x% respecto a μ.
+    </div>
+
+    <h3>Propiedades clave</h3>
+    <div class="normal-viz">
+      <p style="font-weight:800;color:var(--navy);margin-bottom:.8rem;">Probabilidades acumuladas de la distribución normal:</p>
+      <div class="normal-bar">
+        <span class="label">μ ± 1σ → 68,27%</span>
+        <div class="bar bar-68"></div>
+        <span class="pct">68%</span>
+      </div>
+      <div class="normal-bar">
+        <span class="label">μ ± 2σ → 95,45%</span>
+        <div class="bar bar-95"></div>
+        <span class="pct">95%</span>
+      </div>
+      <div class="normal-bar">
+        <span class="label">μ ± 3σ → 99,73%</span>
+        <div class="bar bar-99"></div>
+        <span class="pct">99%</span>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. INTERVALOS DE RENTABILIDAD AL 68% Y 95%
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Intervalos de rentabilidad: probabilidades del 68% y 95%</h2>
+    <p>
+      Bajo el supuesto de normalidad, podemos afirmar que las rentabilidades de un activo
+      se moverán dentro de los siguientes intervalos con las probabilidades indicadas:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Intervalo al 68% de probabilidad (≈ 1 de cada 3 años fuera)</span>
+      R ∈ [ E(R) − σ  ,  E(R) + σ ]
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Intervalo al 95% de probabilidad (≈ 1 de cada 20 años fuera)</span>
+      R ∈ [ E(R) − 2σ  ,  E(R) + 2σ ]
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Intervalos de rentabilidad</h3>
+      <p>
+        Un fondo de renta variable tiene E(R) = <strong>10% anual</strong> y σ = <strong>15%</strong>.<br><br>
+        <strong>Intervalo al 68%:</strong><br>
+        Límite inferior: 10% − 15% = −5%<br>
+        Límite superior: 10% + 15% = +25%<br>
+        → Con un 68% de probabilidad, la rentabilidad estará entre <strong>−5% y +25%</strong>.<br><br>
+        <strong>Intervalo al 95%:</strong><br>
+        Límite inferior: 10% − 2×15% = 10% − 30% = −20%<br>
+        Límite superior: 10% + 2×15% = 10% + 30% = +40%<br>
+        → Con un 95% de probabilidad, la rentabilidad estará entre <strong>−20% y +40%</strong>.<br><br>
+        El restante 5% corresponde a resultados extremos (crisis severas o ganancias excepcionales).
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Dado E(R) y σ, calcular los límites inferior y superior de los intervalos al 68%
+        y al 95%. Es un cálculo directo: E(R) ± 1σ y E(R) ± 2σ. Puede pedirse también
+        para una cartera (misma fórmula una vez calculadas E(R<sub>c</sub>) y σ<sub>c</sub>).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. COLAS DEL 16% Y 2,5%
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Rentabilidades en las colas: probabilidades del 16% y 2,5%</h2>
+    <p>
+      Dado que la distribución normal es simétrica, las probabilidades del 68% y 95%
+      se reparten simétricamente en ambas colas. Esto nos permite calcular la probabilidad
+      de que la rentabilidad sea inferior (o superior) a un determinado umbral:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Cola inferior al 16%: rentabilidad por debajo de E(R) − σ</span>
+      P[ R &lt; E(R) − σ ] ≈ 16%   →   (100% − 68%) / 2 = 32%/2 = 16%
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Cola inferior al 2,5%: rentabilidad por debajo de E(R) − 2σ</span>
+      P[ R &lt; E(R) − 2σ ] ≈ 2,5%   →   (100% − 95%) / 2 = 5%/2 = 2,5%
+    </div>
+
+    <div class="callout info">
+      <strong>Lectura equivalente para la cola superior:</strong>
+      P[ R &gt; E(R) + σ ] ≈ 16% y P[ R &gt; E(R) + 2σ ] ≈ 2,5%.
+      La simetría de la normal implica que las colas superior e inferior tienen
+      la misma probabilidad.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Colas de probabilidad</h3>
+      <p>
+        Activo con E(R) = <strong>8%</strong> y σ = <strong>12%</strong>.<br><br>
+        <strong>Cola inferior del 16%:</strong><br>
+        Umbral = 8% − 12% = −4%<br>
+        → Hay un <strong>16%</strong> de probabilidad de obtener una rentabilidad peor que −4%.<br>
+        → Equivalente: 1 de cada 6 años se esperaría una pérdida superior al 4%.<br><br>
+        <strong>Cola inferior del 2,5%:</strong><br>
+        Umbral = 8% − 2×12% = 8% − 24% = −16%<br>
+        → Hay un <strong>2,5%</strong> de probabilidad de sufrir pérdidas superiores al 16%.<br>
+        → Equivalente: 1 de cada 40 años, una pérdida mayor al 16%.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Calcular la rentabilidad umbral asociada a una cola del 16% o 2,5%.
+        La fórmula es siempre: umbral = E(R) − k·σ, con k=1 para el 16% y k=2 para el 2,5%.
+        Para la cola superior: umbral = E(R) + k·σ.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. PROBABILIDAD DE PÉRDIDA A LARGO VS. CORTO PLAZO
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Probabilidad de pérdida: largo plazo vs. corto plazo</h2>
+    <p>
+      Una de las aplicaciones más importantes de la hipótesis de normalidad es demostrar
+      que la <strong>probabilidad de perder dinero disminuye con el horizonte temporal</strong>,
+      siempre que E(R) &gt; 0. Esta es la base racional de la recomendación de mantener
+      inversiones a largo plazo.
+    </p>
+
+    <h3>¿Por qué?</h3>
+    <p>
+      A medida que el horizonte temporal T crece, la rentabilidad acumulada esperada y
+      la volatilidad acumulada crecen a ritmos diferentes:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Rentabilidad acumulada esperada en T períodos</span>
+      E(R<sub>T</sub>) ≈ E(R) · T   →   crece linealmente con T
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Volatilidad acumulada en T períodos</span>
+      σ<sub>T</sub> = σ · √T   →   crece con la raíz de T (más lento que la media)
+    </div>
+
+    <div class="callout info">
+      <strong>Consecuencia clave:</strong> si E(R) &gt; 0, la media acumulada crece más
+      rápido que la volatilidad acumulada. El umbral de cero (pérdida) queda cada vez
+      más lejos en términos de desviaciones típicas, lo que reduce la probabilidad de
+      estar en la cola negativa.
+    </div>
+
+    <h3>La ratio de pérdida</h3>
+    <p>
+      La probabilidad de pérdida depende de cuántas desviaciones típicas separan a
+      E(R<sub>T</sub>) = 0 (el umbral de pérdida) de la rentabilidad esperada acumulada:
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Número de desviaciones típicas al umbral de pérdida</span>
+      z = E(R) · T / (σ · √T) = [E(R) / σ] · √T
+    </div>
+
+    <p>
+      Cuanto mayor es T, mayor es z, y menor es la probabilidad de que la rentabilidad
+      acumulada sea negativa (mayor z → cola más pequeña).
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Probabilidad de pérdida a distintos horizontes</h3>
+      <p>
+        Activo con E(R) = <strong>8% anual</strong> y σ = <strong>20% anual</strong>.
+        Umbral de pérdida: rentabilidad acumulada &lt; 0.
+      </p>
+      <div class="table-wrap">
+        <table class="longshort-table">
+          <thead>
+            <tr>
+              <th>Horizonte (T)</th>
+              <th>E(R) acum. = 8%·T</th>
+              <th>σ acum. = 20%·√T</th>
+              <th>z = 8%·T / (20%·√T)</th>
+              <th>P(pérdida) aproximada</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1 año</td>
+              <td>8%</td>
+              <td>20%</td>
+              <td>8/20 = 0,40</td>
+              <td class="bad-cell">~34%</td>
+            </tr>
+            <tr>
+              <td>4 años</td>
+              <td>32%</td>
+              <td>40%</td>
+              <td>32/40 = 0,80</td>
+              <td class="bad-cell">~21%</td>
+            </tr>
+            <tr>
+              <td>9 años</td>
+              <td>72%</td>
+              <td>60%</td>
+              <td>72/60 = 1,20</td>
+              <td class="bad-cell">~11%</td>
+            </tr>
+            <tr>
+              <td>16 años</td>
+              <td>128%</td>
+              <td>80%</td>
+              <td>128/80 = 1,60</td>
+              <td class="good-cell">~5,5%</td>
+            </tr>
+            <tr>
+              <td>25 años</td>
+              <td>200%</td>
+              <td>100%</td>
+              <td>200/100 = 2,00</td>
+              <td class="good-cell">~2,3%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.6rem;">
+        Con solo 1 año, la probabilidad de perder dinero es del ~34%.
+        Con 25 años, baja al ~2,3%. El tiempo actúa como diversificador temporal.
+        <br><br>
+        <em>Nota: Las probabilidades se obtienen de la tabla de la distribución normal
+        estándar buscando P(Z &lt; −z). Para z=0,40 → P ≈ 34%; z=2,00 → P ≈ 2,3%.</em>
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El concepto de que la probabilidad de pérdida decrece con el horizonte temporal
+        puede pedirse como pregunta conceptual o numérica. Clave: demostrar que E(R)·T
+        crece más rápido que σ·√T cuando E(R) &gt; 0. La fórmula z = [E(R)/σ] · √T
+        resume el argumento cuantitativamente.
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        Con los datos de junio 2026: el IBEX-35 Total Return presenta una rentabilidad
+        anualizada de largo plazo (20 años) cercana al <strong>7–8%</strong> y una
+        volatilidad histórica anual del <strong>18–22%</strong>. Aplicando la fórmula:
+        z(20 años) = [8%·20] / [20%·√20] = 160% / 89% ≈ 1,80 → probabilidad de pérdida
+        acumulada &lt; 5%. Este argumento cuantitativo respalda la recomendación estándar
+        de mantener renta variable en horizontes superiores a 10–15 años para inversores
+        con tolerancia al riesgo suficiente.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Concepto</th><th>Fórmula / Regla</th><th>Probabilidad</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Intervalo ±1σ</strong></td>
+            <td>[E(R) − σ, E(R) + σ]</td>
+            <td>≈ 68%</td>
+          </tr>
+          <tr>
+            <td><strong>Intervalo ±2σ</strong></td>
+            <td>[E(R) − 2σ, E(R) + 2σ]</td>
+            <td>≈ 95%</td>
+          </tr>
+          <tr>
+            <td><strong>Cola inferior 1σ</strong></td>
+            <td>R &lt; E(R) − σ</td>
+            <td>≈ 16%</td>
+          </tr>
+          <tr>
+            <td><strong>Cola inferior 2σ</strong></td>
+            <td>R &lt; E(R) − 2σ</td>
+            <td>≈ 2,5%</td>
+          </tr>
+          <tr>
+            <td><strong>E(R) acumulada</strong></td>
+            <td>E(R) · T</td>
+            <td>Crece lineal</td>
+          </tr>
+          <tr>
+            <td><strong>σ acumulada</strong></td>
+            <td>σ · √T</td>
+            <td>Crece sublineal</td>
+          </tr>
+          <tr>
+            <td><strong>Prob. pérdida a T</strong></td>
+            <td>z = [E(R)/σ] · √T → decrece</td>
+            <td>↓ con T creciente</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-e.html" class="nav-btn">← E: Diversificación</a>
+    <a href="../bloque-2/seccion-a.html" class="nav-btn">Bloque 2 · A: Eficiencia de mercados →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Bodie, Z., Kane, A. &amp; Marcus, A. J. (2014). <em>Investments</em> (10.ª ed.), cap. 5
+        «Risk, Return, and the Historical Record», pp. 156–163. McGraw-Hill Education.
+        Distribución normal de rentabilidades y regla empírica 68-95-99.
+      </li>
+      <li id="fn2">
+        Samuelson, P. A. (1963). «Risk and Uncertainty: A Fallacy of Large Numbers».
+        <em>Scientia</em>, 98, 108–113. Paradoja del largo plazo y probabilidad de pérdida.
+      </li>
+      <li id="fn3">
+        Malkiel, B. G. (2019). <em>A Random Walk Down Wall Street</em> (12.ª ed.), cap. 8.
+        Norton. Aplicación de la distribución normal a la inversión en bolsa a largo plazo.
+      </li>
+      <li id="fn4">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 1 · Sección F,
+        pp. 45–46. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 1 · Sección F · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

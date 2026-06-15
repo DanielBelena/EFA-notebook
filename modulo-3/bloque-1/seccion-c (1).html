@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B1 · Sección C — Volatilidad de un activo · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .risk-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .risk-grid { grid-template-columns: 1fr; } }
+
+    .risk-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .risk-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin-bottom: .35rem;
+    }
+    .risk-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .vol-calc-table td, .vol-calc-table th {
+      text-align: center;
+      padding: .45rem .8rem;
+      font-size: var(--fs-sm);
+    }
+    .vol-calc-table th { background: var(--navy); color: #fff; }
+    .vol-calc-table tr:nth-child(even) td { background: var(--navy-light); }
+
+    .pros-cons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .pros-cons { grid-template-columns: 1fr; } }
+    .pros { border-left: 4px solid var(--green); padding: .8rem 1rem; background: var(--green-light); border-radius: 0 10px 10px 0; }
+    .cons { border-left: 4px solid var(--amber); padding: .8rem 1rem; background: var(--amber-light); border-radius: 0 10px 10px 0; }
+    .pros h4 { color: var(--green); font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); margin-bottom: .4rem; }
+    .cons h4 { color: var(--amber); font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); margin-bottom: .4rem; }
+    .pros ul, .cons ul { margin: 0; padding-left: 1.2rem; font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B1 · C</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 1</a>
+    <span class="sep">›</span>
+    <span>Sección C</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 1 · Sección C · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Volatilidad de un activo</h1>
+    <p class="hero-sub">
+      Concepto de riesgo · Varianza y desviación típica · Ventajas e inconvenientes ·
+      Volatilidad histórica · Volatilidad por escenarios · Anualización.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. CONCEPTO DE RIESGO
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. El riesgo de inversión: conceptos y tipos</h2>
+    <p class="sec-intro">
+      En el ámbito financiero, el <strong>riesgo</strong> se entiende como la incertidumbre
+      sobre el resultado futuro de una inversión: la posibilidad de que la rentabilidad real
+      obtenida difiera de la rentabilidad esperada. No todo el riesgo es "negativo":
+      la dispersión puede ser al alza o a la baja respecto a la expectativa.
+    </p>
+
+    <div class="risk-grid">
+      <div class="risk-box">
+        <h4>Riesgo de mercado</h4>
+        <p>Variaciones en el precio del activo debidas a movimientos generales del mercado
+        (tipos de interés, ciclo económico). Afecta a todos los activos.</p>
+      </div>
+      <div class="risk-box">
+        <h4>Riesgo específico</h4>
+        <p>Variaciones debidas a factores propios del emisor (resultados empresariales,
+        gestión, escándalos). Puede eliminarse mediante diversificación.</p>
+      </div>
+      <div class="risk-box">
+        <h4>Riesgo de liquidez</h4>
+        <p>Imposibilidad de vender el activo al precio justo de mercado en el momento
+        deseado, por falta de contrapartida.</p>
+      </div>
+      <div class="risk-box">
+        <h4>Riesgo de crédito</h4>
+        <p>Probabilidad de que el emisor no cumpla sus obligaciones de pago
+        (cupones, principal).</p>
+      </div>
+      <div class="risk-box">
+        <h4>Riesgo de tipo de cambio</h4>
+        <p>Pérdidas debidas a movimientos adversos en el tipo de cambio cuando la
+        inversión está denominada en divisa extranjera.</p>
+      </div>
+      <div class="risk-box">
+        <h4>Riesgo de inflación</h4>
+        <p>La inflación erosiona el poder adquisitivo de los retornos nominales;
+        la rentabilidad real puede ser inferior a la nominal.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. VOLATILIDAD COMO MEDIDA DE RIESGO
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. La volatilidad como medida de riesgo</h2>
+    <p>
+      En la teoría de carteras, el riesgo cuantificable se identifica con la
+      <strong>dispersión de las rentabilidades</strong> respecto a su media. Las medidas
+      estadísticas utilizadas son la <strong>varianza</strong> (σ²) y su raíz cuadrada,
+      la <strong>desviación típica</strong> (σ), que recibe el nombre de
+      <strong>volatilidad</strong> en el contexto financiero.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Varianza (dispersión cuadrática media)</span>
+      σ² = E[(R − E(R))²]
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Volatilidad (desviación típica)</span>
+      σ = √σ²
+    </div>
+
+    <div class="callout info">
+      <strong>Intuición:</strong> cuanto mayor es la volatilidad, más alejadas del valor
+      esperado pueden estar las rentabilidades reales. Un activo con σ = 30% puede
+      desviarse mucho más de su media que uno con σ = 5%.
+    </div>
+
+    <h3>Ventajas e inconvenientes de la volatilidad como medida de riesgo</h3>
+
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>✅ Ventajas</h4>
+        <ul>
+          <li>Fácilmente calculable y comparable entre activos.</li>
+          <li>Utilizada universalmente — permite usar modelos estándar (CAPM, Markowitz).</li>
+          <li>Simétrica: capta tanto dispersión positiva como negativa.</li>
+          <li>Permite anualización sencilla.</li>
+          <li>Base del cálculo del VaR y otras métricas avanzadas.</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>⚠️ Inconvenientes</h4>
+        <ul>
+          <li>Penaliza igual las ganancias que las pérdidas (el inversor solo teme las pérdidas).</li>
+          <li>Asume distribución normal: la realidad tiene <em>fat tails</em> (colas más gordas).</li>
+          <li>Volátil en sí misma: cambia según el período analizado.</li>
+          <li>No distingue el origen del riesgo (sistémico vs. específico).</li>
+          <li>Medida relativa: necesita un contexto para interpretarse.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Significado cuando se comparan dos activos</h3>
+    <p>
+      Si el activo A tiene σ = 20% y el activo B tiene σ = 10%, el activo A es
+      <strong>más volátil</strong>: sus rentabilidades se dispersan más alrededor de su
+      media. Sin embargo, un activo más volátil no es necesariamente peor —
+      si su E(R) es suficientemente mayor, puede ofrecer una mejor compensación por
+      unidad de riesgo (ratio de Sharpe). La comparación significativa es siempre
+      rentabilidad-riesgo conjunta, no la volatilidad aislada.
+    </p>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Comparar dos activos por volatilidad y concluir cuál es más arriesgado.
+        También puede preguntarse el inconveniente de que la volatilidad penaliza
+        la dispersión positiva (las ganancias) igual que la negativa.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. VOLATILIDAD HISTÓRICA
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Cálculo de la volatilidad histórica</h2>
+    <p>
+      Dada una serie de T rentabilidades históricas (R₁, R₂, …, R<sub>T</sub>),
+      la varianza histórica se calcula como la media de las desviaciones cuadráticas
+      respecto a la media aritmética R̄. Se usa T−1 en el denominador (corrección de Bessel)
+      cuando se trabaja con una muestra para estimar la varianza poblacional.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Varianza histórica muestral</span>
+      σ² = [1/(T−1)] · Σ (Rᵢ − R̄)²
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Volatilidad histórica</span>
+      σ = √{ [1/(T−1)] · Σ (Rᵢ − R̄)² }
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Volatilidad histórica paso a paso</h3>
+      <p>
+        Rentabilidades anuales de un activo en 5 años: <strong>+12%, +8%, −5%, +15%, +3%</strong><br>
+        R̄ = (12 + 8 − 5 + 15 + 3) / 5 = 33/5 = <strong>6,6%</strong>
+      </p>
+      <div class="table-wrap">
+        <table class="vol-calc-table">
+          <thead>
+            <tr><th>Año</th><th>Rᵢ (%)</th><th>Rᵢ − R̄ (%)</th><th>(Rᵢ − R̄)² (% ²)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>12,0</td><td>12,0 − 6,6 = +5,4</td><td>29,16</td></tr>
+            <tr><td>2</td><td>8,0</td><td>8,0 − 6,6 = +1,4</td><td>1,96</td></tr>
+            <tr><td>3</td><td>−5,0</td><td>−5,0 − 6,6 = −11,6</td><td>134,56</td></tr>
+            <tr><td>4</td><td>15,0</td><td>15,0 − 6,6 = +8,4</td><td>70,56</td></tr>
+            <tr><td>5</td><td>3,0</td><td>3,0 − 6,6 = −3,6</td><td>12,96</td></tr>
+            <tr><td colspan="3"><strong>Suma de cuadrados</strong></td><td><strong>249,20</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.6rem;">
+        σ² = 249,20 / (5−1) = 249,20 / 4 = <strong>62,30 %²</strong><br>
+        σ = √62,30 = <strong>7,89%</strong><br><br>
+        La volatilidad histórica anual de este activo es <strong>7,89%</strong>.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. VOLATILIDAD POR ESCENARIOS
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Volatilidad esperada por escenarios</h2>
+    <p>
+      Cuando se trabaja con el método de escenarios, la varianza se calcula como la media
+      ponderada (por probabilidades) de las desviaciones cuadráticas respecto a E(R):
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Varianza por escenarios</span>
+      σ² = Σ pᵢ · [Rᵢ − E(R)]²
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Volatilidad por escenarios</span>
+      σ = √{ Σ pᵢ · [Rᵢ − E(R)]² }
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Volatilidad por escenarios</h3>
+      <p>
+        Continuamos con el ejemplo de la Sección A. E(R) = 7,55%.
+      </p>
+      <div class="table-wrap">
+        <table class="vol-calc-table">
+          <thead>
+            <tr><th>Escenario</th><th>p</th><th>R (%)</th><th>R − E(R)</th><th>[R − E(R)]²</th><th>p · [R − E(R)]²</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Expansión fuerte</td><td>0,20</td><td>25</td><td>17,45</td><td>304,50</td><td>60,90</td></tr>
+            <tr><td>Expansión moderada</td><td>0,35</td><td>12</td><td>4,45</td><td>19,80</td><td>6,93</td></tr>
+            <tr><td>Estancamiento</td><td>0,30</td><td>2</td><td>−5,55</td><td>30,80</td><td>9,24</td></tr>
+            <tr><td>Recesión</td><td>0,15</td><td>−15</td><td>−22,55</td><td>508,50</td><td>76,28</td></tr>
+            <tr><td colspan="5"><strong>σ² (varianza)</strong></td><td><strong>153,35 %²</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.6rem;">
+        σ = √153,35 ≈ <strong>12,38%</strong><br><br>
+        La volatilidad esperada del activo es <strong>12,38%</strong>.
+        La rentabilidad esperada es 7,55% y la volatilidad es 12,38%: mayor riesgo que la
+        rentabilidad, lo que exige que el inversor valore si la compensación es suficiente.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. VOLATILIDAD ANUALIZADA
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. Volatilidad anualizada</h2>
+    <p>
+      Al igual que la rentabilidad, la volatilidad calculada sobre períodos más cortos
+      que un año debe convertirse a base anual para poder comparar activos. La regla
+      de anualización de la volatilidad <strong>no</strong> usa la misma fórmula que
+      la rentabilidad: se multiplica por la raíz cuadrada del número de períodos por año.
+      Este resultado se deriva de asumir que las rentabilidades son independientes entre períodos.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Anualización de la volatilidad</span>
+      σ<sub>anual</sub> = σ<sub>período</sub> × √k
+    </div>
+
+    <div class="callout info">
+      <strong>k = número de períodos por año.</strong>
+      Datos diarios (250 días hábiles): k = 250. Datos mensuales: k = 12.
+      Datos semanales: k = 52. Datos trimestrales: k = 4.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Anualización de la volatilidad</h3>
+      <p>
+        <strong>Caso 1 — Datos diarios:</strong><br>
+        Un activo tiene una volatilidad diaria de <strong>σ<sub>diaria</sub> = 1,2%</strong>.<br>
+        σ<sub>anual</sub> = 1,2% × √250 = 1,2% × 15,81 = <strong>18,97%</strong><br><br>
+        <strong>Caso 2 — Datos mensuales:</strong><br>
+        La volatilidad mensual de un fondo es <strong>σ<sub>mensual</sub> = 3,5%</strong>.<br>
+        σ<sub>anual</sub> = 3,5% × √12 = 3,5% × 3,464 = <strong>12,12%</strong><br><br>
+        Atención: si la volatilidad mensual fuera 3,5%, la rentabilidad anualizada debería
+        calcularse con la fórmula geométrica de la Sección A (no con ×12).
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        La fórmula de anualización de la volatilidad (×√k) es diferente a la de la
+        rentabilidad ((1+R)^k − 1). Confundirlas es un error habitual. También puede
+        pedirse la relación inversa: pasar de anual a mensual → σ<sub>m</sub> = σ<sub>a</sub> / √12.
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        La volatilidad implícita del IBEX-35 (VIBEX, equivalente al VIX para España)
+        se ha situado en niveles moderados de <strong>15–18%</strong> en el primer semestre
+        de 2026, tras la fuerte racha alcista del índice. En comparación, el Euro Stoxx 50
+        presenta una volatilidad implícita (VSTOXX) ligeramente superior (~20%), mientras que
+        un bono del Estado español a 10 años tiene una volatilidad anual del precio en torno
+        al <strong>5–7%</strong>, reflejando la diferencia estructural de riesgo entre renta
+        variable y fija.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Concepto</th><th>Fórmula</th><th>Nota</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Varianza histórica</strong></td>
+            <td>σ² = Σ(Rᵢ−R̄)² / (T−1)</td>
+            <td>T−1: corrección muestral</td>
+          </tr>
+          <tr>
+            <td><strong>Volatilidad histórica</strong></td>
+            <td>σ = √σ²</td>
+            <td>Mismas unidades que R</td>
+          </tr>
+          <tr>
+            <td><strong>Varianza por escenarios</strong></td>
+            <td>σ² = Σ pᵢ · [Rᵢ − E(R)]²</td>
+            <td>Σpᵢ = 1</td>
+          </tr>
+          <tr>
+            <td><strong>Anualización σ</strong></td>
+            <td>σ<sub>a</sub> = σ<sub>p</sub> × √k</td>
+            <td>k = períodos/año</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-b.html" class="nav-btn">← B: Rendimiento de una cartera</a>
+    <a href="seccion-d.html" class="nav-btn">D: Riesgo de una cartera →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Bodie, Z., Kane, A. &amp; Marcus, A. J. (2014). <em>Investments</em> (10.ª ed.), cap. 5
+        «Risk, Return, and the Historical Record», pp. 143–157. McGraw-Hill Education.
+        Cálculo de varianza y desviación típica histórica y por escenarios.
+      </li>
+      <li id="fn2">
+        Markowitz, H. M. (1952). «Portfolio Selection». <em>The Journal of Finance</em>,
+        7(1), 77–91. <a href="https://doi.org/10.2307/2975974" target="_blank" rel="noopener">doi.org/10.2307/2975974</a>.
+        Varianza como medida de riesgo del activo individual.
+      </li>
+      <li id="fn3">
+        Hull, J. C. (2018). <em>Options, Futures, and Other Derivatives</em> (10.ª ed.),
+        cap. 15 «Volatility Smiles», pp. 334–336. Pearson.
+        Anualización de la volatilidad con la raíz del tiempo.
+      </li>
+      <li id="fn4">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 1 · Sección C,
+        pp. 41–44. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 1 · Sección C · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
