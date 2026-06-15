@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B2 · Sección A — Eficiencia de mercado · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 640px) { .info-grid { grid-template-columns: 1fr; } }
+
+    .info-box {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .info-box .ib-label {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: .75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: .5rem;
+    }
+    .info-box.hist .ib-label  { background: var(--navy-light); color: var(--navy); }
+    .info-box.pub  .ib-label  { background: var(--amber-light); color: var(--amber); }
+    .info-box.priv .ib-label  { background: var(--green-light); color: var(--green); }
+    .info-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin-bottom: .35rem;
+    }
+    .info-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .char-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .char-grid { grid-template-columns: 1fr; } }
+
+    .char-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+    }
+    .char-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin-bottom: .3rem;
+    }
+    .char-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .conseq-list {
+      list-style: none;
+      padding: 0;
+      margin: .8rem 0;
+    }
+    .conseq-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      padding: .6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: var(--fs-sm);
+      line-height: 1.6;
+    }
+    .conseq-list li:last-child { border-bottom: none; }
+    .conseq-list .icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B2 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 2</a>
+    <span class="sep">›</span>
+    <span>Sección A</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 2 · Sección A · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>El concepto de eficiencia en los mercados de capitales</h1>
+    <p class="hero-sub">
+      Definición de mercado eficiente · Tipos de información · Características de la eficiencia ·
+      Consecuencias para inversores y gestores.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. QUÉ ES UN MERCADO EFICIENTE
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. ¿Qué significa un mercado de capitales eficiente?</h2>
+    <p class="sec-intro">
+      Un mercado de capitales es <strong>eficiente</strong> cuando los precios de los activos
+      reflejan en todo momento <strong>toda la información disponible</strong> relevante para
+      su valoración. En un mercado así, ningún inversor puede obtener sistemáticamente
+      rentabilidades superiores a las del mercado ajustadas por riesgo, porque cualquier
+      nueva información se incorpora instantáneamente al precio.
+    </p>
+
+    <div class="card accent-navy">
+      <p>
+        La <strong>Hipótesis de Mercado Eficiente (HME)</strong> fue formalizada por
+        Eugene Fama en 1970 en su artículo seminal «Efficient Capital Markets: A Review
+        of Empirical Work». Fama definió un mercado eficiente como aquel en el que
+        <em>«los precios siempre reflejan completamente toda la información disponible»</em>.
+        En 2013 recibió el Premio Nobel de Economía precisamente por este trabajo.
+      </p>
+    </div>
+
+    <h3>El mecanismo de la eficiencia</h3>
+    <p>
+      La eficiencia se mantiene a través de la competencia entre inversores racionales:
+    </p>
+    <ol style="font-size:var(--fs-sm);line-height:1.8;padding-left:1.3rem;">
+      <li>Aparece nueva información relevante sobre un activo.</li>
+      <li>Los inversores analizan rápidamente las implicaciones para el valor.</li>
+      <li>Los que tienen acceso compran (si positiva) o venden (si negativa).</li>
+      <li>El precio se ajusta hasta que la oportunidad desaparece.</li>
+      <li>El nuevo precio refleja ya esa información: no queda margen de explotación.</li>
+    </ol>
+
+    <div class="callout info">
+      <strong>Implicación práctica:</strong> si los mercados fueran perfectamente eficientes,
+      el análisis de valores sería inútil — nadie podría «batir al mercado» de forma
+      consistente. En la práctica, los mercados son <em>aproximadamente</em> eficientes,
+      con algunas anomalías persistentes (ver Sección C).
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Definición de mercado eficiente: precio = valor fundamental en todo momento,
+        porque refleja toda la información disponible. El examen puede pedir la
+        consecuencia inversa: si el mercado fuera ineficiente, ¿qué sería posible?
+        (→ Obtener rentabilidades superiores al mercado de forma sistemática).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. TIPOS DE INFORMACIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Tipos de información: histórica, pública actual y privada</h2>
+    <p>
+      Fama clasificó la información en tres categorías según su disponibilidad.
+      Esta clasificación da lugar a los tres niveles de eficiencia (ver Sección B):
+    </p>
+
+    <div class="info-grid">
+      <div class="info-box hist">
+        <span class="ib-label">HISTÓRICA</span>
+        <h4>Información histórica</h4>
+        <p>
+          Serie de precios pasados, volúmenes de negociación y rentabilidades históricas
+          del propio activo. Es la información más accesible: cualquier inversor puede
+          consultarla de forma gratuita. Ejemplos: gráfico de precios de los últimos
+          5 años, medias móviles, RSI.
+        </p>
+      </div>
+      <div class="info-box pub">
+        <span class="ib-label">PÚBLICA ACTUAL</span>
+        <h4>Información pública actual</h4>
+        <p>
+          Toda la información públicamente disponible en el momento presente: estados
+          financieros publicados, comunicados de resultados, anuncios de dividendos,
+          ratings de agencias, noticias de prensa, informes de analistas, datos
+          macroeconómicos publicados.
+        </p>
+      </div>
+      <div class="info-box priv">
+        <span class="ib-label">PRIVADA</span>
+        <h4>Información privada (insider)</h4>
+        <p>
+          Información no pública que solo poseen ciertos individuos con acceso privilegiado:
+          directivos de la empresa, miembros del consejo, auditores, asesores en una fusión.
+          Su uso para operar en mercados es <strong>ilegal</strong> (uso de información
+          privilegiada, regulado por MAR en la UE).
+        </p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Ilustración de los tipos de información</h3>
+      <p>
+        La empresa Iberia SA va a anunciar mañana que ha ganado el contrato de
+        mantenimiento de toda la flota de Air France. En este momento:<br><br>
+        — El <strong>precio histórico</strong> de la acción muestra una tendencia lateral
+        en los últimos 3 meses (información histórica).<br>
+        — Los analistas estiman un BPA de 1,20 € para este año (información pública).<br>
+        — El CEO ya sabe que han ganado el contrato (información privada).<br><br>
+        Si el CEO comprara acciones hoy usando esa información → <strong>insider trading</strong>
+        (ilegal, sancionado por la CNMV con multas de hasta el triple del beneficio obtenido).
+        Cuando mañana se publique el contrato → toda la información pasa a ser <strong>pública</strong>
+        y el precio debería ajustarse instantáneamente en un mercado eficiente.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. CARACTERÍSTICAS DE UN MERCADO EFICIENTE
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Características de un mercado eficiente</h2>
+    <p>
+      Para que un mercado pueda considerarse eficiente debe reunir un conjunto de
+      características que garanticen la libre formación del precio y la rápida incorporación
+      de información:
+    </p>
+
+    <div class="char-grid">
+      <div class="char-box">
+        <h4>🔍 Transparencia</h4>
+        <p>
+          Todos los participantes deben tener acceso a la misma información al mismo tiempo.
+          Las empresas cotizadas están obligadas a publicar información relevante de forma
+          inmediata (hechos relevantes, en España a través de la CNMV). Sin transparencia,
+          la asimetría informativa impide la eficiencia.
+        </p>
+      </div>
+      <div class="char-box">
+        <h4>📏 Amplitud</h4>
+        <p>
+          El mercado debe contar con un número suficiente de compradores y vendedores
+          para que ninguno de ellos tenga poder para mover el precio por sí solo.
+          Un mercado amplio (profundo) absorbe grandes órdenes sin distorsionar la cotización.
+        </p>
+      </div>
+      <div class="char-box">
+        <h4>🏗️ Homogeneidad</h4>
+        <p>
+          Los activos negociados deben ser homogéneos (fungibles), de forma que
+          una unidad sea perfectamente sustituible por otra. Esto permite comparar
+          precios sin ambigüedad. En acciones: cada acción ordinaria de una misma
+          clase confiere los mismos derechos.
+        </p>
+      </div>
+      <div class="char-box">
+        <h4>🚪 Libertad</h4>
+        <p>
+          Libre entrada y salida de participantes sin barreras artificiales.
+          Ausencia de restricciones regulatorias, arancelarias o contractuales que impidan
+          a cualquier agente comprar o vender. Los controles de capital o las restricciones
+          a inversores extranjeros reducen la eficiencia.
+        </p>
+      </div>
+      <div class="char-box">
+        <h4>⚡ Flexibilidad</h4>
+        <p>
+          Los precios deben poder ajustarse libremente y sin demora a la nueva información.
+          La existencia de límites de variación diaria (circuit breakers) o de controles
+          administrativos de precios reduce la flexibilidad y, por tanto, la eficiencia.
+        </p>
+      </div>
+      <div class="char-box">
+        <h4>⚓ Estabilidad</h4>
+        <p>
+          El mercado debe funcionar de forma ordenada, con mecanismos que prevengan
+          manipulaciones, pánicos irracionales y volatilidad exagerada. La estabilidad
+          no implica ausencia de movimientos de precios, sino que los movimientos
+          reflejan información y no manipulación.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>Ningún mercado real cumple al 100% las seis características.</strong>
+      Los mercados desarrollados (NYSE, Euronext, BME) se aproximan más; los mercados
+      emergentes presentan mayores ineficiencias (menor transparencia, menor liquidez,
+      mayores restricciones a la entrada).
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. CONSECUENCIAS DE LA EFICIENCIA
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Consecuencias de un mercado eficiente</h2>
+
+    <ul class="conseq-list">
+      <li>
+        <span class="icon">📈</span>
+        <div>
+          <strong>El precio es la mejor estimación del valor fundamental.</strong>
+          En todo momento el precio de mercado incorpora toda la información disponible
+          y representa la mejor estimación no sesgada del valor intrínseco del activo.
+          No existen activos sistemáticamente "infravalorados" o "sobrevalorados" de forma
+          detectable.
+        </div>
+      </li>
+      <li>
+        <span class="icon">🎲</span>
+        <div>
+          <strong>Los cambios de precio son impredecibles (random walk).</strong>
+          Puesto que los precios ya recogen toda la información, solo cambian ante
+          <em>nueva</em> información, que por definición es aleatoria e impredecible.
+          El precio sigue un "paseo aleatorio": P<sub>t</sub> = P<sub>t-1</sub> + ε<sub>t</sub>.
+        </div>
+      </li>
+      <li>
+        <span class="icon">🚫</span>
+        <div>
+          <strong>Nadie puede batir sistemáticamente al mercado.</strong>
+          Cualquier estrategia activa (selección de valores, market timing) generará en
+          promedio la misma rentabilidad que el mercado, antes de costes. Después de
+          comisiones, la gestión activa destruye valor en términos esperados.
+        </div>
+      </li>
+      <li>
+        <span class="icon">📊</span>
+        <div>
+          <strong>El análisis técnico y el fundamental quedan limitados.</strong>
+          El análisis técnico es inútil si el mercado es al menos débilmente eficiente
+          (los precios históricos ya están reflejados). El análisis fundamental es inútil
+          si el mercado es semifuertemente eficiente (toda la info pública ya está en el precio).
+        </div>
+      </li>
+      <li>
+        <span class="icon">💰</span>
+        <div>
+          <strong>La gestión pasiva (indexación) es óptima.</strong>
+          Si no se puede batir al mercado de forma consistente, la mejor estrategia es
+          replicar el mercado al menor coste posible mediante fondos indexados o ETF.
+          Esta es la recomendación práctica directa de la HME.
+        </div>
+      </li>
+      <li>
+        <span class="icon">⚖️</span>
+        <div>
+          <strong>Asignación eficiente de capital.</strong>
+          Los mercados eficientes dirigen el capital hacia los proyectos con mayor
+          rentabilidad ajustada al riesgo, cumpliendo así una función económica esencial
+          en la asignación de recursos escasos.
+        </div>
+      </li>
+    </ul>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Consecuencia de la eficiencia en la práctica</h3>
+      <p>
+        SPIVA Europe Scorecard (S&amp;P Dow Jones Indices, 2024): en el período de
+        <strong>10 años</strong> (2014–2024), el <strong>85%</strong> de los fondos de renta
+        variable europea de gestión activa no logró superar la rentabilidad del índice
+        S&amp;P Europe 350 en términos netos de comisiones.<br><br>
+        Interpretación: incluso si algunos gestores tienen información superior, los costes
+        de gestión activa (1,5–2% anual) eliminan cualquier alfa potencial para la mayoría.
+        Un fondo indexado al mismo índice con comisión de 0,10% habría superado a 8 de
+        cada 10 fondos activos en ese período.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Las consecuencias más preguntadas son: (1) los precios siguen un paseo aleatorio,
+        (2) nadie puede batir el mercado sistemáticamente, (3) la gestión pasiva es
+        preferible a la activa. El examen puede plantear situaciones concretas y pedir
+        qué implica la HME en ese caso.
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        El debate sobre la eficiencia de los mercados sigue vigente en 2026. La proliferación
+        de la inteligencia artificial en la gestión de carteras (quant funds, LLMs para
+        análisis de documentos) plantea si los mercados son ahora más eficientes que nunca
+        o si las estrategias algorítmicas crean nuevas ineficiencias. En Europa, la revisión
+        del reglamento MiFIR/MiFID II en 2024–2025 ha reforzado la obligación de
+        transparencia pre y post-negociación en renta variable, acercando los mercados
+        europeos al ideal de la HME.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Concepto</th><th>Definición / Clave</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Mercado eficiente</strong></td>
+            <td>El precio refleja en todo momento toda la información disponible</td>
+          </tr>
+          <tr>
+            <td><strong>Información histórica</strong></td>
+            <td>Precios y volúmenes pasados — base del análisis técnico</td>
+          </tr>
+          <tr>
+            <td><strong>Información pública</strong></td>
+            <td>Estados financieros, noticias, ratings — base del análisis fundamental</td>
+          </tr>
+          <tr>
+            <td><strong>Información privada</strong></td>
+            <td>No pública, solo accesible por insiders — su uso es ilegal (MAR)</td>
+          </tr>
+          <tr>
+            <td><strong>6 características</strong></td>
+            <td>Transparencia · Amplitud · Homogeneidad · Libertad · Flexibilidad · Estabilidad</td>
+          </tr>
+          <tr>
+            <td><strong>Consecuencia principal</strong></td>
+            <td>Nadie bate al mercado de forma sistemática → gestión pasiva óptima</td>
+          </tr>
+          <tr>
+            <td><strong>Random walk</strong></td>
+            <td>Cambios de precio impredecibles porque reflejan información nueva (aleatoria)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="../bloque-1/seccion-f.html" class="nav-btn">← B1·F: Hipótesis de normalidad</a>
+    <a href="seccion-b.html" class="nav-btn">B: Hipótesis de eficiencia →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Fama, E. F. (1970). «Efficient Capital Markets: A Review of Empirical Work».
+        <em>The Journal of Finance</em>, 25(2), 383–417.
+        <a href="https://doi.org/10.2307/2325486" target="_blank" rel="noopener">doi.org/10.2307/2325486</a>.
+        Artículo fundacional de la HME y clasificación en tres niveles.
+      </li>
+      <li id="fn2">
+        Fama, E. F. (1991). «Efficient Capital Markets: II».
+        <em>The Journal of Finance</em>, 46(5), 1575–1617.
+        <a href="https://doi.org/10.2307/2328565" target="_blank" rel="noopener">doi.org/10.2307/2328565</a>.
+        Revisión de la evidencia empírica 20 años después.
+      </li>
+      <li id="fn3">
+        S&amp;P Dow Jones Indices (2024). <em>SPIVA Europe Scorecard Year-End 2024</em>.
+        <a href="https://www.spglobal.com/spdji/en/spiva" target="_blank" rel="noopener">spglobal.com/spdji</a>.
+        Evidencia empírica del rendimiento de la gestión activa vs. índice en Europa.
+      </li>
+      <li id="fn4">
+        Reglamento (UE) 596/2014 del Parlamento Europeo sobre abuso de mercado (MAR).
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32014R0596" target="_blank" rel="noopener">eur-lex.europa.eu</a>.
+        Marco legal del uso de información privilegiada en la UE.
+      </li>
+      <li id="fn5">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 2 · Sección A,
+        pp. 46–47. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 2 · Sección A · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

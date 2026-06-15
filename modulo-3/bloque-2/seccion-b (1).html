@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B2 · Sección B — Hipótesis de eficiencia · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .level-stack {
+      position: relative;
+      margin: 1.5rem 0;
+    }
+    .level-card {
+      border-radius: 14px;
+      padding: 1.1rem 1.4rem;
+      margin-bottom: .6rem;
+      border: 2px solid transparent;
+    }
+    .level-card.strong {
+      background: var(--green-light);
+      border-color: var(--green);
+    }
+    .level-card.semi {
+      background: var(--amber-light);
+      border-color: var(--amber);
+    }
+    .level-card.weak {
+      background: var(--navy-light);
+      border-color: var(--navy);
+    }
+    .level-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: .75rem;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: .5rem;
+    }
+    .strong .level-badge { background: var(--green); color: #fff; }
+    .semi   .level-badge { background: var(--amber); color: #fff; }
+    .weak   .level-badge { background: var(--navy); color: #fff; }
+    .level-card h3 {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: var(--fs-base);
+      margin-bottom: .4rem;
+    }
+    .strong h3 { color: var(--green); }
+    .semi   h3 { color: var(--amber); }
+    .weak   h3 { color: var(--navy); }
+    .level-card p {
+      font-size: var(--fs-sm);
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0;
+    }
+    .level-card .info-incl {
+      margin-top: .6rem;
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      font-family: var(--font-ui);
+    }
+    .level-card .info-incl strong { color: var(--text); }
+
+    .sets-diagram {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1.2rem 1.4rem;
+      margin: 1rem 0;
+      font-family: var(--font-ui);
+      font-size: var(--fs-sm);
+    }
+    .sets-diagram .outer {
+      border: 2px solid var(--green);
+      border-radius: 12px;
+      padding: 1rem;
+      position: relative;
+    }
+    .sets-diagram .middle {
+      border: 2px solid var(--amber);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-top: .4rem;
+    }
+    .sets-diagram .inner {
+      border: 2px solid var(--navy);
+      border-radius: 8px;
+      padding: .8rem;
+      margin-top: .4rem;
+      text-align: center;
+    }
+    .sets-diagram .lbl {
+      font-weight: 800;
+      font-size: var(--fs-xs);
+    }
+    .lbl.g { color: var(--green); }
+    .lbl.a { color: var(--amber); }
+    .lbl.n { color: var(--navy); }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B2 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 2</a>
+    <span class="sep">›</span>
+    <span>Sección B</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 2 · Sección B · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Las hipótesis de eficiencia de los mercados</h1>
+    <p class="hero-sub">
+      Tres niveles de eficiencia · Eficiencia débil · Eficiencia semifuerte · Eficiencia fuerte ·
+      Información incorporada en cada nivel.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. LOS TRES NIVELES
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Los tres grados o niveles de eficiencia</h2>
+    <p class="sec-intro">
+      Fama (1970) distinguió tres formas o niveles de eficiencia de mercado según el
+      <strong>conjunto de información</strong> que queda reflejado en el precio. Cada nivel
+      es más exigente que el anterior: el nivel fuerte incluye al semifuerte, y este incluye
+      al débil. Se trata de una jerarquía de conjuntos anidados, no de tres categorías
+      independientes.
+    </p>
+
+    <div class="sets-diagram">
+      <div class="outer">
+        <span class="lbl g">EFICIENCIA FUERTE — toda la información (histórica + pública + privada)</span>
+        <div class="middle">
+          <span class="lbl a">EFICIENCIA SEMIFUERTE — información histórica + información pública actual</span>
+          <div class="inner">
+            <span class="lbl n">EFICIENCIA DÉBIL — solo información histórica (precios pasados)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>La jerarquía es acumulativa:</strong> si un mercado es eficiente en forma
+      fuerte, también lo es en forma semifuerte y débil. Si es semifuerte, también es débil.
+      Pero no al revés: un mercado puede ser débilmente eficiente sin ser semifuerte.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. EFICIENCIA DÉBIL
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Eficiencia en forma débil (<em>weak form</em>)</h2>
+
+    <div class="level-stack">
+      <div class="level-card weak">
+        <span class="level-badge">DÉBIL</span>
+        <h3>Los precios reflejan toda la información histórica sobre el propio activo</h3>
+        <p>
+          En un mercado débilmente eficiente, la serie de precios y volúmenes pasados
+          ya está completamente incorporada al precio actual. No es posible obtener
+          rentabilidades superiores al mercado de forma sistemática analizando únicamente
+          datos históricos de precios.
+        </p>
+        <div class="info-incl">
+          <strong>Información reflejada:</strong>
+          Precios históricos · Volúmenes de negociación · Rentabilidades pasadas · Datos de
+          apertura/cierre/máximo/mínimo · Cualquier dato derivado de la serie histórica
+          de precios.
+        </div>
+      </div>
+    </div>
+
+    <h3>Implicación directa</h3>
+    <p>
+      Si el mercado es débilmente eficiente, el <strong>análisis técnico</strong> es inútil:
+      estudiar gráficos, medias móviles, patrones de velas, RSI o MACD no permite predecir
+      los precios futuros porque toda esa información ya está descontada.
+    </p>
+
+    <h3>Test empírico de la eficiencia débil</h3>
+    <p>
+      El principal test es verificar si las rentabilidades siguen un <strong>paseo aleatorio</strong>
+      (los cambios de precio son independientes entre sí). Si la correlación serial entre
+      rentabilidades consecutivas es cero, el mercado es débilmente eficiente.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Test de autocorrelación (independencia serial)</span>
+      Corr(Rₜ, Rₜ₋ₖ) = 0   para todo k ≠ 0
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo — Test de eficiencia débil</h3>
+      <p>
+        Si la acción de Iberdrola subió un 2% esta semana, ¿sube o baja la semana
+        siguiente? En un mercado débilmente eficiente, el resultado de la semana pasada
+        no aporta ninguna información predictiva. Los datos empíricos en mercados
+        desarrollados (NYSE, Euronext) muestran correlaciones seriales cercanas a cero
+        para horizontes cortos (diario, semanal), lo que es consistente con la
+        eficiencia débil.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Eficiencia débil: precios históricos ya reflejados → análisis técnico inútil.
+        Si un mercado es débilmente eficiente, ¿qué tipo de análisis aún puede ser útil?
+        → El análisis fundamental (información pública que va más allá de los precios históricos).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. EFICIENCIA SEMIFUERTE
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Eficiencia en forma semifuerte (<em>semi-strong form</em>)</h2>
+
+    <div class="level-stack">
+      <div class="level-card semi">
+        <span class="level-badge">SEMIFUERTE</span>
+        <h3>Los precios reflejan toda la información públicamente disponible</h3>
+        <p>
+          En un mercado semifuertemente eficiente, los precios incorporan no solo la
+          historia pasada del activo sino también <em>toda</em> la información pública
+          disponible: informes de resultados, anuncios de dividendos, calificaciones
+          crediticias, datos macroeconómicos, noticias. Cualquier información accesible
+          al público en general queda reflejada instantáneamente en el precio.
+        </p>
+        <div class="info-incl">
+          <strong>Información reflejada (además de la histórica):</strong>
+          Cuentas anuales y trimestrales · Hechos relevantes comunicados a la CNMV ·
+          Anuncios de fusiones y adquisiciones · Ratings de agencias · Datos de PIB,
+          inflación, tipos · Informes de analistas · Noticias de prensa.
+        </div>
+      </div>
+    </div>
+
+    <h3>Implicación directa</h3>
+    <p>
+      Si el mercado es semifuertemente eficiente, el <strong>análisis fundamental</strong>
+      es inútil para obtener rentabilidades superiores: toda la información de los estados
+      financieros, ratios y valoraciones ya está incorporada al precio cuando es publicada.
+      El precio reacciona <em>instantáneamente</em> a los anuncios; quien compra después
+      del anuncio ya paga el nuevo precio ajustado.
+    </p>
+
+    <h3>Tests empíricos: estudios de evento</h3>
+    <p>
+      La evidencia de la eficiencia semifuerte se estudia mediante <strong>estudios de evento</strong>
+      (<em>event studies</em>): se mide si los precios se ajustan completa e instantáneamente
+      a un anuncio o si hay rentabilidades anormales persistentes tras el evento.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo — Reacción de precio a un anuncio de resultados</h3>
+      <p>
+        Telefónica publica resultados que superan las estimaciones de consenso en un 15%.
+        En un mercado semifuertemente eficiente:<br><br>
+        — La acción sube bruscamente en los primeros minutos de la sesión tras el anuncio.<br>
+        — En los días siguientes, no hay rentabilidad anormal adicional (el ajuste fue completo).<br>
+        — Un inversor que compre <em>después</em> del anuncio no obtiene rentabilidad superior
+        al mercado.<br><br>
+        En mercados con menor eficiencia (algunos emergentes), puede observarse
+        <em>post-earnings drift</em>: la acción sigue ajustándose días después del anuncio,
+        indicando que el precio no se ajustó de forma instantánea.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. EFICIENCIA FUERTE
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Eficiencia en forma fuerte (<em>strong form</em>)</h2>
+
+    <div class="level-stack">
+      <div class="level-card strong">
+        <span class="level-badge">FUERTE</span>
+        <h3>Los precios reflejan toda la información existente, pública y privada</h3>
+        <p>
+          En un mercado fuertemente eficiente, incluso la información <em>no pública</em>
+          (información privilegiada, datos internos de las empresas, conocimiento privado
+          de directivos o insiders) ya estaría reflejada en el precio. Ni siquiera quienes
+          disponen de información confidencial podrían obtener rentabilidades superiores.
+        </p>
+        <div class="info-incl">
+          <strong>Información reflejada (además de histórica y pública):</strong>
+          Información no publicada de directivos · Planes estratégicos confidenciales ·
+          Datos privados de transacciones · Cualquier información interna de la empresa
+          o del mercado no accesible al público.
+        </div>
+      </div>
+    </div>
+
+    <h3>¿Es posible la eficiencia fuerte?</h3>
+    <p>
+      La eficiencia fuerte es la hipótesis más exigente y la que menos evidencia empírica
+      tiene a su favor. De hecho, la existencia de normativa contra el <strong>uso de
+      información privilegiada</strong> (MAR en la UE, SEC Rule 10b-5 en EE.UU.) presupone
+      implícitamente que los insiders <em>sí</em> pueden obtener ventajas informativas,
+      lo que contradice la eficiencia fuerte.
+    </p>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Evidencia en contra de la eficiencia fuerte</h4>
+        <p>
+          Estudios de operaciones de insiders muestran que las compras de directivos
+          antes de buenas noticias generan rentabilidades anormales positivas. Si el mercado
+          fuera fuertemente eficiente, esto no sería posible.
+        </p>
+      </div>
+      <div class="vs-box right">
+        <h4>Mercados que se aproximan a la eficiencia fuerte</h4>
+        <p>
+          Algunos mercados de futuros sobre materias primas homogéneas con muchos
+          participantes informados pueden aproximarse a este ideal. También algunos
+          mercados de derivados líquidos con participantes muy sofisticados.
+        </p>
+      </div>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        La eficiencia fuerte implica que incluso los insiders no pueden batir al mercado.
+        Es la forma más exigente. En la práctica, los mercados reales no son fuertemente
+        eficientes — de ahí que exista regulación contra el uso de información privilegiada.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN COMPARATIVO -->
+  <div class="sec">
+    <h2>Resumen comparativo de los tres niveles</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Nivel</th>
+            <th>Información reflejada</th>
+            <th>¿Qué no funciona?</th>
+            <th>¿Qué aún puede funcionar?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Débil</strong></td>
+            <td>Solo datos históricos de precios</td>
+            <td>Análisis técnico</td>
+            <td>Análisis fundamental; información privada</td>
+          </tr>
+          <tr>
+            <td><strong>Semifuerte</strong></td>
+            <td>Histórica + toda información pública</td>
+            <td>Análisis técnico + fundamental</td>
+            <td>Solo información privada (insider)</td>
+          </tr>
+          <tr>
+            <td><strong>Fuerte</strong></td>
+            <td>Histórica + pública + privada</td>
+            <td>Toda estrategia activa, incluido insider</td>
+            <td>Nada → gestión pasiva</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-a.html" class="nav-btn">← A: Concepto de eficiencia</a>
+    <a href="seccion-c.html" class="nav-btn">C: Consecuencias y anomalías →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Fama, E. F. (1970). «Efficient Capital Markets: A Review of Empirical Work».
+        <em>The Journal of Finance</em>, 25(2), 383–417.
+        <a href="https://doi.org/10.2307/2325486" target="_blank" rel="noopener">doi.org/10.2307/2325486</a>.
+        Clasificación original en forma débil, semifuerte y fuerte.
+      </li>
+      <li id="fn2">
+        Ball, R. &amp; Brown, P. (1968). «An Empirical Evaluation of Accounting Income Numbers».
+        <em>Journal of Accounting Research</em>, 6(2), 159–178.
+        <a href="https://doi.org/10.2307/2490232" target="_blank" rel="noopener">doi.org/10.2307/2490232</a>.
+        Evidencia seminal del ajuste de precios a anuncios de resultados (event study).
+      </li>
+      <li id="fn3">
+        Reglamento (UE) 596/2014 del Parlamento Europeo, Market Abuse Regulation (MAR).
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32014R0596" target="_blank" rel="noopener">eur-lex.europa.eu</a>.
+        Regulación de insider trading en la UE, evidencia indirecta contra la eficiencia fuerte.
+      </li>
+      <li id="fn4">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 2 · Sección B,
+        pp. 47–48. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 2 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

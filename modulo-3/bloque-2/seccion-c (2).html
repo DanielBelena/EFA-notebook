@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B2 · Sección C — Consecuencias y anomalías · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .strategy-block {
+      border-radius: 14px;
+      padding: 1.1rem 1.4rem;
+      margin-bottom: .8rem;
+      border-left: 5px solid transparent;
+    }
+    .strategy-block.inef  { border-color: var(--amber); background: var(--amber-light); }
+    .strategy-block.weak  { border-color: var(--navy);  background: var(--navy-light); }
+    .strategy-block.semi  { border-color: #d97706;      background: #fef3c7; }
+    .strategy-block.strong{ border-color: var(--green); background: var(--green-light); }
+
+    .strategy-block .sb-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: .72rem;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-bottom: .5rem;
+      color: #fff;
+    }
+    .inef  .sb-badge { background: var(--amber); }
+    .weak  .sb-badge { background: var(--navy); }
+    .semi  .sb-badge { background: #d97706; }
+    .strong .sb-badge { background: var(--green); }
+
+    .strategy-block h3 {
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: var(--fs-base);
+      margin-bottom: .4rem;
+    }
+    .inef  h3 { color: var(--amber); }
+    .weak  h3 { color: var(--navy); }
+    .semi  h3 { color: #d97706; }
+    .strong h3 { color: var(--green); }
+    .strategy-block p, .strategy-block li {
+      font-size: var(--fs-sm);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .strategy-block ul { padding-left: 1.3rem; margin: .4rem 0 0; }
+
+    .anomaly-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .anomaly-grid { grid-template-columns: 1fr; } }
+
+    .anomaly-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+    }
+    .anomaly-box .an-type {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: .68rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-bottom: .4rem;
+      background: var(--navy-light);
+      color: var(--navy);
+    }
+    .anomaly-box h4 {
+      font-family: var(--font-ui);
+      font-weight: 800;
+      font-size: var(--fs-sm);
+      color: var(--navy);
+      margin-bottom: .3rem;
+    }
+    .anomaly-box p {
+      font-size: var(--fs-xs);
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B2 · C</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 2</a>
+    <span class="sep">›</span>
+    <span>Sección C</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 2 · Sección C · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Consecuencias de la eficiencia y anomalías de mercado</h1>
+    <p class="hero-sub">
+      Técnicas según el nivel de eficiencia · Comportamiento aleatorio de los precios ·
+      Anomalías de calendario y estructurales · Explicaciones conductuales.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. TÉCNICAS SEGÚN NIVEL DE EFICIENCIA
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. ¿Qué técnicas usar según el nivel de eficiencia del mercado?</h2>
+    <p class="sec-intro">
+      Las implicaciones de la HME para la gestión de carteras son directas: el tipo de
+      análisis útil depende del nivel de eficiencia que se atribuye al mercado. Cuanto más
+      eficiente es el mercado, menos valor añade cualquier estrategia activa.
+    </p>
+
+    <div class="strategy-block inef">
+      <span class="sb-badge">MERCADO INEFICIENTE</span>
+      <h3>Todo tipo de análisis puede ser útil</h3>
+      <p>
+        Cuando el mercado es ineficiente, los precios no reflejan correctamente la información
+        disponible. Existen activos sistemáticamente mal valorados que pueden identificarse
+        y explotarse. En este contexto:
+      </p>
+      <ul>
+        <li><strong>Análisis técnico:</strong> los patrones de precios pueden repetirse y ser predictivos porque el mercado no los corrige instantáneamente.</li>
+        <li><strong>Análisis fundamental:</strong> hay activos infravalorados o sobrevalorados respecto a su valor intrínseco, detectable mediante análisis de estados financieros.</li>
+        <li><strong>Análisis de información privada:</strong> quien tenga información que el mercado no ha incorporado puede obtener una ventaja sistemática (aunque puede ser ilegal).</li>
+      </ul>
+    </div>
+
+    <div class="strategy-block weak">
+      <span class="sb-badge">EFICIENCIA DÉBIL</span>
+      <h3>El análisis técnico es inútil; el fundamental puede aportar valor</h3>
+      <p>
+        Los precios históricos ya están incorporados al precio actual. Buscar patrones
+        gráficos o usar medias móviles no permite generar alpha de forma sistemática.
+        Sin embargo, la información pública aún <em>no</em> está completamente reflejada,
+        por lo que:
+      </p>
+      <ul>
+        <li><strong>Análisis técnico:</strong> ❌ inútil — los precios pasados no predicen los futuros.</li>
+        <li><strong>Análisis fundamental:</strong> ✅ puede generar alpha — si el análisis de balances o de perspectivas del negocio identifica valor no incorporado al precio.</li>
+        <li><strong>Información privada:</strong> ✅ puede generar alpha (pero es ilegal si es insider).</li>
+      </ul>
+    </div>
+
+    <div class="strategy-block semi">
+      <span class="sb-badge">EFICIENCIA SEMIFUERTE</span>
+      <h3>Solo la información privada puede generar alpha</h3>
+      <p>
+        Toda la información pública (histórica y actual) ya está en el precio. El análisis
+        técnico y el fundamental quedan eliminados como fuentes de alpha sistemático.
+        Solo quien disponga de información no pública puede obtener rentabilidades superiores:
+      </p>
+      <ul>
+        <li><strong>Análisis técnico:</strong> ❌ inútil.</li>
+        <li><strong>Análisis fundamental:</strong> ❌ inútil — la información de balances ya está reflejada en el precio antes de que el inversor pueda actuar.</li>
+        <li><strong>Información privada:</strong> ✅ única fuente de alpha — pero su uso es ilegal (insider trading).</li>
+        <li><strong>Estrategia recomendada:</strong> gestión pasiva (indexación) para obtener la rentabilidad del mercado al mínimo coste.</li>
+      </ul>
+    </div>
+
+    <div class="strategy-block strong">
+      <span class="sb-badge">EFICIENCIA FUERTE</span>
+      <h3>Ningún análisis puede generar alpha: gestión pasiva es la única opción racional</h3>
+      <p>
+        Si incluso la información privada ya está reflejada en el precio, ninguna estrategia
+        activa puede batir al mercado de forma sistemática. La única actuación racional es:
+      </p>
+      <ul>
+        <li><strong>Gestión pasiva:</strong> ✅ replicar el índice de mercado al menor coste posible (ETF, fondos indexados).</li>
+        <li><strong>Diversificación máxima:</strong> ✅ mantener una cartera diversificada que refleje el mercado global.</li>
+        <li><strong>Minimización de costes:</strong> ✅ cada euro de comisión reduce directamente la rentabilidad neta, que es lo único controlable.</li>
+        <li><strong>Análisis técnico y fundamental:</strong> ❌ ambos inútiles.</li>
+        <li><strong>Información privilegiada:</strong> ❌ ya en precio (además de ilegal).</li>
+      </ul>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — El coste de la gestión activa en un mercado eficiente</h3>
+      <p>
+        Supongamos que el mercado es semifuertemente eficiente y el índice rinde un
+        <strong>8% anual</strong>.<br><br>
+        — Fondo indexado (comisión: 0,10%): rentabilidad neta = <strong>7,90%</strong><br>
+        — Fondo activo (comisión: 1,80%, alfa = 0): rentabilidad neta = <strong>6,20%</strong><br>
+        — Diferencia acumulada en 20 años sobre 100.000€:<br>
+        &nbsp;&nbsp;Indexado: 100.000 × (1,079)²⁰ = <strong>~455.000€</strong><br>
+        &nbsp;&nbsp;Activo:   100.000 × (1,062)²⁰ = <strong>~333.000€</strong><br>
+        &nbsp;&nbsp;Coste de la gestión activa (si alfa = 0): <strong>~122.000€</strong> en 20 años.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Tabla de qué técnica es útil a cada nivel de eficiencia. El examen puede plantear:
+        «En un mercado semifuertemente eficiente, ¿qué tipo de análisis puede generar
+        rentabilidades superiores?» → Solo la información privada (insider) — que además
+        es ilegal. La respuesta práctica: ninguna estrategia activa legal es útil.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. COMPORTAMIENTO ALEATORIO DE LOS PRECIOS (EFICIENCIA FUERTE)
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Consecuencia en los precios: el paseo aleatorio</h2>
+    <p>
+      Si los mercados son eficientes en forma fuerte, los precios incorporan en todo
+      momento toda la información existente. Cualquier cambio de precio futuro solo puede
+      deberse a <strong>nueva información</strong>, que por definición es imprevisible
+      (si fuera previsible, ya estaría reflejada en el precio actual). Esto implica que
+      los cambios de precio siguen un <strong>paseo aleatorio</strong> (<em>random walk</em>).
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Modelo de paseo aleatorio (random walk)</span>
+      P<sub>t</sub> = P<sub>t−1</sub> + ε<sub>t</sub>
+    </div>
+
+    <div class="callout info">
+      <strong>ε<sub>t</sub> es un término de ruido blanco:</strong> tiene media cero,
+      varianza constante, y es independiente de cualquier información pasada.
+      No puede predecirse a partir de precios históricos ni de ninguna información
+      disponible en t−1.
+    </div>
+
+    <h3>Implicaciones del random walk</h3>
+    <ul style="font-size:var(--fs-sm);line-height:1.8;padding-left:1.3rem;">
+      <li>El mejor pronóstico del precio de mañana es el precio de hoy.</li>
+      <li>Los gráficos de precios pasados no contienen información útil para predecir.</li>
+      <li>Las rachas alcistas o bajistas no indican que continuarán (<em>gambler's fallacy</em>).</li>
+      <li>No hay "momentum" explotable de forma sistemática en un mercado fuertemente eficiente.</li>
+    </ul>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo — Random walk vs. predicción</h3>
+      <p>
+        El IBEX ha subido 5 días consecutivos un 1% diario. ¿Qué predice el random walk?<br><br>
+        → El precio de mañana es el precio de hoy ± ε. La racha pasada no aporta
+        información sobre la dirección futura. La probabilidad de subir mañana es la
+        misma que la de bajar (o cualquier otra dirección según la distribución de ε).<br><br>
+        Conclusión: un analista técnico que vea «impulso alcista» en el gráfico y compre
+        esperando que continúe no tiene ventaja sobre alguien que lanzara una moneda.
+        Esta es la predicción más radical de la HME fuerte.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. ANOMALÍAS DE MERCADO
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Anomalías de mercado comunes</h2>
+    <p>
+      A pesar de la evidencia general a favor de la HME (especialmente en su forma débil
+      y semifuerte), los investigadores han documentado patrones sistemáticos en los
+      rendimientos que parecen contradecirla. Estas regularidades se denominan
+      <strong>anomalías de mercado</strong>. Su existencia no invalida necesariamente la
+      HME — pueden deberse a errores de medición, costes de transacción o compensación
+      por riesgo no capturado — pero han generado un intenso debate académico.
+    </p>
+
+    <h3>Anomalías de calendario</h3>
+
+    <div class="anomaly-grid">
+      <div class="anomaly-box">
+        <span class="an-type">CALENDARIO</span>
+        <h4>Efecto enero (January effect)</h4>
+        <p>
+          Las acciones de pequeña capitalización tienden a obtener rentabilidades
+          anormalmente altas en enero, especialmente en las primeras semanas. Se atribuye
+          a la venta de activos en diciembre para materializar pérdidas fiscales (<em>tax-loss
+          harvesting</em>) y la recompra en enero, creando una demanda artificial.
+          El efecto ha tendido a debilitarse desde su documentación (Rozeff &amp; Kinney, 1976).
+        </p>
+      </div>
+      <div class="anomaly-box">
+        <span class="an-type">CALENDARIO</span>
+        <h4>Efecto fin de año / fin de ejercicio</h4>
+        <p>
+          Similar al efecto enero pero más amplio: los gestores de fondos tienden a
+          «adornar sus carteras» (<em>window dressing</em>) en los últimos días del ejercicio
+          comprando valores ganadores y vendiendo perdedores para presentar mejores
+          carteras en los informes anuales. Esto puede generar presión al alza en diciembre
+          y al inicio del año nuevo.
+        </p>
+      </div>
+      <div class="anomaly-box">
+        <span class="an-type">CALENDARIO</span>
+        <h4>Efecto fin de semana (weekend effect)</h4>
+        <p>
+          La rentabilidad media del lunes tiende a ser negativa o inferior a la del resto
+          de la semana, mientras que la del viernes tiende a ser la más alta. Se documentó
+          inicialmente por French (1980). Una hipótesis explicativa: las malas noticias
+          corporativas se publican los viernes al cierre o durante el fin de semana,
+          cuando no se puede operar, generando ventas el lunes.
+        </p>
+      </div>
+      <div class="anomaly-box">
+        <span class="an-type">CALENDARIO</span>
+        <h4>Efecto vacaciones (holiday effect)</h4>
+        <p>
+          Los días previos a festivos importantes (Navidad, Año Nuevo, Semana Santa)
+          suelen presentar rentabilidades anormalmente positivas. Se atribuye al buen humor
+          de los inversores, a la menor negociación y a la ausencia de malas noticias
+          institucionales en esos períodos. El efecto es modesto y ha disminuido con
+          la mayor automatización del mercado.
+        </p>
+      </div>
+      <div class="anomaly-box">
+        <span class="an-type">CALENDARIO</span>
+        <h4>Efecto "Sell in May" (<em>sell in May and go away</em>)</h4>
+        <p>
+          Patrón histórico según el cual los mercados de renta variable tienden a hacerlo
+          mejor en el período noviembre–abril que en mayo–octubre. Documentado en múltiples
+          mercados, aunque inconsistente y con importantes excepciones. No ofrece una
+          rentabilidad ajustada al riesgo superior una vez descontados costes de transacción.
+        </p>
+      </div>
+      <div class="anomaly-box">
+        <span class="an-type">CALENDARIO</span>
+        <h4>Efecto día del mes</h4>
+        <p>
+          Los primeros y últimos días de cada mes presentan rentabilidades medias algo
+          superiores a los días intermedios. Se relaciona con los flujos de inversión
+          periódica (aportaciones a planes de pensiones y fondos a principio de mes)
+          y con el ajuste de posiciones al cierre de mes por parte de gestores institucionales.
+        </p>
+      </div>
+    </div>
+
+    <h3>Anomalías estructurales</h3>
+
+    <div class="anomaly-grid">
+      <div class="anomaly-box">
+        <span class="an-type">ESTRUCTURAL</span>
+        <h4>Efecto tamaño (<em>size effect</em>)</h4>
+        <p>
+          Las empresas de pequeña capitalización (<em>small caps</em>) tienden a
+          ofrecer rentabilidades superiores ajustadas por beta que las grandes empresas
+          (<em>large caps</em>). Documentado por Banz (1981). El modelo de tres factores
+          de Fama-French incluye el factor SMB (<em>Small Minus Big</em>) para capturar
+          este efecto, interpretándolo como compensación por mayor riesgo de liquidez.
+        </p>
+      </div>
+      <div class="anomaly-box">
+        <span class="an-type">ESTRUCTURAL</span>
+        <h4>Efecto valor (<em>value effect</em>)</h4>
+        <p>
+          Las acciones con bajo ratio precio/valor contable (<em>value stocks</em>) tienden
+          a superar a largo plazo a las acciones de crecimiento (<em>growth stocks</em>).
+          Documentado por Fama &amp; French (1992). Factor HML (<em>High Minus Low</em>)
+          en el modelo de tres factores. Debate abierto: ¿ineficiencia o compensación
+          por riesgo de distress?
+        </p>
+      </div>
+      <div class="anomaly-box">
+        <span class="an-type">ESTRUCTURAL</span>
+        <h4>Efecto momentum</h4>
+        <p>
+          Las acciones con mejores rentabilidades en los últimos 3–12 meses tienden a
+          seguir haciéndolo bien en los siguientes meses (Jegadeesh &amp; Titman, 1993).
+          Contradice directamente la HME incluso en forma débil. Incluido como cuarto
+          factor en el modelo Carhart. Se atribuye a sesgos conductuales (infrareacción
+          a la información).
+        </p>
+      </div>
+      <div class="anomaly-box">
+        <span class="an-type">CONDUCTUAL</span>
+        <h4>Efecto control (<em>neglected firm effect</em>)</h4>
+        <p>
+          Las empresas poco seguidas por analistas (<em>neglected firms</em>) tienden
+          a ofrecer rentabilidades superiores a las muy seguidas. La menor cobertura
+          analítica puede dejar información sin incorporar al precio, creando oportunidades
+          para inversores dispuestos a investigar activos fuera del radar institucional.
+        </p>
+      </div>
+    </div>
+
+    <h3>¿Las anomalías refutan la HME?</h3>
+    <p>
+      La interpretación de las anomalías es objeto de debate. Existen tres grandes
+      explicaciones:
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Explicación</th><th>Argumento</th><th>Implicación</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Compensación por riesgo</strong></td>
+            <td>Las anomalías reflejan riesgos no capturados por el CAPM; no son alpha real</td>
+            <td>La HME no queda refutada; el modelo de riesgo es incompleto</td>
+          </tr>
+          <tr>
+            <td><strong>Data mining</strong></td>
+            <td>Con suficientes datos y pruebas, siempre se encuentran patrones por azar</td>
+            <td>Las anomalías pueden no ser reproducibles fuera de la muestra</td>
+          </tr>
+          <tr>
+            <td><strong>Ineficiencia real</strong></td>
+            <td>Los sesgos conductuales (exceso de confianza, infrareacción) crean patrones explotables</td>
+            <td>La HME queda parcialmente refutada; finanzas conductuales como alternativa</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout info">
+      <strong>El paradox de la eficiencia (Grossman &amp; Stiglitz, 1980):</strong>
+      si los mercados fueran perfectamente eficientes, nadie tendría incentivo para
+      gastar recursos en análisis. Sin inversores activos que busquen información,
+      los precios dejarían de ser eficientes. La eficiencia requiere que haya suficiente
+      actividad de búsqueda de información para mantenerse — lo que implica que algunos
+      inversores activos deben obtener rentabilidades ajustadas que compensen sus costes.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Las anomalías más preguntadas son el efecto enero, el efecto fin de semana y el
+        efecto tamaño. Puede pedirse: ¿qué anomalía contradice más directamente la HME débil?
+        → El efecto momentum (los precios pasados predicen los futuros).
+        ¿Cuál contradice la HME semifuerte? → El post-earnings drift (los precios no se
+        ajustan instantáneamente a los anuncios de resultados).
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        En el primer semestre de 2026, el "efecto momentum" en renta variable europea
+        ha sido particularmente pronunciado: los sectores de defensa y tecnología
+        (líderes en 2025) han continuado siendo los de mayor rentabilidad en 2026,
+        con el IBEX marcando máximos históricos en febrero. Algunos académicos
+        interpretan esto como una anomalía persistente; otros lo atribuyen a que los
+        flujos de inversión institucional (fondos de pensiones europeos reasignando
+        capital hacia defensa) crean persistencia legítima, no explotable de antemano.
+        La creciente presencia de algoritmos de alta frecuencia (<em>HFT</em>) ha reducido
+        otras anomalías (como el efecto fin de semana) al hacerlas instantáneamente
+        arbitrables.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Nivel de eficiencia</th><th>Técnica útil</th><th>Técnica inútil</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Ineficiente</strong></td>
+            <td>Técnico + Fundamental + Privada</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>Débil</strong></td>
+            <td>Fundamental + Privada</td>
+            <td>Análisis técnico</td>
+          </tr>
+          <tr>
+            <td><strong>Semifuerte</strong></td>
+            <td>Solo privada (ilegal)</td>
+            <td>Técnico + Fundamental</td>
+          </tr>
+          <tr>
+            <td><strong>Fuerte</strong></td>
+            <td>Gestión pasiva</td>
+            <td>Técnico + Fundamental + Privada</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-wrap" style="margin-top:1rem;">
+      <table>
+        <thead>
+          <tr><th>Anomalía</th><th>Descripción</th><th>Posible explicación</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Efecto enero</strong></td><td>Rentabilidades anormales en enero para small caps</td><td>Tax-loss harvesting en diciembre</td></tr>
+          <tr><td><strong>Efecto fin de ejercicio</strong></td><td>Window dressing de gestores en diciembre</td><td>Incentivos de presentación de carteras</td></tr>
+          <tr><td><strong>Efecto fin de semana</strong></td><td>Lunes negativo, viernes positivo</td><td>Publicación de malas noticias en fin de semana</td></tr>
+          <tr><td><strong>Efecto vacaciones</strong></td><td>Días previos a festivos: rentabilidades altas</td><td>Sesgo de humor positivo / menor volumen</td></tr>
+          <tr><td><strong>Efecto tamaño</strong></td><td>Small caps > large caps ajustado por beta</td><td>Prima de liquidez / riesgo no capturado</td></tr>
+          <tr><td><strong>Efecto valor</strong></td><td>Value stocks > growth stocks a largo plazo</td><td>Riesgo de distress / infravaloración conductual</td></tr>
+          <tr><td><strong>Efecto momentum</strong></td><td>Ganadores siguen ganando (3–12m)</td><td>Infrareacción del mercado / sesgo conductual</td></tr>
+          <tr><td><strong>Efecto control</strong></td><td>Empresas poco seguidas supera a muy seguidas</td><td>Menor cobertura analítica → más ineficiencia</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-b.html" class="nav-btn">← B: Hipótesis de eficiencia</a>
+    <a href="../bloque-3/seccion-a.html" class="nav-btn">Bloque 3 · A: Markowitz →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Fama, E. F. (1970). «Efficient Capital Markets: A Review of Empirical Work».
+        <em>The Journal of Finance</em>, 25(2), 383–417.
+        <a href="https://doi.org/10.2307/2325486" target="_blank" rel="noopener">doi.org/10.2307/2325486</a>.
+      </li>
+      <li id="fn2">
+        French, K. R. (1980). «Stock Returns and the Weekend Effect».
+        <em>Journal of Financial Economics</em>, 8(1), 55–69.
+        <a href="https://doi.org/10.1016/0304-405X(80)90021-5" target="_blank" rel="noopener">doi.org/10.1016/0304-405X(80)90021-5</a>.
+        Documentación del efecto fin de semana.
+      </li>
+      <li id="fn3">
+        Rozeff, M. S. &amp; Kinney, W. R. (1976). «Capital Market Seasonality: The Case of Stock Returns».
+        <em>Journal of Financial Economics</em>, 3(4), 379–402.
+        <a href="https://doi.org/10.1016/0304-405X(76)90028-3" target="_blank" rel="noopener">doi.org/10.1016/0304-405X(76)90028-3</a>.
+        Documentación del efecto enero.
+      </li>
+      <li id="fn4">
+        Jegadeesh, N. &amp; Titman, S. (1993). «Returns to Buying Winners and Selling Losers».
+        <em>The Journal of Finance</em>, 48(1), 65–91.
+        <a href="https://doi.org/10.2307/2328882" target="_blank" rel="noopener">doi.org/10.2307/2328882</a>.
+        Documentación del efecto momentum.
+      </li>
+      <li id="fn5">
+        Grossman, S. J. &amp; Stiglitz, J. E. (1980). «On the Impossibility of Informationally
+        Efficient Markets». <em>The American Economic Review</em>, 70(3), 393–408.
+        <a href="https://www.jstor.org/stable/1805228" target="_blank" rel="noopener">jstor.org/stable/1805228</a>.
+        Paradoja de la eficiencia perfecta.
+      </li>
+      <li id="fn6">
+        Fama, E. F. &amp; French, K. R. (1992). «The Cross-Section of Expected Stock Returns».
+        <em>The Journal of Finance</em>, 47(2), 427–465.
+        <a href="https://doi.org/10.2307/2329112" target="_blank" rel="noopener">doi.org/10.2307/2329112</a>.
+        Efecto tamaño y efecto valor; modelo de tres factores.
+      </li>
+      <li id="fn7">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 2 · Sección C,
+        pp. 48–49. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 2 · Sección C · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
