@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B6 · Sección B — Normas GIPS · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .obj-list {
+      counter-reset: obj;
+      list-style: none;
+      padding: 0;
+      margin: .8rem 0;
+    }
+    .obj-list li {
+      counter-increment: obj;
+      display: flex;
+      gap: .8rem;
+      padding: .65rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: var(--fs-sm);
+      line-height: 1.7;
+    }
+    .obj-list li:last-child { border-bottom: none; }
+    .obj-list li::before {
+      content: counter(obj);
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: .75rem;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 50%;
+      width: 1.4rem;
+      height: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+
+    .timeline-viz {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+
+    .deceptive-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .deceptive-grid { grid-template-columns: 1fr; } }
+    .deceptive-box {
+      background: #fee2e2;
+      border-left: 4px solid #dc2626;
+      border-radius: 0 10px 10px 0;
+      padding: .8rem 1rem;
+    }
+    .deceptive-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: #dc2626; margin-bottom: .3rem; }
+    .deceptive-box p { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.6; margin: 0; }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .content-grid { grid-template-columns: 1fr; } }
+    .content-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+    }
+    .content-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .3rem; }
+    .content-box p { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.65; margin: 0; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B6 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 6</a>
+    <span class="sep">›</span>
+    <span>Sección B</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 6 · Sección B · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Normas internacionales GIPS</h1>
+    <p class="hero-sub">
+      Global Investment Performance Standards · Objetivo · Alcance ·
+      Contenido y estructura de las normas.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. QUÉ SON LAS NORMAS GIPS
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. ¿Qué son las normas GIPS?</h2>
+    <p class="sec-intro">
+      Las <strong>GIPS</strong> (Global Investment Performance Standards) son un conjunto
+      de estándares éticos voluntarios, desarrollados y mantenidos por <strong>CFA
+      Institute</strong>, para el cálculo y la presentación del rendimiento de las
+      inversiones gestionadas por una firma. Las normas GIPS son estándares éticos para calcular y presentar el rendimiento de las inversiones, diseñados para garantizar
+      que los inversores reciben información comparable, completa y no engañosa sobre
+      los resultados históricos de cualquier gestor que las adopte.
+    </p>
+    <div class="callout info">
+      Las primeras normas GIPS se publicaron en 1999, evolucionando posteriormente
+      hacia un marco global único en 2005 y revisiones sucesivas en 2010 y 2020, que es
+      la versión actualmente vigente.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. OBJETIVO DE LAS NORMAS GIPS
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Objetivo de las normas GIPS</h2>
+    <p>
+      Los objetivos de las normas GIPS son: promover los intereses de los inversores e instaurar confianza en ellos; garantizar datos precisos y consistentes; lograr la aceptación mundial de un único estándar para calcular y presentar el rendimiento; y promover una competencia global justa entre las firmas de inversión. A estos se añade un quinto objetivo recogido en versiones posteriores del estándar: promover la autorregulación de la industria a escala global.
+    </p>
+
+    <ul class="obj-list">
+      <li><div><strong>Promover los intereses de los inversores e instaurar confianza:</strong> garantizar que el inversor puede confiar en que el rendimiento presentado refleja fielmente la gestión real de la firma.</div></li>
+      <li><div><strong>Garantizar datos precisos y consistentes:</strong> establecer reglas de cálculo uniformes para que la rentabilidad publicada sea comparable entre firmas y períodos.</div></li>
+      <li><div><strong>Lograr la aceptación mundial de un único estándar:</strong> eliminar la fragmentación de metodologías nacionales o particulares de cada gestora, facilitando comparaciones internacionales.</div></li>
+      <li><div><strong>Promover una competencia global justa:</strong> impedir que algunas firmas obtengan ventaja competitiva presentando datos de rendimiento manipulados o sesgados.</div></li>
+      <li><div><strong>Promover la autorregulación de la industria:</strong> ofrecer un marco voluntario de buenas prácticas que reduzca la necesidad de regulación impuesta externamente.</div></li>
+    </ul>
+
+    <h3>Prácticas engañosas que GIPS busca eliminar</h3>
+    <p>
+      Las normas GIPS están diseñadas para promover la honestidad y la precisión en la presentación de resultados de inversión, buscando eliminar prácticas engañosas como las siguientes:
+    </p>
+
+    <div class="deceptive-grid">
+      <div class="deceptive-box">
+        <h4>Tergiversación de la experiencia</h4>
+        <p>Presentar la rentabilidad de las mejores carteras como si representara la experiencia de la firma en una estrategia o estilo determinado, cuando en realidad no es representativa del conjunto de clientes gestionados con ese mandato.</p>
+      </div>
+      <div class="deceptive-box">
+        <h4>Valoraciones sin fundamento</h4>
+        <p>Utilizar estimaciones de precios de activos sin respaldo objetivo para valorar la cartera, inflando artificialmente el valor reportado de los activos gestionados.</p>
+      </div>
+      <div class="deceptive-box">
+        <h4>Rentabilidades infladas</h4>
+        <p>Anualizar rentabilidades de forma que se incremente artificialmente la cifra de rendimiento presentada, especialmente en períodos cortos con resultados puntualmente favorables.</p>
+      </div>
+      <div class="deceptive-box">
+        <h4>Selección sesgada de períodos</h4>
+        <p>Elegir selectivamente los períodos de tiempo más favorables para la presentación de resultados, ocultando períodos de bajo rendimiento.</p>
+      </div>
+      <div class="deceptive-box">
+        <h4>Rentabilidades simuladas</h4>
+        <p>Presentar rentabilidades simuladas o teóricas (backtests) como si fueran rentabilidades reales obtenidas con dinero gestionado de verdad.</p>
+      </div>
+      <div class="deceptive-box">
+        <h4>Vinculación con históricos teóricos</h4>
+        <p>No se debe vincular el rendimiento real de la firma a un rendimiento histórico teórico, ni alterar el histórico de resultados ante cambios organizativos de la firma.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. ALCANCE
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Alcance de las normas GIPS</h2>
+    <p>
+      Las normas GIPS deben aplicarse a nivel de toda la firma: el cumplimiento debe alcanzarse de forma global en la firma y no puede limitarse a un composite, fondo común o cartera individual. Esto significa que no es posible que una gestora se declare «parcialmente conforme» con GIPS, certificando solo algunas de sus estrategias o productos.
+    </p>
+
+    <div class="content-grid">
+      <div class="content-box">
+        <h4>Cumplimiento firm-wide</h4>
+        <p>El cumplimiento es exclusivamente a nivel de firma; no puede haber cumplimiento "parcial" — esto excluye el cumplimiento de departamentos específicos o de determinadas carteras concretas.</p>
+      </div>
+      <div class="content-box">
+        <h4>Definición amplia de la firma</h4>
+        <p>La firma debe adoptar la definición más amplia y significativa de sí misma, incluyendo todas las oficinas geográficas que operen bajo la misma marca, independientemente del nombre legal de cada entidad individual.</p>
+      </div>
+      <div class="content-box">
+        <h4>Carácter voluntario</h4>
+        <p>GIPS no es un requisito legal en la mayoría de jurisdicciones (incluida España), sino un estándar voluntario que las gestoras adoptan para diferenciarse por transparencia y reforzar la confianza de inversores institucionales y consultores.</p>
+      </div>
+      <div class="content-box">
+        <h4>Tipos de entidades cubiertas</h4>
+        <p>Existen versiones específicas de las normas GIPS para firmas gestoras (GIPS for Firms), para propietarios de activos como fondos de pensiones o soberanos (GIPS for Asset Owners) y para verificadores independientes (GIPS for Verifiers).</p>
+      </div>
+      <div class="content-box">
+        <h4>Cuentas discrecionales</h4>
+        <p>Son elegibles para el cumplimiento GIPS las firmas que gestionan activos de forma discrecional y que compiten por negocio — es decir, donde el gestor toma las decisiones de inversión sin necesitar aprobación previa del cliente para cada operación.</p>
+      </div>
+      <div class="content-box">
+        <h4>Verificación independiente (opcional)</h4>
+        <p>La verificación implica una evaluación externa de las políticas y procedimientos de medición de rendimiento de la firma, lo que refuerza la credibilidad de la declaración de cumplimiento GIPS. No es obligatoria, pero es altamente recomendada y muy valorada por inversores institucionales.</p>
+      </div>
+    </div>
+
+    <!-- Línea temporal evolución GIPS -->
+    <div class="timeline-viz">
+      <svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" aria-label="Evolución histórica de las normas GIPS">
+        <line x1="40" y1="65" x2="480" y2="65" stroke="#1e3a5f" stroke-width="2"/>
+        <circle cx="60"  cy="65" r="5" fill="#1e3a5f"/>
+        <circle cx="180" cy="65" r="5" fill="#1e3a5f"/>
+        <circle cx="300" cy="65" r="5" fill="#1e3a5f"/>
+        <circle cx="440" cy="65" r="6" fill="#16a34a"/>
+
+        <text x="60"  y="45" font-size="10" fill="#1e3a5f" font-weight="800" text-anchor="middle">1999</text>
+        <text x="60"  y="90" font-size="8"  fill="#6b7280" text-anchor="middle">Primera versión</text>
+        <text x="60"  y="102" font-size="8" fill="#6b7280" text-anchor="middle">(variaciones locales)</text>
+
+        <text x="180" y="45" font-size="10" fill="#1e3a5f" font-weight="800" text-anchor="middle">2005</text>
+        <text x="180" y="90" font-size="8"  fill="#6b7280" text-anchor="middle">Marco global único</text>
+
+        <text x="300" y="45" font-size="10" fill="#1e3a5f" font-weight="800" text-anchor="middle">2010</text>
+        <text x="300" y="90" font-size="8"  fill="#6b7280" text-anchor="middle">Aplicación firm-wide,</text>
+        <text x="300" y="102" font-size="8" fill="#6b7280" text-anchor="middle">fair value</text>
+
+        <text x="440" y="40" font-size="11" fill="#16a34a" font-weight="800" text-anchor="middle">2020 (vigente)</text>
+        <text x="440" y="90" font-size="8"  fill="#15803d" text-anchor="middle">Integración + accesibilidad</text>
+        <text x="440" y="102" font-size="8" fill="#15803d" text-anchor="middle">para alternativos</text>
+      </svg>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. CONTENIDO
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Contenido de las normas GIPS</h2>
+    <p>
+      La revisión 2020 de las normas GIPS, vigente actualmente, tuvo
+      tres objetivos principales: integración (armonizar las reglas y recomendaciones emitidas desde 2010), accesibilidad (facilitar la adopción por gestoras privadas y fondos de inversión alternativa como private equity e inmobiliario), y la actualización continua de las disposiciones que ya no son necesarias, añadiendo nuevos requisitos para promover las mejores prácticas.
+    </p>
+
+    <div class="content-grid">
+      <div class="content-box">
+        <h4>Definición de la firma y discrecionalidad</h4>
+        <p>Las normas explican los fundamentos del cumplimiento, incluyendo la definición de la firma y la definición de discrecionalidad de la firma — es decir, qué carteras se consideran gestionadas con suficiente libertad de decisión para incluirse en los composites GIPS.</p>
+      </div>
+      <div class="content-box">
+        <h4>Metodologías de cálculo de rentabilidad</h4>
+        <p>Se establecen requisitos sobre las metodologías de cálculo de rentabilidad, incluyendo el tratamiento de los flujos de caja externos, el efectivo y equivalentes, y los gastos y comisiones — exigiendo el uso de la TWRR (rentabilidad ponderada por tiempo, TGR) como estándar.</p>
+      </div>
+      <div class="content-box">
+        <h4>Jerarquía de valoración recomendada</h4>
+        <p>Las normas explican la jerarquía de valoración recomendada, estableciendo criterios de fair value para activos líquidos e ilíquidos, asegurando consistencia en la valoración de las carteras.</p>
+      </div>
+      <div class="content-box">
+        <h4>Construcción y cálculo de composites</h4>
+        <p>Se explican los requisitos relativos al cálculo de la rentabilidad de los composites, incluyendo los métodos de ponderación de las carteras por activos — un composite agrupa todas las carteras discrecionales gestionadas con una estrategia comparable.</p>
+      </div>
+      <div class="content-box">
+        <h4>Informes GIPS y presentación</h4>
+        <p>Especificación del contenido mínimo obligatorio de los informes de presentación de resultados (GIPS Composite Reports / GIPS Asset Owner Reports), incluyendo histórico mínimo de rentabilidad, número de carteras y dispersión interna del composite.</p>
+      </div>
+      <div class="content-box">
+        <h4>Tres documentos normativos diferenciados</h4>
+        <p>El estándar se estructura en tres documentos: GIPS para Firmas (gestoras), GIPS para Propietarios de Activos (asset owners como fondos de pensiones) y GIPS para Verificadores, cada uno con requisitos adaptados a su naturaleza.</p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>Relevancia para el asesor EFA:</strong> aunque GIPS regula principalmente a
+      gestoras institucionales, conocer sus principios ayuda al asesor financiero a evaluar
+      con criterio crítico los datos de rendimiento presentados por terceros (gestoras,
+      fondos, EAFs), identificando si siguen buenas prácticas de transparencia
+      (TWRR/TGR, períodos completos, sin sesgos de selección) o si presentan señales
+      de las prácticas engañosas que GIPS busca prevenir.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Los 4-5 objetivos de GIPS (confianza del inversor, datos consistentes, estándar
+        único mundial, competencia justa, autorregulación) y el principio de cumplimiento
+        obligatoriamente a nivel de toda la firma (nunca parcial) son los puntos más
+        preguntados. También puede preguntarse qué prácticas engañosas busca eliminar GIPS.
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        En 2026, la versión vigente de las normas son las <strong>GIPS 2020</strong>,
+        que han ampliado significativamente su aplicabilidad a estrategias de
+        inversión alternativa (private equity, real estate, infraestructuras), un
+        segmento de creciente relevancia en las carteras institucionales europeas.
+        La adopción de GIPS sigue siendo voluntaria en España, pero cada vez más
+        exigida de facto por inversores institucionales (fondos de pensiones,
+        aseguradoras) como condición para participar en procesos de selección de
+        gestores (RFP).
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Elemento</th><th>Clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Qué son</strong></td><td>Estándares éticos voluntarios de CFA Institute para calcular y presentar rendimiento</td></tr>
+          <tr><td><strong>Objetivos</strong></td><td>Confianza del inversor · datos consistentes · estándar único global · competencia justa · autorregulación</td></tr>
+          <tr><td><strong>Alcance</strong></td><td>Cumplimiento obligatoriamente a nivel de toda la firma, nunca parcial</td></tr>
+          <tr><td><strong>Versión vigente</strong></td><td>GIPS 2020 (integración + accesibilidad para alternativos)</td></tr>
+          <tr><td><strong>Documentos</strong></td><td>GIPS for Firms · GIPS for Asset Owners · GIPS for Verifiers</td></tr>
+          <tr><td><strong>Prácticas que elimina</strong></td><td>Cherry-picking de períodos, rentabilidades simuladas como reales, valoraciones infundadas</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-a.html" class="nav-btn">← A: Cuartiles y percentiles</a>
+    <a href="../index.html" class="nav-btn">Índice Módulo 3 →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        CFA Institute (2020). <em>Global Investment Performance Standards (GIPS) for Firms</em>.
+        <a href="https://www.gipsstandards.org/wp-content/uploads/2021/03/2020_gips_standards_firms.pdf" target="_blank" rel="noopener">gipsstandards.org</a>.
+      </li>
+      <li id="fn2">
+        CFA Institute (2020). <em>Global Investment Performance Standards (GIPS) for Asset Owners</em>.
+        <a href="https://www.gipsstandards.org/wp-content/uploads/2021/02/2020_gips_standards_asset_owners.pdf" target="_blank" rel="noopener">gipsstandards.org</a>.
+      </li>
+      <li id="fn3">
+        CFA Institute (2020). <em>Global Investment Performance Standards (GIPS) for Verifiers</em>.
+        <a href="https://www.gipsstandards.org/wp-content/uploads/2021/03/2020_gips_standards_verifiers.pdf" target="_blank" rel="noopener">gipsstandards.org</a>.
+      </li>
+      <li id="fn4">
+        CFA Institute (2026). <em>Overview of the Global Investment Performance Standards</em>.
+        <a href="https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/overview-of-the-global-investment-performance-standards" target="_blank" rel="noopener">cfainstitute.org</a>.
+      </li>
+      <li id="fn5">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 6 · Sección B,
+        pp. 81–82. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 6 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

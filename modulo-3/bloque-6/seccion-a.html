@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B6 · Sección A — Cuartiles y percentiles · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .quartile-viz {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+
+    .q-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .6rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 620px) { .q-grid { grid-template-columns: 1fr 1fr; } }
+    .q-box {
+      border-radius: 12px;
+      padding: .8rem .9rem;
+      text-align: center;
+      border: 2px solid transparent;
+    }
+    .q-box.q1 { background: var(--green-light); border-color: var(--green); }
+    .q-box.q2 { background: var(--navy-light);  border-color: var(--navy); }
+    .q-box.q3 { background: var(--amber-light); border-color: var(--amber); }
+    .q-box.q4 { background: #fee2e2; border-color: #dc2626; }
+    .q-box .qlabel { font-family: var(--font-ui); font-weight: 900; font-size: 1.1rem; display: block; margin-bottom: .3rem; }
+    .q1 .qlabel { color: var(--green); }
+    .q2 .qlabel { color: var(--navy); }
+    .q3 .qlabel { color: var(--amber); }
+    .q4 .qlabel { color: #dc2626; }
+    .q-box p { font-size: var(--fs-xs); color: var(--text-soft); margin: 0; line-height: 1.5; }
+
+    .calc-table td, .calc-table th {
+      text-align: center;
+      padding: .5rem .8rem;
+      font-size: var(--fs-sm);
+    }
+    .calc-table th { background: var(--navy); color: #fff; }
+    .calc-table tr:nth-child(even) td { background: var(--navy-light); }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B6 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 6</a>
+    <span class="sep">›</span>
+    <span>Sección A</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 6 · Sección A · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Atribución de resultados a corto y largo plazo</h1>
+    <p class="hero-sub">
+      Cuartiles y percentiles · Rentabilidad a corto y largo plazo en términos relativos ·
+      Medidas de riesgo (σ, β, R²) expresadas como cuartil/percentil.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. CONCEPTO DE CUARTIL Y PERCENTIL
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Cuartil y percentil de una cartera</h2>
+    <p class="sec-intro">
+      Cuando se informa a un cliente del rendimiento de su cartera, no basta con dar la
+      rentabilidad absoluta: es necesario contextualizarla frente a sus comparables
+      (su sector, su categoría de activo o el mercado en general). Los <strong>cuartiles</strong>
+      y <strong>percentiles</strong> son las herramientas estadísticas estándar para esa
+      contextualización relativa.
+    </p>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Cuartil</h4>
+        <p>
+          Divide el universo comparable (todos los fondos/carteras de la misma categoría)
+          en <strong>4 grupos iguales</strong> ordenados de mejor a peor rentabilidad.
+          El primer cuartil (Q1) agrupa el 25% mejor; el cuarto cuartil (Q4) agrupa el
+          25% peor.
+        </p>
+      </div>
+      <div class="vs-box right">
+        <h4>Percentil</h4>
+        <p>
+          Divide el mismo universo en <strong>100 grupos</strong>, ofreciendo una
+          granularidad mucho mayor. El percentil 5 significa que solo el 5% del universo
+          obtuvo peor resultado (está entre los mejores); el percentil 95 significa que
+          el 95% obtuvo mejor resultado (está entre los peores).
+        </p>
+      </div>
+    </div>
+
+    <!-- Diagrama de cuartiles -->
+    <div class="quartile-viz">
+      <svg viewBox="0 0 520 140" xmlns="http://www.w3.org/2000/svg" aria-label="Distribución en cuartiles">
+        <rect x="40"  y="40" width="110" height="50" fill="#16a34a" fill-opacity="0.2" stroke="#16a34a" stroke-width="1.5"/>
+        <rect x="150" y="40" width="110" height="50" fill="#1e3a5f" fill-opacity="0.2" stroke="#1e3a5f" stroke-width="1.5"/>
+        <rect x="260" y="40" width="110" height="50" fill="#d97706" fill-opacity="0.2" stroke="#d97706" stroke-width="1.5"/>
+        <rect x="370" y="40" width="110" height="50" fill="#dc2626" fill-opacity="0.15" stroke="#dc2626" stroke-width="1.5"/>
+
+        <text x="95"  y="70" font-size="13" fill="#16a34a" font-weight="800" text-anchor="middle">Q1</text>
+        <text x="205" y="70" font-size="13" fill="#1e3a5f" font-weight="800" text-anchor="middle">Q2</text>
+        <text x="315" y="70" font-size="13" fill="#d97706" font-weight="800" text-anchor="middle">Q3</text>
+        <text x="425" y="70" font-size="13" fill="#dc2626" font-weight="800" text-anchor="middle">Q4</text>
+
+        <text x="95"  y="105" font-size="9" fill="#6b7280" text-anchor="middle">Mejor 25%</text>
+        <text x="205" y="105" font-size="9" fill="#6b7280" text-anchor="middle">25%–50%</text>
+        <text x="315" y="105" font-size="9" fill="#6b7280" text-anchor="middle">50%–75%</text>
+        <text x="425" y="105" font-size="9" fill="#6b7280" text-anchor="middle">Peor 25%</text>
+
+        <text x="40"  y="30" font-size="9" fill="#6b7280">Percentil 0</text>
+        <text x="150" y="30" font-size="9" fill="#6b7280">P25</text>
+        <text x="260" y="30" font-size="9" fill="#6b7280">P50 (mediana)</text>
+        <text x="370" y="30" font-size="9" fill="#6b7280">P75</text>
+        <text x="475" y="30" font-size="9" fill="#6b7280">P100</text>
+
+        <line x1="40" y1="20" x2="480" y2="20" stroke="#1e3a5f" stroke-width="1"/>
+        <text x="60"  y="120" font-size="9" fill="#1e3a5f" font-weight="700">← Mejor rentabilidad</text>
+        <text x="395" y="120" font-size="9" fill="#1e3a5f" font-weight="700">Peor rentabilidad →</text>
+      </svg>
+      <p style="font-size:var(--fs-xs);color:var(--text-soft);margin:.4rem 0 0;text-align:center;">
+        El cuartil 1 (Q1) representa el 25% mejor del universo comparable; un percentil bajo (ej. P10) indica que el 90% del universo obtuvo peor resultado.
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>Cuidado con la dirección:</strong> en rentabilidad, percentil 1 (o cuartil 1)
+      significa estar entre los mejores. En medidas de riesgo como la volatilidad, un
+      percentil bajo significa <em>menor</em> riesgo, que puede ser deseable (para un
+      perfil conservador) o indeseable (si el inversor buscaba mayor exposición a riesgo
+      para capturar rentabilidad). La interpretación depende del contexto.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Cálculo de cuartil y percentil</h3>
+      <p>
+        Una cartera obtiene una rentabilidad anual del <strong>9,2%</strong>. En su
+        categoría Morningstar (renta variable europea, 200 fondos comparables), la
+        rentabilidad ordenada de mayor a menor sitúa a esta cartera en la posición
+        <strong>18 de 200</strong>.<br><br>
+        Percentil = (18/200) × 100 = <strong>9</strong> → la cartera está en el
+        percentil 9: solo el 9% de los fondos comparables obtuvo mejor resultado
+        (el 91% obtuvo peor).<br><br>
+        Cuartil: como 18/200 = 9% &lt; 25%, la cartera está en el <strong>primer cuartil
+        (Q1)</strong>: entre el 25% mejor de su categoría.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. RENTABILIDAD A CORTO PLAZO
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Rentabilidad simple a corto plazo en términos de cuartil y percentil</h2>
+    <p>
+      A corto plazo (1 mes, 3 meses, 1 año), la rentabilidad relativa de una cartera
+      puede ser muy volátil y poco representativa de la habilidad real del gestor —
+      un buen o mal resultado puntual puede deberse a factores coyunturales (rotación
+      sectorial, suerte en el timing) más que a habilidad sostenida.
+    </p>
+    <div class="callout info">
+      <strong>Precaución metodológica:</strong> el cuartil/percentil a corto plazo
+      debe interpretarse con cautela. Un fondo en el primer cuartil a 3 meses puede
+      caer al cuarto cuartil al trimestre siguiente sin que haya cambiado nada en su
+      gestión — es la naturaleza de la volatilidad de mercado a corto plazo, no una
+      señal fiable de calidad.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo — Cuartiles a corto plazo</h3>
+      <div class="table-wrap">
+        <table class="calc-table">
+          <thead><tr><th>Período</th><th>Rentabilidad cartera</th><th>Percentil</th><th>Cuartil</th></tr></thead>
+          <tbody>
+            <tr><td>1 mes</td><td>+1,8%</td><td>P15</td><td>Q1</td></tr>
+            <tr><td>3 meses</td><td>+3,1%</td><td>P62</td><td>Q3</td></tr>
+            <tr><td>1 año</td><td>+9,2%</td><td>P9</td><td>Q1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.5rem;">
+        La cartera ha pasado de Q1 a Q3 y de nuevo a Q1 en pocos meses — ilustra la
+        volatilidad de los rankings a corto plazo y por qué no deben usarse de forma
+        aislada para juzgar a un gestor.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. RENTABILIDAD A LARGO PLAZO
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Rentabilidad simple a largo plazo en términos de cuartil y percentil</h2>
+    <p>
+      A largo plazo (3, 5, 10 años), el cuartil/percentil es una medida mucho más
+      <strong>fiable de la habilidad sostenida del gestor</strong>, ya que promedia
+      múltiples ciclos de mercado y reduce el efecto del ruido coyuntural a corto plazo.
+      Es la base habitual de los rankings utilizados profesionalmente (Morningstar,
+      Citywire) para identificar gestores consistentes.
+    </p>
+
+    <div class="callout info">
+      <strong>Análisis de consistencia (rolling returns):</strong> la metodología más
+      rigurosa no se limita a un único período de 5 años, sino que calcula el cuartil/percentil
+      en <em>múltiples ventanas móviles</em> (ej. todos los períodos de 3 años posibles
+      en los últimos 10 años) para verificar si el buen resultado es sistemático o
+      depende de un único período afortunado.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo — Cuartiles a largo plazo y consistencia</h3>
+      <div class="table-wrap">
+        <table class="calc-table">
+          <thead><tr><th>Período</th><th>Rentabilidad anualizada</th><th>Percentil</th><th>Cuartil</th></tr></thead>
+          <tbody>
+            <tr><td>3 años</td><td>+8,4%</td><td>P22</td><td>Q1</td></tr>
+            <tr><td>5 años</td><td>+7,9%</td><td>P18</td><td>Q1</td></tr>
+            <tr><td>10 años</td><td>+7,1%</td><td>P25</td><td>Q1 (límite)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:.5rem;">
+        A diferencia del ejemplo de corto plazo, aquí la cartera se mantiene de forma
+        <strong>consistente</strong> en el primer cuartil en todos los horizontes largos
+        analizados — una señal mucho más sólida de habilidad de gestión genuina que
+        la volatilidad observada a corto plazo.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Distinguir que el cuartil/percentil a corto plazo es ruidoso y poco fiable,
+        mientras que a largo plazo (y especialmente si se mantiene consistente en
+        múltiples ventanas) es una señal más fiable de habilidad real del gestor.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. MEDIDAS DE RIESGO COMO CUARTIL/PERCENTIL
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Medidas de riesgo (volatilidad, beta, R²) expresadas como cuartil/percentil</h2>
+    <p>
+      No solo la rentabilidad se contextualiza relativamente: también las medidas de
+      riesgo de la cartera (volatilidad σ, beta β y coeficiente de determinación R²,
+      vistos en el Bloque 3) pueden expresarse en términos de cuartil/percentil respecto
+      a su categoría, lo que ayuda al cliente a entender si su cartera es más o menos
+      arriesgada que sus comparables.
+    </p>
+
+    <div class="q-grid">
+      <div class="q-box q1">
+        <span class="qlabel">σ — Volatilidad</span>
+        <p>Percentil bajo = menor volatilidad que la categoría (más defensiva).
+        Percentil alto = mayor volatilidad (más arriesgada).</p>
+      </div>
+      <div class="q-box q2">
+        <span class="qlabel">β — Beta</span>
+        <p>Percentil bajo = menor sensibilidad al mercado (defensiva).
+        Percentil alto = mayor sensibilidad (agresiva).</p>
+      </div>
+      <div class="q-box q3">
+        <span class="qlabel">R² — Determinación</span>
+        <p>Percentil bajo = mayor riesgo específico, menos explicado por el mercado.
+        Percentil alto = más cerca del comportamiento del índice.</p>
+      </div>
+      <div class="q-box q4">
+        <span class="qlabel">⚠️ Interpretación</span>
+        <p>A diferencia de la rentabilidad, "mejor" o "peor" cuartil de riesgo depende
+        del perfil del inversor, no es universal.</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo — Perfil de riesgo en cuartiles</h3>
+      <p>
+        Una cartera de renta variable europea presenta, respecto a su categoría
+        (200 fondos comparables):<br><br>
+        — Volatilidad anual: 14,2% → percentil <strong>P30</strong> (Q1: menos volátil que el 70% de la categoría)<br>
+        — Beta: 0,85 → percentil <strong>P28</strong> (Q1: más defensiva que el 72% de la categoría)<br>
+        — R²: 0,91 → percentil <strong>P40</strong> (Q2: explicación de mercado algo por encima de la media)<br><br>
+        Interpretación: la cartera tiene un perfil claramente <strong>defensivo</strong>
+        dentro de su categoría (menor σ y β que la mayoría), con un comportamiento
+        razonablemente alineado con el mercado (R² alto, poco riesgo específico
+        idiosincrásico). Coherente con un fondo gestionado de forma relativamente
+        conservadora dentro de su categoría.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Recordar que un buen cuartil de rentabilidad no implica necesariamente un buen
+        cuartil de riesgo, y viceversa. El examen puede pedir interpretar conjuntamente
+        cuartiles de rentabilidad y de riesgo para caracterizar el perfil completo
+        de una cartera frente a su categoría.
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        Tras el fuerte rally del IBEX-35 en el primer semestre de 2026 (+18%, máximos
+        históricos en febrero), muchos fondos de renta variable española que sobreponderaron
+        valores de alta beta (banca, defensa) han alcanzado el primer cuartil en
+        rentabilidad a corto plazo, pero también el cuartil más alto en volatilidad y beta
+        respecto a su categoría — ilustrando que el buen resultado reciente puede estar
+        explicado simplemente por mayor riesgo asumido, no por habilidad de selección.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Cuartil</strong></td><td>4 grupos del 25% cada uno; Q1 = mejor 25%</td></tr>
+          <tr><td><strong>Percentil</strong></td><td>100 grupos; percentil bajo en rentabilidad = mejor posición relativa</td></tr>
+          <tr><td><strong>Corto plazo</strong></td><td>Cuartil/percentil ruidoso y poco fiable como señal de habilidad</td></tr>
+          <tr><td><strong>Largo plazo</strong></td><td>Cuartil/percentil más fiable; verificar consistencia con ventanas móviles</td></tr>
+          <tr><td><strong>σ, β, R² en cuartiles</strong></td><td>Contextualizan el riesgo relativo; "mejor" depende del perfil del inversor</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="../bloque-5/seccion-f.html" class="nav-btn">← B5·F: Índices ESG</a>
+    <a href="seccion-b.html" class="nav-btn">B: Normas GIPS →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Morningstar (2025). <em>Morningstar Category Average and Percentile Rank Methodology</em>.
+        <a href="https://www.morningstar.com/research" target="_blank" rel="noopener">morningstar.com/research</a>.
+        Metodología de cálculo de cuartiles y percentiles por categoría.
+      </li>
+      <li id="fn2">
+        Bacon, C. R. (2008). <em>Practical Portfolio Performance Measurement and Attribution</em>
+        (2.ª ed.), cap. 9. John Wiley &amp; Sons. Análisis de consistencia con ventanas móviles.
+      </li>
+      <li id="fn3">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 6 · Sección A,
+        pp. 80–81. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 6 · Sección A · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
