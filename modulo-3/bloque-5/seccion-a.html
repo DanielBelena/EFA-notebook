@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B5 · Sección A — Medidas de rentabilidad: TIR y TGR · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .flow-viz {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+    .calc-table td, .calc-table th {
+      text-align: center;
+      padding: .5rem .8rem;
+      font-size: var(--fs-sm);
+    }
+    .calc-table th { background: var(--navy); color: #fff; }
+    .calc-table tr:nth-child(even) td { background: var(--navy-light); }
+
+    .vs-compact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .vs-compact { grid-template-columns: 1fr; } }
+    .vs-compact .vbox {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .vs-compact .vbox.tir { border-color: var(--amber); }
+    .vs-compact .vbox.tgr { border-color: var(--green); }
+    .vs-compact h4 { font-family: var(--font-ui); font-weight: 900; font-size: var(--fs-base); margin-bottom: .4rem; }
+    .vs-compact .tir h4 { color: var(--amber); }
+    .vs-compact .tgr h4 { color: var(--green); }
+    .vs-compact p { font-size: var(--fs-sm); color: var(--text); line-height: 1.7; margin: 0; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B5 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 5</a>
+    <span class="sep">›</span>
+    <span>Sección A</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 5 · Sección A · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Medidas de rentabilidad</h1>
+    <p class="hero-sub">
+      Rentabilidad simple · Medidas con flujos del inversor · TIR (rentabilidad del inversor) ·
+      TGR (rentabilidad del gestor) · Acierto en market timing.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. RENTABILIDAD SIMPLE
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. La rentabilidad simple en la gestión de carteras</h2>
+    <p class="sec-intro">
+      La <strong>rentabilidad simple</strong> (vista en el Bloque 1) mide el rendimiento de
+      un activo o cartera entre dos momentos sin que existan aportaciones o reembolsos
+      intermedios. Es la medida más básica pero su importancia en gestión de carteras
+      radica en ser el componente elemental sobre el que se construyen todas las medidas
+      más sofisticadas (TIR, TGR, rentabilidades ajustadas al riesgo).
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Rentabilidad simple de un período (sin flujos intermedios)</span>
+      R = (VF − VI) / VI
+    </div>
+    <p>donde VI = valor inicial de la cartera y VF = valor final.</p>
+
+    <div class="callout info">
+      <strong>Por qué es importante:</strong> cuando no hay aportaciones ni reembolsos,
+      la rentabilidad simple es exacta y no ambigua. El problema surge cuando el inversor
+      aporta o retira dinero <em>durante</em> el período de medición — en ese caso, la
+      rentabilidad simple ya no es suficiente y se necesitan medidas más sofisticadas
+      (TIR y TGR).
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. MEDIDAS CON FLUJOS DEL INVERSOR
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Medidas de rentabilidad que consideran los flujos del inversor</h2>
+    <p>
+      Cuando el inversor realiza aportaciones o reembolsos durante el período de medición
+      (decisiones que son responsabilidad exclusiva del inversor, no del gestor), la
+      rentabilidad simple deja de ser representativa. Las medidas que sí tienen en cuenta
+      estos flujos son:
+    </p>
+
+    <div class="vs-compact">
+      <div class="vbox tir">
+        <h4>TIR (rentabilidad ponderada por el dinero)</h4>
+        <p>
+          <em>Money-Weighted Rate of Return</em> (MWRR). Tiene en cuenta el momento y la
+          magnitud de cada flujo de caja del inversor (aportaciones y reembolsos).
+          Da más peso a los períodos en los que había más dinero invertido.
+        </p>
+      </div>
+      <div class="vbox tgr">
+        <h4>TGR (rentabilidad ponderada por el tiempo)</h4>
+        <p>
+          <em>Time-Weighted Rate of Return</em> (TWRR). Elimina el efecto de los flujos
+          del inversor, calculando la rentabilidad como si no hubiera habido aportaciones
+          ni reembolsos. Mide exclusivamente la habilidad del gestor.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>Por qué ambas son necesarias:</strong> la TIR responde a la pregunta
+      <em>«¿cuánto ha ganado realmente el inversor?»</em> (depende de cuándo metió y sacó dinero).
+      La TGR responde a <em>«¿qué tan bien ha gestionado el gestor la cartera?»</em>
+      (independiente de las decisiones del inversor sobre aportar o retirar capital).
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. TIR — RENTABILIDAD DEL INVERSOR
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. La TIR como medida de la rentabilidad del inversor</h2>
+    <p>
+      La <strong>TIR</strong> (Tasa Interna de Rentabilidad) es la tasa de descuento que
+      iguala el valor presente de todos los flujos de caja del inversor (aportaciones,
+      reembolsos y valor final) a cero. Es matemáticamente equivalente a la TIR usada en
+      valoración de proyectos de inversión.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Ecuación de la TIR</span>
+      VI + Σ Fₜ / (1+TIR)ᵗ + VF / (1+TIR)ⁿ = 0
+    </div>
+
+    <p>
+      donde Fₜ son los flujos intermedios (positivos si son aportaciones, negativos si son
+      reembolsos, con el signo invertido según convención) y VF es el valor final de la
+      cartera. La TIR se resuelve por iteración (no tiene solución algebraica cerrada
+      en general, salvo casos simples).
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Cálculo de la TIR</h3>
+      <p>
+        Un inversor aporta 10.000€ al inicio del año. A los 6 meses aporta otros 5.000€
+        (justo cuando la cartera valía 11.000€, antes de la aportación). Al final del año,
+        la cartera vale 17.000€.<br><br>
+        Flujo de caja del inversor (convención: negativo = sale dinero del inversor):<br>
+        t=0: −10.000€ &nbsp;&nbsp; t=0,5: −5.000€ &nbsp;&nbsp; t=1: +17.000€<br><br>
+        Resolviendo: 10.000 + 5.000/(1+TIR)<sup>0,5</sup> = 17.000/(1+TIR)<sup>1</sup><br>
+        Por iteración: <strong>TIR ≈ 8,1%</strong><br><br>
+        Esta es la rentabilidad <em>real</em> que ha obtenido el inversor, considerando
+        que tuvo más capital invertido en la segunda mitad del año.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Plantear la ecuación de la TIR dado un conjunto de flujos y resolver por
+        aproximación o con datos que permitan una solución exacta (ej: un solo flujo
+        intermedio en una fecha conveniente). Reconocer que la TIR es sensible al
+        <em>timing</em> de las aportaciones del inversor.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. TGR — RENTABILIDAD DEL GESTOR
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. La TGR como medida de la rentabilidad del gestor</h2>
+    <p>
+      La <strong>TGR</strong> (Tasa Geométrica de Rentabilidad, en inglés TWRR) mide
+      el rendimiento de la cartera <strong>aislando el efecto de los flujos del inversor</strong>.
+      Se calcula dividiendo el período total en subperíodos delimitados por cada flujo de
+      caja, calculando la rentabilidad simple de cada subperíodo, y encadenando geométricamente
+      los resultados.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Cálculo de la TGR (encadenamiento geométrico)</span>
+      1 + TGR = (1+R₁) · (1+R₂) · … · (1+Rₙ)
+    </div>
+
+    <p>
+      donde cada Rᵢ es la rentabilidad simple del subperíodo i, calculada <strong>justo antes</strong>
+      de cada flujo de caja (de forma que el flujo no distorsione el cálculo de ese subperíodo):
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Rentabilidad del subperíodo i (antes del flujo)</span>
+      Rᵢ = (V<sub>antes del flujo,i</sub> − V<sub>inicio del subperíodo,i</sub>) / V<sub>inicio del subperíodo,i</sub>
+    </div>
+
+    <!-- Diagrama del cálculo TGR -->
+    <div class="flow-viz">
+      <svg viewBox="0 0 520 160" xmlns="http://www.w3.org/2000/svg" aria-label="Esquema de cálculo de la TGR">
+        <line x1="40" y1="80" x2="480" y2="80" stroke="#1e3a5f" stroke-width="2"/>
+        <!-- t0 -->
+        <circle cx="60" cy="80" r="5" fill="#1e3a5f"/>
+        <text x="60" y="100" font-size="10" fill="#1e3a5f" text-anchor="middle">t=0</text>
+        <text x="60" y="65" font-size="9" fill="#1e3a5f" text-anchor="middle">VI=10.000</text>
+        <!-- subperiodo 1 -->
+        <text x="180" y="65" font-size="10" fill="#16a34a" text-anchor="middle" font-weight="700">Subperíodo 1: R₁</text>
+        <!-- t=0.5 antes del flujo -->
+        <circle cx="280" cy="80" r="5" fill="#d97706"/>
+        <text x="280" y="100" font-size="10" fill="#d97706" text-anchor="middle">t=0,5 (antes)</text>
+        <text x="280" y="65" font-size="9" fill="#d97706" text-anchor="middle">V=11.000</text>
+        <!-- flujo -->
+        <text x="280" y="120" font-size="9" fill="#dc2626" text-anchor="middle">+ aportación 5.000€</text>
+        <!-- subperiodo 2 -->
+        <text x="380" y="65" font-size="10" fill="#16a34a" text-anchor="middle" font-weight="700">Subperíodo 2: R₂</text>
+        <!-- t=1 final -->
+        <circle cx="460" cy="80" r="5" fill="#1e3a5f"/>
+        <text x="460" y="100" font-size="10" fill="#1e3a5f" text-anchor="middle">t=1 (final)</text>
+        <text x="460" y="65" font-size="9" fill="#1e3a5f" text-anchor="middle">VF=17.000</text>
+      </svg>
+      <p style="font-size:var(--fs-xs);color:var(--text-soft);margin:.4rem 0 0;text-align:center;">
+        El valor justo antes del flujo (11.000€) se usa para cerrar el subperíodo 1; el valor justo después
+        (11.000+5.000=16.000€) abre el subperíodo 2. Así el flujo no distorsiona ninguna rentabilidad.
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Cálculo de la TGR (mismos datos que el ejemplo de la TIR)</h3>
+      <p>
+        VI = 10.000€. A los 6 meses, justo antes de la aportación, la cartera vale 11.000€
+        (subperíodo 1). El inversor aporta 5.000€ → base para el subperíodo 2 = 16.000€.
+        Al final del año, la cartera vale 17.000€ (subperíodo 2).<br><br>
+        R₁ = (11.000 − 10.000)/10.000 = <strong>+10,0%</strong><br>
+        R₂ = (17.000 − 16.000)/16.000 = <strong>+6,25%</strong><br><br>
+        TGR: 1+TGR = (1,10)×(1,0625) = 1,1688<br>
+        <strong>TGR = 16,88%</strong> (anual, ya que el período total es 1 año)<br><br>
+        Comparar con TIR ≈ 8,1% del ejemplo anterior: son números muy distintos porque
+        miden cosas diferentes.
+      </p>
+    </div>
+
+    <h3>Demostración de la independencia de la TGR respecto a los flujos del inversor</h3>
+    <p>
+      La TGR se calcula encadenando rentabilidades de subperíodos en los que el
+      <em>denominador</em> de cada Rᵢ es siempre el capital disponible al inicio de ese
+      subperíodo, <strong>antes</strong> de cualquier flujo nuevo. Esto significa que el
+      tamaño de la aportación no afecta a la rentabilidad porcentual calculada: si el
+      inversor hubiera aportado 50.000€ en lugar de 5.000€ a los 6 meses, R₁ seguiría
+      siendo +10% y R₂ se calcularía igual (proporcionalmente) sobre la nueva base —
+      la TGR del gestor sería idéntica en términos porcentuales, mientras que la TIR del
+      inversor cambiaría sustancialmente.
+    </p>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Calcular la TGR encadenando subperíodos delimitados por cada flujo de caja.
+        Recordar que cada Rᵢ se calcula con el valor justo antes del siguiente flujo.
+        La TGR es la medida estándar para evaluar y comparar gestores (estándar GIPS
+        del CFA Institute exige el uso de TWRR).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. TIR vs TGR: ACIERTO EN MARKET TIMING
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. Comparación TIR vs. TGR: éxito o fracaso del market timing del inversor</h2>
+    <p>
+      La diferencia entre TIR y TGR no es un error de cálculo: revela información valiosa
+      sobre si el <strong>inversor</strong> (no el gestor) ha aportado o retirado dinero en
+      los momentos adecuados.
+    </p>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>TIR > TGR → Market timing exitoso del inversor</h4>
+        <p>
+          El inversor aportó más capital justo antes de los períodos de mayor rentabilidad
+          (o retiró capital antes de las caídas). Su timing de entradas y salidas mejoró
+          su rentabilidad personal por encima de lo que habría obtenido el gestor con un
+          capital constante.
+        </p>
+      </div>
+      <div class="vs-box right">
+        <h4>TIR < TGR → Market timing desfavorable del inversor</h4>
+        <p>
+          El inversor aportó más capital justo antes de las caídas (o retiró capital antes
+          de las subidas) — el comportamiento típico del inversor que persigue rentabilidades
+          pasadas («comprar caro, vender barato» por pánico o euforia). Es el patrón
+          documentado en el «behavior gap» de Dalbar y otros estudios.
+        </p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo del bloque — Interpretación TIR vs TGR</h3>
+      <p>
+        Del ejemplo anterior: TIR ≈ 8,1% y TGR = 16,88%.<br><br>
+        TIR &lt; TGR → el inversor obtuvo una rentabilidad personal muy inferior a la
+        que logró el gestor en su gestión. ¿Por qué? Porque aportó la mayor parte de su
+        capital (15.000€ de los 17.000€ finales) justo en el momento en que la cartera
+        ya había subido (a los 6 meses, tras la primera subida del 10%), perdiéndose
+        la rentabilidad más favorable del primer subperíodo sobre ese capital adicional.<br><br>
+        Conclusión: el <strong>gestor lo hizo muy bien</strong> (TGR alta), pero el
+        <strong>inversor tuvo mal timing</strong> en sus aportaciones (TIR mucho más baja).
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>Aplicación práctica para el asesor financiero:</strong> esta comparación es
+      clave para separar la responsabilidad del gestor (medida por TGR) de la responsabilidad
+      del inversor en sus decisiones de entrada y salida (medida por la brecha TIR-TGR).
+      Permite al asesor educar al cliente sobre el coste real de intentar hacer market
+      timing con sus propias aportaciones.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Dada una TIR y una TGR, determinar si el inversor tuvo buen o mal timing en sus
+        aportaciones/reembolsos. TIR &gt; TGR = buen timing del inversor. TIR &lt; TGR =
+        mal timing. La TGR es siempre la medida correcta para evaluar al gestor;
+        nunca se debe culpar al gestor de una TIR baja causada por mal timing del inversor.
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        Estudios de comportamiento del inversor (como el «Quantitative Analysis of Investor
+        Behavior» de DALBAR) muestran de forma consistente que la rentabilidad media
+        obtenida por los partícipes de fondos de inversión (TIR/dollar-weighted) es
+        sistemáticamente inferior a la rentabilidad del propio fondo (TGR/time-weighted),
+        precisamente por el mal timing de las aportaciones y reembolsos (entrar tras subidas,
+        salir tras caídas). En el contexto de 2026, tras el rally del IBEX a máximos
+        históricos, este patrón de comportamiento es uno de los riesgos que el asesor
+        EFA debe anticipar y gestionar con sus clientes.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Medida</th><th>Qué mide</th><th>Sensible a flujos del inversor</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Rentabilidad simple</strong></td><td>Rendimiento sin flujos intermedios</td><td>No aplica (no hay flujos)</td></tr>
+          <tr><td><strong>TIR (MWRR)</strong></td><td>Rentabilidad real obtenida por el inversor</td><td>Sí — depende del timing y tamaño de aportaciones</td></tr>
+          <tr><td><strong>TGR (TWRR)</strong></td><td>Habilidad de gestión del gestor</td><td>No — neutraliza el efecto de los flujos</td></tr>
+          <tr><td><strong>TIR &gt; TGR</strong></td><td>—</td><td>Buen timing del inversor en sus aportaciones</td></tr>
+          <tr><td><strong>TIR &lt; TGR</strong></td><td>—</td><td>Mal timing del inversor en sus aportaciones</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="../bloque-4/seccion-e.html" class="nav-btn">← B4·E: Consideraciones ESG</a>
+    <a href="seccion-b.html" class="nav-btn">B: Medidas ajustadas al riesgo →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        CFA Institute (2020). <em>Global Investment Performance Standards (GIPS)</em>.
+        <a href="https://www.cfainstitute.org/en/ethics-standards/codes/gips-standards" target="_blank" rel="noopener">cfainstitute.org/gips</a>.
+        Estándar obligatorio de uso de TWRR para evaluación de gestores.
+      </li>
+      <li id="fn2">
+        Bodie, Z., Kane, A. &amp; Marcus, A. J. (2014). <em>Investments</em> (10.ª ed.), cap. 24
+        «Portfolio Performance Evaluation», pp. 825–835. McGraw-Hill Education.
+        TIR (dollar-weighted) vs. TGR (time-weighted).
+      </li>
+      <li id="fn3">
+        DALBAR Inc. (2025). <em>Quantitative Analysis of Investor Behavior (QAIB)</em>.
+        <a href="https://www.dalbar.com" target="_blank" rel="noopener">dalbar.com</a>.
+        Evidencia empírica de la brecha entre rentabilidad del inversor y del fondo.
+      </li>
+      <li id="fn4">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 5 · Sección A,
+        pp. 68–70. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 5 · Sección A · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

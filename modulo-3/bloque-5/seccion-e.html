@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B5 · Sección E — Atribución de resultados · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .attrib-table td, .attrib-table th {
+      text-align: center;
+      padding: .5rem .8rem;
+      font-size: var(--fs-sm);
+    }
+    .attrib-table th { background: var(--navy); color: #fff; }
+    .attrib-table tr:nth-child(even) td { background: var(--navy-light); }
+
+    .quadrant-viz {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+
+    .component-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .component-grid { grid-template-columns: 1fr; } }
+    .component-box {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+    }
+    .component-box.aa { border-color: var(--navy); }
+    .component-box.ss { border-color: var(--green); }
+    .component-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); margin-bottom: .3rem; }
+    .component-box.aa h4 { color: var(--navy); }
+    .component-box.ss h4 { color: var(--green); }
+    .component-box p { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.65; margin: 0; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B5 · E</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 5</a>
+    <span class="sep">›</span>
+    <span>Sección E</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 5 · Sección E · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Atribución de resultados: proceso y cálculos</h1>
+    <p class="hero-sub">
+      Modelo de Brinson · Rentabilidad total añadida · Asset allocation vs. security selection ·
+      Atribución por categoría de activo.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. CONCEPTO Y NOTACIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. El modelo de atribución de Brinson</h2>
+    <p class="sec-intro">
+      El <strong>análisis de atribución de resultados</strong> (Brinson, Hood &amp; Beebower,
+      1986; Brinson &amp; Fachler, 1985) descompone el exceso de rentabilidad de una cartera
+      sobre su benchmark en dos componentes: la decisión de <strong>asignación de activos</strong>
+      (cuánto pesar cada categoría) y la decisión de <strong>selección de valores</strong>
+      (qué activos concretos elegir dentro de cada categoría).
+    </p>
+
+    <div class="callout info">
+      <strong>Notación estándar para cada categoría de activo i:</strong><br>
+      w<sub>p,i</sub> = peso de la categoría i en la cartera (portfolio)<br>
+      w<sub>b,i</sub> = peso de la categoría i en el benchmark<br>
+      R<sub>p,i</sub> = rentabilidad obtenida en la categoría i dentro de la cartera<br>
+      R<sub>b,i</sub> = rentabilidad del benchmark de la categoría i
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. RENTABILIDAD TOTAL AÑADIDA
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Rentabilidad total añadida por el gestor</h2>
+    <p>
+      La rentabilidad total añadida (o exceso de rentabilidad) es simplemente la diferencia
+      entre la rentabilidad de la cartera y la del benchmark:
+    </p>
+    <div class="formula">
+      <span class="formula-label">Rentabilidad total añadida</span>
+      ΔR = R<sub>p</sub> − R<sub>b</sub> = Σᵢ w<sub>p,i</sub>·R<sub>p,i</sub> − Σᵢ w<sub>b,i</sub>·R<sub>b,i</sub>
+    </div>
+    <p>
+      Esta diferencia total se descompone en dos efectos que se calculan a continuación:
+      el efecto de <strong>asset allocation</strong> y el efecto de <strong>security selection</strong>.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. RENTABILIDAD SI HUBIERA MANTENIDO EL BENCHMARK
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Rentabilidad hipotética con los activos del benchmark (cartera «notional»)</h2>
+    <p>
+      Para aislar el efecto de cada decisión, se construye una cartera hipotética
+      («<em>notional fund</em>» o cartera semi-activa) que utiliza los <strong>pesos reales
+      de la cartera</strong> (w<sub>p,i</sub>) pero las <strong>rentabilidades del benchmark</strong>
+      (R<sub>b,i</sub>) — es decir, qué habría rentado el gestor si hubiera tomado sus
+      decisiones de asignación de activos, pero hubiera invertido pasivamente dentro
+      de cada categoría (sin seleccionar valores activamente):
+    </p>
+    <div class="formula">
+      <span class="formula-label">Rentabilidad de la cartera "notional" (pesos del gestor, rentabilidades del benchmark)</span>
+      R<sub>notional</sub> = Σᵢ w<sub>p,i</sub> · R<sub>b,i</sub>
+    </div>
+    <div class="callout info">
+      Esta cartera hipotética es la pieza clave que permite separar matemáticamente
+      el efecto de la asignación de activos del efecto de la selección de valores.
+      Sin ella, solo tendríamos la diferencia total agregada, sin saber a qué decisión
+      atribuirla.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. SECURITY SELECTION TOTAL
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Rentabilidad añadida por security selection</h2>
+    <p>
+      El efecto de <strong>security selection</strong> mide cuánto valor ha añadido el
+      gestor eligiendo activos concretos <em>dentro</em> de cada categoría, comparando la
+      rentabilidad real de la cartera con la rentabilidad de la cartera «notional»
+      (que usa los mismos pesos pero rentabilidades pasivas):
+    </p>
+    <div class="formula">
+      <span class="formula-label">Efecto de security selection (total)</span>
+      SS = R<sub>p</sub> − R<sub>notional</sub> = Σᵢ w<sub>p,i</sub> · (R<sub>p,i</sub> − R<sub>b,i</sub>)
+    </div>
+    <p>
+      Es la suma, ponderada por el peso real de cada categoría en la cartera, de cuánto
+      ha superado (o no) el gestor a la rentabilidad pasiva dentro de cada categoría.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. ASSET ALLOCATION TOTAL
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. Rentabilidad añadida por asset allocation</h2>
+    <p>
+      El efecto de <strong>asset allocation</strong> mide cuánto valor ha añadido el gestor
+      por la decisión de sobreponderar o infraponderar cada categoría respecto al benchmark,
+      comparando la rentabilidad de la cartera notional con la rentabilidad del benchmark puro:
+    </p>
+    <div class="formula">
+      <span class="formula-label">Efecto de asset allocation (total)</span>
+      AA = R<sub>notional</sub> − R<sub>b</sub> = Σᵢ (w<sub>p,i</sub> − w<sub>b,i</sub>) · R<sub>b,i</sub>
+    </div>
+    <p>
+      Es la suma, para cada categoría, de la desviación de peso (sobre/infraponderación)
+      multiplicada por la rentabilidad <em>del benchmark</em> de esa categoría — es decir,
+      el efecto puro de haber pesado más o menos una categoría, sin que intervenga
+      la habilidad de selección dentro de ella.
+    </p>
+
+    <div class="callout info">
+      <strong>Verificación:</strong> AA + SS = (R<sub>notional</sub>−R<sub>b</sub>) + (R<sub>p</sub>−R<sub>notional</sub>) =
+      R<sub>p</sub> − R<sub>b</sub> = ΔR. Los dos efectos se suman exactamente a la rentabilidad
+      total añadida (modelo aditivo de Brinson-Hood-Beebower clásico, sin término de interacción).
+    </div>
+
+    <div class="component-grid">
+      <div class="component-box aa">
+        <h4>Asset Allocation</h4>
+        <p>
+          Mide la habilidad para decidir <strong>cuánto pesar</strong> cada clase de activo,
+          sector o geografía respecto al benchmark. Una sobreponderación correcta de un
+          activo que rinde más que la media del benchmark genera AA positivo.
+        </p>
+      </div>
+      <div class="component-box ss">
+        <h4>Security Selection</h4>
+        <p>
+          Mide la habilidad para elegir <strong>qué valores concretos</strong> comprar
+          dentro de cada categoría. Elegir valores que superan a su categoría de
+          referencia genera SS positivo, independientemente del peso asignado a esa categoría.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       6. EJEMPLO NUMÉRICO COMPLETO
+       ============================================================ -->
+  <div class="sec">
+    <h2>6. Ejemplo numérico completo de atribución por categoría</h2>
+    <p>
+      Cartera con 3 categorías de activo. Datos:
+    </p>
+    <div class="table-wrap">
+      <table class="attrib-table">
+        <thead>
+          <tr><th>Categoría</th><th>w<sub>p,i</sub> (cartera)</th><th>w<sub>b,i</sub> (benchmark)</th><th>R<sub>p,i</sub> (cartera)</th><th>R<sub>b,i</sub> (benchmark)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Renta variable</td><td>60%</td><td>50%</td><td>12%</td><td>10%</td></tr>
+          <tr><td>Renta fija</td><td>30%</td><td>40%</td><td>4%</td><td>5%</td></tr>
+          <tr><td>Monetario</td><td>10%</td><td>10%</td><td>2%</td><td>2%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Paso 1: Rentabilidad total de la cartera y del benchmark</h3>
+    <p>
+      R<sub>p</sub> = 0,60×12% + 0,30×4% + 0,10×2% = 7,2% + 1,2% + 0,2% = <strong>8,6%</strong><br>
+      R<sub>b</sub> = 0,50×10% + 0,40×5% + 0,10×2% = 5,0% + 2,0% + 0,2% = <strong>7,2%</strong><br>
+      ΔR = R<sub>p</sub> − R<sub>b</sub> = 8,6% − 7,2% = <strong>+1,4%</strong>
+    </p>
+
+    <h3>Paso 2: Efecto de asset allocation por categoría</h3>
+    <div class="table-wrap">
+      <table class="attrib-table">
+        <thead>
+          <tr><th>Categoría</th><th>w<sub>p,i</sub> − w<sub>b,i</sub></th><th>R<sub>b,i</sub></th><th>AA<sub>i</sub> = (w<sub>p,i</sub>−w<sub>b,i</sub>)·R<sub>b,i</sub></th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Renta variable</td><td>60%−50% = +10%</td><td>10%</td><td>+10%×10% = <strong>+1,00%</strong></td></tr>
+          <tr><td>Renta fija</td><td>30%−40% = −10%</td><td>5%</td><td>−10%×5% = <strong>−0,50%</strong></td></tr>
+          <tr><td>Monetario</td><td>10%−10% = 0%</td><td>2%</td><td>0%×2% = <strong>0,00%</strong></td></tr>
+          <tr style="background:var(--green-light);font-weight:700;">
+            <td colspan="3"><strong>AA total</strong></td><td><strong>+0,50%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      El gestor sobreponderó renta variable (la categoría que más rindió en el benchmark)
+      e infraponderó renta fija (la que menos rindió, descontando monetario): decisión de
+      asignación acertada, +0,50%.
+    </p>
+
+    <h3>Paso 3: Efecto de security selection por categoría</h3>
+    <div class="table-wrap">
+      <table class="attrib-table">
+        <thead>
+          <tr><th>Categoría</th><th>w<sub>p,i</sub></th><th>R<sub>p,i</sub> − R<sub>b,i</sub></th><th>SS<sub>i</sub> = w<sub>p,i</sub>·(R<sub>p,i</sub>−R<sub>b,i</sub>)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Renta variable</td><td>60%</td><td>12%−10% = +2%</td><td>60%×2% = <strong>+1,20%</strong></td></tr>
+          <tr><td>Renta fija</td><td>30%</td><td>4%−5% = −1%</td><td>30%×(−1%) = <strong>−0,30%</strong></td></tr>
+          <tr><td>Monetario</td><td>10%</td><td>2%−2% = 0%</td><td>10%×0% = <strong>0,00%</strong></td></tr>
+          <tr style="background:var(--green-light);font-weight:700;">
+            <td colspan="3"><strong>SS total</strong></td><td><strong>+0,90%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Dentro de renta variable, el gestor seleccionó valores que superaron al benchmark
+      en 2 puntos. Dentro de renta fija, su selección fue 1 punto peor que el benchmark.
+    </p>
+
+    <h3>Verificación final</h3>
+    <div class="card accent-green">
+      <p>
+        AA + SS = 0,50% + 0,90% = <strong>1,40%</strong> = ΔR ✓<br><br>
+        <strong>Conclusión:</strong> de los 1,4 puntos de exceso de rentabilidad de la
+        cartera sobre el benchmark, 0,50pp se deben a la decisión de asignación de activos
+        (sobreponderar la RV ganadora) y 0,90pp se deben a la selección de valores
+        concretos (especialmente acertada dentro de la RV).
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El ejercicio de atribución de Brinson es uno de los más recurrentes del examen
+        EFA. Siempre seguir el mismo orden: (1) calcular R<sub>p</sub> y R<sub>b</sub> totales,
+        (2) calcular AA<sub>i</sub> por categoría, (3) calcular SS<sub>i</sub> por categoría,
+        (4) verificar que AA+SS = ΔR. Los signos importan: una desviación de peso positiva
+        en una categoría de baja rentabilidad del benchmark produce AA negativo.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       7. EL CUADRANTE DE BRINSON
+       ============================================================ -->
+  <div class="sec">
+    <h2>7. Visualización: el cuadrante de atribución de Brinson</h2>
+    <div class="quadrant-viz">
+      <svg viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg" aria-label="Cuadrante de atribución de Brinson">
+        <!-- Cuadrícula 2x2 -->
+        <rect x="40"  y="40"  width="190" height="100" fill="#e2e8f0" fill-opacity="0.5" stroke="#1e3a5f" stroke-width="1"/>
+        <rect x="230" y="40"  width="190" height="100" fill="#dcfce7" fill-opacity="0.6" stroke="#1e3a5f" stroke-width="1"/>
+        <rect x="40"  y="140" width="190" height="100" fill="#dcfce7" fill-opacity="0.6" stroke="#1e3a5f" stroke-width="1"/>
+        <rect x="230" y="140" width="190" height="100" fill="#dbeafe" fill-opacity="0.6" stroke="#1e3a5f" stroke-width="1"/>
+
+        <!-- Etiquetas ejes -->
+        <text x="135" y="25" font-size="11" fill="#1e3a5f" font-weight="800" text-anchor="middle">Pesos = Benchmark (w_b)</text>
+        <text x="325" y="25" font-size="11" fill="#1e3a5f" font-weight="800" text-anchor="middle">Pesos = Cartera (w_p)</text>
+        <text x="20" y="95"  font-size="10" fill="#1e3a5f" font-weight="800" text-anchor="middle" transform="rotate(-90,20,95)">R = Benchmark</text>
+        <text x="20" y="195" font-size="10" fill="#1e3a5f" font-weight="800" text-anchor="middle" transform="rotate(-90,20,195)">R = Cartera</text>
+
+        <!-- Contenido de cada celda -->
+        <text x="135" y="80"  font-size="11" fill="#1e3a5f" font-weight="800" text-anchor="middle">BENCHMARK PURO</text>
+        <text x="135" y="98"  font-size="10" fill="#6b7280" text-anchor="middle">R_b = Σ w_b,i · R_b,i</text>
+        <text x="135" y="113" font-size="9"  fill="#6b7280" text-anchor="middle">Punto de partida</text>
+
+        <text x="325" y="80"  font-size="11" fill="#16a34a" font-weight="800" text-anchor="middle">NOTIONAL</text>
+        <text x="325" y="98"  font-size="10" fill="#15803d" text-anchor="middle">R_notional = Σ w_p,i · R_b,i</text>
+        <text x="325" y="113" font-size="9"  fill="#15803d" text-anchor="middle">↑ Asset Allocation</text>
+
+        <text x="135" y="180" font-size="11" fill="#16a34a" font-weight="800" text-anchor="middle">(no usado en modelo clásico)</text>
+        <text x="135" y="198" font-size="10" fill="#15803d" text-anchor="middle">Σ w_b,i · R_p,i</text>
+
+        <text x="325" y="180" font-size="11" fill="#1e3a5f" font-weight="800" text-anchor="middle">CARTERA REAL</text>
+        <text x="325" y="198" font-size="10" fill="#1e3a5f" text-anchor="middle">R_p = Σ w_p,i · R_p,i</text>
+        <text x="325" y="213" font-size="9"  fill="#1e3a5f" text-anchor="middle">Resultado final del gestor</text>
+
+        <!-- Flechas -->
+        <line x1="230" y1="90"  x2="40"  y2="90"  stroke="#1e3a5f" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <line x1="325" y1="140" x2="325" y2="40"  stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrowg)"/>
+        <line x1="325" y1="190" x2="325" y2="140" stroke="#1e3a5f" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#1e3a5f"/>
+          </marker>
+          <marker id="arrowg" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#16a34a"/>
+          </marker>
+        </defs>
+
+        <text x="325" y="245" font-size="9" fill="#6b7280" text-anchor="middle">SS = R_p − R_notional (vertical, abajo)</text>
+        <text x="325" y="20" font-size="9" fill="#15803d" text-anchor="middle">AA = R_notional − R_b (vertical, arriba)</text>
+      </svg>
+      <p style="font-size:var(--fs-xs);color:var(--text-soft);margin:.4rem 0 0;text-align:center;">
+        El modelo Brinson-Hood-Beebower (BHB) clásico utiliza tres de las cuatro celdas:
+        benchmark puro, cartera notional y cartera real. El cuarto cuadrante (pesos del benchmark,
+        rentabilidad de la cartera) no se usa en el modelo de dos factores aditivo.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Fórmula</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ΔR (total añadido)</strong></td><td>R<sub>p</sub> − R<sub>b</sub></td></tr>
+          <tr><td><strong>R notional</strong></td><td>Σ w<sub>p,i</sub> · R<sub>b,i</sub></td></tr>
+          <tr><td><strong>Asset Allocation (AA)</strong></td><td>Σ (w<sub>p,i</sub>−w<sub>b,i</sub>)·R<sub>b,i</sub></td></tr>
+          <tr><td><strong>Security Selection (SS)</strong></td><td>Σ w<sub>p,i</sub>·(R<sub>p,i</sub>−R<sub>b,i</sub>)</td></tr>
+          <tr><td><strong>Verificación</strong></td><td>AA + SS = ΔR</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-d.html" class="nav-btn">← D: Análisis y selección de fondos</a>
+    <a href="seccion-f.html" class="nav-btn">F: Índices ESG →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Brinson, G. P., Hood, L. R. &amp; Beebower, G. L. (1986). «Determinants of Portfolio Performance».
+        <em>Financial Analysts Journal</em>, 42(4), 39–44.
+        <a href="https://doi.org/10.2469/faj.v42.n4.39" target="_blank" rel="noopener">doi.org/10.2469/faj.v42.n4.39</a>.
+        Modelo original de atribución de resultados.
+      </li>
+      <li id="fn2">
+        Brinson, G. P. &amp; Fachler, N. (1985). «Measuring Non-US Equity Portfolio Performance».
+        <em>Journal of Portfolio Management</em>, 11(3), 73–76.
+        <a href="https://doi.org/10.3905/jpm.1985.409005" target="_blank" rel="noopener">doi.org/10.3905/jpm.1985.409005</a>.
+        Extensión del modelo de atribución a carteras internacionales.
+      </li>
+      <li id="fn3">
+        Bacon, C. R. (2008). <em>Practical Portfolio Performance Measurement and Attribution</em>
+        (2.ª ed.). John Wiley &amp; Sons. Guía práctica de cálculo de atribución.
+      </li>
+      <li id="fn4">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 5 · Sección E,
+        pp. 75–78. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 5 · Sección E · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

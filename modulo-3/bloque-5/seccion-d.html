@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B5 · Sección D — Análisis y selección de fondos · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .vs-grid-wide {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .vs-grid-wide { grid-template-columns: 1fr; } }
+    .vs-grid-wide .vbox {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .vs-grid-wide .vbox.rank { border-color: var(--navy); }
+    .vs-grid-wide .vbox.rate { border-color: var(--green); }
+    .vs-grid-wide h4 { font-family: var(--font-ui); font-weight: 900; font-size: var(--fs-base); margin-bottom: .4rem; }
+    .rank h4 { color: var(--navy); }
+    .rate h4 { color: var(--green); }
+    .vs-grid-wide ul { font-size: var(--fs-sm); color: var(--text); line-height: 1.7; padding-left: 1.2rem; margin: 0; }
+
+    .process-steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+      margin: .8rem 0;
+    }
+    .process-steps li {
+      counter-increment: step;
+      display: flex;
+      gap: .8rem;
+      padding: .7rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: var(--fs-sm);
+      line-height: 1.7;
+    }
+    .process-steps li:last-child { border-bottom: none; }
+    .process-steps li::before {
+      content: counter(step);
+      font-family: var(--font-ui);
+      font-weight: 900;
+      font-size: .75rem;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 50%;
+      width: 1.4rem;
+      height: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B5 · D</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 5</a>
+    <span class="sep">›</span>
+    <span>Sección D</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 5 · Sección D · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Aplicación al análisis y selección de fondos</h1>
+    <p class="hero-sub">
+      Diferencia entre ranking y rating · Aplicación de la teoría de carteras a la
+      selección de fondos.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. RANKING VS RATING
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Diferencia entre ranking y rating de fondos</h2>
+    <p class="sec-intro">
+      Aunque a menudo se usan de forma intercambiable en el lenguaje coloquial, ranking y
+      rating de fondos son metodologías distintas con propósitos diferentes (este contenido
+      se desarrolló en detalle en el Módulo 2, Bloque 5; aquí se aplica al marco de la
+      teoría de carteras del Módulo 3).
+    </p>
+
+    <div class="vs-grid-wide">
+      <div class="vbox rank">
+        <h4>📊 Ranking</h4>
+        <ul>
+          <li><strong>Comparación relativa</strong> entre fondos de la misma categoría, ordenados por rentabilidad (bruta o ajustada por riesgo) en un período.</li>
+          <li>Es <strong>retrospectivo</strong>: describe el pasado, sin pretensión predictiva explícita.</li>
+          <li>Sensible al <strong>sesgo de supervivencia</strong> (survivorship bias): los fondos liquidados o fusionados desaparecen de las bases de datos, sesgando al alza la rentabilidad media observada.</li>
+          <li>Depende fuertemente del <strong>período analizado</strong>: un fondo puede estar en el primer cuartil a 1 año y en el último a 5 años.</li>
+          <li>Ejemplos: rankings de Morningstar, Expansión, Citywire por rentabilidad a 1/3/5 años.</li>
+        </ul>
+      </div>
+      <div class="vbox rate">
+        <h4>⭐ Rating</h4>
+        <ul>
+          <li><strong>Evaluación absoluta</strong> de la calidad de un fondo según una metodología sistemática y ponderada (cuantitativa y/o cualitativa).</li>
+          <li>Puede ser <strong>prospectivo</strong>: algunas metodologías (Morningstar cualitativo, 5P) intentan predecir el comportamiento futuro, no solo describir el pasado.</li>
+          <li>Incorpora <strong>medidas ajustadas al riesgo</strong> (Sharpe, MRAR de Morningstar) en lugar de rentabilidad bruta.</li>
+          <li>Suele incluir un componente <strong>cualitativo</strong>: evaluación del equipo gestor, proceso de inversión, consistencia (las «5P»: People, Process, Parent, Performance, Price).</li>
+          <li>Ejemplos: rating de estrellas Morningstar (cuantitativo), rating Gold/Silver/Bronze/Neutral/Negative de Morningstar (cualitativo).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <strong>La distinción clave:</strong> el ranking responde a «¿cómo lo ha hecho este
+      fondo comparado con sus competidores en el pasado?» El rating responde a
+      «¿qué probabilidad hay de que este fondo siga comportándose bien en el futuro,
+      dado su proceso, equipo y consistencia?» El ranking es más objetivo pero menos
+      predictivo; el rating incorpora juicio experto pero es más útil para la decisión
+      de inversión a futuro.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El ranking es retrospectivo y basado en rentabilidad pasada (con riesgo de
+        survivorship bias). El rating combina medidas cuantitativas ajustadas al riesgo
+        con análisis cualitativo, y aspira a tener cierto valor predictivo. Un fondo
+        de primer cuartil en ranking puede tener rating mediocre si su proceso es
+        inconsistente o el equipo gestor es inestable.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. APLICACIÓN DE LA TEORÍA DE CARTERAS A LA SELECCIÓN DE FONDOS
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Aplicación de la teoría de carteras al proceso de análisis y selección de fondos</h2>
+    <p>
+      Todos los conceptos desarrollados en este bloque (TGR, Sharpe, Treynor, Jensen,
+      Tracking Error, Ratio de Información) se aplican de forma directa al proceso
+      profesional de selección de fondos de inversión:
+    </p>
+
+    <ul class="process-steps">
+      <li>
+        <div>
+          <strong>Definición del universo comparable (peer group):</strong> agrupar fondos
+          con el mismo benchmark, estilo de gestión y categoría Morningstar para que la
+          comparación sea homogénea (no comparar un fondo de renta variable emergente con
+          uno de renta fija europea).
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Cálculo de la rentabilidad correcta (TGR):</strong> usar siempre la
+          rentabilidad ponderada por tiempo (TWRR/TGR) del fondo, nunca la TIR de un
+          partícipe concreto, para evaluar la habilidad real del gestor.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Cálculo de beta y alfa respecto al benchmark de categoría:</strong>
+          aplicar el modelo de mercado de Sharpe (Bloque 3) para clasificar el fondo
+          como agresivo, neutro o defensivo, y calcular su alfa histórico.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Evaluación con medidas ajustadas al riesgo:</strong> calcular Sharpe,
+          Treynor, alfa de Jensen y Ratio de Información del fondo frente a su categoría
+          y benchmark, en múltiples ventanas temporales (1, 3, 5 años) para evaluar consistencia.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Análisis del Tracking Error:</strong> verificar que el TE es coherente
+          con el objetivo declarado del fondo (un fondo "índice mejorado" con TE de 8%
+          estaría mal etiquetado — sería realmente un fondo activo de alta convicción).
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Análisis de consistencia (rolling returns):</strong> estudiar si el alfa
+          y el Ratio de Información se mantienen estables a lo largo de distintas ventanas
+          temporales móviles, o si dependen de un único período excepcional (que podría
+          ser suerte, no habilidad).
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Análisis cualitativo (5P):</strong> evaluar el equipo gestor (People),
+          el proceso de inversión (Process), la solidez de la gestora (Parent), el track
+          record ajustado al riesgo (Performance) y la estructura de comisiones (Price).
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Decisión de inclusión en cartera modelo:</strong> seleccionar los fondos
+          que combinan buen rating cualitativo, alfa consistente y comisiones razonables,
+          ajustando su peso según su contribución al riesgo y rentabilidad de la cartera
+          conjunta (no analizar el fondo de forma aislada, sino su aportación marginal).
+        </div>
+      </li>
+    </ul>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo — Aplicación integrada</h3>
+      <p>
+        Un fondo de renta variable europea presenta:<br>
+        — Ranking: 1er cuartil a 3 años, 2º cuartil a 5 años (rentabilidad bruta)<br>
+        — β = 1,15 respecto al Eurostoxx 600<br>
+        — Alfa de Jensen anualizado a 5 años: +1,8%<br>
+        — Ratio de Información: 0,72<br>
+        — Tracking Error: 4,1%<br>
+        — Rating cualitativo: Silver (Morningstar)<br><br>
+        Interpretación integrada: el fondo tiene buen ranking reciente, genera alfa real
+        consistente (no solo beta alta), con un nivel de riesgo activo razonable (TE 4,1%)
+        y buen rating cualitativo. Es un candidato sólido para una cartera modelo de perfil
+        moderado-agresivo, frente a otro fondo con mejor ranking pero alfa negativo
+        (que indicaría que su rentabilidad se explica solo por su beta, no por habilidad).
+      </p>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        El proceso de selección de fondos en 2026 incorpora cada vez más el análisis de
+        consistencia y costes frente al simple ranking de rentabilidad bruta a corto plazo,
+        en gran parte impulsado por la presión regulatoria de MiFID II sobre la idoneidad
+        y por la creciente competencia de ETF de bajo coste. Los datos SPIVA y Morningstar
+        de los últimos 10 años siguen mostrando que la persistencia del alfa es escasa: muy
+        pocos fondos mantienen un Ratio de Información superior a 0,5 de forma sostenida
+        en ventanas móviles de 5 años.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Ranking</strong></td><td>Comparación retrospectiva por rentabilidad; sensible a survivorship bias y al período elegido</td></tr>
+          <tr><td><strong>Rating</strong></td><td>Evaluación sistemática (cuantitativa + cualitativa); aspira a valor predictivo</td></tr>
+          <tr><td><strong>Aplicación de teoría de carteras</strong></td><td>TGR para rentabilidad correcta; β/α de Sharpe; Sharpe/Treynor/Jensen/RI para evaluación ajustada al riesgo</td></tr>
+          <tr><td><strong>Consistencia</strong></td><td>El alfa y el RI deben evaluarse en múltiples ventanas, no en un único período</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-c.html" class="nav-btn">← C: Comparación con el benchmark</a>
+    <a href="seccion-e.html" class="nav-btn">E: Atribución de resultados →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Morningstar (2025). <em>Morningstar Rating Methodology</em>.
+        <a href="https://www.morningstar.com/research" target="_blank" rel="noopener">morningstar.com/research</a>.
+        Metodología cuantitativa (estrellas) y cualitativa (5P).
+      </li>
+      <li id="fn2">
+        Carhart, M. M. (1997). «On Persistence in Mutual Fund Performance».
+        <em>The Journal of Finance</em>, 52(1), 57–82.
+        <a href="https://doi.org/10.2307/2329556" target="_blank" rel="noopener">doi.org/10.2307/2329556</a>.
+        Evidencia sobre la falta de persistencia del alfa en fondos de inversión.
+      </li>
+      <li id="fn3">
+        S&amp;P Dow Jones Indices (2024). <em>SPIVA Europe Scorecard Year-End 2024</em>.
+        <a href="https://www.spglobal.com/spdji/en/spiva" target="_blank" rel="noopener">spglobal.com/spdji</a>.
+      </li>
+      <li id="fn4">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 5 · Sección D,
+        pp. 74–75. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 5 · Sección D · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

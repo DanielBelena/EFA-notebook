@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B5 · Sección C — Batir al benchmark · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .compare-table td, .compare-table th {
+      text-align: center;
+      padding: .5rem .8rem;
+      font-size: var(--fs-sm);
+    }
+    .compare-table th { background: var(--navy); color: #fff; }
+    .compare-table tr:nth-child(even) td { background: var(--navy-light); }
+    .compare-table .win { color: var(--green); font-weight: 800; }
+    .compare-table .lose { color: #dc2626; font-weight: 800; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B5 · C</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 5</a>
+    <span class="sep">›</span>
+    <span>Sección C</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 5 · Sección C · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Comparación con un índice de referencia: benchmark</h1>
+    <p class="hero-sub">
+      Qué significa batir al benchmark · Comparación según Sharpe, Treynor y Jensen ·
+      Casos en que las tres medidas pueden discrepar.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. QUÉ SIGNIFICA BATIR AL BENCHMARK
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. ¿Qué significa «batir al benchmark»?</h2>
+    <p class="sec-intro">
+      «Batir al benchmark» significa que la cartera ha obtenido un resultado superior
+      al índice de referencia <strong>ajustado por el riesgo asumido</strong> — no
+      simplemente una rentabilidad bruta mayor. Una cartera con más rentabilidad pero
+      mucho más riesgo no necesariamente «bate» al benchmark en sentido relevante: puede
+      simplemente haber tomado más riesgo, lo que cualquier inversor podría replicar
+      apalancando el propio benchmark.
+    </p>
+    <div class="callout info">
+      <strong>La pregunta correcta no es</strong> «¿la cartera rindió más que el índice?»
+      sino <strong>«¿la cartera rindió más de lo que su nivel de riesgo justificaría?»</strong>
+      Las tres medidas de esta sección (Sharpe, Treynor, Jensen) responden a esa pregunta
+      desde tres ángulos distintos.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. BATIR SEGÚN SHARPE
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Cómo batir al benchmark según el Ratio de Sharpe</h2>
+    <p>
+      Una cartera bate al benchmark según Sharpe cuando su ratio de Sharpe es
+      <strong>superior</strong> al del benchmark:
+    </p>
+    <div class="formula">
+      <span class="formula-label">Condición de superioridad en Sharpe</span>
+      S<sub>c</sub> > S<sub>M</sub>   ⟺   (R<sub>c</sub>−R<sub>f</sub>)/σ<sub>c</sub> > (R<sub>M</sub>−R<sub>f</sub>)/σ<sub>M</sub>
+    </div>
+    <p>
+      Esto puede ocurrir de varias formas: (a) misma rentabilidad con menor σ,
+      (b) mayor rentabilidad con la misma σ, o (c) mayor rentabilidad proporcionalmente
+      más que el aumento en σ. Como Sharpe usa el riesgo <strong>total</strong>, es la
+      medida apropiada cuando la cartera <em>no está completamente diversificada</em>
+      (el inversor solo posee esta cartera, no la combina con otros activos).
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Batir según Sharpe</h3>
+      <p>
+        Benchmark: R<sub>M</sub>=9%, σ<sub>M</sub>=14%. R<sub>f</sub>=2%.<br>
+        S<sub>M</sub> = (9−2)/14 = <strong>0,50</strong><br><br>
+        Cartera A: R<sub>A</sub>=11%, σ<sub>A</sub>=17%. S<sub>A</sub> = (11−2)/17 = <strong>0,53</strong> → BATE el benchmark (mayor Sharpe)<br>
+        Cartera B: R<sub>B</sub>=13%, σ<sub>B</sub>=24%. S<sub>B</sub> = (13−2)/24 = <strong>0,46</strong> → NO bate (menor Sharpe, a pesar de mayor rentabilidad)
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. BATIR SEGÚN TREYNOR
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Cómo batir al benchmark según el Ratio de Treynor</h2>
+    <div class="formula">
+      <span class="formula-label">Condición de superioridad en Treynor</span>
+      T<sub>c</sub> > T<sub>M</sub>   ⟺   (R<sub>c</sub>−R<sub>f</sub>)/β<sub>c</sub> > R<sub>M</sub>−R<sub>f</sub>
+    </div>
+    <p>
+      Treynor usa beta (riesgo sistemático) en lugar de σ. Es la medida apropiada cuando
+      la cartera analizada es <em>una entre varias</em> que el inversor combina en una
+      cartera global diversificada — en ese contexto, solo importa la contribución de
+      riesgo sistemático de cada cartera, ya que el riesgo específico se diversifica
+      a nivel del conjunto.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Batir según Treynor</h3>
+      <p>
+        Benchmark: R<sub>M</sub>=9%, β<sub>M</sub>=1. R<sub>f</sub>=2%. T<sub>M</sub> = 9%−2% = <strong>7,0%</strong><br><br>
+        Cartera A: R<sub>A</sub>=11%, β<sub>A</sub>=1,4. T<sub>A</sub> = (11−2)/1,4 = <strong>6,4%</strong> → NO bate (menor Treynor)<br>
+        Cartera C: R<sub>C</sub>=10%, β<sub>C</sub>=0,9. T<sub>C</sub> = (10−2)/0,9 = <strong>8,9%</strong> → BATE el benchmark (mayor Treynor)
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>Nótese:</strong> la Cartera A del ejemplo de Sharpe (que batía al benchmark
+      en términos de Sharpe) podría no batirlo en términos de Treynor si su beta es alta —
+      esto ilustra por qué la elección de la medida correcta depende del contexto del
+      inversor (cartera única vs. componente de una cartera mayor).
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. BATIR SEGÚN JENSEN
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Cómo batir al benchmark según el Alfa de Jensen</h2>
+    <div class="formula">
+      <span class="formula-label">Condición de superioridad según Jensen</span>
+      α<sub>c</sub> > 0   ⟺   R<sub>c</sub> > R<sub>f</sub> + β<sub>c</sub>·(R<sub>M</sub>−R<sub>f</sub>)
+    </div>
+    <p>
+      El alfa de Jensen es la medida más directa de «batir al benchmark ajustado por riesgo
+      sistemático», expresada en puntos porcentuales en lugar de como ratio. Un alfa positivo
+      significa que la cartera rindió por encima de lo que predice la SML para su beta —
+      exactamente la definición de estar por encima de la SML (infravalorada en el sentido
+      ex-post, o con habilidad de gestión demostrada).
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Batir según Jensen</h3>
+      <p>
+        Benchmark: R<sub>M</sub>=9%. R<sub>f</sub>=2%.<br><br>
+        Cartera A: R<sub>A</sub>=11%, β<sub>A</sub>=1,4.<br>
+        E(R<sub>A</sub>)<sub>CAPM</sub> = 2%+1,4×(9%−2%) = 2%+9,8% = 11,8%<br>
+        α<sub>A</sub> = 11% − 11,8% = <strong>−0,8%</strong> → NO bate (alfa negativo)<br><br>
+        Cartera C: R<sub>C</sub>=10%, β<sub>C</sub>=0,9.<br>
+        E(R<sub>C</sub>)<sub>CAPM</sub> = 2%+0,9×(9%−2%) = 2%+6,3% = 8,3%<br>
+        α<sub>C</sub> = 10% − 8,3% = <strong>+1,7%</strong> → BATE el benchmark (alfa positivo)
+      </p>
+      <p style="margin-top:.5rem;">
+        Coherente con el resultado de Treynor: la Cartera C bate en ambas medidas
+        (Treynor y Jensen), mientras que la Cartera A no bate en ninguna de las dos
+        que usan beta como medida de riesgo.
+      </p>
+    </div>
+
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Cartera</th><th>Sharpe vs. benchmark</th><th>Treynor vs. benchmark</th><th>Jensen (α)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A (R=11%, σ=17%, β=1,4)</td>
+            <td class="win">BATE (0,53 &gt; 0,50)</td>
+            <td class="lose">NO bate (6,4% &lt; 7,0%)</td>
+            <td class="lose">−0,8% (NO bate)</td>
+          </tr>
+          <tr>
+            <td>C (R=10%, σ=?, β=0,9)</td>
+            <td>—</td>
+            <td class="win">BATE (8,9% &gt; 7,0%)</td>
+            <td class="win">+1,7% (BATE)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Es posible (y frecuente en el examen) que una misma cartera bata al benchmark
+        según una medida pero no según otra. Esto no es una contradicción: refleja que
+        Sharpe (riesgo total) y Treynor/Jensen (riesgo sistemático) capturan dimensiones
+        distintas del riesgo. El examen puede pedir calcular las tres medidas para la
+        misma cartera y explicar por qué pueden discrepar.
+      </div>
+    </div>
+
+    <div class="contexto-actual">
+      <div class="ctx-title">📊 Contexto actual (junio 2026)</div>
+      <p>
+        Con el IBEX en máximos históricos (~18.250 puntos, junio 2026) tras un +18% en el
+        semestre, muchos fondos de gestión activa española han batido a su benchmark en
+        términos de rentabilidad bruta simplemente por sobreponderar valores de alta beta
+        (defensa, banca). Sin embargo, al ajustar por Treynor o Jensen, una parte
+        significativa de esos fondos no demuestra alfa real: su exceso de rentabilidad
+        se explica enteramente por el mayor riesgo sistemático asumido, no por habilidad
+        de selección o timing.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Medida</th><th>Condición para batir al benchmark</th><th>Contexto apropiado</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sharpe</strong></td><td>S<sub>c</sub> &gt; S<sub>M</sub></td><td>Cartera única, no combinada con otras (riesgo total relevante)</td></tr>
+          <tr><td><strong>Treynor</strong></td><td>T<sub>c</sub> &gt; T<sub>M</sub> = R<sub>M</sub>−R<sub>f</sub></td><td>Cartera como componente de una cartera diversificada mayor</td></tr>
+          <tr><td><strong>Jensen</strong></td><td>α<sub>c</sub> &gt; 0</td><td>Medida directa en puntos % del exceso ajustado por β</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-b.html" class="nav-btn">← B: Medidas ajustadas al riesgo</a>
+    <a href="seccion-d.html" class="nav-btn">D: Análisis y selección de fondos →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Sharpe, W. F. (1966). «Mutual Fund Performance». <em>The Journal of Business</em>, 39(1), 119–138.
+        <a href="https://doi.org/10.1086/294846" target="_blank" rel="noopener">doi.org/10.1086/294846</a>.
+      </li>
+      <li id="fn2">
+        Treynor, J. L. &amp; Mazuy, K. (1966). «Can Mutual Funds Outguess the Market?».
+        <em>Harvard Business Review</em>, 44(4), 131–136.
+      </li>
+      <li id="fn3">
+        Bodie, Z., Kane, A. &amp; Marcus, A. J. (2014). <em>Investments</em> (10.ª ed.), cap. 24,
+        pp. 838–845. McGraw-Hill Education. Comparación práctica de medidas de evaluación.
+      </li>
+      <li id="fn4">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 5 · Sección C,
+        pp. 73–74. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 5 · Sección C · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

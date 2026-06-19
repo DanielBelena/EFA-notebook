@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B5 · Sección F — Índices ESG y benchmarks climáticos · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 640px) { .approach-grid { grid-template-columns: 1fr; } }
+    .approach-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+    }
+    .approach-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .3rem; }
+    .approach-box p { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.6; margin: 0; }
+
+    .ctb-pab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .ctb-pab-grid { grid-template-columns: 1fr; } }
+    .ctb-pab-grid .pbox {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .ctb-pab-grid .pbox.ctb { border-color: var(--amber); }
+    .ctb-pab-grid .pbox.pab { border-color: var(--green); }
+    .ctb-pab-grid h4 { font-family: var(--font-ui); font-weight: 900; font-size: var(--fs-base); margin-bottom: .4rem; }
+    .ctb h4 { color: var(--amber); }
+    .pab h4 { color: var(--green); }
+    .ctb-pab-grid ul { font-size: var(--fs-sm); color: var(--text); line-height: 1.7; padding-left: 1.2rem; margin: 0; }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B5 · F</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 5</a>
+    <span class="sep">›</span>
+    <span>Sección F</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 5 · Sección F · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Índices ESG y benchmarks climáticos</h1>
+    <p class="hero-sub">
+      Índices ESG y parent index · Familia MSCI ESG · Selección de benchmark ESG ·
+      Índices climáticos UE: CTB y PAB · Requisitos regulatorios.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. QUÉ ES UN ÍNDICE ESG
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. ¿Qué es un índice ESG? Tipos según el enfoque inversor</h2>
+    <p class="sec-intro">
+      Un <strong>índice ESG</strong> es un benchmark construido aplicando criterios
+      medioambientales, sociales y de gobernanza a un índice convencional de partida
+      (el «parent index»), para reflejar un enfoque de inversión sostenible específico.
+      Se usan tanto para construir productos pasivos (ETF, fondos indexados) como para
+      <strong>evaluar el rendimiento</strong> de carteras gestionadas activamente con
+      mandato sostenible.
+    </p>
+
+    <div class="approach-grid">
+      <div class="approach-box">
+        <h4>Índices de exclusión</h4>
+        <p>Replican el parent index eliminando sectores o empresas controvertidas
+        (armas, tabaco, carbón térmico, juego). Universo reducido pero estructura
+        sectorial similar al índice original.</p>
+      </div>
+      <div class="approach-box">
+        <h4>Índices best-in-class</h4>
+        <p>Seleccionan, dentro de cada sector del parent index, las empresas con mejor
+        puntuación ESG, manteniendo aproximadamente la misma distribución sectorial
+        que el índice original (neutral sectorial).</p>
+      </div>
+      <div class="approach-box">
+        <h4>Índices de optimización ESG</h4>
+        <p>Maximizan la puntuación ESG agregada de la cartera sujeta a restricciones de
+        tracking error respecto al parent index (ej. MSCI ESG Universal, MSCI ESG Leaders
+        con optimización).</p>
+      </div>
+      <div class="approach-box">
+        <h4>Índices temáticos</h4>
+        <p>Se centran en una temática ESG específica: agua, energía limpia, igualdad de
+        género, economía circular. Mayor concentración sectorial y geográfica que un
+        índice ESG amplio.</p>
+      </div>
+      <div class="approach-box">
+        <h4>Índices climáticos</h4>
+        <p>Diseñados específicamente para gestionar el riesgo climático y la trayectoria
+        de descarbonización de la cartera. Incluyen los índices CTB y PAB regulados
+        por la UE (ver punto 5).</p>
+      </div>
+      <div class="approach-box">
+        <h4>Índices de impacto</h4>
+        <p>Replican carteras de empresas o bonos con impacto medioambiental o social
+        positivo y medible (ej. índices de bonos verdes, índices de energías renovables puras).</p>
+      </div>
+    </div>
+
+    <h3>Uso de los benchmarks ESG para evaluar el rendimiento</h3>
+    <p>
+      Cuando un fondo o cartera tiene un mandato ESG explícito (art. 8 o 9 SFDR), debe
+      compararse contra un benchmark ESG <em>coherente con su estrategia declarada</em>,
+      no contra el índice convencional. Comparar un fondo art. 9 con el MSCI World
+      convencional sería metodológicamente incorrecto: el fondo asume voluntariamente
+      restricciones (universo reducido) que pueden generar tracking error estructural
+      respecto al índice convencional, sin que ello implique mala gestión.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. PARENT INDEX
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. El concepto de «parent index»</h2>
+    <p>
+      El <strong>parent index</strong> (índice matriz o de partida) es el índice
+      convencional sobre el que se construye un índice ESG, aplicando los filtros,
+      exclusiones o ponderaciones ESG correspondientes. El parent index define el
+      universo geográfico y de capitalización de partida (ej: MSCI World es el parent
+      index de MSCI World ESG Leaders).
+    </p>
+    <div class="callout info">
+      <strong>Importancia del parent index:</strong> dos índices ESG construidos sobre
+      parent indices distintos (ej. MSCI Europe ESG vs. MSCI World ESG) no son
+      comparables directamente, igual que sus parent indices no lo son. El parent
+      index determina la base de comparación correcta para evaluar el tracking error
+      y la efectividad de la estrategia ESG aplicada.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. MSCI: VARIEDAD DE ÍNDICES ESG
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Diversidad de índices ESG: el caso de MSCI</h2>
+    <p>
+      <strong>MSCI</strong> es el proveedor de índices con mayor experiencia y variedad
+      en el ámbito ESG, ofreciendo distintas familias de índices que replican diferentes
+      estrategias de inversión sostenible sobre los mismos parent indices, lo que permite
+      a los inversores elegir el enfoque ESG más alineado con su política de inversión:
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Familia de índice MSCI</th><th>Enfoque</th><th>Tracking error típico vs. parent</th></tr></thead>
+        <tbody>
+          <tr><td><strong>MSCI ESG Universal</strong></td><td>Inclinación leve hacia mejores puntuaciones ESG, máxima similitud con el parent</td><td>Muy bajo (&lt;1%)</td></tr>
+          <tr><td><strong>MSCI ESG Leaders</strong></td><td>Best-in-class: top 50% por puntuación ESG en cada sector</td><td>Bajo-medio (1–2%)</td></tr>
+          <tr><td><strong>MSCI SRI</strong></td><td>Selección más estricta: top 25% ESG, con exclusiones adicionales</td><td>Medio (2–4%)</td></tr>
+          <tr><td><strong>MSCI ESG Screened</strong></td><td>Solo exclusiones (armas controvertidas, tabaco, carbón), sin selección positiva</td><td>Muy bajo (&lt;1%)</td></tr>
+          <tr><td><strong>MSCI Climate Paris Aligned</strong></td><td>Cumple los requisitos PAB de la UE (descarbonización 50% + 7% anual)</td><td>Medio-alto (2–5%)</td></tr>
+          <tr><td><strong>MSCI Climate Action</strong></td><td>Sobrepondera empresas con planes de transición climática creíbles</td><td>Medio (2–3%)</td></tr>
+          <tr><td><strong>MSCI Low Carbon</strong></td><td>Minimiza la exposición a la huella de carbono sin objetivo de descarbonización anual</td><td>Bajo (1–2%)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout info">
+      <strong>Lección del caso MSCI:</strong> «índice ESG» no es una categoría homogénea.
+      Dos índices ESG construidos sobre el mismo parent index (MSCI World) pueden tener
+      composiciones, sesgos sectoriales y tracking errors muy distintos según la
+      metodología aplicada (Universal vs. SRI vs. Climate PAB). El asesor debe identificar
+      con precisión qué metodología sigue cada producto antes de usarlo como benchmark.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. SELECCIÓN DE UN BENCHMARK ESG
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. Cómo seleccionar un benchmark ESG para evaluar una cartera</h2>
+    <p>
+      La selección de un benchmark ESG apropiado debe seguir el mismo principio que
+      la selección de cualquier benchmark (Bloque 4, Sección C: no ambiguo, invertible,
+      medible, apropiado), con consideraciones adicionales específicas de sostenibilidad:
+    </p>
+    <ul style="font-size:var(--fs-sm);line-height:1.85;padding-left:1.2rem;">
+      <li><strong>Coherencia con la clasificación SFDR del fondo:</strong> un fondo art. 9 con objetivo de descarbonización explícito debe compararse con un índice PAB o Climate Action, no con un índice ESG Screened genérico.</li>
+      <li><strong>Mismo parent index y universo geográfico:</strong> el benchmark ESG debe construirse sobre el mismo universo (geografía, capitalización) que el fondo, para que la comparación de rentabilidad sea homogénea.</li>
+      <li><strong>Metodología de exclusión/selección equivalente:</strong> si el fondo excluye armas controvertidas y tabaco, el benchmark debe aplicar exclusiones equivalentes (no más ni menos estrictas).</li>
+      <li><strong>Disponibilidad de datos históricos suficientes:</strong> los índices ESG más nuevos (climáticos, temáticos) pueden tener historiales cortos, dificultando la evaluación de consistencia a largo plazo.</li>
+      <li><strong>Transparencia metodológica del proveedor:</strong> el proveedor del índice (MSCI, FTSE Russell, S&amp;P, STOXX) debe publicar la metodología completa de construcción y rebalanceo para evitar el riesgo de «caja negra».</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. ÍNDICES CLIMÁTICOS UE: CTB Y PAB
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. Índices climáticos: bajo carbono, CTB y PAB</h2>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Índice climático (genérico)</h4>
+        <p>
+          Cualquier índice diseñado para incorporar consideraciones de riesgo climático
+          en su construcción: huella de carbono, reservas de combustibles fósiles,
+          exposición a riesgo de transición o riesgo físico climático.
+        </p>
+      </div>
+      <div class="vs-box right">
+        <h4>Índice de bajo carbono</h4>
+        <p>
+          Índice que reduce la intensidad de carbono de la cartera respecto al parent
+          index (ej. MSCI Low Carbon Target/Leaders), normalmente mediante
+          infraponderación de las empresas más intensivas en emisiones, sin necesariamente
+          cumplir una trayectoria de descarbonización anual obligatoria.
+        </p>
+      </div>
+    </div>
+
+    <p>
+      La Unión Europea ha regulado formalmente dos categorías de índices climáticos
+      mediante el Reglamento (UE) 2019/2089, que modificó el Reglamento de Benchmarks
+      (UE) 2016/1011, desarrollado técnicamente por el Reglamento Delegado (UE) 2020/1818:
+    </p>
+
+    <div class="ctb-pab-grid">
+      <div class="pbox ctb">
+        <h4>🟧 EU Climate Transition Benchmark (CTB)</h4>
+        <ul>
+          <li>Reducción mínima del <strong>30%</strong> de la intensidad de carbono respecto al parent index.</li>
+          <li>Tasa de auto-descarbonización mínima de al menos <strong>7% anual</strong> respecto al año anterior.</li>
+          <li>Exposición mínima a sectores de alto impacto climático para reflejar la economía real en transición (no excluye completamente sectores intensivos).</li>
+          <li>Diseñado para inversores en transición hacia una estrategia más alineada con el clima, sin objetivo estricto de alineación con el Acuerdo de París.</li>
+        </ul>
+      </div>
+      <div class="pbox pab">
+        <h4>🟩 EU Paris-aligned Benchmark (PAB)</h4>
+        <ul>
+          <li>Reducción mínima del <strong>50%</strong> de la intensidad de carbono respecto al parent index (el doble de exigente que el CTB).</li>
+          <li>Misma tasa de auto-descarbonización mínima del <strong>7% anual</strong>.</li>
+          <li>Exclusiones obligatorias más estrictas: empresas con ingresos significativos de carbón térmico, petróleo y gas no convencional, y generación eléctrica de alta intensidad de carbono.</li>
+          <li>Diseñado explícitamente para alinearse con el objetivo del Acuerdo de París de limitar el calentamiento global.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout info">
+      Un dato relevante del debate regulatorio (Comisión Europea, 2024): <span>hoy, aproximadamente el 90% de las empresas cotizadas del mundo tienen una Temperatura Implícita (<em>Implied Temperature Rise</em>) superior a 1,5°C, lo que hace extremadamente difícil que un índice diversificado —incluido un PAB— alcance ese objetivo sin una concentración significativa en pocas empresas ya alineadas.</span> Esto ilustra la tensión entre diversificación y ambición climática en el diseño de estos índices.
+    </div>
+
+    <h3>Requisitos legales y regulatorios de los índices climáticos UE</h3>
+    <ul style="font-size:var(--fs-sm);line-height:1.85;padding-left:1.2rem;">
+      <li><strong>Reglamento base:</strong> Reglamento (UE) 2019/2089, que modifica el Reglamento de Benchmarks (UE) 2016/1011, en vigor desde el 30 de abril de 2020.</li>
+      <li><strong>Estándares técnicos mínimos:</strong> Reglamento Delegado (UE) 2020/1818, que especifica los umbrales de descarbonización (30%/50%), la tasa anual (7%) y las exclusiones obligatorias.</li>
+      <li><strong>Etiquetado obligatorio:</strong> solo los índices que cumplen los requisitos mínimos pueden usar las denominaciones protegidas «EU Climate Transition Benchmark» o «EU Paris-aligned Benchmark».</li>
+      <li><strong>Divulgación de metodología:</strong> los administradores del índice deben publicar la metodología completa, incluyendo cómo se calcula la intensidad de carbono y cómo se verifica la trayectoria de descarbonización.</li>
+      <li><strong>Prevención del greenwashing:</strong> el marco fue diseñado explícitamente, según el Grupo de Expertos Técnicos de la Comisión Europea (TEG, 2019), para establecer estándares mínimos de calidad y comparabilidad que reduzcan el riesgo de etiquetado engañoso.</li>
+      <li><strong>Revisión continua:</strong> un taller de la Comisión Europea celebrado en octubre de 2024 evaluó los primeros cuatro años de aplicación de CTB y PAB, identificando el tracking error frente a los parent indices como uno de los principales retos pendientes.</li>
+    </ul>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Memorizar los dos umbrales clave: CTB = 30% reducción de intensidad de carbono;
+        PAB = 50% reducción. Ambos comparten la tasa de auto-descarbonización del 7%
+        anual. El PAB tiene exclusiones más estrictas que el CTB (especialmente para
+        combustibles fósiles).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       6. ÍNDICE IDÓNEO SEGÚN ESTRATEGIA DEL INVERSOR
+       ============================================================ -->
+  <div class="sec">
+    <h2>6. ¿Qué índice climático es idóneo según la estrategia del inversor institucional?</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Estrategia climática del inversor</th><th>Índice más idóneo</th><th>Razón</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Compromiso explícito con el Acuerdo de París / net-zero</td>
+            <td><strong>PAB</strong></td>
+            <td>Mayor reducción de intensidad de carbono (50%) y exclusiones estrictas de combustibles fósiles</td>
+          </tr>
+          <tr>
+            <td>Transición gradual sin objetivo de alineación estricta</td>
+            <td><strong>CTB</strong></td>
+            <td>Reducción significativa (30%) manteniendo exposición a sectores en transición real</td>
+          </tr>
+          <tr>
+            <td>Reducir huella de carbono sin objetivo de trayectoria anual</td>
+            <td><strong>Índice de bajo carbono (Low Carbon)</strong></td>
+            <td>Más flexible, menor tracking error, sin obligación de descarbonización del 7% anual</td>
+          </tr>
+          <tr>
+            <td>Mantener diversificación sectorial amplia con mínimo sesgo ESG</td>
+            <td><strong>MSCI ESG Universal o Screened</strong></td>
+            <td>Tracking error mínimo respecto al parent index</td>
+          </tr>
+          <tr>
+            <td>Maximizar el impacto positivo medible</td>
+            <td><strong>Índices temáticos / de impacto</strong></td>
+            <td>Concentración explícita en soluciones climáticas (renovables, eficiencia energética)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo — Decisión de un fondo de pensiones institucional</h3>
+      <p>
+        Un fondo de pensiones español se ha comprometido públicamente con el objetivo
+        de <strong>net-zero en 2050</strong> y reporta bajo el marco PAI del SFDR.
+        Para su mandato de renta variable global, el benchmark más coherente sería el
+        <strong>MSCI World Climate Paris Aligned (PAB)</strong>: cumple los requisitos
+        regulatorios mínimos (−50% intensidad de carbono, −7% anual, exclusiones de
+        combustibles fósiles), permite reportar de forma coherente bajo SFDR art. 9,
+        y proporciona una trayectoria verificable hacia el objetivo net-zero declarado.
+        Un índice CTB sería insuficiente para sustentar el compromiso net-zero declarado
+        por el fondo.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Parent index</strong></td><td>Índice convencional base sobre el que se construye el índice ESG</td></tr>
+          <tr><td><strong>Familias MSCI</strong></td><td>Universal (TE mínimo) → ESG Leaders → SRI (TE creciente) → Climate PAB/Action</td></tr>
+          <tr><td><strong>CTB</strong></td><td>−30% intensidad carbono vs. parent; −7% anual</td></tr>
+          <tr><td><strong>PAB</strong></td><td>−50% intensidad carbono vs. parent; −7% anual; exclusiones más estrictas</td></tr>
+          <tr><td><strong>Marco regulatorio</strong></td><td>Reglamento (UE) 2019/2089 + Reglamento Delegado (UE) 2020/1818</td></tr>
+          <tr><td><strong>Selección de benchmark ESG</strong></td><td>Debe coincidir con clasificación SFDR, parent index y metodología de exclusión del fondo</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-e.html" class="nav-btn">← E: Atribución de resultados</a>
+    <a href="../bloque-6/seccion-a.html" class="nav-btn">Bloque 6 · A →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Reglamento (UE) 2019/2089 del Parlamento Europeo, de 27 de noviembre de 2019, por el que se
+        modifica el Reglamento (UE) 2016/1011 en lo que respecta a los índices de referencia de
+        transición climática de la UE, los índices de referencia armonizados con el Acuerdo de París
+        de la UE y las divulgaciones de información relacionadas con la sostenibilidad.
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32019R2089" target="_blank" rel="noopener">eur-lex.europa.eu</a>.
+      </li>
+      <li id="fn2">
+        Reglamento Delegado (UE) 2020/1818 de la Comisión, de 17 de julio de 2020, sobre normas mínimas
+        para los índices de referencia de transición climática de la UE y los índices de referencia
+        armonizados con el Acuerdo de París de la UE.
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32020R1818" target="_blank" rel="noopener">eur-lex.europa.eu</a>.
+      </li>
+      <li id="fn3">
+        Comisión Europea, Technical Expert Group on Sustainable Finance (TEG) (2019).
+        <em>Final Report on Climate Benchmarks and Benchmarks' ESG Disclosures</em>.
+        <a href="https://finance.ec.europa.eu/sustainable-finance/disclosures/eu-labels-benchmarks-climate-esg-and-benchmarks-esg-disclosures_en" target="_blank" rel="noopener">finance.ec.europa.eu</a>.
+        Estándares mínimos para prevenir el greenwashing en índices climáticos.
+      </li>
+      <li id="fn4">
+        MSCI Inc. (2025). <em>MSCI ESG Indexes Methodology</em> y <em>EU Paris-Aligned Benchmark</em>.
+        <a href="https://www.msci.com/indexes/group/climate-paris-aligned-indexes/eu-paris-aligned-benchmark" target="_blank" rel="noopener">msci.com</a>.
+        Familias de índices ESG y climáticos, e Implied Temperature Rise.
+      </li>
+      <li id="fn5">
+        Comisión Europea (2024). <em>Workshop on EU Paris-aligned and EU Climate Transition
+        benchmarks</em>, 17 de octubre de 2024.
+        <a href="https://finance.ec.europa.eu/events/workshop-eu-paris-aligned-and-eu-climate-transition-benchmarks-2024-10-17_en" target="_blank" rel="noopener">finance.ec.europa.eu</a>.
+        Balance de los primeros 4 años de aplicación de CTB y PAB.
+      </li>
+      <li id="fn6">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 5 · Sección F,
+        pp. 78–80. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 5 · Sección F · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

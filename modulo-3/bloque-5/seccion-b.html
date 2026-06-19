@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M3 · B5 · Sección B — Medidas ajustadas al riesgo · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .measure-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 560px) { .measure-grid { grid-template-columns: 1fr; } }
+    .measure-box {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: .9rem 1.1rem;
+    }
+    .measure-box h4 { font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm); color: var(--navy); margin-bottom: .3rem; }
+    .measure-box p { font-size: var(--fs-xs); color: var(--text-soft); line-height: 1.65; margin: 0; }
+
+    .te-scale {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+
+    .calc-table td, .calc-table th {
+      text-align: center;
+      padding: .5rem .8rem;
+      font-size: var(--fs-sm);
+    }
+    .calc-table th { background: var(--navy); color: #fff; }
+    .calc-table tr:nth-child(even) td { background: var(--navy-light); }
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M3 · B5 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 3</a>
+    <span class="sep">›</span>
+    <a href="index.html">Bloque 5</a>
+    <span class="sep">›</span>
+    <span>Sección B</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 3 · Bloque 5 · Sección B · Nivel I · Conocimiento, Análisis y Aplicación</div>
+    <h1>Medidas de rentabilidad ajustadas al riesgo</h1>
+    <p class="hero-sub">
+      Ratio de Sharpe · Ratio de Treynor · Alfa de Jensen · Tracking Error ·
+      Ratio de Información · VaR.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. POR QUÉ AJUSTAR POR RIESGO
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Por qué importa la rentabilidad en relación al riesgo asumido</h2>
+    <p class="sec-intro">
+      Comparar gestores únicamente por su rentabilidad bruta es engañoso: un gestor puede
+      obtener mayor rentabilidad simplemente asumiendo más riesgo, sin que ello implique
+      mayor habilidad. Las <strong>medidas de rentabilidad ajustadas al riesgo</strong>
+      permiten comparar gestores de forma justa, normalizando la rentabilidad por la
+      cantidad de riesgo (total o sistemático) asumido para obtenerla.
+    </p>
+    <div class="callout info">
+      Dos gestores pueden tener la misma rentabilidad absoluta, pero si uno la consiguió
+      con la mitad de volatilidad, su gestión fue claramente superior. Las medidas
+      ajustadas al riesgo capturan esta diferencia que la rentabilidad bruta ignora.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. RATIO DE SHARPE
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. El Ratio de Sharpe</h2>
+    <p>
+      El <strong>Ratio de Sharpe</strong> mide el exceso de rentabilidad sobre el activo sin
+      riesgo, por unidad de <strong>riesgo total</strong> (volatilidad). Es la medida más
+      utilizada en la práctica por su simplicidad y porque considera el riesgo total
+      (apropiado para carteras no diversificadas, donde el riesgo específico importa).
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Ratio de Sharpe de una cartera</span>
+      S<sub>c</sub> = (R<sub>c</sub> − R<sub>f</sub>) / σ<sub>c</sub>
+    </div>
+    <div class="formula">
+      <span class="formula-label">Ratio de Sharpe del benchmark</span>
+      S<sub>M</sub> = (R<sub>M</sub> − R<sub>f</sub>) / σ<sub>M</sub>
+    </div>
+
+    <div class="callout info">
+      <strong>Interpretación:</strong> a mayor Sharpe, mejor gestión ajustada al riesgo
+      total. Un Sharpe de 1,0 se considera bueno; por encima de 2,0, excelente.
+      Sharpe negativo indica que la cartera rindió menos que el activo sin riesgo.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Ratio de Sharpe</h3>
+      <p>
+        Cartera: R<sub>c</sub> = 12%, σ<sub>c</sub> = 18%. Benchmark: R<sub>M</sub> = 10%, σ<sub>M</sub> = 15%. R<sub>f</sub> = 2%.<br><br>
+        S<sub>c</sub> = (12%−2%)/18% = 10/18 = <strong>0,556</strong><br>
+        S<sub>M</sub> = (10%−2%)/15% = 8/15 = <strong>0,533</strong><br><br>
+        La cartera tiene mayor Sharpe que el benchmark: ha generado más rentabilidad
+        por unidad de riesgo total asumido, a pesar de haber asumido más volatilidad
+        en términos absolutos.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. RATIO DE TREYNOR
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. El Ratio de Treynor</h2>
+    <p>
+      El <strong>Ratio de Treynor</strong> mide el exceso de rentabilidad sobre el activo
+      sin riesgo, por unidad de <strong>riesgo sistemático</strong> (beta). Es apropiado
+      para evaluar carteras ya diversificadas, donde el riesgo específico ha sido eliminado
+      y solo importa la exposición al mercado.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Ratio de Treynor de una cartera</span>
+      T<sub>c</sub> = (R<sub>c</sub> − R<sub>f</sub>) / β<sub>c</sub>
+    </div>
+    <div class="formula">
+      <span class="formula-label">Ratio de Treynor del benchmark</span>
+      T<sub>M</sub> = (R<sub>M</sub> − R<sub>f</sub>) / β<sub>M</sub> = R<sub>M</sub> − R<sub>f</sub>  (ya que β<sub>M</sub> = 1)
+    </div>
+
+    <div class="callout info">
+      <strong>Diferencia clave Sharpe vs. Treynor:</strong> Sharpe usa σ (riesgo total,
+      incluye específico). Treynor usa β (solo riesgo sistemático). Para carteras
+      bien diversificadas (riesgo específico ≈ 0), ambos ratios tienden a dar
+      conclusiones similares. Para carteras concentradas, pueden discrepar.
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Ratio de Treynor</h3>
+      <p>
+        Cartera: R<sub>c</sub> = 12%, β<sub>c</sub> = 1,3. Benchmark: R<sub>M</sub> = 10%, β<sub>M</sub> = 1. R<sub>f</sub> = 2%.<br><br>
+        T<sub>c</sub> = (12%−2%)/1,3 = 10/1,3 = <strong>7,69%</strong><br>
+        T<sub>M</sub> = (10%−2%)/1 = <strong>8,00%</strong><br><br>
+        Aquí la cartera tiene <strong>menor</strong> Treynor que el benchmark: ajustada
+        solo por riesgo sistemático, la cartera no compensa adecuadamente su beta de 1,3.
+        Nótese la diferencia con el ejemplo de Sharpe: la conclusión puede cambiar según
+        la medida usada, dependiendo de cuánto riesgo específico tenga la cartera.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       4. ALFA DE JENSEN
+       ============================================================ -->
+  <div class="sec">
+    <h2>4. El Alfa de Jensen</h2>
+    <p>
+      El <strong>Alfa de Jensen</strong> mide el exceso de rentabilidad de la cartera
+      respecto a la rentabilidad que predice el CAPM para su nivel de riesgo sistemático (β).
+      A diferencia de Sharpe y Treynor (que son ratios), el alfa de Jensen es una medida
+      <strong>en puntos porcentuales</strong>, lo que facilita su interpretación directa.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Alfa de Jensen de una cartera</span>
+      α<sub>c</sub> = R<sub>c</sub> − [R<sub>f</sub> + β<sub>c</sub>·(R<sub>M</sub> − R<sub>f</sub>)]
+    </div>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>α > 0</h4>
+        <p>El gestor ha generado rentabilidad por encima de lo que su exposición al
+        riesgo sistemático justificaría. Indica habilidad de gestión (selección de
+        valores o timing exitoso).</p>
+      </div>
+      <div class="vs-box right">
+        <h4>α < 0</h4>
+        <p>El gestor ha generado rentabilidad por debajo de lo esperado para su beta.
+        Indica destrucción de valor — frecuentemente por los costes de gestión activa
+        sin compensación de habilidad.</p>
+      </div>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Alfa de Jensen</h3>
+      <p>
+        Cartera: R<sub>c</sub> = 12%, β<sub>c</sub> = 1,3. R<sub>M</sub> = 10%. R<sub>f</sub> = 2%.<br><br>
+        E(R<sub>c</sub>)<sub>CAPM</sub> = 2% + 1,3×(10%−2%) = 2% + 10,4% = <strong>12,4%</strong><br>
+        α = R<sub>c</sub>_real − E(R<sub>c</sub>)<sub>CAPM</sub> = 12% − 12,4% = <strong>−0,4%</strong><br><br>
+        El gestor destruyó 0,4 puntos porcentuales de valor respecto a lo que su nivel
+        de riesgo sistemático justificaría — coherente con el resultado de Treynor del
+        ejemplo anterior (peor que el benchmark).
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Calcular el alfa de Jensen = R<sub>c</sub> − [R<sub>f</sub> + β<sub>c</sub>(R<sub>M</sub>−R<sub>f</sub>)].
+        Recordar que Sharpe, Treynor y Jensen pueden dar conclusiones distintas para la misma
+        cartera porque miden el riesgo de forma diferente (total, sistemático, sistemático en puntos %).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       5. TRACKING ERROR
+       ============================================================ -->
+  <div class="sec">
+    <h2>5. El Tracking Error</h2>
+    <p>
+      El <strong>Tracking Error</strong> (TE) mide la volatilidad de la diferencia entre
+      la rentabilidad de la cartera y la del benchmark. Es la desviación típica de los
+      excesos de rentabilidad período a período.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Tracking Error</span>
+      TE = σ(R<sub>c</sub> − R<sub>M</sub>)
+    </div>
+
+    <p>
+      Calculado como la desviación típica de la serie histórica de diferencias
+      (R<sub>c,t</sub> − R<sub>M,t</sub>) para cada período t.
+    </p>
+
+    <!-- Escala visual de tracking error -->
+    <div class="te-scale">
+      <svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" aria-label="Escala de tracking error y tipo de gestión">
+        <line x1="40" y1="65" x2="480" y2="65" stroke="#1e3a5f" stroke-width="2"/>
+        <!-- Marcadores -->
+        <circle cx="60"  cy="65" r="5" fill="#16a34a"/>
+        <circle cx="180" cy="65" r="5" fill="#16a34a"/>
+        <circle cx="300" cy="65" r="5" fill="#d97706"/>
+        <circle cx="420" cy="65" r="5" fill="#dc2626"/>
+
+        <text x="60"  y="45" font-size="10" fill="#16a34a" text-anchor="middle" font-weight="700">TE &lt; 0,5%</text>
+        <text x="60"  y="90" font-size="9"  fill="#6b7280" text-anchor="middle">Gestión pasiva</text>
+        <text x="60"  y="102" font-size="9" fill="#6b7280" text-anchor="middle">(indexación)</text>
+
+        <text x="180" y="45" font-size="10" fill="#16a34a" text-anchor="middle" font-weight="700">TE 0,5–2%</text>
+        <text x="180" y="90" font-size="9"  fill="#6b7280" text-anchor="middle">Gestión semi-pasiva</text>
+        <text x="180" y="102" font-size="9" fill="#6b7280" text-anchor="middle">(smart beta, enhanced)</text>
+
+        <text x="300" y="45" font-size="10" fill="#d97706" text-anchor="middle" font-weight="700">TE 2–6%</text>
+        <text x="300" y="90" font-size="9"  fill="#6b7280" text-anchor="middle">Gestión activa moderada</text>
+
+        <text x="420" y="45" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="700">TE &gt; 6%</text>
+        <text x="420" y="90" font-size="9"  fill="#6b7280" text-anchor="middle">Gestión activa agresiva /</text>
+        <text x="420" y="102" font-size="9" fill="#6b7280" text-anchor="middle">high conviction</text>
+      </svg>
+    </div>
+
+    <div class="callout info">
+      <strong>Relación entre TE y tipo de gestión:</strong> el TE es la medida directa
+      de cuánto se desvía la cartera de su benchmark. Un TE muy bajo (&lt;0,5%) indica
+      gestión esencialmente pasiva/indexada. Un TE alto (&gt;5–6%) indica gestión muy
+      activa con fuertes convicciones, asumiendo el riesgo de desviarse significativamente
+      del índice, tanto al alza como a la baja.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El TE no indica si la gestión es buena o mala, solo cuánto se desvía del
+        benchmark. Una cartera puede tener TE alto y rendimiento peor que el benchmark
+        (mala gestión activa) o TE alto y rendimiento mejor (buena gestión activa).
+        El TE se complementa con el Ratio de Información para evaluar la calidad.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       6. RATIO DE INFORMACIÓN
+       ============================================================ -->
+  <div class="sec">
+    <h2>6. El Ratio de Información</h2>
+    <p>
+      El <strong>Ratio de Información</strong> (RI) mide el exceso de rentabilidad sobre
+      el benchmark por unidad de tracking error. Es la medida que combina el alfa generado
+      con el riesgo activo asumido para generarlo — el equivalente del Sharpe pero
+      respecto al benchmark en lugar del activo sin riesgo.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Ratio de Información</span>
+      RI = (R<sub>c</sub> − R<sub>M</sub>) / TE
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>RI</th><th>Interpretación</th></tr></thead>
+        <tbody>
+          <tr><td>RI &lt; 0</td><td>El gestor destruye valor respecto al benchmark</td></tr>
+          <tr><td>0 &lt; RI &lt; 0,5</td><td>Habilidad limitada o insuficiente para justificar la gestión activa</td></tr>
+          <tr><td>0,5 ≤ RI &lt; 1,0</td><td>Buena habilidad de gestión activa</td></tr>
+          <tr><td>RI ≥ 1,0</td><td>Habilidad excelente — muy poco frecuente de forma sostenida</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — Ratio de Información</h3>
+      <p>
+        Cartera: R<sub>c</sub> = 11%. Benchmark: R<sub>M</sub> = 9%. TE histórico = 3,2%.<br><br>
+        RI = (11%−9%)/3,2% = 2%/3,2% = <strong>0,625</strong><br><br>
+        Un RI de 0,625 indica buena habilidad de gestión activa: el gestor ha generado
+        2 puntos de exceso de rentabilidad asumiendo un riesgo activo (TE) razonable.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       7. VaR
+       ============================================================ -->
+  <div class="sec">
+    <h2>7. El Valor en Riesgo (VaR)</h2>
+    <p>
+      El <strong>VaR</strong> (Value at Risk) estima la pérdida máxima esperada de una
+      cartera, con un nivel de confianza determinado, en un horizonte temporal dado.
+      Es la medida de riesgo más utilizada en gestión de riesgos de mercado, tanto en
+      banca como en gestión de activos.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">VaR paramétrico (asumiendo normalidad)</span>
+      VaR = V<sub>c</sub> · z · σ<sub>c</sub> · √t
+    </div>
+    <p>
+      donde V<sub>c</sub> es el valor de la cartera, z es el valor crítico de la distribución
+      normal para el nivel de confianza (1,645 para 95%; 2,326 para 99%), σ<sub>c</sub> es la
+      volatilidad diaria (o del período base) y t es el horizonte en el mismo período base.
+    </p>
+
+    <div class="callout info">
+      <strong>Lectura del VaR:</strong> «VaR al 95% a 1 día de 50.000€» significa que,
+      con un 95% de confianza, la cartera no perderá más de 50.000€ en un día
+      (equivalentemente: hay un 5% de probabilidad de perder más de 50.000€ en un día).
+    </div>
+
+    <h3>Aplicaciones del VaR en la gestión de carteras</h3>
+    <ul style="font-size:var(--fs-sm);line-height:1.8;padding-left:1.2rem;">
+      <li><strong>Límites de riesgo:</strong> establecer un VaR máximo que la cartera no puede superar, como control de riesgo operativo.</li>
+      <li><strong>Asignación de capital:</strong> bancos y aseguradoras usan el VaR para calcular el capital regulatorio necesario (Basilea, Solvencia II).</li>
+      <li><strong>Comunicación al cliente:</strong> expresar el riesgo de la cartera en términos monetarios concretos, más intuitivos que la volatilidad porcentual.</li>
+      <li><strong>Comparación entre carteras:</strong> normalizar el riesgo de carteras de distinto tamaño o composición.</li>
+    </ul>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico — VaR</h3>
+      <p>
+        Cartera de 500.000€, volatilidad anual σ = 16%. Calcular el VaR al 95% a 1 día.<br><br>
+        σ<sub>diaria</sub> = 16% / √250 = 16%/15,81 = <strong>1,012%</strong><br>
+        VaR = 500.000 × 1,645 × 1,012% = 500.000 × 0,01665 = <strong>8.326€</strong><br><br>
+        Interpretación: con un 95% de confianza, la cartera no perderá más de 8.326€
+        en un día de negociación. Hay un 5% de probabilidad de pérdidas mayores.
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>Limitaciones del VaR:</strong> no informa de cuánto se puede perder
+      en el 5% de los casos extremos (para eso se usa el CVaR o Expected Shortfall).
+      Asume normalidad, que subestima el riesgo de eventos extremos (colas gordas).
+      No es aditivo entre carteras sin tener en cuenta correlaciones.
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Calcular el VaR paramétrico dado el valor de la cartera, σ y el nivel de
+        confianza (z = 1,645 al 95%, z = 2,326 al 99%). Recordar la anualización de
+        σ con la raíz del tiempo en sentido inverso (de anual a diaria: σ/√250).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Medida</th><th>Fórmula</th><th>Tipo de riesgo</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sharpe</strong></td><td>(R<sub>c</sub>−R<sub>f</sub>)/σ<sub>c</sub></td><td>Total</td></tr>
+          <tr><td><strong>Treynor</strong></td><td>(R<sub>c</sub>−R<sub>f</sub>)/β<sub>c</sub></td><td>Sistemático</td></tr>
+          <tr><td><strong>Alfa de Jensen</strong></td><td>R<sub>c</sub>−[R<sub>f</sub>+β<sub>c</sub>(R<sub>M</sub>−R<sub>f</sub>)]</td><td>Sistemático (en puntos %)</td></tr>
+          <tr><td><strong>Tracking Error</strong></td><td>σ(R<sub>c</sub>−R<sub>M</sub>)</td><td>Riesgo activo / relativo</td></tr>
+          <tr><td><strong>Ratio de Información</strong></td><td>(R<sub>c</sub>−R<sub>M</sub>)/TE</td><td>Riesgo activo / relativo</td></tr>
+          <tr><td><strong>VaR</strong></td><td>V·z·σ·√t</td><td>Total (en unidades monetarias)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-a.html" class="nav-btn">← A: TIR y TGR</a>
+    <a href="seccion-c.html" class="nav-btn">C: Comparación con el benchmark →</a>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li id="fn1">
+        Sharpe, W. F. (1966). «Mutual Fund Performance». <em>The Journal of Business</em>, 39(1), 119–138.
+        <a href="https://doi.org/10.1086/294846" target="_blank" rel="noopener">doi.org/10.1086/294846</a>.
+        Ratio de Sharpe original.
+      </li>
+      <li id="fn2">
+        Treynor, J. L. (1965). «How to Rate Management of Investment Funds».
+        <em>Harvard Business Review</em>, 43(1), 63–75.
+      </li>
+      <li id="fn3">
+        Jensen, M. C. (1968). «The Performance of Mutual Funds in the Period 1945–1964».
+        <em>The Journal of Finance</em>, 23(2), 389–416.
+        <a href="https://doi.org/10.2307/2325404" target="_blank" rel="noopener">doi.org/10.2307/2325404</a>.
+      </li>
+      <li id="fn4">
+        Jorion, P. (2006). <em>Value at Risk: The New Benchmark for Managing Financial Risk</em>
+        (3.ª ed.). McGraw-Hill. Metodología y aplicaciones del VaR.
+      </li>
+      <li id="fn5">
+        EFPA España (2025). <em>Guía de Certificación EFA V1/26</em>, Módulo 3 · Bloque 5 · Sección B,
+        pp. 70–73. <a href="https://www.efpa.es" target="_blank" rel="noopener">efpa.es</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 3 · Bloque 5 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
