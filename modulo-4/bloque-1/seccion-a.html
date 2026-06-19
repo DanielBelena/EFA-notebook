@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M4 · B1 · Sección A — Concepto de riesgo asegurable · EFA Prep</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+  .risk-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin:1rem 0; }
+  @media (max-width:560px){ .risk-grid{ grid-template-columns:1fr; } }
+  .risk-box { background:var(--card); border:1.5px solid var(--border); border-radius:14px; padding:1rem 1.1rem; }
+  .risk-box h4 { font-family:var(--font-ui); font-weight:800; font-size:var(--fs-sm); margin:0 0 .4rem; color:var(--navy); }
+  .risk-box p { font-size:var(--fs-xs); color:var(--text-soft); line-height:1.6; margin:0; }
+  .check-list { list-style:none; padding-left:0; margin:1rem 0; }
+  .check-list li { display:flex; gap:.6rem; padding:.5rem 0; border-bottom:1px solid var(--border); font-size:var(--fs-sm); }
+  .check-list li:last-child { border-bottom:none; }
+  .check-list .ico { color:var(--green); font-weight:800; }
+</style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M4 · B1 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 4</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Bloque 1</a>
+    <span class="sep">›</span>
+    <span>Sección A</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 4 · Bloque 1 · Sección A · Nivel I</div>
+    <h1>Concepto de riesgo asegurable</h1>
+    <p class="hero-sub">
+      Definición de riesgo · transferencia del riesgo mediante el contrato de seguro ·
+      requisitos de asegurabilidad como fundamento de toda la actividad aseguradora.
+    </p>
+  </div>
+
+  <div class="epigraph">
+    <strong>Preguntas guía de esta sección</strong><br>
+    ¿Cuál es la definición de riesgo? ¿Cómo se puede transferir entre los agentes económicos
+    mediante el contrato de seguro, como fundamento de la existencia de la institución del seguro?
+    ¿Qué engloba el término riesgo asegurable como fundamento de la actividad aseguradora?
+    ¿Qué características deben darse en él para tener tal calificación?
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. El riesgo como fundamento de la actividad aseguradora</h2>
+    <p class="sec-intro">
+      Toda la institución del seguro existe porque el riesgo existe. Sin incertidumbre sobre el
+      futuro no habría nada que transferir ni que compartir entre los agentes económicos.
+    </p>
+
+    <h3>¿Qué es el riesgo?</h3>
+    <div class="card accent-navy">
+      <p>
+        En sentido técnico-asegurador, el <strong>riesgo</strong> es la <em>posibilidad de que se
+        produzca un hecho incierto y dañoso</em>, susceptible de ocasionar una necesidad económica
+        a quien lo sufre. El riesgo no es el daño en sí, sino la <strong>probabilidad de que el
+        daño ocurra</strong>.
+      </p>
+      <p style="margin-top:.6rem;">
+        Tres elementos lo definen siempre: <strong>incertidumbre</strong> (no se sabe si ni cuándo
+        ocurrirá), <strong>posibilidad de daño económico</strong> (genera una necesidad de dinero) y
+        <strong>ajenidad a la voluntad</strong> del sujeto que lo soporta (no depende exclusivamente
+        de su propia decisión).
+      </p>
+    </div>
+
+    <h3>La transferencia del riesgo: el contrato de seguro</h3>
+    <p>
+      Un individuo aislado frente a un riesgo solo puede asumirlo (soportar la pérdida si se
+      materializa) o evitarlo (renunciar a la actividad que lo genera). La institución del seguro
+      introduce una tercera vía: <strong>transferir el riesgo a un tercero</strong> —el asegurador—
+      a cambio de un precio cierto y conocido de antemano —la prima.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo</h3>
+      <p>
+        Un propietario se enfrenta a un riesgo de incendio en su vivienda valorada en
+        <strong>300.000 €</strong>. La probabilidad anual de que ocurra un incendio grave es muy
+        baja, pero la pérdida potencial es enorme. Pagando una prima de, por ejemplo,
+        <strong>180 €/año</strong>, transforma una pérdida incierta y potencialmente catastrófica en
+        un coste cierto y asumible. El asegurador, a su vez, puede afrontar el riesgo porque agrupa
+        a miles de propietarios en situación similar: solo una pequeña parte sufrirá el siniestro,
+        y las primas de todos financian la indemnización de los pocos afectados.
+      </p>
+    </div>
+
+    <div class="callout info">
+      <strong>La mutualidad como mecanismo técnico:</strong> el seguro no elimina el riesgo del
+      conjunto de la sociedad —el incendio puede seguir ocurriendo— pero sí elimina la
+      <strong>incertidumbre económica individual</strong>, repartiendo el coste entre una masa de
+      riesgos homogéneos. Esta es la idea de <em>mutualidad</em> que sustenta técnicamente al seguro.
+    </div>
+
+    <h3>Riesgo asegurable: requisitos de calificación</h3>
+    <p>
+      No todo riesgo es susceptible de ser cubierto por un seguro. Para que un riesgo pueda
+      calificarse como <strong>asegurable</strong>, la técnica aseguradora exige que reúna una serie
+      de características simultáneamente:
+    </p>
+
+    <ul class="check-list">
+      <li><span class="ico">✓</span><span><strong>Incertidumbre (aleatoriedad):</strong> ha de ser
+      incierto que el siniestro se produzca, o al menos incierto el momento en que ocurrirá
+      (p. ej., la muerte es cierta, pero no el momento).</span></li>
+      <li><span class="ico">✓</span><span><strong>Posibilidad:</strong> debe existir una
+      probabilidad real, ni nula ni absolutamente segura a corto plazo, de que el siniestro
+      ocurra.</span></li>
+      <li><span class="ico">✓</span><span><strong>Ajenidad a la voluntad del asegurado:</strong> el
+      hecho no puede depender de la voluntad de quien se beneficiaría de la indemnización
+      (excluye el dolo).</span></li>
+      <li><span class="ico">✓</span><span><strong>Evaluable económicamente:</strong> el daño
+      derivado debe poder valorarse en términos monetarios.</span></li>
+      <li><span class="ico">✓</span><span><strong>Homogeneidad y mutualidad estadística:</strong>
+      debe existir una masa suficientemente amplia de riesgos similares para que la ley de los
+      grandes números permita estimar su frecuencia con precisión.</span></li>
+      <li><span class="ico">✓</span><span><strong>Lícito:</strong> el interés asegurado y la causa
+      del contrato deben ser conformes a la ley.</span></li>
+    </ul>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El examen suele plantear casos prácticos pidiendo identificar qué requisito de
+        asegurabilidad falla en un supuesto concreto. El más citado es la <strong>ajenidad a la
+        voluntad del asegurado</strong>: un siniestro provocado intencionadamente por quien cobraría
+        la indemnización nunca es asegurable (dolo), lo que conecta directamente con la exclusión
+        legal del art. 19 de la Ley de Contrato de Seguro.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>2. La institución del seguro: visión de conjunto</h2>
+    <p>
+      El seguro es, por tanto, la institución jurídico-económica que permite la
+      <strong>transferencia de un riesgo individual</strong> hacia un patrimonio colectivo
+      —el conjunto de primas pagadas por una mutualidad de asegurados— gestionado técnicamente por
+      el asegurador, que a cambio de una contraprestación cierta (la prima) asume la obligación de
+      indemnizar si el riesgo se materializa.
+    </p>
+
+    <div class="risk-grid">
+      <div class="risk-box">
+        <h4>Función económica</h4>
+        <p>Convierte costes inciertos y potencialmente ruinosos en un gasto cierto y
+        presupuestable, facilitando la planificación financiera de personas y empresas.</p>
+      </div>
+      <div class="risk-box">
+        <h4>Función social</h4>
+        <p>Permite que la sociedad asuma colectivamente riesgos que serían inasumibles a nivel
+        individual: vivienda, salud, responsabilidad civil, supervivencia en la jubilación.</p>
+      </div>
+      <div class="risk-box">
+        <h4>Función técnica</h4>
+        <p>Se apoya en la estadística y el cálculo actuarial para estimar frecuencias y
+        severidades de siniestros, fijando primas suficientes para cubrir las indemnizaciones
+        esperadas más un margen de solvencia.</p>
+      </div>
+      <div class="risk-box">
+        <h4>Función jurídica</h4>
+        <p>Se formaliza mediante un contrato —el contrato de seguro— que regula derechos y
+        obligaciones de las partes y que se desarrolla en detalle en el Bloque 3.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Riesgo</strong></td><td>Posibilidad de un hecho incierto y dañoso, ajeno a la voluntad del que lo sufre</td></tr>
+          <tr><td><strong>Transferencia del riesgo</strong></td><td>Mecanismo del contrato de seguro: prima cierta a cambio de indemnización condicionada</td></tr>
+          <tr><td><strong>Requisitos de asegurabilidad</strong></td><td>Incertidumbre, posibilidad, ajenidad a la voluntad, evaluabilidad económica, homogeneidad/mutualidad, licitud</td></tr>
+          <tr><td><strong>Mutualidad</strong></td><td>Agrupación de riesgos homogéneos que permite repartir el coste de los siniestros entre todos los asegurados</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li>Ley 50/1980, de 8 de octubre, de Contrato de Seguro, art. 1 (definición y objeto del contrato de seguro). Disponible en: <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1980-22501" target="_blank" rel="noopener">BOE-A-1980-22501</a>.</li>
+      <li>Dirección General de Seguros y Fondos de Pensiones (DGSFP) — Ministerio de Economía, Comercio y Empresa. Información institucional sobre supervisión del sector asegurador español: <a href="https://dgsfp.mineco.gob.es" target="_blank" rel="noopener">dgsfp.mineco.gob.es</a>.</li>
+      <li>Guía de Certificación EFA — EFPA España, V1/26, Módulo 4, Bloque 1, epígrafe A.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="../index.html" class="nav-btn">← Índice Módulo 4</a>
+    <a href="bloque-1-seccion-b.html" class="nav-btn">B: Tipos de riesgos asegurables →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 4 · Bloque 1 · Sección A · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

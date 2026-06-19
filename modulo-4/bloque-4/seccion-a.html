@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M4 · B4 · Sección A — Introducción a los métodos actuariales · EFA Prep</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M4 · B4 · A</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 4</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Bloque 4</a>
+    <span class="sep">›</span>
+    <span>Sección A</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 4 · Bloque 4 · Sección A · Nivel I</div>
+    <h1>Introducción a los métodos actuariales</h1>
+    <p class="hero-sub">
+      Las bases estadísticas y financieras del cálculo de la prima: ley de los grandes números,
+      tablas de mortalidad y principio de equivalencia actuarial.
+    </p>
+  </div>
+
+  <div class="epigraph">
+    <strong>Preguntas guía de esta sección</strong><br>
+    ¿Qué leyes y bases económicas sustentan la técnica aseguradora? ¿Cómo se determinan las
+    primas? ¿Cómo es el proceso de inversión de éstas? ¿Cómo funciona el pago de las prestaciones
+    estipuladas? ¿Cuáles son los métodos actuariales (estadísticos y financieros) que fundamentan
+    tanto el cálculo de las primas de seguros iniciales, como las obligaciones posteriores entre
+    las partes?
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>1. El fundamento estadístico: la ley de los grandes números</h2>
+    <p class="sec-intro">
+      La técnica aseguradora descansa sobre un principio estadístico simple pero potente: aunque
+      sea imposible predecir si un individuo concreto sufrirá un siniestro, la
+      <strong>frecuencia agregada</strong> de siniestros dentro de una masa suficientemente grande
+      de riesgos homogéneos puede estimarse con gran precisión.
+    </p>
+
+    <div class="card accent-navy">
+      <h3>Ley de los grandes números</h3>
+      <p>
+        A medida que aumenta el tamaño de la cartera de asegurados con riesgos homogéneos, la
+        frecuencia observada de siniestros converge hacia la probabilidad teórica del evento. Esto
+        permite al asegurador fijar primas basadas en probabilidades estimadas con un margen de
+        error decreciente, en lugar de actuar a ciegas frente a cada riesgo individual.
+      </p>
+    </div>
+
+    <h3>Tablas de mortalidad y de morbilidad</h3>
+    <p>
+      En los seguros de personas (vida, salud), la herramienta estadística básica son las
+      <strong>tablas biométricas</strong>: tablas de mortalidad (probabilidad de fallecimiento por
+      edad y sexo) y de morbilidad/invalidez (probabilidad de enfermar o quedar inválido). Se
+      construyen a partir de la experiencia estadística observada en poblaciones amplias y son la
+      base para calcular la prima pura de cualquier seguro de vida o salud.
+    </p>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico simplificado</h3>
+      <p>
+        Una tabla de mortalidad indica que, para una persona de 45 años, la probabilidad de
+        fallecer durante el próximo año es del <strong>0,3%</strong>. Un asegurador que cubre a
+        <strong>10.000 personas</strong> de ese perfil con un capital de <strong>50.000 €</strong>
+        cada una espera, de media, <strong>30 fallecimientos</strong> (10.000 × 0,3%) y, por tanto,
+        un coste agregado esperado de <strong>1.500.000 €</strong> (30 × 50.000 €). Repartiendo ese
+        coste esperado entre los 10.000 asegurados, la <strong>prima pura</strong> individual
+        resulta: 1.500.000 € / 10.000 = <strong>150 €</strong> por persona y año.
+      </p>
+    </div>
+
+    <h3>El principio de equivalencia actuarial</h3>
+    <p>
+      Es el principio financiero-actuarial que rige el cálculo técnico de cualquier prima: en el
+      momento de la contratación, el <strong>valor actual de las primas</strong> que el tomador
+      pagará debe igualar al <strong>valor actual de las prestaciones</strong> que el asegurador se
+      compromete a pagar.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Principio de equivalencia actuarial</span>
+      VA (primas futuras) = VA (prestaciones futuras esperadas)
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El principio de equivalencia actuarial es la base teórica que conecta este bloque con la
+        <strong>provisión matemática</strong> vista en el Bloque 3: en cualquier momento posterior
+        a la contratación, la provisión matemática es precisamente la diferencia entre el valor
+        actual de las prestaciones futuras pendientes y el valor actual de las primas futuras que
+        el asegurador todavía cobrará.
+      </div>
+    </div>
+
+    <h3>Métodos estadísticos vs. métodos financieros</h3>
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Métodos estadísticos</h4>
+        <p>Estiman la <strong>probabilidad</strong> de ocurrencia del riesgo (frecuencia) y su
+        magnitud económica esperada (severidad), a partir de tablas biométricas o de
+        siniestralidad histórica por ramo.</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Métodos financieros</h4>
+        <p>Actualizan en el tiempo los flujos de primas y prestaciones mediante un
+        <strong>tipo de interés técnico</strong>, dado que primas y prestaciones no ocurren en el
+        mismo instante —especialmente relevante en los seguros de vida de larga duración.</p>
+      </div>
+    </div>
+
+    <h3>El proceso de inversión de las primas</h3>
+    <p>
+      Mientras transcurre el tiempo entre el cobro de la prima y el eventual pago de la
+      prestación, el asegurador no mantiene esos fondos ociosos: los invierte —principalmente en
+      activos de renta fija de calidad, coherentes con la duración de sus compromisos— generando
+      un rendimiento financiero (el <strong>interés técnico</strong>) que se incorpora al cálculo
+      de la prima, reduciéndola, y que en los seguros de vida-ahorro se traduce además en
+      participación en beneficios para el tomador (desarrollado en el Bloque 6).
+    </p>
+
+    <div class="callout info">
+      <strong>Por qué importa la inversión:</strong> cuanto mayor es el tipo de interés técnico
+      asumido, menor es la prima necesaria para garantizar la misma prestación futura —pero
+      también mayor es el riesgo financiero que asume el asegurador si sus inversiones no logran
+      ese rendimiento, razón por la que Solvencia II exige capital adicional frente a este riesgo.
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Idea clave</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Ley de los grandes números</strong></td><td>La frecuencia agregada en masas amplias converge a la probabilidad teórica</td></tr>
+          <tr><td><strong>Tablas biométricas</strong></td><td>Base estadística de la prima en seguros de vida y salud</td></tr>
+          <tr><td><strong>Principio de equivalencia actuarial</strong></td><td>VA primas futuras = VA prestaciones futuras</td></tr>
+          <tr><td><strong>Tipo de interés técnico</strong></td><td>Rendimiento de la inversión de las primas, incorporado al cálculo</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="footnotes">
+    <h4>Referencias</h4>
+    <ol>
+      <li>Real Decreto 1060/2015, Título sobre provisiones técnicas y bases técnicas actuariales. <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-13057" target="_blank" rel="noopener">BOE-A-2015-13057</a>.</li>
+      <li>Guía de Certificación EFA — EFPA España, V1/26, Módulo 4, Bloque 4, epígrafe A.</li>
+    </ol>
+  </div>
+
+  <div class="sec-nav">
+    <a href="../bloque-3/bloque-3-seccion-d.html" class="nav-btn">← B3-D: Modalidades de seguros</a>
+    <a href="bloque-4-seccion-b.html" class="nav-btn">B: Política de suscripción del seguro →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 4 · Bloque 4 · Sección A · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
