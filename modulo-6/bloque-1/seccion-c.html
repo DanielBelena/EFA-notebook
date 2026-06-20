@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M6 · B1 · Sección C — Rentabilidad y riesgo de la inversión inmobiliaria · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .driver-row{
+      display:grid;
+      grid-template-columns:170px 1fr;
+      gap:.6rem;
+      padding:.6rem 0;
+      border-bottom:1px solid var(--border);
+      font-size:var(--fs-sm);
+    }
+    @media (max-width:560px){.driver-row{grid-template-columns:1fr;}}
+    .driver-row:last-child{border-bottom:none;}
+    .driver-label{font-family:var(--font-ui); font-weight:800; color:var(--navy);}
+  </style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M6 · B1 · C</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 6</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Bloque 1</a>
+    <span class="sep">›</span>
+    <span>Sección C</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 6 · Bloque 1 · Sección C · Conocimiento, Análisis</div>
+    <h1>Rentabilidad y Riesgo de la Inversión Inmobiliaria</h1>
+    <p class="hero-sub">
+      ¿Cómo es el binomio rentabilidad-riesgo en las inversiones inmobiliarias y cuál es su
+      ciclicidad comparada con la inversión financiera tradicional? ¿Qué variables influyen en
+      la valoración de un inmueble? Vamos a desgranar ambas preguntas con la métrica central del
+      sector: el <em>cap rate</em>.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. EL BINOMIO RENTABILIDAD-RIESGO
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. El binomio rentabilidad-riesgo en el inmobiliario</h2>
+    <p class="sec-intro">
+      Como en cualquier activo, a mayor riesgo asumido, mayor rentabilidad exigida. La diferencia
+      con los activos financieros es que en el inmobiliario el riesgo se compone de capas muy
+      distintas —de mercado, de inquilino, de liquidez, de financiación— que conviene separar.
+    </p>
+
+    <h3>Tipos de riesgo en una inversión inmobiliaria</h3>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>Riesgo de mercado</h4>
+        <p>Variación del valor del activo por cambios en la oferta y demanda agregada del
+        segmento y la ubicación concretos.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Riesgo de vacancia / desocupación</h4>
+        <p>Periodos sin inquilino en los que el activo no genera renta pero sí sigue generando
+        costes (IBI, comunidad, mantenimiento).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Riesgo de crédito del inquilino</h4>
+        <p>Probabilidad de impago o de insolvencia del arrendatario, especialmente relevante en
+        oficinas y retail con inquilinos corporativos.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Riesgo de liquidez</h4>
+        <p>Dificultad para deshacer la posición en un plazo razonable y sin descuento de
+        precio significativo (ver Sección A).</p>
+      </div>
+      <div class="concept-box">
+        <h4>Riesgo de tipo de interés / financiación</h4>
+        <p>Impacto de la subida de tipos sobre el coste de la hipoteca y sobre el valor
+        presente de las rentas futuras descontadas.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Riesgo regulatorio</h4>
+        <p>Cambios normativos (limitación de rentas en zonas tensionadas, nueva fiscalidad,
+        nuevos requisitos energéticos) que alteran la rentabilidad esperada.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. CICLICIDAD COMPARADA CON LA INVERSIÓN FINANCIERA
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Ciclicidad: inmobiliario vs. inversión financiera tradicional</h2>
+
+    <div class="vs-grid">
+      <div class="vs-box left">
+        <h4>Ciclo inmobiliario</h4>
+        <p>Ciclo <strong>largo y lento</strong> (años), con desfase (<em>lag</em>) respecto al
+        ciclo económico general: tarda en reaccionar a cambios de tipos o de renta disponible,
+        pero cuando lo hace, los ajustes de precio también son lentos de revertir, dada la
+        rigidez de la oferta (construir nueva vivienda lleva años).</p>
+      </div>
+      <div class="vs-box right">
+        <h4>Ciclo de mercados financieros</h4>
+        <p>Ciclo <strong>rápido</strong>: los precios de acciones y bonos incorporan
+        información casi instantáneamente (mercados eficientes), por lo que las correcciones
+        son más frecuentes, más rápidas, pero también más volátiles en el corto plazo.</p>
+      </div>
+    </div>
+
+    <div class="card accent-amber">
+      <h3>⚠️ Distinción clave: volatilidad observada vs. volatilidad real</h3>
+      <p>
+        Al no cotizar de forma continua, el inmobiliario muestra una <strong>volatilidad
+        aparente menor</strong> que la renta variable en los datos históricos (las valoraciones
+        se actualizan con poca frecuencia). Esto no significa que el riesgo subyacente sea menor,
+        sino que está "alisado" por la falta de un precio de mercado diario. Es un matiz que el
+        examen suele preguntar de forma indirecta.
+      </p>
+    </div>
+
+    <h3>Beneficio de diversificación</h3>
+    <p>
+      Precisamente por su ciclo distinto y su baja correlación histórica con la renta variable y
+      la renta fija, el inmobiliario se utiliza en gestión de carteras como
+      <strong>activo diversificador</strong>: reduce la volatilidad conjunta de una cartera sin
+      sacrificar necesariamente rentabilidad esperada a largo plazo.
+    </p>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        El inmobiliario tiene un ciclo más largo y desfasado que el financiero, y su baja
+        correlación con acciones y bonos lo convierte en herramienta de diversificación de
+        cartera — aunque su volatilidad "oficial" esté infraestimada por la falta de cotización
+        continua.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. VARIABLES QUE INFLUYEN EN LA VALORACIÓN DE UN INMUEBLE
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Variables que influyen en la valoración de un inmueble</h2>
+
+    <div class="driver-row">
+      <span class="driver-label">Ubicación</span>
+      <span>El factor más determinante: accesibilidad, entorno, servicios, prestigio de la
+      zona. Es la variable que menos puede "corregirse" después de la compra.</span>
+    </div>
+    <div class="driver-row">
+      <span class="driver-label">Superficie y distribución</span>
+      <span>Metros cuadrados útiles y construidos, eficiencia de la distribución, número de
+      estancias en vivienda o de plantas/diáfano en oficinas.</span>
+    </div>
+    <div class="driver-row">
+      <span class="driver-label">Antigüedad y estado</span>
+      <span>Año de construcción, necesidad de rehabilitación, estado de las instalaciones
+      (eléctrica, fontanería, climatización).</span>
+    </div>
+    <div class="driver-row">
+      <span class="driver-label">Eficiencia energética</span>
+      <span>La calificación del Certificado de Eficiencia Energética (CEE, escala A–G) influye
+      cada vez más en precio y en condiciones de financiación (ver Sección D).</span>
+    </div>
+    <div class="driver-row">
+      <span class="driver-label">Renta de mercado del entorno</span>
+      <span>Nivel de alquiler comparable que el activo podría generar en su ubicación y
+      segmento, base del enfoque de capitalización de rentas.</span>
+    </div>
+    <div class="driver-row">
+      <span class="driver-label">Tipos de interés</span>
+      <span>A mayor tipo de interés de referencia, mayor tasa de descuento aplicada a las
+      rentas futuras y, por tanto, menor valor presente del inmueble, <em>ceteris paribus</em>.</span>
+    </div>
+    <div class="driver-row">
+      <span class="driver-label">Marco regulatorio y fiscal</span>
+      <span>Limitaciones a la renta de alquiler, fiscalidad local (IBI, plusvalía municipal),
+      normativa urbanística aplicable.</span>
+    </div>
+
+    <h3>El cap rate (yield), métrica central de valoración</h3>
+    <p>
+      El método de capitalización de rentas es el enfoque de valoración más utilizado en
+      inversión inmobiliaria profesional. Su métrica de referencia es el
+      <strong>cap rate</strong> (tasa de capitalización), análogo conceptual a la rentabilidad
+      por dividendo de una acción.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Cap rate (tasa de capitalización)</span>
+      Cap rate = Renta neta anual / Valor del inmueble
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico</h3>
+      <p>
+        Un local comercial genera una renta neta anual (ya descontados gastos de comunidad,
+        IBI y mantenimiento no repercutibles) de <strong>30.000 €</strong>. Se valora con un
+        cap rate de mercado del <strong>6%</strong> para ese tipo de activo y ubicación.
+      </p>
+      <p style="margin-top:.6rem;">
+        Valor = Renta neta / Cap rate = 30.000 / 0,06 = <strong>500.000 €</strong>.<br><br>
+        Si el cap rate exigido por el mercado sube al 7% (por ejemplo, porque suben los tipos de
+        interés y los inversores exigen más rentabilidad), el valor del mismo activo —con la
+        misma renta— cae a 30.000 / 0,07 ≈ <strong>428.571 €</strong>: una subida de 100 p.b. en
+        el cap rate exigido se traduce en una caída de valor de más del 14%.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Calcular el valor de un inmueble a partir de su renta neta y de un cap rate dado, y
+        razonar en qué dirección se mueve el valor cuando el cap rate exigido sube o baja
+        (relación inversa, igual que precio y TIR en renta fija).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Concepto</th><th>Idea clave</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Tipos de riesgo</strong></td><td>Mercado, vacancia, crédito del inquilino, liquidez, tipo de interés, regulatorio</td></tr>
+          <tr><td><strong>Ciclicidad</strong></td><td>Ciclo largo y desfasado respecto al financiero; volatilidad "oficial" infraestimada</td></tr>
+          <tr><td><strong>Diversificación</strong></td><td>Baja correlación con renta fija/variable → reduce riesgo de cartera</td></tr>
+          <tr><td><strong>Cap rate</strong></td><td>Renta neta anual / Valor del inmueble; relación inversa con el valor</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- FUENTES -->
+  <div class="footnotes">
+    <h4>Fuentes y referencias</h4>
+    <ol>
+      <li>Banco de España — Informe de Estabilidad Financiera, capítulo de mercado inmobiliario:
+      <a href="https://www.bde.es/wbe/es/publicaciones/analisis-economico-investigacion/informe-estabilidad-financiera.html" target="_blank" rel="noopener">bde.es</a></li>
+      <li>Real Decreto 1020/1993, de 25 de junio, por el que se aprueban las normas técnicas de
+      valoración catastral:
+      <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1993-19265" target="_blank" rel="noopener">BOE-A-1993-19265</a></li>
+      <li>Real Decreto 390/2021, de 1 de junio, procedimiento básico de certificación de la
+      eficiencia energética de los edificios:
+      <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2021-9177" target="_blank" rel="noopener">BOE-A-2021-9177</a></li>
+    </ol>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-b.html" class="nav-btn">← B: Clasificación</a>
+    <a href="seccion-d.html" class="nav-btn">D: Sostenibilidad e impacto ESG →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 6 · Bloque 1 · Sección C · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>

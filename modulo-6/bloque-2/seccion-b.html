@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M6 · B2 · Sección B — Métodos de amortización: Francés y Lineal · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M6 · B2 · B</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 6</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Bloque 2</a>
+    <span class="sep">›</span>
+    <span>Sección B</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 6 · Bloque 2 · Sección B · Conocimiento, Análisis, Aplicación</div>
+    <h1>Métodos de Amortización: Francés y Lineal</h1>
+    <p class="hero-sub">
+      ¿Cómo funciona el método francés y cómo el lineal, y cómo se calcula la anualidad (o
+      cuota) en cada uno de los dos sistemas? Lo vemos con una tabla de amortización completa
+      para comparar, euro a euro, ambos métodos sobre el mismo préstamo.
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       1. EL MÉTODO FRANCÉS
+       ============================================================ -->
+  <div class="sec">
+    <h2>1. Método francés (cuota constante)</h2>
+    <p class="sec-intro">
+      Es el sistema de amortización más utilizado en los préstamos hipotecarios en España. Se
+      caracteriza por mantener <strong>constante la cuota total</strong> (anualidad) a lo largo
+      de toda la vida del préstamo, siempre que el tipo de interés no cambie (en hipotecas a
+      tipo variable, la cuota se recalcula en cada revisión).
+    </p>
+
+    <div class="card accent-navy">
+      <h3>Cómo se descompone la cuota</h3>
+      <p>
+        Aunque la cuota total es constante, su composición interna cambia en cada periodo:
+      </p>
+      <ul>
+        <li>La <strong>parte de interés</strong> se calcula sobre el capital pendiente, por lo
+        que es máxima al principio (cuando se debe más capital) y va disminuyendo.</li>
+        <li>La <strong>parte de capital amortizado</strong> es la diferencia entre la cuota
+        constante y el interés del periodo, por lo que es mínima al principio y va
+        aumentando progresivamente.</li>
+      </ul>
+    </div>
+
+    <div class="formula">
+      <span class="formula-label">Cuota constante (anualidad) — método francés</span>
+      a = C₀ · i / [1 − (1 + i)⁻ⁿ]
+    </div>
+    <p style="font-size:var(--fs-xs); color:var(--text-soft); margin-top:-.4rem;">
+      Donde C₀ = capital inicial del préstamo · i = tipo de interés del periodo ·
+      n = número de periodos (cuotas)
+    </p>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        En el método francés, la cuota es constante; el interés decrece y el capital amortizado
+        crece a lo largo de la vida del préstamo. Es el sistema con mayor carga de interés en
+        los primeros años en términos relativos.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       2. EL MÉTODO LINEAL
+       ============================================================ -->
+  <div class="sec">
+    <h2>2. Método lineal (cuota de capital constante)</h2>
+    <p>
+      En el sistema lineal, lo que se mantiene constante es la <strong>parte de capital
+      amortizado</strong> en cada periodo; como el interés se calcula sobre un capital pendiente
+      cada vez menor, la <strong>cuota total va disminuyendo</strong> a lo largo de la vida del
+      préstamo.
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Capital amortizado constante — método lineal</span>
+      Capital amortizado por periodo = C₀ / n
+    </div>
+    <div class="formula">
+      <span class="formula-label">Cuota total del periodo t — método lineal</span>
+      aₜ = (C₀ / n) + (Capital pendiente al inicio de t) × i
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        En el método lineal, el capital amortizado es constante y la cuota total es
+        decreciente. Es más exigente en los primeros años (cuotas iniciales más altas que en el
+        francés) pero implica un coste total de interés inferior.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ============================================================
+       3. COMPARATIVA NUMÉRICA COMPLETA
+       ============================================================ -->
+  <div class="sec">
+    <h2>3. Comparativa numérica: mismo préstamo, dos sistemas</h2>
+    <p>
+      Tomamos un préstamo de <strong>100.000 €</strong>, a un tipo de interés del
+      <strong>5% anual</strong> y un plazo de <strong>5 años</strong>, con cuotas anuales, para
+      poder seguir el cálculo paso a paso.
+    </p>
+
+    <h3>Método francés</h3>
+    <div class="card accent-green">
+      <p>
+        a = 100.000 × 0,05 / [1 − (1,05)⁻⁵] = 5.000 / 0,216474 ≈ <strong>23.097,48 €/año</strong>
+      </p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Año</th><th>Cuota</th><th>Interés</th><th>Capital amortizado</th><th>Capital pendiente</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>23.097,48</td><td>5.000,00</td><td>18.097,48</td><td>81.902,52</td></tr>
+          <tr><td>2</td><td>23.097,48</td><td>4.095,13</td><td>19.002,35</td><td>62.900,17</td></tr>
+          <tr><td>3</td><td>23.097,48</td><td>3.145,01</td><td>19.952,47</td><td>42.947,70</td></tr>
+          <tr><td>4</td><td>23.097,48</td><td>2.147,39</td><td>20.950,09</td><td>21.997,61</td></tr>
+          <tr><td>5</td><td>23.097,48</td><td>1.099,88</td><td>21.997,60</td><td>≈0,00</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>115.487,40</strong></td><td><strong>15.487,40</strong></td><td><strong>100.000,00</strong></td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Método lineal</h3>
+    <div class="card accent-green">
+      <p>
+        Capital amortizado constante = 100.000 / 5 = <strong>20.000 €/año</strong>
+      </p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Año</th><th>Cuota</th><th>Interés</th><th>Capital amortizado</th><th>Capital pendiente</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>25.000,00</td><td>5.000,00</td><td>20.000,00</td><td>80.000,00</td></tr>
+          <tr><td>2</td><td>24.000,00</td><td>4.000,00</td><td>20.000,00</td><td>60.000,00</td></tr>
+          <tr><td>3</td><td>23.000,00</td><td>3.000,00</td><td>20.000,00</td><td>40.000,00</td></tr>
+          <tr><td>4</td><td>22.000,00</td><td>2.000,00</td><td>20.000,00</td><td>20.000,00</td></tr>
+          <tr><td>5</td><td>21.000,00</td><td>1.000,00</td><td>20.000,00</td><td>0,00</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>115.000,00</strong></td><td><strong>15.000,00</strong></td><td><strong>100.000,00</strong></td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card accent-amber">
+      <h3>⚠️ La conclusión que pide el examen</h3>
+      <p>
+        Con el <strong>mismo capital, tipo y plazo</strong>, el método lineal genera una cuota
+        inicial más alta (25.000 € frente a 23.097,48 € en el año 1) pero un
+        <strong>coste total de interés inferior</strong> (15.000 € frente a 15.487,40 €): al
+        amortizar capital más rápido en los primeros años, el saldo pendiente —y por tanto el
+        interés que se calcula sobre él— se reduce antes que en el método francés.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Saber razonar (sin necesidad de repetir toda la tabla) que, para un mismo capital, tipo
+        y plazo, el sistema lineal siempre genera <strong>menor coste total de interés</strong>
+        que el francés, a cambio de cuotas iniciales más elevadas y decrecientes en lugar de
+        constantes.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Sistema</th><th>Cuota</th><th>Capital amortizado</th><th>Interés total</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Francés</strong></td><td>Constante</td><td>Creciente</td><td>Mayor</td></tr>
+          <tr><td><strong>Lineal</strong></td><td>Decreciente</td><td>Constante</td><td>Menor</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- FUENTES -->
+  <div class="footnotes">
+    <h4>Fuentes y referencias</h4>
+    <ol>
+      <li>Banco de España — Guía de acceso al préstamo hipotecario:
+      <a href="https://clientebancario.bde.es/pcb/es/menu-horizontal/productosservici/relacionados/prestamoshipotecarios/guia-hipotecaria/" target="_blank" rel="noopener">clientebancario.bde.es</a></li>
+      <li>Ley 5/2019, de 15 de marzo, reguladora de los contratos de crédito inmobiliario:
+      <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2019-3814" target="_blank" rel="noopener">BOE-A-2019-3814</a></li>
+    </ol>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-a.html" class="nav-btn">← A: Requisitos para la concesión</a>
+    <a href="seccion-c.html" class="nav-btn">C: Productos hipotecarios verdes →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 6 · Bloque 2 · Sección B · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
