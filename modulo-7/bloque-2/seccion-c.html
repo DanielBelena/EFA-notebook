@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-fontsize="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M7 · B2 · Sección C — Riesgo operativo y modelos de pérdida esperada · EFA Prep</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="toolbar">
+  <a href="../../index.html" class="toolbar-brand">EFA Prep <span>· M7 · B2 · C</span></a>
+  <div class="toolbar-controls">
+    <button class="fs-btn sm" id="fs-btn-normal">A</button>
+    <button class="fs-btn md" id="fs-btn-large">A+</button>
+    <button class="fs-btn lg" id="fs-btn-xlarge">A++</button>
+    <button class="theme-btn" id="theme-btn">🌙 Oscuro</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="../index.html">Módulo 7</a>
+    <span class="sep">›</span>
+    <span>Bloque 2</span>
+    <span class="sep">›</span>
+    <span>Sección C</span>
+  </div>
+
+  <div class="hero">
+    <div class="pill">Módulo 7 · Bloque 2 · Sección C · Conocimiento + Análisis</div>
+    <h1>Riesgo operativo: factores y modelos de pérdida esperada</h1>
+    <p class="hero-sub">
+      ¿Cuáles son los distintos factores determinantes en el análisis de riesgo de crédito? ¿Qué
+      factores influyen en los modelos de pérdida esperada —probabilidad de impago esperada, rating,
+      severidad y exposición?
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- 1. INTRO -->
+  <div class="sec">
+    <h2>1. De la concesión individual al modelo de cartera</h2>
+    <p class="sec-intro">
+      La guía EFPA sitúa aquí los factores cuantitativos que las entidades emplean para estimar,
+      no solo si un cliente concreto puede impagar, sino cuánto perdería la entidad en caso de que
+      ocurra, a nivel de cartera. Es el marco que sustenta tanto la decisión de conceder o no un
+      crédito (originación) como el cálculo regulatorio de provisiones y capital (Basilea III/CRR).
+    </p>
+
+    <div class="formula">
+      <span class="formula-label">Pérdida esperada (Expected Loss)</span>
+      EL = PD × LGD × EAD
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- 2. LOS CUATRO FACTORES -->
+  <div class="sec">
+    <h2>2. Los cuatro factores del modelo</h2>
+
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>PD — Probabilidad de impago esperada</h4>
+        <p><em>Probability of Default.</em> Probabilidad de que el deudor incumpla sus obligaciones
+        en un horizonte determinado (típicamente 12 meses). Se estima a partir de datos históricos de
+        morosidad de carteras comparables y de variables del propio cliente.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Rating / scoring</h4>
+        <p>Clasificación del cliente o de la operación en una escala de calidad crediticia, que
+        traduce variables cualitativas y cuantitativas (ingresos, historial, garantías) en una nota
+        comparable entre solicitudes. El rating alimenta directamente la estimación de la PD.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Severidad — LGD</h4>
+        <p><em>Loss Given Default.</em> Porcentaje de la exposición que la entidad espera perder si
+        el impago se produce, una vez descontado lo recuperable mediante la ejecución de garantías,
+        avales o el valor de recuperación del activo.</p>
+      </div>
+      <div class="concept-box">
+        <h4>Exposición — EAD</h4>
+        <p><em>Exposure At Default.</em> Importe que la entidad tiene comprometido con el cliente en
+        el momento del impago: en préstamos a cuota fija es el capital pendiente; en líneas de
+        crédito o tarjetas, incluye también el margen disponible que el cliente pudiera disponer
+        antes de incumplir.</p>
+      </div>
+    </div>
+
+    <div class="card accent-navy">
+      <h3>Marco regulatorio de referencia</h3>
+      <p>
+        La <strong>Autoridad Bancaria Europea (EBA)</strong> fijó en sus
+        <em>Guidelines on loan origination and monitoring</em> (EBA/GL/2020/06, de aplicación desde
+        el 30 de junio de 2021) los estándares de evaluación de solvencia, valoración de garantías y
+        seguimiento del riesgo de crédito que las entidades europeas deben aplicar a lo largo de todo
+        el ciclo de vida del préstamo, combinando el marco prudencial (Basilea/CRR) con la protección
+        del consumidor (Directiva de crédito al consumo y LCCI).<sup>[1]</sup>
+      </p>
+    </div>
+
+    <div class="card accent-green">
+      <h3>📌 Ejemplo numérico</h3>
+      <p>
+        Un préstamo con una exposición en el momento del impago (EAD) de 20.000 €, una probabilidad
+        de impago (PD) del 3% y una severidad (LGD) del 40% (porque existe una garantía que permite
+        recuperar el 60% del importe) genera una pérdida esperada de:
+      </p>
+      <div class="formula">
+        EL = 0,03 × 0,40 × 20.000 € = <strong>240 €</strong>
+      </div>
+      <p>
+        Esa cifra es la que la entidad debe provisionar contablemente y tener en cuenta al fijar el
+        precio (tipo de interés) que compensa el riesgo asumido en la operación.
+      </p>
+    </div>
+
+    <div class="exam-alert">
+      <div>
+        <strong>🎯 Frecuente en examen</strong>
+        Memorizar la fórmula <strong>EL = PD × LGD × EAD</strong> y saber qué efecto tiene reforzar
+        una garantía: no cambia la PD del cliente, pero <strong>reduce la LGD</strong>
+        (severidad) al aumentar el importe recuperable en caso de impago, y por tanto reduce la
+        pérdida esperada total.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- RESUMEN -->
+  <div class="sec">
+    <h2>Resumen de la sección</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Sigla</th><th>Significado</th><th>Qué mide</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>PD</td><td>Probability of Default</td><td>Probabilidad de impago en un horizonte (típ. 12 meses)</td></tr>
+          <tr><td>Rating/scoring</td><td>—</td><td>Clasificación de calidad crediticia que alimenta la PD</td></tr>
+          <tr><td>LGD</td><td>Loss Given Default (severidad)</td><td>% de la exposición que se pierde si hay impago</td></tr>
+          <tr><td>EAD</td><td>Exposure At Default</td><td>Importe comprometido en el momento del impago</td></tr>
+          <tr><td>EL</td><td>Expected Loss</td><td>EL = PD × LGD × EAD</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- FOOTNOTES -->
+  <div class="footnotes">
+    <h3>Fuentes</h3>
+    <ol>
+      <li>EBA — Guidelines on loan origination and monitoring (EBA/GL/2020/06), 29 de mayo de 2020 — <a href="https://www.eba.europa.eu/sites/default/files/document_library/Publications/Guidelines/2020/Guidelines%20on%20loan%20origination%20and%20monitoring/884283/EBA%20GL%202020%2006%20Final%20Report%20on%20GL%20on%20loan%20origination%20and%20monitoring.pdf" target="_blank">eba.europa.eu</a></li>
+    </ol>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="sec-nav">
+    <a href="seccion-b.html" class="nav-btn">← B: Riesgo jurídico</a>
+    <a href="seccion-d.html" class="nav-btn">D: Factores que determinan el nivel de riesgo →</a>
+  </div>
+
+</div>
+
+<footer>
+  EFA Prep · Módulo 7 · Bloque 2 · Sección C · Basado en la Guía de Certificación EFPA España V1/26
+</footer>
+
+<script src="../../assets/ui.js"></script>
+</body>
+</html>
